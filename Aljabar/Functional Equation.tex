@@ -1,0 +1,161 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Functional Equations}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Heuristik}
+\subsection{Dasar-dasar}
+\begin{enumerate}
+    \item Tebak solusi. Misal tebak bahwa $f(x)=kx+c$. Coba juga bentuk polinomial.
+    \item Optimisasi misal scaling $x \mapsto kx$, atau shifting $x \mapsto x + c$.
+    \item Colok $x=0, y=0$, $x=y$, $x=-y$, atau lihat soal, apa yang bisa membuat dalemnya $f$ menjadi $f(0)$.
+\end{enumerate}
+
+\subsection{Lanjutan}
+\begin{enumerate}
+    \item Pakai "asersi" misal $P(x,y)$.
+    \item Substitusikan suatu nilai sehingga ada yang saling "coret" atau "cancelling".
+    \item Lihat sifat injektif, surjektif, atau bijektif.
+    \item Lihat kesimetrian (bakal tahu kalo sering ngerjain soal)
+    \item Eksploitasi involutions (misalkan seperti $f(f(x))=x$).
+    \item Untuk fungsi di $\ZZ$ atau $\NN$ bisa pakai induksi atau pakai keterbagian misal $x-y \mid f(x)-f(y)$.
+    \item Tulis fungsi dalam bentuk lain, misalkan $g(x)=\dfrac{f(x)}{x}$, $g(x)=xf(x)$, $g(x)=e^{f(x)}$ dan $g(x)=f(x)+x$. Atau shift to zero juga guna.
+\end{enumerate}
+
+\subsection{Terakhir}
+\begin{enumerate}
+    \item Hati-hati dengan pointwise trap misal seperti pada $f(x)^2=x^2$.
+    \item Cek solusinya bener ngga Cuyyyy.
+\end{enumerate}
+
+\section{Substitusi, Transformasi, Shifting}
+\subsection{Latihan Soal}
+Carilah seluruh fungsi $f:\RR \to \RR$ sehingga $\forall x,y \in \RR$ berlaku
+\begin{enumerate} 
+    \item $f(x)+xf(1-x)=x$
+    \item $(f(x)+y)(x+f(y))=f(x^2)+f(y^2)+2f(xy)$
+    \item $f(x)f(y)+f(x+y)=xy$
+    \item $f(x-y)=f(x)+f(y)-2xy$
+    \item $f(x+y)+f(x)f(y)=x^2y^2+2xy$
+    \item $f(x+y)=f(x)+f(y)+3(x+y)\sqrt[3]{f(x)f(y)}$
+\end{enumerate}
+
+\section{Injektif, Surjektif, Bijektif}
+\subsection{Latihan Soal}
+Carilah seluruh fungsi $f:\RR \to \RR$ sehingga $\forall x,y \in \RR$ berlaku
+\begin{enumerate} 
+    \item $f(x^2y)=f(xy)+yf(f(x)+y)$
+    \item $f(xf(x)+f(y))=f(x^2)+y$
+    \item $f(x)+f(x+f(y))=2x+y$
+    \item $f(f(x)+y)=2x+f(f(y)-x)$
+    \item $f(x^2+f(y))=xf(x)+y$
+    \item $f(x^2f(x)^2+f(y))=x^3f(x)+y$
+\end{enumerate}
+
+\section{Cauchy's Functional Equation}
+Untuk sebuah fungsi aditif (yang memenuhi operasi penjumlahan $+$) $f:\RR \to \RR$, yang memenuhi
+\begin{align*}
+    f(x+y) = f(x)+f(y)
+\end{align*}
+jika minimal salah satu syarat ini terpenuhi:
+\begin{itemize}
+    \item $f$ kontinu pada interval tertentu.
+    \item $f$ terbatas (bounded) pada interval tertentu.
+    \item $f$ monoton pada interval tertenu.
+\end{itemize}
+maka dapat dipastikan $f$ linear, atau $f(x)=kx$
+
+\subsection{Latihan Soal}
+\begin{enumerate}
+    \item Carilah seluruh fungsi kontinu $f:\RR \to \RR$ sehingga untuk sembarang $x,y \in \RR$ berlaku
+    \begin{align*}
+        f(x+y)-f(x)-f(y)=2022xy
+    \end{align*}
+    \item (Iran 2014) Carilah seluruh fungsi $f:\RR^+ \to \RR^+$ sehingga untuk semua $x,y \in \RR^+$ berlaku
+    \begin{align*}
+        f\left(\dfrac{y}{f(x+1)}\right)+f\left(\dfrac{x+1}{xf(y)}\right)=f(y)
+    \end{align*}
+    \item Carilah seluruh fungsi $f:\RR \to \RR$ sehingga untuk semua $x \in \RR$ dan suatu $y \in \RR^+$ berlaku
+    \begin{align*}
+        f(x+y)=f(x)+f(y)
+    \end{align*}
+    \item (Korea 2008) Carilah seluruh fungsi aditif $f:\RR \to \RR$ sehingga
+    \begin{align*}
+        f\left(\dfrac{1}{x}\right)=\dfrac{f(x)}{x^2}, \forall x \in \RR
+    \end{align*}
+\end{enumerate}
+
+\section{Fungsi di $\ZZ$}
+\subsection{Latihan Soal}
+\begin{enumerate}
+    \item (Balkan 2017) Carilah seluruh fngsi $f:\NN \to \NN$ sehingga untuk semua $m,n \in \NN$ berlaku
+    \begin{align*}
+        n+f(m) \mid f(n)+nf(m)
+    \end{align*}
+\end{enumerate}
+
+
+\section{Study Case dari OSN}
+\begin{enumerate}
+    \item (OSN 2015) Misalkan pasangan fungsi $f,g:\RR^+ \to \RR^+$ memenuhi persamaan fungsi
+    \begin{align*}
+        f(g(x)y+f(x))=(y+2015)f(x)
+    \end{align*}
+    untuk setiap $x,y \in \RR^+$.
+    \begin{enumerate}
+        \item Buktikan bahwa $g(x)=f(x)/2015$ untuk setiap $x \in \RR^+$.
+        \item Berikan contoh pasangan fungsi yang memenuhi persamaan di atas dan $f(x),g(x) \ge 1$ untuk setiap $x \in \RR^+$.
+    \end{enumerate}
+
+    \item (OSN 2012) Misalkan $\RR^+$ menyatakan himpunan semua bilangan real positif. Tunjukkan bahwa tidak ada fungsi $f:\RR^+ \to \RR^+$ yang memenuhi
+    \begin{align*}
+        f(x+y)=f(x)+f(y)+\dfrac{1}{2012}
+    \end{align*}
+    untuk setiap bilangan real positif $x,y$.
+\end{enumerate}
+
+\section{Referensi}
+\begin{enumerate}
+    \item https://web.evanchen.cc/handouts/FuncEq-Intro/FuncEq-Intro.pdf
+\item https://brilliant.org/wiki/functional-equations/
+\item https://cdn.bc-pf.org/resources/math/algebra/fe/Pang\_Cheng\_Wu-FE.pdf
+\end{enumerate}
+
+
+\end{document}

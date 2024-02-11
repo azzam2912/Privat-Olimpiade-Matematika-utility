@@ -1,0 +1,76 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Integer Bounding - Soal Post Test}
+\author{Azzam (IG: haxuv.world)}
+\date{Senin, 15 Januari 2024}
+
+\begin{document}
+\maketitle
+\textbf{Aturan umum:}
+\begin{itemize}
+    \item \textbf{Soal bertipe esai}. Sertakan argumentasi atau cara mendapatkan jawaban yang ditanyakan di soal.
+    \item Waktu standar untuk mengerjakan semua soal berikut adalah 120 menit.
+    \item Setiap soal bernilai bilangan bulat antara 0 sampai 10 (inklusif).
+\end{itemize}
+
+\section{Soal}
+\begin{enumerate}
+    \item Misalkan $a,b,c,d$ adalah bilangan bulat positif sehingga
+    \begin{align*}
+        (a+b)(b+c)(c+a) = abcd.
+    \end{align*}
+    Carilah banyaknya pasangan terurut $(a,b,c,d)$ dimana setiap pasang dari $a,b,c,d$ relatif prima.
+    
+    \item Hitunglah banyaknya pasangan bilangan bulat positif $(x,y)$ yang memenuhi
+    \begin{align*}
+        x^2+(x+1)^2 = y^4 + (y+1)^4.
+    \end{align*}
+\end{enumerate}
+
+\begin{enumerate}[resume]
+    \item Untuk setiap bilangan asli $n \ge 2$, tunjukkan bahwa
+    \begin{align*}
+        \dfrac{\sigma(n)}{\tau(n)} \ge \sqrt{n}.
+    \end{align*}
+\end{enumerate}
+
+\textbf{Catatan:}
+\begin{itemize}
+    \item $\phi(n)$ adalah fungsi Euler Totient Phi yang menyatakan banyaknya bilangan asli kurang dari sama dengan $n$ yang relatif prima dengan $n$.
+    \item $\sigma(n)$ menyatakan jumlah seluruh faktor positif berbeda dari $n$.
+    \item $\tau(n)$ menyatakan banyaknya faktor positif berbeda dari $n$.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,83 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Integer Bounding}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{General}
+\begin{enumerate}
+    \item Carilah seluruh bilangan bulat positif $a,b,c$ dengan $FPB(a,b,c)=1$ yang memenuhi $a<b<c$ dan
+    \begin{align*}
+        abc \mid a+b+c+ab+bc+ca.
+    \end{align*}
+
+    \item (St. Petersburg 2001) Tunjukkan bahwa terdapat tak hingga banyaknya bilangan asli $n$ sedemikian sehingga faktor prima terbesar dari $n^4+1$ lebih dari $2n$.
+
+    \item (IMO 1999) Tentukan seluruh pasangan bilangan bulat positif $(n,p)$ dengan $p$ adalah bilangan prima, $n \le 2p$, dan $n^{p-1} \mid (p-1)^n+1$.
+\end{enumerate}
+
+\section{No Square Between Two Consecutive Squares}
+\begin{enumerate}[resume]
+    \item (AIME II 2013) Carilah bilangan bulat positif terkecil $N$ sehingga himpunan $1000$ bilangan bulat berurutan yang dimulai dari $1000\cdot N$ tidak mengandung kuadrat sempurna dari suatu bilangan bulat.
+\end{enumerate}
+
+\section{Fermat's Method of Infinite Descent}
+\begin{enumerate}[resume]
+    \item (Hungaria 2000) Carilah seluruh bilangan prima $p$ sehingga terdapat bilangan bulat $x,y,n$ yang memenuhi $p^n=x^3+y^3$.
+\end{enumerate}
+
+\section{Arithmetics Function}
+\begin{itemize}
+    \item $\phi(n)$ adalah fungsi Euler Totient Phi yang menyatakan banyaknya bilangan asli kurang dari sama dengan $n$ yang relatif prima dengan $n$.
+    \item $\sigma(n)$ menyatakan jumlah seluruh faktor positif berbeda dari $n$.
+    \item $\tau(n)$ menyatakan banyaknya faktor positif berbeda dari $n$.
+\end{itemize}
+
+\begin{enumerate}[resume]
+    \item Jika $n$ adalah bilangan asli komposit, buktikan bahwa
+    \begin{align*}
+        \phi(n) \le n - \sqrt{n}.
+    \end{align*}
+
+    \item Untuk sembarang bilangan asli $n$ dengan $n \neq 2$ dan $n \neq 6$, buktikan bahwa
+    \begin{align*}
+        \phi(n) \ge \sqrt{n}.
+    \end{align*}
+\end{enumerate}
+
+\end{document}

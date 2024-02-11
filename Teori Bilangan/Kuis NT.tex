@@ -1,0 +1,104 @@
+\documentclass[a4paper,12pt,bahasa]{article}
+\usepackage[utf8]{inputenc}
+
+\title{\textbf{Kuis Teori Bilangan}}
+\author{Azzam Labib Hakim}
+\date{Mei 2023}
+
+
+\usepackage{graphicx,amsmath,amssymb,amsthm,amsfonts,babel}
+\usepackage{tikz, tkz-euclide}
+\usetikzlibrary{calc,through,intersections}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newtheorem{lemma}{Lemma} %kasih * kalau gamau angka
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\usepackage{enumitem}
+
+
+
+\begin{document}
+
+\maketitle
+
+\section{Soal Isian}
+\begin{enumerate}
+    \item Carilah jumlah seluruh bilangan bulat positif terurut $a$ sehingga $b$, $\dfrac{a^3b+1}{a+1}$ dan $\dfrac{2021b-2025}{b-1}$ ketiganya merupakan bilangan bulat.
+
+
+\item  Tentukan jumlah semua bilangan prima $p$ sehingga $p^3-3p^2+2$ juga merupakan bilangan prima.
+
+\item Nilai dari $FPB(2002+2,2002^2+2,2002^3+2,\dots)$ adalah $\dots$
+\end{enumerate}
+
+\section{Soal Uraian}
+Apakah terdapat bilangan asli $x$ dan $y$ sedemikian sehingga $x^3+xy^3+y^2+3$ habis membagi $x^2+y^3+3y-1$?
+	
+	
+\section{Solusi Soal Isian}
+\begin{enumerate} 
+\item Carilah jumlah seluruh bilangan bulat positif terurut $a$ sehingga $b$, $\dfrac{a^3b+1}{a+1}$ dan $\dfrac{2021b-2025}{b-1}$ ketiganya merupakan bilangan bulat.
+
+			
+\begin{proof}[\textbf{Solusi.}]
+\textbf{Solusi. }Perhatikan bahwa $$\dfrac{a^3b+1}{a+1}=\dfrac{b(a^3+1)-(b-1)}{a+1} =\dfrac{b(a^3+1)}{a+1}-\dfrac{b-1}{a+1}$$ adalah bilangan bulat. Karena $a+1 \mid a^3+1$, maka $\dfrac{b(a^3+1)}{a+1}$ adalah bilangan bulat yang menyebabkan $\dfrac{b-1}{a+1}$ bulat atau $a+1 \mid b-1$.
+			
+			Selanjutnya, perhatikan bahwa $$\dfrac{2021b-2025}{b-1}=\dfrac{2021(b-1)-4}{b-1}=2021-\dfrac{4}{b-1}$$ adalah bilangan bulat. Karena 2021 bilangan bulat maka menyebabkan $\dfrac{4}{b-1}$ bulat atau $b-1 \mid 4$. 
+			
+			Dari $a+1 \mid b-1$ dan $b-1 \mid 4$, didapatkan bahwa $a+1 \mid 4$ sehingga diperoleh $a=1$ dan $a=3$. Oleh karena itu, jumlah seluruh bilangan bulat positif $a$ yang memenuhi adalah $1+3=\boxed{4}$. $\square$
+\end{proof}
+
+\item  Tentukan jumlah semua bilangan prima $p$ sehingga $p^3-3p^2+2$ juga merupakan bilangan prima.
+\begin{proof}[\textbf{Solusi.}] Perhatikan bahwa
+\begin{align*}
+p^3-3p^2+2 = (p-1)(p^2-2p-2)
+\end{align*}
+Akan dibagi kasus berdasarkan nilai $p$.
+\begin{itemize}[]
+\item Jika $p=2$, maka $p^3-3p^2+2=-2$, tidak memenuhi.
+\item Jika $p=3$, maka $p^3-3p^2+2=2$, memenuhi.
+\item Jika $p>3$, maka $p^2-2p-2 > p-1$ sehingga, agar $(p-1)(p^2-2p-2)$ prima, haruslah $p-1=1 \implies p=2$, kontradiksi. 
+\end{itemize}
+Berarti bilangan prima $p$ yang memenuhi hanyalah $p=3$. Oleh karena itu, jumlah semua bilangan prima $p$ yang memenuhi adalah $\boxed{3}$.
+\end{proof}
+
+\item Nilai dari $FPB(2002+2,2002^2+2,2002^3+2,\dots)$ adalah $\dots$
+\begin{proof}[\textbf{Solusi.}]
+		Misalkan $d=FPB(2002+2,2002^2+2,2002^3+2,\dots)$. Perhatikan bahwa $2002^2+2=2002(2000+2)+2=2002\cdot 2000+2002\cdot 2+2=2002\cdot 2000+2000\cdot 2 2\cdot 2+2=2000(2002+2)+6$. 
+			\begin{lemma}
+			Algoritma Euclid : $FPB(a,b)=FPB(a,b-a)=FPB(a,b-2a)=\dots =FPB(a,b-ka)$
+			\end{lemma}
+		Maka menurut Algoritma Euclid, $FPB(2002+2,2002^2+2)=FPB(2002+2,(2000(2002+2)+6)-2000(2002+2))=FPB(2002+2,6)=6$. Maka kita punya $d \mid FPB(2002+2,2002^2+2) \implies d \mid 6$. 
+		
+		\begin{lemma}
+					Ekspansi Binomial: $(a+b)^n=\sum_{i=0}^{n} {n \choose i}a^{n-i}b^i$
+		\end{lemma}
+		
+		Kemudian untuk sembarang bilangan asli $n$, dengan Ekspansi Binomial didapat
+		\begin{align*}
+		2002^n+2 &= 2+(2001+1)^n\\
+			S	&= 2 + \sum_{i=0}^{n} {n \choose i}1^{n-i}2001^i\\
+			S	&= 2 + {n \choose 0}2001^0 + \sum_{i=1}^{n} {n \choose i}1^{n-i}2001^i\\
+			S	&= 3 + {n \choose 0}2001^0 + \sum_{i=1}^{n} {n \choose i}1^{n-i}2001^i
+		\end{align*}
+			
+		Perhatikan, karena $3 \mid 2001$, maka $3 \mid S$ sehingga menyebabkan $3 \mid 2002^n+2$. Di lain sisi, perhatikan bahwa $2002^n+2$ bernilai genap, maka $2 \mid 2002^n +2$. Dari sini didapat $3\cdot2 \mid 2002^n+2$ atau $\mid 2002^n+2$ untuk sembarang $n \in \mathbb{N}$. Ini berakibat $6 \mid d$. Namun, karena kita juga punya $d \mid 6$, berarti $FPB(2002+2,2002^2+2,2002^3+2,\dots)=d=6$. \qed
+  \end{proof}
+
+\end{enumerate}
+
+\section{Solusi Soal Esai}
+Apakah terdapat bilangan asli $x$ dan $y$ sedemikian sehingga $x^3+xy^3+y^2+3$ habis membagi $x^2+y^3+3y-1$?
+	\textbf{Jawaban. }
+	Tidak.\\
+ 
+	\textbf{Solusi. }
+	Andaikan $\exists x,y \in \mathbb{N}$ sehingga $x^3+xy^3+y^2+3 \mid x^2+y^3+3y-1$. Maka haruslah 
+	 $$x^3+xy^3+y^2+3 \le x^2+y^3+3y-1 \dots (1)$$
+	Padahal untuk sembarang $x,y \in \mathbb{N}$, kita punya $x^3 \ge x^2$,   $xy^3 \ge y^3$, dan\\ $y^2-3y+4 = (y-2)^2+y \ge 0 + y > 0 \implies y^2+3 > 3y -1$. Berarti kita punya $$x^3+xy^3+y^2+3 > x^2+y^3+3y-1,$$ yang kontradiksi dengan (1).
+	
+	Jadi, tidak ada $x,y \in \mathbb{N}$ yang memenuhi. \qed
+
+\end{document}

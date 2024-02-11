@@ -1,0 +1,132 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{XCharter}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{wrapfig}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{tikz}
+\newcommand{\siku}[4][.21cm]
+	{
+	\coordinate (tempa) at ($(#3)!#1!(#2)$);
+	\coordinate (tempb) at ($(#3)!#1!(#4)$);
+	\coordinate (tempc) at ($(tempa)!0.5!(tempb)$);%midpoint
+	\draw[black] (tempa) -- ($(#3)!2!(tempc)$) -- (tempb);
+	}
+\NewDocumentCommand{\Log}{o}{%
+\IfNoValueTF{#1}{}{{}^{#1}\!}\log}%
+\usepackage[indonesian]{babel}
+\usepackage{array,multirow}
+\usetikzlibrary{angles}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{asymptote}
+\usepackage{subfig}
+\usepackage[shortlabels]{enumitem}
+\usetikzlibrary{patterns}
+%--------------------------
+%-------------------------
+\usepackage{systeme}
+\usepackage{hyperref}
+\usepackage{multicol}
+\renewcommand{\baselinestretch}{1.3}
+\usepackage[symbol]{footmisc}
+\usetikzlibrary{calc}
+\let \ds \displaystyle
+\title{\textbf{Ceva VS Menelaus}}
+\author{Wildan Bagus Wicaksono}
+\date{1 Agustus 2023}
+
+\begin{document}
+\maketitle
+
+Ceva dan Menelaus akan berkaitan erat dengan rasio perbandingan dua segmen. Teorema Ceva akan bermain dengan kekonkurenan ketiga garis, sedangkan Teorema Menelaus akan bermain dengan kesegarisan tiga titik. Teorema Ceva memiliki dua bentuk teorema, sedangkan teorema menelaus memiliki dua kemungkinan konfigurasi.
+\begin{tcolorbox}[colback=green!5!white,colframe=ForestGreen!75!black,title=\textbf{Teorema 1: Ceva}]
+\begin{wrapfigure}{l}{6cm}
+%\begin{center}
+\begin{tikzpicture}
+\coordinate[label=below:$A$] (A) at (0,0);
+\coordinate[label=below:$B$] (B) at (4,0);
+\coordinate[label=above:$C$] (C) at (1,3);
+\coordinate[label=above right:$D$] (D) at (2.5,1.5);
+\coordinate[label=left:$E$] (E) at (.41,1.23);
+\coordinate[label=below:$F$] (F) at (1.65,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(D);
+\draw[dashed] (C)--(F);
+\draw[thick] (B)--(E);
+\coordinate (X) at (1.46,.87);
+\foreach \s in {A,B,C,D,E,F,X}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+%\end{center}
+\end{wrapfigure}
+Diberikan segitiga $ABC$, kemudian titik-titik $D$, $E$, dan $F$ berturut-turut terletak pada segmen $BC$, $CA$, dan $AB$. 
+Maka $AD$, $BE$, dan $CF$ konkuren jika dan hanya jika
+\begin{align*}
+\frac{BD}{DC}\cdot \frac{CE}{EA}\cdot \frac{AF}{FB} &= 1,\quad \text{atau}\\
+\frac{\sin \angle BAD}{\sin \angle CAD}\cdot \frac{\sin \angle ACF}{\sin \angle BCF}\cdot \frac{\sin \angle CBE}{\sin \angle ABE} &= 1.
+\end{align*}
+\textcolor{white}{......................................................................................}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=green!5!white,colframe=ForestGreen!75!black,title=\textbf{Teorema 2: Menelaus}]
+Diberikan segitiga $ABC$. Titik $D$, $E$, dan $F$ berturut-turut terletak pada garis $AB$, $BC$, dan $CA$ sedemikian sehingga:
+\begin{enumerate}[(a).]
+\item Tepat satu titik dari $D$, $E$, dan $F$ berada di perpanjangan sisi segitiga $ABC$,
+\item Semua titik dari $D$, $E$, dan $F$ berada di perpanjangan sisi segitiga $ABC$.
+\end{enumerate}
+Maka $D$, $E$, dan $F$ segaris jika dan hanya jika
+\[\frac{AD}{DB}\cdot \frac{BE}{EC}\cdot \frac{CF}{FA}=1.\]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\coordinate[label=below:$A$] (A) at (0,0);
+\coordinate[label=below:$B$] (B) at (4,0);
+\coordinate[label=above:$C$] (C) at (1,3);
+\coordinate[label=below:$D$] (D) at (6,0);
+\coordinate[label=above right:$E$] (E) at (3,1);
+\coordinate[label=left:$F$] (F) at (.6,1.8);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (B)--(D);
+\draw[dashed] (D)--(F);
+\foreach \s in {A,B,C,D,E,F}\filldraw (\s) circle (1.9pt);
+\end{tikzpicture}\quad\quad 
+\begin{tikzpicture}[scale=.8]
+\coordinate[label=below:$A$] (A) at (0,0);
+\coordinate[label=below:$B$] (B) at (4,0);
+\coordinate[label=left:$C$] (C) at (1,3);
+\coordinate[label=below:$D$] (D) at (6,0);
+\coordinate[label=above:$E$] (E) at (0,4);
+\coordinate[label=above right:$F$] (F) at (1.09,3.27);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (B)--(D);
+\draw[dashed] (C)--(E);
+\draw[thick] (F)--(C);
+\draw[dashed] (D)--(E);
+\foreach \s in {A,B,C,D,E,F}\filldraw (\s) circle (1.9pt);
+\end{tikzpicture}
+\end{center}
+\end{tcolorbox}
+\newpage
+\begin{center}
+\scshape{-- Soal --}
+\end{center}
+\begin{enumerate}
+\item Diberikan segitiga $ABC$, misalkan dua titik $D$ dan $E$ terletak pada segmen $AB$ sedemikian sehingga $AE=ED=DB$. Misalkan juga dua titik $F$ dan $G$ terletak pada segmen $AC$ sehingga $AF=FG=GC$. Apabila garis $BF$ memotong kedua garis $CD$ dan $CE$ berturut-turut di titik $K$ dan $L$ serta garis $BG$ memotong kedua garis $CD$ dan $CE$ berturut-turut di titik $N$ dan $M$, buktikan bahwa $KM$ sejajar $BC$.
+\item Diberikan trapesium $ABCD$ di mana $AD\parallel BC$ dan $AB$ tidak sejajar dengan $CD$. Garis $AB$ dan $CD$ berpotongan di titik $Q$, sedangkan $AC$ dan $BD$ berpotongan di titik $P$. Buktikan bahwa garis $PQ$ melalui titik tengah dari segmen $BC$ dan segmen $AD$.
+\item (EGMO 2013/1) Sisi $BC$ dari segitiga $ABC$ diperpanjang dari titik $C$ ke titik $D$ sedemikian sehingga panjang $CD=BC$. Sisi $CA$ diperpanjang dari titik $A$ ke titik $E$ sedemikian sehingga panjang $AE=2CA$. Buktikan bahwa jika panjang $AD=BE$, maka $ABC$ merupakan segitiga siku-siku.
+\item Diberikan segitiga $ABC$. Misalkan tiga titik $M_1$, $M_2$, dan $M_3$ berturut-turut merupakan titik tengah dari segmen $BC$, $CA$, dan $AB$. Misalkan juga tiga titik $X_1$, $X_2$, dan $X_3$ berturut-turut merupakan titik tengah dari garis tinggi $AD$, $BE$, dan $CF$, dengan tiga titik $D$, $E$, dan $F$ terletak pada segmen $BC$, $CA$, dan $AB$. Buktikan bahwa ketiga garis $M_1X_1$, $M_2X_2$, dan $M_3X_3$ berpotongan di satu titik.
+\item (Sharygin 2022/4) Misalkan $AA_1$, $BB_1$, $CC_1$ adalah garis tinggi dari segitiga lancip $ABC$ di mana $A_1$, $B_1$, dan $C_1$ masing-masing berada di segitiga $ABC$. Lingkaran dalam $AB_1C_1$ menyinggung sisi $B_1C_1$ di titik $A_2$, definisikan $B_2$ dan $C_2$ dengan cara yang sama. Buktikan bahwa $A_1A_2$, $B_1B_2$, dan $C_1C_2$ berpotongan di satu titik.
+\item Misalkan $M$ adalah titik tengah sisi $AB$ dari segitiga $ABC$. Titik $D$ dan $E$ berturut-turut berada di sisi $BC$ dan $CA$ sedemikian sehingga $DE\parallel AB$. Titik $P$ berada di segmen $AM$. Garis $EM$ dan $CP$ berpotongan di $X$, garis $DP$ dan $CM$ berpotongan di titik $Y$. Buktikan bahwa $X$, $Y$, dan $B$ segaris.
+\item (OSN 2013/2) Diberikan segitiga lancip $ABC$ dan $\omega$ menyatakan lingkaran luarnya. Garis bagi $\angle BAC$ memotong $\omega$ sekali lagi di titik $M$. Misalkan titik $P$ pada $AM$ dan di dalam segitiga $ABC$. Garis yang melalui $P$ yang sejajar $AB$ dan $AC$ memotong $BC$ berturut-turut di titik $E$ dan $F$. Garis $ME$ dan $MF$ memotong $\omega$ berturut-turut di titik $K$ dan $L$. Buktikan bahwa $AM$, $BL$, dan $CK$ berpotongan di satu titik.
+\item (OSP 2020/4) Diketahui segitiga $ABC$ tidak sama kaki dengan garis tinggi $AA_1$, $BB_1$, dan $CC_1$. Misalkan $B_A$ dan $C_A$ berturut-turut pada $BB_1$ dan $CC_1$ sedemikian sehingga $A_1B_A\;\bot\;BB_1$ dan $A_1C_A\;\bot\;CC_1$. Garis $B_AC_A$ dan $BC$ berpotongan di titik $T_A$. Definisikan dengan cara yang sama untuk $T_B$ dan $T_C$. Buktikan bahwa $T_A$, $T_B$, dan $T_C$ kolinear.
+\newpage
+\item (IMOSL 2001/G1) Misalkan $A_1$ adalah titik pusat dari persegi yang terletak di dalam segitiga $ABC$, di mana dua titik sudut persegi berada di sisi $BC$ dan dua titik sudut lainnya berada di sisi $AB$ dan $AC$. Definisikan $B_1$ dan $C_1$ dengan cara yang sama. Buktikan bahwa $AA_1$, $BB_1$, dan $CC_1$ berpotongan di satu titik.
+\item Misalkan $ABC$ adalah segitiga, di mana $D$, $E$, dan $F$ adalah sebarang titik pada sisi $BC$, $CA$, dan $AB$ sedemikian sehingga $AD$, $BE$, dan $CF$ berpotongan di satu titik. Garis yang sejajar $AB$ dan melalui $E$ memotong $DF$ di titik $Q$, sedangkan garis sejajar $AB$ yang melalui $D$ memotong $EF$ di titik $T$. Buktikan bahwa $CF$, $DE$, dan $QT$ berpotongan di satu titik.
+\item (China TST 2012) Misalkan lingkaran dalam segitiga $ABC$ menyinggung $BC$, $CA$, dan $AB$ berturut-turut di titik $A_1$, $B_1$, dan $C_1$. Titik $A_2$ merupakan hasil refleksi titik $A_1$ terhadap garis $B_1C_1$, definisikan yang serupa untuk $B_2$ dan $C_2$. Jika
+\[A_3 = AA_2\cap BC,\quad B_3=BB_2\cap CA,\quad C_3=CC_2\cap AB,\]
+buktikan bahwa $A_3$, $B_3$, dan $C_3$ segaris.
+\end{enumerate}
+\end{document}

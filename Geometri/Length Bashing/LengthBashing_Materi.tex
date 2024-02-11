@@ -1,0 +1,132 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Length Bashing}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Cara Halal dan Suci}
+Misalkan sebuah segitiga $ABC$ memiliki panjang sisi $AB=c$, $BC=a$, dan $CA=b$. Circumcenter dan incenternya masing-masing $O$ dan $I$. SErta panjang circumradius dan inradiusnya masing-masing $R$ dan $r$. $s=\frac{1}{2}(a+b+c)$. (gambar sendiri yah, saya malas gambar :) )
+
+\subsection{Trigon}
+\subsubsection{Teknik Umum}
+\begin{enumerate}
+    \item (Dalil Cosinus) $c^2=a^2+b^2-2ab \cos \angle C$.
+    \item (Dalil Sinus) $\dfrac{a}{\sin \angle A}=\dfrac{b}{\sin \angle B}=\dfrac{c}{\sin \angle C}=2R$.
+\end{enumerate}
+
+\subsubsection{Rumus-rumus umum}
+\begin{enumerate}
+    \item $\sin (-x) = -\sin x$.
+    \item $\cos (-x) = \cos x$.
+    \item $\tan(-x) = -\tan x$.
+    \item $\sin^2 x + \cos^2 x = 1$.
+    \item $\sin(90^\circ-x)=\sin(90^\circ+x)=\cos x$.
+    \item $\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b$.
+    \item $\sin 2x = 2\sin x \cos x$.
+    \item $\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b$.
+    \item $\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x -1 = 1-2\sin^2 x$.
+    \item $\tan(a \pm b) = \dfrac{\tan a \pm \tan b}{1 \mp \tan a \tan b}$.
+\end{enumerate}
+
+\subsection{Lingkaran}
+\begin{enumerate}
+    \item (Ptolemy)
+    \item (Power of a Point)
+    \item (Euler's Theorem) $OI^2=R^2-2Rr$.
+    \item $[ABC]=\sqrt{s(s-a)(s-b)(s-c)}$.
+    \item $r=\dfrac{[ABC]}{s}$.
+    \item $[ABC]=\dfrac{abc}{4R}$
+\end{enumerate}
+
+\subsection{Stewart}
+Pakai bila dibutuhkan (sebenernya ini dalil cosinus tapi lebih simpel aja rumusnya :) )
+
+\subsection{Contoh Soal}
+\begin{enumerate}
+    \item Let $ABC$ be a triangle with $\angle BAC = 60^\circ$. Let $AP$ bisect $\angle BAC$ and let $BQ$ bisect $\angle ABC$, with $P$ on $BC$ and $Q$ on $AC$. If $AB + BP = AQ + QB$, what are the angles of the triangle?
+
+    \item Consider an acute-angled triangle $ABC$. Let $P$ be the foot of the altitude of triangle $ABC$ issuing from the vertex $A$, and let $O$ be the circumcentre of triangle $ABC$. Assume that $\angle C \geq \angle B + 30^\circ$. Prove that $\angle A + \angle COP < 90^\circ$.
+
+    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+
+    \item Let $ABCD$ be a convex quadrilateral. Let diagonals $AC$ and $BD$ intersect at $P$. Let $PE$, $PF$, $PG$ and $PH$ are altitudes from $P$ on the side $AB$, $BC$, $CD$ and $DA$ respectively. Show that $ABCD$ has a incircle if and only if
+    $$\dfrac{1}{PE}+\dfrac{1}{PG}=\dfrac{1}{PF}+\dfrac{1}{PH}.$$
+\end{enumerate}
+
+
+
+\section{Analit Tidak Suci: Coordinate Bashing}
+\subsection{Rumus-rumus}
+Tidak semua, tapi cukup banyak:
+\begin{itemize}
+    \item Persamaan garis yang menghubungkan titik $(x_1, y_1)$ dan titik $(x_2, y_2)$:
+    \[ y - y_1 = m(x - x_1) \quad \text{dimana} \quad m = \frac{y_2 - y_1}{x_2 - x_1} \text{ adalah kemiringan garis.} \]
+    
+    \item Jarak antara titik $(x_1, y_1)$ dan $(x_2, y_2)$:
+    \[ d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]
+    
+    \item Titik tengah antara dua titik $(x_1, y_1)$ dan $(x_2, y_2)$:
+    \[ M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right) \]
+    
+    \item Persamaan lingkaran dengan radius $r$ dan pusat $(a, b)$:
+    \[ (x - a)^2 + (y - b)^2 = r^2 \]
+    
+    \item Formula untuk garis tegak lurus
+    \[ m_1m_2 = -1, \quad \text{dimana } m_1, m_2 \text{ adalah kemiringan dari dua garis yang saling tegak lurus.} \]
+    
+    \item Kemiringan sebuah garis yang melalui titik asal $O$:
+    \[ m = \tan(\theta) \quad \text{dimana } \theta \text{ adalah sudut yang dibentuk garis dengan sumbu x.} \]
+    
+    \item Luas segitiga dari koordinat $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$:
+    \[ A = \frac{1}{2} 
+    \left| 
+    x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2) 
+    \right| \]
+\end{itemize}
+
+\subsection{Contoh Soal}
+\begin{enumerate}
+    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+    
+    \item (PUMAC 2016) Let $ABCD$ be a square with side length 8. Let $M$ be the midpoint of $BC$ and let $\omega$ be the circle passing through $M$, $A$, and $D$. Let $O$ be the center of $\omega$, $X$ be the intersection point (besides $A$) of $\omega$ with $AB$, and $Y$ be the intersection point of $OX$ and $AM$. Find the length $OY$.
+
+    \item (AMC 2004 10B) In the right triangle $\triangle ACE$, we have $AC = 12$, $CE = 16$, and $EA = 20$. Points $B$, $D$, and $F$ are located on $AC$, $CE$, and $EA$, respectively, so that $AB = 3$, $CD = 4$, and $EF = 5$. What is the ratio of the area of $\triangle DBF$ to that of $\triangle ACE$?
+\end{enumerate}
+
+
+\end{document}

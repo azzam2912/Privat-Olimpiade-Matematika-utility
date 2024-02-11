@@ -1,0 +1,382 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{XCharter}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{contour}
+\usepackage[margin=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{tikz}
+\newcommand{\siku}[4][.21cm]
+	{
+	\coordinate (tempa) at ($(#3)!#1!(#2)$);
+	\coordinate (tempb) at ($(#3)!#1!(#4)$);
+	\coordinate (tempc) at ($(tempa)!0.5!(tempb)$);%midpoint
+	\draw[black] (tempa) -- ($(#3)!2!(tempc)$) -- (tempb);
+	}
+\NewDocumentCommand{\Log}{o}{%
+\IfNoValueTF{#1}{}{{}^{#1}\!}\log}%
+\usepackage[indonesian]{babel}
+\usepackage{array,multirow}
+\usetikzlibrary{angles}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{asymptote}
+\usepackage{subfig}
+\usepackage[shortlabels]{enumitem}
+\usetikzlibrary{patterns}
+%--------------------------
+%-------------------------
+\usepackage{systeme}
+\usepackage{hyperref}
+\usepackage{multicol}
+\renewcommand{\baselinestretch}{1.3}
+\usepackage[symbol]{footmisc}
+\usetikzlibrary{calc}
+\let \ds \displaystyle
+\title{\textbf{Soal dan Solusi $-$ Hide and Seek: Mencari Segiempat Talibusur}}
+\author{Wildan Bagus Wicaksono}
+\date{27 Juli 2023}
+
+\begin{document}
+\maketitle
+\begin{tcolorbox}[title=\textbf{Soal 1: OSN 2016/1}]
+Misalkan $ABCD$ adalah segiempat tali busur yang diagonalnya berpotongan tegak lurus di titik $O$. Misalkan $E$, $F$, $G$, dan $H$ berturut-turut adalah kaki tinggi dari titik $O$ ke sisi $AB$, $BC$, $CD$, dan $DA$.
+\begin{enumerate}[(a).]
+\item Buktikan bahwa $\angle EFG+\angle GHE=180^\circ$.
+\item Buktikan bahwa $OE$ garis bagi $\angle FEH$.
+\end{enumerate}
+\end{tcolorbox}
+\noindent\textit{Solusi.} Perhatikan bahwa $AEOH$ segiempat tali busur karena $\angle AEO+\angle AHO=180^\circ$. Secara analog, $BEOF$, $CFOG$, dan $DHOG$ masing-masing segiempat tali busur. Dari sini diperoleh $\angle OHE =\angle OAE=\angle OAB$ dan $\angle OHG=\angle ODG=\angle ODC$. Selain itu, diperoleh $\angle OFE =\angle OBE=\angle OBA$ dan $\angle OFG=\angle OCG =\angle OCD$. Karena $\angle OAB+\angle OBA =90^\circ=\angle ODC+\angle OCD$, maka
+\[\angle EFG+\angle GHE =\angle OBA + \angle OCD +\angle OAB + \angle ODC = \left (\angle OBA +\angle OAB\right )+\left (\angle OCD+\angle ODC\right )=180^\circ. \]
+Bagian (a) terbukti.\\
+Perhatikan bahwa
+\[\angle OEH = \angle OAH = \angle OAD = \angle CAD = \angle CBD = \angle FBO = \angle FEO\implies \angle OEH = \angle FEO\]
+yang berarti bagian (b) telah terbukti.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=below left:$A$] (A) at(0,0);
+\coordinate[label=below right:$B$] (B) at (6,0);
+\coordinate[label=above:$C$] (C) at (3,5);
+\coordinate[label=above left:$D$] (D) at (.18,3.49);
+\coordinate[label=below left:$O$] (O) at (1.59,2.65);
+\coordinate[label=below:$E$] (E) at (1.59,0);
+\coordinate[label=above right:$F$] (F) at (3.66,3.89);
+\coordinate[label=above left:$G$] (G) at (.92,3.89);
+\coordinate[label=left:$H$] (H) at (.14,2.72);
+\draw[thick] (A)--(C);
+\draw[thick] (B)--(D);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\foreach \s in {E,F,G,H}\draw[thick] (O)--(\s);
+\draw[dashed] (.79,1.32) circle (1.54);
+\draw[thick] (3,1.6) circle (3.4);
+\draw[thick] (E)--(F)--(G)--(H)--cycle;
+\siku{A}{O}{B}
+\node[left] at (H) {\contour[256]{white}{$H$}};
+\node[below left] at (O) {\contour[256]{white}{$O$}};
+\node[above left] at (G) {\contour[256]{white}{$G$}};
+\siku{O}{E}{A}
+\siku{O}{F}{B}
+\siku{O}{G}{C}
+\siku{O}{H}{A}
+\pic[draw=red, angle eccentricity=1.5,thick] {angle=O--E--H};
+\pic[draw=red, angle eccentricity=1.5,thick] {angle=O--A--H};
+\foreach \s in {A,B,C,D,E,F,G,H,O}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 2: OSN SL 2014/G1}]
+Lingkaran dalam segitiga $ABC$ berpusat di titik $I$ dan menyinggung sisi $BC$ di $X$. Misalkan garis $AI$ dan garis $BC$ berpotongan di $L$, dan $D$ adalah pencerminan titik $L$ terhadap $X$. Titik $E$ dan $F$ adalah hasil pencerminan titik $D$ berturut-turut terhadap garis $CI$ dan $BI$. Buktikan bahwa $BCEF$ segiempat talibusur. 
+\end{tcolorbox}
+\noindent\textit{Solusi.} Perhatikan bahwa $\angle ECI=\angle DCI$ berdasarkan sifat pencerminan, oleh karena itu haruslah $E$ berada di $AC$. Secara analog, $F$ berada di $AB$. Lebih lanjut, berdasarkan sifat pencerminan juga berlaku $\triangle BDI\cong \triangle BFI$ dan $\triangle CDI\cong \triangle CEI$. Dari sini diperoleh $\angle CEI=\angle CDI=\angle LDI$. Dari sifat pencerminan pula, panjang $XD=XL$ dan mengingat $IX\;\bot\;DL$, maka panjang $ID=IL$. Ini berarti $\angle LDI=\angle DLI$. Karena
+\[\angle CEI = \angle LDI = \angle ILD = 180^\circ-\angle CLI\implies \angle CEI+\angle CLI = 180^\circ,\]
+maka $CEIL$ segiempat tali busur. Dengan cara yang sama, diperoleh $\angle IFB = \angle ILB = \angle ILD$ sehingga berakibat
+\[\angle IFB + \angle IDB = \angle IFB + 180^\circ - \angle IDL =\angle IFB + 180^\circ - \angle ILD =180^\circ.\]
+Maka $IFBL$ segiempat tali busur. Dari Power of Point berlaku
+\[AF\cdot AB = AI\cdot AL = AE\cdot AC\implies AF\cdot AB = AE\cdot AC\]
+sehingga $BFEC$ segiempat tali busur.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=above:$A$] (A) at (1,6);
+\coordinate[label=below left:$B$] (B) at (0,0);
+\coordinate[label=below right:$C$] (C) at (7,0);
+\coordinate[label=below:$D$] (D) at (1.67,0);
+\coordinate[label=below:$X$] (X) at (2.3,0);
+\coordinate[label=below:$L$] (L) at (2.92,0);
+\coordinate[label=above:$E$] (E) at (3.23,3.77);
+\coordinate[label=left:$F$] (F) at (.28,1.65);
+\coordinate[label=above:$I$] (I) at (2.3,1.95);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(L);
+\draw[thick] (I)--(D);
+\draw[thick] (I)--(X);
+\draw[dashed] (4.96,1.73) circle (2.67);
+\draw[dashed] (1.46,.61) circle (1.58);
+\draw[thick] (E)--(D)--(F);
+\draw[thick] (F)--(I)--(E);
+\node[above] at (I) {\contour[256]{white}{$I$}};
+\draw[thick] (B)--(I)--(C);
+\siku{I}{X}{L}
+\pic[draw=red, angle eccentricity=1.5,thick] {angle=I--E--C};
+\pic[draw=red, angle eccentricity=.7,thick] {angle=C--D--I};
+\pic[draw=red, angle eccentricity=1,thick] {angle=I--L--D};
+\foreach \s in {A,B,C,D,E,F,X,L,I}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 3: APMO 2020/1}]
+Misalkan $\Gamma$ adalah lingkaran luar segitiga $ABC$ dan $D$ pada sisi $BC$. Garis singgung $\Gamma$ di $A$ memotong garis sejajar $BA$ yang melalui $D$ di titik $E$. Segmen $CE$ memotong $\Gamma$ sekali lagi di $F$. Misalkan $B$, $D$, $F$, $E$ terletak pada satu lingkaran. Buktikan bahwa $AC$, $BF$ dan $DE$ berpotongan di satu titik.
+\end{tcolorbox}
+\noindent\textit{Solusi.} Karena $DE\parallel AB$ dan $AE$ menyinggung $\Gamma$, menurut Alternate Segment Theorem berlaku
+\[\angle CDE = \angle CBA =\angle CAE\implies \angle CDE=\angle CAE\]
+yang menyimpulkan $CDAE$ segiempat tali busur. Misalkan $\omega_1=(ABC),\omega_2=(BDFE)$, dan $\omega_3=(CDAE)$. Diperoleh $\mathcal{R}(\omega_1,\omega_2) = BF$, $\mathcal{R}(\omega_2,\omega_3) =DE$, dan $\mathcal{R}(\omega_3,\omega_1)=AC$. Menurut Radical Axis Thereom, maka $BF$, $DE$, dan $AC$ berpotongan di satu titik.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=below left:$A$] (A) at (0,0);
+\coordinate[label=below right:$B$] (B) at (7,0);
+\coordinate[label=above:$C$] (C) at (3.51,6.83);
+%\fill[cyan!40,opacity=.3] (A)--(B)--(C);
+\coordinate[label=right:$D$] (D) at (5.67,2.61);
+\coordinate[label=above left:$E$] (E) at (-1.88,2.61);
+\coordinate[label=left:$F$] (F) at (-.69,3.54);
+\coordinate (X) at (1.34,2.61);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (D)--(E);
+\draw[dashed] (B)--(F);
+\draw[dashed] (1.89,3.34) circle (3.84);
+\draw[thick] (1.89,-.98) circle (5.2);
+\draw[thick] (3.5,2.52) circle (4.31);
+\draw[thick] (A)--(E);
+\pic[draw=red, angle eccentricity=1.5,thick] {angle=C--A--E};
+\pic[draw=red, angle eccentricity=1.5,thick] {angle=C--D--E};
+\pic[draw=red, angle eccentricity=1.5,thick] {angle=C--B--A};
+\foreach \s in {A,B,C,D,E,F,X}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 4: Canada 1997/4}]
+Titik $O$ terletak di dalam jajargenjang $ABCD$ sedemikian sehingga $\angle AOB+\angle COD=180^\circ$. Buktikan bahwa $\angle OBC=\angle ODC$.
+\end{tcolorbox}
+\noindent\textit{Solusi.} Misalkan $E$ terletak di luar jajargenjang $ABCD$ sedemikian sehingga $\triangle AEB\cong \triangle DOC$. Perhatikan bahwa 
+$\angle AEB+\angle AOB = \angle DOC + \angle AOB=180^\circ$ sehingga $AOBE$ merupakan segiempat tali busur. Selain itu, perhatikan bahwa
+\[\angle EAD = \angle EAB+\angle BAD = \angle ODC + 180^\circ - \angle ADC = 180^\circ - \angle ADO\implies \angle EAD+\angle ADO = 180^\circ\]
+yang menyimpulkan $OD\parallel AE$. Secara analog, diperoleh $BE\parallel OC$. Karena panjang $OD=AE$ dan $OC=EB$, ini artinya $OCBE$ dan $ODAE$ jajargenjang. Dari sini diperoleh
+\[\angle OBC = \angle EOB = \angle EAB = \angle ODC\implies \angle OBC=\angle ODC\]
+seperti yang ingin dibuktikan.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=below left:$A$] (A) at (0,0);
+\coordinate[label=below right:$B$] (B) at (5,0);
+\coordinate[label=above:$C$] (C) at (7,4);
+\coordinate[label=above:$D$] (D) at (2,4);
+\coordinate[label=above:$O$] (O) at (4.99,2.5);
+\coordinate[label=below:$E$] (E) at (2.99,-1.5);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (D)--(O)--(B);
+\draw[thick] (O)--(E);
+\draw[dashed] (2.5,1.24) circle (2.81);
+\draw[thick] (A)--(E)--(B);
+\draw[thick] (A)--(O)--(C);
+\foreach \s in {A,B,C,D,O,E}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 5: OSN 2014/6}]
+Misalkan $ABC$ adalah suatu segitiga. Titik $D$ pada $BC$ sedemikian sehingga $AD$ garis bagi $\angle BAC$. Titik $M$ pada $AB$ sedemikian sehingga $\angle MDA=\angle ABC$, dan $N$ pada $AC$ sedemikian sehingga $\angle NDA=\angle ACB$. Jika $AD$ dan $MN$ berpotongan di $P$, buktikan bahwa $AD^3=AB\cdot AC\cdot AP$.
+\end{tcolorbox}
+\noindent\textit{Solusi.} Notasikan $(XYZ)$ menyatakan lingkaran luar yang melalui titik-titik $X$, $Y$, dan $Z$. Karena $\angle ADM=\angle DBM$, dari Alternate Segment Theorem berlaku $AD$ menyinggung $(BDM)$. Dari Power of Point berlaku $AD^2=AM\cdot AB$. Secara analog, diperoleh $AD$ menyinggung $(NDC)$ dan diperoleh $AD^2=AN\cdot AC$. Kalikan keduanya, diperoleh $AD^4 = AB\cdot AM\cdot AN\cdot AC$, sehingga sekarang ekuivalen dengan membuktikan $AP\cdot AD=AM\cdot AN$.\\
+Perhatikan bahwa $AM\cdot AB=AD^2 = AN\cdot AC\implies AM\cdot AB=AN\cdot AC$, maka $BMNC$ segiempat tali busur. Oleh karena itu, diperoleh $\angle ADN=\angle ACD=\angle NCB = 180^\circ - \angle BMN = \angle AMN$ sehingga $\angle ADN=\angle AMN$, ini berarti $AMDN$ segiempat tali busur. Ini berakibat $\angle MND=\angle MAD=\angle NAD=\angle NMD\implies \angle MND=\angle NMD$ yang berarti panjang $DN=DM$.\\
+Perhatikan bahwa $\angle ADN=\angle AMP$ dan $\angle NAP=\angle MAP$, maka $\triangle ADN\sim \triangle AMP$. Ini berarti $\frac{AM}{AD} = \frac{AP}{AN}\iff AP\cdot AD=AM\cdot AN$ seperti yang ingin dibuktikan.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=above:$A$] (A) at (2,4);
+\coordinate[label=left:$B$] (B) at (0,0);
+\coordinate[label=below left:$D$] (D) at (2.65,0);
+\coordinate[label=right:$C$] (C) at (6,0);
+\coordinate[label=above left:$P$] (P) at (2.42,1.4);
+\draw[thick] (A)--(B)--(C)--cycle;
+\coordinate[label=left:$M$] (M) at (.36,.72);
+\coordinate[label=above right:$N$] (N) at (4.06,1.94);
+\draw[thick] (M)--(N);
+\draw[thick] (A)--(D);
+\draw[thick] (1.32,-.21) circle (1.34);
+\draw[thick] (4.32,.27) circle (1.7);
+\pic[draw=red,angle eccentricity=1.5,thick] {angle = A--D--M};
+\pic[draw=red, angle eccentricity=1.5,thick] {angle = D--B--A};
+\draw pic[draw=blue,angle eccentricity=1.5, thick,angle radius=.8cm] {angle = N--D--A};
+\draw pic[draw=blue,angle eccentricity=1.5, thick,angle radius=.8cm] {angle= A--C--D};
+\foreach \s in {A,B,C,M,N,P,D}\filldraw (\s) circle (1.5pt);
+\draw[dashed] (3,-1.05) circle (3.17);
+\draw[thick] (M)--(D)--(N);
+\draw[dashed] (2,1.95) circle (2.05);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 6: USAJMO 2012/1}]
+Diberikan segitiga $ABC$, di mana titik $P$ dan $Q$ berturut-turut pada segmen $AB$ dan $AC$ sedemikian sehingga panjang $AP=AQ$. Misalkan $S$ dan $R$ dua titik yang berbeda pada segmen $BC$ sedemikian sehingga $S$ berada di antara $B$ dan $R$, kemudian $\angle BPS=\angle PRS$ dan $\angle CQR=\angle QSR$. Buktikan bahwa $P$, $Q$, $R$, dan $S$ terletak pada satu lingkaran.
+\end{tcolorbox}
+\noindent\textit{Solusi.} Misalkan $(PRS)=\omega_1$ dan $(QRS)=\omega_2$. Akan kita buktikan bahwa $\omega_1=\omega_2$. Andaikan $\omega_1\neq \omega_2$, maka $RS$ merupakan radical axis dari $\omega_1$ dan $\omega_2$. Karena $\angle BPS=\angle PRS$, maka $BP$ menyinggung $\omega_1$. Dengan kata lain, $\overline{AB}$ menyingggung $\omega_1$. Secara analog, $AC$ menyinggung $\omega_2$. Maka berlaku
+\[\text{Pow}_{\omega_1}(A)= AP^2\quad \text{dan}\quad \text{Pow}_{\omega_2}(A)= AQ^2.\]
+Karena $AP=AQ$, maka $\text{Pow}_{\omega_1}(A)=\text{Pow}_{\omega_2}(A)$. Artinya, $A$ berada di radical axis $\omega_1$ dan $\omega_2$. Kontradiksi bahwa $A$ berada di garis $RS$. Jadi, $\omega_1=\omega_2$ seperti yang ingin dibuktikan.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=below:$A$] (A) at (0,0);
+\coordinate[label=below:$B$] (B) at (6,0);
+\coordinate[label=above:$C$] (C) at (1,4);
+\coordinate[label=below:$P$] (P) at (2,0);
+\coordinate[label=left:$Q$] (Q) at (.49,1.94);
+\coordinate[label=above:$R$] (R) at (1.96,3.23);
+\coordinate[label=right:$S$] (S) at (3.67,1.86);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick,dotted] (2.07,1.62) circle (1.62);
+\draw[thick] (S)--(P)--(R)--(Q)--cycle;
+\foreach \s in {A,B,C,P,Q,R,S}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 7: IMO 1995/1}]
+Misalkan empat titik berbeda $A$, $B$, $C$, dan $D$ terletak pada garis dalam urutan tersebut. Lingkaran berdiameter $\overline{AC}$ dan berdiameter $\overline{BD}$ berpotongan di titik $X$ dan $Y$. Garis $XY$ memotong $\overline{BC}$ di $Z$. Titik $P$ berada di garis $XY$ yang berbeda dengan $Z$. Garis $CP$ memotong lingkaran berdiameter $AC$ di titik $C$ dan $M$, sedangkan garis $BP$ memotong lingkaran berdiameter $\overline{BD}$ di titik $B$ dan $N$. Buktikan bahwa $AM$, $DN$, dan $XY$ berpotongan di satu titik.
+\end{tcolorbox}
+\noindent\textit{Solusi.} Tinjau bahwa
+\[BP\cdot PN=XP\cdot PY = CP\cdot PM\implies BP\cdot PN = CP\cdot PM.\]
+Maka $BCNM$ seigempat tali busur. Tinjau pula
+\[\angle DAM=\angle CAM=90^\circ-\angle ACM=90^\circ-\angle BCM=90^\circ-\angle BNM.\]
+Kita punya \[\angle DAM+\angle MND=90^\circ-\angle BNM+\angle BNM+90^\circ=180^\circ\implies \angle DAM+\angle MND=180^\circ.\] Maka $AMND$ segiempat tali busur. Tinjau bahwa $AM$ merupakan radical axis dari $(AMND)$ dan $(ACM)$, $ND$ merupakan radical axis dari $(AMND)$ dan $(BND)$, dan $XY$ merupakan radical axis dari $(ACM)$ dan $(BND)$. Dari {Radical Axis Theorem}, maka $AM,DN,XY$ berpotongan di satu titik.
+\begin{center}
+\begin{tikzpicture}[font=\small,scale=1.3]
+\begin{scope}
+\clip (-1,-3) rectangle (8,3.5);
+\coordinate[label=left:$A$] (A) at (0,0);
+\coordinate[label=right:$D$] (D) at (7,0);
+\coordinate[label=below left:$B$] (B) at (3.5,0);
+\coordinate[label=below right:$C$] (C) at (5,0);
+\fill[cyan!40,opacity=.2] (A)--(B)--(C);
+\coordinate[label=left:$P$] (P) at (4.45,.86);
+\coordinate[label=above:$M$] (M) at (3.57,2.26);
+\coordinate[label=above:$N$] (N) at (5.43,1.74);
+\coordinate (T) at (4.45,2.83);
+\coordinate[label=below right:$Z$] (Z) at (4.45,0);
+\coordinate[label=below:$Y$] (Y) at (4.45,-1.56);
+\coordinate[label=above right:$X$] (X) at (4.45,1.56);
+\draw[thick] (A)--(D)--(T)--cycle;
+\draw[thick] (B)--(N);
+\draw[thick] (C)--(M);
+\draw[thick,dotted] (T)--(Y);
+\siku{X}{Z}{A}
+\draw[thick] (2.5,0) circle (2.5);
+\draw[thick] (5.25,0) circle (1.75);
+\siku{A}{M}{C}
+\siku{B}{N}{D}
+\draw[thick] (M)--(N);
+\draw[thick,dotted] (4.25,1.11) circle (1.34);
+\draw[thick,dotted] (3.5,-1.58) circle (3.84);
+\foreach \s in {A,B,C,D,M,N,T,X,Z,Y,P}\filldraw (\s) circle (1.3pt);
+\node[below right] at (Z) { \contour[1000]{white}{$Z$} };
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 8: USAMO 2023/1}]
+Dalam segitiga lancip $ABC$, misalkan $M$ titik tengah $\overline{BC}$. Titik $P$ adalah kaki tinggi dari $C$ terhadap $AM$. Misalkan lingkaran luar segitiga $ABP$ memotong garis $BC$ di dua titik berbeda $B$ dan $Q$. Jika $N$ titik tengah $\overline{AQ}$, buktikan bahwa panjang $NB=NC$.
+\end{tcolorbox}
+\noindent\textit{Solusi.} Misalkan $D$ berada di $BC$ sedemikian sehingga $AD\;\bot\;BC$. Perhatikan bahwa $\angle APC=\angle ADC=90^\circ$ sehingga $APDC$ segiempat tali busur. Dari Power of Point berlaku 
+\[MD\cdot MC = MP\cdot MA=MQ\cdot MB\implies MD\cdot MC = MQ\cdot MB\iff MD=MQ.\]
+Ini artinya $M$ titik tengah $QD$ dan karena $N$ titik tengah $AQ$, menurut Midpoint Theorem berlaku $MN\parallel AD\iff MN\;\bot \;BC$. Karena panjang $MC=MB$ dan $MN\;\bot\;BC$, maka diperoleh panjang $NB=NC$ seperti yang ingin dibuktikan.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=above:$A$] (A) at (4,4);
+\coordinate[label=below:$B$] (B) at (0,0);
+\coordinate[label=below:$C$] (C) at (6,0);
+\coordinate[label=below:$D$] (D) at (4,0);
+\coordinate[label=below:$Q$] (Q) at (2,0);
+\coordinate[label=below:$M$] (M) at (3,0);
+\coordinate[label=left:$P$] (P) at (3.18,.71);
+\coordinate[label=above:$N$] (N) at (3,2);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (D)--(A)--(M);
+\draw[thick] (A)--(Q);
+\draw[thick] (C)--(P);
+\siku{A}{P}{C}
+\siku{A}{D}{C}
+\draw[thick]  (1,3) circle (3.16);
+\draw[dashed] (5,2) circle (2.24);
+\draw[thick] (N)--(M);
+\node[above] at (A) {\contour[256]{white}{$A$}};
+\node[left] at (P) {\contour[256]{white}{$P$}};
+\foreach \s in {A,B,C,D,M,Q,P,N}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 9: PUMaC 2017/3}]
+Misalkan $I$ titik bagi segitiga $ABC$. Garis yang melalui $I$ dan tegak lurus $AI$ memotong lingkaran luar segitiga $ABC$ di titik $P$ dan $Q$, di mana $P$ dan $B$ berada di sisi yang sama terhadap $AI$. Misalkan suatu titik $X$ memenuhi $PX\parallel CI$ dan $QX\parallel BI$. Buktikan bahwa $PB$, $QC$, dan $IX$ berpotongan di satu titik.
+\end{tcolorbox}
+\noindent\textit{Solusi.} Misalkan $PX$ dan $QC$ memotong $BC$ berturut-turut di titik $D$ dan $E$. Karena $pD\parallel IC$, maka
+\[\angle IPD = \angle QIC = \angle AIC - 90^\circ = 90^\circ +\frac{\angle B}{2} -90^\circ = \frac{\angle B}{2} = \angle DBI\]
+sehingga $\angle DBI=\angle IPD$ yang menunjukkan $IPBD$ segiempat tali busur. Dengan cara yang sama, $IECQ$ segiempat tali busur. Di sisi lain,
+\[\angle XED = \angle CEQ = \angle CIQ= \angle DPQ \implies \angle XED = \angle DPQ\]
+sehingga $PDEQ$ juga segiempat tali busur. Misalkan $(BDIP)=\omega_1$, $(CEIQ)=\omega_2$, dan $(PDEQ)=\omega_3$. Perhatikan bahwa $\mathcal{R}(\omega_1,\omega_2)$, $\mathcal{R}(\omega_2,\omega_3) = CX$, dan $\mathcal{R}(\omega_3,\omega_1)=PX$ haruslah berpotongan di satu titik $X$ menurut Radical Axis Theorem. Jadi, $\mathcal{R}(\omega_1,\omega_2)= IX$. Misalkan $(ABC)=\omega$. Tinjau bahwa $\mathcal{R}(\omega_1,\omega)=PB$, $\mathcal{R}(\omega_2,\omega)=QC$, dan $\mathcal{R}(\omega_1,\omega_2)=IX$ sehingga menurut Radical Axis Theorem berlaku $PB$, $QC$, dan $IX$ berpotongan di satu titik.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=below left:$A$] (A) at (0,0);
+\coordinate[label=below right:$B$] (B) at (4,0);
+\coordinate[label=above:$C$] (C) at (3,4);
+\coordinate[label=above left:$Q$] (Q) at (1.04,4.02);
+\coordinate[label=below right:$P$] (P) at (3.34,-.58);
+\coordinate[label=right:$X$] (X) at (3.83,1.84);
+\coordinate[label=below:$I$] (I) at (2.44,1.22);
+\coordinate[label=right:$D$] (D) at (3.7,1.21);
+\coordinate[label=right:$E$] (E) at (3.47,2.12);
+\coordinate (N) at (8.54,3.95);
+\draw[thick] (2,1.63) circle (2.58);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (Q)--(N)--(P);
+\foreach \s in {A,B,C} \draw[thick] (\s)--(I);
+\draw[dashed] (I)--(N);
+\draw[dashed] (3.06,.41) circle (1.02);
+\draw[dashed] (2.01,2.75) circle (1.59);
+\draw[thick] (P)--(X)--(Q);
+\foreach \s in {A,B,C,N,P,Q,I,X,D,E}\filldraw (\s) circle (1.5pt);
+\siku{Q}{I}{A}
+\draw[thick] (P)--(Q);
+\draw[dashed] (.57,.91) circle (3.14);
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{tcolorbox}[title=\textbf{Soal 10}]
+Diberikan segitiga $ABC$, misalkan $D$ dan $E$ berturut-turut pada sisi $AB$ dan $AC$ sedemikian sehingga $DE\parallel BC$. Titik $P$ terletak di dalam segitiga $ADE$, dan misalkan $F$, $G$ adalah perpotongan $DE$ dengan garis $BP$, $CP$ berturut-turut. Jika $Q$ adalah perpotongan kedua lingkaran luar $PDG$ dan lingkaran luar $PFE$, buktikan bahwa $A$, $P$, dan $Q$ segaris. 
+\end{tcolorbox}
+\noindent\textit{Solusi.} Misalkan $(PFE)$ memotong garis $AC$ di titik $X$, sedangkan $(PDG)$ memotong garis $AB$ di titik $Y$. Akan dibuktikan bahwa $B$, $Y$, $P$, $X$, dan $C$ terletak pada satu lingkaran. \\
+Pertama, akan dibuktikan bahwa $BYPC$ segiempat tali busur. Perhatikan bahwa
+\[\angle YBC = \angle ABC = \angle ADE =  \angle ADG = 180^\circ - \angle BDG = 180^\circ - \angle YDG = 180^\circ - \angle YPG=180^\circ-\angle YPC.\]
+Kondisi $\angle YBC+\angle YPC=180^\circ$ menyimpulkan $BYPC$ segiempat tali busur. Secara analog, diperoleh $CXPB$ merupakan segiempat tali busur. Ini artinya kelima titik $B,Y,P,X,$ dan $C$ terletak pada satu lingkaran.\\
+Dari Power of Point berlaku $AY\cdot AB=AX\cdot AC$. Karena $DE\parallel BC$ mengakibatkan $\triangle ADE\sim \triangle ABC$. Ini berarti $\frac{AD}{AB}=\frac{AE}{AC}=\frac{DE}{BC}=k$ untuk suatu konstan $k$. Dari sini diperoleh $AD=k\cdot AB$ dan $AE=k\cdot AC$. Ini berarti
+\[AY\cdot AB=AX\cdot AC\iff AY\cdot k\cdot AD = AX\cdot k\cdot AE\iff AY\cdot AD = AX\cdot AE\]
+yang menyimpulkan $Y$, $D$, $X$, dan $E$ terletak pada lingkaran yang sama. Misalkan $(PDG)=\omega_1$, $(PFE)=\omega_2$, dan $(YDXE)=\omega_3$. Dari sini diperoleh $\mathcal{R}(\omega_1,\omega_2)=PQ$, $\mathcal{R}(\omega_2,\omega_3)=XE$, dan $\mathcal{R}(\omega_3,\omega_1)=YD$ yang berarti menurut Radical Axis Theorem berlaku $YD,PQ,XE$ konkuren di $A$. Jadi, $A$, $P$, dan $Q$ segaris seperti yang ingin dibuktikan.
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\coordinate[label=above:$A$] (A) at (2,6);
+\coordinate[label=left:$B$] (B) at (0,0);
+\coordinate[label=right:$C$] (C) at (7,0);
+\coordinate[label=left:$D$] (D) at (.78,2.33);
+\coordinate[label=right:$E$] (E) at (5.06,2.33);
+\coordinate[label=below right:$F$] (F) at (2.33,2.33);
+\coordinate[label=below left:$G$] (G) at (3.89,2.33);
+\coordinate[label=above:$P$] (P) at (3,3);
+\coordinate[label=below:$Q$] (Q) at (3.96,.13);
+\coordinate[label=left:$Y$] (Y) at (.4,1.2);
+\coordinate[label=above right:$X$] (X) at (4.62,2.85);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed] (A)--(Q);
+\draw[thick] (D)--(E);
+\draw[thick] (B)--(P)--(C);
+\draw[dashed] (3.5,-.5) circle (3.54);
+\draw (2.33,1.19) circle (1.93);
+\draw (3.69,1.64) circle (1.53);
+\draw[thick] (Y)--(P)--(X);
+\draw[dashed] (2.92,.99) circle (2.53);
+\foreach \s in {A,B,C,D,E,F,G,X,Y,P,Q}\filldraw (\s) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\end{document}

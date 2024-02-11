@@ -1,0 +1,116 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{PigeonHole Principle and Mean Value Principle}
+\author{Azzam (IG: haxuv.world)}
+\date{Sabtu, 27 Januari 2024}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item (Ramsey's Theorem) Jika ada 6 orang atau lebih, maka ada tiga orang yang saling mengenal atau ada tiga orang yang tidak saling mengenal.
+
+    \item Misalkan $a_1, a_2, \dots, a_{10}$ adalah sepuluh bilangan bulat. Tunjukkan bahwa ada bilangan bulat $1 \le i,j \le 10$ sehingga $a_i+a_j+\dots+a_j$ habis terbagi 10.
+
+    \item Dari bilangan bula $1,2,\dots 200$ pilih 101 bilangan. Perlihatkan bahwa dari bilangan yang dipilih, ada dua bilangan $a$ dan $b$ sehingga $a \mid b$.
+
+    \item Buktikan bahwa subhimpunan $n+1$ anggota dari $A=\{1,2,\dots, 2n\}$ selalu memuat dua bilangan yang relatif prima.
+
+    \item Buktikan bahwa ada bilangan berbentuk $$123456712345671234567\dots1234567$$
+    yang habis dibagi oleh $7654321$.
+
+    \item Seorang wibu sejati mempunyai waktu 11 minggu untuk mengikuti suatu turnamen marathon anime. Sebagai persiapan, ia berlatih dengan menghabiskan setidaknya 1 episode anime (1 episode sepanjang 2 jam) setiap hari, tetapi ia tidak ingin menghabiskan lebih dari 12 episode dalam satu minggu (ya, dia masih peduli pada kesehatannya). Buktikan bahwa ia pernah melakukan marathon episode anime sebanyak tepat 21 episode dalam beberapa hari berurutan.
+
+    \item Buktikan diantara setiap lima bilangan real, ada dua diantaranya yaitu $x$ dan $y$ yang memenuhi $0 < x-y < 1+xy$.
+
+    \item Misalkan terdapat lima bilangan bulat $a_1, a_2, \dots, a_5$. Misalkan $b_1,b_2,\dots,b_5$ merupakan permutasi dari $a_1,\dots,a_5$. Buktikan bahwa 
+    $$A=(b_1-a_1)+(b_2-a_2)+\dots+(b_5-a_5)$$ adalah bilangan genap.
+
+    \item Let a space figure $G$ consist of $n \ge 4$ vertices, no $4$ vertices of which are coplanar and there are $\left\lfloor \frac{n^2}{4} \right\rfloor + 1$ line segments connecting these vertices. Prove there exist two triangles with a common side in the figure $G$.
+    
+    \item Let $k$ be a given positive integer number. Find the smallest value of $n$ such that among any $n$ positive integer numbers there exist two numbers whose sum or difference is divisible by $2k$.
+    
+    \item Let $a$ be a positive real number and $n$ be a positive integer. Prove that there exist two positive integers $p$ and $q$ satisfying the following inequality: $\left|a-\frac{q}{p}\right| \le \frac{1}{np}$.
+    
+    \item Suppose that $n$ numbers are deleted in the set $S = \{1 ,2, \dots , 2005 \}$ such that among the remaining numbers, no number equals to the product of other two. Find the smallest positive integers $n$ with the above properties.
+    
+    \item Suppose that $a_1, a_2, \dots, a_n$ $(n \ge 4)$ are $n$ distinct integers in open interval $(0, 2n)$. Prove that there exists a non-empty subset $S$ of $\{a_1, a_2, \dots, a_n\}$ such that the sum of all elements in $S$ is divisible by $2n$.
+    
+    \item (IMO SL 1988) Let $49$ students solve $3$ problems and the score of each problem is one of these nonnegative integers $0, 1, 2, 3, 4, 5, 6, 7$. Prove that there exist two students $A$ and $B$ such that for each of the problems the scores of $A$ is not less than $B$.
+    
+    \item Let $n$ and $r$ be two positive integers. Find the smallest positive integer $m$ satisfying the following condition: For each classification of the set $\{1, 2, \dots, m \}$ into $r$ subsets $A_1, A_2, \dots, A_r$ where $A_i \cap A_j = \emptyset$, $i \neq j$, there exist two numbers $a$ and $b$ in a subset $A_i$ $(1 \le i \le r)$ such that $1 \le \frac{b}{a} \le 1 + \frac{1}{n}$.
+
+    \item Suppose that $10$ distinct numbers $1, 2, 3, 4, 5, 6, 7,8, 9, 10$ are arranged in a circle with any order. Show that there exist $3$ successive numbers whose sum is not less than $18$.
+    
+    \item Suppose that there are $n \ge 4$ distinct points in the plane and each pair of them is connected by a line segment. If among all lengths of these line segments, only $n + 1$ lengths equal $d$. Prove that there exists a point $P$ such that there are at least $3$ line segments meeting $P$ their lengths all equal $d$.
+
+    \item (IMO 1964) In a group of 17 scientists each scientist sends letters to the others. In their letters only three topics are involved and each couple of scientists makes reference to only one topic. Show that there exists a group of three scientists which send each other letters on the same topic. 
+    \item Is it possible to choose (1) 4; (2) 5 distinct positive integers such that the sum of any three numbers of them is a prime?
+    %\item Given 7 points in $\triangle ABC$, no three of which are collinear. Prove that there exists 3 points of these points which determine a triangle with the area less than or equal to $\frac{1}{4} S_{\triangle ABC}$.
+    \item Let $S = \{1, 2, \ldots, 2009\}$. Find the largest positive integer $n$ such that there is an $n$-elements subset $A$ of $S$ with the following property: the sum of any two numbers in $A$ is not divisible by their difference.
+    \item Let $M$ be the subset of $S = \{1, 2, \ldots, 2000\}$ such that the difference of any two numbers of $M$ is neither 5 nor 8. How many elements of $M$ at most are there?
+    \item Suppose that each of 7 boys has 3 brothers among the remaining 6 boys. Prove that the 7 boys are all brothers. 
+
+    %    \item (8th CMO) Suppose 10 persons buy 30 books at a book-shop satisfying the following conditions:
+    % \begin{enumerate}
+    %     \item Each of them buys 3 books,
+    %     \item Among the books which were bought by any two of them, there are at least one is the same. 
+    %     Suppose the number of purchasers who bought some book is largest. Determine what that smallest value of the largest number is? 
+    % \end{enumerate}
+    \item Every point in a plane is colored red or blue. Prove that:
+    \begin{enumerate}
+        \item For any positive real number $a$ there exists a triangle with the sides of lengths $a$, $\sqrt{3}a$, $2a$ such that its 3 vertices all are colored red (or blue).
+        \item (CMO 1995) There exist two similar triangles such that 3 vertices of each of two triangles are colored in the same color.
+    \end{enumerate}
+    \item Suppose a convex polyhedron has 6 vertices and 12 edges. Prove that each facet is a triangle.
+    \item (China Shanghai Mathematical Competition 1999) Let the set $S$ be a set with a finite number of points in the plane. If the distances between any two points in $S$ is determined, then the set $S$ is called stable. Let $M$ be a set of $n (n \geq 4)$ points in the plane and no three points of $M$ be collinear. Suppose that the number of pairs of points having the determined distances in $M$ is $\frac{1}{2}n(n - 3) + 4$. Show that $M$ is stable.
+    
+    \item Jika diketahui 5 titik yang terletak pada persegi dengan panjang sisi 2, buktikan bahwa ada dua titik yang berjarak kurang atau sama dengan $\sqrt{2}$.
+    
+    \item Kita memilih 100 bilangan bulat dari 1, 2, \ldots, 200 dan satu diantaranya kurang dari 16, maka ada dua bilangan yang dipilih sehingga yang satu habis dibagi dengan yang lain.
+    
+    \item Perlihatkan bahwa jika kita memilih $n + 1$ bilangan dari $\{1, 2, \ldots, 2n\}$, maka selalu ada dua bilangan yang mempunyai selisih 1.
+    
+    \item Perlihatkan bahwa jika kita memilih $n + 1$ bilangan dari $\{1, 2, \ldots, 3n\}$, maka selalu ada dua bilangan yang mempunyai selisih paling banyak 2.
+    
+    %\item Jika $p$ bilangan prima dan $n$ bilangan tidak habis dibagi oleh $p$, maka ada bilangan bulat $m$ dengan $1 \leq m \leq p - 1$ sehingga $p$ membagi $mn - 1$.\\
+
+    %\item Perlihatkan bahwa untuk sebarang bilangan bulat sebanyak 52 selalu ada dua bilangan yang jumlahnya atau selisihnya habis dibagi 100.
+    \item Perlihatkan bahwa kita dapat memilih dua bilangan atau lebih yang jumlahnya habis dibagi 100 dari 100 bilangan yang kesemuanya tidak ada yang habis dibagi 100.
+    \item Diketahui 7 bilangan real, perlihatkan bahwa kita dapat memilih dua di antaranya, misalkan $x, y$ yang memenuhi
+    \[ 0 < \frac{x - y}{1 + xy} < \sqrt{3} \]
+    %\item Lima titik terletak pada segitiga sama sisi dengan panjang sisi satu satuan panjang. Buktikan bahwa ada dua titik yang berjarak kurang atau sama dengan $\frac{1}{2}$ satuan panjang.
+
+\end{enumerate}
+
+\end{document}

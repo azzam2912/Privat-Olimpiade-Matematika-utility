@@ -1,0 +1,96 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{XCharter}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{tikz}
+\newcommand{\siku}[4][.21cm]
+	{
+	\coordinate (tempa) at ($(#3)!#1!(#2)$);
+	\coordinate (tempb) at ($(#3)!#1!(#4)$);
+	\coordinate (tempc) at ($(tempa)!0.5!(tempb)$);%midpoint
+	\draw[black] (tempa) -- ($(#3)!2!(tempc)$) -- (tempb);
+	}
+\NewDocumentCommand{\Log}{o}{%
+\IfNoValueTF{#1}{}{{}^{#1}\!}\log}%
+\usepackage[indonesian]{babel}
+\usepackage{array,multirow}
+\usetikzlibrary{angles}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{asymptote}
+\usepackage{subfig}
+\usepackage[shortlabels]{enumitem}
+\usetikzlibrary{patterns}
+%--------------------------
+%-------------------------
+\usepackage{systeme}
+\usepackage{hyperref}
+\usepackage{multicol}
+\renewcommand{\baselinestretch}{1.3}
+\usepackage[symbol]{footmisc}
+\usetikzlibrary{calc}
+\let \ds \displaystyle
+\title{\textbf{Hide and Seek: Mencari Segiempat Talibusur}}
+\author{Wildan Bagus Wicaksono}
+\date{27 Juli 2023}
+
+\begin{document}
+\maketitle
+
+Untuk membuktikan suatu segiempat merupakan tali busur, umumnya (dalam lingkup OSN) dapat menggunakan \textit{angle chasing} atau menggunakan Teorema \textit{Power of Point}. Dari Teorema \textit{Power of Point} nantinya dapat diturunkan ke soal bertipe lain, misalnya masalah kekonkurenan (tiga garis yang berpotongan di satu titik) yang akan berkaitan dengan Radical Axis. Jika pembaca belum mengetahui Teorema 5, Sifat 6, dan Teorema 7 berikut disarankan untuk membuktikannya.
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Teorema 1}]
+  Diberikan segiempat $ABCD$, kondisi berikut ekuivalen:
+\begin{enumerate}[(a).]
+\item $ABCD$ segiempat tali busur.
+\item $\angle ACB=\angle ADB$.
+\item $\angle ABC+\angle ADC=180^\circ$.
+\end{enumerate}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Teorema 2: Power of Point Theorem}]
+ Diberikan empat titik berbeda $A,B,C,D$ dan $AB$ tidak sejajar $CD$. Garis $AB$ dan garis $CD$ berpotongan di titik $P$. Maka $A,B,C,D$ siklik jika dan hanya jika $PA\cdot PB=PC\cdot PD$.\\
+Jika titik $P$ berada di perpanjangan $AB$, maka $PC$ menyinggung lingkaran luar segitiga $ABC$ jika dan hanya jika $PC^2=PA\cdot PB$.
+\end{tcolorbox}
+\noindent\textbf{Definisi 3.} Kuasa dari titik $P$ terhadap lingkaran $\omega$ yang berpusat di $O$ dan memiliki panjang jari-jari $R$ didefinisikan sebagai $\text{Pow}_\omega(P)=OP^2-R^2$. Notasi Pow bukanlah notasi yang umum, jadi perlu didefinisikan.\\
+\textbf{Definisi 4.} Misalkan $\omega_1$ dan $\omega_2$ adalah dua lingkaran yang berbeda. Himpunan titik-titik $P$ yang memenuhi $\text{Pow}_{\omega_1}(P)=\text{Pow}_{\omega_2}(P)$ disebut sebagai Radical Axis dari $\omega_1$ dan $\omega_2$, dinotasikan sebagai $\mathcal{R}(\omega_1,\omega_2)$. Terlebih lagi, $\mathcal{R}(\omega_1,\omega_2)$ merupakan sebuah garis. Notasi $\mathcal{R}(\omega_1,\omega_2)$ bukanlah notasi yang umum, jadi perlu didefinisikan.
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Teorema 5: Power of Point Theorem}]
+Diberikan lingkaran $\omega$ dan sebarang titik $P$. Jika garis yang melalui $P$ memotong lingkaran $\omega$ di dua titik yang berbeda $X$ dan $Y$, maka $PX\cdot PY=|\text{Pow}_\omega(P)|$. Jika garis yang melalui $P$ menyinggung lingkaran $\omega$ di titik $Z$, maka $PZ^2=\text{Pow}_\omega(P)$.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Sifat 6: Radical Axis}]
+Diberikan lingkaran $\omega_1$ dan $\omega_2$ yang berbeda. Maka:
+\begin{enumerate}[(a).]
+\item $\mathcal{R}(\omega_1,\omega_2)$ tegak lurus dengan garis yang melalui kedua pusat $\omega_1$ dan $\omega_2$.
+\item Jika garis singgung persekutuan luar $\omega_1$ dan $\omega_2$ menyinggung $\omega_1$, $\omega_2$ berturut-turut di titik $A$ dan $B$, maka $\mathcal{R}(\omega_1,\omega_2)$ melalui titik tengah $\overline{AB}$.
+\end{enumerate}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Teorema 7: Radical Axis Theorem}]
+Misalkan $\omega_1,\omega_2,$ dan $\omega_3$ adalah tiga lingkaran yang saling berbeda. Notasikan $\mathcal{R}(\omega_1,\omega_2)$ menyatakan radical axis dari $\omega_1$ dan $\omega_2$. Maka:
+\begin{enumerate}[(a).]
+\item $\mathcal{R}(\omega_1,\omega_2),\mathcal{R}(\omega_2,\omega_3),\mathcal{R}(\omega_3,\omega_1)$ saling sejajar jika titik-titik pusat $\omega_1,\omega_2,\omega_3$ saling segaris.
+\item $\mathcal{R}(\omega_1,\omega_2),\mathcal{R}(\omega_2,\omega_3),\mathcal{R}(\omega_3,\omega_1)$ konkuren jika ketiga titik pusat $\omega_1,\omega_2,\omega_3$ tidak segaris.
+\end{enumerate}
+\end{tcolorbox}
+\begin{center}
+\scshape{-- Soal --}
+\end{center}
+\begin{enumerate}
+\item (OSN 2016/1) Misalkan $ABCD$ adalah segiempat tali busur yang diagonalnya berpotongan tegak lurus di titik $O$. Misalkan $E$, $F$, $G$, dan $H$ berturut-turut adalah kaki tinggi dari titik $O$ ke sisi $AB$, $BC$, $CD$, dan $DA$.
+\begin{enumerate}[(a).]
+\item Buktikan bahwa $\angle EFG+\angle GHE=180^\circ$.
+\item Buktikan bahwa $OE$ garis bagi $\angle FEH$.
+\end{enumerate}
+\item (OSN SL 2014/G1) Lingkaran dalama segitiga $ABC$ berpusat di titik $I$ dan menyinggung sisi $BC$ di $X$. Misalkan garis $AI$ dan garis $BC$ berpotongan di $L$, dan $D$ adalah pencerminan titik $L$ terhadap $X$. Titik $E$ dan $F$ adalah hasil pencerminan titik $D$ berturut-turut terhadap garis $CI$ dan $BI$. Buktikan bahwa $BCEF$ segiempat talibusur.
+\item(APMO 2020/1) Misalkan $\Gamma$ adalah lingkaran luar segitiga $ABC$ dan $D$ pada sisi $BC$. Garis singgung $\Gamma$ di $A$ memotong garis sejajar $BA$ yang melalui $D$ di titik $E$. Segmen $CE$ memotong $\Gamma$ sekali lagi di $F$. Misalkan $B$, $D$, $F$, $E$ terletak pada satu lingkaran. Buktikan bahwa $AC$, $BF$ dan $DE$ berpotongan di satu titik.
+\item (Canada 1997/4) Titik $O$ terletak di dalam jajargenjang $ABCD$ sedemikian sehingga $\angle AOB+\angle COD=180^\circ$. Buktikan bahwa $\angle OBC=\angle ODC$.
+\item (OSN 2014/6) Misalkan $ABC$ adalah suatu segitiga. Titik $D$ pada $BC$ sedemikian sehingga $AD$ garis bagi $\angle BAC$. Titik $M$ pada $AB$ sedemikian sehingga $\angle MDA=\angle ABC$, dan $N$ pada $AC$ sedemikian sehingga $\angle NDA=\angle ACB$. Jika $AD$ dan $MN$ berpotongan di $P$, buktikan bahwa $AD^3=AB\cdot AC\cdot AP$.
+\item (USAJMO 2012/1) Diberikan segitiga $ABC$, di mana titik $P$ dan $Q$ berturut-turut pada segmen $AB$ dan $AC$ sedemikian sehingga panjang $AP=AQ$. Misalkan $S$ dan $R$ dua titik yang berbeda pada segmen $BC$ sedemikian sehingga $S$ berada di antara $B$ dan $R$, kemudian $\angle BPS=\angle PRS$ dan $\angle CQR=\angle QSR$. Buktikan bahwa $P$, $Q$, $R$, dan $S$ terletak pada satu lingkaran.
+\item (IMO 1995/1) Misalkan empat titik berbeda $A$, $B$, $C$, dan $D$ terletak pada garis dalam urutan tersebut. Lingkaran berdiameter $\overline{AC}$ dan berdiameter $\overline{BD}$ berpotongan di titik $X$ dan $Y$. Garis $XY$ memotong $\overline{BC}$ di $Z$. Titik $P$ berada di garis $XY$ yang berbeda dengan $Z$. Garis $CP$ memotong lingkaran berdiameter $AC$ di titik $C$ dan $M$, sedangkan garis $BP$ memotong lingkaran berdiameter $\overline{BD}$ di titik $B$ dan $N$. Buktikan bahwa $AM$, $DN$, dan $XY$ berpotongan di satu titik.
+\item (USAMO 2023/1) Dalam segitiga lancip $ABC$, misalkan $M$ titik tengah $\overline{BC}$. Titik $P$ adalah kaki tinggi dari $C$ terhadap $AM$. Misalkan lingkaran luar segitiga $ABP$ memotong garis $BC$ di dua titik berbeda $B$ dan $Q$. Jika $N$ titik tengah $\overline{AQ}$, buktikan bahwa panjang $NB=NC$.
+\item (PUMaC 2017/3) Misalkan $I$ titik bagi segitiga $ABC$. Garis yang melalui $I$ dan tegak lurus $AI$ memotong lingkaran luar segitiga $ABC$ di titik $P$ dan $Q$, di mana $P$ dan $B$ berada di sisi yang sama terhadap $AI$. Misalkan suatu titik $X$ memenuhi $PX\parallel CI$ dan $QX\parallel BI$. Buktikan bahwa $PB$, $QC$, dan $IX$ berpotongan di satu titik.
+\item Diberikan segitiga $ABC$, misalkan $D$ dan $E$ berturut-turut pada sisi $AB$ dan $AC$ sedemikian sehingga $DE\parallel BC$. Titik $P$ terletak di dalam segitiga $ADE$, dan misalkan $F$, $G$ adalah perpotongan $DE$ dengan garis $BP$, $CP$ berturut-turut. Jika $Q$ adalah perpotongan kedua lingkaran luar $PDG$ dan lingkaran luar $PFE$, buktikan bahwa $A$, $P$, dan $Q$ segaris. 
+\end{enumerate}
+\end{document}

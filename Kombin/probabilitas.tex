@@ -1,0 +1,87 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Probability}
+\author{Azzam (IG: haxuv.world)}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{soaljawab} [AIME 2023]
+    Alice knows that $3$ red cards and $3$ black cards will be revealed to her one at a time in random order. Before each card is revealed, Alice must guess its color. If Alice plays optimally, the expected number of cards she will guess correctly is $\frac{m}{n},$ where $m$ and $n$ are relatively prime positive integers. Find $m+n.$
+\end{soaljawab}
+
+\begin{soaljawab} [AHSME 1992]
+    An unfair coin has a $2/3$ probability of turning up heads. If this coin is tossed $50$ times, what is the probability that the total number of heads is even?
+\end{soaljawab}
+
+\begin{soaljawab}[AMC 10 2015] 
+    Let $S$ be a square of side length $1$. Two points are chosen independently at random on the sides of $S$. The probability that the straight-line distance between the points is at least $\dfrac{1}{2}$ is $\dfrac{a-b\pi}{c}$, where $a$, $b$, and $c$ are positive integers with $\gcd(a,b,c)=1$. What is $a+b+c$?
+\end{soaljawab}
+
+\begin{soaljawab} [AIME 1998]
+    Two mathematicians take a morning coffee break each day. They arrive at the cafeteria independently, at random times between 9 a.m. and 10 a.m., and stay for exactly $m$ minutes. The probability that either one arrives while the other is in the cafeteria is $40 \%,$ and $m = a - b\sqrt {c},$ where $a, b,$ and $c$ are positive integers, and $c$ is not divisible by the square of any prime. Find $a + b + c.$
+\end{soaljawab}
+
+\begin{soaljawab} [AIME 2004]
+    A circle of radius 1 is randomly placed in a 15-by-36 rectangle $ABCD$ so that the circle lies completely within the rectangle. Given that the probability that the circle will not touch diagonal $AC$ is $m/n,$ where $m$ and $n$ are relatively prime positive integers. Find $m + n.$
+\end{soaljawab}
+
+\begin{soaljawab} [OSN SMA 2002]
+    Lima buah dadu (enam-muka) akan dilempar satu demi satu, lalu hasil kelima angka yang muncul akan dihitung. Manakah yang lebih besar peluang terjadinya hasil kali 180 atau hasil kali 144 ? 
+\end{soaljawab}
+
+\begin{soaljawab} [iTest 2007]
+    Let b be a real number randomly selected from the interval $[-17,17]$. Then, m and n are two relatively prime positive integers such that m/n is the probability that the equation $x^4+25b^2=(4b^2-10b)x^2$ has $\textit{at least}$ two distinct real solutions. Find the value of $m+n$.
+\end{soaljawab}
+
+\begin{soaljawab} [iTest 2007]
+    A positive integer $n$ between $1$ and $N=2007^{2007}$ inclusive is selected at random. If $a$ and $b$ are natural numbers such that $a/b$ is the probability that $N$ and $n^3-36n$ are relatively prime, find the value of $a+b$.
+\end{soaljawab}
+
+\begin{soaljawab} [AIME 2019]
+    A moving particle starts at the point $(4,4)$ and moves until it hits one of the coordinate axes for the first time. When the particle is at the point $(a,b)$, it moves at random to one of the points $(a-1,b)$, $(a,b-1)$, or $(a-1,b-1)$, each with probability $\frac{1}{3}$, independently of its previous moves. The probability that it will hit the coordinate axes at $(0,0)$ is $\frac{m}{3^n}$, where $m$ and $n$ are positive integers such that $m$ is not divisible by $3$. Find $m + n$.
+\end{soaljawab}
+
+\begin{soaljawab} [iTest 2008]
+    Wendy takes Honors Biology at school, a smallish class with only fourteen students (including Wendy) who sit around a circular table. Wendy’s friends Lucy, Starling, and Erin are also in that class. Last Monday none of the fourteen students were absent from class. Before the teacher arrived, Lucy and Starling stretched out a blue piece of yarn between them. Then Wendy and Erin stretched out a red piece of yarn between them at about the same height so that the yarns would intersect if possible. If all possible positions of the students around the table are equally likely, let $m/n$ be the probability that the yarns intersect, where $m$ and $n$ are relatively prime positive integers. Compute $m + n$.
+\end{soaljawab}
+
+\begin{soaljawab}[AIME 1999]
+    Ten points in the plane are given, with no three collinear. Four distinct segments joining pairs of these points are chosen at random, all such segments being equally likely. The probability that some three of the segments form a triangle whose vertices are among the ten given points is $m/n,$ where $m_{}$ and $n_{}$ are relatively prime positive integers. Find $m+n.$
+\end{soaljawab}
+
+\end{document}

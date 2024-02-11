@@ -1,0 +1,210 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Ortik dan Ex: Dua Konfigurasi Dasar}
+\author{Azzam (IG: haxuv.world)}
+\date{Jumat, 19 Januari 2024}
+
+\begin{document}
+\maketitle
+Dalam dunia olimpiade geometri, konfigurasi Ortik (Orthic Triangle and related stuff) serta konfigurasi Ex (Excircle-Incircle related stuff) sering disadari maupun tidak disadari muncul. Mari kita membedah konfigurasi tersebut!
+
+\section{Ortik}
+\subsection{Banyak Lingkaran!}
+Diberikan segitiga $ABC$ dengan garis tinggi $AD, BE, CF$. Orthocenter / titik tinggi $H$. Titik tengah $M$. 
+\begin{figure}[h]
+  \centering
+  \begin{asy}
+    size(10cm);
+    pair A = dir(110);
+    pair B = dir(210);
+    pair C = dir(330);
+    pair M = midpoint(B--C);
+    pair H = orthocenter(A, B, C);
+    pair G = foot(A, M, H);
+    pair Q = foot(H, A, M);
+    pair D = foot(A, B, C);
+    pair E = foot(B, C, A);
+    pair F = foot(C, A, B);
+
+    filldraw(A--B--C--cycle, opacity(0.1)+lightred, red);
+    filldraw(unitcircle, opacity(0.1)+yellow, red);
+    draw(A--D, red);
+    draw(B--E, red);
+    draw(C--F, red);
+
+    pair T = extension(E, F, B, C);
+    draw(A--M, red);
+    draw(A--T--Q, orange+dashed);
+    draw(E--T--B, red);
+    draw(G--M, orange+dashed);
+
+    filldraw(circumcircle(A, E, F), opacity(0.1)+lightblue, blue);
+    filldraw(circumcircle(D, E, C), opacity(0)+lightblue, blue+dashed);
+    filldraw(circumcircle(D, F, B), opacity(0)+lightblue, blue+dashed);
+    filldraw(circumcircle(B, E, C), opacity(0.1)+lightgreen, green);
+    filldraw(circumcircle(D, A, C), opacity(0)+lightblue,  green+dashed);
+    filldraw(circumcircle(D, E, A), opacity(0)+lightblue,  green+dashed);
+    
+    filldraw(circumcircle(E, D, F), opacity(0)+lightred,  black);
+    dot("$A$", A, dir(A));
+    dot("$B$", B, dir(B));
+    dot("$C$", C, dir(C));
+    dot("$M$", M, dir(M));
+    dot("$H$", H, dir(H));
+    dot("$Q$", Q, dir(335));
+    dot("$D$", D, dir(D));
+    dot("$E$", E, dir(20));
+    dot("$F$", F, dir(F));
+    // dot("$T$", T, dir(T));
+    dot(T);
+    dot("$G$", G, dir(G));
+  \end{asy}
+  \caption{Banyak lingkaran di konfigurasi ortik! Dan banyak titik istimewa 0.0 [gambar asymptote \LaTeX nya ngambil dari Evan Chen, mohon ijin]}
+  \label{fig:HM}
+\end{figure}
+
+\subsection{$AH=2 \cdot OM$}
+Jika $O$ circumcenter $\triangle ABC$, maka berlaku $AH = 2\cdot OM$.
+Beberapa metode pembuktian
+\begin{itemize}
+    \item Kesebangunan + phantom point (mungkin?).
+    \item Homothety / Dilatasi.
+    \item Trigonometri.
+\end{itemize}
+\begin{figure}[h]
+  \centering
+  \begin{asy}
+    size(7cm);
+    pair A = dir(110);
+    pair B = dir(210);
+    pair C = dir(330);
+    pair M = midpoint(B--C);
+    pair H = orthocenter(A, B, C);
+    pair O = (0,0);
+
+    draw(A--B--C--cycle);
+    draw(A--H, red);
+    draw(O--M, red);
+
+    pair T = extension(A, O, H, M);
+    draw(A--T);
+    draw(H--T);
+
+    dot("$A$", A, dir(A));
+    dot("$B$", B, dir(B));
+    dot("$C$", C, dir(C));
+    dot("$M$", M, dir(M));
+    dot("$H$", H, dir(H));
+    dot("$O$", O, NW);
+    dot("$T$", T, dir(T));
+  \end{asy}
+  \caption{$AH=2OM$}
+  \label{fig:HM}
+\end{figure}
+
+\subsection{Contoh Soal}
+\begin{enumerate}
+\item Diberikan segitiga lancip $ABC$ dengan $AB>AC$. $BE$ dan $CF$ adalah garis tinggi $\triangle ABC$. Perpanjangan $EF$ memotong $BC$ di $P$. Jika $H$ adalah tiitk tinggi $\triangle ABC$ dan $D$ titik tengah $BC$, buktikan bahwa $PH \perp AD$.
+
+\item $\triangle ABC$ memilliki titik tinggi $H$ dan titik pusat lingkaran dalam $I$. Buktikan bahwa $A,B,H,I$ konsiklis $\iff$ $\angle ACB = 60^\circ$.
+
+ \item For any triangle $ABC$, if $H$ denotes its orthocenter, $r$ as its inradius, and $O$ as its circumcenter, prove that 
+ \begin{align*}
+     2AO = AH + 2r \iff AC+AB=2BC
+ \end{align*}
+
+ \item Diberikan segitiga lancip $ABC$ dengan $\angle A = 60^\circ$. Misalkan $H$ dan $I$ adalah berturut-turut adalah titik tinggi dan titik pusat lingkaran dalam segitiga $ABC$. Buktikan bahwa $AH \ge AI$ dengan kesamaan terjadi jika dan hanya jika $ABC$ sama sisi.
+
+ \item (OSP 2017) Diberikan segitiga $ABC$ yang ketiga garis tingginya berpotongan di titik $H$. Tentukan semua titik $X$ pada sisi $BC$ sehingga pencerminan $H$ terhadap titik $X$ terletak pada lingkaran luar segitiga $ABC$.
+
+ \item (OSN 2010) Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$ dan titik tinggi $H$. Misalkan $K$ sebarang titik di dalam segitiga $ABC$ yang tidak sama dengan $O$ maupun $H$. Titik $L$ dan $M$ terletak di luar segitiga $ABC$ sedemikian sehingga $AKCL$ dan $AKBM$ jajaran genjang. Terakhir, misalkan $BL$ dan $CM$ berpotongan di titik $N$ dan misalkan juga $J$ adalah titik tengah $HK$. Buktikan bahwa $KONJ$ jajaran genjang.
+ \end{enumerate}
+ 
+\section{Ex}
+Chapter ini sebagian besar diambil dari Chapter 1 Evan Chen's EGMO (Euclidean Geometry on Mathematical Olympiad). Sangat direkomendasikan (baca atau mati! becanda) agar mempelajarinya dengan baik di buku tersebut :).
+\begin{lemma}
+  [Incenter-Excenter Lemma]
+  Let $ABC$ be a triangle with incenter $I$, $A$-excenter $I_A$.
+  The circumcenter of cyclic quadrilateral $IBI_AC$
+  (that is, the midpoint of the diameter $\ol{II_A}$)
+  coincides with the arc midpoint $L$ of minor arc $BC$.
+\end{lemma}
+\begin{figure}[ht]
+  \centering
+  \begin{asy}
+    pair A = dir(110);
+    pair B = dir(210);
+    pair C = dir(330);
+    pair I = incenter(A, B, C);
+    draw(A--B--C--cycle);
+    draw(unitcircle);
+    pair L = dir(270);
+    pair I_A = 2*L-I;
+    filldraw(CP(L, I), opacity(0.2)+lightcyan, blue);
+
+    draw(A--I_A, dotted);
+
+    dot("$A$", A, dir(A));
+    dot("$B$", B, dir(190));
+    dot("$C$", C, dir(-10));
+    dot("$I$", I, dir(60));
+    dot("$L$", L, dir(225));
+    dot("$I_A$", I_A, dir(I_A));
+
+    /* Source generated by TSQ */
+  \end{asy}
+  \caption{The Incenter/Excenter Lemma / Fact 5 / Trillium theorem / chicken feet theorem (EGMO Lemma 1.18) [gambar asymptote \LaTeX nya ngambil dari Evan Chen, mohon ijin]}
+  \label{fig:fact5}
+\end{figure}
+
+\subsection{Contoh Soal}
+\begin{enumerate}
+\item (IMO 2006) Let $ABC$ be triangle with incenter $I$. A point $P$ in the interior of the triangle satisfies
+\begin{align*}
+    \angle PBA + \angle PCA = \angle PBC + \angle PCB.
+\end{align*}
+Show that $AP \ge AI$ and that equality holds if and only if $P=I$.
+
+\item (OSN 2018) Misalkan $I$ dan $O$ masing-masing menyatakan titik pusat lingkaran dalam dan lingkaran luar segitiga $ABC$. Lingkaran singgung luar $\omega_A$ dari segitiga $ABC$ menyinggung sisi $BC$ di $N$ serta menyinggung perpanjangan sisi $AB$ dan $AC$ masing-masing di $K$ dan $M$. Jika titik tengah dari ruas garis $KM$ berada pada lingkaran luar segitiga $ABC$, buktikan bahwa $O,I$, dan $N$ segaris.
+
+\item (USAMO 1988). Triangle $ABC$ has incenter $I$. Consider the triangle whose vertices are the circumcenters of $\triangle IAB$, $\triangle IBC$, $\triangle ICA$. Show that its circumcenter coincides with the circumcenter of $\triangle ABC$.
+
+\item (CGMO 2012). The incircle of a triangle $ABC$ is tangent to sides $AB$ and $AC$ at $D$ and $E$ respectively, and $O$ is the circumcenter of triangle $BCI$. Prove that $\angle ODB = \angle OEC$.
+
+\item (HMMT 2011). Let $ABCD$ be a cyclic quadrilateral, and suppose that $BC = CD = 2$. Let $I$ be the incenter of triangle $ABD$. If $AI = 2$ as well, find the minimum value of the length of diagonal $BD$.
+
+%\item (All Russian 2022 Grade 9) Given triangle $ABC$ with incenter $I$ and $A$-excenter $J$. Circle $\omega_b$ centered at point $O_b$ passes through point $B$ and is tangent to line $CI$ at point $I$. Circle $\omega_c$ with center $O_c$ passes through point $C$ and touches line $BI$ at point $I$. Let $O_bO_c$ and $IJ$ intersect at point $K$. Find the ratio $IK/KJ$.
+\end{enumerate}
+
+\end{document}

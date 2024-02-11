@@ -1,0 +1,140 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{LTE - Soal Latihan}
+\author{Azzam (IG: haxuv.world)}
+\date{Senin, 22 Januari 2024}
+
+\begin{document}
+\maketitle
+\section{\textit{p-adic valuation}}
+\begin{enumerate}
+    \item Prove that $\displaystyle\sum_{i=1}^{n} \dfrac{1}{i}$ is not an integer for $n \geq 2$.
+    
+    \item Prove that $\displaystyle\sum_{i=1}^{n} \dfrac{1}{2i+1}$ is not an integer for $n \geq 2$.
+    
+    \item Let $b, n > 1$ be integers. For all $k > 1$, there exists an integer $a_k$ so that $k | (b-a_k^n)$. Prove that $b = m^n$ for some integer $m$.
+    
+    \item (Canada) Find all positive integers $n$ such that $2^{n-1}|n!$.
+    
+    \item Find all positive integers $n$ such that $n | (n-1)!$.
+    
+    \item Prove that for any positive integer $n$, the quantity $\frac{1}{n+1}\binom{2n}{n}$ is an integer. Do not use binomial identities.
+    
+    \item (Putnam 2003). Show that for each positive integer $n$, $n! = \displaystyle\prod_{i=1}^n \operatorname{lcm}(1,2,...,\floor{\frac{n}{i}})$.
+    
+    \item Prove that for all positive integers $n$, $n!$ divides $\displaystyle\prod_{k=0}^{n-1} (2^n-2^k)$.
+    
+    \item (USAMO 1975) (a) Prove that \[ \floor{5x}+\floor{5y} \ge \floor{3x+y}+\floor{3y+x},\] where $ x,y \ge 0$.
+    (b) Using (a) or otherwise, prove that \[ \frac{(5m)!(5n)!}{m!n!(3m+n)!(3n+m)!}\] is integral for all positive integral $ m$ and $ n$. 
+
+    \item (IMO 1968) Let $n$ be a natural number. Prove that\[ \left\lfloor \frac{n+2^0}{2^1} \right\rfloor + \left\lfloor \frac{n+2^1}{2^2} \right\rfloor +\cdots +\left\lfloor \frac{n+2^{n-1}}{2^n}\right\rfloor =n. \]
+    
+    \item Carilah nilai $\upsilon_3(17!)$.
+    
+    \item Tentukan banyak angka 0 berturut-turut di belakang angka $103!$ .
+    
+    \item Buktikan bahwa $\upsilon_2(\binom{2n}{n})$ bernilai sama dengan banyaknya angka $1$ pada representasi biner dari $n$.
+    
+    \item Diberikan bilangan komposit $n$ dan $p$ pembagi prima dari $n$. Buktikan $\upsilon_p((2n)!) \geq 2+\upsilon_p(n!)$.
+\end{enumerate}
+
+\section{LTE}
+\begin{enumerate}[resume]
+    \item Let $p > 2013$ be a prime. Also, let $a$ and $b$ be positive integers such that $p|(a + b)$ but $p^2 \nmid  (a + b)$. If $p^2|(a^{2013} + b^{2013})$ then find the number of positive integer $n \leq 2013$ such that $p^n|(a^{2013} + b^{2013})$.
+    
+    \item (AMM). Let $a$, $b$, $c$ be positive integers such that $c | a^c-b^c$. Prove that $c | \frac{a^c-b^c}{a-b}$.
+    
+    \item (IMO 1999). Find all pairs of positive integers $(x, p)$ such that $p$ is prime, $x \leq 2p$, and $x^{p-1} | (p - 1)^x + 1$.
+    
+    \item (China TST 2009). Let $a > b > 1$ be positive integers and $b$ be an odd number, let $n$ be a positive integer. If $b|a^n-1$ prove that $a^b > \frac{3^n}{n}$.
+    
+    \item Tentukan semua pasangan bilangan bulat $(a,b)$ dengan $a,b > 1$ yang memenuhi 
+    \begin{align*}
+        b^a \mid a^b -1
+    \end{align*}
+    
+    \item Tentukan banyak tupel bulat positif $(x,y,z)$ sehingga
+    \begin{align*}
+        x^{2009}+y^{2009} = 7^z.
+    \end{align*}
+    
+    \item Buktikan bahwa $a^{a-1}-1$ selalu memiliki faktor bilangan kuadrat sempurna untuk setiap bilangan bulat $a > 2$.
+    
+    \item Tentukan semua bilangan asli $a$ sehingga
+    \begin{align*}
+        \dfrac{5^a+1}{3^a} \in \mathbb{Z}.
+    \end{align*}
+    
+    \item Misalkan $a,n$ adalah dua bilangan asli dan $p$ adalah bilangan prima ganjil sedemikian sehingga
+    \begin{align*}
+        a^p \equiv 1 \mod p^n.
+    \end{align*}
+    Buktikan bahwa $a \equiv 1 \mod p^{n-1}.$
+
+    \item (IMO 1990) Tentukan semua bilangan asli $n > 1$ sehingga 
+    \begin{align*}
+        \dfrac{2^n+1}{n^2} \in \ZZ.
+    \end{align*}
+    
+    \item  Diberikan fungsi kuadrat $f(x) = x^2 + px + q$ dengan $p$ dan $q$ merupakan bilangan bulat. Misalkan $a$, $b$, dan $c$ adalah bilangan bulat berbeda sehingga $2^2020$ habis membagi $f(a)$, $f(b)$, dan $f(c)$, tetapi $2^1000$ tidak habis membagi $b-a$ dan $c-a$. Buktikan bahwa $2^1021$ habis membagi $b-c$.
+    
+    \item (UNESCO 1995) Misal $a,n$ adalah bilangan bulat positif dan $p$ prima ganjil sehingga $$a^p \equiv 1 \pmod{p^n}$$ Buktikan bahwa $$a \equiv 1 \pmod{p^{n-1}}$$ 
+    
+    \item  Diberikan $p$ merupakan bilangan prima. Tentukan semua penyelesaian dari $a^p - 1 = p^k$ dengan $a$, $k$ merupakan bilangan bulat positif.
+    
+    \item (Russia 1996)  Misal $x$, $y$, $p$, $n$, $k$ adalah bilangan bulat postif dengan $n$ ganjil dan $p$ bilangan prima ganjil. Buktikan bahwa jika $x^n + y^n = p^k$ maka terdapat $k\in\mathbb{N}$ sehingga $n=p^k$. 
+    
+    \item  Buktikan $a^{a-1} - 1$ tidak mungkin merupakan bilangan \textit{square-free}. (Tidak ada bilangan kuadrat lebih dari $1$ yang membagi $a^{a-1} - 1$).
+    
+    \item Let $a$ and $b$ be positive integers such that $a|b^2,b^2|a^3,a^3|b^4,b^4|a^5,....$. Prove that $a=b$
+    
+    \item  Misal $a$, $b$ merupakan bilangan rasional sehingga $a^i - b^i$ bulat untuk setiap $i \in \mathbb{N}$. Buktikan bahwa $a$ dan $b$ merupakan bilangan bulat.
+    
+    \item (MEMO 2015) Tentukan semua pasangan bilangan bulat positif $(a,b)$ sehingga
+    $$a!+b!=a^b + b^a.$$ 
+    
+    \item (EGMO 2020) Diberikan barisan bilangan bulat positif $a_0, a_1, a_2, \ldots, a_{3030}$ yang memenuhi $$2a_{n + 2} = a_{n + 1} + 4a_n \text{ for } n = 0, 1, 2, \ldots, 3028.$$
+    Buktikan setidaknya $1$ dari $a_0, a_1, a_2, \ldots, a_{3030}$ habis dibagi oleh $2^{2020}$. 
+    
+    \item  Misal $ k > 1$ merupakan bilangan bulat positif. Buktikan bahwa terdapat tak hingga bilangan bulat positif $n$ sehingga memenuhi
+    $$n | 1^n + 2^n + 3^n + \cdots +k^n$$
+
+    \item Untuk setiap bilangan asli $k>1$, didefinisikan $S_k$ sebagai himpunan yang memuat triple bilangan asli $(n,a,b)$, dengan $n$ ganjil dan $\gcd (a,b)=1$, sehingga $a+b=k$ dan $n$ habis membagi $a^n+b^n$. Tentukan semua bilangan asli $k$ sehingga $S_k$ memiliki berhingga anggota.
+
+    \item (IMO SL 2014) Tentukan semua tripel bilangan asli $(p, x, y)$ dengan $p$ merupakan bilangan prima sehingga memenuhi $x^{p -1} + y$ and $x + y^ {p -1}$ berbentuk perpangkatan dari $p$ ($p^k$). 
+
+    \item (Bulgaria) Buktikan apabila $3^n-2^n$ merupakan perpangkatan dari suatu bilangan prima ($p^a$), maka $n$ merupakan bilangan prima.
+\end{enumerate}
+
+\end{document}

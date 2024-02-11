@@ -1,0 +1,247 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{POP: Power Of a Point}
+\author{Azzam (IG: haxuv.world)}
+\date{Rabu, 24 Januari 2024}
+
+\begin{document}
+\maketitle
+POP - Power of a Point, kuasa titik, Bukan produk Microsoft untuk presentasi (tapi kalo dilakukan pencarian di Microsoft Bing, banyak keluar Microsoft Power Point bruh) adalah teknik seperti musik POP, sering kita dengar, namun hanya sekedar dengar, tetapi sedikit yang mau menganalisis dan menelusuri lebih dalam \textit{core} dan teknik \textit{advanced} dalam menggunakan ini.
+
+\section{Power of a Point Theorem}
+\begin{figure}[h]
+  \begin{asy}
+    unitsize(1.5cm);
+    pair O, A, B, C, D, E, P;
+    O = (0,0);
+    P = (4,1);
+    E = (0,1);
+    A = dir(50);
+    C = dir(-30);
+    circle o = circumcircle(A,E,C);
+    draw(o);
+    pair B1[] = intersectionpoints(line(A,P), o);
+    pair D1[] = intersectionpoints(line(C,P), o);
+    B = B1[0];
+    D = D1[0];
+    draw(A--B);
+    draw(C--D);
+    draw(P--A);
+    draw(P--D);
+    draw(P--E, red);
+    draw(P--O, blue+dotted);
+    label("$O$",O,SW);
+    label("$A$",A,E);
+    label("$B$",B,N);
+    label("$C$",C,SE);
+    label("$D$",D,SW);
+    label("$P$",P,NE);
+    label("$E$",E,N);
+    \end{asy}
+    \begin{asy}
+    unitsize(1.5cm);
+    pair O, A, B, C, D, P;
+    O = (0,0);
+    A = dir(50);
+    C = dir(130);
+    D = dir(-30);
+    B = dir(-110);
+    P = extension(A,B,C,D);
+    draw(circumcircle(A,B,C));
+    draw(A--B);
+    draw(C--D);
+    draw(A--C--B--D--cycle);
+    draw(O--P, dotted);
+    label("$O$",O,SW);
+    label("$A$",A,E);
+    label("$B$",B,SW);
+    label("$C$",C,NW);
+    label("$D$",D,SE);
+    label("$P$",P,E);
+    \end{asy}
+\end{figure}
+\begin{definition}
+    Diberikan lingkaran $\omega$ dengan titik pusat $O$ dan panjang jari-jari $r$, serta titik $P$. Kuasa atau \textit{power} dari titik $P$ terhadap $\omega$ didefinisikan dengan
+    $$\text{Pow}_\omega(P)=OP^2-r^2.$$
+\end{definition}
+\begin{theorem}
+    Jika $A,B,C,D, E$ adalah titik pada lingkaran $\omega$ dengan pusat $O$, $P$ adalah perpotongan antara $AB$ dengan $CD$, dan $PE$ adalah garis singgung lingkaran $\omega$ (jika $P$ di luar $\omega$) maka berlaku
+    $$|\text{Pow}_\omega(P)|=PA \cdot PB = PC \cdot PD = PE^2$$
+\end{theorem}
+\subsection{Contoh Soal}
+\begin{enumerate}
+    \item (2020 AMC12B). In unit square $ABCD$, the inscribed circle $\omega$ intersects $CD$ at $M$, and $AM$ intersects $\omega$ at a point $P$ different from $M$. What is $AP$?
+\item Point $P$ is chosen on the common chord of circles $C1$ and $C2$. Assume that $P$ lies outside of both circles. Prove that the length of the tangent from $P$ to $C1$ is equal to the length of the tangent from $P$ to $C2$.
+\item Let $\omega$ and $\gamma$ be two circles intersecting at $P$ and $Q$. Let their common external tangent touch $\omega$ at $A$ and $\gamma$ at $B$. Prove that $PQ$ passes through the midpoint $M$ of $AB$.
+\item (2019 AIME I). In convex quadrilateral $KLMN$ side $MN$ is perpendicular to diagonal $KM$, side $KL$ is perpendicular to diagonal $LN$, $MN = 65$, and $KL = 28$. The line through $L$ perpendicular to side $KN$ intersects diagonal $KM$ at $O$ with $KO = 8$. Find $MO$.
+\item Let $\triangle ABC$ be equilateral, have side length 1, and have circumcircle $\omega$. A chord of $\omega$ is trisected by $AB$ and $AC$. What is the length of this chord?
+ \end{enumerate}
+\section{Radical Axis}
+\begin{definition}
+    Diberikan dua lingkaran tidak konsentris (satu pusat yang sama) $\omega_1$ dan $\omega_2$, maka ada sebuah garis $\ell$ yang mengandung semua titik $P$ sehingga $\text{Pow}_{\omega_1}(P) = \text{Pow}_{\omega_2}(P)$. Garis $\ell$ tersebut adalah \textit{radical axis} dari lingkaran $\omega_1$ dan $\omega_2$.
+\end{definition}
+\begin{figure}[h]
+\centering
+    \begin{asy}
+    
+size(6cm);
+pair O_1 = dir(220);
+pair O_2 = dir(320);
+pair O = dir(110);
+pair T = foot(O, O_1, O_2);
+pair X = midpoint(O--T);
+pair Y = 2*T-X;
+
+filldraw(CP(O_1, X), opacity(0.1)+lightcyan, lightblue);
+filldraw(CP(O_2, X), opacity(0.1)+lightcyan, lightblue);
+
+draw(O--Y, red+dashed);
+
+dot("$O_1$", O_1, dir(O_1));
+dot("$O_2$", O_2, dir(O_2));
+dot("$O$", O, dir(O));
+dot("$X$", X, dir(100));
+dot("$Y$", Y, dir(Y));
+
+/* TSQ Source:
+
+O_1 = dir 220
+O_2 = dir 320
+O = dir 110
+T := foot O O_1 O_2
+X = midpoint O--T R100
+Y = 2*T-X
+
+CP O_1 X 0.1 lightcyan / lightblue
+CP O_2 X 0.1 lightcyan / lightblue
+
+O--Y red dashed
+
+*/
+\end{asy}
+\end{figure}
+
+\begin{theorem}
+    \textit{Radical axis} antar pasangan lingkaran dari tiga lingkaran yang diberikan akan bertemu di satu titik.
+\end{theorem}
+\begin{figure}[h]
+\centering
+\begin{asy}
+pair O_1 = dir(220);
+pair O_2 = dir(320);
+pair O = dir(110);
+pair T = foot(O, O_1, O_2);
+pair X = midpoint(O--T);
+pair Y = 2*T-X;
+
+filldraw(CP(O_1, X), opacity(0.1)+lightcyan, lightblue);
+filldraw(CP(O_2, X), opacity(0.1)+lightcyan, lightblue);
+
+draw(O--Y, red+dashed);
+
+pair K = foot(O_1, O, O_2);
+pair P = IP(O_1--K, CP(O_2, X));
+pair Q = 2*K-P;
+draw(O_1--Q, red);
+draw(O--O_2, heavycyan);
+
+pair L = foot(O_2, O, O_1);
+pair R = IP(O_2--L, CP(O_1, X));
+pair S = 2*L-R;
+draw(O_2--S, red);
+draw(O--O_1, heavycyan);
+
+draw(arc(O, abs(P-O), 180, 360), heavygreen);
+
+dot("$O_1$", O_1, dir(O_1));
+dot("$O_2$", O_2, dir(O_2));
+dot("$O$", O, dir(O));
+dot("$X$", X, dir(100));
+dot("$Y$", Y, dir(Y));
+dot("$P$", P, dir(120));
+dot("$Q$", Q, dir(Q));
+dot("$R$", R, dir(40));
+dot("$S$", S, dir(S));
+
+/* TSQ Source:
+
+O_1 = dir 220
+O_2 = dir 320
+O = dir 110
+T := foot O O_1 O_2
+X = midpoint O--T R100
+Y = 2*T-X
+
+CP O_1 X 0.1 lightcyan / lightblue
+CP O_2 X 0.1 lightcyan / lightblue
+
+O--Y red dashed
+
+K := foot O_1 O O_2
+P = IP O_1--K CP O_2 X R120
+Q = 2*K-P
+O_1--Q red
+O--O_2 heavycyan
+
+L := foot O_2 O O_1
+R = IP O_2--L CP O_1 X R40
+S = 2*L-R
+O_2--S red
+O--O_1 heavycyan
+
+!draw(arc(O, abs(P-O), 180, 360), heavygreen);
+
+*/
+\end{asy}
+\end{figure}
+
+\subsection{Contoh Soal}
+\begin{enumerate}
+    \item (2017 AMC12B). A circle has center $(-10, -4)$ and radius $13$. Another circle has center $(3, 9)$ and radius $\sqrt{65}$. The line passing through the two points of intersection of the two circles has equation $x + y = c$. What is $c$?
+\item Given two non-intersecting circles, can you construct their radical axis using a compass and a straightedge?
+\item Let $\triangle ABC$ have orthocenter $H$. Points $D$ and $E$ lie on sides $AB$ and $AC$, respectively. Prove that $H$ lies on the radical axis of the circle with diameter $CD$ and the circle with diameter $BE$.
+\item (USAJMO 2012). Given a triangle $ABC$, let $P$ and $Q$ be points on segments $AB$ and $AC$, respectively, such that $AP = AQ$. Let $S$ and $R$ be distinct points on segment $BC$ such that $S$ lies between $B$ and $R$, $\angle BPS = \angle PRS$, and $\angle CQR = \angle QSR$. Prove that $P, Q, R, S$ are concyclic.
+ \end{enumerate}
+
+ \section{Degenerate Circles}
+Ingat bahwa secara teknis, titik adalah sebuah lingkaran dengan jari-jari 0. Dari sifat tersebut kita dapat mengeksploitasi sifat lingkaran untuk memanipulasi titik (sounds magic isn't it?!).
+
+\begin{enumerate}
+    \item Prove that the perpendicular bisectors of the sides of a triangle are concurrent.
+\item Let $ABC$ be a triangle with circumcenter $O$ and $P$ be a point. Let the tangent to the circumcircle of $\triangle BPC$ at $P$ intersect $BC$ at $A'$. Define points $B' \in CA$ and $C' \in AB$ similarly. Prove that points $A'$, $B'$, $C'$ are collinear on a line perpendicular to $OP$.
+\item (Lemma) Let $P$ be a point outside circle $\omega$. The tangents to $\omega$ at $P$ meet $\omega$ at distinct points $A$ and $B$. Then the $P$-midline of $\triangle PAB$ is the radical axis of circle $(P)$ and $\omega$.
+\item In acute triangle $ABC$, angle $B$ is greater than angle $C$. Let $M$ is the midpoint of $BC$. Let $D$ and $E$ are the feet of the altitude from $C$ and $B$, respectively. Let $K$ and $L$ are the midpoint of $ME$ and $MD$, respectively. If $KL$ intersects the line through $A$ parallel to $BC$ in $T$, prove that $TA = TM$.
+\end{enumerate}
+
+\end{document}

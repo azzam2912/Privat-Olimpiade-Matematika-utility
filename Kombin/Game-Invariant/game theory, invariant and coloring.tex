@@ -1,0 +1,126 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Game Theory, Invariant and Coloring}
+\author{Azzam (IG: haxuv.world)}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Combinatorial Games}
+\begin{soaljawab}
+    Akira dan Benjiro mempunyai tak hingga banyaknya koin bundar yang identik. Akira dan Benjiro bergantian menaruh koin tersebut di meja persegi yang ukurannya terbatas (finit) sehingga tidak ada dua koin yang saling bertumpuk dan setiap koin tepat di atas meja (jadi tidak ada yang koin yang menggantung di pinggiran meja sehingga bisa jatuh). Orang yang tidak bisa menempatkan koin di meja saat gilirannya dinyatakan kalah. Asumsikan setidaknya satu koin dapat ditaruh di meja. Jika Akira main duluan, buktikan bahwa Akira punya strategi menang.
+
+        \begin{solusi}[\textbf{Contoh Solusi}]
+    Akan ditunjukkan bahwa Akira punya strategi menang. Pertama, Akira menaruh koin tepat di tengah meja. Lalu, untuk selanjutnya setiap Benjiro menaruh koin di titik $K$ (selain di tengah meja), maka Akira akan mengikuti menaruh koin di titik $K'$ dimana $K'$ adalah pencerminan dari titik $K$ terhadap titik tengah meja. Dari kesimetrisan tersebut, dapat dipastikan bahwa Akira selalu dapat menaruh koinnya setelah Benjiro menaruh koin. Karena mejanya mempunyai ukuran terbatas, maka suatu saat setelah beberapa giliran, akan ada orang yang kalah karena tidak dapat menaruh koinnya. Karena Akira pasti dapat selalu menaruh koinnya, maka pasti Benjiro kalah dan Akira menang. Terbukti. \qed
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+Xeratha dan Haxuv sedang memainkan Cram, dimana giliran pertama dimainkan Xeratha dan mereka bergantian menempatkan domino (ubin berukuran $1 \times 2$ atau $2 \times 1$) pada grid persegi panjang $m \times n$ dan $mn$ bernilai genap. Xeratha maupun Haxuv harus menempatkan ubin domino berukuran secara vertikal atau horizontal, dengan ubin domino tersebut tidak boleh tumpang tindih atau keluar dari papan. Pemain yang tidak bisa melakukan langkah untuk pertama kalinya dinyatakan kalah dan pemain yang dapat melakukan langkah terakhir dinyatakan sebagai pemenang. Jika diberikan $m$ dan $n$, tentukan siapa yang memiliki strategi kemenangan, dan jelaskan strateginya.
+\end{soaljawab}
+
+\begin{soaljawab}
+Permainan catur ganda adalah permainan seperti catur biasa, tetapi bedanya setiap pemain melakukan dua langkah di setiap gilirannya (putih bermain dua kali, kemudian hitam bermain dua kali, dan seterusnya). Tunjukkan bahwa putih selalu bisa menang atau seri. (Putih bermain duluan)
+\end{soaljawab}
+
+\begin{soaljawab}
+Sakura dan Hinata bermain sebuah permainan dimana mereka pada awalnya nilai $x=0$ dan mereka bergantian menambahkan salah satu angka dari $S=\{1,2,\dots,10\}$ ke $x$. Pemain yang pertama kali membuat $x$ bernilai $1320$ menang. Jika Sakura memainkan giliran pertama, siapakah yang memiliki strategi menang?
+\end{soaljawab}
+
+\begin{soaljawab}
+Ada tiga ember kosong di atas meja. Anya, Loid, dan Yor meletakkan kenari satu per satu ke dalam ember secara bergantian, dengan urutan yang ditentukan oleh Loid di awal permainan. Dengan demikian, Anya meletakkan kenari di ember pertama atau kedua, Loid meletakkan di ember kedua atau ketiga, dan Yor meletakkan di ember pertama atau ketiga. Pemain yang setelah gilirannya membuat ada tepat 2023 kenari di salah satu ember dinyatakan sebagai pemain yang kalah. Tunjukkan bahwa Anya dan Yor dapat bekerja sama sehingga membuat Loid kalah.
+\end{soaljawab}
+
+% MO for girl 2022  (UKMT)
+\begin{soaljawab}
+    Freya dan Greesel sedang memainkan sebuah permainan. Pertama, Freya memilih sebuah bilangan bulat $a$. Lalu, Greesel memilih sebuah bilangan bulat $b$ dimana $a,b \in \{1,2,\dots,2023\}$. Setelah $a$ dan $b$ terpilih, mereka berdua membuar sebuah barisan $(c_n)$ dimana $c_n = an + b$ untuk $n = 1,2,\dots$. Jika setidaknya salah satu suku dari barisan $(c_n)$ habis dibagi 10 maka Freya menang dan jika tidak ada yang habis dibagi 10, Greesel yang menang. Berapa banyak nilai $a$ sehingga dijamin Freya dapat memenangkan permainan tersebut terlepas dari apapun bilangan $b$ yang dipilih Greesel?
+\end{soaljawab}
+
+% JMO 2023
+\begin{soaljawab}
+Dua pemain, Budi dan Rayyan, bermain permainan berikut pada sebuah grid tak berhingga yang tersusun atas kotak satuan, yang pada keadaan awal semuanya berwarna putih. Para pemain bergantian dengan Budi bergiliran pertama. Pada giliran Budi, ia memilih satu kotak satuan putih dan memberinya warna biru. Pada giliran Rayyan, ia memilih dua kotak satuan putih dan memberinya warna merah. Para pemain bergantian sampai Budi memutuskan untuk mengakhiri permainan. Pada saat ini, Budi mendapatkan skor yang menyatakan banyaknya kotak satuan di dalam poligon sederhana terbesar (dalam hal luas) yang hanya berisi kotak satuan biru. Berapakah skor terbesar yang bisa didapat oleh Budi?
+
+(Suatu poligon sederhana adalah poligon (tidak harus konveks) atau daerah yang tidak berpotongan dengan dirinya sendiri dan tidak memiliki lubang)
+\end{soaljawab}
+
+\section{Invariant + Coloring}
+\begin{soaljawab}
+    2023 koin akan diletakkan pada papan berukuran $n \times n$ sedemikian sehingga selisih banyaknya koin pada setiap 2 persegi yang bertetangga adalah 1. Jika 2 persegi disebut bertetangga apabila mereka mempunyai atau berbagi satu sisi yang sama, carilah nilai $n$ terbesar yang mungkin.
+        \begin{solusi}[\textbf{Contoh Solusi}]
+        Perhatikan karena setiap persegi panjang berukuran $2 \times 1$ atau $1 \times 2$ memiliki setidaknya 1 koin, maka $n^2 \le 2023 \times 2$, sehingga $n \le 63$. Akan ditunjukkan bahwa $n=63$ mungkin tercapai.
+
+        Warnai papan 63x63 ini seperti papan catur dengan 1984 kotak hitam dan 1985 kotak putih. Dikarenakan 2023 ganjil, letakkan 1 koin ke setiap 1985 kotak putih yang ada. 38 koin yang tersisa dapat diletakkan pada 16 kotak hitam secara acak dengan setiap kotak tersebut mengandung 2 koin. Hal ini memenuhi soal sehingga $n$ maksimal adalah 63. Terbukti.
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+    Apakah mungkin untuk berjalan pada taman yang menyerupai papan catur $8 \times 8$ sehingga anda hanya bisa berjalan melewati setiap kotak $1 \times 1$ tepat sekali dengan kotak awal dan kotak akhir perjalanan tersebut berada pada ujung-ujung (corner) yang saling berlawanan? (Anda hanya diperbolehkan berjalan ke kotak yang bertetangga atau tepat bersebelahan dari kotak anda sekarang).
+\end{soaljawab}
+
+\begin{soaljawab}
+    Diketahui bahwa delapan persegi panjang berukuran $1 \times 3$ dan satu kotak berukuran $1 \times 1$ menutup papan berukuran $5 \times 5$. Tunjukkan bahwa kotak berukuran $1 \times 1$ tersebut harus berada di tengah papan. (persegi panjang berukuran $1 \times 3$ dan $3 \times 1$ dianggap sama)
+\end{soaljawab}
+
+\begin{soaljawab}
+    Dapatkah papan $8\times8$ ditutupi dengan lima belas persegi panjang $1\times4$ dan satu buah persegi $2\times2$ tanpa tumpang tindih?
+\end{soaljawab}
+
+\begin{soaljawab}
+    Misalkan $m,n > 2$ adalah bilangan bulat. Warnai setiap persegi $1\times1$ dari papan $m\times n$ dengan warna hitam atau putih (tetapi tidak keduanya). Jika dua persegi $1\times1$ yang tepat saling bersebelahan memiliki warna yang berbeda, maka sebut pasangan persegi ini sebagai pasangan "roman". Definisikan $S$ menjadi jumlah pasangan roman di papan $m\times n$. Buktikan bahwa genap atau ganjilnya $S$ hanya tergantung pada persegi $1\times1$ pada pinggiran papan selain 4 persegi $1\times1$ di ujung-ujung sudut papan.
+\end{soaljawab}
+
+\begin{soaljawab}
+    Terdapat 1004 titik yang berbeda pada sebuah bidang. Hubungkan setiap pasang titik tersebut dan tandai titik tengah dari segmen garis ini dengan warna hitam. Buktikan bahwa terdapat setidaknya 2005 titik hitam pada bidang tersebut dan buktikan ada satu himpunan berisi 1004 titik berbeda yang menghasilkan tepat 2005 titik hitam pada titik tengah dari segmen garis yang menghubungkan pasangan titik-titik tersebut.
+\end{soaljawab}
+
+\begin{soaljawab}
+    Di bidang kartesius, sebuah titik $(x,y)$ disebut sebagai titik letis jika dan
+hanya jika $x$ dan $y$ adalah bilangan bulat. Misalkan ada sebuah segi lima konveks $ABCDE$
+yang titik-titiknya adalah titik letis dan panjang kelima sisinya adalah bilangan bulat.
+Buktikan bahwa keliling segi lima $ABCDE$ adalah bilangan bulat genap.
+\end{soaljawab}
+
+\begin{soaljawab}
+    Sebuah kisi berukuran $5 \times 5$ yang setiap kotaknya berisi lampu-lampu, mengalami kerusakan. Kerusakan ini mengakibatkan setiap memencet sakelar sebuah lampu menyebabkan setiap lampu yang bersebelahan di baris yang sama dan kolom yang sama (beserta lampu itu sendiri) berubah keadaannya, dari nyala menjadi mati, atau dari mati menjadi nyala. Awalnya semua lampu dimatikan. Setelah beberapa kali pemutaran sakelar, tepat satu lampu menyala. Temukan semua posisi yang mungkin dari lampu ini.
+\end{soaljawab}
+
+\begin{soaljawab}
+    % nordic 2020
+    Ultrawati memiliki $2n + 1$ kartu dengan sebuah angka ditulis pada setiap kartu. Pada salah satu kartu terdapat angka 0, dan di antara sisa kartu yang ada, bilangan bulat $k = 1, \dots, n$ muncul masing-masing dua kali. Ultrawati ingin meletakkan kartu-kartu tersebut dalam satu baris sedemikian sehingga kartu 0 berada di tengah, dan untuk setiap $k = 1, ..., n$, kedua kartu dengan angka $k$ memiliki jarak $k$ (yang berarti ada tepat $k - 1$ kartu di antara mereka). Untuk nilai $n$ berapa saja, dengan $1 \le n \le 10$, hal ini dimungkinkan?
+\end{soaljawab}
+
+
+\end{document}

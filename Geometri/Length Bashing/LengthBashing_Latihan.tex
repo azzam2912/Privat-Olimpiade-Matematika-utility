@@ -1,0 +1,105 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Length Bashing - Soal Latihan}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Cara Halal}
+\begin{enumerate}
+    \item Let $ABCD$ be a convex quadrilateral. Let diagonals $AC$ and $BD$ intersect at $P$. Let $PE$, $PF$, $PG$ and $PH$ are altitudes from $P$ on the side $AB$, $BC$, $CD$ and $DA$ respectively. Show that $ABCD$ has a incircle if and only if
+    $$\dfrac{1}{PE}+\dfrac{1}{PG}=\dfrac{1}{PF}+\dfrac{1}{PH}.$$
+
+    \item Consider an acute-angled triangle $ABC$. Let $P$ be the foot of the altitude of triangle $ABC$ issuing from the vertex $A$, and let $O$ be the circumcentre of triangle $ABC$. Assume that $\angle C \geq \angle B + 30^\circ$. Prove that $\angle A + \angle COP < 90^\circ$.
+
+    \item Let $ABC$ be an acute triangle with $O$ as its circumcentre. Line $AO$ intersects $BC$ at $D$. Points $E$ and $F$ are on $AB$ and $AC$ respectively such that $A$, $E$, $D$, $F$ are concyclic. Prove that the length of the projection of line segment $EF$ on side $BC$ does not depend on the positions of $E$ and $F$.
+
+    \item Let $A_1$ be the center of the square inscribed in acute triangle $ABC$ with two vertices of the square on side $BC$. Thus one of the two remaining vertices of the square is on side $AB$ and the other is on $AC$. Points $B_1$, $C_1$ are defined in a similar way for inscribed squares with two vertices on sides $AC$ and $AB$, respectively. Prove that lines $AA_1$, $BB_1$, $CC_1$ are concurrent.
+
+    \item Suppose $ABCD$ is a cyclic quadrilateral and $r_1$, $r_2$, $r_3$, $r_4$ are respectively the inradii of triangles $ABC$, $ADC$, $BAD$, $BCD$ respectively. Show that $r_1 + r_2 = r_3 + r_4$.
+
+    % \item $ABCDE$ is a convex pentagon satisfying $\angle ABC = 120^\circ$, $\angle CDE = 60^\circ$, $AB = BC$, $CD = DE$, and $BD = 2$. Find the area of $ABCDE$.
+
+    \item Let $I$ be the incenter of triangle $ABC$ and let ray $AI$ meet the circumcircle of $ABC$ at $D$. Denote the feet of the perpendiculars from $I$ to lines $BD$ and $CD$ by $E$ and $F$, respectively. If $IE + IF = \frac{1}{2} AD$, calculate $\angle BAC$.
+
+    \item Let $ABC$ be a triangle with $\angle BAC = 60^\circ$. Let $AP$ bisect $\angle BAC$ and let $BQ$ bisect $\angle ABC$, with $P$ on $BC$ and $Q$ on $AC$. If $AB + BP = AQ + QB$, what are the angles of the triangle?
+
+
+    \item Let $ABC$ be a right-angle triangle with $\angle B = 90^\circ$. Let $D$ be a point on $AC$ such that the inradii of the triangles $ABD$ and $CBD$ are equal. If this common value is $r_0$ and if $r$ is the inradius of triangle $ABC$, prove that $\frac{1}{r_0} = \frac{1}{r} + \frac{1}{BD}$.
+
+
+    \item In an acute triangle $ABC$, let $O$, $G$, $H$ be its circumcentre, centroid and orthocentre, respectively. Let $D \in BC$, $E \in CA$ such that $OD \perp BC$, $HE \perp CA$. Let $F$ be the midpoint of $AB$. If the triangles $ODC$, $HEA$, $GFB$ have the same area, find all the possible values of $\angle C$.
+
+\end{enumerate}
+
+\section{Cara Makruh Tidak Suci}
+\begin{enumerate}[resume]
+    \item (PUMAC 2016) Let $ABCD$ be a square with side length 8. Let $M$ be the midpoint of $BC$ and let $\omega$ be the circle passing through $M$, $A$, and $D$. Let $O$ be the center of $\omega$, $X$ be the intersection point (besides $A$) of $\omega$ with $AB$, and $Y$ be the intersection point of $OX$ and $AM$. Find the length $OY$.
+
+    \item (AMC 2004 10B) In the right triangle $\triangle ACE$, we have $AC = 12$, $CE = 16$, and $EA = 20$. Points $B$, $D$, and $F$ are located on $AC$, $CE$, and $EA$, respectively, so that $AB = 3$, $CD = 4$, and $EF = 5$. What is the ratio of the area of $\triangle DBF$ to that of $\triangle ACE$?
+
+    \item (AMC 2005 10B) Equilateral $\triangle ABC$ has side length 2, $M$ is the midpoint of $AC$, and $C$ is the midpoint of $BD$. What is the area of $\triangle CDM$?
+
+    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+
+    \item Two circles centered at $O$ and $P$ have radii of length $5$ and $6$ respectively. Circle $O$ passes through point $P$. Let the intersection points of circles $O$ and $P$ be $M$ and $N$. Find the area of $\triangle MNP$.
+
+    % \item Let $ABC$ be a triangle with $AB = 13$, $BC = 14$, $CA = 15$. Let $O$ be its circumcenter and let $AD \perp BC$ with $D$ on $BC$. Suppose that $X$ is on $DC$ and $Y$ is on $AD$ such that $XY \parallel AO$ and $AX \perp YO$. Find the length of $BX$.
+
+
+    \item In acute triangle $ABC$ angle $B$ is greater than $C$. Let $M$ is midpoint of $BC$. $E$ and $F$ are the feet of the altitudes from $B$ and $C$ respectively. $K$ and $L$ are midpoint of $ME$ and $MF$ respectively. If $KL$ intersect the line through $A$ parallel to $BC$ in $P$, prove that $PA = PM$.
+
+    \item Let $\triangle ABC$ be a triangle with $D$ on $BC$. Suppose $AB = \sqrt{2}$, $AC = \sqrt{3}$, $\angle BAD = 30^\circ$, $\angle CAD = 45^\circ$. Find $AD$.
+
+    \item (AMC 2009 10B) Rectangle $ABCD$ has $AB = 8$ and $BC = 6$. Point $M$ is the midpoint of diagonal $AC$, and $E$ is on $AB$ with $ME \perp AC$. What is the area of $\triangle AME$?
+
+
+    \item (AMC 2018 10B) Let $ABCDEF$ be a regular hexagon with side length $1$. Denote by $X$, $Y$ , and $Z$ the midpoints of sides $AB$, $CD$, and $EF$, respectively. What is the area of the convex hexagon whose interior is the intersection of the interiors of $\triangle ACE$ and $\triangle XYZ$?
+
+
+    \item (PUMAC 2017) Triangle $ABC$ has $AB = BC = 10$ and $CA = 16$. The circle $\Omega$ is drawn with diameter $BC$. $\Omega$ meets $AC$ at points $C$ and $D$. Find the area of $\triangle ABD$.
+
+
+    \item (PUMAC 2012) Two circles centered at $O$ and $P$ have radii of length $5$ and $6$ respectively. Circle $O$ passes through point $P$. Let the intersection points of circles $O$ and $P$ be $M$ and $N$. Find the area of $\triangle MNP$.
+
+
+    \item (PUMAC 2018) Triangle $ABC$ has $\angle A = 90^\circ$, $\angle C = 30^\circ$, and $AC = 12$. Let the circumcircle of this triangle be $\omega$. Define $D$ to be the point on arc $BC$ not containing $A$ so that $\angle CAD = 60^\circ$. Define points $E$ and $F$ to be the foots of the perpendiculars from $D$ to lines $AB$ and $AC$, respectively. Let $J$ be the intersection of line $EF$ with $\omega$, where $J$ is on the minor arc $AC$. The line $DF$ intersects $W$ at $H$ other than at $D$. Find the area of the triangle $FHJ$.
+
+
+    \item (PUMAC 2018) Consider rectangle $ABCD$ with $AB = 30$ and $BC = 60$. Construct circle $T$ whose diameter is $AD$. Construct circle $S$ whose diameter is $AB$. Let circles $T$ and $S$ intersect at $P$, so that $Pneq A$. Let $AP$ intersect $BC$ at $E$. Let $F$ be the point on $AB$ so that $EF$ is tangent to the circle with diameter $AD$. Find the area of $\triangle AEF$.
+\end{enumerate}
+
+\end{document}

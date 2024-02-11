@@ -1,0 +1,96 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Directed Angle, Orthocenter and Excenter-Incenter Configuration}
+\author{Azzam (Instagram: haxuv.world)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Main Reference}
+Evan Chen, Euclidean Geometry in Mathematical Olympiad
+
+\section{Directed Angle}
+\begin{enumerate}
+    \item (OSN 2018) Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran yang bersinggungan di titik $A$ dengan $\Gamma_2$ di dalam $\Gamma_1$. Misalkan $B$ titik pada $\Gamma_2$ dan garis $AB$ memotong $\Gamma_1$ di titik $C$. Misalkan $D$ titik pada $\Gamma_1$ dan $P$ sebarang titik pada garis $CD$ (boleh pada perpanjangan segmen $CD$). Garis $BP$ memotong $\Gamma_2$ di titik $Q$. Tunjukkan bahwa $A, D, P, Q$ terletak pada satu lingkaran.
+
+    \item (Simson Line) Misalkan $\Gamma$ adalah lingkaran luar segitiga $ABC$. Misalkan pula $P$ adalah titik pada lingkaran $\Gamma$ dengan $K,L,M$ masing-masing adalah proyeksi titik $P$ ke garis $BC,CA,AB$. Tunjukkan bahwa $K,L,M$ segaris.
+\end{enumerate}
+
+\section{Orthocenter}
+\begin{enumerate}
+\item Diberikan segitiga lancip $ABC$ dengan $AB>AC$. $BE$ dan $CF$ adalah garis tinggi $\triangle ABC$. Perpanjangan $EF$ memotong $BC$ di $P$. Jika $H$ adalah tiitk tinggi $\triangle ABC$ dan $D$ titik tengah $BC$, buktikan bahwa $PH \perp 
+ AD$.
+ 
+ \item $\triangle ABC$ memilliki titik tinggi $H$ dan titik pusat lingkaran dalam $I$. Buktikan bahwa $A,B,H,I$ konsiklis $\iff$ $\angle ACB = 60^\circ$.
+
+ \item For any triangle $ABC$, if $H$ denotes its orthocenter, $r$ as its inradius, and $O$ as its circumcenter, prove that 
+ \begin{align*}
+     2AO = AH + 2r \iff AC+AB=2BC
+ \end{align*}
+
+ \item Diberikan segitiga lancip $ABC$ dengan $\angle A = 60^\circ$. Misalkan $H$ dan $I$ adalah berturut-turut adalah titik tinggi dan titik pusat lingkaran dalam segitiga $ABC$. Buktikan bahwa $AH \ge AI$ dengan kesamaan terjadi jika dan hanya jika $ABC$ sama sisi.
+
+ \item (OSP 2016) Misalkan $PA$ dan $PB$ adalah garis singgung lingkaran $\omega$ dari suatu titik $P$ di luar lingkaran. Misalkan $M$ adalah sebarang titik pada $AP$ dan $N$ adalah titik tengah $AB$. Perpanjangan $MN$ memotong $\omega$ di $C$ dengan $N$ di antara $M$ dan $C$. Misalkan $PC$ memotong $\omega$ di $D$ dan perpanjangan $ND$ memotong $PB$ di $Q$. Tunjukkan bahwa $MQ$ sejajar dengan $AB$.
+
+\item (Korea 2022) Let $ABC$ be an acute triangle with circumcenter $O$, and let $D$, $E$, and $F$ be the feet of altitudes from $A$, $B$, and $C$ to sides $BC$, $CA$, and $AB$, respectively. Denote by $P$ the intersection of the tangents to the circumcircle of $ABC$ at $B$ and $C$. The line through $P$ perpendicular to $EF$ meets $AD$ at $Q$, and let $R$ be the foot of the perpendicular from $A$ to $EF$. Prove that $DR$ and $OQ$ are parallel.
+
+\item (OSN 2010) Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$ dan titik tinggi $H$. Misalkan $K$ sebarang titik di dalam segitiga $ABC$ yang tidak sama dengan $O$ maupun $H$. Titik $L$ dan $M$ terletak di luar segitiga $ABC$ sedemikian sehingga $AKCL$ dan $AKBM$ jajaran genjang. Terakhir, misalkan $BL$ dan $CM$ berpotongan di titik $N$ dan misalkan juga $J$ adalah titik tengah $HK$. Buktikan bahwa $KONJ$ jajaran genjang.
+ \end{enumerate}
+ 
+\section{Excenter-Incenter}
+\begin{enumerate}
+\item (IMO 2006) Let $ABC$ be triangle with incenter $I$. A point $P$ in the interior of the triangle satisfies
+\begin{align*}
+    \angle PBA + \angle PCA = \angle PBC + \angle PCB.
+\end{align*}
+Show that $AP \ge AI$ and that equality holds if and only if $P=I$.
+
+\item (OSN 2018) Misalkan $I$ dan $O$ masing-masing menyatakan titik pusat lingkaran dalam dan lingkaran luar segitiga $ABC$. Lingkaran singgung luar $\omega_A$ dari segitiga $ABC$ menyinggung sisi $BC$ di $N$ serta menyinggung perpanjangan sisi $AB$ dan $AC$ masing-masing di $K$ dan $M$. Jika titik tengah dari ruas garis $KM$ berada pada lingkaran luar segitiga $ABC$, buktikan bahwa $O,I$, dan $N$ segaris.
+
+\item (All Russian 2022 Grade 9) Given triangle $ABC$ with incenter $I$ and $A$-excenter $J$. Circle $\omega_b$ centered at point $O_b$ passes through point $B$ and is tangent to line $CI$ at point $I$. Circle $\omega_c$ with center $O_c$ passes through point $C$ and touches line $BI$ at point $I$. Let $O_bO_c$ and $IJ$ intersect at point $K$. Find the ratio $IK/KJ$.
+
+\item (CGMO 2022) In triangle $ABC,AB>AC,I$ is the incenter, $AM$ is the midline. The line crosses $I$ and is perpendicular to $BC $ intersect $AM$ at point $L$, and the symmetry of $I$ with respect to point $A$ is $J$
+Prove that: $\angle ABJ= \angle LBI$.
+
+\item (Philippine 2022) In $\triangle ABC$, let $D$ be the point on side $BC$ such that $AB+BD=DC+CA.$ The line $AD$ intersects the circumcircle of $\triangle ABC$ again at point $X \neq A$. Prove that one of the common tangents of the circumcircles of $\triangle BDX$ and $\triangle CDX$ is parallel to $BC$.
+
+\item 	(Russia 2014) Let $ABC$ be a triangle with $AB>BC$ and circumcircle $\Omega$. Points $M$, $N$ lie on the sides $AB$, $BC$ respectively, such that $AM=CN$. Lines $MN$ and $AC$ meet at $K$. Let $P$ be the incenter of the triangle $AMK$, and let $Q$ be the $K$-excenter of the triangle $CNK$. If $R$ is midpoint of arc $ABC$ of $\Omega$ then prove that $RP=RQ$.
+
+\item Let $ABC$ be a triangle with circumcircle $\Omega$, and let $D$ be any point on $\ol{BC}$. We draw a \emph{curvilinear incircle} tangent to $\overline{AD}$ at $L$, to $\overline{BC}$ at $K$ and internally tangent to $\Omega$. Show that the incenter of triangle $ABC$ lies on $\overline{KL}$.
+\end{enumerate}
+
+\end{document}

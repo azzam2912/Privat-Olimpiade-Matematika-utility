@@ -1,0 +1,79 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Integer Bounding - Soal Latihan}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item (India TST 2001) Misalkan $a_1,a_2,\dots$ adalah sebuah barisan bilangan asli monoton naik dimana $FPB(a_m,a_n)=a_{FPB(m,n)}$ untuk setiap bilangan asli $m$ dan $n$. Terdapat bilangan asli terkecil $k$ sedemikian sehingga terdapat bilangan asli $r<k$ dan $s>k$ dengan yang memenuhi $a_k^2=a_ra_s$. Buktikan bahwa $r \mid k$ dan $k \mid s$.
+
+    \item (Bulgaria TST 2001) Carilah seluruh tripel bilangan bulat positif $(a,b,c)$ sedemikian sehingga $a^3+b^3+c^3$ habis dibagi $a^2b$, $b^2c$, dan $c^2a$.
+
+    \item Carilah seluruh bilangan prima $a,b,c$ yang memenuhi
+    \begin{align*}
+        ab+bc+ca > abc.
+    \end{align*}
+    
+    \item Jika $f: \ZZ \to \ZZ$ adalah fungsi dengan $f(x)=x^2+x$ untuk sembarang $x \in \ZZ$. Apakah terdapat $a,b \in \ZZ$ sehingga berlaku $4f(a)=f(b)$ ?
+    
+    \item Carilah seluruh tripel bilangan bulat nonnegatif $(x,y,z)$ yang memenuhi
+    \begin{align*}
+        x^3+2y^3=4z^3.
+    \end{align*}
+
+    \item Buktikan bahwa $\sqrt{3}$ adalah bilangan tak rasional.
+    
+    \item Jika $n$ adalah bilangan asli komposit, buktikan bahwa
+    \begin{align*}
+        \sigma(n) \ge n + \sqrt{n} + 1.
+    \end{align*}
+
+    \item Untuk setiap bilangan asli $n \ge 7$, tunjukkan bahwa
+    \begin{align*}
+        \sigma(n) < n \ln n.
+    \end{align*}
+\end{enumerate}
+
+\newpage
+\textbf{Catatan Definisi Arithmetics Function}
+\begin{itemize}
+    \item $\phi(n)$ adalah fungsi Euler Totient Phi yang menyatakan banyaknya bilangan asli kurang dari sama dengan $n$ yang relatif prima dengan $n$.
+    \item $\sigma(n)$ menyatakan jumlah seluruh faktor positif berbeda dari $n$.
+    \item $\tau(n)$ menyatakan banyaknya faktor positif berbeda dari $n$.
+\end{itemize}
+
+\end{document}

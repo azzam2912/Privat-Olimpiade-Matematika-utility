@@ -1,0 +1,103 @@
+\documentclass{article}[12pt]
+\usepackage{amsmath}
+
+\renewcommand{\baselinestretch}{1.5}
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1.5in}
+\addtolength{\textwidth}{1.9in}
+
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.9in} 
+
+\title{Geometry of OSN}
+\author{Selected and compiled by Azzam}
+\date{Jumat, 11 Desember 2020}
+
+\begin{document}
+	\maketitle
+	\textbf{Tips dan trik untuk untuk mengalahkan soal geometri olimpiade :}
+	\\Lakukan langkah-langkah ini untuk mempermudah pengerjaan soal geo terutama di OSN
+	\begin{enumerate}
+		\item
+		Gambarlah diagramnya dengan ukuran besar dan rapi menggunakan penggaris dan jangka (kecuali anda sudah imba).
+		\item
+		Selalu cari solusi Euclidnya dulu minimal 15 menit
+		\item
+		Pakai directed angle
+		\item
+		Hampir seluruh soal geo OSN bisa pakai angle chasing
+		\item
+		Kalo pure angle chasing gagal, cari kesebangunan / kekongruenan. 
+		\begin{itemize}
+			\item
+			Kadangkala kesebangunannya bisa jadi hasil dari suatu rotasi / translasi. Bisa jadi kesebangunannya berhubungan dengan perbandingan luas atau dalil sinus.
+			\item
+			Bisa juga pakai dalil Menelaus atau dalil Ceva untuk dapat perbandingannya.
+		\end{itemize}
+		\item
+		Gunakan lemma-lemma yang anda ketahui. Tanyakan ke pengawas apakah boleh menggunakan lemma tersebut tanpa bukti / langsung pakai.
+		\item
+		Kalau belum ketemu, definisikan titik baru atau garis baru yang sejajar, tegak lurus, atau hasil translasi / rotasi suatu titik / garis.
+		
+		\item
+		Kalau ada lingkaran coba pakai power of a point atau mungkin ptolemy kadang berguna.
+		
+		
+		\item
+		Ngga ketemu juga? Pakai trigon. Usahakan dalil sinus dulu. Atau pakai dalil Ceva versi Trigon.
+		\begin{itemize}
+			\item
+			Biasanya kalo di soal diketahui sudut-sudut istimewa, bisa gampang banget kalo make trigon.
+		\end{itemize}
+		\item
+		blank? pakai dalil cosinus.
+		\item
+		Pakai phantom point (Misal ingin buktikan A, B, C segaris. Maka kita sengaja buat A', B, C segaris, lalu buktikan fakta di soal)
+		\item
+		Gagal juga? pakai analit. Tapi kalo mau make analit, usahakan ada fakta-fakta atau solusi yang dicari make euclid, biar ada jaminan nilai parsial. Lalu, biasanya kalo udah analit, emang paling enak make trigon.
+	
+	\end{enumerate}
+	
+	\textbf{Soal}
+	\begin{enumerate}
+		\item
+		Diberikan segitiga $ABC$ dengan $AC>BC$. Pada lingkaran luar segitiga $ABC$ terletak titik $D$ yang merupakan titik tengah busur $AB$ yang memuat titik $C$. Misalkan $E$ adalah titik pada $AC$ sehingga $DE$ tegak lurus $AC$. Buktikan bahwa $AE=EC+CB$.
+		
+		\item
+		Misalkan $M$ suatu titik di dalam segitiga $ABC$ sedemikian sehingga $\angle AMC = 90 ^{\circ}, \angle AMB = 150 ^{\circ}, \text{dan} \angle BMC = 120 ^\circ$. Titik pusat lingkaran luar dari segitiga-segitiga $AMC, AMB,$ dan $ BMC$ berturut-turut adalah $P,Q$, dan $R$. Buktikan bahwa luas segitiga $PQR$ lebih besar dari luas segitiga $ABC$
+		
+		\item
+		Misalkan $ABCD$ sebuah segiempat konveks. Persegi $AB_1A_2B$ dibuat sehingga kedua titik $A_2,B_1$ terletak di luar segiempat $ABCD$. Dengan cara serupa diperoleh persegi-persegi $BC_1B_2C, CD_1C_2D$, dan $DA_1D_2A$. Misalkan $K$ adalah titik potong $AA_2$ dengan $BB_1$, $L$ adalah titik potong $BB_2$ dengan $CC_1$, $M$ adalah titik potong $CC_2$ dengan $DD_1$, dan $N$ adalah titik potong $DD_2$ dengan $AA_1$. Buktikan bahwa $KM = LN$ dan $KM$ tegak lurus $LN$.
+		
+		\item
+		Titik-titik $A,B,C,D$ terletak pada lingkaran $S$ sdemikian sehingga $AB$ merupakan diameter $S$, tetapi $CD$ bukan merupakan diameter $S$. Diketahui pula bahwa $C$ dan $D$ berada pada sisi yang berbeda terhadap $AB$. Garis singgung terhadap $S$ di $C$ dan $D$ berpotongan di tiitk $P$. Titik-titik $Q$ dan $R$ berturut-turut adalah perpotongan garis $AC$ dengan garis $BD$ dan garis $AD$ dengan garis $BC$.
+		\begin{enumerate}
+			\item[a.] 
+			Buktikan bahwa $P,Q$, dan $R$ segaris.
+			\item[b.]
+			Buktikan bahwa garis $QR$ tegak lurus terhadap garis $AB$.
+		\end{enumerate}
+	
+		\item
+		Pada segitiga $ABC$, titik-titik $D,E,$ dan $F$ berturut-turut terletak pada segmen $BC,CA$, dan $AB$. Nyatakan $P$ sebagai titik perpotongan $AD$ dan $EF$. Tunjukkan bahwa $$\frac{AB}{AF}\times CD + \frac{AC}{AE}\times BD = \frac{AD}{AP} \times BC$$
+		
+		\item
+		Diberikan segitiga lancip $ABC$ dengan $AC > BC$ dan titik pusat lingkaran luar $O$. Garis tinggi segitiga $ABC$ dari $C$ memotong $AB$ dan lingkaran luar segitiga $ABC$ lagi berturut-turut di titik $D$ dan $E$. Garis melalui $O$ sejajar $AB$ memotong garis $AC$ di titik $F$. Buktikan bahwa garis $CO$, garis melalui $F$ yang tegak lurus dengan $AC$, dan garis melalui $E$ yang sejajar $DO$ bertemu di satu titik.
+		
+		\item
+		Diberikan segitiga lancip $ABC$ dengan $AB > AC$ dan memiliki titik pusat lingkaran luar $O$. Garis $BO$ dan $CO$ memotong garis bagi $\angle BAC$ berturut-turut di titik $P$ dan $Q$. Selanjutnya garis $BQ$ dan $CP$ berpotongan di titik $R$. Buktikan bahwa garis $AR$ tegak lurus terhadap garis $BC$.
+		
+		\item
+		Diberikan sembarang segitiga $ABC$ dan garis bagi $\angle BAC$ memotong sisi $BC$ dan lingkaran luar segitiga $ABC$ berturut-turut di $D$ dan $E$. Misalkan $M$ dan $N$ berturut-turut adalah titik tengah $BD$ dan $CE$. Lingkaran luar segitiga $ABD$ memotong $AN$ di titik $Q$. Lingkaran yang melalui $A$ dan menyinggung $BC$ di $D$, memotong garis $AM$ dan sisi $AC$ berturut-turut di titik $P$ dan $R$. Tunjukkan bahwa empat titik $B,P,Q,R$ terletak pada satu garis.
+		
+		\item
+		Diberikan segitiga lancip $ABC$ dengan lingkaran luar $\omega$. Garis bagi $\angle BAC$ memotong $\omega$ di titik $M$. Misalkan $P$ adalah suatu titik pada garis $AM$ dengan $P$ di dalam segitiga $ABC$. Garis melalui $P$ yang sejajar $AB$ dan garis melalui $P$ yang sejajar $AC$ memotong sisi $BC$ berturut-turut di titik $E$ dan $F$. Garis $ME$ dan $MF$ memotong $\omega$ lagi berturut-turut di titik $K$ dan $L$. Buktikan bahwa garis-garis $AM,BL$, dan $CK$ konkuren (bertemu di satu titik).
+		
+		\item
+		Diberikan trapesium $ABCD$ dengan $AB$ sejajar $CD$ dan $AB<CD$. Misalkan diagonal $AC$ dan $BD$ bertemu di titik $E$, lalu misalkan garis $AD$ dan $BC$ bertemu di titik $F$. Jika $AEDK$ dan $BECL$ merupakan jajar genjang, buktikan bahwa garis $EF$ melalui titik tengah segmen $KL$.
+		
+		
+	\end{enumerate}
+	
+	
+\end{document}

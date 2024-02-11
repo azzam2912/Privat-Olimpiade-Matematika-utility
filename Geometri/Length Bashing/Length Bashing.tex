@@ -1,0 +1,75 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Length Bashing Always Possible (In this problemset LOL)}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Non Projective Approach Possible}
+This section focused mainly on non angle chasing techniques such as P.O.P, Radical Axis, Menelaus, Ceva, and another Length Bashing techniques.
+\begin{enumerate}
+    \item (\textbf{Extremely Easy} Sharygin 2023 Grade 8) A circle touches the lateral sides of a trapezoid $ABCD$ at points $B$ and $C$, and its center lies on $AD$. Prove that the diameter of the circle is less than the medial line of the trapezoid.
+
+    \item (Sharygin 2019) A quadrilateral $ABCD$ without parallel sidelines is circumscribed around a circle centered at $I$. Let $K, L, M$ and $N$ be the midpoints of $AB, BC, CD$ and $DA$ respectively. It is known that $AB \cdot CD = 4IK \cdot IM$. Prove that $BC \cdot AD = 4IL \cdot IN$.
+    
+    \item (IGO 2021 Advanced) Given a triangle $ABC$ with incenter $I$. The incircle of triangle $ABC$ is tangent to $BC$ at $D$. Let $P$ and $Q$ be points on the side BC such that $\angle PAB = \angle BCA$ and $\angle QAC = \angle ABC$, respectively. Let $K$ and $L$ be the incenter of triangles $ABP$ and $ACQ$, respectively. Prove that $AD$ is the Euler line of triangle $IKL$.
+
+    \item (Blanchet’s Theorem) In an acute triangle $ABC$, $F$ is the foot of the perpendicular from $C$ to $AB$ and $P$ is a point on $CF$. Let the lines $AP$ and $BP$ meet $BC$ and $AC$ at $D$ and $E$, respectively. Show that the angles $\angle EFC$ and $\angle DFC$ are equal.
+
+    \item (Sharygin 2019) Let $AL_a$, $BL_b$, $CL_c$ be the bisecors of triangle $ABC$. The tangents to the circumcircle of $ABC$ at $B$ and $C$ meet at point $K_a$, points $K_b$, $K_c$ are defined similarly. Prove that the lines $K_aL_a$, $K_bL_b$ and $K_cL_c$ concur.
+
+    \item (\textbf{Hard} - IGO 2022 Advanced) Let $ABCD$ be a trapezoid with $AB\parallel CD$. Its diagonals intersect at a point $P$. The line passing through $P$ parallel to $AB$ intersects $AD$ and $BC$ at $Q$ and $R$, respectively. Exterior angle bisectors of angles $DBA$, $DCA$ intersect at $X$. Let $S$ be the foot of $X$ onto $BC$. Prove that if quadrilaterals $ABPQ$, $CDQP$ are circumcribed, then $PR=PS$.
+
+    \item (Sharygin 2023 Grade XI) Let $ABC$ be a scalene triangle, $M$ be the midpoint of $BC,P$ be the common point of $AM$ and the incircle of $ABC$ closest to $A$, and $Q$ be the common point of the ray $AM$ and the excircle farthest from $A$. The tangent to the incircle at $P$ meets $BC$ at point $X$, and the tangent to the excircle at $Q$ meets $BC$ at $Y$. Prove that $MX=MY$.
+
+    \item (Sharygin 2023 Grade XI) Let $ABCD$ be a cyclic quadrilateral; $M_{ac}$ be the midpoint of $AC$; $H_d,H_b$ be the orthocenters of $\triangle ABC,\triangle ADC$ respectively; $P_d,P_b$ be the projections of $H_d$ and $H_b$ to $BM_{ac}$ and $DM_{ac}$ respectively. Define similarly $P_a,P_c$ for the diagonal $BD$. Prove that $P_a,P_b,P_c,P_d$ are concyclic.
+
+\end{enumerate}
+
+\section{Projective Approach Possible}
+Majority of the problems in this section are... \textbf{hard} since involving much Harmonic Ratio, Inversion, and another ratio techniqu.
+\begin{enumerate}
+    \item (\textbf{Easy} Sharygin 2019 Grade 11) Let $AH_1$ and $BH_2$ be the altitudes of triangle $ABC$. Let the tangent to the circumcircle of $ABC$ at $A$ meet $BC$ at point $S_1$, and the tangent at $B$ meet $AC$ at point $S_2$. Let $T_1$ and $T_2$ be the midpoints of $AS_1$ and $BS_2$ respectively. Prove that $T_1T_2$, $AB$ and $H_1H_2$ concur.
+    
+    \item (IGO 2021 Advanced) Consider a triangle $ABC$ with altitudes $AD, BE$, and $CF$, and orthocenter $H$. Let the perpendicular line from $H$ to $EF$ intersects $EF, AB$ and $AC$ at $P, T$ and $L$, respectively. Point $K$ lies on the side $BC$ such that $BD=KC$. Let $\omega$ be a circle that passes through $H$ and $P$, that is tangent to $AH$. Prove that circumcircle of triangle $ATL$ and $\omega$ are tangent, and $KH$ passes through the tangency point.
+
+    \item (\textbf{Easy} OSN 2014) Diberikan segitiga lancip $ABC$ dengan $AB > AC$ dan memiliki titik pusat lingkaran luar $O$. Garis $BO$ dan $CO$ memotong garis bagi $\angle BAC$ berturut-turut di titik $P$ dan $Q$. Selanjutnya garis $BQ$ dan $CP$ berpotongan di titik $R$. Buktikan bahwa garis $AR$ tegak lurus terhadap garis $BC$.
+
+    \item (IGO 2022 Advanced) In triangle $ABC$ $(\angle A\neq 90^\circ)$, let $O$, $H$ be the circumcenter and the foot of the altitude from $A$ respectively. Suppose $M$, $N$ are the midpoints of $BC$, $AH$ respectively. Let $D$ be the intersection of $AO$ and $BC$ and let $H'$ be the reflection of $H$ about $M$. Suppose that the circumcircle of $OH'D$ intersects the circumcircle of $BOC$ at $E$. Prove that $NO$ and $AE$ are concurrent on the circumcircle of $BOC$.
+
+    \item (Sharygin 2023 Grade XI) A tetrahedron $ABCD$ is give. A line $\ell$ meets the planes $ABC,BCD,CDA,DAB$ at points $D_0,A_0,B_0,C_0$ respectively. Let $P$ be an arbitrary point not lying on $\ell$ and the planes of the faces, and $A_1,B_1,C_1,D_1$ be the second common points of lines $PA_0,PB_0,PC_0,PD_0$ with the spheres $PBCD,PCDA,PDAB,PABC$ respectively. Prove $P,A_1,B_1,C_1,D_1$ lie on a circle.
+\end{enumerate}
+\end{document}
+

@@ -1,0 +1,97 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Order Modulo Prime and LTE}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Materi Singkat}
+\subsection{Order}
+\begin{enumerate}
+    \item (Eksistensi Order) Berdasarkan Euler's Theorem, untuk setiap $a \in \ZZ$ dengan $gcd(a,m)=1$, terdapat bilangan asli $t$ sehingga $a^t \equiv 1 \mod m$.
+    \item Jika $s$ adalah bilangan asli terkecil yang memenuhi $a^s \equiv 1 \mod m$ maka $s = ord_m a$ disebut sebagai order dari $a \mod m$.
+    \item Jika $s = ord_m a$ dan $t \in \NN$ memenuhi $a^t \equiv 1 \mod m$ maka $s \mid t$.
+\end{enumerate}
+
+\subsection{LTE (Lifting The Exponent)}
+\begin{enumerate}
+    \item $p$ bilangan prima. $x \in \ZZ$. Didefinisikan \textbf{p-adic valuation} dari $x$ sebagai pangkat tertinggi dari $p$ yang membagi $x$. Notasinya adalah $v_p(x)=a$ berarti $p^a \mid x$ tetapi $p^{a+1} \nmid x$.
+    \item $v_p(xy) = v_p(x) + v_p(y)$.
+    \item $v_p(x+y) \ge \min(v_p(x),v_p(y))$.
+    \item [Lemma 1] $x,y \in \ZZ$, $n \in \NN$, $p$ bilangan prima ganjil dengan $p \mid x-y$, $p \nmid x$, dan $p \nmid y$ maka $v_p(x^n-y^n)=v_p(x-y)+v_p(n)$.
+    \item [Lemma 2] $x,y \in \ZZ$, $n \in \NN$ bilangan ganjil, $p$ bilangan prima ganjil dengan $p \mid x+y$, $p \nmid x$, dan $p \nmid y$ maka $v_p(x^n+y^n)=v_p(x+y)+v_p(n)$.
+    \item [Lemma 3] $x,y \in \ZZ$, $n \in \NN$ bilangan genap,  $2 \mid x-y$, $2 \nmid x$, dan $2 \nmid y$ maka $v_2(x^n-y^n)=v_2(x+y)+v_2(x-y)+v_p(n)-1$.
+    
+\end{enumerate}
+
+\section{Soal Latihan}
+\begin{enumerate}
+    \item Misalkan $n \in \ZZ^+$ dan $n > 1$ yang memenuhi $n \mid 3^n + 4^n$. Buktikan bahwa $7 \mid n$.
+    \item Suatu bilangan asli $n$ dikatakan 'sugoi' jika ada bilangan asli $x$ sehingga $2^n \mid x^{nx}+1$. Jika $m$ adalah bilangan sugoi, tentukan bilangan asli terkecil $y$ sehingga $2^m \mid y^{my}+1$.
+    \item Misalkan $p$ adalah bilangan prima ganjil. Misalkan pula $q$ dan $r$ adalah bilangan prima sehingga $p \mid q^r+1$. Buktikan bahwa salah satu diantara pernyataan berikut terpenuhi: 
+    \begin{align*}
+        2r \mid p-1 \text{ atau } p \mid q^2-1.
+    \end{align*}
+    \item Misalkan $p>3$ adalah bilangan prima, $a,n \in \NN$ dengan $a > 1$. Jika $p \mid a^{2^n}+1$, buktikan bahwa $2^{n+1} \mid p-1$.
+    \item Untuk semua bilangan asli $a$ dan $n$ dengan $a \neq 1$, buktikan bahwa $n \mid \phi(a^n-1)$.
+    \item Untuk bilangan ganjil $n > 1$, buktikan bahwa $n \nmid 3^n+1$.
+    \item (IMO 1990) Tentukan semua bilangan asli $n > 1$ sehingga 
+    \begin{align*}
+        \dfrac{2^n+1}{n^2} \in \ZZ.
+    \end{align*}
+    \item Tentukan semua pasangan bilangan bulat $(a,b)$ dengan $a,b > 1$ yang memenuhi 
+    \begin{align*}
+        b^a \mid a^b -1
+    \end{align*}
+    \item Tentukan banyak tupel bulat positif $(x,y,z)$ sehingga
+    \begin{align*}
+        x^{2009}+y^{2009} = 7^z.
+    \end{align*}
+    \item Buktikan bahwa $a^{a-1}-1$ selalu memiliki faktor bilangan kuadrat sempurna untuk setiap bilangan bulat $a > 2$.
+    \item Tentukan semua bilangan asli $a$ sehingga
+    \begin{align*}
+        \dfrac{5^a+1}{3^a} \in \mathbb{Z}.
+    \end{align*}
+    \item Misalkan $a,n$ adalah dua bilangan asli dan $p$ adalah bilangan prima ganjil sedemikian sehingga
+    \begin{align*}
+        a^p \equiv 1 \mod p^n.
+    \end{align*}
+    Buktikan bahwa $a \equiv 1 \mod p^{n-1}.$
+\end{enumerate}
+
+\end{document}

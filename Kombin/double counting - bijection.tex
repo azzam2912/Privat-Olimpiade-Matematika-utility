@@ -1,0 +1,101 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Double Counting a.k.a Counting in Two Ways a.k.a Bijection}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{soaljawab}
+    (OSN 2010) Suatu kompetisi matematika diikuti oleh 120 peserta dari beberapa kontingen. Pada acara penutupan, setiap peserta memberikan 1 souvenir pada setiap peserta dari kontingen yang sama dan 1 souvenir pada salah seorang peserta dari tiap kontingen lainnya. Di akhir acara, diketahui terdapat 3840 souvenir yang dipertukarkan. Berapa banyak kontingen maksimal sehingga kondisi di atas dapat terpenuhi?
+\end{soaljawab}
+
+\begin{soaljawab}
+    (Pelatnas tahap 1 IMO 2019) Dalam sebuah pesta, setiap peserta mengenal tepat 201 peserta lainnya. Setiap dua peserta yang saling mengenal satu sama lain, terdapat tepat 8 peserta lainnya yang dikenal kedua orang tersebut dan setiap dua peserta, yang tidak saling mengenal, terdapat tepat 24 peserta lainnya yang dikenal kedua peserta tersebut. Perhatikan bahwa $a$ mengenal $b$ jika dan hanya jika $b$ mengenal $a$. Tentukan banyaknya peserta dalam pesta tersebut
+\end{soaljawab}
+
+\begin{soaljawab}
+    Tanpa menggunakan manipulasi aljabar, buktikan secara kombinatorial bahwa
+    $$\sum_{k=1}^{n} k^4 = {n+1 \choose 2} + 14{n+1 \choose 3}+36{n+1 \choose 4}+24{n+1 \choose 5}$$ dengan $n\in \NN$ dan $n \ge 4$.
+\end{soaljawab}
+
+\begin{soaljawab}
+%ISL 2009 C1
+Misalkan terdapat $M \ge 1$ kartu, masing-masing memiliki satu sisi berwarna emas dan satu sisi berwarna hitam, diletakkan secara sejajar di atas meja panjang. Awalnya semua kartu menunjukkan sisi emas mereka. Oniel memainkan kartu tersebut sehingga di setiap giliran ia memilih satu blok $k$ kartu berurutan, dengan kartu paling kiri menunjukkan sisi emas, dan membalikkan semua kartu tersebut, sehingga kartu yang sebelumnya menunjukkan sisi emas sekarang menunjukkan sisi hitam dan sebaliknya ($M \ge k \ge 1$). Apakah permainan pasti akan berakhir?
+\end{soaljawab}
+
+\begin{soaljawab}
+%OTC 2017 paket 1
+Barisan bilangan asli $(a_n) = 1,3,4,9,10,12,13,\dots$ adalah barisan dari bilangan yang merupakan bilangan 3 berpangkat (seperti $1,3,9,27,...$ ) dan bilangan yang merupakan penjumlahan dari bilangan berbeda yang berbentuk 3 berpangkat. Tentukanlah nilai suku ke 100.
+\end{soaljawab}
+
+\begin{soaljawab}
+% USAMO 1983
+(USAMO 1983) Terdapat 20 anggota di suatu klub tenis yang menjadwalkan tepat 14 permainan antar dua orang diantara mereka dengan setiap anggota klub bermain minimal satu kali. Buktikan bahwa dalam pembagian ini, terdapat himpunan 6 permainan dengan 12 pemain yang berbeda.
+\end{soaljawab}
+
+\begin{soaljawab}
+    % pelatnas 1 IMO 2019
+    (Pelatnas tahap 1 IMO 2019) Hitunglah banyaknya polinomial $P(x)$ dengan koefisien-koefisien yang dipilih dari $\{0, 1, 2, 3\}$ sedemikian sehingga $P(2) = 2023$.
+\end{soaljawab}
+
+\begin{soaljawab}
+    % USAMO 1996
+    (USAMO 1996) Sebuah barisan $n$ suku $(x_1,x_2,\dots,x_n)$ dimana setiap sukunya bernilai 0 atau 1 disebut sebagai barisan biner dengan panjang $n$. Definisikan $a_n$ sebagai banyaknya barisan biner dengan panjang $n$ yang tidak mengandung 3 suku berurutan $0,1,0$ dalam urutan tersebut. Definisikan $b_n$ sebagai banyaknya barisan biner dengan panjang $n$ yang tidak mengandung 4 suku berurutan $0,0,1,1$ atau $1,1,0,0$  dalam urutan tersebut. Buktikan bahwa $b_{n+1} = 2a_{n}$ untuk semua bilangan asli $n$.
+\end{soaljawab}
+
+\begin{soaljawab}
+    Misalkan sebuah layar LED raksasa berukuran $2023 \times 2025$ dinyalakan. Layar tersebut tersusun atas $2023 \times 2025$ layar satuan berukuran $1 \times 1$. Pada awalnya ada lebih dari $2022 \times 2024$ layar satuan yang menyala. Namun ternyata layar tersebut rusak sehingga jika di setiap daerah layar berukuran $2 \times 2$ ada 3 layar satuan yang mati, maka layar satuan ke-4 juga akan ikut mati. Buktikan bahwa layar tersebut tidak akan pernah benar-benar mati (masih ada layar satuan yang menyala).
+\end{soaljawab}
+
+\begin{soaljawab}
+%ISL 2002 C1
+    (IMO SL 2002) Diberikan $n$ adalah bilangan bulat positif. Misalkan setiap titik $(x,y)$ pada koordinat kartesius dengan $x$ dan $y$ adalah bilangan bulat nonnegatif yang memenuhi $x+y < n$, diwarnai biru atau merah dengan aturan berikut: jika titik $(x,y)$ berwarna merah, maka semua titik $(x',y')$ dengan $x' \le x$ dan $y' \le y$ juga berwarna merah. Definisikan $A$ sebagai banyaknya cara memilih $n$ titik biru dengan koordinat-$x$ yang berbeda, dan definisikan $B$ sebagai banyaknya cara memilih $n$ titik biru dengan koordinat-$y$ yang berbeda. Buktikan bahwa $A=B$.
+\end{soaljawab}
+
+\begin{soaljawab}
+    %ISL 2002 C3
+    (IMO SL 2002) Sebuah barisan $n$ bilangan bulat positif (tidak harus berbeda) disebut \textit{kawaii} jika memenuhi kondisi berikut: untuk setiap bilangan bulat positif $k \ge 2$, jika bilangan $k$ muncul dalam barisan tersebut, maka bilangan $k-1$ juga muncul, dan kemunculan pertama bilangan $k-1$ muncul sebelum kemunculan terakhir dari $k$. Untuk setiap bilangan bulat positif $n$, ada berapa barisan kawaii yang mungkin?
+\end{soaljawab}
+
+\begin{soaljawab}
+    % putnam 2005
+    (Putnam 2005) Misalkan sebuah ruangan berukuran $n \times 3$ (mempunyai $n$ baris dan $3$ kolom) lantainya ditutupi oleh ubin satuan berukuran $1 \times 1$. Misalkan ubin yang berada pada baris ke-$i$ dan kolom ke-$j$ dinotasikan dengan $(i,j)$. Definisikan \textit{langkah satuan} sebagai langkah yang dilakukan antar satu ubin satuan ke ubin satuan yang berada tepat di sebelahnya. Tentukan banyaknya perjalanan atau jalur di ruangan tersebut sehingga kita bisa berjalan dari $(1,1)$ ke $(n,1)$ dengan langkah satuan dan melewati setiap titik di ruangan tersebut tepat sekali.
+\end{soaljawab}
+
+
+\end{document}

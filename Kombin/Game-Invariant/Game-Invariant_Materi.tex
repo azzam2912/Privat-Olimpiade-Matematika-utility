@@ -1,0 +1,152 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Combinatorial Games dan Invarian}
+\author{Azzam (IG: haxuv.world)}
+\date{Kamis, 25 Januari 2024}
+
+\begin{document}
+\maketitle
+Permainan kombinatorial dan invarian sebenarnya adalah dua hal yang hampir tidak bisa dipisahkan. Invarian memberikan \textit{tools} untuk menikmati keindahan suatu pola tak hingga yang selalu stabil. Sedangkan permainan kombinatorial adalah rekreasi untuk menikmati keindahan tersebut. Mari kita berjalan dan berekreasi menikmati keindahan dunia matematika tersebut...
+
+\section{Invarian}
+\begin{definition}
+    Intinya deh: Invarian adalah objek atau suatu hal yang tidak berubah di iterasi berapapun dilakukan operasi tersebut.
+\end{definition}
+\textbf{Key methods for solving:}
+\begin{itemize}
+    \item Jika ada yang berulang, atau terlihat ada pola, lihat apa yang \textbf{tidak berubah}.
+    \item Cari semua \textit{dead end} yang mungkin.
+    \item Cari suatu variabel atau ekspresi yang konvergen atau mengarah ke suatu nilai.
+    \item Cari semua periode atau pola dia berulang berapa kali.
+\end{itemize}
+\subsection{Classic Invariants}
+\subsubsection{Contoh Soal}
+\begin{enumerate}
+    \item (OSN 2015) Albert, Bernard dan Cheryl sedang bermain kelereng. Di awal permainan masing- masing membawa 5 kelereng merah, 7 kelereng hijau dan 13 kelereng biru, sedangkan di kotak kelereng ada tak berhingga banyaknya kelereng. Pada satu langkah setiap anak diberi kebebasan membuang dua kelereng yang berbeda warna, kemudian menggantinya dengan dua kelereng dengan warna ketiga. Sebagai contoh, satu kelereng hijau dan satu kelereng merah dibuang, kemudian dua kelereng biru diambil dari kotak. Setelah serangkaian langkah (banyaknya langkah yang dilakukan masing-masing anak boleh berbeda) terjadilah percakapan berikut.
+    \begin{itemize}
+        \item Albert : “Saya hanya membawa kelereng berwarna merah.”
+        \item Bernard : “Saya hanya membawa kelereng berwarna biru.”
+        \item Cheryl : “Saya hanya membawa kelereng berwarna hijau.”
+    \end{itemize}
+    Siapa sajakah yang pasti berkata bohong?
+    
+    \item Show that if 25 people play in a ping pong tournament then, at the end of the tournament, the number of people who played an even number of games is odd.
+
+    \item Show that in a house with 25 rooms, if every room has an odd number of doors then there must be an odd number of doors along the outside wall of the house.
+    
+    \item Find the minimum number of breaks required to break an $m \times n$ bar of chocolate into $1 \times 1$ squares.
+    
+    \item We begin with the numbers $1, 2, 3, \ldots , 50$ written on the blackboard. At each step we can erase any two of the numbers $a$ and $b$ and then write down the number $|a-b|$. We continue until one number remains. Determine whether this final number could be equal to $10$.
+
+    \item Let $n$ be a positive integer and consider the ordered list $(1, 2, 3,...,n)$. In each step we are allowed to take two different numbers in the list and swap them. Is it possible to obtain the original list after exactly $2009$ steps?
+
+    \item (IMO 2011) Let $S$ be a finite set of at least two points in the plane. Assume that no three points of $S$ are collinear. A windmill is a process that starts with a line $l$ going through a single point $P \in S$. The line rotates clockwise about the pivot $P$ until the first time that the line meets some other point belonging to $S$. This point, $Q$, takes over as the new pivot, and the line now rotates clockwise about $Q$, until it meets a point of $S$. This process continues indefinitely. Show that we can choose a point $P$ in $S$ and a line $l$ going through $P$ such that the resulting windmill uses each point of $S$ infinitely many times.
+
+    \item $23$ friends want to play soccer. For this they choose a referee and the others split into two teams of $11$ persons each. They want to do this so that the total weight of each team is the same. We know that they all have integer weights and that, regardless of who is the referee, it is possible to make the two teams. Prove that they all have the same weight.
+
+    \item (IMO 1986) We assign an integer to each vertex of a regular pentagon, so that the sum of all is positive. If three consecutive vertices have assigned numbers $x$, $y$, $z$, respectively, and $y < 0$, we are allowed to change the numbers $(x,y,z)$ to $(x + y,-y,z + y)$. This transformation is made as long as one of the numbers is negative. Decide if this process always comes to an end.
+\end{enumerate}
+
+\subsection{Barisan / Monovarian}
+\begin{definition}
+    Intinya deh: Monovarian adalah suatu invarian atau variabel yang terus-terusan monoton naik atau turun
+\end{definition}
+\subsubsection{Contoh Soal}
+\begin{enumerate}
+    \item Initially, $4$ chips are placed at the point $(0, 0)$. At each step we can remove one chip from some point $(a, b)$ and replace it with $2$ chips, one at the point $(a + 1, b)$ and the other at $(a, b + 1)$. Show that, after finitely many steps, there will always be some point with at least two chips sitting on it.
+    \item (OSN 2016) Lima buah kotak disusun secara melingkar, dengan satu kotak berisi satu bola dan kotak-kotak lainnya kosong. Ada dua operasi yang diizinkan untuk dilakukan terhadap kotak dan bola ini:
+    \begin{enumerate}[(i)]
+        \item  satu bola dari suatu kotak tak kosong, lalu tambahkan satu bola ke masing-masing dua kotak tetangganya (yang berada di kiri dan kanan kotak yang diambil bolanya)
+        \item Ambil satu bola dari suatu kotak tak kosong, lalu masukkan bola tersebut ke salah satu kotak kosong di sebelah kotak tersebut.
+    \end{enumerate}
+    Mungkinkah pada akhirnya, setiap kotak berisi tepat $17^{5^{2016}}$ bola?
+
+    \item (OSN 2010) Sebanyak $m$ orang anak laki-laki dan $n$ orang anak perempuan ($m > n$) duduk mengelilingi meja bundar diawasi oleh seorang guru, dan mereka melakukan sebuah permainan sebagai berikut. Mula-mula sang guru menunjuk seorang anak laki-laki untuk memulai permainan. Anak laki-laki tersebut meletakkan sekeping uang logam di atas meja. Kemudian bergiliran searah jarum jam, setiap anak melakukan gilirannya masing-masing. Jika anak tersebut laki-laki, ia menambahkan sekeping uang logam ke tumpukan di atas meja, dan jika anak tersebut perempuan, ia mengambil sekeping uang logam dari tumpukan tersebut. Jika tumpukan di atas meja habis, maka permainan berakhir saat itu juga. Perhatikan bahwa tergantung siapa yang ditunjuk oleh sang guru untuk memulai langkah pertama, maka permainan tersebut bisa cepat berakhir, atau bisa saja berlangsung paling sedikit $1$ putaran penuh.
+    Jika sang guru menginginkan agar permainan tersebut berlangsung paling sedikit $1$ putaran penuh, ada berapa pilihan anak laki-laki yang dapat beliau tunjuk untuk memulai?
+\end{enumerate}
+
+\subsection{Coloring / Paritas / Tiling}
+Pewarnaan, genap-ganjil, A-B-C, domino-tetromino. Yes intinya ilmu memanfaatkan Paritas.
+\subsubsection{Contoh Soal}
+\begin{enumerate}
+    \item Determine whether it is possible to tile a $10 \times 10$ square floor using $1 \times 4$ rectangular tiles.
+
+\item We try to tile a $k \times l$ rectangular floor using some $2 \times 2$ square tiles and some $1 \times 4$ rectangular tiles. Show that if it is possible to tile the floor using $m$ of the square tiles and $n$ of the rectangular tiles, then it is not possible to tile the floor using $(m + 1)$ of the square tiles and $(n - 1)$ of the rectangular tiles.
+
+\item Show that when a $6 \times 6$ square floor is tiled using $1 \times 2$ rectangular tiles, there is always a straight line which crosses the floor without cutting through any of the tiles.
+
+\item Initially, $9$ of the $100$ squares in a $10 \times 10$ grid are infected. During each unit time interval, each square which has $2$ or more infected neighbours (a neighbour being a square which shares an edge) also becomes infected. Determine whether it is possible that all $100$ squares will eventually become infected.
+\end{enumerate}
+
+\section{Combinatorial Games}
+\textbf{Key Methods for Solving}
+\begin{itemize}
+    \item Melihat kesimetrian.
+    \item Jika beruntung, mendapatkan pola tertentu (bisa dibuktikan dengan induksi / proses yang berulang).
+    \item Sering terdapat invarian.
+    \item Ada suatu \textit{"dead end"}, bisa di\textit{bound}, untuk \textit{finite games}.
+\end{itemize}
+\subsection{Contoh Soal}
+\begin{enumerate}
+    % https://brilliant.org/wiki/combinatorial-games-winning-positions/
+    \item In a two-player game, starting with a pile of $ n $ stones, the players take turns choosing to remove either $ 1,2,3, $ or $ 4 $ stones from the pile. The winner is the player who takes the last stone from the pile. For which $ n $ can the second player guarantee that he or she will win?
+
+    \item A two player game is played on a $5 \times 5$ grid. A token starts in the bottom left corner of the grid. On each turn, a player can move the token one or two units to the right, or to the leftmost square of the above row. The last player who is able to move wins. Determine which positions of the token are winning positions and which are losing.
+
+    \item Dan and Sam play a game in which the first to start says the number 1, the next says 2, and the one who's next must say an integer strictly between the previous number and twice of it (not including the endpoints).
+    
+    For example, Dan begins saying 1, then Sam says 2. Dan's options are now all integers between 2 and 4, exclusive. But there's only one such option, 3, so Dan is forced to say 3. Sam's options are now between 3 and 6, which are 4 and 5.
+    
+    The game finishes when someone says 100 or greater; that player wins. If Dan begins, who will win, assuming both players play optimally?
+
+
+    \item You play a game with a pile of $N$ gold coins. You and a friend take turns removing 1, 3, or 6 coins from the pile. The winner is the one who takes the last coin. For the person that goes first, how many winning strategies are there for $N < 1000?$
+
+    \item Let $ N \ge 2 $ be a positive integer. Alice and Bob play the following divisor game: starting with the set $ D_N $ of positive divisors of $ N$, the players take turns removing some elements from the set. At a player's turn, he or she chooses a divisor $ d $ that remains, and removes $ d $ and any of the divisors of $ d $ that remain. The player who moves last loses.
+    
+    For example: $ N = 18, D_N = \{ 1,2,3,6,9,18 \} $. Alice chooses $ d=2 $, so she removes $ 1 $ and $ 2 $. The remaining set is $ \{3,6,9,18\} $. Bob chooses $ d = 9 $ and so must also remove $ 3 $. The remaining set is $ \{6,18\} $. Alice takes $ 6 $, and now Bob is forced to take $ 18 $, so he loses.
+
+    Let $ n \ge 2 $ be the largest positive integer $ \le 200 $ such that if Alice and Bob play the divisor game for $ n $ and both of them play optimally, the second player wins. Find $ n $. If no such $ n $ exists, enter $ 999 $.
+
+    \item In a game, Bob goes first, and he has to say a positive integer less than or equal to 16. Then, Allison must add a positive integer less than or equal to 16 to Bob’s number, at which point Bob must add a positive integer less than or equal to 16, and so on. The winner is whomever says the number 2015. What number must Bob say first to ensure that he will win the game if both players play optimally?
+\end{enumerate}
+
+\section{Referensi}
+\begin{itemize}
+    \item https://brilliant.org/wiki/combinatorial-games-definition/
+    \item https://brilliant.org/wiki/combinatorial-games-winning-positions/
+    \item Arthur Engel - Problem-Solving Strategies
+    \item Pablo Soberon Bravo - Problem-Solving Methods in Combinatorics: An Approach to Olympiad Problems
+\end{itemize}
+\end{document}
