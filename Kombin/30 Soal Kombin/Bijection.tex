@@ -1,0 +1,186 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Bijection}
+\author{Pelatihan OSP}
+\date{April 2023}
+
+\begin{document}
+
+\maketitle
+\begin{soaljawab}
+    Tanpa menggunakan manipulasi aljabar, buktikan secara kombinatorial bahwa
+    $$\sum_{k=1}^{n} k^4 = {n+1 \choose 2} + 14{n+1 \choose 3}+36{n+1 \choose 4}+24{n+1 \choose 5}$$ dengan $n\in \NN$ dan $n \ge 4$.
+    \begin{solusi}
+        Akan dihitung banyaknya tupel bilangan bulat terurut $(a,b,c,d,e)$ dengan $a,b,c,d,e$ dipilih dari $n+1$ bilangan $0,1,\dots,n$ dimana $1 \le a \le n$ dan $0 \le b,c,d,e < a$.
+		
+	Cara pertama, kita observasi berdasarkan nilai $a$ dulu, misalkan $k$. Berarti $k=1,2,\dots,n$. Lalu, karena $0 \le b,c,d,e < a=k$, berarti $b,c,d,e$ dapat bernilai $0,1,\dots,k-1$, terdapat $k$ kemungkinan untuk masing-masing $b$, $c$, $d$, dan $e$. Karena itu, banyaknya cara ini adalah $1 \times k \times k \times k \times k = k^4$. Namun, karena $1 \le k \le n$, maka banyak caranya menjadi
+		\begin{align*}
+		\sum_{k=1}^{n} k^4
+		\end{align*}
+		
+	Cara kedua, kita bagi kasus berdasarkan kesamaan nilai kelima bilangan $(a,b,c,d,e)$.
+		\begin{itemize}
+		\item Kasus pertama, keempat bilangan diantara $b,c,d,e$ bernilai sama, $(a,b,b,b,b)$.Berarti sama saja dengan cara memilih dua bilangan berbeda $a$ dan $b=c=d=e$ dari $n+1$ bilangan $0,1,\dots,n$ dengan banyaknya adalah ${n+1 \choose 2}$.
+		
+		\item Kasus kedua, ada tepat dua nilai berbeda diantara $b,c,d,e$. Berarti tanpa mengurangi keumuman, pilih tiga bilangan berbeda $a,b,c$ dari $n+1$ bilangan $0,1,\dots,n+1$ dengan banyak caranya ${n+1 \choose 3}$.
+		
+		Tinjau subkasus berikut: Tupel $(a,b,c,c,c)$ memiliki $\frac{4!}{1!3!} = 4$ permutasi, tupel $(a,b,b,c,c)$ memiliki $\frac{4!}{2!2!}=6$ permutasi, dan tupel $(a,b,b,b,c)$ memiliki $\frac{4!}{3!1!}=4$ permutasi. Berarti total ada $4+6+4=14$ permutasi untuk kasus ini.
+		
+		Oleh karena itu, ada $14{n+1 \choose 3}$ cara untuk kasus ini.
+		
+		\item Kasus ketiga, ada tepat tiga nilai berbeda diantara diantara $b,c,d,e$. Berarti tanpa mengurangi keumuman pilih empat bilangan berbeda $a,b,c,d$ dari $n+1$ bilangan $0,1,\dots,n+1$ dengan banyak caranya ${n+1 \choose 4}$.
+				
+		Tinjau subkasus berikut: Tupel $(a,b,c,d,d)$ memiliki $\frac{4!}{1!1!2!}=12$ permutasi, tupel $(a,b,c,c,d)$ memiliki $\frac{4!}{1!1!2!}=12$ permutasi, dan tupel $(a,b,b,c,d)$ memiliki $\frac{4!}{1!1!2!}=12$ permutasi. Berarti total ada $12+12+12=36$ permutasi untuk kasus ini.
+				
+		Oleh karena itu, ada $36{n+1 \choose 3}$ cara untuk kasus ini.
+		
+		\item Kasus keempat, ada tepat 4 nilai berbeda diantara $b,c,d,e$. Berarti pilih lima bilangan berbeda $a,b,c,d,e$ dari $n+1$ bilangan $0,1,\dots,n+1$ sehingga banyak caranya ada ${n+1 \choose 5}$.
+		
+		Karena tupel $(a,b,c,d,e)$ memiliki $\frac{4!}{1!1!1!1!}=24$ permutasi, maka banyak cara untuk kasus ini adalah $24{n+1 \choose 5}$.
+	
+		\end{itemize}
+		Berarti total cara kedua ini adalah 
+		\begin{align*}
+		{n+1 \choose 2} + 14{n+1 \choose 3}+36{n+1 \choose 4}+24{n+1 \choose 5}.
+		\end{align*}
+
+    Perhatikan bahwa cara pertama dan cara kedua menghitung hal yang sama  yaitu menghitung banyaknya tupel bilangan bulat $(a,b,c,d,e)$ dengan $a,b,c,d,e$ dipilih dari $n+1$ bilangan $0,1,\dots,n$ dimana $1 \le a \le n$ dan $0 \le b,c,d,e < a$. Oleh karena itu kedua cara tersebut adalah pemetaan bijektif sehingga pernyataan matematis di soal terbukti.
+  
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+%ISL 2009 C1
+Misalkan terdapat $M \ge 1$ kartu, masing-masing memiliki satu sisi berwarna emas dan satu sisi berwarna hitam, diletakkan secara sejajar di atas meja panjang. Awalnya semua kartu menunjukkan sisi emas mereka. Oniel memainkan kartu tersebut sehingga di setiap giliran ia memilih satu blok $k$ kartu berurutan, dengan kartu paling kiri menunjukkan sisi emas, dan membalikkan semua kartu tersebut, sehingga kartu yang sebelumnya menunjukkan sisi emas sekarang menunjukkan sisi hitam dan sebaliknya ($M \ge k \ge 1$). Apakah permainan pasti akan berakhir?
+    \begin{solusi}
+    Akan dibuktikan bahwa permainan pasti akan berakhir. Terdapat sebuah pemetaan bijektif dimana sisi kartu hitam berkorespondensi dengan digit 0 dan sisi kartu emas berkorespondensi dengan digit 1. Oleh karena itu, barisan kartu tersebut jika dibaca dari kiri ke kanan berkorespondensi secara bijektif dengan bilangan bulat biner nonnegatif yang memiliki 2023 digit dengan angka 0 di depan (\textit{leading zeros}) diperbolehkan. Perhatikan setiap giliran yang dimainkan membuat nilai bilangan biner tersebut menurun karena digit 1 berubah menjadi 0. Oleh karena bilangan biner tersebut non negatif dan terus menurun, maka haruslah di suatu saat bilangan tersebut bernilai 0 dan permainan berakhir.
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+%OTC 2017 paket 1
+Barisan bilangan asli $(a_n) = 1,3,4,9,10,12,13,\dots$ adalah barisan dari bilangan yang merupakan bilangan 3 berpangkat (seperti $1,3,9,27,...$ ) dan bilangan yang merupakan penjumlahan dari bilangan berbeda yang berbentuk 3 berpangkat. Tentukanlah nilai suku ke 100.
+\begin{solusi}
+    Perhatikan dalam basis 3 barisan $(a_n)$ dapat ditulis sebagai $(b_n) =1,10,11,100,101,110,111,\dots$. Perhatikan bahwa terdapat bijeksi antar setiap suku ke-$n$ dari $(b_n)$ dengan representasi biner dari bilangan $n$. Oleh karena itu, suku ke-100 dari $(b_n)$ adalah representasi biner dari $100$, yaitu $1100100$ yang mana merupakan representasi basis 3 dari bilangan $1\cdot3^6+1\cdot3^5+0\cdot3^4+0\cdot3^3+1\cdot3^2+0\cdot3^1+0\cdot3^0=\boxed{981}$.
+\end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+% USAMO 1983
+Terdapat 20 anggota di suatu klub tenis yang menjadwalkan tepat 14 permainan antar dua orang diantara mereka dengan setiap anggota klub bermain minimal satu kali. Buktikan bahwa dalam pembagian ini, terdapat himpunan 6 permainan dengan 12 pemain yang berbeda.\\
+	
+\begin{solusi}
+    Misalkan untuk setiap pertandingan yang akan diadakan secara bersamaan mempunyai dua slot atau tempat yang masing-masing dapat diisi maksimal satu orang . Berarti, karena ada 14 permainan, akan ada 28 slot yang tersedia.
+    
+    Kita akan memasangkan atau membagikan jadwal terlebih pada setiap orang dengan suatu pertandingan, dimana setiap orang tersebut hanya berada tepat di satu slot di satu pertandingan tertentu. (perhatikan bahwa pemasangan slot-orang tersebut merupakan pemetaan injektif)
+    
+    
+     Misalkan ada $m$ pertandingan dengan kedua slotnya terisi pemain, $n$ pertandingan dengan hanya satu slot yang terisi, dan $k$ pertandingan yang belum ada pemainnya (semua slotnya masih kosong). Perhatikan, karena ada 14 pertandingan yang dijadwalkan, maka $m+n+k=14$. Karena $k \ge 0$ maka $$m+n=14-k \le 14.$$
+     Sekarang, karena terdapat tepat 20 anggota, berarti kita punya $$2m+n=2\times m+1 \times n+0 \times k =20.$$ Dari sini, kita akan mendapatkan $$20=2m+n=m+(m+n) \le m + 14 \implies 6 \le m.$$ Berarti ada paling sedikit 6 pertandingan yang dua slotnya terisi. Dengan kata lain ada paling sedikit 6 permainan dengan 12 pemain yang berbeda. \qed
+\end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+    % pelatnas 1 IMO 2019
+    Hitunglah banyaknya polinomial $P(x)$ dengan koefisien-koefisien yang dipilih dari $\{0, 1, 2, 3\}$ sedemikian sehingga $P(2) = 2023$
+    \begin{solusi}
+    Misalkan $P(x)=a_nx^n+a_{n-1}x^{n-1} + \dots + a_0$ dimana $n$ bilangan cacah. Karena untuk $i=0,1,\dots,n$ , $a_i \in \{0,1,2,3\}$ maka dapat didefinisikan $a_i = 2b_i+c_i$ dengan $b_i,c_i \in \{0,1\}$. Berarti jika dimisalkan
+    \begin{align*}
+        B = \sum_{i = 0}^{n}b_i2^{i} \quad \text{ and } \quad C = \sum_{i = 0}^{n} c_i2^{i}
+    \end{align*}
+    maka sadari bahwa $B_2 = \overline{b_nb_{n-1}\ldots b_0}$ dan $C_2 = \overline{c_nc_{n-1} \ldots c_0}$ masing-masing adalah representasi biner dari $B$ dan $C$, sehingga akan didapatkan bahwa
+    $$P(2) = \sum_{i = 0}^{n} a_i2^i = \sum_{i = 0}^{n} (2b_i+c_i)2^i = 2\sum_{i = 0}^{n}b_i2^i + \sum_{i = 0}^{n} c_i2^i = 2B+C$$
+    adalah jumlah dari dua bilangan biner $B$ dan $C$. Perhatikan, karena $B$ dan $C$ dapat direpresentasikan secara unik dalam biner, maka solusi $2023 = 2B+C$ juga unik, sehingga ada bijeksi antara banyaknya polinomial $P$ dengan banyaknya solusi $(B,C)$. Mudah dicek bahwa banyak solusinya adalah \boxed{1012} pasangan.
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+    % USAMO 1996
+    Sebuah barisan $n$ suku $(x_1,x_2,\dots,x_n)$ dimana setiap sukunya bernilai 0 atau 1 disebut sebagai barisan biner dengan panjang $n$. Definisikan $a_n$ sebagai banyaknya barisan biner dengan panjang $n$ yang tidak mengandung 3 suku berurutan $0,1,0$ dalam urutan tersebut. Definisikan $b_n$ sebagai banyaknya barisan biner dengan panjang $n$ yang tidak mengandung 4 suku berurutan $0,0,1,1$ atau $1,1,0,0$  dalam urutan tersebut. Buktikan bahwa $b_{n+1} = 2a_{n}$ untuk semua bilangan asli $n$.
+    \begin{solusi}
+        Observasi pemetaan dari barisan biner dengan panjang $n$ , sebutlah $A=(x_1, \dots, x_n)$ ke barisan $B=(y_0,y_1,\dots,y_n)$ yang didefinisikan dengan $y_0 = 0$ dan $y_i = \sum_{k=1}^{i} x_k \mod 2$. Perhatikan bahwa konstruksi $A$ dan $B$ saling bijektif. Jika barisan untuk suatu $1 \le i \le n$, $A$ mengandung subbarisan dengan 3 suku berurutan $(x_{i+1}, x_{i+2}, x_{i+3})=(0,1,0)$ dalam urutan tersebut, maka mudah dilihat bahwa dari definisi, bahwa barisan $B$ memiliki subbarisan dengan 4 suku berurutan $(y_i, y_{i+1}, y_{i+2}, y_{i+3})=(0,0,1,1)$ atau $(y_i, y_{i+1}, y_{i+2}, y_{i+3})=(1,1,0,0)$. Dari hal tersebut, $y_{i-1}$ mempunyai dua kemungkinan nilai yaitu $0$ atau $1$ yang menentukan nilai $(y_i, y_{i+1}, y_{i+2}, y_{i+3})$. Oleh karena itu, dari definisi, $b_{n+1}$ setara dengan banyaknya barisan $B$ yang tidak mengandung 4 suku berurutan $0,0,1,1$ atau $1,1,0,0$ dan $a_n$ setara dengan banyaknya barisan $A$ yang tidak mengandung 3 suku berurutan $0,1,0$. Sehingga karena $A$ dan $B$ bijektif, serta $y_i$ mempunyai 2 nilai, didapatkan bahwa $b_{n+1}=2a_n$.
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+    Misalkan sebuah layar LED raksasa berukuran $2023 \times 2025$ dinyalakan. Layar tersebut tersusun atas $2023 \times 2025$ layar satuan berukuran $1 \times 1$. Pada awalnya ada lebih dari $2022 \times 2024$ layar satuan yang menyala. Namun ternyata layar tersebut rusak sehingga jika di setiap daerah layar berukuran $2 \times 2$ ada 3 layar satuan yang mati, maka layar satuan ke-4 juga akan ikut mati. Buktikan bahwa layar tersebut tidak akan pernah benar-benar mati (masih ada layar satuan yang menyala).
+    \begin{solusi}
+        Misalkan $A$ adalah himpunan layar-layar satuan yang awalnya menyala, tetapi menjadi mati setelah itu. Lalu, misalkan $B$ adalah himpunan daerah layar berukuran $2 \times 2$ yang membuat layar-layar di $A$ awalnya menyala menjadi mati (karena harus ada satu persegi berukuran $2 \times 2$ dari $B$ pada awalnya yang membuat layar-layar satuan lain mati).
+
+        Selanjutnya, perhatikan bahwa $|A| > 2022 \times 2024$ dan $|B| \le 2022 \times 2024$ (maksimum ada sebanyak $2022 \times 2024$ layar $2 \times 2$ pada layar LED raksasa tersebut). Di lain sisi, dari definisi soal, fungsi $f : B \to A$ pasti injektif karena setiap layar satuan di $A$ pasti hanya dipengaruhi oleh tepat satu layar $2 \times 2$ di $B$. Oleh karena itu jelas bahwa pada akhirnya akan ada anggota $A$ tersisa yang tetap menyala di akhir.
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+%ISL 2002 C1
+    Diberikan $n$ adalah bilangan bulat positif. Misalkan setiap titik $(x,y)$ pada koordinat kartesius dengan $x$ dan $y$ adalah bilangan bulat nonnegatif yang memenuhi $x+y < n$, diwarnai biru atau merah dengan aturan berikut: jika titik $(x,y)$ berwarna merah, maka semua titik $(x',y')$ dengan $x' \le x$ dan $y' \le y$ juga berwarna merah. Definisikan $A$ sebagai banyaknya cara memilih $n$ titik biru dengan koordinat-$x$ yang berbeda, dan definisikan $B$ sebagai banyaknya cara memilih $n$ titik biru dengan koordinat-$y$ yang berbeda. Buktikan bahwa $A=B$.
+    \begin{solusi}
+        Misalkan $a_i$ adalah banyaknya titik biru dengan koordinat-$x$ nya adalah $i$ dan $b_i$ adalah banyaknya titik biru dengan koordinat-$y$ nya adalah $i$. Untuk membuktikan soal, cukup ditunjukkan bahwa $a_0\cdot a_1 \cdot \ldots \cdot a_{n-1} = b_0 \cdot b_1 \cdot \ldots \cdot b_{n-1}$. Akan dikonstruksi sebuah pemetaan bijektif antara $a_0, a_1, \dots, a_{n-1}$ dan $b_0, b_1, \dots, b_{n-1}$. Perhatikan bahwa jika $a_x = 0$ maka $b_x = 0$, dan misalkan $a_x$ berkorespondensi dengan $b_x$. 
+        
+        Jika $a_x > 0$, misalkan $(x,y)$ menjadi titik biru terbawah yang berada di di kolom $x$ (atau secara mudahnya berada koordinat-$x$ sama dengan $x$). Sekarang, diantara titik-titik $(x,y),(x-1,y+1),(x-2,y+2),\dots$ ada setidaknya satu titik biru yang paling kiri dari suatu baris. Misalkan titik biru pertama yang ditemukan tersebut adalah $(x',y')$. Oleh karena itu, buat agar $a_x$ berkorespondensi dengan $b_{y'}$.
+
+        Jelas bahwa proses tersebut dapat dibalik: Jika $b_y > 0$, misalkan $(x,y)$ menjadi titik biru paling kiri di baris $y$ (atau secara mudahnya berada koordinat-$y$ sama dengan $y$). Sekarang, diantara titik-titik $(x,y),(x+1,y-1),(x+2,y-2),\dots$ ada setidaknya satu titik biru yang paling kiri dari suatu baris. Misalkan titik biru pertama yang ditemukan tersebut adalah $(x',y')$. Oleh karena itu, buat agar $b_y$ berkorespondensi dengan $a_{x'}$.
+
+        Karena proses pengkorespondensian tersebut reversibel, maka korespondensi tersebut bijektif, sehingga jelas bahwa $a_0\cdot a_1 \cdot \ldots \cdot a_{n-1} = b_0 \cdot b_1 \cdot \ldots \cdot b_{n-1}$. Terbukti.
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+    %ISL 2002 C3
+    Sebuah barisan $n$ bilangan bulat positif (tidak harus berbeda) disebut \textit{kawaii} jika memenuhi kondisi berikut: untuk setiap bilangan bulat positif $k \ge 2$, jika bilangan $k$ muncul dalam barisan tersebut, maka bilangan $k-1$ juga muncul, dan kemunculan pertama bilangan $k-1$ muncul sebelum kemunculan terakhir dari $k$. Untuk setiap bilangan bulat positif $n$, ada berapa barisan kawaii yang mungkin?
+    \begin{solusi}
+        Akan dibuktikan bahwa ada $n!$ barisan kawaii untuk setiap bilangan bulat positif $n$. Konstruksi sebuah bijeksi antara barisan kawaii dengan himpunan yang berisi permutasi dari $\{1,2,\dots,n\}$.
+
+        Misalkan $A=(a_1, \dots, a_n)$ menjadi barisan kawaii dan misalkan $r = \max\{a_1, \dots, a_n\}$. Maka, semua bilangan dari 1 sampai $r$ muncul di $a_1, \dots, a_n$. Definisikan $S_i = \{k \mid a_k = i\}$. Dari kondisi bahwa $A$ barisan kawaii, mengimplikasikan bahwa $\min S_{k-1} < \max S_k$ untuk $2 \le k \le r$. Tulis permutasi $(b_1, \dots, b_n)$ dari $\{1,\dots,n\}$ dengan menulis elemen dari $S_1$ secara menurun, lalu dilanjutkan dengan menulis elemen $S_2$ secara menurun, dan seterusnya. Konstruksi tersebut memberikan pemetaan valid dari barisan kawaii ke permutasi dari $\{1,2,\dots,n\}$.
+
+        Perhatikan pula bahwa pemetaan tersebut juga dapat dibalik (reversible). Hal ini diberikan oleh konstruksi berikut: jika diberikan permutasi $(b_1, \dots, b_n)$ dari $\{1,\dots,n\}$, misalkan $S_1 =  \{b_1,\dots,b_{k_1}\}$ dimana $b_1 > \dots >  b_{k_1} < b_{k_1+1}$, misalkan $S_2 =  \{b_{k_1+1},\dots,b_{k_2}\}$ dimana $b_{k_1+1} > \dots >  b_{k_2} < b_{k_2+1}$, dan seterusnya. Maka $a_j = 1$ dimana $i \in S_j$.
+
+        Karena pemetaan yang dikonstruksi dapat dibalik, maka pemetaan tersebut adalah sebuah bijeksi. Berarti, karena banyaknya himpunan yang berisi permutasi dari $\{1,2,\dots,n\}$ adalah $n!$, maka terbukti bahwa ada $n!$ barisan kawaii untuk setiap bilangan bulat positif $n$.
+    \end{solusi}
+\end{soaljawab}
+
+\begin{soaljawab}
+    % putnam 2005
+    Misalkan sebuah ruangan berukuran $n \times 3$ (mempunyai $n$ baris dan $3$ kolom) lantainya ditutupi oleh ubin satuan berukuran $1 \times 1$. Misalkan ubin yang berada pada baris ke-$i$ dan kolom ke-$j$ dinotasikan dengan $(i,j)$. Definisikan \textit{langkah satuan} sebagai langkah yang dilakukan antar satu ubin satuan ke ubin satuan yang berada tepat di sebelahnya. Tentukan banyaknya perjalanan atau jalur di ruangan tersebut sehingga kita bisa berjalan dari $(1,1)$ ke $(n,1)$ dengan langkah satuan dan melewati setiap titik di ruangan tersebut tepat sekali.
+    \begin{solusi}
+        Misalkan $A$ adalah himpunan semua subset dari $\{1,2,\dots,n\}$ yang mengandung $n$ dimana setiap elemen $A$ mempunyai sebanyak genap elemen. Misalkan $X \subseteq \{1,2,\dots,n-1\}$.  Maka banyaknya $X$ adalah $2^{n-1}$. Oleh karena itu, untuk setiap $a \in A$, karena $n \in a$, dan $|a|$ genap, maka dari simetri, banyaknya elemen dari  $A$, yaitu banyaknya $a$ yang memenuhi adalah $2^{n-1}/2=2^{n-2}$.
+
+        Misalkan $B$ adalah himpunan semua jalur dari $(1,1)$ ke $(n,1)$ yang memenuhi syarat soal. Akan ditunjukkan bahwa terdapat bijeksi antara $A$ dan $B$. Misalkan sebuah jalur $P \in B$. Definisikan himpunan $S=S(P)$ sebagai himpunan semua $i \in \{1,2,\dots,n\}$ sehingga salah satu kondisi berikut terpenuhi: ada sebuah jalur langsung (directed  edge) dari  $(i,1)$ ke $(i,2)$ dan sebaliknya, atau ada sebuah jalur langsung dari $(i,3)$ ke $(i,2)$ dan sebaliknya. Jelas bahwa $S$ mengandung $n$ dan harus mengandung sebanyak genap elemen (karena harus berpindah ke kanan dan ke kiri, kiri kanannya selalu berpasangan sehingga pasti selalu genap).
+
+        Di lain sisi kebalikannya juga berlaku. Diberikan sebuah subset $S=\{a_1,a_2,\dots,a_{2r}=n\} \subseteq \{1,2,\dots,n\}$ dengan $a_1<a_2<\dots<a_{2r}$, maka pasti ada sebuah jalur unik $P$ yang melewati $(a_i, 2+(-1)^i)$, $(a_1,2)$ untuk $i=1,2,\dots,2r$.
+
+        Karena pemetaan tersebut ada dan reversible, maka pemetaan tersebut bijektif. Itu berarti banyak perjalanan yang mungkin adalah $2^{n-2}$.
+    \end{solusi}
+\end{soaljawab}
+\end{document}

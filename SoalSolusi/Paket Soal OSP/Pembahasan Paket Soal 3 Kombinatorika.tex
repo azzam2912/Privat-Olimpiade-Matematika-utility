@@ -1,0 +1,298 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+
+%\addtolength{\textheight}{1.5in} 
+\renewcommand{\baselinestretch}{1.5}
+
+
+
+\begin{document}
+	\title{Pembahasan Paket Soal 3 : Kombinatorika} % Beginner
+	\date{\today}
+	\author{Compiled by Azzam}
+	\maketitle
+	\newpage
+	
+	\section{Soal}
+\subsection{Isian Singkat}
+Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
+
+	\begin{soalbaru}
+		Misalkan $A$ adalah himpunan semua pembagi positif dari $6^8$ Jika dipilih dua bilangan sebarang $x$ dan $y$ di $A$ (boleh sama), tentukan peluang dari kejadian $x \mid y$. 
+		
+		\begin{jawaban}
+			$\dfrac{25}{41}$.
+		\end{jawaban}
+		\begin{solusi}
+		Karena $6^8 = 2^8 \cdot 3^8$, maka banyaknya faktor positif dari $6^8$ adalah $(8+1)(8+1)=81$. Selanjutnya, observasi banyaknya cara memilih sembarang dua bilangan $s$ dan $y$ di $A$ tanpa syarat, yaitu:
+		\begin{itemize}
+		\item Jika $x=y$, maka banyak cara memilih $x$ dan $y$ adalah banyak cara memilih satu bilangan dari semua faktor positif $6^8$, yaitu 81.
+		
+		\item Jika $x\neq y$, maka banyaknya cara memilih $x$ dan $y$ sama dengan banyak cara memilih dua faktor berbeda $6^8$, yaitu $81 \choose 2$$= 3240$.
+		\end{itemize}
+		
+		Jadi, banyaknya cara memilih sembarang dua bilangan $x$ dan $y$ di $A$ seluruhnya adalah $81+3240=3321$.
+		
+		Selanjutnya kita observasi cara memilih bilangan $x$ dan $y$ agar $x \mid y$. Misalkan $x=2^a3^b$ dan $y=2^c3^d$ dengan $0 \le a,b,c,d \le 8$. Agar $x \mid y$, haruslah $a \le c$ dan $b \le d$.
+		\begin{itemize}
+		\item Jika $a=c$, maka banyaknya cara memilih pasangan $(a,c)$ adalah 8+1=9 (dari syarat $0 \le a,c \le 8$).
+		
+		\item Jika $a < c$, maka banyak cara memilih pasangan $(a,c)$ adalah ${8+1 \choose 2} = 36$.
+		\end{itemize}
+		
+		Jadi, banyaknya cara memilih pasangan $(a,c)$ yang memenuhi syarat adalah $9+36=45$. Dengan cara serupa, didapat bahwa banyaknya cara memilih pasangan $(b,d)$ adalah 36 juga. Oleh karena itu banyaknya cara memilih bilangan $x$ dan $y$ agar $x \mid y$ adalah $45 \times 45 = 2025$. Jadi, peluang terpilihnya $x$ dan $y$ agar $x \mid y$ adalah $\frac{2025}{3321}=\frac{25}{41}$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Misalkan Hitomi ingin mengejar Hyewon menaiki tangga dalam perlombaan kebugaran. Karena kelelahan, Hitomi hanya bisa menaiki satu atau dua anak tangga setiap satu langkah ia berlari. Jika banyak anak tangga yang tersisa untuk mengejar Hyewon adalah 10 anak tangga, berapa banyak kemungkinan Hitomi dalam melangkah?
+		
+		\begin{jawaban}
+		89
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan $f(n)$ adalah banyaknya cara Hitomi melangkah untuk menaiki $n$ anak tangga dengan setiap satu langkah hanya bisa menaiki satu atau dua anak tangga.
+		
+		Perhatikan bahwa $f(1)=1$ dan $f(2)=2$ (satu langkah langsung menaiki dua anak tangga dan satu cara lagi adalah naik satu per satu anak tangga).
+		
+		Kita akan menghitung nilai $f(n)$ untuk $n \ge 3$. Sekarang, akan dibagi kasus terlebih dahulu saat Hitomi telah melakukan satu langkah pertama:
+		\begin{itemize}
+		\item Langkah pertama Hitomi langsung menaiki dua anak tangga. Banyak cara di kasus ini adalah $f(n-2)$ yaitu banyak cara Hitomi menaiki $n-2$ anak tangga sisanya setelah pada awalnya menaiki dua anak tangga sekaligus.
+		
+		\item Langkah pertama Hitomi langsung menaiki satu anak tangga. Banyak cara di kasus ini adalah $f(n-1)$ yaitu banyak cara Hitomi menaiki $n-1$ anak tangga sisanya setelah pada awalnya menaiki satu anak tangga.
+		\end{itemize}
+		
+		Berarti, untuk karena kedua kasus tersebut berbeda (saling lepas), didapat $f(n)=f(n-1)+f(n-2)$ untuk $n \ge 3$, yang merupakan salah satu bentuk barisan Fibonacci dengan $f(1)=1$ dan $f(2)=2$. Itu berarti akan didapat $f(3)=3,f(4)=5,f(5)=8,f(6)=13,f(7)=21,f(8)=34,f(9)=55,f(10)=89$.
+		
+		Berarti cara Hitomi menaiki 10 anak tangga tersebut adalah $f(10)=89$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Kata sandi tanpa perulangan karakter dibentuk dengan menggunakan huruf kapital. Sebuah kata sandi dikatakan \textit{sempurna} bila tidak memuat untaian karakter $XYZ$ maupun $ZYX$. Hitunglah peluang untuk membentuk kata sandi \textit{sempurna} yang terdiri dari atas 8 huruf.
+		
+		\begin{jawaban}
+		$\dfrac{1299}{1300}$
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa berdasarkan aturan perkalian, banyaknya kata sandi tanpa perulangan karakter yang dapat dibentuk dengan banyaknya huruf ada 8 buah adalah $\dfrac{26!}{18!}$. Kemudian, banyaknya kata sandi tanpa perulangan yang memuat untaian karakter $XYZ$ adalah $\dfrac{23!}{18!}\cdot 6$. Hasil yang sama juga diperoleh untuk banyaknya kata sandi tanpa perulangan yang mengandung untaian karakter $ZYX$. Berdasarkan PIE (Prinsip inkklusi-eksklusi), diperoleh bahwa banyaknya kata sandi \textit{sempurna} adalah $$\dfrac{26!}{18!}-\left( \dfrac{23!}{18!}\cdot 6 +  \dfrac{23!}{18!}\cdot 6 \right)=\dfrac{26!}{18!}-2 \cdot \dfrac{23!}{18!} \cdot 6.$$ Dari sini, didapat peluang untuk membentuk kata sandi \textit{sempurna} yang terdiri dari atas 8 huruf adalah $$\dfrac{\dfrac{26!}{18!}-2 \cdot \dfrac{23!}{18!} \cdot 6}{26!/18!}=1-\dfrac{2\cdot 6}{26 \cdot 25 \cdot 24}= 1 - \dfrac{1}{1300}=\dfrac{1299}{1300}.$$
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+			Sejumlah $n$ siswa duduk mengelilingi suatu meja bundar. Diketahui siswa laki-laki sama banyak dengan siswa perempuan. Jika banyaknya pasangan 2 orang yang duduk berdampingan
+			dihitung, ternyata perbandingan antara pasangan bersebelahan yang berjenis kelamin sama dan
+			pasangan bersebelahan yang berjenis kelamin berbeda adalah $7 : 3$. Tentukan minimal $n$ yang mungkin.
+			
+			\begin{jawaban}
+					20
+					\end{jawaban}
+					\begin{solusi}Perhatikan karena banyaknya laki-laki dan perempuan sama, maka $n$ haruslah bilangan genap.
+					Misalkan $b$ menyatakan banyaknya pasangan bersebelahan yang berjenis kelamin berbeda, dan $s$ menyatakan banyaknya pasangan berjenis kelamin sama. Maka, didapatkan bahwa $b+s=n$ (tinjau setiap satu orang paling kiri di masing-masing pasangan $b$ dan $s$, maka totalnya adalah seluruh siswa).
+					
+					Karena $n=b+s$ dan $b:s=3:7$ maka $n$ adalah kelipatan dari $3+7=10$. Karena $n$ genap, maka $n \ge 2 \cdot 10 = 20$. Untuk $n=20$ konfigurasi $PLLLLLLLLPLPLPPPPPPP$ memenuhi ($P$ adalah siswa perempuan dan $L$ adalah siswa laki-laki).
+					\end{solusi}
+		\end{soalbaru}
+			
+	\begin{soalbaru}
+		Misalkan $A$ adalah himpunan yang berisi $10$ elemen dan $A_1,A_2,\dots,A_k$ adalah himpunan bagian dari $A$ sedemikian sehingga untuk sembarang dua himpunan bagian berbeda $A_i$ dan $A_j$ hanya memenuhi salah satu dari tiga kemungkinan: $A_i \cap A_j = \emptyset$, $A_i \subset A_j$, atau $A_j \subset A_i$. Tentukan nilai terbesar yang mungkin untuk $k$.\\[-20pt] %ko SS kombin 15 juni 19
+		
+		\begin{jawaban}
+		20
+		\end{jawaban}
+		\begin{solusi}
+		WLOG (tanpa mengurangi keumuman) misalkan $A=\{1,2,\dots,10\}$.
+		
+		Akan kita partisi koleksi yang berisi himpunan bagian  $A_1,\dots,A_k$ menjadi dua himpunan yang berisi subset-subset yang saling lepas ke himpunan $X$ dan juga subset-subset yang saling menjadi subset himpunan lainnya ke himpunan $Y$ untuk suatu bilangan bulat $1\le m \le k$ dimana
+		
+		\begin{enumerate}
+		\item 	Kelompok pertama ($X$):
+		Jika dalam kelompok pertama ini tak ada elemen atau $|X|=0$, maka kita beralih ke kelompok kedua. Jika $m = 1$ maka $A_m = A_1$ akan masuk ke kelompok kedua atau $A_1 \in Y$. 
+		 Jika $m \ge 2$, WLOG untuk $X=\{A_1,A_2,\dots,A_m\}$ berlaku $A_i \cap A_j = \emptyset$ untuk sembarang $1 \le i < j \le m \le k$. 
+		 
+		 Perhatikan bahwa karena $A_1,A_2,\dots,A_m$ semuanya saling lepas, maka berlaku\\ $ |A_1|+|A_2|+\dots+|A_m| = |A_1 \cup A_2 \cup \dots \cup A_m| \le |A| = 10$. 
+		 Nilai maksimum kardinalitas tersebut dapat tercapai saat $m=10$ dan dengan konstruksi $A_i = \{i\}$ untuk $i=1,2,\dots,m$.
+				
+		\item Kelompok kedua ($Y$):
+		Jika dalam kelompok kedua ini tak ada elemen atau $|Y|=0$, maka kasus kita beralih ke kelompok pertama. Jika $m+1 = k$ maka $A_{m+1} = A_k$ akan masuk ke kelompok pertama atau $A_{m+1} \in X$.
+		Jika $m+1 \le k-1$, WLOG untuk $Y=\{A_{m+1},A_{m+2},\dots,A_{k}\}$ dimana untuk sembarang $m+1 \le r < n \le k$ berlaku $A_{r} \subset A_{n}$. Dari sini berlaku $|A_{r} \cup A_n| = |A_n|$ sehingga menyebabkan $|A_{m+1}\cup A_{m+2}\cup\dots\cup A_{k}|=|A_{k}| \le 10$. Dari syarat himpunan-himpunan elemen $Y$ tersebut yang tak boleh saling lepas, berarti dapat dikonstruksi $A_{m+1} \subset A_{m+2} \subset \dots \subset A_k$. Nilai maksimum ketaksamaan kardinalitas tersebut dapat tercapai saat $k=2m$ dan dengan konstruksi $A_{m+r} = \{1,2\dots,r\}$ untuk $r=1,2,\dots,m$.
+		\end{enumerate}
+		
+		Selanjutnya, misalkan himpunan $Z =\{B_1,\dots,B_l\}$ adalah himpunan bagian dari $A$ dimana $B_i \in X$ dan $B_i \in Y$ untuk $i=1,2,\dots,l$ untuk suatu bilangan asli $l$.
+		
+		Maka dari pembahasan kedua kasus tersebut, didapat $k=|X|+|Y|-|Z|+|{\emptyset}| = |X|+|Y|-|Z|+1 \le m + m -1+1 = 2m \le 2 \cdot 10 = 20$ dimana $m\le10$ dari pembahasan kasus satu, kelompok pertama tadi. Selanjutnya,nilai maksimum $k=20$ dapat tercapai dengan konstruksi $A_i = i$ untuk $1 \le i \le 10$, $A_{11}=\emptyset$, dan $A_{10+i} = {1,2,\dots,i}$ untuk $2 \le i \le 10$. Konstruksi ini memenuhi karena $A_{11}\subset A_1 \subset A_{12} \subset A_{13} \subset \dots A_{20}$ dan $A_i \subset A_{10+i}$ untuk $2 \le i \le 10$. \qed 
+		\end{solusi}
+	\end{soalbaru}
+	\vspace{10pt}
+	
+	\begin{soalbaru}
+			Misalkan $|X|$ menyatakan kardinalitas atau banyaknya anggota himpunan $X$, dan $S=\{1,2,\dots,10\}$. Carilah banyaknya pasangan himpunan $(A,B)$ sehingga\\[-20pt]
+			$$A \cup B = S,\text{ } A \cap B = \emptyset, \text{ } (|A|+|B|) \in A,\text{ } (|A|-|B|) \in B. $$\\[-30pt] %ktom februari 2016
+			\begin{jawaban}
+				93
+			\end{jawaban}
+			\begin{solusi}
+			Misalkan $(A,B)$ memenuhi kondisi yang diberikan soal. Perhatikan bahwa $|A|+|B|=|A \cup B|+|A \cap B|=|S|=10$ sehingga $10=|A|+|B| \in A$. Misalkan $k=|A|-|B| \in B$. Dari sini dapat dilihat bahwa $A$ dan $B$ tak kosong, sehingga $k \le 9-1 <10$. Karena $|A|+|B|$ genap, diperoleh $|A|$ dan $|B|$ memiliki paritas yang sama, sehingga didapat $k$ bernilai genap. Kita akan membagi kasus berdasarkan $k$:
+			\begin{enumerate}
+			\item $k=2$ \\
+			Diperoleh bahwa $|A|=6$ dan $|B|=4$. Karena $(|A|+|B|)=10 \in A$ dan $2 \in B$, lima anggota $A$ yang lain berada pada himpunan $\{1,3,4,5,6,7,8,9\}$ yang berisi 8 anggota. Jadi, banyaknya kemungkinan pasangan $(A,B)$ yang memenuhi kondisi soal untuk kasus ini adalah ${8 \choose 5 }=56$.
+			
+			\item $k=4$ \\
+						Diperoleh bahwa $|A|=7$ dan $|B|=3$. Karena $(|A|+|B|)=10 \in A$ dan $k=4 \in B$, enam anggota $A$ yang lain berada pada himpunan $\{1,2,3,5,6,7,8,9\}$ yang berisi 8 anggota. Jadi, banyaknya kemungkinan pasangan $(A,B)$ yang memenuhi kondisi soal untuk kasus ini adalah ${8 \choose 6 }=28$.
+						
+			\item $k=6$ \\
+						Diperoleh bahwa $|A|=8$ dan $|B|=2$. Karena $(|A|+|B|)=10 \in A$ dan $k=6 \in B$, lima anggota $A$ yang lain berada pada himpunan $\{1,2,3,4,5,7,8,9\}$ yang berisi 8 anggota. Jadi, banyaknya kemungkinan pasangan $(A,B)$ yang memenuhi kondisi soal untuk kasus ini adalah ${8 \choose 7 }=8$.
+				
+			\item $k=8$ \\
+						Diperoleh bahwa $|A|=9$ dan $|B|=1$. Berarti $A=\{1,2,3,4,5,6,7,9,10\}$ dan $B={8}$. Jadi, banyaknya kemungkinan pasangan $(A,B)$ yang memenuhi kondisi soal untuk kasus ini adalah 1.
+						
+			\end{enumerate}
+			
+			Oleh karena itu, total banyaknya kemungkinan pasangan $(A,B)$ yang memenuhi adalah $56+28+8+1=93.$ \qed
+			\end{solusi}
+			\vspace{10pt}
+		\end{soalbaru}
+		\begin{soalbaru}
+			Untuk tiap bilangan asli $n$, definisikan $a_n$ sebagai banyaknya bilangan asli $n$
+				digit yang digitnya hanya terdiri atas angka 1 dan 2, serta tidak ada
+				dua buah angka 2 yang terletak persis bersebelahan. Nilai dari $a_{10}$ adalah...
+		%akeyla
+		
+		\begin{jawaban}
+		144
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa $a_1=2$ (yaitu 1 dan 2) dan $a_2=3$ (yaitu 11,12,21).
+		Misalkan $X_n,Y_n$, dan $Z_n$ adalah banyaknya bilangan asli $n$ digit yang digitnya hanya menggunakan angka 1 dan 2, yang tidak ada dua buah angka 2 yang bersebelahan, dengan $X_n$,$Y_n$,$Z_n$ berturut-turut berakhiran $11$,$12$,$21$. Amati bahwa untuk $n \ge 3$ kita punya \begin{itemize}
+		\item Karena $X_n$,$Y_n$,$Z_n$ mencakup seluruh kemungkinan bilangan pada kondisi di soal, berarti $X_n+Y_n+Z_n=a_n$
+		\item Karena bilangan $n$ digit yang berakhiran $21$, digit ke $n-1$ nya adalah $2$, berarti haruslah tiga digit terakhirnya adalah $121$ sehingga $Z_n = Y_{n-1}$.
+		\item Karena pada bilangan yang berakhiran $12$ mempunyai dua kemungkinan tiga digit terakhir, yaitu $112$ dan $212$, maka $Y_n=X_{n-1}+Z_{n-1}$.
+		\item Karena pada bilangan yang berakhiran $11$ mempunyai dua kemungkinan tiga digit terakhir, yaitu $111$ dan $211$, maka $X_n=X_{n-1}+Z_{n-1}$.
+		\end{itemize}
+		Berarti untuk $n \ge 3$ kita punya\\[-30pt]
+		 \begin{align*}
+				a_n &= X_n+Y_n+Z_n\\
+					&= (X_{n-1}+Z_{n-1})+(X_{n-1}+Z_{n-1})+Y_{n-1}\\
+					&= a_{n-1}+X_{n-1}+Z_{n-1}\\
+					&= a_{n-1}+X_{n-1}+Z_{n-2}+Y_{n-2}\\
+					&= a_{n-1}+a_{n-2}\\[-30pt]
+				\end{align*}
+		yang merupakan salah satu bentuk barisan Fibonacci. Dari sini karena $a_1=2$ (yaitu 1 dan 2) dan $a_2=3$ (yaitu 11,12,21), maka $a_3=5, a_4=8, a_5=13, a_6=21, a_7=34, a_8=55, a_9=89, a_{10}=144$. \qed
+		\end{solusi}
+			\end{soalbaru}
+	\vspace{10pt}
+	\begin{soalbaru}
+		Seorang laki - laki memiliki 5 teman. Suatu malam di restoran McHarto, dia bertemu
+		dengan masing - masing dari mereka 11 kali, setiap 2 dari mereka 5 kali, setiap 3 dari mereka 4 kali, setiap 4 dari mereka 3 kali, dan semua mereka 10 kali. Dia makan di McHarto 10 kali tanpa bertemu mereka. Berapa kali total dia makan di McHarto?
+		\begin{jawaban}
+			50
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan $P_k$ menyatakan banyaknya pertemuan yang melibatkan $k$ teman. Dari soal dapat diketahui bahwa \\[-25pt]
+		\begin{align*}
+		P_0 &= 10 & P_1 &= {5 \choose 1}\cdot 11=55 & P_2 &= {5 \choose 2}\cdot 5=50\\
+		P_3 &= {5 \choose 3}\cdot 4=40 & P_4 &= {5 \choose 4}\cdot 3=15 & P_5 &= {5 \choose 5}\cdot 10 = 10
+		\end{align*}\\[-20pt]
+		Berarti, dengan prinsip inklusi-ekslusi secara keseluruhan laki-laki tersebut makan di restoran McHarto sebanyak $P_0+P_1-P_2+P_3-P_4+P_5 = 10 + 55 - 50 + 40 - 15 + 10=50.$ \qed
+		\end{solusi}
+		
+		
+	\end{soalbaru}
+\newpage
+\subsection{Esai}
+Jawablah soal-soal berikut dengan menyertakan cara pengerjaan atau argumentasinya.
+	
+	\begin{soalbaru} 
+		Apakah mungkin menempatkan angka-angka $1,2,\dots,9$ (setiap angka dipakai tepat sekali) ke dalam papan catur berukuran $3\times 3$ sehingga setiap dua persegi yang bertetangga baik secara vertikal ataupun horizontal jumlah dari dua bilangan yang ada di dalamnya selalu prima?
+		\begin{jawaban}
+		Tidak
+		\end{jawaban}
+		\begin{solusi}
+		
+		Misalkan kita beri label untuk setiap papan catur tersebut seperti pada gambar. 
+		
+		\begin{center}
+				\begin{tabular}{|c|c|c|}
+				\hline
+				$P_1$ & $C_1$ & $P_2$ \\
+				\hline
+				$C_4$ & $C$   &  $C_2$\\
+				\hline
+				$P_4$ & $C_3$ & $P_3$\\
+				\hline
+				\end{tabular}
+				\end{center}
+		Lalu amati beberapa observasi penting:
+		\begin{itemize}
+		\item Jika $C$ genap maka tiga dari $P_1,P_2,P_3,$ atau $P_4$ bernilai genap karena hanya ada 4 buah bilangan genap diantara $1,2,\dots,9$ dan $C_1,C_2,C_3,C_4$ tak mungkin genap karena menyebabkan penjumlahannya dengan $C$ bukan bilangan prima. Tanpa mengurangi keumuman, misalkan $P_1,P_2, $ dan $P_3$ genap. Akibatnya, $P_4$ ganjil. Karena $C_4$ ganjil, maka $P_4+C_4 \ge 1 + 3 =4$ adalah bilangan genap yang lebih besar dari 2. Oleh karena itu, didapat $(P_4 +C_4)$ bukan bilangan prima.
+		\item Jika $C$ ganjil maka $P_1,P_2,P_3,P_4$  semuanya ganjil (karena ada 5 buah bilangan ganjil diantara $1,2,\dots,9$) dan $P_1,P_2,P_3,P_4$ semuanya bernilai genap (karena ada 4 buah bilangan genap diantara $1,2,\dots,9$). Tanpa mengurangi keumuman, misalkan $C_1=2,C_2=4,C_3=6,$ dan $C_4=8$. Observasi kemungkinan $C$ kita punya : 
+		\begin{itemize}
+		\item Jika $C=1$ atau $C=7$, maka $C+C_4 =9$ atau $15$ yang jelas bukan prima.
+		\item Jika $C=3$ atau $C=9$, maka $C+C_3 =9$ atau $15$ yang jelas bukan prima.
+		\item Jika $C=5$, maka $C+C_2 =9$ yang jelas bukan prima.
+		\end{itemize}
+		\end{itemize}
+		Jadi, penempatan bilangan-bilangan $1,2,3,\dots,9$ pada papan catur $3 \times 3$ seperti di soal tidak mungkin terjadi.
+		\end{solusi}
+	\end{soalbaru}
+	\newpage
+	\begin{soalbaru} 
+		 Tunjukkan bahwa ada dua bilangan di $A$ yang jumlahnya 83, dengan $A$ adalah himpunan 15 bilangan bulat berbeda yang diambil dari barisan aritmatika $1,4,\dots,79$.\\[-10pt]
+		 
+		 \begin{solusi}
+		 Partisi bilangan-bilangan dari barisan aritmatika $4,7,10,\dots,79$ menjadi pasangan-pasangan tak terurut yang jika dijumlahkan hasilnya 83 atau pasangannya berbentuk $(k,83-k)$ untuk suatu bilangan asli $k$ menjadi $(4,79),(7,76),(10,73),\dots,(37,46),(40,43)$. Perhatikan bahwa ada sebanyak 13 pasangan hasil partisi tersebut. Selajutnya, akan dibagi kasus berdasarkan keberadaan angka 1 di $A$. 
+		 
+		 Jika $1 \in A$, maka kita tinggal memilih 14 elemen sisanya dari partisi yang sudah kita buat. Perhatikan, karena kita mengambil 14 bilangan dari 13 pasangan hasil partisi, berdasarkan PHP, maka setidaknya ada dua bilangan berbeda yang diambil dari pasangan yang sama. Padahal di pasangan yang sama tersebut, jumlah bilangannya adalah 83. Terbukti.
+		 
+		 Jika $1 \not \in A$ maka kita tinggal memilih 15 elemen sisanya dari partisi yang sudah kita buat. Perhatikan, karena kita mengambil 15 bilangan dari 13 pasangan hasil partisi, berdasarkan PHP, maka setidaknya ada dua bilangan berbeda yang diambil dari pasangan yang sama. Padahal di pasangan yang sama tersebut, jumlah bilangannya adalah 83. Terbukti.
+		 
+		 Jadi, terbukti bahwa ada dua bilangan di $A$ yang jumlahnya 83. \qed
+		 
+		 
+		 \end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru} 
+		Misalkan $A = \{1,11,111,1111,\dots\}$ adalah himpunan semua bilangan asli yang hanya tersusun oleh angka 1. Buktikan bahwa ada bilangan $x \in A$ sehingga $2021 \mid x$.\\[-10pt]
+		
+		\begin{solusi}
+		Andaikan tak ada $x \in A$ sehingga $2021 \mid x$. Amati bahwa karena ada tak hingga banyaknya elemen $A$, maka menurut PHP, setidaknya ada dua bilangan berbeda $a>b$ dimana $a,b \in A$ sehingga $a \equiv b \mod 2021$. Misalkan $a = \underbrace{111 \dots 111}_{n \text{ angka } 1}$ dan $b = \underbrace{111 \dots 111}_{k \text{ angka } 1}.$ Maka didapat\\[-20pt] $$c=a-b= \underbrace{111 \dots 111}_{n \text{ angka } 1} - \underbrace{111 \dots 111}_{k \text{ angka } 1}=\underbrace{111 \dots 111}_{n-k \text{ angka } 1}\underbrace{000 \dots 000}_{k \text{ angka } 0}=\underbrace{111 \dots 111}_{n-k \text{ angka } 1} \times 10^k.$$
+		
+		Karena $a \equiv b \mod 13 \implies c = a -b \equiv 0 \mod 2021$ maka $2021 \mid \underbrace{111 \dots 111}_{n-k \text{ angka } 1} \times 10^k$. Namun karena 2021 relatif prima dengan 10, maka $2021 \nmid 10^k$ sehingga didapat $2021 \mid \underbrace{111 \dots 111}_{n-k \text{ angka } 1}$. Ambil $x = \underbrace{111 \dots 111}_{n-k \text{ angka } 1}$, maka kita punya $x \in A$, kontradiksi dengan pengandaian bahwa tidak ada $x \in A$ sehingga $2021 \mid x$.
+		
+		Berarti haruslah ada bilangan $x \in A$ sehingga $13 \mid x$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	\newpage
+	\begin{soalbaru}
+		Akira dan Benjiro mempunyai tak hingga banyaknya koin bundar yang identik. Akira dan Benjiro bergantian menaruh koin tersebut di meja persegi yang ukurannya terbatas (finit) sehingga tidak ada dua koin yang saling bertumpuk dan setiap koin tepat di atas meja (jadi tidak ada yang koin yang menggantung di pinggiran meja sehingga bisa jatuh). Orang yang tidak bisa menempatkan koin di meja saat gilirannya dinyatakan kalah. Asumsikan setidaknya satu koin dapat ditaruh di meja. Jika Akira main duluan, buktikan bahwa Akira punya strategi menang.\\[-10pt]
+		
+		\begin{solusi}
+		Akan ditunjukkan bahwa Akira punya strategi menang. Pertama, Akira menaruh koin tepat di tengah meja. Lalu, untuk selanjutnya setiap Benjiro menaruh koin di titik $K$ (selain di tengah meja), maka Akira akan mengikuti menaruh koin di titik $K'$ dimana $K'$ adalah pencerminan dari titik $K$ terhadap titik tengah meja. Dari kesimetrisan tersebut, dapat dipastikan bahwa Akira selalu dapat menaruh koinnya setelah Benjiro menaruh koin. Karena mejanya mempunyai ukuran terbatas, maka suatu saat setelah beberapa giliran, akan ada orang yang kalah karena tidak dapat menaruh koinnya. Karena Akira pasti dapat selalu menaruh koinnya, maka pasti Benjiro kalah dan Akira menang. Terbukti. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Misalkan di papan tulis pada awalnya kita mempunyai 3 bilangan yaitu $(5,2,3)$. Setiap langkah kita memilih dua bilangan berbeda dari 3 bilangan yang kita punya tersebut, misalkan $a$ dan $b$, lalu menghapusnya  masing-masing dengan $0.6a-0.8b$ dan $0.8a+0.6b$. Bisakah pada akhirnya kita mendapatkan tiga angka $(1,5,4)$?
+		\begin{jawaban}
+		Tidak
+		\end{jawaban}
+		\begin{solusi}
+		Akan ditunjukkan bahwa kita tidak bisa mendapatkan tiga angka $(1,5,4)$.
+		Amati jumlah kuadrat dari ketiga bilangan itu di setiap langkah. Misalkan untuk suatu langkah kita punya $(a,b,c)$, dengan $S=a^2+b^2+c^2$. Untuk langkah selanjutnya kita punya $(0.6a-0.8b,0.8a+0.6b,c)$ dengan 
+		\vspace{-8pt}
+		\begin{equation*}
+		\begin{split}
+		S' &= (0.6a-0.8b)^2+(0.8a+0.6b)^2+c^2\\
+		S' &= ((0.6a)^2+(0.8a)^2)+((0.8b)^2+(0.6b))+(-9.6ab+9.6ab)+c^2\\
+		S' &= a^2+b^2+c^2\\
+		S' &= S.\\[-8pt]
+		\end{split}
+		\end{equation*}
+		 Dari sini didapatkan bahwa jumlah kuadrat dari ketiga bilangan tersebut adalah invarian atau dengan kata lain nilainya selalu sama untuk setiap langkah. 
+		
+		Karena di awal kita punya $(5,2,3)$, berarti jumlah kuadratnya adalah $5^2+2^2+3^2=38$. Padahal untuk $(1,5,4)$, jumlah kuadratnya adalah $1^2+5^2+4^2=42 \neq 38$. Berarti kita tidak bisa mendapatkan tiga angka $(1,5,4)$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+\end{document}

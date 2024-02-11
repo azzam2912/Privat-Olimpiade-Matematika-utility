@@ -1,0 +1,345 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+
+%\addtolength{\textheight}{1.5in} 
+\renewcommand{\baselinestretch}{1.5}
+
+
+
+\begin{document}
+	\title{Pembahasan Paket Soal 1 : Campur} % Beginner
+	\date{\today}
+	\author{Compiled by Azzam}
+	\maketitle
+	\newpage
+	
+
+	\section{Isian Singkat}
+	Jawablah soal-soal berikut dengan jawaban akhir tanpa cara.
+	
+	\begin{soaljawab}
+		Jihyo memilih secara acak satu bilangan dari himpunan $\{1,-1\}$, lalu menulis bilangan yang dipilihnya di papan tulis. Proses tersebut dilakukan 2021 kali. Jika $p$ adalah peluang di mana hasil kali ke-2021 angka di papan tulis adalah positif, tentukan nilai dari $100p$.
+		
+		\begin{jawaban}
+						50
+					\end{jawaban}
+					\begin{solusi}
+					Misalkan peluang bahwa hasil kali 2020 angka pertama bernilai 1 adalah $j$. Maka, peluang hasil kali 2020 angka pertama bernilai $-1$ adalah komplemennya yaitu $1-j$. Lalu, peluang angka ke-2021 bernilai 1 sama dengan peluang angka ke-2021 bernilai $-1$, yaitu $\frac{1}{2}$. Dengan fakta-fakta tersebut didapat peluang seluruh hasil kalinya bernilai positif (angka ke-2020 adalah 1 dan angka ke-2021 adalah 1 atau angka ke-2020 adalah $-1$ dan angka ke-2021 adalah $-1$) adalah $p=\frac{1}{2}j+\frac{1}{2}(1-j) = \frac{1}{2}$. Sehingga $100p = 50$. \qed
+					\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab}
+		Misalkan $a_n$ dan $b_n$ berturut-turut menyatakan banyaknya digit dari $4^n$ dan $25^n$. Tentukan nilai dari $a_1+a_2+\dots +a_{50}+b_{50}+\dots+b_1$.
+		
+		\begin{jawaban}
+				2600
+				\end{jawaban}
+				\begin{solusi}
+				Observasi bahwa banyaknya digit dari sebuah bilangan bulat positif $k$ adalah $\floor{\log k}+1$. Berdasarkan sifat logaritma kita punya $\log 4^n + \log 25^n = \log (4^n25^n) = \log (100^n) = 2n$. Lalu, diketahui juga bahwa $\log 4^n$ dan $\log 25^n$ tidak bernilai bulat. Akibatnya $\floor{\log 4^n}+\floor{\log 25^n} = 2n-1$. Oleh karena itu, didapat $a_n+b_n =\floor{\log 4^n}+1+\floor{\log 25^n}+1= 2n+1$, yang menyebabkan $$\sum_{n=1}^{50}(a_n+b_n)=\sum_{n=1}^{50}(2n+1)=2\sum_{n=1}^{50}(n)+50=2\left(\frac{50(50+1)}{2}\right)+50=2600.$$ \qed
+				\end{solusi}
+	\end{soaljawab}
+
+	\begin{soaljawab}
+		Tentukan jumlah semua bilangan real $x$ yang memenuhi persamaan $$\sqrt[3]{\frac{x-3}{2020}}+\sqrt[3]{\frac{x-2}{2021}}+\sqrt[3]{\frac{x-1}{2022}}=\sqrt[3]{\frac{x-2020}{3}}+\sqrt[3]{\frac{x-2021}{2}}+\sqrt[3]{x-2022}.$$
+		
+		\begin{jawaban}
+		2023
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan $y=x-2023$. Maka persamaan di soal setara dengan 
+		$$\sqrt[3]{1+\frac{y}{2020}}+\sqrt[3]{1+\frac{y}{2021}}+\sqrt[3]{1+\frac{y}{2022}}=\sqrt[3]{1+\frac{y}{3}}+\sqrt[3]{1+\frac{y}{2}}+\sqrt[3]{1+y}.$$
+		Perhatikan, untuk $y>0$ maka ruas kanan persamaan tersebut bernilai lebih dari ruas kirinya. Sedangkan saat $y<0$, ruas kanan persamaan tersebut bernilai kurang dari nilai ruas kiri persamaan tersebut. Oleh karena itu, agar ruas kanan dan ruas kiri persamaan tersebut bernilai sama, maka haruslah $y=0$ atau $x=2023$. \qed
+		\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab}
+		Diberikan segitiga $ABC$ dengan panjang sisi $BC,CA,$ dan $AB$ berturut-turut adalah $11,13,$ dan $20$. Misalkan $I$ adalah titik pusat lingkaran dalam segitiga $ABC$. Luas segitiga yang ketiga titik sudutnya adalah titik berat dari segitiga $ABI,BCI$ dan $ACI$ dapat dinyatakan dalam bentuk $\frac{a}{b}$, dengan $a$ dan $b$ adalah bilangan asli yang relatif prima. Tentukan nilai dari $a+b$.
+		
+		\begin{jawaban}
+		25
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan $s$ adalah setengah kali nilai keliling segitiga $ABC$ yang mana pada soal ini $s = \frac12(11+13+20) = 22$. Dengan rumus Heron, didapatkan bahwa luas $\triangle ABC$ adalah $$[ABC]=\sqrt{s(s-a)(s-b)(s-c)}=\sqrt{22(22-11)(22-13)(22-11)}=66.$$
+		Misalkan $D,E,F$ berturut-turut adalah titik tengah dari sisi $BC,CA,AB$. 
+		\begin{lemmarev}[1]
+				$\triangle DEF$ sebangun dengan $\triangle ABC$ dimana $AB:DE=BC:EF=CA:FD=2:1$.
+				
+				\begin{buktilemma}
+					Perhatikan karena $\dfrac{AE}{AB}=\dfrac{AF}{AC}$ dan $\angle EAF = \angle BAC$, maka $\triangle ABC$ sebangun dengan $\triangle AEF$ yang mengakibatkan $\dfrac{EF}{BC}=\dfrac{AE}{AB}=\dfrac{1}{2}$ dan $EF \parallel BC$. Analogi cara tersebut, maka akan didapatkan juga $AB:DE=CA:FD=2:1$.
+				\end{buktilemma}
+			\end{lemmarev}
+		
+		
+		\begin{lemmarev}[2]
+				Rasio luas berbanding lurus dengan kuadrat rasio sisi atau kuadrat skala dilatasi.
+		\end{lemmarev}
+		Oleh karena itu  $[DEF]=\dfrac{1}{2^2}[ABC]=\dfrac{66}{4}$.
+		
+		Sekarang misalkan titik-titik berat $\triangle BCI, \triangle CAI, \triangle ABI$ berturut-turut adalah $D,E,F$. 
+		
+		\begin{lemmarev}[3]
+			Jika $AM$ adalah garis berat $\triangle ABC$ dengan $G$ titik berat, maka $AG:GM = 2:1$.
+			\begin{buktilemma}
+			Perhatikan bahwa ada dilatasi atau \textit{ homothety } dengan pusat titik $G$ yang mengirim $\triangle DEF$ ke $\triangle ABC$. Karena $AB:DE=BC:EF=CA:FD=2:1$, berarti skala dilatasi tersebut adalah $-2$ (karena $\triangle ABC$ berorientasi terbalik hasil dilatasinya, $\triangle DEF$). Berarti $AG:GM=2:1$.
+			\end{buktilemma}
+		\end{lemmarev}
+		
+		Maka $IX:ID=IY:IE=IZ:IF=2:3$. Dari Lemma (2), karena $\triangle XYZ$ adalah hasil dilatasi $\triangle DEF$ dengan skala $\frac{2}{3}$ dengan pusat $I$, maka $[XYZ]=\left (\frac{2}{3}\right)^2\times [DEF]=\frac{4}{9}\times\frac{66}{4}=\frac{22}{3}.$ Berarti $a+b=22+3=25$.
+		
+		\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab}
+		Sebuah papan berukuran $5 \times 5$ dibagi menjadi 25 kotak satuan. Bilangan-bilangan $1,2,3,4,$ dan $5$ dituliskan pada kotak satuan tersebut sedemikian sehingga setiap baris, setiap kolom, dan setiap diagonal yang mengandung lima bilangan hanya diisi oleh masing-masing dari bilangan tersebut sekali saja. Misalkan $S$ adalah jumlah bilangan pada empat kotak yang terletak di bawah kedua diagonal. Tentukan nilai terbesar $S$.
+		
+		\begin{jawaban}
+		17
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa 3 kotak yang terletak di baris paling bawah harus berisi angka yang berbeda. Karena itu, jumlah maksimal dari 3 kotak tersebut adalah $5+4+3=12$. Jika kotak ketiga dari kiri pada baris keempat berisikan angka $5$, jumlah total maksimal dari 4 kotak yang berada di bawah kedua diagonal adalah $5+12=17$. Perhatikan bahwa total nilai 17 ini dapat diraih dengan konfigurasi seperti pada gambar di bawah.
+		\begin{center} 
+		\begin{tabular}{ |c|c|c|c|c| }
+			\hline
+			5 & 3 & 1 & 2 & 4 \\
+			\hline
+			3 & 4 & 2 & 5 & 1 \\
+			\hline
+			2 & 1 & 3 & 4 & 5 \\
+			\hline
+			4 & 2 & \cellcolor{green!30}5 & 1 & 3 \\
+			\hline
+			1 &\cellcolor{green!30}5 &\cellcolor{green!30}4 &\cellcolor{green!30}3 & 2 \\
+			\hline
+		\end{tabular}
+		\end{center}
+		\end{solusi}
+	\end{soaljawab}
+		
+	\begin{soaljawab}
+		Misalkan $X = 3 + 33 + 333 + \dots + \underbrace{333 \dots 333}_{2016 \text{ angka } 3}$ dan $Y$ adalah jumlah digit dari $X$. Tentukanlah nilai $Y$.
+		
+		\begin{jawaban}
+		6741
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan fungsi $f$ yang didefinisikan dengan $f(n)=\underbrace{333\dots 333}_{n \text{ angka } 3}$. Perhatikan bahwa nilai $f(k)=\frac{1}{3}\times \underbrace{999 \dots 999}_{k \text{ angka } 9} = \frac{1}{3}\times (10^k-1)$. Akibatnya, $$f(k-2)+f(k-1)+f(k)=\frac{1}{3}\times (10^{k-2}-1)+\frac{1}{3}\times (10^{k-1}-1)+\frac{1}{3}\times (10^k-1)=37\times 10^{k-2}-1.$$
+		
+		Oleh karena itu, didapatkan 
+		\begin{align*}
+		X &= (f(1)+f(2)+f(3))+(f(4)+f(5)+f(6))+\dots+(f(2014)+f(2013)+f(2012)) \\
+		&= (37 \times 10^1 -1)+(37 \times 10^4 -1)+ \dots + (37 \times 10^{2014}-1)\\
+		&= 37(10^1+10^4+\dots+10^{2014})-(1+1+\dots+1)\\
+		&= \underbrace{370370\dots 370370}_{672 \text{ buah } 370} - 672\\
+		&= \underbrace{370370\dots 370370}_{670 \text{ buah } 370}369698
+		\end{align*}
+		jadi, jumlahan digit-digitnya adalah $670 \times (3+7+0)+3+6+9+6+9+8=6741$.
+		\end{solusi}
+		
+		
+	\end{soaljawab}
+	
+	
+	
+	\begin{soaljawab}
+		Diberikan segitiga $ABC$ dengan panjang $BC = 21$. Misalkan $D $ adalah titik tengah
+		$BC $ dan $E $ adalah titik tengah $AD$. Misalkan pula bahwa $F $ adalah perpotongan $BE$
+		dengan $AC$. Jika diketahui bahwa $AB $ menyinggung lingkaran luar segitiga $BFC$,
+		hitunglah nilai dari $BF^2$.
+		
+		\begin{jawaban}
+		147
+		\end{jawaban}
+		\begin{solusi}
+		Karena $AB$ menyinggung lingkaran luar $\triangle BFC$, maka dengan \textit{Power of Point} kita punya $$AF \times AC = AB^2.$$ Akibatnya $\dfrac{AF}{AB}=\dfrac{AB}{AC}$, yang berarti $\triangle FAB$ sebangun dengan $\triangle BAC$, yang menyebabkan $$\dfrac{AF}{AB}=\dfrac{AB}{AC}=\dfrac{BF}{CB}.$$ Ini berarti $$\left(\dfrac{BF}{CB}\right)^2=\dfrac{AF}{AB}\times\dfrac{AB}{AC}=\dfrac{AF}{AC}\dots(*)$$ Selanjutnya, dengan Teorema Menelaus, kita punya $$\dfrac{AF}{FC}\times\dfrac{CB}{DB}\times\dfrac{DE}{EA}=1,$$ yang menyebabkan $$\dfrac{AF}{FC}=\times\dfrac{DB}{CB}\times\dfrac{EA}{DE}=\dfrac{1}{2}\times\dfrac{1}{1}=\dfrac{1}{2} \implies \dfrac{AF}{AC} = \dfrac{1}{3}.$$ Oleh karena itu, persamaan $(*)$ menjadi $$BF^2=\dfrac{AF}{AC}\times CB^2=\dfrac{1}{3}\times 21^2=147.\qed $$ 
+		\end{solusi}
+	\end{soaljawab}
+	\begin{soaljawab}
+		Nilai dari $FPB(2002+2,2002^2+2,2002^3+2,\dots)$ adalah $\dots$
+		
+		\begin{jawaban}
+		  	6
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan $d=FPB(2002+2,2002^2+2,2002^3+2,\dots)$. Perhatikan bahwa $2002^2+2=2002(2000+2)+2=2002\cdot 2000+2002\cdot 2+2=2002\cdot 2000+2000\cdot 2 2\cdot 2+2=2000(2002+2)+6$. 
+			\begin{lemmarev}
+			Algoritma Euclid : $FPB(a,b)=FPB(a,b-a)=FPB(a,b-2a)=\dots =FPB(a,b-ka)$
+			\end{lemmarev}
+		Maka menurut Algoritma Euclid, $FPB(2002+2,2002^2+2)=FPB(2002+2,(2000(2002+2)+6)-2000(2002+2))=FPB(2002+2,6)=6$. Maka kita punya $d \mid FPB(2002+2,2002^2+2) \implies d \mid 6$. 
+		
+		\begin{lemmarev}
+					Ekspansi Binomial: $(a+b)^n=\sum_{i=0}^{n} {n \choose i}a^{n-i}b^i$
+					\end{lemmarev}
+		
+		Kemudian untuk sembarang bilangan asli $n$, dengan Ekspansi Binomial didapat
+		\begin{align*}
+		2002^n+2 &= 2+(2001+1)^n\\
+			S	&= 2 + \sum_{i=0}^{n} {n \choose i}1^{n-i}2001^i\\
+			S	&= 2 + {n \choose 0}2001^0 + \sum_{i=1}^{n} {n \choose i}1^{n-i}2001^i\\
+			S	&= 3 + {n \choose 0}2001^0 + \sum_{i=1}^{n} {n \choose i}1^{n-i}2001^i
+		\end{align*}
+			
+		Perhatikan, karena $3 \mid 2001$, maka $3 \mid S$ sehingga menyebabkan $3 \mid 2002^n+2$. Di lain sisi, perhatikan bahwa $2002^n+2$ bernilai genap, maka $2 \mid 2002^n +2$. Dari sini didapat $3\cdot2 \mid 2002^n+2$ atau $\mid 2002^n+2$ untuk sembarang $n \in \NN$. Ini berakibat $6 \mid d$. Namun, karena kita juga punya $d \mid 6$, berarti $FPB(2002+2,2002^2+2,2002^3+2,\dots)=d=6$. \qed
+		\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab}
+		Carilah bilangan asli terbesar $n$ sehingga $n+10 \mid n^3+100$.
+		
+		\begin{jawaban}
+		890
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa $n^3+1000=n^3+10^3=(n+10)(n^2-10n+10^2)$. Berarti $n+10 \mid n^3+1000$. Oleh karena itu kita punya $$n+10 \mid n^3+100 \implies n+10 \mid n^3+1000-900 \implies n+10 \mid -900 \implies n+10 \mid 900.$$Berarti bilangan $n+10$ terbesar yang membagi 900 adalah $n+10=900$ atau $n=890$. \qed
+		\end{solusi}
+	\end{soaljawab}
+
+	\begin{soaljawab}
+		Carilah jumlah semua akar real dari persamaan $x+\dfrac{x}{\sqrt{x^2-1}}=2021.$
+		
+		\begin{jawaban}
+		2021
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa
+		\begin{align*}
+		x+\dfrac{x}{\sqrt{x^2-1}} &= 2021 \\
+		\dfrac{x^2}{x^2-1} &= x^2-4042x+2021^2 \\
+		x^2 &= x^4-4042x^3+(2021^2-1)x^2+4042x-2021^2 \\
+		0 &= x^4-4042x^3+(2021^2-2)x^2+4042x-2021^2 \\
+		0 &= (x^2-2021x-1+\sqrt{2021^2+1})(x^2-2021x-1-\sqrt{2021^2+1})
+		\end{align*}
+		
+		Perhatikan bahwa jika $x$ merupakan solusi real dari persamaan di soal, maka haruslah $x$ merupakan akar dari  $x^2-2021x-1+\sqrt{2021^2+1}=0$ atau $x^2-2021x-1-\sqrt{2021^2+1}$. 
+		
+		Sekarang, andaikan $x$ merupakan akar persamaan $x^2-2021x-1-\sqrt{2021^2+1}=0$, maka dari persamaan di soal, kita punya 
+		$$0<1+\sqrt{2021^2+1}=x^2-2021x=x(x-2021)=x\left(-\dfrac{x}{\sqrt{x^2-1}}\right)=-\dfrac{x^2}{x^2-1}<0,$$
+		yang merupakan suatu kontradiksi. Akibatnya, haruslah $x$ merupakan akar dari $x^2-2021x-1+\sqrt{2021^2+1}=0$. Dapat diperiksa dengan rumus abc bahwa persamaan  $x^2-2021x-1+\sqrt{2021^2+1}=0$ mempunyai dua akar real beerbeda, dan keduanya memenuhi soal. Oleh karena itu, jumlah solusi real persamaan di soal sama dengan jumlah akar-akar real persamaan  $x^2-2021x-1+\sqrt{2021^2+1}=0$, yang dapat dicari dengan rumus Vieta, yaitu $-\frac{-2021}{1}=2021$. \qed
+		\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab}
+		Negara Hankoku memiliki 5 kota. Menteri transportasi negara tersebut berencana untuk
+		membangun 9 jalan identik dengan ketentuan bahwa setiap jalan menghubungkan
+		tepat 2 kota. Jika diketahui bahwa setiap pasang kota terhubung oleh 0, 1, atau 2
+		buah jalan, tentukan banyaknya konfigurasi pembangunan jalan yang mungkin.
+		
+		\begin{jawaban}
+		8350
+		\end{jawaban}
+		\begin{solusi}
+		Terdapat sebanyak ${5 \choose 2} = 10$ pasangan kota yang dapat dihubungkan oleh 0, 1, atau 2 jalan. Pembagian jalan-jalan tersebut bisa dibagi dalam 5 kasus berikut:
+		\begin{enumerate}
+			\item $\{2,2,2,2,1,0,0,0,0,0\}: \frac{10!}{4!1!5!}=1260$ cara
+			\item $\{2,2,2,1,1,1,0,0,0,0\}: \frac{10!}{3!3!4!}=4200$ cara
+			\item $\{2,2,1,1,1,1,1,0,0,0\}: \frac{10!}{2!5!3!}=2520$ cara
+			\item $\{2,1,1,1,1,1,1,1,0,0\}: \frac{10!}{1!7!2!}=360$ cara
+			\item $\{1,1,1,1,1,1,1,1,1,0\}: \frac{10!}{9!1!}=10$ cara
+		\end{enumerate}
+		Yang jika ditotal akan didapat $1260+4200+2520+360+10=8350$ cara. \qed
+		\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab}
+		Dipunyai segitiga $ABC$ dengan $AB = \sqrt{52}$, $AC=\sqrt{61}$ dan $BC = 9$. Misalkan $\gamma$
+		adalah lingkaran yang melalui $A$ dan menyinggung $BC$ di titik tengahnya. Jika $\gamma$
+		memotong lingkaran luar segitiga $ABC$ di $A$ dan $P$, tentukan panjang segmen $AP$.
+		
+		\begin{jawaban}
+		1
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan pusat lingkaran luar $\triangle ABC$ adalah $O$, pusat lingkaran $\gamma$ adalah $T$, dan titik tengah $BC$ adalah $M$. Karena $M$ merupakan titik tengah tali busur $BC$, maka berlaku bahwa $OM \perp BC$. Selanjutnya, karena $\gamma$ menyinggung $BC$, diperoleh bahwa $TM \perp BC$. Hal ini menyebabkan $O,M,T$ segaris dengan garis yang melewati ketiga titik tersebut dengan dimisalkan $l$. 
+		
+		Sekarang, $OP=OA$ dan $TP=TA$ karena masing-masing merupakan jari-jari lingkaran. Berarti, garis sumbu $AP$ adalah $l$ atau dengan kata lain, $P$ merupakan refleksi atau pencerminan $A$ terhadap $l$. 
+		
+		Misalkan proyeksi $A$ terhadap sisi $BC$ adalah titik $K$. Akibatnya, $KM$ sama dengan jarak dari $A$ ke $l$, yang sama dengan $\frac{1}{2}AP$. 
+		
+		\begin{lemmarev}
+		Dalil Proyeksi (diturunkan dari dalil Cosinus) $BK = \dfrac{BC^2+AB^2-AC^2}{2\times BC}$
+		dimana $\cos \angle B = \dfrac{BK}{AB}$.
+		\end{lemmarev}
+		
+		Dengan dalil proyeksi, didapatkan $BK = \dfrac{9^2+(\sqrt{52})^2-(\sqrt{61})^2}{2\times 9}=4$. Ini mengakibatkan $BM-BK = \frac{9}{2}-4=\frac{1}{2}$, sehingga didapat $AP=2\times KM=2 \times \frac{1}{2}=1$. \qed
+		
+
+		\end{solusi}
+	\end{soaljawab}
+	\newpage
+	\section{Esai}
+	Jawablah soal-soal berikut dengan menyertakan cara pengerjaan atau argumentasinya.
+	
+	\begin{soaljawab}
+	Untuk sembarang bilangan real positif $x$ dan $y$, buktikan bahwa $$\dfrac{1}{(1+\sqrt{x})^2}+\dfrac{1}{(1+\sqrt{y})^2} \ge \dfrac{2}{x+y+2}.$$
+	\begin{solusi}
+	
+	\begin{lemmarev}
+	AM-GM-HM: $\forall a,b \in \RR^+, \dfrac{a+b}{2} \ge \sqrt{ab} \ge \dfrac{2}{\frac{1}{a}+\frac{1}{b}}.$
+	\end{lemmarev}
+	
+	Dengan menggunakan ketaksamaan AM-HM dan AM-GM kita punya
+	\begin{align*}
+		\dfrac{1}{(1+\sqrt{x})^2}+\dfrac{1}{(1+\sqrt{y})^2} 
+		&= \dfrac{1}{\color{red}1+2\sqrt{x}+x}+\dfrac{1}{\color{blue}1+2\sqrt{y}+y}  \\
+		&\ge 2\left(\dfrac{2}{{\color{red}1+2\sqrt{x}+x}+{\color{blue}1+2\sqrt{y}+y}}\right) & (AM-HM)\\
+		&= \dfrac{4}{2+x+y+{\color{orange}2\sqrt{x}}+{2\color{purple}\sqrt{y}}}\\
+		&\ge \dfrac{4}{2+x+y+({\color{orange}x+1})+({\color{purple}y+1})}  & (AM-GM)\\
+		&= \dfrac{4}{4+2x+2y}\\
+		&= \dfrac{2}{2+x+y},
+	\end{align*}
+	
+	dengan kesamaan terjadi saat $x=y=1$. \qed
+	\end{solusi}
+	
+	\end{soaljawab}
+	
+	\begin{soaljawab} Apakah terdapat bilangan asli $x$ dan $y$ sedemikian sehingga $x^3+xy^3+y^2+3$ habis membagi $x^2+y^3+3y-1$?
+	\begin{jawaban}
+	Tidak.
+	\end{jawaban}
+	\begin{solusi}
+	Andaikan $\exists x,y \in \NN$ sehingga $x^3+xy^3+y^2+3 \mid x^2+y^3+3y-1$. Maka haruslah 
+	 $$x^3+xy^3+y^2+3 \le x^2+y^3+3y-1 \dots (1)$$
+	Padahal untuk sembarang $x,y \in \NN$, kita punya $x^3 \ge x^2$,   $xy^3 \ge y^3$, dan\\ $y^2-3y+4 = (y-2)^2+y \ge 0 + y > 0 \implies y^2+3 > 3y -1$. Berarti kita punya $$x^3+xy^3+y^2+3 > x^2+y^3+3y-1,$$ yang kontradiksi dengan (1).
+	
+	Jadi, tidak ada $x,y \in \NN$ yang memenuhi. \qed
+	\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab} Terdapat 20 anggota di suatu klub tenis yang menjadwalkan tepat 14 permainan antar dua orang diantara mereka dengan setiap anggota klub bermain minimal satu kali. Buktikan bahwa dalam pembagian ini, terdapat himpunan 6 permainan dengan 12 pemain yang berbeda.\\
+	
+	\begin{solusi}
+		Misalkan untuk setiap pertandingan yang akan diadakan secara bersamaan mempunyai dua slot atau tempat yang masing-masing dapat diisi maksimal satu orang . Berarti, karena ada 14 permainan, akan ada 28 slot yang tersedia.
+		
+		Kita akan memasangkan atau membagikan jadwal terlebih pada setiap orang dengan suatu pertandingan, dimana setiap orang tersebut hanya berada tepat di satu slot di satu pertandingan tertentu. 
+		
+		
+		 Misalkan ada $m$ pertandingan dengan kedua slotnya terisi pemain, $n$ pertandingan dengan hanya satu slot yang terisi, dan $k$ pertandingan yang belum ada pemainnya (semua slotnya masih kosong). Perhatikan, karena ada 14 pertandingan yang dijadwalkan, maka $m+n+k=14$. Karena $k \ge 0$ maka $$m+n=14-k \le 14.$$
+		 Sekarang, karena terdapat tepat 20 anggota, berarti kita punya $$2m+n=2\times m+1 \times n+0 \times k =20.$$ Dari sini, kita akan mendapatkan $$20=2m+n=m+(m+n) \le m + 14 \implies 6 \le m.$$ Berarti ada paling sedikit 6 pertandingan yang dua slotnya terisi. Dengan kata lain ada paling sedikit 6 permainan dengan 12 pemain yang berbeda. \qed
+	\end{solusi}
+	\end{soaljawab}
+	
+	\begin{soaljawab} Dua lingkaran berpotongan di $A$ dan $B$. Suatu garis melalui $B$ memotong lingkaran pertama di $C$ dan lingkaran kedua di $D$ ($B \neq C, B \neq D$).  Garis singgung lingkaran pertama yang melewati $C$ dan garis singgung lingkaran kedua melewati $D$, keduanya berpotongan di $M$. Melalui perpotongan $AM$ dan $CD$, suatu garis sejajar $CM$ memotong $AC$ di $K$. Buktikan bahwa $BK$ menyinggung lingkaran kedua.\\
+	
+	\begin{solusi}
+		Notasikan $\measuredangle$ sebagai sudut berarah atau \textit{directed angle}.
+		
+		\begin{lemmarev}
+		Misalkan garis $DB$ menyinggung lingkaran luar $ABC$ di $B$. Maka $\measuredangle DBA = \measuredangle BCA$
+		\end{lemmarev}
+		Misalkan $(ABC)$ dan $(ABD)$ berturut-turut adalah lingkaran luar $\triangle ABC$ dan $\triangle ABD$ berturut-turut. Perhatikan, karena $MC$ menyinggung $(ABC)$ di $C$, maka $\measuredangle MCD = \measuredangle CAB$. Karena $MD$ menyinggung $(ABD)$ di $D$, maka $\measuredangle CDM = \measuredangle BAD$.
+		
+		Sekarang perhatikan bahwa $$\measuredangle DMC = -\measuredangle CDM -\measuredangle MCD = -\measuredangle BAD -\measuredangle CAB = -\measuredangle CAD = \measuredangle DAC$$ yang berarti $ADMC$ siklis. Selanjutnya, perhatikan karena $MC$ menyinggung $(ABC)$ di $C$ dan karena $KL \parallel CM$ maka $$\measuredangle KAB = \measuredangle CAB = \measuredangle MCD = \measuredangle KLC = \measuredangle KLB$$ yang mana menyebabkan $AKBL$ siklis.
+		Dari fakta-fakta tersebut kita punya 
+		\begin{align*}
+		\measuredangle ABK &= \measuredangle ALK & (\text{Karena }AKBL \text{ siklis})\\
+		&= \measuredangle AMC & (\text{Karena }KL \parallel CM)\\
+		&= \measuredangle ADC & (\text{Karena }ADMC \text{ siklis})\\
+		&= \measuredangle ADB,
+		\end{align*}yang menunjukkan bahwa $KB$ menyinggung $(ABD)$ di $B$. \qed
+	\end{solusi}
+	\begin{remark*}
+				Sudut berarah adalah sudut biasa namun ditambahkan definisi haruslah nilainya dalam modulo $180^\circ$. Kelebihan penggunaan sudut berarah adalah dapat meng\textit{handle} konfigurasi yang banyak hanya dengan satu perhitungan. Contohnya adalah untuk membuktikan segiempat $ABCD$ siklis, harus dibuktikan setidaknya satu diantara dua konfigurasi $\angle ABC = \angle ADC$, atau $\angle ABC + \angle ADC = 180^\circ$. Namun, dengan sudut berarah cukup dibuktikan $\measuredangle ABC = \measuredangle ADC$ saja.
+			\end{remark*}
+	\end{soaljawab}
+	
+\end{document}

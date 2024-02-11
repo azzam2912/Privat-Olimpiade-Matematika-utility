@@ -1,0 +1,301 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+
+%\addtolength{\textheight}{1.5in} 
+\renewcommand{\baselinestretch}{1.5}
+
+
+
+\begin{document}
+	\title{Pembahasan Paket Soal 2 : Teori Bilangan} % Beginner
+	\date{\today}
+	\author{Compiled by Azzam}
+	\maketitle
+	\newpage
+	
+	\section{Soal}
+\subsection{Isian Singkat}
+Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
+	
+	
+	\begin{soalbaru}
+		Jumlah seluruh bilangan asli $n$ yang memenuhi $3^{n-1}+5^{n-1} \mid 3^n + 5^{n}$ adalah...
+		
+		\begin{jawaban}
+		1
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa\\[-18pt]  $$3^n+5^n = 3\cdot3^{n-1}+5\cdot 5^{n-1} = 3\cdot 3^{n-1}+(3+2)5^{n-1} = 3(3^{n-1}+5^{n-1})+2\cdot 5^{n-1},$$\\[-25pt]sehingga kita punya \\[-15pt]$$3^{n-1}+5^{n-1} \mid 3^n + 5^{n} \implies 3^{n-1}+5^{n-1} \mid 3(3^{n-1}+5^{n-1})+2\cdot 5^{n-1} \implies 3^{n-1}+5^{n-1} \mid 2\cdot 5^{n-1}.$$\\[-20pt]
+		Untuk $n=1$, kita punya $3^{1-1}+5^{1-1} \mid 2\cdot 5^{1-1}$ atau $2\mid 2$, berarti $n=1$ memenuhi.
+		
+		\begin{lemmarev}
+		Algoritma Euclid: $FPB(a,b)=FPB(a-b,b).$
+		\end{lemmarev}
+		
+		Lalu, untuk $n >1$, karena $FPB(3^{n-1}+5^{n-1},5^{n-1})=FPB(3^{n-1},5^{n-1})=1$, maka $3^{1-1}+5^{1-1} \nmid \cdot 5^{1-1}$, sehingga haruslah $3^{n-1}+5^{n-1} \mid 2$ yang tidak mungkin karena $2 < 3^{n-1}+5^{n-1}$.
+		
+		Berarti hanya $n=1$ saja yang memenuhi. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Bilangan asli terkecil $n$ sehingga $N = 2010 \times 2012 \times 2016 \times 2018 + n$ merupakan kuadrat sempurna suatu bilangan asli adalah....
+		
+		\begin{jawaban}
+		36
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa \begin{align*}
+		N &= 2010 \times 2012 \times 2016 \times 2018 + n\\
+		  &= (2010 \times 2018)(2012 \times 2016) + n\\
+		  &= ((2014-4)(2014+4))((2014-2)(2014+2))+n\\
+		  &= (2014^2-4^2)(2014-2^2)+n\\
+		  &= (2014^2-16)(2014^2-4)+n\\
+		  &= 2014^4-20 \cdot 2014^2 + 64+n\\
+		  &= ((2014^2)^2-2\cdot 10 \cdot 2014^2 + 10^2) -10^2+64+n\\
+		  &= (2014^2-10)^2-36+n	  
+		\end{align*}Berarti bilangan asli $n$ terkecil yang memenuhi adalah 36, yang membuat $N = (2014^2-10)^2$.
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Sebuah bilangan asli disebut $TRI$ apabila representasi basis $3$ bilangan tersebut jika dibaca dalam basis $10$ habis dibagi 7. Sebagai contoh, 21 merupakan bilangan $TRI$ karena representasi basis 3 dari 21 adalah $(210)_3$ dan 210 habis dibagi 7. Tentukan banyaknya bilangan $TRI$ yang representasi basis tiganya memiliki tepat 9 digit jika dibaca dalam basis 10.
+		
+		\begin{jawaban}
+		1874
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan bilangan yang akan kita cari adalah $n$. Karena $n$ mempunyai 9 digit, dapat dimisalkan representasi desimal bilangan $n$ adalah $(\overline{d_kd_{8}\dots d_2 d_0})_3$ atau representasinya adalah $n = \sum_{i=0}^{8} 3^id_i = 3^8d_8+3^{7}d_{7}+\dots+3d_1+d_0$. Di lain sisi, jika representasi basis 3 tersebut dibaca dalam basis 10 nilainya menjadi $N = \sum_{i=0}^{8} 10^id_i = 10^8d_8+10^{7}d_{7}+\dots+10d_1+d_0$.
+		
+		Perhatikan bahwa $3^id_i \equiv 10^id_i \mod 7$ untuk $i=0,1,\dots,8$. Berarti kita punya $\sum_{i=0}^{8} 3^id_i \equiv \sum_{i=0}^{8} 10^id_i \mod 7$. Jika $n$ bilangan $TRI$, haruslah $N \equiv 0 \mod 7$ atau $n\equiv\sum_{i=0}^{8} 3^id_i \equiv \sum_{i=0}^{8} 10^id_i \equiv 0 \mod 7$. Akibatnya, $n$ adalah bilangan $TRI$ jika dan hanya jika $n$ merupakan kelipatan $7$. Jadi, sekarang kita tinggal mencari banyaknya bilangan kelipatan 7 dengan yang kurang dari $3^9$ tetapi lebih dari sama dengan $3^8$ (karena $n = \sum_{i=0}^{8} 3^id_i$ dengan $d_8 \neq 0$). Banyaknya $n$ tersebut adalah $\floor{\dfrac{3^9}{7}}-\floor{\dfrac{3^8}{7}}=1874$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Misalkan tripel bilangan prima $(p,q,r)$ memenuhi $3p^4-5q^4-4r^2=26$. Jika $S = p+q+r$, hitunglah jumlah semua $S$ yang mungkin.
+		
+		\begin{jawaban}
+		27
+		\end{jawaban}
+		\begin{solusi}
+		Kita akan meninjau modulo 3 dan modulo 5 pada persamaan tersebut. 
+		
+		Perhatikan bahwa $q^4+2r^2 \equiv 3p^4-5q^4-4r^2 \equiv 26 \equiv 2\mod 3$. 
+		
+		Andaikan $q \not\equiv 0 \mod 3$, maka $q \equiv \pm 1 \mod 3 \implies q^4 \equiv 1 \mod 3$. Ini  menyebabkan $q^4 +2r^2 \equiv 2 \mod 3 \implies 1 + 2r^2 \equiv 2 \mod 3 \implies 2r^2 \equiv 1 \mod 3$. Padahal, karena $r \equiv 0,\pm 1 \mod 3$, menyebabkan $2r^2 \equiv  2 \mod 3$ atau $2r^2 \equiv 0 \mod 3$, kontradiksi dengan $2r^2 \equiv 1 \mod 3$. Berarti haruslah $q \equiv 0 \mod 3$. Namun, karena $q$ prima, berarti haruslah $q=3$.
+		
+		Sekarang, perhatikan bahwa $3p^4+r^2 \equiv 3p^4-5q^4-4r^2 \equiv 26 \equiv 1 \mod 5$.
+		
+		Andaikan $p \not \equiv 0 \mod 5$, maka $p \equiv \pm1,\pm2 \mod 5$, sehingga $3p^4+r^2 \equiv 1 \mod 5 \implies 3\cdot1+r^2 \equiv 1 \mod 5 \implies r^2 \equiv 3 \mod 5$. Padahal, karena $r \equiv 0,\pm1,\pm2 \mod 5$ maka $r^2 \equiv 0,\pm1 \mod 5$, kontradiksi dengan $r^2 \equiv 3 \mod 5$. Berarti haruslah $p \equiv 0 \mod 5$. Namun, karena $p$ prima, maka haruslah $p=5$.
+		
+		Substitusi $p$ dan $q$ yang didapat ke persamaan, didapat $3\cdot 5^4 - 5 \cdot 3^4 - 4r^2 = 26 \implies -4r^2 = 1444 \implies r^2 = 361 \implies r = 19$. Berarti hanya $(5,3,19)$ yang memenuhi persamaan sehingga $S=5+3+19=27$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Carilah bilangan bulat $n$ terbesar sehingga $3^n \mid 10^{3^{1999}} - 1$.
+		
+		\begin{jawaban}
+		2001
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan untuk $p$ prima dan sembarang bilangan asli $n$, definisikan $v_p(n)$ sebagai pangkat tertinggi $p$ yang membagi $n$ atau dengan kata lain, $p^{v_p(n)} \mid n$ tetapi $p^{v_p(n)+1} \nmid n$. Berarti dalam soal ini kita mencari nilai $v_3(10^{3^{1999}} - 1)$.
+		
+		\begin{lemmarev}
+			Properti \textit{Lifting The Exponent (LTE)}: Untuk sembarang bilangan prima $p$, bilangan cacah $n$, dan $a,b \in \NN$, jika $p\nmid a,$ $ p \nmid b,$ dan $p \mid a-b$, maka kita punya $v_p(a^n-b^n) = v_p(a-b)+v_p(n)$.
+		\end{lemmarev}
+		
+		Karena $3 \nmid 10$ dan $3 \nmid 1$ maka berdasarkan lemma di atas, kita punya\\ $v_3(10^{3^{1999}} - 1) = v_3(10^{3^{1999}} - 1^{3^{1999}})= v_3(10-1)+v_3(3^{1999})=2+1999=2001.$ \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Jumlah seluruh bilangan asli $n$ sehingga $n\cdot 2^{n+1}+1$ merupakan bilangan kuadrat sempurna adalah $\dots$
+		
+		\begin{jawaban}
+		3
+		\end{jawaban}
+		\begin{solusi}
+			Untuk $n=1$, kita punya $n\cdot2^{n+1}+1=1\cdot2^2+1=5$ yang bukanlah bilangan kuadrat sempurna.
+			
+			Untuk $n=2$, kita punya $n\cdot2^{n+1}+1=2\cdot2^3+1=17$ yang bukanlah bilangan kuadrat sempurna. 
+			
+			Untuk $n=3$, kita punya $n\cdot2^{n+1}+1=3\cdot2^4+1=49$ yang merupakan bilangan kuadrat sempurna.
+			
+			Sekarang akan dibuktikan bahwa tak ada bilangan asli $n \ge 4$ yang membuat $n\cdot2^{n+1}+1$ menjadi kuadrat sempurna.
+			
+			Andaikan ada $n \ge 4$ yang membuat $n\cdot2^{n+1}+1$ menjadi kuadrat sempurna. Berarti bisa dimisalkan $n\cdot2^{n+1}+1=m^2$ untuk suatu bilangan asli $m$. Berarti $32=2^{4+1}<2^{n+1} = m^2-1=(m-1)(m+1)$ bernilai genap. Karena $m-1$ dan $m+1$ berparitas sama, haruslah $m-$ dan $m+1$ sama-sama genap. Oleh karena itu, ada bilangan asli $a,b,r,p$ sehingga $m-1 = 2^a r$, $m+1=2^b p$, $a+b=n+1$, dan $rp=n$.
+			
+			Andaikan $a \ge 2$ dan $b \ge 2$, maka $m-1$ dan $m+1$ keduanya terbagi oleh 4. Padahal $m+1 \equiv (m-1)+2 \equiv 0 + 2 \equiv 2 \mod 4$, kontradiksi. Berarti haruslah $a = 1$ atau $b=1$.
+			
+			\begin{itemize}
+			\item Jika $a=1$, maka $n=b$, sehingga $m+1=2^np \ge 2^n \implies m-1 \ge 2^n-2$. Padahal, $n\cdot 2^{n+1} = (m+1)(m-1) \ge 2^n(2^n-2)  \implies n \ge 2^{n-1}-1.$
+			
+			\item Jika $b=1$, maka $n=a$, sehingga $m-1=2^nr \ge 2^n \implies m+1 \ge 2^n+2$. Padahal, $n\cdot 2^{n+1} = (m-1)(m+1) \ge (2^n(2^n+2))  \implies n \ge 2^{n-1}+1.$
+			\end{itemize}
+			
+			\begin{lemmarev}
+			Jika bilangan asli $n \ge 4$, maka $2^{n-1}-1 > n$.
+			\begin{buktilemma}
+			Akan dibuktikan pernyataan tersebut dengan menggunakan induksi.
+			
+			Pertama, untuk $n=4$ kita punya $2^{4-1}-1=7 > 4$ yang jelas benar.
+			
+			Selanjutnya, andaikan pernyataan benar untuk $n=k$ atau $2^{k-1}-1 > k$.
+			
+			Maka, untuk $n=k+1$, kita punya 
+			$$2^{(k+1)-1}-1=2^k-1=2 \cdot 2^{k-1} -1 > 2^{k-1}-1 > k.$$
+			
+			Berarti, untuk $n \ge 4$, terbukti bahwa $2^{n-1}-1 > n$.
+			\end{buktilemma}
+			\end{lemmarev}
+			
+			Dari lemma tersebut, kita punya $2^{n-1}+1 > 2^{n-1}-1 > n$. Padahal, kita telah menemukan bahwa $n \ge 2^{n-1}+1$ atau $n \ge 2^{n-1}-1$., kontradiksi dengan pengandaian bahwa ada $n \ge 4$ yang membuat $n \cdot 2^{n+1} +1$ adalah bilangan kuadrat sempurna.
+			
+			Jadi, $n$ yang memenuhi soal tersebut hanya $n=3$. \qed
+		\end{solusi}
+	\end{soalbaru}
+\vspace{20pt}
+	\begin{soalbaru}
+		Berapa banyak bilangan asli $n$ berbeda sehingga bilangan $n+9$ dan $n^2+27$ keduanya adalah bilangan kubik atau pangkat tiga dari suatu bilangan asli?
+		
+		\begin{jawaban}
+				0
+				\end{jawaban}
+				\begin{solusi}
+				Perhatikan bahwa perkalian dua bilangan kubik adalah bilangan kubik juga. Berarti, dapat dimisalkan $(n+9)(n^2+27)=a^3$ untuk suatu bilangan asli $a$. Perhatikan bahwa $a^3=(n+9)(n^2+27)=n^3+9n^2+27n+27+216=(n+3)^3+6^3 \implies a^3=(n+3)^3+6^3$ yang menurut \textit{Fermat's Last Theorem}, persamaan tersebut tak punya solusi bulat $n$. \qed
+				\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Hitunglah banyaknya pasangan bilangan bulat positif $(x,y)$ yang memenuhi\\[-20pt] $$x^2+(x+1)^2=y^4+(y+1)^4.$$
+		
+		\begin{jawaban}
+		0
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa persamaan di soal setara dengan
+		\begin{align*}
+		2x^2+2x+1&=2y^4+4y^3+6y^2+4y+1\\
+		2x^2+2x&=2y^4+4y^3+6y^2+4y\\
+		x^2+x&=y^4+2y^3+3y^2+2y\\
+		x^2+x+1&=(y^4+2y^3+y^2)+2(y^2+y)+1\\
+		x^2+x+1&=(y^2+y)^2+2(y^2+y)+1\\
+		x^2+x+1&=(y^2+y+1)^2.
+		\end{align*}
+		Kita juga punya $x^2 < x^2+x+1 < (x+1)^2$ yang berarti $x^2 < (y^2+y+1)^2 < (x+1)^2$. Padahal $x^2$ dan $(x+1)^2$ adalah bilangan kuadrat sempurna yang berurutan, dimana tak ada bilangan kuadrat lain diantara kedua bilangan tersebut. Berarti tak ada $(y^2+y+1)^2$ yang memenuhi sehingga menunjukkan tak ada $(x,y)$ yang memenuhi. \qed
+		
+		\end{solusi}
+	\end{soalbaru}
+	\newpage
+
+\subsection{Esai}
+Jawablah soal-soal berikut dengan menyertakan cara pengerjaan atau argumentasinya.
+	
+	\begin{soalbaru} 
+		Diberikan polinomial $f(x)=x^n+a_1x^{n-1}+\dots+a_{n-1}x+a_n$ dengan koefisien bilangan bulat. Lalu, diketahui bahwa ada empat bilangan bulat berbeda $a,b,c,$ dan $d$ sehingga $f(a)=f(b)=f(c)=f(d)=5$. Tunjukkan bahwa tak ada bilangan bulat $k$ sehingga $f(k)=8$.
+		\\[-10pt]
+				\begin{solusi}
+				Misalkan polinomial $g(x)$ sehingga $g(x)=f(x)-5$. Berarti $a,b,c,d$ adalah akar-akar dari polinomial $g(x)$ sehingga dapat kita misalkan $g(x)=p(x)(x-a)(x-b)(x-c)(x-d)$ untuk suatu polinomial $p(x)$.
+				
+				Andaikan ada $k \in \ZZ$ sehingga $f(k)=8$. Berarti haruslah $g(k)=f(k)-5=3$. Selanjutnya, karena $f(x)$ berkoefisien bulat, berarti $g(x)$ juga berkoefisien bulat. Alhasil, karena $g(k)=3$, berarti pada $3=g(k)=p(k)(k-a)(k-b)(k-c)(k-d)$ haruslah \\$p(k), (k-a), (k-b), (k-c), (k-d) \in \{-1,1,-3,3\}.$
+				
+				\begin{itemize}
+				\item Jika $p(k)=\pm 3$, berarti $(k-a), (k-b), (k-c), (k-d) \in \{-1,1\}$ yang menurut PHP, haruslah setidaknya ada dua diantara mereka bernilai sama, kontradiksi dengan fakta bahwa $a,b,c,d$ semuanya berbeda.
+								
+				\item Jika $p(k)=\pm 1$, misalkan tanpa mengurangi keumuman $(k-a)=\pm3$. Berarti $(k-b), (k-c), (k-d) \in \{-1,1\}$ yang menurut PHP, haruslah setidaknya ada dua diantara mereka bernilai sama, kontradiksi dengan fakta bahwa $a,b,c,d$ semuanya berbeda.
+				\end{itemize}
+				
+				Berarti terbukti bahwa tak ada bilangan bulat $k$ sehingga $f(k)=8$. \qed
+				\end{solusi}
+	\end{soalbaru}
+	\newpage
+	\begin{soalbaru} Tentukan semua pasangan bilangan bulat positif $(a,b)$ sehingga\\[-18pt] $$ab^2+b+7 \mid a^2b+a+b.$$
+	\begin{jawaban}
+	$(11,1),(49,1),(7t^2,7t), t \in \ZZ^+$
+	\end{jawaban}
+	\begin{solusi}
+	Perhatikan bahwa $b(a^2b+a+b)=a^2b^2+ab+b^2=a(ab^2+b+7)+(b^2-7a)$. Oleh karena itu, kita punya\\[-20pt]$$ab^2+b+7 \mid a^2b+a+b \implies ab^2+b+7 \mid a(ab^2+b+7)+(b^2-7a) \implies a^2b+b+7 \mid b^2-7a \dots \dots (1)$$\\[-20pt] berarti didapat $b^2-7a=0$ atau $b^2-7a$ adalah kelipatan $ab^2+b+7$.
+	
+	Jika $b^2-7a=0$ maka $b=7t$ dan $a=7t^2$ untuk sembarang bilangan asli $t$. Cek ke soal,\\[-17pt]$$7t^2(7t)^2+7t+7 \mid (7t^2)^2(7t)+7t^2+7t \iff 343t^4+7t+7 \mid (343t^4+7t+7)t $$\\[-25pt] ternyata $(7t^2,7t)$ memenuhi.
+	
+	Sekarang, jika $b^2-7a$ adalah kelipatan $ab^2+b+7$ berarti $ab^2+b+7=|ab^2+b+7|\le |b^2-7a|$. Namun, perhatikan bahwa $b^2-7a < b^2 < ab^2+b+7 \le |b^2-7a|$. Berarti haruslah $b^2-7a<0 \dots (2)$ yang menyebabkan $ab^2+b+7 \le 7a-b^2 \implies b^2+b+7+ab^2-7a \le 0$. Karena $b^2+b+7 >0$ maka $a(b^2-7)=ab^2-7a<0$. Namun, karena $a>0$ maka haruslah $b^2-7<0$. Oleh karena itu, didapat $b=1$ atau $b=2$.
+	
+	\begin{itemize}
+	\item Jika $b=1$, maka setelah disubstitusi ke (1) didapat $a\cdot 1^2+1+7 \mid 1^2 - 7a \implies a+8 \mid 1-7a \implies a+8 \mid 57-7(a+8) \implies a+8\mid 57 \implies a+8=19,57 \implies a=11,49$. Cek ke soal ternyata $(11,1)$ dan $(49,1)$ memenuhi.
+		
+	\item Jika $b=2$, maka setelah disubstitusi ke (1) didapat $a\cdot 2^2+2+7 \mid 2^2 -7a \implies 4a+9 \mid 7a-4 $ dengan $4a+9 \le 7a-4 \implies 3a-13 \ge 0$. Dari $4a+9 \mid 7a-4$ didapat $4a+9 \mid 7a-4 - (4a+9) \implies 4a+9 \mid 3a-13$ yang karena diketahui juga $3a-13 \ge 0$ dan $4a+9>0$, didapat pula $4a+9 \le 3a-13 \implies a \le -22$. Kontradiksi dengan fakta $a$ adalah bilangan bulat positif.
+	\end{itemize}
+	
+	Berarti seluruh pasangan bilangan bulat positif $(a,b)$ yang memenuhi adalah $(11,1),(49,1),$ dan $(7t^2,7t)$ untuk sembarang bilangan asli $t$. \qed
+	\end{solusi}
+	
+	\end{soalbaru}
+	
+	\newpage
+	\begin{soalbaru} 
+		Carilah seluruh pasangan bilangan bulat positif terurut $(a,b)$ sehingga $\dfrac{a^3b-1}{a+1}$ dan $\dfrac{b^3a+1}{b-1}$ keduanya merupakan bilangan bulat positif.
+		\begin{jawaban}
+		$(1,3)$,$(2,2)$, $(3,3)$
+		\end{jawaban}
+		\begin{solusi}
+			Perhatikan bahwa $$\dfrac{a^3b-1}{a+1}=\dfrac{b(a^3+1)-(b+1)}{a+1} =\dfrac{b(a^3+1)}{a+1}-\dfrac{b+1}{a+1}$$ adalah bilangan bulat. Karena $a+1 \mid a^3+1$, maka $\dfrac{b(a^3+1)}{a+1}$ adalah bilangan bulat yang menyebabkan $\dfrac{b+1}{a+1}$ bulat atau $a+1 \mid b+1$.
+			
+			Selanjutnya, perhatikan bahwa $$\dfrac{b^3a+1}{b-1}=\dfrac{a(b^3-1)+(a+1)}{b-1}=\dfrac{a(b^3-1)}{b-1}+\dfrac{a+1}{b-1}$$ adalah bilangan bulat. Karena $b-1 \mid b^3-1$ maka $\dfrac{a(b^3-1)}{b-1}$ adalah bilangan bulat yang menyebabkan $\dfrac{a+1}{b-1}$ bulat atau $b-1 \mid a+1$. 
+			
+			Dari $a+1 \mid b+1$ dan $b-1 \mid a+1$, didapatkan bahwa $b-1 \mid b+1 \implies b-1 \mid (b+1)-(b-1) \implies b-1 \mid 2 \implies b-1=1,2 \implies b=2,3$.
+			
+			\begin{itemize}
+			\item Jika $b=2$, maka $a+1\mid b+1$ memberikan $a+1\mid 3$. Didapat $a=2$. Cek ke soal, solusi $(2,2)$ memenuhi.
+						
+			\item Jika $b=3$, maka $a+1 \mid b+1$ memberikan $a+1\mid 4$. Didapat $a=1,3$. Cek ke soal, solusi $(1,3)$ dan $(3,3)$ memenuhi.
+			\end{itemize}
+			
+			Berarti didapat pasangan $(a,b)$ yang memenuhi adalah $(1,3)$,$(2,2)$, dan $(3,3)$. \qed 
+		\end{solusi}
+	\end{soalbaru}
+	\newpage
+	
+	\begin{soalbaru}
+		Misalkan $m$ dan $s$ adalah bilangan asli dengan $2 \le s \le 3m^2.$ Definisikan barisan $a_1,a_2,\dots$ secara rekursif dengan $a_1=s$ dan \\[-18pt]$$a_{n+1} = 2n + a_n \text{    untuk   }  n=1,2,\dots.$$\\[-23pt]
+		Jika $a_1,a_2,\dots,a_m$ adalah bilangan-bilangan prima, buktikan bahwa $a_{s-1}$ juga prima.\\[-10pt]
+		\begin{solusi}
+			Perhatikan, dari definisi barisan rekursif di soal untuk sembarang bilangan asli $k$ didapat\\[-23pt]
+			\begin{align*}
+				a_{k}+a_{k-1}+\dots+a_2 &= (2(k-1)+a_{k-1})+(2(k-2)+a_{k-2})+\dots (2\cdot 1+a_1)\\
+				a_k &= 2((k-1)+(k-2)+\dots+1)+a_1\\
+				a_k &= (k-1)k + s
+			\end{align*}\\[-25pt] 
+			Misalkan $t$ adalah bilangan asli terkecil sehingga $a_t$ bukan bilangan prima dengan $t > m$. Misalkan $p$ adalah faktor prima terkecil yang membagi $a_t$ sehingga kita punya $p \le \sqrt{a_t}$. Lalu, perhatikan karena $a_1 $ prima, dan $a_2 = a_1 +s$ prima juga (karena relatif prima dengan $a_1$), maka $t>m \ge 2$. Berarti karena $s \le 3m^2$ dan $t > m$, maka $ s \le 3m^2 \le 3(t-1)^2$ yang menyebabkan kita punya 
+			$$p \le \sqrt{a_t} = \sqrt{(t-1)t+s}\le \sqrt{(t-1)t+3(t-1)^2} = \sqrt{4t^2-7t+3} < \sqrt{4t^2-4t+1} = 2t-1$$dengan ketaksamaan terakhir karena $t > 2 \implies 3t > 2 \implies -7t+3 < -4t+1$.
+			
+			Selanjutnya, karena $p<2t-1$ adalah bilangan bulat, maka $p \le 2t-2 = 2(t-1)$. Karena $t-1 > 2-1 = 1$ maka $2(t-1)$ bukanlah bilangan prima, sehingga karena $p$ prima, haruslah $p \le t-1$. 
+			
+			Sekarang, karena $1 < p < t$, maka ada bilangan asli $c$ sehingga $1 < c < p<t$ dan $t=dp+c$ atau $c \equiv t \mod p$. Oleh karena itu, didapat $a_t - a_c = ((t-1)t+s)-((c-1)c+s) = t^2 - c^2 - t+c \equiv 0 \mod p$ atau $a_c \equiv a_t \equiv 0 \mod p$. Karena $t$ adalah bilangan asli minimal yang membuat $a_t$ bukan prima, maka haruslah $a_c$ prima karena $c<t$. Sehingga haruslah $a_c = p$.
+			
+			Terakhir, kita punya $p=a_c=(c-1)c+s \ge s$ sehingga kita dapatkan $t > p > s > s-1$. Berarti $a_{s-1}$ prima dari definisi $t$ terkecil yang membuat $a_t$ bukan prima. \qed
+		\end{solusi}
+		
+	\end{soalbaru}
+	\newpage
+	\begin{soalbaru}
+		Buktikan bahwa tidak ada bilangan ganjil $n > 1$ sehingga $n \mid 3^n+1$.\\[-10pt]
+	\end{soalbaru}
+	\begin{solusi}
+	Andaikan ada bilangan ganjil $n>1$ sehingga $n \mid 3^n+1$.
+	Misalkan $p$ adalah faktor prima terkecil dari $n$ dengan $2< p$. Selanjutnya, karena $n \mid 3^n+1$, maka $p \mid 3^n+1$ atau $3^n \equiv -1 \mod p \implies 3^2n \equiv (3^n)^2 \equiv 1 \mod p$. Di lain sisi, karena $p$ relatif prima dengan 3, dari \textit{ Fermat's Little Theorem }didapat pula bahwa $3^{p-1} \equiv 1 \mod p$.
+	
+	Sekarang, definisikan $a$ sebagai bilangan asli terkecil sehingga $3^a \equiv 1 \mod p$ ($a$ bisa disebut sebagai order $3 \mod p$). 
+	\begin{lemmarev}
+		Jika $a$ adalah order $m\mod p$, maka untuk sembarang bilangan asli $b$ yang memenuhi $m^b \equiv 1 \mod p$ berlaku $a\mid b$.
+		\begin{buktilemma}
+		Dari algoritma pembagian, kita punya $b=k\cdot a + r$ untuk suatu bilangan asli $k$ dan bilangan cacah $r$ dengan $0 \le r < a$. Perhatikan bahwa $$1 \equiv m^b \equiv m^{ka+r} \equiv (m^a)^km^r \equiv 1^km^r \equiv m^r \mod p.$$ Didapat $m^r \equiv 1 \mod p$. Karena $0 \le r < a$ dan $a$ adalah bilangan asli terkecil sehingga $m^a \equiv 1 \mod p$, maka haruslah $r$ bukan bilangan asli atau $r=0$. Berarti $b=ka \implies a \mid b$.
+		\end{buktilemma}
+	\end{lemmarev}
+	Dari lemma tersebut, didapatkan bahwa $a \mid 2n$ dan $a \mid p-1$. Perhatikan, karena $p$ dan $p-1$ relatif prima, maka $a$ tidak membagi $p$. Oleh karena itu, karena $p \mid n$ dan $a \nmid p$ kita dapatkan bahwa $a \nmid n$. Sehingga $a \mid 2n \implies a \mid 2 \implies a=1,2$.
+	
+	Jika $a=1$, maka $3^1 \equiv 3^a \equiv 1 \mod p \implies 2 \equiv 0 \mod p \implies p = 2$. Lalu, jika $a=2$, maka $3^1 \equiv 3^a \equiv 1 \mod p \implies 2 \equiv 0 \mod p \implies p = 2$. Kedua kasus tersebut menghasilkan $p=2$, padahal dari definisi awal, $p > 2$, kontradiksi.
+	
+	Berarti haruslah tidak ada bilangan ganjil $n>1$ sehingga $n \mid 3^n+1$. \qed
+	\end{solusi}
+\end{document}

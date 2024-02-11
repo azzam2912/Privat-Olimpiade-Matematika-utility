@@ -1,0 +1,364 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+
+%\addtolength{\textheight}{1.5in} 
+\renewcommand{\baselinestretch}{1.5}
+
+
+
+\begin{document}
+	\title{Pembahasan Paket Soal 5 : Aljabar} % Beginner
+	\date{}
+	\author{Compiled by Azzam}
+	\maketitle
+	\newpage
+	
+	\section{Soal}
+\subsection{Isian Singkat}
+Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
+
+	\begin{soalbaru}
+		Untuk sembarang barisan bilangan real $A=(a_1,a_2,a_3,\ldots)$, definisikan $\Delta A^{}_{}$ sebagai barisan $(a_2-a_1,a_3-a_2,a_4-a_3,\ldots)$, dimana suku ke $n$ nya adalah  $a_{n+1}-a_n^{}$. Misalkan setiap suku dari barisan  $\Delta(\Delta A^{}_{})$ adalah $1^{}_{}$, dan $a_{19}=a_{92}^{}=0$. Carilah nilai $a_1^{}$.
+		%101 25 / AIME 1992
+		
+		\begin{jawaban}
+		819
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan suku pertama dari $\Delta A$ adalah $a$. Maka, karena $\Delta(\Delta A^{}_{})$, didapat $$\Delta A = (a,a+1,a+2,\dots).$$ dengan suku ke-$n$ nya adalah $a+(n-1)$. Dari sini didapat bahwa $$A = (a_1,a_1+a,a_1+a+(a+1),\dots).$$ dengan suku ke-$n$ nya adalah $a_n=a_1+(n-1)a+(1+2+\dots+(n-1))=a_1+(n-1)a+\frac{1}{2}(n-1)(n-2).
+		$
+		Dari bentuk tersebut, dapat terlihat bahwa $a_n$ adalah persamaan kuadrat dalam variabel $n$ dengan koefisien $n^2$ nya adalah $\frac12$. Dikarenakan $a_{19}=1_{92}=0$, maka $19$ dan $92$ adalah akar-akar dari $a_n$, sehingga $$a_n=\frac12(n-19)(n-92).$$ yang mengakibatkan $a_1=\frac12(1-19)(1-92)=819.$ \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Diberikan persamaan $x^3-x+1=0$ yang mempunyai akar-akar $a,b,$ dan $c$. Carilah nilai $a^8+b^8+c^8$.
+		\begin{jawaban}
+		10
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa \begin{equation}
+		\begin{split}
+		x^3 - x +1&=0\\
+		x^3 &= x-1\\
+		x^4 &= x^2 -x
+		\end{split}
+		\end{equation}
+		
+		Selanjutnya, kuadratkan persamaan (1) dilanjutkan dengan substituti (1), maka akan diperoleh
+		\begin{equation}
+		\begin{split}
+		x^8 &= x^4 -2x^3 +x^2\\
+		x^8 &= (x^2-x)-2(x-1)+x^2\\
+		x^8 &= 2x^2-3x+2
+		\end{split}
+		\end{equation}
+		
+		Amati bahwa dengan Teorema Vieta, kita punya $a+b+c=0$ dan $ab+bc+ca=-1$. Sekarang, persamaan (2) tersebut kita substitusi dengan $a,b,c$ lalu dijumlahkan. Didapatkan bahwa
+		\begin{equation*}
+		\begin{split}
+		a^8+b^8+c^8&=(2a^2-3a+2)+(2b^2-3b+2)+(2c^2-3c+2)\\
+		a^8+b^8+c^8&=2(a^2+b^2+c^2)-3(a+b+c)+6\\
+		a^8+b^8+c^8&=2((a+b+c)^2-2(ab+bc+ca))-3(a+b+c)+6\\
+		a^8+b^8+c^8&=2(0^2-2(-1))-3(0)+6\\
+		a^8+b^8+c^8&=10. \qed
+		\end{split}
+		\end{equation*}
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+			Diberikan $\dfrac{\pi}{4} = 1 - \dfrac{1}{3}+\dfrac{1}{5}-\dfrac{1}{7}+\dots$. Jika  $\dfrac{1}{1 \times 3 \times 5}+\dfrac{3}{5 \times 7 \times 9}+\dfrac{5}{9 \times 11 \times 13}+\dots = \dfrac{a-b\pi}{c}$, dimana $a,b,c$ adalah bilangan asli dengan $b$ relatif prima dengan $c$, hitunglah nilai $a+b+c$.
+			
+			\begin{jawaban}
+			39
+			\end{jawaban}
+			\begin{solusi}
+			Misalkan $$S=\dfrac{1}{1 \times 3 \times 5}+\dfrac{3}{5 \times 7 \times 9}+\dfrac{5}{9 \times 11 \times 13}+\dots.$$ 
+			Lalu, misalkan pula $$T=\dfrac{1}{1 \times 3 \times 5}+\dfrac{1}{5 \times 7 \times 9}+\dfrac{1}{9 \times 11 \times 13}+\dots.$$
+			
+			Perhatikan bahwa (bisa dipastikan sendiri) 
+			\begin{equation*}
+			\begin{split}
+			2S+T &= \dfrac{3}{1 \times 3 \times 5}+\dfrac{7}{5 \times 7 \times 9}+\dfrac{11}{9 \times 11 \times 13}+\dots\\
+			&=\dfrac{1}{1 \times 5}+\dfrac{1}{5 \times 9}+\dfrac{1}{9 \times 13}+\dots\\
+			&=\dfrac{1}{4}\left(\dfrac{1}{1}-\dfrac{1}{5}+\dfrac{1}{5}-\dfrac{1}{9}+\dfrac{1}{9}-\dfrac{1}{13}+\dots\right)\\
+			&=\dfrac{1}{4}\left(1+\left(-\dfrac{1}{5}+\dfrac{1}{5}\right)+\left(-\dfrac{1}{9}+\dfrac{1}{9}\right)+\left(-\dfrac{1}{13}+\dfrac{1}{17}\right)+\dots\right)\\
+			&=\dfrac{1}{4}\left(1+0+0+0+\dots\right)\\
+			2S+T&=\dfrac{1}{4}
+			\end{split}
+			\end{equation*}
+			dan
+			\begin{equation*}
+			\begin{split}
+			2S-T&= \dfrac{1}{1 \times 3 \times 5}+\dfrac{5}{5 \times 7 \times 9}+\dfrac{9}{9 \times 11 \times 13}+\dots\\
+				&=\dfrac{1}{3 \times 5}+\dfrac{1}{7 \times 9}+\dfrac{11}{11 \times 13}+\dots\\
+				&=\dfrac{1}{2}\left(\dfrac{1}{3}-\dfrac{1}{5}+\dfrac{1}{7}-\dfrac{1}{9}+\dfrac{1}{11}-\dfrac{1}{13}+\dots\right)\\
+				&=\dfrac{1}{2}\left(1-\left(1-\dfrac{1}{3}-\dfrac{1}{5}+\dfrac{1}{7}-\dfrac{1}{9}+\dfrac{1}{11}-\dfrac{1}{13}+\dots\right)\right)\\
+				&=\dfrac{1}{2}\left(1-\left(\dfrac{\pi}{4}\right)\right)\\
+			2S-T&=\dfrac{1}{2}-\dfrac{\pi}{8}
+			\end{split}
+			\end{equation*}
+			
+			Berarti, dari dua persamaan tersebut kita peroleh
+			\begin{equation*}
+			\begin{split}
+			S &= \dfrac{1}{4}\left((2S+T)+(2S-T)\right)\\
+			S&= \dfrac{1}{4}\left(\dfrac{1}{4}+\dfrac{1}{2}-\dfrac{\pi}{8}\right)\\
+			S&=\dfrac{6-\pi}{32}
+			\end{split}
+			\end{equation*}
+			
+			Berarti $a=6,b=1,c=32$ yang menyebabkan $a+b+c=6+1+32=39$. \qed
+			\end{solusi}
+		\end{soalbaru}
+	
+	\begin{soalbaru}
+		Diberikan polinomial $p(x)=x^3-ax^2+bx-c$ mempunyai tiga akar bulat positif berbeda dan $p(2002)=2001$. Misalkan $q(x)=x^2-2x+2002$. Diketahui pula bahwa $p(q(x))$ tidak mempunyai akar real. Tentukan nilai $a$.
+		
+		\begin{jawaban}
+		5951
+		\end{jawaban}
+		\begin{solusi}
+					Misalkan $p(x)=(x-x_1)(x-x_2)(x-x_3)$ dengan $x_1,x_2,x_3$ adalah akar-akar bulat positif yang berbeda.  Sekarang, amati bahwa $p(q(x))=p(x^2-2x+2002)=(x^2-2x+2002-x_1)(x^2-2x+2002-x_2)(x^2-2x+2002-x_3)$. Karena $p(q(x))$ tak mempunyai akar real, maka  untuk setiap $i=1,2,3$, persamaan kuadrat $x^2-2x+2002-x_i \neq 0$. berarti persamaan kuadrat tersebut tak pernah mempunyai akar real atau mempunyai diskriminan $(-2)^2-4(1)(2002-x_i) < 0 \implies x_i < 2001$.
+					
+					Sekarang, dari $p(2002)=2001$ kita punya $(2002-x_1)(2002-x_2)(2002-x_3)=2001=3\cdot 23 \cdot 29$.  Misalkan $2002-x_i = y_i$ maka kita punya $y_1y_2y_3=3 \cdot 23 \cdot 29$. WLOG $x_3 < x_2 < x_1$, maka $y_1 < y_2<y_3$. Karena $x_i < 2001$ maka $1 < 2002 - x_i = y_i$ sehingga haruslah $y_1 = 3, y_2=23, y_3=29$.
+					
+					Oleh karena itu, dari Teorema Vieta didapat $a=x_1+x_2+x_1=-(y_1+y_2+y_3-6006)=-(3+23+29-6006)=5951$ \qed
+		\end{solusi}
+	\end{soalbaru}
+	\newpage
+	\begin{soalbaru}
+		Diberikan bilangan real $a,b,c,d$ yang memenuhi\\[-20pt] $$a+b+c+d+e=8 \text{ dan }a^2+b^2+c^2+d^2+e^2=16.$$\\[-25pt] Misalkan $M$ dan $m$ berturut-turut adalah nilai maksimum dan minimum dari $a$. Tentukan nilai dari $\left \lfloor M-m \right \rfloor$.  %101 no 41
+		
+		\begin{jawaban}
+		3
+		\end{jawaban}
+		\begin{solusi}
+			Perhatikan dengan ketaksamaan \textit{Cauchy Schwarz} kita punya $(b^2+c^2+d^2+e^2)(1^2+1^2+1^2+1^2) \ge (b+c+d+e)^2$ yang setara dengan 
+			\begin{equation*}
+			\begin{split}
+			(4)(b^2+c^2+d^2+e^2) &\ge (b+c+d+e)^2\\
+			\iff 4(16-a^2) &\ge (8-a)^2\\
+			\iff 0 &\ge 5a^2-16a\\
+			\iff 0 &\ge a(5a-16)\\
+			\iff 0 &\le a \le \frac{16}{5}
+			\end{split}
+			\end{equation*}
+			
+			dengan $ma=0$ ketika $b=c=d=e=2$ dan $M=a=\frac{16}{5}$ ketika $b=c=d=e=\frac{6}{5}$.
+			
+			Berarti $\floor{M-m}=\floor{\frac{16}{5}-0}=3$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Jumlah seluruh bilangan real $x$ yang memenuhi $10^x+11^x+12^x=13^x+14^x$ adalah... %probs 15 101
+		\begin{jawaban}
+		2
+		\end{jawaban}
+		\begin{solusi}
+		Mudah diperiksa bahwa $x=2$ memenuhi. Kita akan menunjukkan bahwa hanya itu solusi yang memenuhi soal. Perhatikan bahwa soal setara dengan $$\left(\dfrac{10}{13}\right)^x+\left(\dfrac{11}{13}\right)^x+\left(\dfrac{12}{13}\right)^x=1+\left(\dfrac{14}{13}\right)^x.$$ Misalkan $f(x)=\left(\dfrac{10}{13}\right)^x+\left(\dfrac{11}{13}\right)^x+\left(\dfrac{12}{13}\right)^x$ dan $g(x)=1+\left(\dfrac{14}{13}\right)^x.$ Amati bahwa $f(x)$ adalah fungsi turun karena setiap sukunya kurang dari 1 sedangkan $g(x)$ adalah fungsi naik karena setiap sukunya lebih dari sama dengan 1. Berarti, $f(x)=g(x)$ ketika kurva atau grafik kedua fungsi tersebut berpotongan di tepat satu titik yaitu $x=2$. Terbukti hanya solusi tersebut yang memenuhi. \qed
+		\end{solusi}
+	\end{soalbaru}
+	\vspace{10pt}
+	\begin{soalbaru}
+		Carilah bilangan bulat terkecil $m$ sehingga\\[-15pt] $${2n \choose n}^{\frac{1}{n}}<m$$\\[-20pt] untuk semua bilangan asli $n$.% 101 11
+		
+		\begin{jawaban}
+		4
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan dengan ekspansi binomial didapatkan $${2n \choose n} < {2n \choose 0}+{2n \choose 1}+\dots+{2n \choose 2n}=(1+1)^{2n}=2^{2n}=4^n,$$
+		atau ${2n \choose n}^{\frac{1}{n}} < 4$. Berarti $m \le 4$. Namun, jika $m \le 3$, untuk $n=5$ didapat $${2n \choose n}^{\frac{1}{n}}={10 \choose 5}^{\frac{1}{5}}=252^{\frac{1}{5}} > 243^{\frac{1}{5}} = 3 \ge m,$$ kontradiksi dengan soal. Berarti haruslah $m=4$. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Misalkan $f(x)=a\sin((x+1)\pi) + b\sqrt[3]{x-1}+2$, dimana $a$ dan $b$ adalah bilangan real. Jika $f(\log 5)=5$, carilah nilai dari $f(\log 20)$.
+		
+		\begin{jawaban}
+		-1
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa 
+		\begin{equation*}
+		\begin{split}
+		f(\log 5)&=5\\
+		a\sin((\log 5+1)\pi) + b\sqrt[3]{\log 5-1}+2&=5\\
+		a\sin((\log \frac{10}{2}+1)\pi) + b\sqrt[3]{\log \frac{10}{2}-1}&=3\\
+		a\sin((\log 10 - \log 2+1)\pi) + b\sqrt[3]{\log 10 - \log 2 -1}&=3\\
+		a\sin((1 - \log 2+1)\pi) + b\sqrt[3]{1 - \log 2 -1}&=3\\
+		a\sin(2\pi - (\log 2)\pi) + b\sqrt[3]{- \log 2}&=3\\
+		-a\sin((\log 2)\pi) - b\sqrt[3]{\log 2}&=3\\
+		a\sin((\log 2)\pi) + b\sqrt[3]{\log 2}&=-3
+		\end{split}
+		\end{equation*}
+		
+		Oleh karena itu kita peroleh
+				\begin{equation*}
+				\begin{split}
+				f(\log 20)&=a\sin((\log 20+1)\pi) + b\sqrt[3]{\log 20-1}+2\\
+						  &=a\sin((\log (2\cdot10)+1)\pi) + b\sqrt[3]{\log (2\cdot10)-1}+2\\
+						  &=a\sin((\log 2 +\log 10+1)\pi) + b\sqrt[3]{\log 2+\log 10-1}+2\\
+						  &=a\sin((\log 2 +1+1)\pi) + b\sqrt[3]{\log 2+1-1}+2\\
+						  &=a\sin((\log 2)\pi+2\pi) + b\sqrt[3]{\log 2}+2\\
+						  &=a\sin((\log 2)\pi) + b\sqrt[3]{\log 2}+2\\
+						  &=-3+2\\
+						  &=-1 \qed
+				\end{split}
+				\end{equation*}
+		\end{solusi}
+	\end{soalbaru}
+\newpage
+\subsection{Esai}
+Jawablah soal-soal berikut dengan menyertakan cara pengerjaan atau argumentasinya.
+	
+	
+	\begin{soalbaru} Untuk sembarang bilangan real positif $a,b,c$ yang memenuhi $a^6+b^6+c^6=9$, buktikan bahwa $$\dfrac{a+b}{(a^3\sqrt{b}+b^3\sqrt{a})^2}+\dfrac{b+c}{(b^3\sqrt{c}+c^3\sqrt{b})^2}+\dfrac{c+a}{(c^3\sqrt{a}+a^3\sqrt{c})^2} \ge \dfrac{1}{2}.$$
+	
+	\begin{solusi}
+	Perhatikan dengan menggunakan ketaksamaan \textit{Cauchy Schwarz} kita punya
+	\begin{equation*}
+	\begin{split}
+	((a^3)^2+(b^3)^2)((\sqrt{b})^2+(\sqrt{a})^2) &\ge (a^3\sqrt{b}+b^3\sqrt{a})^2\\
+	(a^6+b^6)(b+a) &\ge (a^3\sqrt{b}+b^3\sqrt{a})^2\\
+	\dfrac{b+a}{(a^3\sqrt{b}+b^3\sqrt{a})^2} &\ge \dfrac{1}{a^6+b^6}\\
+	\end{split}
+	\end{equation*}
+	
+	Dari ketaksamaan tersebut dan juga dengan ketaksamaan AM-HM, kita punya
+	\begin{equation*}
+	\begin{split}
+	\cycsum \dfrac{b+a}{(a^3\sqrt{b}+b^3\sqrt{a})^2} &\ge \cycsum \dfrac{1}{a^6+b^6}\\ &= \dfrac{1}{a^6+b^6}+\dfrac{1}{b^6+c^6}+\dfrac{1}{c^6+a^6}\\
+	&\ge \dfrac{9}{(a^6+b^6)+(b^6+c^6)+(c^6+a^6)}\\
+	&= \dfrac{9}{2(a^6+b^6+c^6)}\\
+	&= \dfrac{9}{2\cdot 9}\\
+	&= \dfrac{1}{2}
+	\end{split}
+	\end{equation*}
+	
+	dengan kesamaan terjadi saat $a=b=c=\sqrt[6]{3}$. \qed
+	\end{solusi}
+		\end{soalbaru}
+	
+	
+	\begin{soalbaru} 
+		 Carilah semua solusi real  $x,y,z$ yang memenuhi: 
+		 		$$\begin{cases}
+		 		\dfrac{4x^2}{4x^2+1}=y \\[5pt]
+		 		\dfrac{4y^2}{4y^2+1}=z \\[5pt]
+		 		\dfrac{4z^2}{4z^2+1}=x.
+		 		\end{cases}$$
+		 		
+		 \begin{jawaban}
+		 $(\frac12,\frac12,\frac12)$ dan $(0,0,0)$
+		 \end{jawaban}
+		 \begin{solusi}
+		 Misalkan tanpa mengurangi keumuman $\max\{x,y,z\}=z$ sehingga $y,z \le x$. Lalu, sadari bahwa 
+		 
+		 Perhatikan bahwa $x,y,z \ge 0$ dikarenakan
+		 \begin{equation*}
+		 		 \begin{split}
+		 		 0\le\dfrac{4x^2}{4x^2+1}=y,\text{  }
+		 		 0\le\dfrac{4y^2}{4y^2+1}=z,\text{  }
+		 		 0\le\dfrac{4z^2}{4z^2+1}=x.
+		 		 \end{split}
+		 \end{equation*}
+		 Oleh karena itu, kita punya
+		 \begin{equation*}
+		 \begin{split}
+		 \dfrac{4z^2}{4z^2+1}=x &\ge y=\dfrac{4x^2}{4x^2+1}\\
+		 \iff 4z^2(4x^2+1) &\ge 4x^2(4z^2+1)\\
+		 \iff 16x^2z^2+4z^2 &\ge 16x^2z^2 + 4x^2\\
+		 \iff 4z^2 &\ge 4x^2.
+		 \end{split}
+		 \end{equation*}
+		 
+		 Karena $x,z \ge 0$ maka diperoleh $z \ge x$. Padahal dari asumsi, $x \ge z$. Berarti haruslah terjadi kesamaan atau $x=z$. 
+		 
+		 Substitusi ke persamaan di soal didapat
+		 $$\dfrac{4z^2}{4z^2+1}=z \iff z\cdot 4z=z(4z^2+1) \iff z(2z-1)^2=0 \iff z=\dfrac{1}{2} \text{ atau } z=0 $$
+		 yang menyebabkan $x=z=\dfrac{1}{2}$ atau $x=z=0$. Terakhir, substitusi kembali hasil tersebut ke soal, sehingga didapat
+		 $$y=\dfrac{4x^2}{4x^2+1}=\dfrac{4(\frac{1}{2})^2}{4(\frac{1}{2})^2+1}=\dfrac{1}{2}$$ serta $$y=\dfrac{4x^2}{4x^2+1}=\dfrac{4\cdot 0^2}{4 \cdot 0^2 +1}=0.$$
+		 
+		 Cek solusi tersebut ke soal, ternyata memenuhi. Berarti, solusi yang memenuhi adalah $(x,y,z)=\left(\dfrac{1}{2},\dfrac{1}{2},\dfrac{1}{2}\right),(0,0,0)$. \qed
+		 \end{solusi}
+	\end{soalbaru}
+	\vspace{8pt}
+	\begin{soalbaru} 
+		 Untuk $\forall a,b,c \in\mathbb{R^+}$ dengan $a+b+c=1$, buktikan bahwa $$\left( a+\frac{1}{a} \right)^2+\left( b+\frac{1}{b} \right)^2+\left( c+\frac{1}{c} \right)^2 \ge \frac{100}{3}$$\\[-20pt]
+		 
+		 \begin{solusi}
+		 Misalkan fungsi $f: \RR^+ \rightarrow \RR^+$ dengan $f(x)=\left(x+\dfrac{1}{x}\right)^2$. Amati bahwa $f''(x)=\dfrac{6}{x^4}+2>0$ untuk setiap $x \in \RR^+$, sehingga dapat disimpulkan bahwa fungsi $f$ konveks. Oleh karena itu, untuk $a,b,c \in \RR^+$ berlaku ketaksamaan Jensen
+		 \begin{equation*}
+		 \begin{split}
+		 f(a)+f(b)+f(c) &\ge 3f\left(\dfrac{a+b+c}{3}\right)\\
+		 f(a)+f(b)+f(c) &\ge 3f\left(\dfrac{1}{3}\right)\\
+		 \left( a+\frac{1}{a} \right)^2+\left( b+\frac{1}{b} \right)^2+\left( c+\frac{1}{c} \right)^2 &\ge 3\left( \dfrac{1}{3}+\frac{1}{\frac{1}{3}} \right)^2\\
+		 \left( a+\frac{1}{a} \right)^2+\left( b+\frac{1}{b} \right)^2+\left( c+\frac{1}{c} \right)^2 &\ge 3\left( \dfrac{10}{3} \right)^2\\
+		 \left( a+\frac{1}{a} \right)^2+\left( b+\frac{1}{b} \right)^2+\left( c+\frac{1}{c} \right)^2 &\ge  \dfrac{100}{3} 
+		 \end{split}
+		 \end{equation*}
+		 dengan kesamaan terjadi ketika $a=b=c=\frac{1}{3}$. \qed
+		 \end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Sebuah polinomial $P(x)=x^3+ax^2+bx+c$ mempunyai tiga akar real yang berbeda. Polinomial $P(Q(x))$ tidak mempunyai akar real dimana $Q(x)=x^2+x+2021$. Buktikan bahwa $P(2021)>\frac{1}{64}$.\\[-10pt]
+		
+		\begin{solusi}
+		Misalkan $x_1,x_2,x_3$ adalah akar-akar polinomial $P(x)$. Berarti kita dapat menyatakan $P(x)=(x-x_1)(x-x_2)(x-x_3)$. 
+		Perhatikan karena $$P(Q(x))=P(x^2+x+2021)=(x^2+x+2021-x_1)(x^2+x+2021-x_2)(x^2+x+2021-x_3)$$
+		tak mempunyai akar real, maka untuk setiap $x\in \RR$ $x^2+x+2021-x_i \neq 0$ untuk $i=1,2,3$ yang mana diskriminannya selalu negatif atau $1^2 - 4(1)(2021-x_i) < 0 \iff 2021-x_i > \dfrac14$.
+		
+		Berarti dapat kita peroleh 
+		$$P(2021)=(2021-x_1)(2021-x_2)(2021-x_3) > \left(\dfrac14\right)\left(\dfrac14\right)\left(\dfrac14\right)=\dfrac{1}{64}.\qed$$ 
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Carilah semua pasangan solusi real $(x,y)$ yang memenuhi:\\[-10pt] 
+				 		$$\begin{cases}\\[-30pt]
+				 		x^2+3x+\log(2x+1)=y \\[-5pt]
+				 		y^2+3y+\log(2y+1)=x
+				 		\end{cases}$$\\[-10pt]
+	
+		\begin{jawaban}
+		$(0,0)$
+		\end{jawaban}
+		\begin{solusi}
+		Karena persamaan di soal simetris, tanpa mengurangi keumuman misalkan $x \ge y$.
+		Perhatikan, dari syarat logaritma, haruslah $2x+1>0 $ dan $2y+1>0$ atau $x,y > -\frac12$. Oleh karena itu, kita punya 	
+		\begin{equation*}
+		\begin{split}
+		(x^2+3x+\log(2x+1))-(y^2+3y+\log(2y+1))&=y-x\\
+		(x^2-y^2)+(4x-4y)+\log(2x+1)-\log(2y+1)&=0\\
+		(x+y)(x-y)+4(x-y)+\log\left(\dfrac{2x+1}{2y+1}\right)&=0\\
+		  \log\left(\dfrac{2x+1}{2y+1}\right) &= -(x-y)(x+y+4) \\
+		  \log\left(\dfrac{2x+1}{2y+1}\right)&\le 0\cdot(-\dfrac12-\dfrac12+4) = 0.\\
+		\end{split}
+		\end{equation*}
+		
+		Berarti haruslah
+		\begin{equation*}
+		\begin{split}
+		\left(\dfrac{2x+1}{2y+1}\right)&\le 10^0 = 1\\
+		2x+1 &\le 2y+1\\
+		x &\le y.
+		\end{split}
+		\end{equation*}
+		
+		Dari sini, karena $x \ge y$ dan $x \le y$, maka $x=y$. Berarti, persamaan di soal menjadi $x^2+3x+\log(2x+1)=x$ atau $x^2+2x=-\log (2x+1)$.
+		Sekarang akan dibagi kasus berdasarkan nilai $x$.
+		
+		\begin{itemize}
+		\item Jika $ -\frac12 < x \le 0$ maka $-\log(2x+1)=x^2+2x \le 0$. Hal ini menyebabkan $\log(2x+1) \ge 0$ atau $2x+1 \ge 10^0=1 \implies x \ge 0$. Berarti haruslah $x=0$. Substitusi ke persamaan, didapatkan $0^2+2\cdot 0+\log(2\cdot 0+1)=0$. Berarti $x=y=0$ memenuhi soal.
+		
+		\item Jika $ x > 0$, maka $-\log(2x+1)=x^2+2x > 0$. Hal ini menyebabkan $\log(2x+1) < 0$ atau $2x+1 < 10^0=1 \implies x < 0$, kontradiksi dengan $x > 0$. Berarti kasus ini tak memenuhi.
+		\end{itemize}
+		Berarti satu-satunya solusi yang memenuhi adalah $(0,0)$.
+		\end{solusi}
+	\end{soalbaru}
+	
+\end{document}

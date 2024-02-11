@@ -1,0 +1,350 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+
+%\addtolength{\textheight}{1.5in} 
+\renewcommand{\baselinestretch}{1.5}
+
+
+
+\begin{document}
+	\title{Pembahasan Paket Soal 4 : Geometri} % Beginner
+	\date{\today}
+	\author{Compiled by Azzam}
+	\maketitle
+	\newpage
+	
+	\section{Soal}
+\subsection{Isian Singkat}
+Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
+
+	\begin{soalbaru}
+		Diberikan segitiga $ABC$ lancip. Garis tinggi terpanjang adalah dari titik sudut $A$ tegak
+			lurus pada $BC$, dan panjangnya sama dengan panjang median (garis berat) dari titik sudut $B$.
+			Nilai terbesar $\angle ABC$ adalah $\dots^\circ$
+			
+			\begin{jawaban}
+			60
+			\end{jawaban}
+			\begin{solusi}
+			Misalkan $BM$ adalah median atau garis berat dan $AN$ adalah garis tinggi. Misalkan juga $D$ adalah titik tengah $NC$.
+			
+			Karena $M$ adalah titik tengah $AC$ dan $D$ adalah titik di sisi $BC$ sehingga $MD \perp BC$, akibatnya $MD \parallel BC$ sehingga $MD=\dfrac{1}{2}AN=\dfrac{1}{2}BM$.
+			
+			Akibatnya didapat $$\sin \angle MBC = \dfrac{MD}{BM} = \dfrac{1}{2},$$ sehingga $\angle MBC = 30^\circ$.
+			
+			Selanjutnya, misalkan titik $E$ dan $T$ di sisi $AB$ sehingga $ME \perp AB$ dan $CT$ adalah garis tinggi.
+			
+			Karena $M$ adalah titik tengah $AC$ dan $E$ adalah titik di sisi $AB$ sehingga $ME \perp BC$, akibatnya $ME \parallel AB$ sehingga $ME=\dfrac{1}{2}AT$.
+			
+			Sekarang, karena $AN$ adalah garis tinggi terpanjang, maka $AT \le AN$, yang berakibat $$ME=\dfrac{1}{2}AT \le MD=\dfrac{1}{2}BM.$$
+			
+			Oleh karena itu kita punya $$\sin \angle MBA = \sin \angle MBE = \dfrac{ME}{BM} \le \dfrac{MD}{BM} = \dfrac{1}{2} \text{ atau } \sin \angle MBA \le \dfrac{1}{2}.$$ 
+			Karena $\triangle ABC$ adalah segitiga lancip, maka didapat $\angle MBA \le 30^\circ$.
+			
+			Dari fakta tersebut didapat $\angle ABC = \angle MBA + \angle MBC = \angle MBA  + 30^\circ \le 30^\circ + 30^\circ = 60^\circ$, dengan kesamaan terjadi saat $\triangle ABC$ adalah segitiga sama sisi. Berarti nilai terbesar $\angle ABC$ adalah $60^\circ$. \qed
+			\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Pada segitiga $ABC$ terdapat titik $P$ di dalamnya sehingga $\angle PAB = 10^\circ, \angle PBA = 20^\circ , \angle PAC = 40^\circ, \angle PCA = 30^\circ$. Besar sudut $\angle ABC$ adalah $\dots^\circ$ 
+		
+		\begin{jawaban}
+				$80$
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan $\angle BCP = x$. Berdasarkan aturan Sinus pada $\triangle PAB, \triangle PBC,$ dan $\triangle PAC$ didapat
+		\begin{align*}
+		\dfrac{PA}{PB} &= \dfrac{\sin \angle ABP}{\sin \angle PAB} = \dfrac{\sin 20^\circ}{\sin 10^\circ}, \\
+		\dfrac{PB}{PC} &= \dfrac{\sin \angle BCP}{\sin \angle PBC} = \dfrac{\sin x^\circ}{\sin (80
+		^\circ-x)}, \\
+		\dfrac{PC}{PA} &= \dfrac{\sin \angle CAP}{\sin \angle PCA} = \dfrac{\sin 40^\circ}{\sin 30^\circ}.
+		\end{align*}
+		
+		Dengan mengalikan ketiga persamaan tersebut diperoleh
+		\begin{align*}
+		\dfrac{PA}{PB}\dfrac{PB}{PC}\dfrac{PC}{PA}&=\dfrac{\sin 20^\circ}{\sin 10^\circ}\dfrac{\sin x^\circ}{\sin (80^\circ-x)}\dfrac{\sin 40^\circ}{\sin 30^\circ}\\
+		\sin 10^\circ \cdot \sin (80^\circ-x)\cdot \sin 30^\circ &= \sin 20^\circ\cdot \sin x \cdot \sin 40^\circ\\
+		\sin 10^\circ \sin (80^\circ-x)\cdot \dfrac{1}{2}&=2\sin 10^\circ \cos 10^\circ\cdot \sin x \sin 40^\circ\\
+		\sin (80^\circ-x)&=2\cdot\sin x \cdot 2\cdot \cos 10^\circ \sin 40^\circ\\
+		\sin(80^\circ-x)&=2\cdot\sin x(\sin(40^\circ+10^\circ)+\sin(40^\circ-10^\circ))\\
+		\sin(80^\circ-x)&=2\cdot\sin x(\sin50^\circ+\sin 30^\circ)\\
+		\sin 80^\circ\cdot\cos x-\sin x\cdot \cos 80^\circ &= 2\sin x(\sin 50^\circ +\dfrac{1}{2})\\
+		2\sin40^\circ-\cos 40^\circ\cos x-\sin x(2\cos^2 40^\circ-1)&=\sin x(2\sin 50^\circ+1)\\
+		2\sin40^\circ-\cos 40^\circ\cos x-2\sin x\cdot\cos^2 40^\circ+\sin x &= \sin x (2 \cos 40^\circ+1)\\
+		2\sin40^\circ-\cos 40^\circ\cos x-2\sin x\cdot\cos^2 40^\circ+\sin x &= 2\sin x\cos 40^\circ + \sin x\\
+		2\sin40^\circ-\cos 40^\circ\cos x-2\sin x(\cos^2 40^\circ+\cos 40^\circ) &= 0\\
+		2 \sin 40^\circ \cos x - 2\sin x(\cos 40^\circ+1)&=0\\
+		2\sin 40^\circ\cos x-2\sin x\cos 40^\circ &= 2\sin x\\
+		\sin 40^\circ\cos x-\sin x\cos 40^\circ &= \sin x\\
+		\sin(40^\circ-x)&=\sin x. 
+		\end{align*}
+		
+		Karena $\triangle ABC$ lancip, maka $40^\circ -x = x \implies x = 20^\circ$ yang menyebabkan $\angle ABC = \angle ABP + \angle PBC = 20^\circ + (80^\circ-x)=80^\circ.$ \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+			Pada sembarang segitiga $ABC$, titik $D,E,F$ berturut-turut pada $BC,CA,AB$ dimana $AD,BE,CF$ bertemu di $M$. Nilai eksak dari $\dfrac{AM}{AD}+\dfrac{BM}{BE}+\dfrac{CM}{CF}$ adalah $\dots$
+			
+			\begin{jawaban}
+			2
+			\end{jawaban}
+			\begin{solusi}
+			Dari perbandingan luas segitiga amati bahwa $$\dfrac{AM}{AD}=\dfrac{[ABM]}{[ABD]}=\dfrac{[ACM]}{[ACD]}.$$
+			Karena untuk sembarang bilangan real tak nol $a,b,c,d$ berlaku $\dfrac{a}{b}=\dfrac{c}{d}=\dfrac{a+c}{b+d}$, maka diperoleh $$\dfrac{AM}{AD}=\dfrac{[ABM]+[ACM]}{[ABD]+[ACD]}=\dfrac{[ABMC]}{[ABC]}.$$
+			Dengan cara yang sama akan diperoleh pula 
+			\begin{align*}
+			\dfrac{BM}{BE}&=\dfrac{[BAMC]}{[ABC]},
+			\dfrac{CM}{CF}=\dfrac{[CAMB]}{[ABC]}.
+			\end{align*}
+			yang mengakibatkan
+			$$\dfrac{AM}{AD}+\dfrac{BM}{BE}+\dfrac{CM}{CF}=\dfrac{[ABMC]}{[ABC]}+\dfrac{[BAMC]}{[ABC]}+\dfrac{[CAMB]}{[ABC]}=\dfrac{2[ABC]}{[ABC]}=2.\qed$$
+			\end{solusi}
+		\end{soalbaru}
+	\vspace{10pt}
+	\begin{soalbaru}
+		Misalkan $ABCD$ adalah segiempat konveks dengan $\angle DAC=\angle BDC = 36^\circ$, $\angle CBD = 18^\circ$, dan $\angle BAC = 72^\circ$. Diagonal $AC$ dan $BD$ berpotongan di titik $P$. Tentukan besar sudut $\angle APD$ dalam derajat. %ko ss spring camp 30 maret 2019 
+		\begin{jawaban}
+		108
+		\end{jawaban}
+		\begin{solusi}
+		Amati bahwa $\angle DBC = 18^\circ = \dfrac{1}{2}\cdot 36^\circ = \dfrac{1}{2} \angle DAC$ dan $\angle BDC = 36^\circ = \dfrac{1}{2}\cdot 72^\circ = \dfrac{1}{2}\angle BAC$ yang mengakibatkan $A$ adalah pusat lingkaran luar $\triangle BDC$ berdasarkan sifat sudut pusat dan sudut keliling lingkaran. Oleh karena itu kita punya $AD = AC$ sebagai jari-jari lingkaran tersebut yang mengakibatkan $\angle ADC = \angle ACD = \dfrac{180^\circ-\angle DAC}{2}=72^\circ$. Dari fakta tersebut dapat diperoleh $\angle DPC = 180^\circ - \angle BDC - \angle ACD = 72^\circ$ sehingga kita punya $\angle APD = 180^\circ - \angle DPC = 180^\circ - 72^\circ = 108^\circ.$ \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Diberikan segitiga sama kaki $ABC$ dengan $AB = AC$ dan $\angle BAC < 60^\circ$. Titik $D$ dan $E$ dipilih pada titik $AC$ sehingga $EB = ED$ dan $\angle ABD = \angle CBE$. Notasikan $O$ sebagai perpotongan antara garis bagi dalam $\angle BDC$ dan garis bagi dalam $\angle ACB$. Hitunglah besar sudut $\angle COD$ dalam derajat. %ko ss 30 maret
+		\begin{jawaban}
+		120
+		\end{jawaban}
+		\begin{solusi}
+		Dikarenakan $DB = DE$, maka $\angle DBE =\angle DEB = x$. Dari sini didapat $\angle BEC = 180^\circ - \angle BED = \angle DBE + \angle DEB = 2x.$ Lalu dari soal bisa kita misalkan $\angle ABD = \angle CBE = y$ yang berarti  $2y+x=\angle ABD + \angle CBE + \angle DBE = \angle ABC$ dan $\angle BCD = 180^\circ - \angle BEC - \angle CBE = 180^\circ -2x-2y$. 
+		
+		Karena $AB=AC$ dapat diperoleh $2y+x= \angle ABC=\angle BCD= 180^\circ -2x-2y$ yang menyebabkan $180^\circ = 3y + 3x \implies \angle DBC = x+ y=60^\circ.$ 
+		
+		Terakhir, karena $O$ adalah titik bagi, maka $\angle COD = 180^\circ - \angle OCD - \angle CDO = 90^\circ + 90^\circ - \frac{1}{2}\angle BCD - \frac{1}{2} CDB = 90^\circ + \frac{1}{2}\angle DBC = 90^\circ + \frac{1}{2}\cdot 60^\circ = 120^\circ.$ \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Titik $A$ dan $B$ dari segitiga sama sisi $ABC$ berada pada lingkaran $k$ yang berjari-jari 1 dengan titik $C$ berada di dalam lingkaran $k$ tersebut. Sebuah titik $D$ yang berbeda dari titik $B$, berada pada lingkaran $k$ sehingga $AD=AB$. Garis $DC$ memotong lingkaran $k$ untuk yang kedua kalinya di titik $E$. Panjang garis $CE$ adalah $\dots$ %ko ss 30 maret
+		\begin{jawaban}
+		1
+		\end{jawaban}
+		\begin{solusi}
+		Perhatikan bahwa $\angle BCE = 180^\circ  - \angle ACD - \angle BCA = 180^\circ  - \angle ADE -\angle ABC = \angle ABE - \angle ABC = \angle CBE$ yang berarti $BE = CE$. Dari sini didapat $ABEC$ adalah layang-layang sehingga $\angle AEB = \angle CEA$ yang menyebabkan $\angle CEB = \angle CEA + \angle AEB= 2\angle AEB = 2\angle ADB$.
+		
+		Sekarang, misalkan $O$ adalah pusat lingkaran $k$. Dari sifat sudut pusat dan sudut keliling didapat $ \angle CEB= 2\angle ADB = \angle AOB$. Karena kita punya $BE=CE$, $OB = OA$ (karena merupakan jari-jari lingkaran $k$) dan $\angle CEB = \angle AOB$, maka didapat $\triangle AOB$ sebangun dengan $\triangle CEB$. Namun, karena $AB=BC$, maka didapat $\triangle AOB$ kongruen dengan $\triangle CEB$. Dari sini didapatkan $EB = OA$yang menyebabkan $CE = EB = OA = 1$. \qed
+		\end{solusi}
+	\end{soalbaru}
+
+	\begin{soalbaru}
+		Diberikan sebuah segilima $ABCDE$ dengan masing-masing titik sudutnya berada pada satu lingkaran. Jika $AB=DC=3$, $BC=DE=10$, dan $AE=14$. Jika jumlah panjang seluruh diagonal segilima $ABCDE$ tersebut adalah $a$, hitunglah nilai $\floor{a}$.
+		\begin{jawaban}
+		63
+		\end{jawaban}
+		\begin{solusi}
+		Amati karena $ABCDE$ siklis, $AB=CD$ dan $DE=BC$, maka didapat $ABCD$ dan $BCDE$ adalah trapesium sama kaki. Ini berarti $AC=BD=CE=x > 0$.
+		
+		Selajutnya, dengan menggunakan Dalil Ptolemy pada $ABCD$, $BCDE$, $ABDE$, $ABCE$, dan $AEDC$ secara berturut-turut diperoleh 
+		\begin{align}
+		AD \cdot BC + AB \cdot CD &= AC \cdot BD \implies 10\cdot AD+9 = x^2\\
+		BE \cdot CD + BC \cdot DE &= BD \cdot CE \implies 3 \cdot BE + 100 = x^2\\
+		AE \cdot BD + AB \cdot DE &= AD \cdot BE \implies 14x+30 = AD \cdot BE\\
+		AB \cdot CE + AE \cdot BC &= AC \cdot BE \implies 3x+140 = BE \cdot x\\
+		AE \cdot CD + DE \cdot AC &= AD \cdot CE \implies 42+10x=AD \cdot x
+		\end{align}
+		
+		Kalikan persamaan (4) dan (5) dilanjutkan dengan substitusi persamaan (3), kita akan mendapakan 
+		\begin{align*}
+		(3x+140)(42+10x) &= AD \cdot BE \cdot x^2\\
+		(3x+140)(42+10x) &= (14x+30)x^2\\
+		30x^2+1526x+42\cdot140 &= 14x^3+30x^2\\
+		14x^3-1526x-42\cdot 140 &= 0\\
+		x^3-109-420 &= 0\\
+		(x+5)(x+7)(x-12) &= 0
+		\end{align*}
+		 Karena $x>0$, maka $x=12$ , sehingga diperoleh $AC = BD = CE = x =12$.
+		 
+		 Sekarang, substitusi $x=12$ ke persamaan $(1)$ dan $(2)$ sehingga diperoleh 
+		 \begin{align*}
+		 10\cdot AD + 9 = 12^2 \implies AD = \dfrac{27}{2}\\
+		 3\cdot BE + 100 = 12^2 \implies BE = \dfrac{44}{3}
+		 \end{align*}
+		 Oleh karena itu kita punya $a = AC +BD +CE +AD +BE = 12+12+12+\dfrac{27}{2}+\dfrac{44}{3}=63+\dfrac{5}{6}$ yang mengakibatkan $\floor{a}=63$. \qed
+		
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Pada $\triangle BAC$, $\angle BAC = 40^\circ$, $AB=10$, and $AC=6$. Titik $D$ dan $E$ berada pada segmen $AB$ dan $AC$ secara berturut-turut. Berapakah nilai minimum $\floor{BE+DE+CD}$?
+		
+		\begin{jawaban}
+		14
+		\end{jawaban}
+		\begin{solusi}
+		Misalkan $B'$ adalah hasil pencerminan $B$ terhadap $AC$ dan $C'$ adalah hasil penecerminan $C$ terhadap $AB$. Perhatikan bahwa $C'D=DE$, $DE=EB'$, $AC'=AC=6$, dan $AB'=AB=10$ karena pencerminan tadi. 
+		
+		Karena $\angle C'AB = \angle BAC = \angle CAB'=30^\circ$, maka $\angle C'AB' = \angle C'AB + \angle BAC + \angle CAB' = 120^\circ$. Oleh karena itu, dari Dalil Cosinus kita punya 
+		\begin{align*}
+		(B'C')^2 &= (AC')^2+(AB')^2-2\cdot AC' \cdot AB' \cos \angle C'AB'\\
+		&= 6^2+10^2-2\cdot 6\cdot 10 \cos 120^\circ\\
+		&= 196\\
+		B'C' &= 14.
+		\end{align*} 
+		
+		Amati bahwa $C'D+DE \ge C'E$ dan $C'E+EB' \ge C'B'$ sehingga menyebabkan \\$CD+DE+EB=C'D+DE+EB' \ge C'E +EB' \ge C'B'=14$ dengan kesamaan terjadi saat $C',D,E,B'$ segaris. Berarti dapat disimpulkan bahwa $\floor{CD+DE+EB}=14$. \qed
+		\end{solusi}
+	\end{soalbaru}
+
+\subsection{Esai}
+Jawablah soal-soal berikut dengan menyertakan cara pengerjaan atau argumentasinya.
+	
+	\begin{soalbaru} 
+		Suatu segitiga $ABC$ memiliki titik tinggi $H$ dan titik pusat lingkaran dalam $I$. Buktikan bahwa $A,B,H,I$ berada pada satu lingkaran (siklis) jika dan hanya jika $\angle ACB = 60^\circ$.\\[-10pt]
+		\begin{solusi}
+		Kita punya beberapa lemma yang akan membantu untuk menyelesaikan soal berikut.
+		\begin{lemmarev}
+		$\angle AHB = 180^\circ - \angle C$.
+		
+		\begin{buktilemma}
+		Karena $H$ titik tinggi, maka $BH \perp AC$ dan $AH \perp CB$ yang menyebabkan $\angle HBA = 90^\circ  -\angle A$ dan $\angle HAB = 90^\circ - \angle B$. Oleh karena itu didapat $\angle AHB = 180^\circ - \angle HAB - \angle HBA = 90^\circ - \angle HAB + 90^\circ - \angle HBA = \angle A + \angle B = 180^\circ - \angle C.$
+		\end{buktilemma}
+		\end{lemmarev}
+		
+		\begin{lemmarev}
+		$\angle AIB = 90^\circ + \dfrac{1}{2}\angle C$.
+		\begin{buktilemma}
+		$\angle AIB = 180^\circ - \angle CBA - \angle BAC = 90^\circ + 90^\circ - \dfrac{1}{2}\angle B - \dfrac{1}{2}\angle A = 90^\circ + \dfrac{1}{2}(180^\circ-\angle B-\angle A)=90^\circ+\dfrac{1}{2}\angle C.$
+		\end{buktilemma}
+
+			
+		
+		\end{lemmarev}
+		
+		Dari kedua lemma di atas kita peroleh
+		\begin{align*}
+				&\angle ACB = 60^\circ \iff \angle AHB = 120^\circ = 90^\circ + \dfrac{1}{2}\cdot 60^\circ = 90^\circ + \dfrac{1}{2}\cdot \angle ACB= \angle AIB\\
+				&\iff  A,B,H,I \text{ siklis }. \qed
+				\end{align*}
+		\end{solusi}
+	\end{soalbaru}
+
+	\begin{soalbaru} 
+		 Misalkan $C$ adalah titik pada setengah lingkaran dengan diameter $AB$ (terletak di keliling lingkarannya, bukan di diameternya). Misalkan pula $D$ adalah titik tengah busur $AC$. Notasikan $E$ sebagai proyeksi $D$ pada garis $BC$ dan $F$ adalah perpotongan $AE$ dengan setengah lingkaran. Buktikan bahwa $BF$ membagi garis $DE$ sama panjang.\\[-10pt]
+		 
+		 \begin{solusi}
+		 Notasikan $\dangle$ sebagai sudut berarah atau \textit{ directed angle} modulo $180^\circ$, dan $\angle$ sebagai sudut biasa.
+		 Misalkan $M$ adalah perpotongan $BF$ dengan $DE$.
+		 \begin{lemmarev}
+		 		 $DE$ menyinggung lingkaran $(ADCB)$ di $D$.
+		 		 		 		 
+		 		 		 		 
+		 		 \begin{buktilemma}
+		 		 	Amati bahwa $AB$ adalah diameter lingkaran yang menyebabkan $\angle ACB = 90^\circ$. Karena kita juga punya $\angle DEB=90^\circ$ dari soal, maka $DE \parallel AC$ atau $\angle CDE = \angle DCA$. Padahal karena $ADCB$ siklis kita punya $\angle CAD = \angle DCA$. Sehingga akhirnya kita punya $\angle CDE = \angle CAD \iff \text{DE menyinggung lingkaran (ABCD) di titik D.}$
+		 		 \end{buktilemma}
+		 		 		 		  
+		 		 \end{lemmarev}
+
+		 
+		 \begin{lemmarev}
+		 		 		$DE$ menyinggung lingkaran luar $\triangle EFB$.
+		 		 		
+		 		\begin{buktilemma}
+		 		 	Perhatikan bahwa $\angle DFE = 90^\circ$ karena $AB$ diameter $ADCB$. Karena kita tahu bahwa $\angle DEB = 90^\circ$, maka $\angle DEB = \angle DFE$. Karena kita juga punya $\angle EDB = \angle FDE$, maka didapat bahwa $\triangle FDE$ sebangun dengan $\triangle EDB$ sehingga kita punya $\angle DEF= \angle EBD = \angle CBF \iff \text{DE menyinggung lingkaran (EFB) di titik E.}$
+		 		\end{buktilemma}
+		 		 		
+		 \end{lemmarev}
+		 	
+		 Dari kedua lemma di atas, dengan menggunakan Teorema P.O.P (\textit{Power Of a Point}) kita punya $DM^2 = MF\cdot MB = EM^2 \iff DM = ME$, seperti yang diinginkan soal. \qed		 
+		 		 		 
+		 \end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru} 
+		Diberikan $\triangle ABC$ dimana $A',B',C'$ berturut-turut adalah pencerminan $A,B,C$ terhadap $BC,CA,AB$. Perpotongan lingkaran luar $\triangle ABB'$ dan $\triangle ACC'$ adalah $A_1$. Definisikan $B_1$ dan $C_1$ secara serupa. Buktikan bahwa $AA_1,BB_1,$ dan $CC_1$ konkuren (bertemu di satu titik).\\[-10pt]
+		
+		\begin{solusi}
+		Notasikan $\dangle$ sebagai sudut berarah atau \textit{ directed angle} modulo $180^\circ$, dan $\angle$ sebagai sudut biasa.
+		
+		Misalkan $AC$ berpotongan dengan lingkaran $(ABB')$ untuk kedua kalinya di $A_B$ dan misalkan $AB$ berpotongan dengan lingkaran $(ACC')$ untuk kedua kalinya di $A_C$. Perhatikan karena $B'$ adalah hasil pencerminan $B$ terhadap $AC$, maka $\dangle AB'A_B = \dangle A_BBA$. Padahal, karena $B,A,B'$ berada di satu lingkaran, maka $\dangle AB'A_B = \dangle ABA_B $. Hal ini menyebabkan $\dangle ABA_B = 90^\circ$ atau $BA_B \perp AB$ dimana $AA_B$ adalah diameter lingkaran $(ABA_BB')$. Dengan cara yang serupa dapat diperoleh bahwa juga bahwa $CA_C \perp AC$ dimana $AA_C$ adalah diameter lingkaran $(ACA_CC')$ .
+		
+		Dari fakta-fakta tersebut, karena $\dangle A_BA_1A = \dangle AA_1A_C = 90^\circ$, maka $A_B, A_1, A_C$ segaris dan juga didapat bahwa $AA_1$ adalah garis tinggi $\triangle AA_BA_C$.
+		
+		Sekarang, misalkan $H_A$ adalah perpotongan antara $CA_C$ dan $BA_B$, maka $\angle ACH_A = \angle H_ABA = 90^\circ$ yang mengakibatkan $H_A$ adalah titik tinggi $\triangle AA_CA_B$ sekaligus $AH_A$ menjadi diameter lingkaran luar $\triangle ABC$. Karena $AA_1$ adalah garis tinggi $\triangle AA_BA_C$, maka $H_A$ berada di garis $AA_1$.
+		
+		Definisikan $H_B$ dan $H_C$ secara serupa dengan definisi $H_A$,maka didapat pula bahwa $H_B$ dan $H_C$ berturut-turut berada di garis $BB_1$ dan $CC_1$. Oleh karena itu, $AH_A$, $BH_B$, dan $CH_C$ adalah diameter lingkaran luar $\triangle ABC$, maka didapat $AH_A$, $BH_B$, dan $CH_C$ berpotongan di satu titik yaitu pusat lingkaran. Karena $A_1,B_1,C_1$ berturut-turut ada di garis $AH_A$, $BH_B$, $CH_C$ maka hal ini berakibat $AA_1$, $BB_1$, dan $CC_1$ berpotongan di satu titik. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Misalkan $X,Y,Z$ berturut-turut pada segmen $BC,CA,AB$ dari $\triangle ABC$ sehingga $AX, BY, CZ$ konkuren di $P$. Selanjutnya, misalkan $D,E,F$ berturut-turut pada segmen $YZ,ZX,XY$ sehingga $XD,YE,ZF$ konkuren di $Q$. Buktikan bahwa $AD,BE,CF$ konkuren.\\[-10pt]
+		
+		\begin{solusi}
+			Dengan Dalil Sinus di $\triangle ADY$ dan $\triangle ZAD$ secara berturut-turut kita punya
+			\begin{align*}
+			\dfrac{\sin \angle CAD}{\sin \angle ADY}&=\dfrac{YD}{AY},\\[3.5pt]
+			\dfrac{\sin \angle ADZ}{\sin \angle BAD}&=\dfrac{AZ}{ZD}.
+			\end{align*}
+			Dengan sifat trigonometri kita punya $\sin \angle ADY = \sin (180^\circ-\angle AZY) = \sin \angle AZY$. Sehingga dapat diperoleh 
+			\begin{align}
+			\dfrac{\sin \angle CAD}{\sin \angle BAD}&=\dfrac{\sin \angle CAD}{\sin \angle ADY}\cdot \dfrac{\sin \angle ADZ}{\sin \angle BAD}=\dfrac{YD}{AY}\cdot\dfrac{AZ}{ZD}
+			\end{align}
+			
+			Dengan cara serupa, dapat diperoleh pula bahwa 
+			\begin{align}
+			\dfrac{\sin \angle BCF}{\sin \angle ACF}&=\dfrac{XF}{CX}\cdot\dfrac{CY}{YF},\\[3.5pt]
+			\dfrac{\sin \angle ABE}{\sin \angle CBE}&=\dfrac{ZE}{BZ}\cdot\dfrac{BX}{XE}.
+			\end{align}
+			
+			Kemudian, dengan Dalil Ceva di $\triangle ABC$ dan $\triangle XYZ$ secara berturut-turut karena $AX, BY, CZ$ konkuren di $P$ dan $XD,YE,ZF$ konkuren di $Q$, maka kita punya
+			\begin{align}
+			\dfrac{AZ}{BZ}\cdot\dfrac{BX}{XC}\cdot\dfrac{CY}{YA}&=1,\\[3.5pt]
+			\dfrac{YD}{ZD}\cdot\dfrac{ZE}{EX}\cdot\dfrac{XF}{FY}&=1.
+			\end{align}
+			
+			Oleh karena itu, dengan mengalikan persamaan $(1),(2),(3)$ dan menerapkan persamaan $(4)$ dan $(5)$, akan kita peroleh 
+			\begin{align*}
+			\dfrac{\sin \angle CAD}{\sin \angle BAD}\cdot\dfrac{\sin \angle BCF}{\sin \angle ACF}\cdot\dfrac{\sin \angle ABE}{\sin \angle CBE}&=\left(\dfrac{YD}{AY}\cdot\dfrac{AZ}{ZD}\right)\left(\dfrac{XF}{CX}\cdot\dfrac{CY}{YF}\right)\left(\dfrac{ZE}{BZ}\cdot\dfrac{BX}{XE}\right)\\[3.5pt]
+			&=\left(\dfrac{AZ}{BZ}\cdot\dfrac{BX}{XC}\cdot\dfrac{CY}{YA}\right)\left(\dfrac{YD}{ZD}\cdot\dfrac{ZE}{EX}\cdot\dfrac{XF}{FY}\right)\\[3.5pt] &= 1 \cdot 1 = 1.
+			\end{align*}
+			Yang berarti, menurut Dalil Ceva dalam bentuk trigonometri, dapat disimpulkan bahwa $AD,BE,CF$ konkuren. \qed
+		\end{solusi}
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+		Diberikan segitiga $ABC$, dengan garis berat $AD, BE, CF$. Misalkan $m=AD+BE+CF$ dan misalkan $s=AB+BC+CA$. Buktikan bahwa $$\dfrac{3s}{2} > m > \dfrac{3s}{4}.$$\\[-20pt]
+		
+		\begin{solusi}
+		Tinjau ketaksamaan segitiga di $\triangle ABD$, didapat $AB+\dfrac{BC}{2} = AB+BD > AD$ dengan $\dfrac{BC}{2}=BD$ karena $D$ titik tengah $BC$.
+		
+		Dengan cara serupa didapat $BC+\dfrac{CA}{2} > BE$ dan $CA + \dfrac{AB}{2}>CF$.
+		
+		Jumlahkan ketiga ketaksamaan tersebut akan didapatkan 
+		\begin{align*}
+		AB+\dfrac{BC}{2}+BC+\dfrac{CA}{2}+\dfrac{AB}{2} &> AD+BE+CF\\
+		\dfrac{3}{2}\left(AB+BC+CA\right)&> AD+BE+CF\\
+		\dfrac{3}{2}s > m
+		\end{align*}
+		
+		Tinjau bahwa $\triangle DEF$ sebangun $\triangle ABC$ dengan $DE = \dfrac{AB}{2}$, $EF=\dfrac{BC}{2}$, $FD=\dfrac{CA}{2}$. 
+		
+			\begin{lemmarev}
+					Jika $AM$ garis berat $\triangle ABC$ dengan $G$ titik berat, maka $AG:GM = 2:1$.
+					\begin{buktilemma}
+					Perhatikan bahwa ada dilatasi atau \textit{ homothety } dengan pusat titik $G$ yang mengirim $\triangle DEF$ ke $\triangle ABC$. Karena $AB:DE=BC:EF=CA:FD=2:1$, berarti skala dilatasi tersebut adalah $-2$ (karena $\triangle ABC$ berorientasi terbalik hasil dilatasinya, $\triangle DEF$). Berarti $AG:GM=2:1$.
+					\end{buktilemma}
+				\end{lemmarev}
+		
+		Tinjau $\triangle DGE$ maka dengan ketaksamaan segitiga dan lemma di atas kita punya $DG + GE > DE \implies \dfrac{AD}{3}+\dfrac{BE}{3}>\dfrac{AB}{2}$. Analogi cara tersebut, didapatkan $\dfrac{BE}{3}+\dfrac{CF}{3}>\dfrac{BC}{2}$ dan $\dfrac{CF}{3}+\dfrac{AD}{3}>\dfrac{CA}{2}$. Dengan menjumlahkan ketiga ketaksamaan tersebut kita peroleh
+		\begin{align*}
+		\dfrac{AD}{3}+\dfrac{BE}{3}+\dfrac{BE}{3}+\dfrac{CF}{3}+\dfrac{CF}{3}+\dfrac{AD}{3} &> \dfrac{AB}{2}+\dfrac{BC}{2}+\dfrac{CA}{2}\\
+		\dfrac{2}{3}\left(AD+BE+CF\right) &> \dfrac{1}{2}\left(AB+BC+CA\right)\\
+		AD+BE+CF&> \dfrac{3}{4}\left(AB+BC+CA\right)\\
+		m &> \dfrac{3}{4}s
+		\end{align*}
+		Dari dua ketaksamaan yang telah kita peroleh, dapat disimpulkan bahwa $$\dfrac{3s}{2} > m > \dfrac{3s}{4}.\qed$$ 
+		\end{solusi}
+	\end{soalbaru}
+	
+\end{document}
