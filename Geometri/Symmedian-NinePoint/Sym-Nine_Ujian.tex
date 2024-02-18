@@ -1,0 +1,68 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Symmedian dan Nine Point Circle-Homothety}
+\author{Azzam (IG: haxuv.world)}
+\date{Kamis, 15 Februari 2024}
+
+\begin{document}
+\maketitle
+\textbf{Aturan umum:}
+\begin{itemize}
+    \item Tulis \textbf{nama lengkap} dan \textbf{asal sekolah} di pojok kiri atas halaman pertama.
+    \item \textbf{Soal bertipe esai}. Sertakan argumentasi atau cara mendapatkan jawaban yang ditanyakan di soal.
+    \item Waktu standar untuk mengerjakan semua soal berikut adalah 90-120 menit.
+    \item Setiap soal bernilai bilangan bulat antara 0 sampai 10 (inklusif).
+    \item Soal yang wajib dikerjakan untuk mendapatkan \textit{full points} adalah \textbf{DUA SOAL}.
+    \item Silakan mengerjakan dengan cara \textbf{apa saja}, tidak harus mengikuti materi yang diajarkan hari ini.
+    \item Lemma yang diajarkan hari ini \textbf{tidak perlu dibuktikan}, langsung pakai saja.
+\end{itemize}
+
+\newpage
+\section{Soal}
+\begin{enumerate}
+    % evan chen 4.43 (USAMO 1995), 4.52 (APMO 2012)
+    \item Diberikan sebuah segitiga $ABC$ yang tidak sama kaki dan bukan segitiga siku-siku. Misalkan $O$ adalah pusat lingakaran luar $\triangle ABC$ dan misalkan $A_1, B_1,$ dan $C_1$ menjadi titik tengah dari sisi-sisi $BC,CA,$ dan $AB$ secara berturut-turut. Titik $A_2$ berada pada sinar $OA_1$ sehingga $\triangle OAA_1$ sebangung dengan $\triangle OA_2A$. Titik $B_2$ dan $C_2$ pada sinar $OB_1$ dan $OC_1,$ secara berturut-turut, didefinisikan dengan cara yang sama. Buktikan bahwa garis $AA_2, BB_2,$ dan $CC_2$ berpotongan di satu titik.
+
+    \item Misalkan $ ABC $ segitiga lancip. Definisikan $ D $ sebagai kaki tinggi dari $ A $ ke sisi $ BC $, $M$ sebagai titik tengah dari $ BC $, dan $ H $ sebagai titik tinggi (orthocenter) dari $ ABC $. Misalkan $ E $ menjadi titik potong lingkaran $ \Gamma $ dari segitiga $ ABC $ dan sinar $ MH $. Lalu, definisikan $ F $ menjadi titik potong (selain $E$) dari garis $ ED $ dan lingkaran $ \Gamma $. Buktikan bahwa $ \tfrac{BF}{CF} = \tfrac{AB}{AC} $.
+    % evan chen, 4.9 dan 4.12
+    \item Misalkan lingkaran dalam (incircle) $\triangle ABC$ yang mempunyai pusat (incenter) $I$, menyinggung sisi $BC$ di $D$. Misalkan pula $DE$ adalah diameter dari lingkaran dalam tersebut. Jika garis $AE$ memotong $BC$ di $F$ dan $M$ adalah titik tengah $BC$:
+    \begin{enumerate}[(a)]
+        \item Buktikan bahwa $BD=CF$.
+        \item Buktikan bahwa $AE$ sejajar $IM$.
+    \end{enumerate}
+
+    \item Misalkan lingkaran dalam (incircle) $\triangle ABC$ yang mempunyai pusat (incenter) $I$, menyinggung sisi $BC$ di $D$, dengan $DE$ adalah diameter dari lingkaran dalam tersebut. Titik $K$ pada $BC$ didefinisikan sedemikian sehingga $AK$ tegak lurus $BC$. Jika $N$ titik tengah $AK$ dan $F$ merupakan perpotongan $AE$ dengan $BC$, buktikan bahwa $N,I,F$ segaris.
+\end{enumerate}
+
+\end{document}
