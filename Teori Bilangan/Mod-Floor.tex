@@ -31,28 +31,22 @@
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 
-\title{Lantai dan Atap}
-\author{Azzam (IG: haxuv.world)}
+\title{Modulo and Floor-Ceiling}
+\author{Azzam Labib (IG: haxuv.world)}
 \date{\today}
 \begin{document}
 \maketitle
-\section{Sedikit materi}
-\begin{itemize}
-    \item $\ceiling{x}$ (\textit{ceiling} $x$) adalah bilangan bulat terbesar yang kurang dari sama dengan $x$.
-    \item $\floor{x}$ atau $[x]$ (\textit{floor} $x$) adalah bilangan bulat terkecil yang lebih dari sama dengan $x$.
-    \item (Fractional Part) $\{x\} = x - \floor{x}$.
-    \item Untuk semua $x,y \in \RR$ berlaku $\floor{x+y} \ge \floor{x}+\floor{y}$.
-    \item $\floor{x} \le x < \floor{x}+1$.
-    \item $\ceiling{x} \ge x > \ceiling{x}-1$.
-    \item Jika $n$ bulat, $\floor{x+n}=\floor{x}+n.$
-\end{itemize}
-\section{Sampel Soal}
+\section{Modulo}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+\section{Floor and Ceiling}
 \begin{enumerate}
     \item (Modifikasi JBMO 2021) Carilah seluruh penyelesaian dari persamaan $2\cdot \lfloor{\frac{1}{2x}}\rfloor - 7 = 9(1 - 8x)$.
 
     \item (OSK 2013) Misalkan $\floor{x}$ menyatakan bilangan bulat terbesar yang lebih kecil atau sama dengan $x$ dan $\ceiling{x}$ menyatakan bilangan bulat terkecil yang lebih besar atau sama dengan $x$. Tentukan semua $x$ yang memenuhi $\floor{x}$ + $\ceiling{x}$ = 5.
     
-    \item Banyaknya bilangan asli $n \in \{1,2,3,\dots,1000\}$ sehingga terdapat bilangan real positif $x$ yang memenuhi $x^2+\floor{x}^2=n$ adalah \dots
+    \item (OSK 2016) Banyaknya bilangan asli $n \in \{1,2,3,\dots,1000\}$ sehingga terdapat bilangan real positif $x$ yang memenuhi $x^2+\floor{x}^2=n$ adalah \dots
     
     \item (OSK 2018) Untuk setiap bilangan real $z$, $\lfloor z \rfloor$ menyatakan bilangan bulat terbesar yang lebih kecil dari atau sama dengan $z$. Jika diketahui $\lfloor x \rfloor + \lfloor y \rfloor + y = 43.8$ dan $x + y - \lfloor x \rfloor = 18.4$. Nilai $10(x + y)$ adalah...
     
@@ -77,33 +71,6 @@
     \item Jumlah dari semua solusi bilangan real $x$ dari persamaan
     $$2\floor{x}^2+3\{x\}^2=\frac{7}{4}x\floor{x}$$
     dapat dinyatakan dalam bentuk $\frac{p}{q}$ dimana $p$ dan $q$ merupakan bilangan bulat yang saling relatif prima. Tentukan nilai dari $10p+q$.
-
-    \item (A Famous Lemma) For real number $x$, show that $\floor{x+\frac{1}{2}} = \floor{2x}-\floor{x}$.
-
-    \item (Hermite's Identity) Let $x$ be a real number, and let $n$ be a positive integer. Then prove that
-    \begin{align*}
-         \lfloor nx \rfloor = \lfloor x \rfloor + \left\lfloor x+\frac{1}{n} \right\rfloor + \left\lfloor x+\frac{2}{n} \right\rfloor + \dots + \left\lfloor x+\frac{n-1}{n} \right\rfloor.
-    \end{align*}
-    
-
-    \item (Hong Kong IMO Prelim 1999-2000) Find the integer $n$ satisfying $\left[\frac{n}{1!}\right]+\left[\frac{n}{2!}\right]+...+\left[\frac{n}{10!}\right]=1999$. Here $[x]$ denotes the greatest integer less than or equal to $x$.
-
-    \item (Putnam 1986) What is the units (i.e., rightmost) digit of
-\[\left\lfloor \frac{10^{20000}}{10^{100}+3}\right\rfloor\]
-
-    \item  (USAMO 1981) If $x$ is a positive real number, and $n$ is a positive integer, prove that
-\[[nx] \geq \frac{[x]}{1} + \frac{[2x]}{2} + \frac{[3x]}{3} + ... + \frac{[nx]}{n},\]where $[t]$ denotes the greatest integer less than or equal to $t$.
-
-    \item (IMO 1968) Let $[x]$ denote the integer part of $x$, i.e., the greatest integer not exceeding $x$. If $n$ is a positive integer, express as a simple function of $n$ the sum\[\left[\frac{n+1}{2}\right]+\left[\frac{n+2}{4}\right]+...+\left[\frac{n+2^k}{2^{k+1}}\right]+\ldots\]
-
-    \item Let $n$ be a natural number. Prove that
-    \begin{align*}
-        \left\lfloor \frac{n}{1} \right\rfloor + \left\lfloor \frac{n}{2} \right\rfloor + \dots + \left\lfloor \frac{n}{n} \right\rfloor + \lfloor \sqrt{n} \rfloor
-    \end{align*}
-    is even.
-
-    \item Define $q(n)=\left\lfloor\frac{n}{\lfloor\sqrt{n}\rfloor}\right\rfloor$ for $n \in \mathbb{N}$. Determine all $n$ such that $q(n)>q(n+1)$.
-
-    \item Let $r \ge 1$ be real number such that for any positive integers $m$ and $n$ whenever $m \mid n$ it is also true that $\lfloor mr \rfloor$ divides $\lfloor nr \rfloor$. Show that $r$ is an integer.
 \end{enumerate}
+
 \end{document}
