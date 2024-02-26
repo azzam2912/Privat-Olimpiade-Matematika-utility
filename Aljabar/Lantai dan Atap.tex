@@ -36,30 +36,41 @@
 \date{\today}
 \begin{document}
 \maketitle
-\section{Sedikit materi}
-\begin{itemize}
-    \item $\ceiling{x}$ (\textit{ceiling} $x$) adalah bilangan bulat terbesar yang kurang dari sama dengan $x$.
-    \item $\floor{x}$ atau $[x]$ (\textit{floor} $x$) adalah bilangan bulat terkecil yang lebih dari sama dengan $x$.
-    \item (Fractional Part) $\{x\} = x - \floor{x}$.
-    \item Untuk semua $x,y \in \RR$ berlaku $\floor{x+y} \ge \floor{x}+\floor{y}$.
-    \item $\floor{x} \le x < \floor{x}+1$.
-    \item $\ceiling{x} \ge x > \ceiling{x}-1$.
-    \item Jika $n$ bulat, $\floor{x+n}=\floor{x}+n.$
-\end{itemize}
-\section{Sampel Soal}
-\begin{enumerate}
-    \item (Modifikasi JBMO 2021) Carilah seluruh penyelesaian dari persamaan $2\cdot \lfloor{\frac{1}{2x}}\rfloor - 7 = 9(1 - 8x)$.
+\section{Sedikit Materi}
+Definisikan $\floor{x}$ (\textit{floor} $x$) sebagai bilangan bulat terbesar yang kurang dari sama dengan $x$. Simpelnya, $\floor{x}$ dapat dikatakan sebagai "pembulatan ke bawah". Contoh: $\floor{\pi}=3$, $\floor{2}=2$, $\floor{10,51}=10$, $\floor{-1,5}=-2$.
 
-    \item (OSK 2013) Misalkan $\floor{x}$ menyatakan bilangan bulat terbesar yang lebih kecil atau sama dengan $x$ dan $\ceiling{x}$ menyatakan bilangan bulat terkecil yang lebih besar atau sama dengan $x$. Tentukan semua $x$ yang memenuhi $\floor{x}$ + $\ceiling{x}$ = 5.
-    
-    \item Banyaknya bilangan asli $n \in \{1,2,3,\dots,1000\}$ sehingga terdapat bilangan real positif $x$ yang memenuhi $x^2+\floor{x}^2=n$ adalah \dots
-    
-    \item (OSK 2018) Untuk setiap bilangan real $z$, $\lfloor z \rfloor$ menyatakan bilangan bulat terbesar yang lebih kecil dari atau sama dengan $z$. Jika diketahui $\lfloor x \rfloor + \lfloor y \rfloor + y = 43.8$ dan $x + y - \lfloor x \rfloor = 18.4$. Nilai $10(x + y)$ adalah...
-    
+Definisikan $\ceiling{x}$ (\textit{ceiling} $x$) sebagai bilangan bulat terkecil yang lebih dari sama dengan $x$. Simpelnya, $\ceiling{x}$ dapat dikatakan sebagai "pembulatan ke atas". Contoh: $\ceiling{\pi}=4$, $\ceiling{2}=2$, $\ceiling{10,51}=11$, $\ceiling{-1,5}=-1$.
+
+Definisikan $\{x\}$ sebagai \textit{fractional part} dari $x \in \RR$ dimana $\{x\} = x - \floor{x}$.
+
+Beberapa properti:
+\begin{enumerate}
+    \item $\floor{x}=\ceiling{x}$ untuk $x \in \ZZ$.
+    \item $\floor{x}=\ceiling{x}-1$ untuk $x \not \in \ZZ$.
+    \item $\floor{x} \le  x < \floor{x}+1$ untuk $x \in \RR$.
+    \item $\ceiling{x}-1 < x \le \ceiling{x}$ untuk $x \in \RR$.
+    \item $\floor{n+x}=n+\floor{x}$ dan $\ceiling{n+x}=n+\ceiling{x}$ untuk $n\in \ZZ$ dan $x \in \RR$.
+    \item Untuk semua $x,y \in \RR$ berlaku $\floor{x+y} \ge \floor{x}+\floor{y}$.
+    \item Untuk semua $x,y \in \RR$ jika $x \le y$ berlaku $\floor{x} \le \floor{y}$.
+    \item $0 \le \{x\} < 1$ untuk $x \in \RR$.
+\end{enumerate}
+
+\section{Latihan Soal}
+\begin{enumerate}
     \item Let $[x]$ denote the largest integer not exceeding $x$. For example, $[2.1]=2$, $[4]=4$ and $[5.7]=5$. How many positive integers $n$ satisfy the equation $\left[\frac{n}{5}\right]=\frac{n}{6}$.
 
+    \item If $\floor{x}\{x\} = 1$ and $\floor{x}^2-\floor{x}(1+x)+4=0$, what is the value of $x$?
+
+    \item Find the smallest positive real $x$ such that $\floor{x^2}-x\floor{x}=6$. 
+    
+    \item (OSK 2013) Misalkan $\floor{x}$ menyatakan bilangan bulat terbesar yang lebih kecil atau sama dengan $x$ dan $\ceiling{x}$ menyatakan bilangan bulat terkecil yang lebih besar atau sama dengan $x$. Tentukan semua $x$ yang memenuhi $\floor{x}$ + $\ceiling{x}$ = 5.
+    
+    \item (OSK 2016) Banyaknya bilangan asli $n \in \{1,2,3,\dots,1000\}$ sehingga terdapat bilangan real positif $x$ yang memenuhi $x^2+\floor{x}^2=n$ adalah \dots
+    
+    \item (OSK 2018) Untuk setiap bilangan real $z$, $\lfloor z \rfloor$ menyatakan bilangan bulat terbesar yang lebih kecil dari atau sama dengan $z$. Jika diketahui $\lfloor x \rfloor + \lfloor y \rfloor + y = 43.8$ dan $x + y - \lfloor x \rfloor = 18.4$. Nilai $10(x + y)$ adalah...
+
     \item (OSK 2019) Untuk sebarang bilangan real $x$, simbol $\lfloor x \rfloor$ menyatakan bilangan bulat terbesar yang tidak lebih besar daripada $x$, sedangkan $\lceil x \rceil$ menyatakan bilangan bulat terkecil yang tidak lebih kecil dibanding $x$. Interval $[a, b)$ adalah himpunan semua bilangan real $x$ yang memenuhi
-    $$\lfloor 2x \rfloor^2 = \lceil x \rceil + 7$$.
+    $$\lfloor 2x \rfloor^2 = \lceil x \rceil + 7.$$
     Nilai $a \cdot b$ adalah ...
 
     \item (OSK 2021) Jika $a > 1$ suatu bilangan asli sehingga hasil penjumlahan semua bilangan riil $x$ yang memenuhi persamaan
@@ -71,13 +82,18 @@
 
     \item Jika $x$ adalah suatu bilangan real yang memenuhi persamaan berikut
     $$\floor{x}+\floor{2x}+\floor{3x}+\floor{4x}=2024.$$
-
     Tentukan nilai dari $\floor{6x}$.
 
     \item Jumlah dari semua solusi bilangan real $x$ dari persamaan
     $$2\floor{x}^2+3\{x\}^2=\frac{7}{4}x\floor{x}$$
     dapat dinyatakan dalam bentuk $\frac{p}{q}$ dimana $p$ dan $q$ merupakan bilangan bulat yang saling relatif prima. Tentukan nilai dari $10p+q$.
 
+    
+    \item (Modifikasi JBMO 2021) Carilah seluruh penyelesaian dari persamaan $2\cdot \lfloor{\frac{1}{2x}}\rfloor - 7 = 9(1 - 8x)$.
+\end{enumerate}
+
+\section{Latihan Soal Jika Anda Sudah Sepuh}
+\begin{enumerate}
     \item (A Famous Lemma) For real number $x$, show that $\floor{x+\frac{1}{2}} = \floor{2x}-\floor{x}$.
 
     \item (Hermite's Identity) Let $x$ be a real number, and let $n$ be a positive integer. Then prove that
