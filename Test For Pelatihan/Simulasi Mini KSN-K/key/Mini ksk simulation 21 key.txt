@@ -1,0 +1,13 @@
+Mini KSK Simulation Key 21
+ 
+from aime1 2003
+1. 749 
+2. 3*2^9 = 1536 (aime2)
+3. 12 (aime1 2003) 
+4. 45 derajat
+
+Buku Olimpiade.org
+5. 484
+6. 3/5 (I8)
+7. (4sqrt6+3sqrt3)/23 (G24)
+8. Tak ada Solusi (N80)

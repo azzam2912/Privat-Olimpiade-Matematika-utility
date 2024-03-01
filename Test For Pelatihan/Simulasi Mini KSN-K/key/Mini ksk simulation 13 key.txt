@@ -1,0 +1,9 @@
+Mini ksk simulation 13 key
+1. 107
+2. 3
+3. 1 (subs y = ...)
+4. 45 (dalil sinus + cos)
+5. 1
+6. 1
+7. 405 (osp 2017)
+8. 2/11 . akar55

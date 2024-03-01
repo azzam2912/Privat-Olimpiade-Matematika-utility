@@ -1,0 +1,25 @@
+Simulasi KSK 1 Key
+
+Kemampuan Dasar
+1. 1/69 (1)
+2. 62 (4)
+3. 3pi + 12 (7)
+4. 14
+5. 1/8
+6. 21
+7. 5/4
+8. 26
+9. (anulir, harusnya bilangan asli) (1,1,2) (michaelpenn)
+10. 13akar2+4akar3+18akar5 (AIME 2006 no 5, letsthinkcritically)
+
+Kemampuan lanjut
+1. 1/8 (Flammable Math, Indian RMO)
+2. 4 (KSN SMP 2020 hari kedua)
+3. 18, 30 (SyberMath)
+4. 20 derajat (KSN SMP 2020 hari pertama)
+5. 2 (SyberMath)
+6. 16!C(25,16)(KSN SMP 2020 hari pertama)
+7. 46 (KSN SMP 2020 hari kedua)
+8. 611 (576/35) (buku KTOM 2: Kontes Februari 2016 no 12)
+9. 23 (buku KTOM 2: Kontes Maret 2016 no 15)
+10.1/6 (buku KTOM 2: Kontes Maret 2016 no 14)

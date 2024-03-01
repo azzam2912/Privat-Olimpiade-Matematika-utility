@@ -1,0 +1,353 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usetikzlibrary{calc}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Length Bashing: Easier Version}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\section{Cara Halal dan Suci}
+Misalkan sebuah segitiga $ABC$ memiliki panjang sisi $AB=c$, $BC=a$, dan $CA=b$. Circumcenter dan incenternya masing-masing $O$ dan $I$. Serta panjang circumradius dan inradiusnya masing-masing $R$ dan $r$. $s=\frac{1}{2}(a+b+c)$. (gambar sendiri yah, saya malas gambar :) )
+
+\subsection{Teorema Pythagoras}
+Salah satu teorema paling terkenal di kalangan awam (atau setidaknya di pop culture). Diberikan segitiga $ABC$ dengan sudut $C$ siku-siku. Jika panjang sisi $AB=c$, $BC=a$, dan $CA=b$, maka berlaku
+\begin{align*}
+    a^2+b^2=c^2
+\end{align*}
+\begin{center}
+    \begin{tikzpicture}
+    % titik-titik segitiga
+    \coordinate[label=left:$C$]  (C) at (-1.5cm,-1.cm);
+    \coordinate[label=above:$B$] (B) at (-1.5cm,1.8cm);
+    \coordinate[label=right:$A$] (A) at (0.5cm,-1.cm);
+    
+    % pembuatan segitiga
+    \draw (A) -- node[right]{$c$} (B)  -- node[left]{$a$} (C) -- node[below]{$b$} cycle;
+    \end{tikzpicture}
+\end{center}
+
+\subsection{Trigon}
+\subsubsection{Rumus-rumus umum}
+\begin{enumerate}
+    \item $\sin (-x) = -\sin x$.
+    \item $\cos (-x) = \cos x$.
+    \item $\tan(-x) = -\tan x$.
+    \item $\sin^2 x + \cos^2 x = 1$.
+    \item $\sin(90^\circ-x)=\sin(90^\circ+x)=\cos x$.
+    \item $\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b$.
+    \item $\sin 2x = 2\sin x \cos x$.
+    \item $\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b$.
+    \item $\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x -1 = 1-2\sin^2 x$.
+    \item $\tan(a \pm b) = \dfrac{\tan a \pm \tan b}{1 \mp \tan a \tan b}$.
+\end{enumerate}
+
+\subsubsection{Dalil Sinus dan Dalil Cosinus}
+\begin{center}
+    \begin{tikzpicture}
+    \coordinate (O) at (0,0);
+    \coordinate (B) at (0:2cm);
+    \coordinate (A) at (210:2cm);
+    \coordinate (C) at (130:2cm);
+    
+    \draw (O) circle (2cm);
+    \draw (A) -- (B) -- (C) -- cycle;
+    \node[right] at (B) {$B$};
+    \node[below left] at (A) {$A$};
+    \node[above left] at (C) {$C$};
+    \node[above left] at (O) {$O$};
+    \draw (A) -- node[above]{$R$} (O);
+    \end{tikzpicture}
+\end{center}
+    \subsubsection{Dalil Sinus}
+    $$\dfrac{BC}{\sin \angle A} = \dfrac{CA}{\sin \angle B}= \dfrac{AB}{\sin \angle C} = 2R$$
+    
+    \subsubsection{Dalil Cosinus}
+    \begin{align*}
+        AB^2 &= BC^2 + CA^2 - 2\cdot BC \cdot CA \cdot \cos \angle C\\
+        BC^2 &= CA^2 + AB^2 - 2\cdot CA \cdot AB \cdot \cos \angle A\\
+        CA^2 &= AB^2 + BC^2 - 2\cdot AB \cdot BC \cdot \cos \angle B
+    \end{align*}
+
+\subsection{Dalil Ceva}
+Jika pada segitiga $ABC$, titik $D,E,F$ berturut-turut berada di segmen $BC$,$CA$,$AB$, maka 
+$AD,BE,CF$ konkuren atau berpotongan di satu titik jika dan hanya jika $$\dfrac{AF}{FB} \cdot \dfrac{BD}{DC} \cdot \dfrac{CE}{EA} = 1.$$
+\begin{center}
+    \begin{tikzpicture}
+    % titik-titik segitiga
+    \coordinate[label=left:$A$]  (A) at (-1.5cm,-1.cm);
+    \coordinate[label=right:$B$] (B) at (1.5cm,-1.0cm);
+    \coordinate[label=above:$C$] (C) at (0.5cm,1.732cm);
+    
+    % pembuatan segitiga
+    \draw (A) -- (B) -- (C) -- cycle;
+    
+    % titik-titik cevian
+    \coordinate[label=below:$F$] (F) at ($(A)!0.7!(B)$);
+    \coordinate[label=right:$D$] (D) at ($(B)!0.5!(C)$);
+    \coordinate[label=left:$E$]  (E) at ($(C)!0.3!(A)$);
+    
+    % pembuatan cevian
+    \draw (A) -- (D);
+    \draw (B) -- (E);
+    \draw (C) -- (F);
+    \end{tikzpicture}
+\end{center}
+
+\subsection{Dalil Menelaus}
+Jika pada segitiga $ABC$, titik $P,Q,R$ berturut-turut berada pada garis (bisa di perpanjangan segmen) $BC$,$CA$, $AB$, maka $P,Q,R$ segaris jika dan hanya jika
+$$\dfrac{AR}{RB} \cdot \dfrac{BP}{PC} \cdot \dfrac{CQ}{QA} = 1.$$
+\begin{center}
+    \begin{asy}
+        unitsize(10);
+        defaultpen(fontsize(8));
+        pair P=(7,6), Q=(0,0), C=(10,0), A=(4,0), B=(6,8), R;
+        draw((A)--(B)--(C)--cycle,blue+0.75);
+        draw(P--R--Q--A);
+        R=intersectionpoint(A--B,Q--P);
+        dot(A^^B^^C^^P^^Q^^R);
+        label("A",A,(0,-1));label("B",B,(1,0));label("C",C,(1,0));label("P",P,(1,1));label("Q",Q,(-1,0));label("R",R,(-1,1));
+    \end{asy}
+\end{center}
+
+\subsection{Lingkaran}
+\subsubsection{Berhubungan dengan Luas}
+\begin{enumerate}
+    \item $[ABC]=\sqrt{s(s-a)(s-b)(s-c)}$.
+    \item $r=\dfrac{[ABC]}{s}$.
+    \item $[ABC]=\dfrac{abc}{4R}$
+\end{enumerate}
+
+\subsubsection{Dalil Ptolemy}
+    Diketahui sebuah segiempat siklis $ABCD$ maka berlaku
+    $$AB \cdot CD + BC \cdot DA = AC \cdot BD.$$
+
+\begin{center}
+\begin{tikzpicture}
+\coordinate (O) at (0,0);
+\coordinate (B) at (0:2cm);
+\coordinate (A) at (210:2cm);
+\coordinate (D) at (180:2cm);
+\coordinate (C) at (130:2cm);
+
+\draw (O) circle (2cm);
+
+\draw (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[red] (A) -- (C);
+\draw[blue] (B) -- (D);
+
+\node[right] at (B) {$B$};
+\node[below left] at (A) {$A$};
+\node[left] at (D) {$D$};
+\node[above left] at (C) {$C$};
+\node[right] at (O) {$O$};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Power of a Point}
+\begin{figure}[h]
+  \begin{asy}
+    unitsize(1.5cm);
+    pair O, A, B, C, D, E, P;
+    O = (0,0);
+    P = (4,1);
+    E = (0,1);
+    A = dir(50);
+    C = dir(-30);
+    circle o = circumcircle(A,E,C);
+    draw(o);
+    pair B1[] = intersectionpoints(line(A,P), o);
+    pair D1[] = intersectionpoints(line(C,P), o);
+    B = B1[0];
+    D = D1[0];
+    draw(A--B);
+    draw(C--D);
+    draw(P--A);
+    draw(P--D);
+    draw(P--E, red);
+    draw(P--O, blue+dotted);
+    label("$O$",O,SW);
+    label("$A$",A,E);
+    label("$B$",B,N);
+    label("$C$",C,SE);
+    label("$D$",D,SW);
+    label("$P$",P,NE);
+    label("$E$",E,N);
+    \end{asy}
+    \begin{asy}
+    unitsize(1.5cm);
+    pair O, A, B, C, D, P;
+    O = (0,0);
+    A = dir(50);
+    C = dir(130);
+    D = dir(-30);
+    B = dir(-110);
+    P = extension(A,B,C,D);
+    draw(circumcircle(A,B,C));
+    draw(A--B);
+    draw(C--D);
+    draw(A--C--B--D--cycle);
+    draw(O--P, dotted);
+    label("$O$",O,SW);
+    label("$A$",A,E);
+    label("$B$",B,SW);
+    label("$C$",C,NW);
+    label("$D$",D,SE);
+    label("$P$",P,E);
+    \end{asy}
+\end{figure}
+Diberikan lingkaran $\Gamma$ dan titik $P$ yang terletak di dalam atau di luar lingkaran $\Gamma$. Maka definisikan kuasa atau power dari $P$ terhadap lingkaran $\Gamma$ sebagai
+$$Pow_\Gamma (P) = |OP^2-r^2|$$
+dimana $O$ adalah pusat dari $\Gamma$ dan $r$ adalah jari-jari lingkaran $\Gamma$.
+
+Jika $A,B,C,D$ berada di $\Gamma$, serta $AB$ dan $CD$ berpotongan di $P$, maka $$Pow_\Gamma(P)=PA \cdot PB = PC \cdot PD.$$
+Jika $P$ berada di luar $\Gamma$ dan $E$ berada di $\Gamma$ sehingga $PE$ bersinggungan dengan $\Gamma$ di $E$, maka $$Pow_\Gamma (P) = PE^2 =  PA \cdot PB = PC \cdot PD.$$
+
+\subsubsection{Euler's Theorem}
+Rumusnya aja yah: $OI^2=R^2-2Rr$. Intinya diturunin pake Power of A Point.
+
+\subsection{Dalil Stewart}
+    Pada segitiga $ABC$ dengan titik $D$ pada segmen $BC$, dimana $AB=c, BC=a, CA=b, AD=d, BD=m, CD=n$, maka berlaku
+    \begin{align*}
+        BC \cdot AD^2 + BC \cdot BD \cdot CD &= CA^2 \cdot BD + AB^2 \cdot CD\\
+        ad^2+amn &= b^2m+c^2n
+    \end{align*}
+\begin{center}
+    \begin{tikzpicture}
+    % titik-titik segitiga
+    \coordinate[label=left:$C$]  (C) at (-1.5cm,-1.cm);
+    \coordinate[label=right:$B$] (B) at (1.5cm,-1.0cm);
+    \coordinate[label=above:$A$] (A) at (0.5cm,1.732cm);
+    % titik-titik cevian
+    \coordinate[label=below:$D$] (D) at ($(C)!0.3!(B)$);
+    
+    % pembuatan segitiga
+    \draw (A) -- node[right]{$c$} (B) -- node[above]{$m$} (D) -- node[above]{$n$} (C) -- node[left]{$b$} (A);
+    
+    
+    % pembuatan cevian
+    \draw (B) --node[below]{$a$}(C);
+    \draw (A) --node[right]{$d$}(D);
+    \end{tikzpicture}
+\end{center}
+
+\newpage
+\subsection{Sampel Soal}
+\begin{enumerate}
+    \item (OSK SMP 2016) Diketahui $ABCD$ dan $CEGH$ adalah dua persegipanjang kongruen dengan panjang $17$ cm, dan lebar $8$ cm. Titik $E$ berada di sisi $AB$ dan $D$ berada di sisi $GH$. Titik $F$ adalah titik potong sisi $AD$ dan $EG$. Luas segiempat $EFDC$ adalah .... $cm^2$.
+
+    \item Misalkan $ABC$ adalah segitiga lancip. Titik $D$, $E$, dan $F$ terletak pada sisi $BC$, $CA$, dan $AB$, berturut-turut, sedemikian sehingga $AD$, $BE$, dan $CF$ adalah garis tinggi segitiga $ABC$. Titik $H$ adalah titik tinggi segitiga $ABC$. Jika $DE = 8$, $DF = 15$, dan $EF = 17$, tentukan panjang $AH$.
+
+    \item (OSK 2015) Diberikan segitiga $ABC$ dengan sudut $\angle ABC = 90^\circ$. Lingkaran $L_1$ dengan $AB$ sebagai diameter sedangkan lingkaran $L_2$ dengan $BC$ sebagai diameternya. Kedua lingkaran $L_1$ dan $L_2$ berpotongan di $B$ dan $P$. Jika $AB = 5$, $BC = 12$ dan $BP = x$ maka nilai dari $\frac{240}{x}$ adalah \ldots
+
+    \item (OSK 2022) Diberikan segitiga $ABC$ siku-siku di B. Titik $D$ berada pada sisi $AB$ dan titik $E$ berada pada sisi $AC$. Diketahui $DE$ sejajar $BC$. Jika $AD = 21$, $DB = 3$, dan $BC = 32$, maka panjang $AE$ adalah \dots
+    
+    \item Let $ABC$ be a triangle with $\angle BAC = 60^\circ$. Let $AP$ bisect $\angle BAC$ and let $BQ$ bisect $\angle ABC$, with $P$ on $BC$ and $Q$ on $AC$. If $AB + BP = AQ + QB$, what are the angles of the triangle?
+
+    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+
+    \item (OSK 2015) Pada segitiga $ABC$, garis tinggi $AD$, garis bagi $BE$ dan garis berat $CF$ berpotongan di satu titik. Jika panjang $AB = 4$ dan $BC = 5$, dan $CD = \frac{m^2}{n^2}$ dengan $m$ dan $n$ relatif prima, maka nilai dari $m - n$ adalah \ldots
+
+        \item Dalam segitiga $ABD$, $F$ berada pada segmen $AD$, $E$ berada pada sinar $BF$, $G$ berada pada segmen $BD$, dan $C$ adalah titik perpotongan dari $FG$ dan $ED$. Diketahui bahwa $AB = 15$, $BD = 18$, $AF = 15$, $DF = 12$, $BE = 24$, dan $CF = 17$. Temukan rasio $BG : FG$.
+    % https://drive.google.com/drive/search?q=parent:0B-4OltLGFEDFeG92VENBbmdZODA%20type:pdf%20menelaus
+
+    \item (OSK 2022) Diberikan $ABC$ siku-siku sama kaki dengan $BC=AB$. Misalkan $L$ titik tengah $BC$ dan $P$ pada sisi $AC$ sehingga $BP \perp AL$. Jika $CP=30\sqrt{2}$, maka panjang $AB$ adalah \ldots
+
+    \item Diberikan segitiga $ABC$ dengan panjang $BC = 36$. Misalkan $D$ adalah titik tengah $BC$ dan $E$ adalah titik tengah $AD$. Misalkan pula bahwa $F$ adalah perpotongan $BE$ dengan $AC$. Jika diketahui bahwa $AB$ menyinggung lingkaran luar segitiga $BFC$, hitunglah panjang $BF$.
+
+    \item Diberikan sebuah segiempat siklis $ABCD$ dengan $ABC$ adalah segitiga sama sisi. Jika $AD=2$ dan $CD=3$, panjang $BD=\dots$
+
+        \item (OSK 2016) Pada segitiga $ABC$, titik $M$ terletak pada $BC$ sehingga $AB=7, AM=3, BM=5$, dan $MC=6$. Panjang $AC$ adalah \dots
+
+    \item (HMMT 1999) Dalam segitiga $ABD$, $F$ berada pada segmen $AD$, $E$ berada pada sinar $BF$, $G$ berada pada segmen $BD$, dan $C$ adalah titik perpotongan dari $FG$ dan $ED$. Diketahui bahwa $AB = 15$, $BD = 18$, $AF = 15$, $DF = 12$, $BE = 24$, dan $CF = 17$. Temukan rasio $BG : FG$.
+    % https://drive.google.com/drive/search?q=parent:0B-4OltLGFEDFeG92VENBbmdZODA%20type:pdf%20menelaus
+
+        \item (\textbf{Soal Legend: OSK 2011,2012,2013,2018}) Diberikan segitiga $ABC$ dan lingkaran $\Gamma$ yang berdiameter $AB$ . Lingkaran $\Gamma$ memotong sisi $AC$ dan $BC$ berturut-turut di titik $D$ dan $E$. Jika $AD = \frac13 AC, BE =\frac14 BC$ dan $AB = 30$, maka luas segitiga $ABC$ adalah \dots
+
+    \item (OSN SL 2010) Pada segitiga $ABC$, misalkan $D$ adalah titik tengah $BC$, dan $BE$, $CF$ adalah garis tinggi. Buktikan bahwa $DE$ dan $DF$ keduanya adalah garis singgung lingkaran luar $\triangle AEF$. %(OSN SL 2010) 
+
+    %AIME 2016 I and AIME 2016 I
+    \item (AIME 2016 I) Misalkan $\triangle ABC$ adalah segitiga lancip dengan lingkaran $\omega,$ dan misalkan $H$ adalah titik potong dari garis tinggi $\triangle ABC.$ Garis singgung lingkaran luar $\triangle HBC$ di $H$ memotong $\omega$ pada titik $X$ dan $Y$ dengan $HA=3,HX=2,$ dan $HY=6.$ Carilah luas dari $\triangle ABC$.
+
+    \item (AIME 2016 I) Lingkaran $\omega_1$ dan $\omega_2$ bertemu di titik $X$ dan $Y$. Garis $\ell$ menyinggung lingkaran $\omega_1$ dan $\omega_2$ di $A$ dan $B$, berturut-turut, dengan garis $AB$ lebih dekat ke titik $X$ daripada $Y$. Lingkaran $\omega$ yang melewati $A$ dan $B$, memotong $\omega_1$ lagi di $D \neq A$ dan memotong $\omega_2$ lagi di $C \neq B$. Ketiga titik $C$, $Y$, $D$ segaris dengan $XC = 67$, $XY = 47$, dan $XD = 37$. Carilah panjang $AB$.
+\end{enumerate}
+
+
+\newpage
+\section{Analit Tidak Suci: Coordinate Bashing}
+\subsection{Rumus-rumus}
+Tidak semua, tapi cukup banyak:
+\begin{itemize}
+    \item Persamaan garis yang menghubungkan titik $(x_1, y_1)$ dan titik $(x_2, y_2)$:
+    \[ y - y_1 = m(x - x_1) \quad \text{dimana} \quad m = \frac{y_2 - y_1}{x_2 - x_1} \text{ adalah kemiringan garis.} \]
+    
+    \item Jarak antara titik $(x_1, y_1)$ dan $(x_2, y_2)$:
+    \[ d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]
+    
+    \item Titik tengah antara dua titik $(x_1, y_1)$ dan $(x_2, y_2)$:
+    \[ M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right) \]
+    
+    \item Persamaan lingkaran dengan radius $r$ dan pusat $(a, b)$:
+    \[ (x - a)^2 + (y - b)^2 = r^2 \]
+    
+    \item Formula untuk garis tegak lurus
+    \[ m_1m_2 = -1, \quad \text{dimana } m_1, m_2 \text{ adalah kemiringan dari dua garis yang saling tegak lurus.} \]
+    
+    \item Kemiringan sebuah garis yang melalui titik asal $O$:
+    \[ m = \tan(\theta) \quad \text{dimana } \theta \text{ adalah sudut yang dibentuk garis dengan sumbu x.} \]
+    
+    \item Luas segitiga dari koordinat $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$:
+    \[ A = \frac{1}{2} 
+    \left| 
+    x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2) 
+    \right| \]
+\end{itemize}
+
+\subsection{Sampel Soal}
+\begin{enumerate}
+    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+    
+    \item (PUMAC 2016) Let $ABCD$ be a square with side length 8. Let $M$ be the midpoint of $BC$ and let $\omega$ be the circle passing through $M$, $A$, and $D$. Let $O$ be the center of $\omega$, $X$ be the intersection point (besides $A$) of $\omega$ with $AB$, and $Y$ be the intersection point of $OX$ and $AM$. Find the length $OY$.
+
+    \item (AMC 2004 10B) In the right triangle $\triangle ACE$, we have $AC = 12$, $CE = 16$, and $EA = 20$. Points $B$, $D$, and $F$ are located on $AC$, $CE$, and $EA$, respectively, so that $AB = 3$, $CD = 4$, and $EF = 5$. What is the ratio of the area of $\triangle DBF$ to that of $\triangle ACE$?
+\end{enumerate}
+
+
+\end{document}

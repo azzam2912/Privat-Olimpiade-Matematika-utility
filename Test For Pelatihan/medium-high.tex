@@ -1,40 +1,105 @@
-\documentclass[12pt]{extarticle}
-\usepackage[legalpaper, portrait, margin=2in]{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\documentclass[11pt]{scrartcl}
 \usepackage{graphicx}
-\graphicspath{{./Mini KSK Simulation Problems/}}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
 
-\usepackage{enumitem}
+\renewcommand{\dangle}{\measuredangle}
+
 \renewcommand{\baselinestretch}{1.5}
-\addtolength{\oddsidemargin}{-1in}
-\addtolength{\evensidemargin}{-1in}
-\addtolength{\textwidth}{2in}
 
-\addtolength{\topmargin}{-1.2in}
-\addtolength{\textheight}{2.5in} 
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
 
-\title{Simulasi Kompetisi Sains Nasional Bidang Matematika SMA/MA Seleksi Tingkat Kota/Kabupaten Tahun 2024}
-\author{120 menit}
 
-\date{\today}
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+% kunci jawaban: Simulasi KSN-K 8 -9
 
 \begin{document}
+	\title{Latihan Soal Medium - High} % Beginner
+	\date{\today}
+	\author{Compiled by Azzam}
 	\maketitle
-	
-	\section{Kemampuan Dasar}
-	Pada bagian ini setiap jawaban yang benar bernilai 2 poin dan setiap jawaban yang salah
-	atau kosong bernilai nol.
+	\section{Medium}
 	\begin{enumerate}
+		\item
+		Tentukan digit ke 2019 dari kiri bilangan 1223334444555556666667777777....
 		
+		\item
+		Berapa banyak cara memilih bilangan bulat berbeda $x, y$ dengan $0 \le x, y \le 19$ dan 5 habis membagi $x + y$?
 		
-		\item Jika $a,b,c,d$ adalah bilangan asli berbeda sehingga $abcd=2020$, maka nilai terkecil yang mungkin dari $\dfrac{a+b}{c+d}$ adalah...
+		\item
+		Wadah pertama berisi 5 kelereng merah dan 4 kelereng biru. Wadah kedua berisi 7 kelereng merah dan
+		9 kelereng biru. Sebuah kelereng dipindahkan dari wadah pertama ke wadah kedua. Selanjutnya, sebuah
+		kelereng diambil dari wadah kedua, jika peluang yang terambil bola merah adalah
+		$\frac{a}{b}$. Tentukan nilai dari $a+b$ dimana $a, b$ bilangan bulat positif yang saling prima.
+		
+		\item
+		Diberikan sebuah trapesium siku-siku $ABCD$ dimana $BC$ tegak lurus $CD$ dengan $AB$ sejajar $CD$ dan $AB < CD$. jika panjang $AB = 1$, $BD = \sqrt{7}$, dan $AD = CD$, Jika luas trapesium tersebut adalah $S$, maka nilai $4S^2$ adalah \dots
+		
+		\item Nilai dari $\left(0,2 ^{\left(0,5 ^{\left(0,8 ^{...} \right)} \right)} \right)^{-1}$ adalah $\dots$ (perhatikan bahwa pangkatnya membentuk barisan aritmatika dengan beda 0,3)
+		
+		\item Banyak bilangan asli $n$ yang tidak lebih besar dari 2019 sehingga $3^n+4^n$ habis dibagi 49 adalah $\dots$
+		
+		\item Segitiga $ABC$ memiliki luas 120 satuan. Titik $E$ dan $F$ dipilih di sisi $AC$ sehigga $AE=EF=FC$. Jika $D$ dan $G$ berturut-turut merupakan titik tengah $AB$ dan $EF$, luas segitiga $DFG$ adalah $\dots$
+		
+		\item
+		Berapa banyak persegi panjang bukan persegi yang dibentuk dari petak satuan papan catur $16 \times 16$ dimana sisi-sisinya paralel dengan sisi papan catur?
+
+	\item (Tobi Moektijono)
+	Carilah digit terakhir dari $$\sum_{k=1}^{2018} \left \lfloor \sqrt{2k} \right \rfloor $$
+	
+	\item Diberikan segitiga $ABC$. Garis bagi sudut $A$ memotong $BC$ di titik $D$. Garis bagi
+	dalam $\angle ADB$ memotong $AB$ di titik $E$. Jika $BE = 7, AE = 14$, dan $DE$ sejajar $AC$,
+	tentukan nilai $AD^2$.
+	
+	\item (Tobi Moektijono)
+	Carilah banyak solusi bulat nonnegatif $(a,b)$ yang memenuhi $$a^3+b^2+1=7ab.$$
+	
+	\item
+	Berapa banyak bilangan bulat positif 8 digit yang memenuhi perkalian dari digit-digitnya adalah $2^{21}$
+	?
+	
+	\item Bilangan $\dfrac{2019}{2^{2019}}$ merepresentasikan bilangan desimal. Tentukan digit ke-2017 di belakang koma dari bilangan tersebut.
+	
+	\item Banyaknya bilangan real $x$ sehingga $|x| \le 19$ dan $\left \lfloor x \right \rfloor\left \lceil x \right \rceil = x^2$ adalah $\dots$
+	
+	\item Diketahui segitiga $ABC$ dengan $AB=c$, $BC=a$, dan $AC=b$. Jika $\dfrac{b}{c-a} - \dfrac{a}{b+c} = 1$. Carilah sudut terbesar pada segitiga $ABC$ dalam derajat.
+	
+	\item
+	Misalkan banyak subset tak kosong dari $\{1,2,3,\dots,2018\}$ yang tidak mengandung dua bilangan yang memiliki jumlah 2019 adalah $a^c-b$ dimana $a,b,c$ adalah bilangan asli dan nilai $a$ sekecil mungkin. Tentukan nilai $a+b+c$.
+\end{enumerate}
+
+% key simulasi ksk 1
+\begin{enumerate}[resume]
+    \item Jika $a,b,c,d$ adalah bilangan asli berbeda sehingga $abcd=2020$, maka nilai terkecil yang mungkin dari $\dfrac{a+b}{c+d}$ adalah...
 		
 		\item Jumlah $n$ suku pertama suatu barisan aritmetika adalah 195. Jika suku pertama deret tersbut adalah $n$ dan suku ke-$n$ adalah 127, maka selisih barisan tersebut adalah...
 		
 		\item Perhatikan bangun seperempat lingkaran berikut. Jika $CA=6$ dan $ED+DF=8$, maka keliling yang diarsir adalah...
 		
-		\includegraphics[scale=0.5]{simulasi1-1}
+		\begin{figure}
+		    \centering
+		    \includegraphics[scale=0.5]{simulasi1-1}
+		\end{figure}
 		
 		\item Sebuah dadu seimbang enam sisi dilempar sebanyak $n$ kali. Jika rata-rata mata dadu yang keluar adalah $\frac{1}{4}n$, maka median dari seluruh nilai $n$ yang mungkin adalah...
 		
@@ -51,13 +116,6 @@
 		
 		\item Carilah bentuk paling sederhana dari $\sqrt{104\sqrt{6}+468\sqrt{10}+144\sqrt{15}+2006}$.
 		
-	\end{enumerate}
-
-\section{Kemampuan Lanjut}
-Pada bagian ini setiap jawaban yang benar bernilai 4 poin, jawaban kosong bernilai nol
-dan jawaban \textbf{salah} bernilai -1 (\textbf{minus satu})
-
-\begin{enumerate}
 		\item Untuk bilangan real positif $a,b,c$ yang memenuhi $$\frac{a}{a+1}+\frac{b}{b+1}+\frac{c}{c+1} = 1,$$ tentukan nilai maksimum dari $abc$.
 		
 		\item Azura sedang berada di toko ikan hias dan berniat membeli sepasang ikan koi. Penjaga toko membebaskan Azura untuk mengambil sepasang ikan tersebut dari suatu akuarium besar di tengah toko yang berisi $n>1$ ikan secara acak. Peluang Azura mendapatkan ikan dengan jenis kelamin yang sama adalah $\dfrac12$. Jika banyaknya ikan koi jantan sama dengan tiga kali banyak ikan koi betina, nilai minimum $n$ adalah...
@@ -83,6 +141,7 @@ dan jawaban \textbf{salah} bernilai -1 (\textbf{minus satu})
 		Jika $S = A_2 \cup A_3 \cup A_4 \cup \dots \cup A_n$, tentukan nilai dari elemen terbesar $S$.
 		
 		\item Misalkan $ABCD$ adalah segiempat tali busur. Diagonal $AC$ dan $BD$ berpotongan di titik $E$. Jika $BD=24$, tentukan nilai minimum dari $\dfrac{1}{AE}+\dfrac{1}{EC}$.
-		
 \end{enumerate}
+	
+	
 \end{document}
