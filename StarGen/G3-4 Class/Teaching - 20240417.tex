@@ -1,0 +1,115 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+\usepackage[most]{tcolorbox}
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Number Operations}
+\author{Azzam Labib (WA: 081219092778 - IG: haxuv.world)}
+\date{G3-4 | Thursday, 17 April 2024}
+\begin{document}
+\maketitle
+\begin{tcolorbox}[colback=blue!10,colframe=blue!75!black]
+Imagine you are in the battlefield where the enemies are the math number problems "machine" (oh my god). To defeat them, \textbf{you can doing the problems given} but \textbf{you cannot use calculator} since they can manipulate your calculator! The only weapons you have are your mind, your hardwork, and mental arithmetics! It is time for you, our commander to lead us to the victory!
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[colback=red!10,colframe=red!75!black]
+% Remember, no calculator 0.0 and do it as efficient as possible i.e. don't count one by one, find the trick!
+% \end{tcolorbox}
+
+
+\section{First Machine: Commutative, Associative, Distributive Operations}
+\begin{enumerate}
+\item $11 \times 34 + 66 \times 11$.
+\item Compute $8 \times 16 \times 3 \times 25$.
+\item Find the value of the following expression: $35 \times 99 + 11 \times 99 + 53 \times 99$.
+Find the value of the following expression: $45 \times 11 + 33 \times 11 + 53 \times 33$.
+\item Compute $7359 + 6379 - 359$.
+\item Evaluate
+$(12469+31753+21002) \times (4869+4689+180)$.
+\item Evaluate $640 \times 128 + 640 \times 64 + 640 \times 8$.
+\item Evaluate $2016 \times 803 - 1016 \times 803 + 999 \times 803 + 803$.
+\item Find the value of $2019 \div 7 + 2018 \div 9 - 2005 \div 7 - 2000 \div 9$.
+\item Find the value ofthe following expression:
+$50-49+48-47+46-45+\dots+4-3+2-1$.
+\item Find the value ofthe following expression:\\
+$1+2+3-4+5+6+7-8+9+10+11-12+\dots+33+34+35-36$.
+\end{enumerate}
+
+\section{Second Machine: Smart Operations}
+\begin{enumerate}[resume]
+    \item Defined that $a \otimes b \oplus c = a \times b + b \times c + c \times a$. Evaluate $8 \otimes 8 \oplus 8$.
+
+    \item Define the operation symbol $\oplus$ following this pattern:
+    \begin{align*}
+        1 \oplus 5 &= 1 + 2 + 3 + 4 - 5\\
+        3 \oplus 8 &= 3 + 4 + 5 + 6 + 7 - 8\\
+        5 \oplus 9 &= 5 + 6 + 7 + 8 - 9\\
+        \dots& \text{(and so on ...)}
+    \end{align*}
+    Find the value of $(5 \oplus 10) - (4 \oplus 9).$
+    
+    \item Defined that the symbol $\triangle$ as an operation satisfies the following conditions:
+    \begin{enumerate}[(i)]
+        \item When $a$ is odd, $a \triangle b = a \times 2 + b$,
+        \item When $a$ is even, $a \triangle b = a \div 2 + b$,
+    \end{enumerate}
+    evaluate $[(21 \triangle 12) \triangle 9] \triangle 3$.
+
+    \item If $p \oplus q = p + 2 \times p + 3 \times q - 4 \times q + 5 \times p$, find the value of $3 \oplus 7$.
+
+    \item Define $F(a)$ as $3 \times a+1$. Find the value of $n$ if $F(F(n))=40$.
+\end{enumerate}
+\section{Secret Arsenal: Difference of Two Squares}
+\begin{tcolorbox}[colback=green!10,colframe=green!75!black]
+It turns out our general has secret arsenal: difference of two squares!
+\end{tcolorbox}
+\begin{remark*}
+    Notes: The symbol $^2$ is read as "squared" meaning like this: $a^2 = a \times a$ ($a$ squared equal to $a$ times $a$.\\
+    Example: $9^2 = 9 \times 9 = 81$.
+\end{remark*}
+\begin{lemma*}
+    If you have two numbers $a$ and $b$ then $$a^2-b^2 = (a+b) \times (a-b)$$
+    Example: 
+    \begin{align*}
+        13^2-7^2 &= (13+7) \times (13-7)\\
+        13^2-7^2 &= 20 \times 6\\
+        13^2-7^2 &= \boxed{120}.
+    \end{align*}
+\end{lemma*}
+\begin{enumerate}[resume]
+    \item Evaluate $23^2-22^2$.
+    \item Evaluate $(23 \times 17 + 9) \div (12 \times 8 + 4).$
+    \item Evaluate the value of $3 \times (2024^2 - 2^2) \div (2022 \times 2026)$.
+    \item Evaluate $20^2-18^2+16^2-14^2+\dots+4^2-2^2$.
+    \item Evaluate $\dfrac{1}{1 \times 2} + \dfrac{1}{2 \times 3} + \dfrac{1}{3 \times 4} + \dots + \dfrac{1}{9 \times 10}$.
+\end{enumerate}
+\end{document}

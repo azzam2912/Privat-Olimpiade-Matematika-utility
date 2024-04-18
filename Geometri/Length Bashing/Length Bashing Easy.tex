@@ -106,6 +106,53 @@ Salah satu teorema paling terkenal di kalangan awam (atau setidaknya di pop cult
         CA^2 &= AB^2 + BC^2 - 2\cdot AB \cdot BC \cdot \cos \angle B
     \end{align*}
 
+\subsection{Dalil Stewart}
+    Pada segitiga $ABC$ dengan titik $D$ pada segmen $BC$, dimana $AB=c, BC=a, CA=b, AD=d, BD=m, CD=n$, maka berlaku
+    \begin{align*}
+        BC \cdot AD^2 + BC \cdot BD \cdot CD &= CA^2 \cdot BD + AB^2 \cdot CD\\
+        ad^2+amn &= b^2m+c^2n
+    \end{align*}
+\begin{center}
+    \begin{tikzpicture}
+    % titik-titik segitiga
+    \coordinate[label=left:$C$]  (C) at (-1.5cm,-1.cm);
+    \coordinate[label=right:$B$] (B) at (1.5cm,-1.0cm);
+    \coordinate[label=above:$A$] (A) at (0.5cm,1.732cm);
+    % titik-titik cevian
+    \coordinate[label=below:$D$] (D) at ($(C)!0.3!(B)$);
+    
+    % pembuatan segitiga
+    \draw (A) -- node[right]{$c$} (B) -- node[above]{$m$} (D) -- node[above]{$n$} (C) -- node[left]{$b$} (A);
+    
+    
+    % pembuatan cevian
+    \draw (B) --node[below]{$a$}(C);
+    \draw (A) --node[right]{$d$}(D);
+    \end{tikzpicture}
+\end{center}
+
+\subsection{Teorema Garis Bagi}
+Misalkan garis bagi sudut $\angle A$ (bisa garis bagi dalam atau garis bagi luar) memotong garis $BC$ di $K$, maka 
+$$\dfrac{BK}{CK} = \dfrac{AB}{AC}.$$
+\begin{center}
+    \begin{tikzpicture}
+    % titik-titik segitiga
+    \coordinate[label=left:$C$]  (C) at (-1.5cm,-1.cm);
+    \coordinate[label=right:$B$] (B) at (1.5cm,-1.0cm);
+    \coordinate[label=above:$A$] (A) at (0.5cm,1.732cm);
+    % titik-titik cevian
+    \coordinate[label=below:$K$] (D) at ($(C)!0.53!(B)$);
+    
+    % pembuatan segitiga
+    \draw (A) --  (B) -- (D) -- (C) -- (A);
+    
+    
+    % pembuatan cevian
+    \draw (A) -- (D);
+    \end{tikzpicture}
+\end{center}
+
+
 \subsection{Dalil Ceva}
 Jika pada segitiga $ABC$, titik $D,E,F$ berturut-turut berada di segmen $BC$,$CA$,$AB$, maka 
 $AD,BE,CF$ konkuren atau berpotongan di satu titik jika dan hanya jika $$\dfrac{AF}{FB} \cdot \dfrac{BD}{DC} \cdot \dfrac{CE}{EA} = 1.$$
@@ -243,31 +290,6 @@ Jika $P$ berada di luar $\Gamma$ dan $E$ berada di $\Gamma$ sehingga $PE$ bersin
 \subsubsection{Euler's Theorem}
 Rumusnya aja yah: $OI^2=R^2-2Rr$. Intinya diturunin pake Power of A Point.
 
-\subsection{Dalil Stewart}
-    Pada segitiga $ABC$ dengan titik $D$ pada segmen $BC$, dimana $AB=c, BC=a, CA=b, AD=d, BD=m, CD=n$, maka berlaku
-    \begin{align*}
-        BC \cdot AD^2 + BC \cdot BD \cdot CD &= CA^2 \cdot BD + AB^2 \cdot CD\\
-        ad^2+amn &= b^2m+c^2n
-    \end{align*}
-\begin{center}
-    \begin{tikzpicture}
-    % titik-titik segitiga
-    \coordinate[label=left:$C$]  (C) at (-1.5cm,-1.cm);
-    \coordinate[label=right:$B$] (B) at (1.5cm,-1.0cm);
-    \coordinate[label=above:$A$] (A) at (0.5cm,1.732cm);
-    % titik-titik cevian
-    \coordinate[label=below:$D$] (D) at ($(C)!0.3!(B)$);
-    
-    % pembuatan segitiga
-    \draw (A) -- node[right]{$c$} (B) -- node[above]{$m$} (D) -- node[above]{$n$} (C) -- node[left]{$b$} (A);
-    
-    
-    % pembuatan cevian
-    \draw (B) --node[below]{$a$}(C);
-    \draw (A) --node[right]{$d$}(D);
-    \end{tikzpicture}
-\end{center}
-
 \newpage
 \subsection{Sampel Soal}
 \begin{enumerate}
@@ -342,11 +364,38 @@ Tidak semua, tapi cukup banyak:
 
 \subsection{Sampel Soal}
 \begin{enumerate}
-    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
-    
     \item (PUMAC 2016) Let $ABCD$ be a square with side length 8. Let $M$ be the midpoint of $BC$ and let $\omega$ be the circle passing through $M$, $A$, and $D$. Let $O$ be the center of $\omega$, $X$ be the intersection point (besides $A$) of $\omega$ with $AB$, and $Y$ be the intersection point of $OX$ and $AM$. Find the length $OY$.
 
     \item (AMC 2004 10B) In the right triangle $\triangle ACE$, we have $AC = 12$, $CE = 16$, and $EA = 20$. Points $B$, $D$, and $F$ are located on $AC$, $CE$, and $EA$, respectively, so that $AB = 3$, $CD = 4$, and $EF = 5$. What is the ratio of the area of $\triangle DBF$ to that of $\triangle ACE$?
+
+    \item (AMC 2005 10B) Equilateral $\triangle ABC$ has side length 2, $M$ is the midpoint of $AC$, and $C$ is the midpoint of $BD$. What is the area of $\triangle CDM$?
+
+    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+
+    \item Two circles centered at $O$ and $P$ have radii of length $5$ and $6$ respectively. Circle $O$ passes through point $P$. Let the intersection points of circles $O$ and $P$ be $M$ and $N$. Find the area of $\triangle MNP$.
+
+    \item Let $ABC$ be a triangle with $AB = 13$, $BC = 14$, $CA = 15$. Let $O$ be its circumcenter and let $AD \perp BC$ with $D$ on $BC$. Suppose that $X$ is on $DC$ and $Y$ is on $AD$ such that $XY \parallel AO$ and $AX \perp YO$. Find the length of $BX$.
+
+    \item In acute triangle $ABC$ angle $B$ is greater than $C$. Let $M$ is midpoint of $BC$. $E$ and $F$ are the feet of the altitudes from $B$ and $C$ respectively. $K$ and $L$ are midpoint of $ME$ and $MF$ respectively. If $KL$ intersect the line through $A$ parallel to $BC$ in $P$, prove that $PA = PM$.
+
+    \item Let $\triangle ABC$ be a triangle with $D$ on $BC$. Suppose $AB = \sqrt{2}$, $AC = \sqrt{3}$, $\angle BAD = 30^\circ$, $\angle CAD = 45^\circ$. Find $AD$.
+
+    \item (AMC 2009 10B) Rectangle $ABCD$ has $AB = 8$ and $BC = 6$. Point $M$ is the midpoint of diagonal $AC$, and $E$ is on $AB$ with $ME \perp AC$. What is the area of $\triangle AME$?
+
+
+    \item (AMC 2018 10B) Let $ABCDEF$ be a regular hexagon with side length $1$. Denote by $X$, $Y$ , and $Z$ the midpoints of sides $AB$, $CD$, and $EF$, respectively. What is the area of the convex hexagon whose interior is the intersection of the interiors of $\triangle ACE$ and $\triangle XYZ$?
+
+
+    \item (PUMAC 2017) Triangle $ABC$ has $AB = BC = 10$ and $CA = 16$. The circle $\Omega$ is drawn with diameter $BC$. $\Omega$ meets $AC$ at points $C$ and $D$. Find the area of $\triangle ABD$.
+
+
+    \item (PUMAC 2012) Two circles centered at $O$ and $P$ have radii of length $5$ and $6$ respectively. Circle $O$ passes through point $P$. Let the intersection points of circles $O$ and $P$ be $M$ and $N$. Find the area of $\triangle MNP$.
+
+
+    \item (PUMAC 2018) Triangle $ABC$ has $\angle A = 90^\circ$, $\angle C = 30^\circ$, and $AC = 12$. Let the circumcircle of this triangle be $\omega$. Define $D$ to be the point on arc $BC$ not containing $A$ so that $\angle CAD = 60^\circ$. Define points $E$ and $F$ to be the foots of the perpendiculars from $D$ to lines $AB$ and $AC$, respectively. Let $J$ be the intersection of line $EF$ with $\omega$, where $J$ is on the minor arc $AC$. The line $DF$ intersects $W$ at $H$ other than at $D$. Find the area of the triangle $FHJ$.
+
+
+    \item (PUMAC 2018) Consider rectangle $ABCD$ with $AB = 30$ and $BC = 60$. Construct circle $T$ whose diameter is $AD$. Construct circle $S$ whose diameter is $AB$. Let circles $T$ and $S$ intersect at $P$, so that $P \neq A$. Let $AP$ intersect $BC$ at $E$. Let $F$ be the point on $AB$ so that $EF$ is tangent to the circle with diameter $AD$. Find the area of $\triangle AEF$.
 \end{enumerate}
 
 

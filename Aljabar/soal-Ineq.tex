@@ -1,0 +1,111 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usetikzlibrary{calc}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Soal Ineq Medium-Advanced}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Sedikit Pendahuluan}
+Mayoritas (atau bahkan semua) ketaksamaan disini dapat dikerjakan dengan 2 keluarga ketaksamaan klasik: QM-AM-GM-HM dan Cauchy-Schwarz. Tinggal pandai-pandai saja mengatur strategi untuk memanipulasi variabel sehingga sesuai keinginan \sout{papa-mama} formula.
+
+\section{Soal}
+\begin{enumerate}
+\item Diberikan sebarang bilangan real, buktikan bahwa
+
+\[x^{6}+x^{5}+4x^{4}-12x^{3}+4x^{2}+x+1\ge0\]
+
+\item Jika \(n\ge2\) adalah bilangan asli dan \(a_{i}\) bilangan asli untuk setiap \(1\le i\le n\)
+buktikan bahwa
+\[\frac{a_{1}}{a_{2}+a_{3}+\cdot\cdot\cdot+a_{n}}+\frac{a_{2}}{a_{1}+a_{3}+\cdot\cdot\cdot+a_{n}}+\cdot\cdot\cdot+\frac{a_{n}}{a_{1}+a_{2}+\cdot\cdot\cdot+a_{n-1}}\ge\frac{n}{n-1}.\]
+
+\item Jika x + y + z + w = 0 dan x² + y² + z² + w² = 1, buktikan bahwa
+\[-1\le xy+yz+zw+wx\le0\]
+
+\item Diberikan bilangan-bilangan real positif a, b, c, x, y, z. Buktikan bahwa
+\[\sqrt[3]{(a+x)(b+y)(c+z)}\ge\sqrt[3]{abc}+\sqrt[3]{xyz}.\]
+
+\item Misalkan a, b, c bilangan real positif sehingga \(a^{2}+b^{2}+c^{2}=1\) Buktikan bahwa
+\[\frac{1}{a}^{2}+\frac{1}{b}^{2}+\frac{1}{c}^{2}\ge3+\frac{2(a^{3}+b^{3}+c^{3})}{abc}.\]
+\item Diberikan bilangan-bilangan real positif \(x_{1},x_{2},...,x_{n}\) dan misalkan \(G=\sqrt[n]{x_{1}x_{2}\cdot\cdot\cdot x_{n}}\) \\
+\(A=\frac{x_{1}+x_{2}+\cdot\cdot\cdot+x_{n}}{n};M=max\{x_{1},x_{2},...,x_{n}\};m=min\{x_{1},x_{2},...,x_{n}\}\) Buktikan \\
+bahwa \\
+\[A-G\ge\frac{(\sqrt{M}-\sqrt{m})^{2}}{n}.\]
+
+\item Jika a, \(b,c>0\) dan \(ab+bc+ca=3\) buktikan bahwa \\
+\[\frac{a+b^{2}c^{2}}{b+c}+\frac{b+c^{2}a^{2}}{c+a}+\frac{c+b^{2}a^{2}}{b+a}\ge3.\]
+
+\item Untuk \(x_{1},x_{2},x_{3},...,x_{n}\in\mathbb{R}^{+}\) , buktikan bahwa : \\
+\[\frac{x_{1}^{2}}{x_{2}}+\frac{x_{2}^{2}}{x_{3}}+...+\frac{x_{n}^{2}}{x_{1}}\ge x_{1}+x_{2}+...+x_{n}+\frac{4(x_{n}-x_{1})^{2}}{x_{1}+x_{2}+...+x_{n}}.\]
+
+\item Buktikan untuk sembarang bilangan real a, b, c yang memenuhi \(a^{2}+b^{2}+c^{2}=1\) \\
+berlaku \\
+\[\frac{a^{2}}{1+2bc}+\frac{b^{2}}{1+2ca}+\frac{c^{2}}{1+2ab}\ge\frac{3}{5}.\]
+
+\item Buktikan jika a, b dan e bilangan positif yang memenuhi 1 = ab+bc+ac+2abc \\
+maka \\
+\(2(a+b+c)+1\ge32abc\) .
+
+\item Buktikan untuk a, b, \(c>0\) berlaku \\
+\[\frac{(2a+b+c)^{2}}{2a^{2}+(b+c)^{2}}+\frac{(2b+c+a)^{2}}{2b^{2}+(c+a)^{2}}+\frac{(2c+a+b)^{2}}{2c^{2}+(a+b)^{2}}\le8.\]
+
+\item Untuk a, b, c bilangan real positif dengan abc = 1, buktikan bahwa \\
+\[\frac{a}{(a+1)(b+1)}+\frac{b}{(b+1)(c+1)}+\frac{c}{(c+1)(a+1)}\ge\frac{3}{4}.\]
+
+\item Diberikan bilangan real positif $a, b, c$ yang memenuhi $a+b+c=abc$ 
+Tunjukkan bahwa
+\[\frac{1}{\sqrt{a^{2}+1}}+\frac{1}{\sqrt{b^{2}+1}}+\frac{1}{\sqrt{c^{2}+1}}\le\frac{3}{2}.\]
+
+\item Misalkan $a, b, c, d$ bilangan real positif yang memenuhi $a+b+c+d=1$ 
+Buktikan bahwa
+\[6(a^{3}+b^{3}+c^{3}+d^{3})\ge a^{2}+b^{2}+c^{2}+d^{2}+\frac{1}{8}.\]
+
+\item Jika $a, b, c$ bilangan real positif yang memenuhi $abc = 1$, buktikan bahwa
+\[\frac{a}{(b+1)(c+1)}+\frac{b}{(c+1)(a+1)}+\frac{c}{(a+1)(b+1)}\ge\frac{3}{4}.\]
+
+\item Jika $a, b, c$ bilangan real positif yang memenuhi $a+b+c=1$, buktikan bahwa
+\[a\sqrt[3]{1+b-c}+b\sqrt[3]{1+c-a}+c\sqrt[3]{1+a-b}\le1.\]
+
+\item Jika $a, b, c$ bilangan real positif yang memenuhi $a+b+c=1$, buktikan bahwa
+\[2\left(\frac{b}{a}+\frac{c}{b}+\frac{a}{c}\right)\ge\frac{1+a}{1-a}+\frac{1+b}{1-b}+\frac{1+c}{1-c}.\]
+
+\item Untuk bilangan positif $a, b, c, d$ buktikan bahwa
+
+\[\frac{a}{b+2c+3d}+\frac{b}{c+2d+3a}+\frac{c}{d+2a+3b}+\frac{d}{a+2b+3c}\ge\frac{2}{3}.\]
+
+\item Diberikan bilangan real positif $a, b, c$ sehingga $abc \le 1$. Buktikan bahwa
+\[\frac{a}{b}+\frac{b}{c}+\frac{c}{a}\ge a+b+c.\]
+\end{enumerate}
+\end{document}
