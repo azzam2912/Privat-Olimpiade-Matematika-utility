@@ -1,0 +1,84 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{rekurekurekurekurekurekur....}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item How many bit strings of length $n$ that do not have two consecutive 0s?
+
+    \item Determine the correct recurrence model for each of the following problems:
+    \begin{enumerate}[a)]
+        \item The number of bit strings of length n that do not contain 01.
+        \item The number of bit strings of length n that do not contain 000.
+        \item  The number of ternary strings of length n that contain 12.
+        \item The number of ways to reach the top of a stair with n steps if someone can hop either 1, 2, or 3 steps at once.
+        \item The number of ways to put n dollars into a machine that accepts 1 and 5 dollar bills.
+    \end{enumerate}
+
+    \item Ternary-string adalah suatu string yang digitnya terdiri dari angka 0, 1, atau 2.
+    Tentukan dan jelaskan model relasi rekurensi untuk merepresentasikan banyak ternary-string dengan panjang $n$ yang tidak mengandung substring "00"! Hint: Definisikan $a_n$ sebagai banyaknya ternary-string dengan panjang $n$ yang tidak mengandung "00". Tentukan nilai-nilai/syarat awalnya!
+
+    \item Dalam permasalahan Tower of Hanoi, diberikan setumpuk piringan (terurut berdasarkan luas piringannya, piringan terbesar di paling bawah) di suatu tiang yang perlu dipindahkan ke tiang lain sehingga terbentuk tumpukan dengan urutan yang sama. Setiap piringan hanya bisa dipindahkan satu per satu dari satu tiang ke tiang lain, dan piringan yang lebih kecil harus selalu berada di atas piringan yang lebih besar. Untuk membantu proses pemindahan piringan ini, disediakan satu tiang tambahan.
+    
+    Jika hanya ada satu piringan yang perlu dipindahkan, piringan tersebut dapat langsung dipindahkan dalam satu langkah. Jika terdapat dua piringan, dibutuhkan minimal tiga langkah.
+    
+    Berapa minimal langkah yang dibutuhkan untuk memindahkan tumpukan yang berisi 10 piringan?
+
+    \item In Weeby city, there exists only 1 person who is proficient in Japanese. He has never taught Japanese to anyone else. Everyone who is proficient in Japanese is required to teach Japanese to 3 people every month. Furthermore, everyone who has taught Japanese for 2 consecutive months is required to teach Japanese to 4 people every month. Someone is said to be proficient in Japanese if they have studied Japanese for 1 month (except for the first person who is proficient in this city). Also, note that each person can only be taught by one person.
+    \begin{enumerate}[a.]
+        \item If $a_n$ is the number of people proficient in Japanese at the end of $n^{th}$ month, determine the recurrence relation of $a_n$!
+        \item Determine the initial condition for the recurrence calculation!
+        \item How many people are proficient in Japanese by the end of the 5$^{th}$ month?
+    \end{enumerate}
+    
+    
+    
+    \item Untuk tiap bilangan asli $n$, definisikan $a_n$ sebagai banyaknya bilangan asli $n$ digit yang digitnya hanya terdiri atas angka 1 dan 2, serta tidak ada dua buah angka 2 yang terletak persis bersebelahan. Nilai dari $a_{10}$ adalah...
+	%akeyla
+
+    \item Seorang penjahit ingin menyusun n buah kancing dengan empat warna berbeda pada suatu garis lurus di sehelai baju. Jika kancing tidak boleh disusun dengan dua warna yang sama secara berurutan, ada berapa banyak cara untuk menentukan urutan penyusunan n buah kancing tersebut?
+    \begin{enumerate}[a)]
+        \item  Misalkan $a_n$ merepresentasikan banyaknya cara untuk menentukan urutan penyusunan $n$ buah kancing dengan ketentuan tersebut, tentukan model relasi rekurensi untuk $a_n$. Tentukan juga syarat awalnya.
+        \item Tentukan bentuk eksplisit dalam $a_n$ yang merepresentasikan rumus barisan untuk suku ke-$n$ dari relasi rekurensi yang terbentuk pada poin (a).
+    \end{enumerate}
+
+    \item A pair of very young rabbits (one of each gender) is left on an island. Every pair of rabbits does not breed until they reach the age of 2 months old. After reaching 2 months old, each pair produces another pair (of opposite gender) each month. How many pairs of rabbits are there in that island after n months if the rabbits live forever and every rabbit is paired exactly to another rabbit?
+
+    \item A special PIN is made of a string containing $n$ decimal digits. The PIN is valid if it contains an even number of 0s. How many valid PINs of length $n$ are there?
+\end{enumerate}
+
+\end{document}
