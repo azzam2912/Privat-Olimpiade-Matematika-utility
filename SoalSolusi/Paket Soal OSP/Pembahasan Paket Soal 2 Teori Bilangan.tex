@@ -269,11 +269,11 @@ Jawablah soal-soal berikut dengan menyertakan cara pengerjaan atau argumentasiny
 			Misalkan $t$ adalah bilangan asli terkecil sehingga $a_t$ bukan bilangan prima dengan $t > m$. Misalkan $p$ adalah faktor prima terkecil yang membagi $a_t$ sehingga kita punya $p \le \sqrt{a_t}$. Lalu, perhatikan karena $a_1 $ prima, dan $a_2 = a_1 +s$ prima juga (karena relatif prima dengan $a_1$), maka $t>m \ge 2$. Berarti karena $s \le 3m^2$ dan $t > m$, maka $ s \le 3m^2 \le 3(t-1)^2$ yang menyebabkan kita punya 
 			$$p \le \sqrt{a_t} = \sqrt{(t-1)t+s}\le \sqrt{(t-1)t+3(t-1)^2} = \sqrt{4t^2-7t+3} < \sqrt{4t^2-4t+1} = 2t-1$$dengan ketaksamaan terakhir karena $t > 2 \implies 3t > 2 \implies -7t+3 < -4t+1$.
 			
-			Selanjutnya, karena $p<2t-1$ adalah bilangan bulat, maka $p \le 2t-2 = 2(t-1)$. Karena $t-1 > 2-1 = 1$ maka $2(t-1)$ bukanlah bilangan prima, sehingga karena $p$ prima, haruslah $p \le t-1$. 
+			Selanjutnya, karena $p<2t-1$ adalah bilangan bulat, maka $p \le 2t-2 = 2(t-1)$. 
 			
-			Sekarang, karena $1 < p < t$, maka ada bilangan asli $c$ sehingga $1 < c < p<t$ dan $t=dp+c$ atau $c \equiv t \mod p$. Oleh karena itu, didapat $a_t - a_c = ((t-1)t+s)-((c-1)c+s) = t^2 - c^2 - t+c \equiv 0 \mod p$ atau $a_c \equiv a_t \equiv 0 \mod p$. Karena $t$ adalah bilangan asli minimal yang membuat $a_t$ bukan prima, maka haruslah $a_c$ prima karena $c<t$. Sehingga haruslah $a_c = p$.
+			Sekarang, ada bilangan asli $c \in [1-t,t-2]$ sehingga $c \equiv t \mod p$. Oleh karena itu, didapat $a_t - a_c = ((t-1)t+s)-((c-1)c+s) = t^2 - c^2 - t+c \equiv 0 \mod p$ atau $a_c \equiv a_t \equiv 0 \mod p$. Karena $t$ adalah bilangan asli minimal yang membuat $a_t$ bukan prima, maka haruslah $a_c$ prima karena $c<t$. Sehingga haruslah $a_c = p$.
 			
-			Terakhir, kita punya $p=a_c=(c-1)c+s \ge s$ sehingga kita dapatkan $t > p > s > s-1$. Berarti $a_{s-1}$ prima dari definisi $t$ terkecil yang membuat $a_t$ bukan prima. \qed
+			Terakhir, kita punya $p=a_c=(c-1)c+s \ge s$ sehingga kita dapatkan $t > c \ge s > s-1$. Berarti $a_{s-1}$ prima dari definisi $t$ terkecil yang membuat $a_t$ bukan prima. \qed
 		\end{solusi}
 		
 	\end{soalbaru}
