@@ -1,0 +1,88 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Directed Angle}
+\author{Curated by Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+	\maketitle
+    Untuk pdf materi, silakan merujuk pada Handoutnya Evan Chen (dah paling bagus itu) di \\\url{https://web.evanchen.cc/handouts/Directed-Angles/Directed-Angles.pdf}
+    \section{Contoh Soal}
+    Dua lingkaran berpotongan di $A$ dan $B$. Suatu garis melalui $B$ memotong lingkaran pertama di $C$ dan lingkaran kedua di $D$ ($B \neq C, B \neq D$).  Garis singgung lingkaran pertama yang melewati $C$ dan garis singgung lingkaran kedua melewati $D$, keduanya berpotongan di $M$. Melalui perpotongan $AM$ dan $CD$, suatu garis sejajar $CM$ memotong $AC$ di $K$. Buktikan bahwa $BK$ menyinggung lingkaran kedua.
+    \vspace{0.2cm}
+    \begin{solusi}
+        Notasikan $\measuredangle$ sebagai sudut berarah atau \textit{directed angle}. (gambar sendiri yah :) )
+		
+		\begin{lemmarev}[Buktikan sendiri :)]
+		(Alternate segment theorem) Misalkan garis $DB$ menyinggung lingkaran luar $ABC$ di $B$. Maka $\measuredangle DBA = \measuredangle BCA$
+		\end{lemmarev}
+		Misalkan $(ABC)$ dan $(ABD)$ berturut-turut adalah lingkaran luar $\triangle ABC$ dan $\triangle ABD$ berturut-turut. Perhatikan, karena $MC$ menyinggung $(ABC)$ di $C$, maka $\measuredangle MCD = \measuredangle CAB$. Karena $MD$ menyinggung $(ABD)$ di $D$, maka $\measuredangle CDM = \measuredangle BAD$.
+		
+		Sekarang perhatikan bahwa $$\measuredangle DMC = -\measuredangle CDM -\measuredangle MCD = -\measuredangle BAD -\measuredangle CAB = -\measuredangle CAD = \measuredangle DAC$$ yang berarti $ADMC$ siklis. Selanjutnya, perhatikan karena $MC$ menyinggung $(ABC)$ di $C$ dan karena $KL \parallel CM$ maka $$\measuredangle KAB = \measuredangle CAB = \measuredangle MCD = \measuredangle KLC = \measuredangle KLB$$ yang mana menyebabkan $AKBL$ siklis.
+		Dari fakta-fakta tersebut kita punya 
+		\begin{align*}
+		\measuredangle ABK &= \measuredangle ALK & (\text{Karena }AKBL \text{ siklis})\\
+		&= \measuredangle AMC & (\text{Karena }KL \parallel CM)\\
+		&= \measuredangle ADC & (\text{Karena }ADMC \text{ siklis})\\
+		&= \measuredangle ADB,
+		\end{align*}yang menunjukkan bahwa $KB$ menyinggung $(ABD)$ di $B$. \qed
+    \end{solusi}
+
+    \section{Latihan Soal}
+    \begin{enumerate}
+        \item Suatu segitiga $ABC$ memiliki titik tinggi $H$ dan titik pusat lingkaran dalam $I$. Buktikan bahwa $A,B,H,I$ berada pada satu lingkaran (siklis) jika dan hanya jika $\angle ACB = 60^\circ$.
+        
+        \item Misalkan $C$ adalah titik pada setengah lingkaran dengan diameter $AB$ (terletak di keliling lingkarannya, bukan di diameternya). Misalkan pula $D$ adalah titik tengah busur $AC$. Notasikan $E$ sebagai proyeksi $D$ pada garis $BC$ dan $F$ adalah perpotongan $AE$ dengan setengah lingkaran. Buktikan bahwa $BF$ membagi garis $DE$ sama panjang.
+        
+        \item (OSN 2019) Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran yang bersinggungan di titik $A$ dengan $\Gamma_2$ di dalam $\Gamma_1$. Misalkan $B$ titik pada $\Gamma_2$ dan garis $AB$ memotong $\Gamma_1$ di titik $C$. Misalkan $D$ titik pada $\Gamma_1$ dan $P$ sebarang titik pada garis $CD$ (boleh pada perpanjangan segmen $CD$). Garis $BP$ memotong $\Gamma_2$ di titik $Q$. Tunjukkan bahwa $A$, $D$, $P$, $Q$ terletak pada satu lingkaran.
+
+        \item (OSN 2002) Diberikan segitiga $ABC$ dengan $AC > BC$. Pada lingkaran luar segitiga $ABC$ terletak titik $D$ yang merupakan titik tengah busur $AB$ yang memuat titik $C$. Misalkan $E$ adalah titik pada $AC$ sehingga $DE$ tegak lurus pada $AC$. Buktikan bahwa $AE = EC + CB$.
+
+        \item Diberikan $\triangle ABC$ dimana $A',B',C'$ berturut-turut adalah pencerminan $A,B,C$ terhadap $BC,CA,AB$. Perpotongan lingkaran luar $\triangle ABB'$ dan $\triangle ACC'$ adalah $A_1$. Definisikan $B_1$ dan $C_1$ secara serupa. Buktikan bahwa $AA_1,BB_1,$ dan $CC_1$ konkuren (bertemu di satu titik).
+
+        \item (OSN 2007) Titik-titik $A$, $B$, $C$, $D$ terletak pada lingkaran $S$ sedemikian rupa sehingga $AB$ merupakan garis tengah $S$, tetapi $CD$ bukan garis tengah $S$. Diketahui pula bahwa $C$ dan $D$ berada pada sisi yang berbeda terhadap $AB$. Garis singgung terhadap $S$ di $C$ dan $D$ berpotongan di titik $P$. Titik-titik $Q$ dan $R$ berturut-turut adalah perpotongan garis $AC$ dengan garis $BD$ dan garis $AD$ dengan garis $BC$.
+        
+        \item (OSN 2009) Diberikan segitiga $ABC$ lancip. Lingkaran dalam segitiga $ABC$ menyinggung $BC$, $CA$, dan $AB$ berturut-turut di $D$, $E$, dan $F$. Garis bagi sudut $A$ memotong $DE$ dan $DF$ berturut-turut di $K$ dan $L$. Misalkan $AA_1$ adalah garis tinggi dan $M$ titik tengah $BC$.
+        \begin{enumerate}
+        \item[(a)] Buktikan bahwa $BK$ dan $CL$ tegak lurus garis bagi sudut $BAC$.
+        \item[(b)] Tunjukkan bahwa $A_1KML$ adalah segiempat talibusur.
+        \end{enumerate}
+        
+        \item (OSN 2011) Diberikan segitiga sebarang $ABC$ dan misalkan lingkaran dalam segitiga $ABC$ menyinggung sisi $BC$, $CA$ dan $AB$ berturut-turut di titik $D$, $E$ dan $F$. Misalkan $K$ dan $L$ berturut-turut titik pada sisi $CA$ dan $AB$ sehingga $\angle EDK = \angle ADE$ dan $\angle FDL = \angle ADF$. Buktikan bahwa lingkaran luar segitiga $AKL$ menyinggung lingkaran dalam segitiga $ABC$.
+        
+        \item (OSN 2012) Diberikan sebarang segitiga $ABC$ dan garis bagi $\angle BAC$ memotong sisi $BC$ dan lingkaran luar segitiga $ABC$ berturut-turut di $D$ dan $E$. Misalkan $M$ dan $N$ berturut-turut titik tengah $BD$ dan $CE$. Lingkaran luar segitiga $ABD$ memotong $AN$ di titik $Q$. Lingkaran yang melalui $A$ dan menyinggung $BC$ di $D$ memotong garis $AM$ dan sisi $AC$ berturut-turut di titik $P$ dan $R$. Tunjukkan bahwa empat titik $B$, $P$, $Q$, $R$ terletak pada satu garis.
+        
+        \item (OSN 2015) Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$. Garis $AO$ memotong lingkaran luar segitiga $ABC$ lagi di titik $D$. Misalkan $P$ titik pada sisi $BC$. Garis melalui $P$ yang tegak lurus $AP$ memotong garis $DB$ dan $DC$ berturut-turut di titik $E$ dan $F$. Garis melalui $D$ tegak lurus $BC$ memotong $EF$ di titik $Q$. Buktikan bahwa $EQ = FQ$ jika dan hanya jika $BP = CP$.
+    \end{enumerate}
+\end{document}

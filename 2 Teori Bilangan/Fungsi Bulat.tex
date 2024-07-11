@@ -1,0 +1,111 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Fungsi Bulat}
+\author{Azzam (IG: haxuv.world)}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item Jika $f : \mathbb{Z} \to \mathbb{Z}$ merupakan fungsi tak terbatas, dan $f(a) \mid c$ untuk konstanta $c$ dan $a \in T \subseteq \mathbb{Z}$. Buktikan jika $|T| = \infty$ maka $c = 0$.
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sehingga untuk setiap bilangan bilangan asli $a, b$ berlaku:
+    \[
+    f(a)+b \mid (f(b)+a)^2
+    \]
+    
+    \item Tentukan semua $f : \mathbb{N} \to \mathbb{N}$ yang memenuhi
+    \[
+    n+f(m) \mid f(n) + nf(m)
+    \]
+    untuk semua $m,n \in \mathbb{N}$
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ yang memenuhi:
+    \[
+    f(a)+f(b) \mid a+b, \forall a,b \in \mathbb{N}
+    \]
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sehingga:
+    \[
+    x^2+f(y) \mid f(x)^2 +y
+    \]
+    untuk setiap $x, y \in \mathbb{N}$
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sehingga:
+    \[
+    m^2+f(n) \mid mf(m)+n
+    \]
+    untuk semua bilangan asli berbeda $m$ dan $n$.
+    
+    \item Tentukan semua fungsi $f : \mathbb{Z}^+ \to \mathbb{Z}^+$ sehingga $f(a) + b$ membagi $2(f(b) + a)$ untuk semua $a, b$ bilangan bulat positif.
+    
+    \item Tentukan semua polinomial $f \in \mathbb{Z}[x]$ sehingga untuk setiap $a, b, c \in \mathbb{N}$ berlaku
+    \[
+    a+b+c \mid f(a)+f(b)+f(c)
+    \]
+    
+    \item Diberikan $n \ge 1$ bilangan asli ganjil. Tentukan semua fungsi $f : \mathbb{Z} \to \mathbb{Z}$ sehingga untuk semua bilangan asli berbeda $x$ dan $y$ berlaku:
+    \[
+    f(x) - f(y) \mid x^n-y^n
+    \]
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sehingga untuk semua bilangan asli $m$ dan $n$, $f(m) + f(n) - mn > 0$ dan membagi $nf(m) + mf(n)$
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sedemikian sehingga $f(n!) = f(n)!$ untuk semua bilangan asli $n$ dan $m$ sehingga $m - n$ membagi $f(m) - f(n)$ untuk setiap bilangan asli berbeda $m, n$.
+    
+    \item Diberikan bilangan asli $k$. Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sehingga untuk setiap $m, n \in \mathbb{N}$ berlaku:
+    \[
+    f(m)+f(n) \mid (m+n)^k
+    \]
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ yang memenuhi:
+    \[
+    f^2(m)+f(n) \mid (m^2+n)^2
+    \]
+    untuk semua bilangan asli $m$ dan $n$.
+    
+    \item Tentukan semua fungsi $f : \mathbb{Z}^+ \to \mathbb{Z}^+$ sehingga $f(m) \ge m$ dan $f(m+n) \mid f(m) + f(n)$ untuk setiap $m, n \in \mathbb{Z}^+$
+    
+    \item Tentukan semua fungsi $f : \mathbb{Z} \to \mathbb{N}$ sehingga untuk semua bilangan asli berbeda $m$ dan $n$, $f(m - n) | f(m) - f(n)$. Buktikan bahwa untuk semua bilangan asli $m$ dan $n$ dengan $f(m) \le f(n)$, $f(m) \mid f(n)$.
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sehingga $af(a) + bf(b) + 2ab$ untuk setiap $a, b \in \mathbb{N}$ adalah bilangan kuadrat.
+    
+    \item Tentukan semua fungsi $f : \mathbb{N} \to \mathbb{N}$ sehingga:
+    \[
+    (f(m)+n)(f(n)+m)
+    \]
+    adalah bilangan kuadrat untuk semua $m, n \in \mathbb{N}$.
+\end{enumerate}
+
+\end{document}

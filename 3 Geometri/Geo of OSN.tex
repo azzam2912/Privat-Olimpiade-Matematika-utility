@@ -1,21 +1,43 @@
-\documentclass{article}[12pt]
-\usepackage{amsmath}
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
 
 \renewcommand{\baselinestretch}{1.5}
-\addtolength{\oddsidemargin}{-1in}
-\addtolength{\evensidemargin}{-1.5in}
-\addtolength{\textwidth}{1.9in}
 
-\addtolength{\topmargin}{-1in}
-\addtolength{\textheight}{1.9in} 
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
 
-\title{Geometry of OSN}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Geometry from (Old) OSN}
 \author{Selected and compiled by Azzam}
-\date{Jumat, 11 Desember 2020}
+\date{\today}
 
 \begin{document}
 	\maketitle
-	\textbf{Tips dan trik untuk untuk mengalahkan soal geometri olimpiade :}
+	\section{Tips dan trik untuk untuk mengalahkan soal geometri olimpiade :}
 	\\Lakukan langkah-langkah ini untuk mempermudah pengerjaan soal geo terutama di OSN
 	\begin{enumerate}
 		\item
@@ -58,7 +80,7 @@
 	
 	\end{enumerate}
 	
-	\textbf{Soal}
+	\section{Soal}
 	\begin{enumerate}
 		\item
 		Diberikan segitiga $ABC$ dengan $AC>BC$. Pada lingkaran luar segitiga $ABC$ terletak titik $D$ yang merupakan titik tengah busur $AB$ yang memuat titik $C$. Misalkan $E$ adalah titik pada $AC$ sehingga $DE$ tegak lurus $AC$. Buktikan bahwa $AE=EC+CB$.
