@@ -1,0 +1,58 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+\usepackage[most]{tcolorbox}
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Combinatrial Bounding and Sequence (and induction)}
+\author{Azzam Labib (IG: haxuv.world)}
+\date{G3-4 | 2 May 2024}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item (OSN 2019) Diberikan 200 kotak merah yang masing-masing berisi maksimal 19 bola dan minimal 1 bola dan 19 kotak biru yang masing-masing berisi maksimal 200 bola dan minimal 1 bola. Diketahui banyak bola pada kotak biru kurang dari banyak bola pada kotak merah. Buktikan ada sekelompok kotak merah yang jumlah bolanya sama dengan sekelompok kotak biru.
+
+    \item (OSN 2019) Diberikan bilangan asli $n >1$ dan $a_1,a_2,\ldots,a_{2n} \in \{-n,-n+1, \ldots, n-1,n\}$. Apabila
+    $$a_1+a_2+\ldots+a_{2n}=n+1,$$
+    buktikan ada sekelompok $a_i$ yang jumlahnya 0.
+
+    \item (Pelatnas 1 untuk IMO 2019, simulasi 2) Misalkan $S$ adalah bilangan positif yang memenuhi: setiap koleksi dua atau lebih bilangan di $(0. 1]$ yang jumlahnya $S$, selalu dapat dibagi kedalam dua grup sedemikian sehingga jumlah seluruh bila,ngan cli grup pertama tidak lebih dari 1 dan jumlah seluruh bilangan di grup kedua tidak lebih dari 5. Tentukan nilai maksimum dari $S$. 
+
+    \item (Pelatnas 1 untuk IMO 2019, simulasi 1) Terdapat n tumpukan batu dengan masing-masing tumpukan terdiri dari 2018 batu. Berat masing-masing batu adalah salah satu diantara bilangan-bilangan $1,2,\ldots,25$ dan setiap dua tumpukan yang berbeda memiliki berat total yang berbeda. Diketahui bahwa untuk setiap dua tumpukan, jika batu terberat dan teringan pada kedua tumpukan tersebut dibuang maka tumpukan yang mulanya lebih berat menjadi lebih ringan. Tentukan nilai $n$ terbesar yang mungkin. 
+
+    \item (Pelatnas 1 untuk IMO 2019, tes IV) Hitunglah banyaknya polinomial $P(x)$ dengan koefisien-koefisien dipilih dari $\{0,1,2,3\}$ sedemikian sehingga $P(2)=2019$.
+
+    \item (Putnam 1983) For positive integers $n$, let $C(n)$ be the number of representation of $n$ as a sum of nonincreasing powers of $2$, where no power can be used more than three times. For example, $C(8)=5$ since the representations of $8$ are:
+    $$8,4+4,4+2+2,4+2+1+1,\text{ and }2+2+2+1+1.$$
+    Prove or disprove that there is a polynomial $P(x)$ such that $C(n)=\lfloor P(n)\rfloor$ for all positive integers $n$.
+\end{enumerate}
+
+\end{document}
