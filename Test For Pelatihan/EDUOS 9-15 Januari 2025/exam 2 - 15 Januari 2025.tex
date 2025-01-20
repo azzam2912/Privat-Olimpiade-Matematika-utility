@@ -1,0 +1,61 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\usepackage[most]{tcolorbox}
+
+\title{Exam 2}
+\author{Compiled by Azzam}
+
+\date{Rabu, 15 Januari 2025}
+\begin{document}
+\maketitle
+\textbf{Waktu: 2 jam (termasuk upload)}
+
+\begin{enumerate}
+    % https://www.cut-the-knot.org/arithmetic/algebra/AsymmetricInequality.shtml#proof
+    \item Untuk sebarang bilangan riil positif $x,y,z$, buktikan bahwa
+    \begin{align*}
+        (x+y)(x+z) \ge \sqrt{4xyz(x+y+z)}
+    \end{align*}
+
+    % paket soal OSP : NT
+    \item Misalkan tripel bilangan prima $(p,q,r)$ memenuhi $3p^4-5q^4-4r^2=26$. Jika $S = p+q+r$, hitunglah jumlah semua $S$ yang mungkin.
+
+    % paket soal OSP : kombin
+    \item Terdapat 20 anggota di suatu klub tenis yang menjadwalkan tepat 14 permainan antar dua orang diantara mereka dengan setiap anggota klub bermain minimal satu kali. Buktikan bahwa dalam pembagian ini, terdapat himpunan 6 permainan dengan 12 pemain yang berbeda.
+
+    % OSN 2010
+    \item Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$ dan titik tinggi $H$. Misalkan $K$ sebarang titik di dalam segitiga $ABC$ yang tidak sama dengan $O$ maupun $H$. Titik $L$ dan $M$ terletak di luar segitiga $ABC$ sedemikian sehingga $AKCL$ dan $AKBM$ jajaran genjang. Terakhir, misalkan $BL$ dan $CM$ berpotongan di titik $N$ dan misalkan juga $J$ adalah titik tengah $HK$. Buktikan bahwa $KONJ$ jajaran genjang.
+
+\end{enumerate}
+\end{document}
