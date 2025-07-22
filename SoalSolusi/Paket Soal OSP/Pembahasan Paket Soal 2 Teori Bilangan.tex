@@ -65,7 +65,7 @@ Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
 		1874
 		\end{jawaban}
 		\begin{solusi}
-		Misalkan bilangan yang akan kita cari adalah $n$. Karena $n$ mempunyai 9 digit, dapat dimisalkan $n$ adalah $(\overline{d_{8}\dots d_2 d_0})_3$ atau representasi desimalnya adalah $n = \sum_{i=0}^{8} 3^id_i = 3^8d_8+3^{7}d_{7}+\dots+3d_1+d_0$. Di lain sisi, jika representasi basis 3 tersebut dibaca dalam basis 10 nilainya menjadi $N = \sum_{i=0}^{8} 10^id_i = 10^8d_8+10^{7}d_{7}+\dots+10d_1+d_0$.
+		Misalkan bilangan yang akan kita cari adalah $n$. Karena $n$ mempunyai 9 digit, dapat dimisalkan $n$ adalah $(\overline{d_{8}\dots d_1 d_0})_3$ atau representasi desimalnya adalah $n = \sum_{i=0}^{8} 3^id_i = 3^8d_8+3^{7}d_{7}+\dots+3d_1+d_0$. Di lain sisi, jika representasi basis 3 tersebut dibaca dalam basis 10 nilainya menjadi $N = \sum_{i=0}^{8} 10^id_i = 10^8d_8+10^{7}d_{7}+\dots+10d_1+d_0$.
 		
 		Perhatikan bahwa $3^id_i \equiv 10^id_i \mod 7$ untuk $i=0,1,\dots,8$. Berarti kita punya $\sum_{i=0}^{8} 3^id_i \equiv \sum_{i=0}^{8} 10^id_i \mod 7$. Jika $n$ bilangan $TRI$, haruslah $N \equiv 0 \mod 7$ atau $n\equiv\sum_{i=0}^{8} 3^id_i \equiv \sum_{i=0}^{8} 10^id_i \equiv 0 \mod 7$. Akibatnya, $n$ adalah bilangan $TRI$ jika dan hanya jika $n$ merupakan kelipatan $7$. Jadi, sekarang kita tinggal mencari banyaknya bilangan kelipatan 7 dengan yang kurang dari $3^9$ tetapi lebih dari sama dengan $3^8$ (karena $n = \sum_{i=0}^{8} 3^id_i$ dengan $d_8 \neq 0$). Banyaknya $n$ tersebut adalah $\floor{\dfrac{3^9}{7}}-\floor{\dfrac{3^8}{7}}=1874$. \qed
 		\end{solusi}
