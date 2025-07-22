@@ -65,7 +65,7 @@ Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
 		1874
 		\end{jawaban}
 		\begin{solusi}
-		Misalkan bilangan yang akan kita cari adalah $n$. Karena $n$ mempunyai 9 digit, dapat dimisalkan $n$ adalah $(\overline{d_{9}d_{8}\dots d_2 d_0})_3$ atau representasi desimalnya adalah $n = \sum_{i=0}^{8} 3^id_i = 3^8d_8+3^{7}d_{7}+\dots+3d_1+d_0$. Di lain sisi, jika representasi basis 3 tersebut dibaca dalam basis 10 nilainya menjadi $N = \sum_{i=0}^{8} 10^id_i = 10^8d_8+10^{7}d_{7}+\dots+10d_1+d_0$.
+		Misalkan bilangan yang akan kita cari adalah $n$. Karena $n$ mempunyai 9 digit, dapat dimisalkan $n$ adalah $(\overline{d_{8}\dots d_2 d_0})_3$ atau representasi desimalnya adalah $n = \sum_{i=0}^{8} 3^id_i = 3^8d_8+3^{7}d_{7}+\dots+3d_1+d_0$. Di lain sisi, jika representasi basis 3 tersebut dibaca dalam basis 10 nilainya menjadi $N = \sum_{i=0}^{8} 10^id_i = 10^8d_8+10^{7}d_{7}+\dots+10d_1+d_0$.
 		
 		Perhatikan bahwa $3^id_i \equiv 10^id_i \mod 7$ untuk $i=0,1,\dots,8$. Berarti kita punya $\sum_{i=0}^{8} 3^id_i \equiv \sum_{i=0}^{8} 10^id_i \mod 7$. Jika $n$ bilangan $TRI$, haruslah $N \equiv 0 \mod 7$ atau $n\equiv\sum_{i=0}^{8} 3^id_i \equiv \sum_{i=0}^{8} 10^id_i \equiv 0 \mod 7$. Akibatnya, $n$ adalah bilangan $TRI$ jika dan hanya jika $n$ merupakan kelipatan $7$. Jadi, sekarang kita tinggal mencari banyaknya bilangan kelipatan 7 dengan yang kurang dari $3^9$ tetapi lebih dari sama dengan $3^8$ (karena $n = \sum_{i=0}^{8} 3^id_i$ dengan $d_8 \neq 0$). Banyaknya $n$ tersebut adalah $\floor{\dfrac{3^9}{7}}-\floor{\dfrac{3^8}{7}}=1874$. \qed
 		\end{solusi}
@@ -82,7 +82,7 @@ Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
 		
 		Perhatikan bahwa $q^4+2r^2 \equiv 3p^4-5q^4-4r^2 \equiv 26 \equiv 2\mod 3$. 
 		
-		Andaikan $q \not\equiv 0 \mod 3$, maka $q \equiv \pm 1 \mod 3 \implies q^4 \equiv 1 \mod 3$. Ini  menyebabkan $q^4 +2r^2 \equiv 2 \mod 3 \implies 1 + 2r^2 \equiv 2 \mod 3 \implies 2r^2 \equiv 1 \mod 3$. Padahal, karena $r \equiv 0,\pm 1 \mod 3$, menyebabkan $2r^2 \equiv  2 \mod 3$ atau $2r^2 \equiv 0 \mod 3$, kontradiksi dengan $2r^2 \equiv 1 \mod 3$. Berarti haruslah $q \equiv 0 \mod 3$. Namun, karena $q$ prima, berarti haruslah $q=3$.
+		Andaikan $q \not\equiv 0 \mod 3$, maka $q \equiv \pm 1 \mod 3 \implies q^4 \equiv 1 \mod 3$. Ini  menyebabkan $q^4 +2r^2 \equiv 2 \mod 3 \implies 1 + 2r^2 \equiv 2 \mod 3 \implies 2r^2 \equiv 1 \mod 3$. Padahal, karena $r \equiv 0,\pm 1 \mod 3$, menyebabkan $2r^2 \equiv  2 \mod 3$ atau $2r^2 \equiv 0 \mod 3$, kontradiksi dengan $2r^2 \equiv 1 \mod 3$. Berarti haruslah $q \equiv 0 \mod 3$. Namun, karena $q$ prima, berarti $q=3$.
 		
 		Sekarang, perhatikan bahwa $3p^4+r^2 \equiv 3p^4-5q^4-4r^2 \equiv 26 \equiv 1 \mod 5$.
 		
@@ -166,7 +166,8 @@ Jawablah soal-soal berikut dengan jawaban akhir tanpa menyertakan cara.
 				Perhatikan bahwa perkalian dua bilangan kubik adalah bilangan kubik juga. Berarti, dapat dimisalkan $(n+9)(n^2+27)=a^3$ untuk suatu bilangan asli $a$. Perhatikan bahwa $a^3=(n+9)(n^2+27)=n^3+9n^2+27n+27+216=(n+3)^3+6^3 \implies a^3=(n+3)^3+6^3$ yang menurut \textit{Fermat's Last Theorem}, persamaan tersebut tak punya solusi bulat $n$. \qed
 				\end{solusi}
 	\end{soalbaru}
-	
+
+    \newpage
 	\begin{soalbaru}
 		Hitunglah banyaknya pasangan bilangan bulat positif $(x,y)$ yang memenuhi\\[-20pt] $$x^2+(x+1)^2=y^4+(y+1)^4.$$
 		
