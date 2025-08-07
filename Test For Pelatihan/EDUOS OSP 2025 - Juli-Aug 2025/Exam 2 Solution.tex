@@ -1,0 +1,279 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{asymptote}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\usepackage[most]{tcolorbox}
+
+
+
+\title{Exam 2 - Solutions}
+\author{Compiled by Azzam}
+
+\date{\today}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+\section{Soal 1} Diberikan persegi panjang $ABCD$. Titik $P$ adalah perpotongan garis $BC$ dengan garis yang melalui $A$ dan tegak lurus $AC$. Titik $Q$ pada segmen $CD$. Garis $PQ$ memotong garis $AD$ di $R$. Garis $BR$ memotong garis $AQ$ di $X$. Buktikan bahwa jika titik $Q$ bergerak sepanjang segmen $CD$, maka besar $\angle BXC$ konstan. 
+\newline
+\textbf{(Proposed by Wildan Bagus Wicaksono)}
+\begin{center}
+    \begin{asy}
+        import olympiad;
+        import geometry;
+        size(200);
+
+        pair A,B,C,D,P,Q,R,X,S;
+        A = (-4,3);
+        B = (4,3);
+        C = (4,-3);
+        D = (-4,-3);
+        line l = perpendicular(A, line(A,C));
+        P = intersectionpoint(l, line(B,C));
+        Q = C/3+2*D/3;
+        R = intersectionpoint(line(P,Q),line(A,D));
+        X = intersectionpoint(line(B,R),line(A,Q));
+        S = foot(A,P,R);
+        dot("$A$", A, NW);
+        dot("$B$", B, NE);
+        dot("$C$", C, SE);
+        dot("$D$", D, SW);
+        dot("$P$", P, N);
+        dot("$Q$", Q, SE);
+        dot("$Q'$", Q, NW);
+        dot("$R$", R, NW);
+        dot("$X$", X, SW);
+        dot("$X'$", X, SE);
+        dot("$S$", S, SE);
+        draw(A--C);
+        draw(A--P);
+        draw(A--S--B);
+        draw(B--P--R--A);
+        draw(A--X--C);
+        draw(rightanglemark(A,X,C,10), red);
+        draw(rightanglemark(A,S,Q,10), red);
+        draw(rightanglemark(A,D,C,10), red);
+        draw(rightanglemark(A,B,P,10), red);
+        draw(B--R);
+        draw(A--B--C--D--A);
+        draw(circumcircle(triangle(A,B,C)), red);
+        draw(circumcircle(triangle(A,B,S)), blue);
+        draw(circumcircle(triangle(A,D,Q)));
+        draw(circumcircle(triangle(B,S,Q)), dashed+blue);
+        draw(B--S--Q--X--B, orange);
+    \end{asy}
+\end{center}
+\subsection{Solusi}
+\begin{proof}[\textbf{Solusi}]
+Akan dibuktikan bahwa $ABCXD$ siklis. 
+
+Misalkan $X'$ adalah perpotongan $BR$ dengan lingkaran $(ABCD)$. Misalkan pula $Q'$ perpotongan $AX'$ dengan $CD$.
+
+Misalkan $S$ adalah proyeksi $A$ ke $PQ$. Karena $\angle ASQ = \angle ADQ = 90^\circ$ maka $ASQD$ siklis.
+
+Berarti dengan \textit{power of a point}
+$$RX'\cdot RB = RD\cdot DA = RQ\cdot QS.$$
+yang menunjukkan bahwa $X'BSQ$ siklis. Berarti $\angle QX'B = \angle PSB$.
+
+Sadari bahwa karena $\angle ABP = \angle PAC$ dan $\angle BCA = \angle PCA$ maka $\triangle BAP \sim \triangle BCA$ yang langsung mengakibatkan $\angle PAB = \angle ACB$.
+Sekarang karena $\angle ASP = \angle ABP = 90^\circ$ maka $ASBP$ siklis, sehingga didapat $$\angle PSB = \angle PAB = \angle ACB = \angle AX'B = \angle Q'X'B.$$
+
+Dari kedua fakta tersebut didapat $\angle QX'B = \angle Q'X'B$ yang menunjukkan $Q = Q'$ yang mengakibatkan $X = X'$. Soal terbukti.
+\end{proof}
+
+\newpage
+\section{Soal 2} Misalkan $a,b,c > 0$ dan memenuhi $a+b+c=1$. Tunjukkan bahwa
+\begin{align*}
+\dfrac{ab}{1+c}+\dfrac{bc}{1+a}+\dfrac{ca}{1+b} \le \dfrac{1}{4}.
+\end{align*}
+\newline
+\textbf{Source: entah ngambil dari Math Stack Exchange tapi lupa}
+\subsection{Solusi}
+\begin{proof}[\textbf{Solusi. }]
+    Perhatikan dengan Cauchy-Schwarz kita punya
+    \begin{align*}
+        \cycsum \dfrac{ab}{1+c} &= \cycsum \dfrac{ab}{a+b+2c}\\
+        &= \cycsum \dfrac{ab}{(c+a)+(b+c)}\\
+        &\le \cycsum \dfrac{ab}{(1+1)^2}\left(\dfrac{1}{a+c} + \dfrac{1}{b+c}\right)\\
+        &= \dfrac{1}{4} \cycsum \left(\dfrac{ab}{a+c} + \dfrac{ab}{b+c}\right)\\
+        &= \dfrac{1}{4}\cycsum \left(\dfrac{ab}{b+c}+\dfrac{ca}{b+c}\right)\\
+        &= \dfrac{1}{4}\cycsum \dfrac{ab+ca}{b+c}\\
+        &= \dfrac{1}{4}\cycsum \dfrac{a(b+c)}{b+c}\\
+        &= \dfrac{1}{4}\cycsum a\\
+        &= \dfrac{1}{4}.
+    \end{align*}
+    dengan kesamaan saat $a=b=c$. Terbukti.
+\end{proof}
+
+\newpage
+\section{Soal 3} Pada segitiga $ABC$, titik $D$ adalah kaki garis tinggi dari $C$. Titik $E$ dan $F$ pada $AC$ dan $BC$, berturut-turut $AE = AD$ dan $BF = BD$. Titik $S$ adalah refleksi $C$ pada titik pusat lingkaran luar $\triangle ABC$. Buktikan bahwa $SE=SF$.
+\newline
+\textbf{Source: Pertama dapet dari Pelatda Jakarta untuk OSK 2024}
+    \begin{center}
+\begin{asy}
+import olympiad;
+import geometry;
+unitsize(1.3cm);
+pair A,B,C,D,S,O,E,F;
+A = (-3,0);
+B = (3,0);
+C = (-1,5);
+D = foot(C,A,B);
+O = circumcenter(A,B,C);
+S = rotate(180,O)*C;
+E = intersectionpoints(line(A,C),Circle(A,abs(A-D)))[0];
+F = intersectionpoints(line(B,C),Circle(B,abs(B-D)))[0];
+draw(A--B--C--cycle);
+draw(C--D);
+draw(C--S);
+draw(E--D--F);
+draw(A--S--B);
+draw(E--S--F, dashed+red);
+draw(Circle(O,0.05),red);
+draw(circumcircle(triangle(A,B,C)));
+draw(rightanglemark(B,D,C,12), purple);
+draw(rightanglemark(S,A,C,12), blue);
+draw(rightanglemark(C,B,S,12), blue);
+
+label("$A$", A, SW);
+label("$B$", B, SE);
+label("$C$", C, N);
+label("$D$", D, S);
+label("$O$", O, NE);
+label("$E$", E, NW);
+label("$F$", F, NE);
+label("$S$", S, SE);
+\end{asy}
+\end{center}
+\subsection{Solusi 1}
+    \begin{proof}[\textbf{Solusi 1. }]
+Perhatikan bahwa $CS$ adalah diameter lingkaran luar $\triangle ABC$ sehingga $\angle CAS = \angle SBC = 90^\circ$. Oleh karena itu, dengan teorema Pythagoras di segitiga $EAS, SBF, CAS, CSB$ akan didapat
+\begin{align*}
+    CS^2 &= CS^2\\
+    AC^2 + AS^2 &= BC^2+BS^2\\
+    AC^2 - CD^2 + AS^2 &= BC^2 - CD^2 + BS^2\\
+    AD^2 + AS^2 &= BD^2 + BS^2\\
+    AE^2 + AS^2 &= BF^2 + BS^2\\
+    SE^2 &= SF^2\\
+    SE &= SF.
+\end{align*}
+Terbukti.
+\end{proof}
+
+\subsection{Solusi 2}
+\begin{proof}[\textbf{Solusi 2. }] 
+Perhatikan bahwa $\angle SAC = \angle CBS = 90^\circ$ karena $CS$ diameter lingkaran $(ACBS)$. Dari sini didapat 
+$$\cos \angle SCF = \cos \angle SCB = \frac{BC}{CS}$$ 
+dan 
+$$\cos \angle ECS = \cos \angle ACS = \frac{AC}{CS}.$$
+
+Dengan dalil cosinus pada $\triangle FCS$ serta teorema Pythagoras di $\triangle CDB$ didapat
+\begin{align*}
+    SF^2 &= CF^2 + CS^2 - 2\cdot CF \cdot CS \cos \angle SCF\\
+    SF^2 &= CF^2 + CS^2 - 2\cdot CF \cdot BC\\
+    SF^2 &= (BC-CF)^2 - BC^2 + CS^2\\
+    SF^2 &= BF^2 - BC^2 + CS^2\\
+    SF^2 &= BD^2 - BC^2 + CS^2\\
+    SF^2 &= -CD^2 + CS^2
+\end{align*}
+Selanjutnya, dengan dalil cosinus pada $\triangle ECS$, serta teorema Pythagoras di $\triangle ADC$ didapat
+\begin{align*}
+    SE^2 &= CE^2 + CS^2 - 2\cdot CE \cdot CS \cos \angle ECS \\
+    SE^2 &= CE^2 + CS^2 - 2\cdot CE \cdot AC\\
+    SE^2 &= (AC-CE)^2 - AC^2 + CS^2\\
+    SE^2 &= AE^2 - AC^2 + CS^2\\
+    SE^2 &= AD^2 - AC^2 + CS^2\\
+    SE^2 &= -CD^2 + CS^2\\
+    SE^2 &= SF^2\\
+    SE &= SF.
+\end{align*}
+Terbukti.
+\end{proof}
+
+\subsection{Solusi 3}
+\begin{proof}[\textbf{Solusi 3. }] 
+Perhatikan bahwa $\angle SAC = \angle CBS = 90^\circ$ karena $CS$ diameter lingkaran $(ACBS)$. Lalu, didapat $\angle BSC = \angle BAC = A$ dan $\angle CSA = \angle CBA = B$ sehingga
+\begin{align*}
+    SB &= \dfrac{BC}{\tan \angle BSC} = \dfrac{BC}{\tan A}\\
+    SA &= \dfrac{AC}{\tan \angle CSA} = \dfrac{AC}{\tan B}
+\end{align*}
+Selanjutnya, observasi $\triangle BDC$ dan $\triangle ADC$ akan didapat
+\begin{align*}
+    BF &= BD = BC \cos B\\
+    AE &= AD = AC \cos A
+\end{align*}
+Oleh karena itu dengan teorema Pythagoras
+\begin{align*}
+    SF^2 &= SB^2 + BF^2 = \dfrac{BC^2}{\tan^2 A} + BC^2 \cos^2 B\\
+    SE^2 &= SA^2 + AE^2 = \dfrac{AC^2}{\tan^2 B} + AC^2 \cos^2 A
+\end{align*}
+Sekarang dengan properti trigonometri dan dalil sinus pada $\triangle ABC$ kita punya
+\begin{align*}
+    1 &= 1\\
+    \dfrac{\cos^2 A}{\cos^2 A} &= \dfrac{\cos^2 B}{\cos^2 B}\\
+    \dfrac{1-\sin^2 A}{\cos^2 A} &= \dfrac{1-\sin^2 B}{\cos^2 B}\\
+    \dfrac{1}{\cos^2 A}+\dfrac{\sin^2 B}{\cos^2 B} &= \dfrac{1}{\cos^2 B}+\dfrac{\sin^2 A}{\cos^2 A}\\
+    \dfrac{1}{\cos^2 A}+\tan^2 B &= \dfrac{1}{\cos^2 B}+\tan^2 A\\
+    1 &= \dfrac{\frac{1}{\cos^2 A}+\tan^2 B}{\frac{1}{\cos^2 B}+\tan^2 A}\\
+    \left(\dfrac{\sin A}{\sin B}\right)^2 &= \dfrac{\sin^2 A\left(\frac{1}{\cos^2 A}+\tan^2 B\right)}{\sin^2 B\left(\frac{1}{\cos^2 B}+\tan^2 A\right)}\\
+    \left(\dfrac{BC}{AC}\right)^2 &= \dfrac{\tan^2 A + \sin^2 A \tan^2 B}{\tan^2 B + \sin^2 B \tan^2 A}\\
+    BC^2(\tan^2 B + \sin^2 B \tan^2 A) &= AC^2(\tan^2 A + \sin^2 A \tan^2 B)\\
+    \dfrac{BC^2(\tan^2 B + \sin^2 B \tan^2 A)}{\tan^2 A \tan^2 B} &= \dfrac{AC^2(\tan^2 A + \sin^2 A \tan^2 B)}{\tan^2 A \tan^2 B}\\
+    \dfrac{BC^2}{\tan^2 A} + BC^2 \cos^2 B &= \dfrac{AC^2}{\tan^2 B} + AC^2 \cos^2 A\\
+    SF^2 &= SE^2\\
+    SF &= SE.
+\end{align*}
+Terbukti.
+\end{proof}
+
+\newpage
+\section{Soal 4} Misalkan $Q(x) = a_0 + a_1x + \dots + a_nx^n$ adalah polinomial dengan koefisien-koefisien bilangan bulat, dan $0 \le a_i < 3$ untuk semua $0 \le i \le n$.
+
+Diketahui bahwa $Q(\sqrt{3}) = 20 + 17\sqrt{3}$, hitunglah nilai $Q(2)$.
+\newline
+\textbf{HMMT 2017}
+
+\subsection{Solusi}
+\begin{proof}[\textbf{Solusi. }] 
+Observasi
+\[ Q(\sqrt{3}) = (a_0 + 3a_2 + 3^2a_4 + \dots) + (a_1 + 3a_3 + 3^2a_5 + \dots)\sqrt{3}. \]
+Oleh karena itu, kita peroleh bahwa
+\[ (a_0 + 3a_2 + 3^2a_4 + \dots) = 20 \quad \text{dan} \quad (a_1 + 3a_3 + 3^2a_5 + \dots) = 17. \]
+Ini bersesuaian dengan ekspansi basis-3 dari 20 dan 17. Dari sini kita dapatkan bahwa $Q(x) = 2+2x+2x^3+2x^4+x^5$, maka $Q(2) = 86$.
+\end{proof}
+
+\end{document}

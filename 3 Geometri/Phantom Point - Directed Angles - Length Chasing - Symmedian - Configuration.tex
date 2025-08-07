@@ -1,0 +1,90 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+\usepackage[most]{tcolorbox}
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\title{Directed Angles, Phantom Point, Excircle Configuration, Length Chasing, Symmedian}
+\author{Azzam Labib (IG: haxuv.world)}
+\date{\today}
+\begin{document}
+\maketitle
+
+Notes: Semakin banyak star ($\star$) semakin sulit (dalam pandangan saya, mungkin menurut kalian bisa berbeda) atau semakin banyak ide / step yang dibutuhkan untuk mengerjakannya.
+
+\begin{enumerate}
+    \item (1$\star$) (OSP 2017) Diberikan segitiga $ABC$ yang ketiga garis tingginya berpotongan di titik $H$. Tentukan semua titik $X$ pada sisi $BC$ sehingga pencerminan $H$ terhadap titik $X$ terletak pada lingkaran luar segitiga $ABC$.
+    
+    \item (2$\star$) Titik $A$ dan $B$ dari segitiga sama sisi $ABC$ berada pada lingkaran $k$ yang berjari-jari 1 dengan titik $C$ berada di dalam lingkaran $k$ tersebut. Sebuah titik $D$ yang berbeda dari titik $B$, berada pada lingkaran $k$ sehingga $AD=AB$. Garis $DC$ memotong lingkaran $k$ untuk yang kedua kalinya di titik $E$. Panjang garis $CE$ adalah $\dots$ %ko ss 30 maret
+
+    \item (3$\star$) Diberikan sebuah segilima $ABCDE$ dengan masing-masing titik sudutnya berada pada satu lingkaran. Jika $AB=DC=3$, $BC=DE=10$, dan $AE=14$. Jika jumlah panjang seluruh diagonal segilima $ABCDE$ tersebut adalah $a$, hitunglah nilai $\floor{a}$.
+
+    \item (2$\star$) (OSP 2018) Titik $M$ terletak pada lingkaran luar segilima beraturan $ABCDE$. Nilai terbesar
+    \[
+    \frac{MB+ME}{MA+MC+MD}
+    \]
+    yang mungkin adalah ...
+
+    \item (3$\star$) (OSP 2018) Misalkan $\Gamma_1$ dan $\Gamma_2$ lingkaran berbeda dengan panjang jari-jari sama dan berturut-turut berpusat di titik $O_1$ dan $O_2$. lingkaran $\Gamma_1$ dan $\Gamma_2$ bersinggungan di titik $P$. Garis $\ell$ melalui $O_1$ menyinggung $\Gamma_2$ di titik $A$. Garis $\ell$ memotong $\Gamma_1$ di titik $X$ dengan $X$ di antara $A$ dan $O_1$. Misalkan $M$ titik tengah $AX$ dan $Y$ titik potong $PM$ dengan $\Gamma_2$ dengan $Y \neq P$. Buktikan $XY$ sejajar $O_1O_2$.
+
+    \item (2 $\star$) (OSN 2018) Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran yang bersinggungan di titik $A$ dengan $\Gamma_2$ di dalam $\Gamma_1$. Misalkan $B$ titik pada $\Gamma_2$ dan garis $AB$ memotong $\Gamma_1$ di titik $C$. Misalkan $D$ titik pada $\Gamma_1$ dan $P$ sebarang titik pada garis $CD$ (boleh pada perpanjangan segmen $CD$). Garis $BP$ memotong $\Gamma_2$ di titik $Q$. Tunjukkan bahwa $A, D, P, Q$ terletak pada satu lingkaran.
+
+    \item (3$\star$) (OSP 2019) Diberikan segitiga $ABC$, dengan $AC > BC$, dan lingkaran luarnya yang berpusat di $O$. Misalkan $M$ adalah titik pada lingkaran luar segitiga $ABC$ sehingga $CM$ adalah garis bagi $\angle ACB$. Misalkan $\Gamma$ adalah lingkaran berdiameter $CM$. Garis bagi $\angle BOC$ dan garis bagi $\angle AOC$ memotong $\Gamma$ berturut-turut di $P$ dan $Q$. Jika $K$ adalah titik tengah $CM$, buktikan bahwa $P, Q, O, K$ terletak pada satu lingkaran.
+
+    \item (5$\star$) (OSN 2018) Misalkan $I$ dan $O$ masing-masing menyatakan titik pusat lingkaran dalam dan lingkaran luar segitiga $ABC$. Lingkaran singgung luar $\omega_A$ dari segitiga $ABC$ menyinggung sisi $BC$ di $N$ serta menyinggung perpanjangan sisi $AB$ dan $AC$ masing-masing di $K$ dan $M$. Jika titik tengah dari ruas garis $KM$ berada pada lingkaran luar segitiga $ABC$, buktikan bahwa $O, I$ dan $N$ segaris.
+
+    \item (5$\star$) (Korea MO 2022) Let $ABC$ be an acute triangle with circumcenter $O$, and let $D$, $E$, and $F$ be the feet of altitudes from $A$, $B$, and $C$ to sides $BC$, $CA$, and $AB$, respectively. Denote by $P$ the intersection of the tangents to the circumcircle of $ABC$ at $B$ and $C$. The line through $P$ perpendicular to $EF$ meets $AD$ at $Q$, and let $R$ be the foot of the perpendicular from $A$ to $EF$. Prove that $DR$ and $OQ$ are parallel.
+
+    \item (4$\star$) (All-Russian 2022) Given triangle $ABC$ with incenter $I$ and $A$-excenter $J$. Circle $\omega_b$ centered at point $O_b$ passes through point $B$ and is tangent to line $CI$ at point $I$. Circle $\omega_c$ with center $O_c$ passes through point $C$ and touches line $BI$ at point $I$. Let $O_bO_c$ and $IJ$ intersect at point $K$. Find the ratio $IK/KJ$.
+
+    \item (5$\star$) (OSP 2016) Misalkan $PA$ dan $PB$ adalah garis singgung lingkaran $\omega$ dari suatu titik $P$ di luar lingkaran. Misalkan $M$ adalah sebarang titik pada $AP$ dan $N$ adalah titik tengah $AB$. Perpanjangan $MN$ memotong $\omega$ di $C$ dengan $N$ di antara $M$ dan $C$. Misalkan $PC$ memotong $\omega$ di $D$ dan perpanjangan $ND$ memotong $PB$ di $Q$. Tunjukkan bahwa $MQ$ sejajar dengan $AB$.
+
+    \item (2$\star$) (Math Prize for Girls 2011) Let $\triangle ABC$ be a triangle with $AB=3$, $BC=4$, and $AC=5$. Let $I$ be the center of the circle inscribed in $\triangle ABC$. What is the product of $AI \cdot BI \cdot CI$?
+
+    \item (2$\star$) (Ray Li) In triangle $ABC$, $BC=9$. Points $P$ and $Q$ are located on $BC$ such that $BP=PQ=2$, $QC=5$. The circumcircle of $\triangle APQ$ cuts $AB, AC$ at $D, E$ respectively. If $BD=CE$, then find $\frac{AB}{AC}$.
+
+    \item (2$\star$) (CMIMC 2017) In acute triangle $ABC$, points $D$ and $E$ are the feet of the angle bisector and altitude from $A$ respectively. Suppose that $AC-AB=36$ and $DC-DB=24$. Compute $EC-EB$.
+
+    \item (3$\star$) (OMO 2013, Evan Chen) Let $ABXC$ be a parallelogram. Points $K,P,Q$ lie on $\overline{BC}$ in this order such that $BK = \frac{1}{5}KC$ and $BP=PQ=QC = \frac{1}{3}BC$. Rays $XP$ and $XQ$ meet $\overline{AB}$ and $\overline{AC}$ at $D$ and $E$, respectively. Suppose that $\overline{AK} \perp \overline{BC}$, $\overline{EK}-\overline{DK}=9$ and $BC=60$. Find $AB+AC$.
+
+    \item (2$\star$) (NIMO 11) In triangle $ABC$, $\sin A \sin B \sin C = \frac{1}{1000}$ and $AB \cdot BC \cdot CA = 1000$. What is the area of triangle $ABC$? 
+
+    \item (2$\star$) Two circles, $\omega_1$ and $\omega_2$, have radii of 5 and 12 respectively, and their centers are 13 units apart. The circles intersect at two different points $P$ and $Q$. A line $\ell$ is drawn through $P$ and intersects the circle $\omega_1$ at $X \neq P$ and $\omega_2$ at $Y \neq P$. Find the maximum value of $PX \cdot PY$.
+
+    \item (3$\star$) (HMMT 2004) Right triangle $XYZ$ has right angle at $Y$ and $XY=228, YZ=2004$. Angle $Y$ is trisected, and the angle trisectors intersect $XZ$ at $P$ and $Q$ so that $X, P, Q,$ and $Z$ lie on $XZ$ in that order. Find the value of $(PY+YZ)(QY+XY)$.
+
+    \item (3$\star$) (CMIMC 2017) Two circles $\omega_1$ and $\omega_2$ are said to be \textit{orthogonal} if they intersect each other at right angles. In other words, for any point $P$ lying on both $\omega_1$ and $\omega_2$, if $\ell_1$ is the line tangent to $\omega_1$ at $P$ and $\ell_2$ is the line tangent to $\omega_2$ at $P$, then $\ell_1 \perp \ell_2$. (Two circles which do not intersect are not orthogonal.)
+    
+    \item (4$\star$) Let $\triangle ABC$ be a triangle with area 20. Orthogonal circles $\omega_B$ and $\omega_C$ are drawn with $\omega_B$ centered at $B$ and $\omega_C$ centered at $C$. Points $T_B$ and $T_C$ are placed on $\omega_B$ and $\omega_C$ respectively such that $AT_B$ is tangent to $\omega_B$ and $AT_C$ is tangent to $\omega_C$. If $AT_B=7$ and $AT_C=11$, what is $\tan \angle BAC$?
+
+\end{enumerate}
+
+
+\end{document}

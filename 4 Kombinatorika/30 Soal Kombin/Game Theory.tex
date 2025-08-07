@@ -110,17 +110,22 @@ Setelah observasi tersebut, mudah ditunjukkan dengan bagi kasus sederhana bahwa 
 \end{soaljawab}
 
 \begin{soaljawab}
-Ada tiga ember kosong di atas meja. Anya, Loid, dan Yor meletakkan kenari satu per satu ke dalam ember secara bergantian, dengan urutan yang ditentukan oleh Loid di awal permainan. Dengan demikian, Anya meletakkan kenari di ember pertama atau kedua, Loid meletakkan di ember kedua atau ketiga, dan Yor meletakkan di ember pertama atau ketiga. Pemain yang setelah gilirannya membuat ada tepat 2023 kenari di salah satu ember dinyatakan sebagai pemain yang kalah. Tunjukkan bahwa Anya dan Yor dapat bekerja sama sehingga membuat Loid kalah.
+Ada tiga ember kosong di atas meja. Anya, Loid, dan Yor meletakkan kenari satu per satu ke dalam ember secara bergantian, dengan urutan yang ditentukan oleh Loid di awal permainan. Dengan demikian, Anya meletakkan kenari di ember pertama atau kedua, Loid meletakkan kenari di ember kedua atau ketiga, dan Yor meletakkan kenari di ember pertama atau ketiga. Pemain yang setelah gilirannya membuat ada tepat 2023 kenari di salah satu ember dinyatakan sebagai pemain yang kalah. Tunjukkan bahwa Anya dan Yor dapat bekerja sama sehingga membuat Loid kalah.
     \begin{solusi}
-        Perhatikan bahwa mau bagaimanapun urutannya (kita akan menyebut urutan tiga putaran yang dimulai dengan pemain awal sebagai siklus), Anya dan Yor memiliki strategi untuk membuat Loid kalah.
-        
-        Pada setiap giliran Anya, jika tidak ada tepat $2022$ biji kenari di ember kedua, maka ia akan menambahkan satu ke dalamnya. Begitu juga, pada setiap giliran Yor, jika tidak ada tepat $2022$ biji kenari di ember ketiga, maka ia akan menambahkan satu ke dalamnya. 
-        
-        Biji kenari pertama akan ditambahkan ke ember pertama hanya jika salah satu dari Yor dan Anya tidak bisa memainkan di ember dua atau tiga. Karena paling banyak dua biji kenari yang bisa ditambahkan ke dalam ember pada setiap siklus, ini baru bisa terjadi setelah $1011$ siklus penuh. Pada saat ini, harus ada $2022$ biji kenari di ember dua atau ember tiga, dan setidaknya $1011$ biji kenari di yang lain. 
-        
-        Sekarang, misalkan siapapun dari Yor atau Anya masih bisa memasukkan biji kenari ke dalam ember milik Loid sampai ada $2022$ biji kenari di ember itu. Hal ini harus terjadi sebelum $506$ siklus penuh karena setiap siklus menambahkan dua biji kenari ke dalam ember yang tersebut, sehingga menyisakan $1011+2022+2(506)=2022+2023$ biji kenari di gabungan ember dua dan tiga, sehingga memaksa salah satu ember harus memiliki $2023$ biji kenari. 
-        
-        Anya dan Yor dapat memastikan bahwa ada paling banyak $506<2023-2$ biji kenari di ember pertama pada saat ini, yang berarti keduanya dapat memanipulasi ember satu dan memaksa Loid untuk melewati $2023$ sehingga Loid dinyatakan kalah.
+        (Credit to Mikail Savero)
+        Definisikan satu siklus sebagai satu putaran permainan yang dilakukan masing-masing dari ketiga orang tersebut secara berurutan (dalam urutan tertentu) dengan Loid mengawali satu siklus.
+
+        Untuk setiap giliran, definisikan tupel banyaknya kenari $(x,y,z)$ dimana $x,y,z$ berturut-turut adalah banyaknya biji kenari di ember kesatu, kedua, dan ketiga. Berarti di awal, banyaknya kenari adalah $(0,0,0)$. 
+
+        Misalkan banyaknya kenari sesaat sebelum siklus saat ini adalah $(x,y,z)$. Akan ditunjukkan bahwa Anya dan Yor dapat bekerja sama menjadikan banyaknya kenari menjadi $(x+1,y+1,z+1)$. Perhatikan, terlepas dari giliran mereka bertiga, jika Loid meletakkan kenari di ember kedua, maka Anya dapat meletakkan kenari di ember pertama dan Yor dapat meletakkan kenari di ember ketiga. Lalu, jika Loid meletakkan kenari di ember ketiga, maka Anya dapat meletakkan kenari di ember kedua dan Yor dapat meletakkan kenari di ember pertama. Kedua kasus tersebut akan membuat banyaknya kenari menjadi $(x+1, y+1, z+1)$. Kita definisikan langkah mengubah $(x,y,z)$ menjadi $(x+1,y+1,z+1)$ sebagai langkah netral.
+
+        Selanjutnya, tinjau giliran-giliran pertama dari permainan tersebut. Jika Loid mempunyai giliran pertama, artinya Anya dan Yor dapat bekerja sama untuk mengimplementasi langkah netral berkali-kali sehingga banyaknya kenari menjadi $(2022,2022,2022)$. Dari sini, untuk giliran selanjutnya, pasti Loid mau tidak mau meletakkan kenari ke 2023 ke salah satu ember kedua atau ketiga. Loid kalah.
+
+        Jika Loid giliran kedua, WLOG giliran pertama adalah giliran Anya. Ia meletakkan kenari ke ember kedua sehingga banyaknya kenari menjadi $(0,1,0)$. Dengan mengaplikasikan langkah netral berkali-kali, banyaknya kenari bisa menjadi $(2020,2021,2020)$. Dari sini, Anya bisa meletakkan kenari ke ember kedua menjadi $(2020,2022,2020)$. Jika Loid meletakkan kenari di ember ketiga, maka Loid kalah. Maka asumsikan Loid meletakkan kenari di ember ketiga menjadi $(2020,2022,2021)$. Selanjutnya, Yor meletakkan kenari di ember ketiga sehingga menjadi $(2020,2022,2022)$. Lalu, Anya meletakkan kenari ke ember ketiga menjadi $(2020,2022,2022)$. Dari sini, mau bagaimanapun Loid bergerak, pasti dia akan meletakkan kenari ke 2023 di ember kedua atau ketiga.
+
+        Jika Loid giliran ketiga, Anya dan Yor masing-masing dapat meletakkan kenari ke ember kedua dan ketiga di giliran pertama dan kedua, menjadi $(0,1,1)$. Dengan menerapkan langkah netral berkali-kali, dapat diperoleh $(2021,2022,2022)$. Dari sini, mau bagaimanapun Loid bergerak, pasti dia akan meletakkan kenari ke 2023 di ember kedua atau ketiga.
+
+        Terbukti, apapun pilihan yang dibuat Loid dalam gilirannya, Anya dan Yor dapat bekerja sama untuk membuat Loid kalah.
     \end{solusi}
 \end{soaljawab}
 

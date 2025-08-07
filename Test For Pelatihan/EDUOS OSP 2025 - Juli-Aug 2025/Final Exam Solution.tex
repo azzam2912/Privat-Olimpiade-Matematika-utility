@@ -1,0 +1,288 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[sexy]{evan}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{tkz-euclide}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\dangle}{\measuredangle}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+% \addtolength{\topmargin}{-0.2in}
+% \addtolength{\textheight}{1in} 
+
+
+\setlength{\parindent}{0pt}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\usepackage[most]{tcolorbox}
+
+\title{Solusi Final Exam}
+\author{Compiled by Azzam}
+
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Isian}
+\begin{enumerate}[resume]
+    \item Giaa memilih secara acak satu bilangan dari himpunan $\{1,-1\}$, lalu menulis bilangan yang dipilihnya di papan tulis. Proses tersebut dilakukan 2021 kali. Jika $p$ adalah peluang di mana hasil kali ke-2021 angka di papan tulis adalah positif, tentukan nilai dari $100p$.
+
+    \begin{jawaban}
+        50
+    \end{jawaban}
+    \begin{solusi}
+        Misalkan peluang bahwa hasil kali 2020 angka pertama bernilai 1 adalah $j$. Maka, peluang hasil kali 2020 angka pertama bernilai $-1$ adalah komplemennya yaitu $1-j$. Lalu, peluang angka ke-2021 bernilai 1 sama dengan peluang angka ke-2021 bernilai $-1$, yaitu $\frac{1}{2}$. Dengan fakta-fakta tersebut didapat peluang seluruh hasil kalinya bernilai positif (angka ke-2020 adalah 1 dan angka ke-2021 adalah 1 atau angka ke-2020 adalah $-1$ dan angka ke-2021 adalah $-1$) adalah $p=\frac{1}{2}j+\frac{1}{2}(1-j) = \frac{1}{2}$. Sehingga $100p = 50$. \qed
+    \end{solusi}
+	
+	
+    \item Misalkan $a_n$ dan $b_n$ berturut-turut menyatakan banyaknya digit dari $4^n$ dan $25^n$. Tentukan nilai dari $a_1+a_2+\dots +a_{50}+b_{50}+\dots+b_1$.
+    \begin{jawaban}
+        2600
+    \end{jawaban}
+    \begin{solusi}
+        Observasi bahwa banyaknya digit dari sebuah bilangan bulat positif $k$ adalah $\floor{\log k}+1$. Berdasarkan sifat logaritma kita punya $\log 4^n + \log 25^n = \log (4^n25^n) = \log (100^n) = 2n$. Lalu, diketahui juga bahwa $\log 4^n$ dan $\log 25^n$ tidak bernilai bulat. Akibatnya $\floor{\log 4^n}+\floor{\log 25^n} = 2n-1$. Oleh karena itu, didapat $a_n+b_n =\floor{\log 4^n}+1+\floor{\log 25^n}+1= 2n+1$, yang menyebabkan $$\sum_{n=1}^{50}(a_n+b_n)=\sum_{n=1}^{50}(2n+1)=2\sum_{n=1}^{50}(n)+50=2\left(\frac{50(50+1)}{2}\right)+50=2600.$$ \qed
+    \end{solusi}
+	
+	
+    \item Diberikan segitiga $ABC$ dengan panjang sisi $BC,CA,$ dan $AB$ berturut-turut adalah $11,13,$ dan $20$. Misalkan $I$ adalah titik pusat lingkaran dalam segitiga $ABC$. Luas segitiga yang ketiga titik sudutnya adalah titik berat dari segitiga $ABI,BCI$ dan $ACI$ dapat dinyatakan dalam bentuk $\frac{a}{b}$, dengan $a$ dan $b$ adalah bilangan asli yang relatif prima. Tentukan nilai dari $a+b$.
+
+    \begin{jawaban}
+	25
+    \end{jawaban}
+    \begin{solusi}
+	Misalkan $s$ adalah setengah kali nilai keliling segitiga $ABC$ yang mana pada soal ini $s = \frac12(11+13+20) = 22$. Dengan rumus Heron, didapatkan bahwa luas $\triangle ABC$ adalah $$[ABC]=\sqrt{s(s-a)(s-b)(s-c)}=\sqrt{22(22-11)(22-13)(22-11)}=66.$$
+	Misalkan $D,E,F$ berturut-turut adalah titik tengah dari sisi $BC,CA,AB$. 
+    \begin{lemmarev}[1]
+        $\triangle DEF$ sebangun dengan $\triangle ABC$ dimana $AB:DE=BC:EF=CA:FD=2:1$.
+    \end{lemmarev}
+		
+    \begin{lemmarev}[2]
+        Rasio luas berbanding lurus dengan kuadrat rasio sisi atau kuadrat skala dilatasi.
+    \end{lemmarev}
+    Oleh karena itu  $[DEF]=\dfrac{1}{2^2}[ABC]=\dfrac{66}{4}$.
+		
+	Sekarang misalkan titik-titik berat $\triangle BCI, \triangle CAI, \triangle ABI$ berturut-turut adalah $D,E,F$. 
+		
+    \begin{lemmarev}[3]
+        Jika $AM$ adalah garis berat $\triangle ABC$ dengan $G$ titik berat, maka $AG:GM = 2:1$.
+    \end{lemmarev}
+		
+	Maka $IX:ID=IY:IE=IZ:IF=2:3$. Dari Lemma (2), karena $\triangle XYZ$ adalah hasil dilatasi $\triangle DEF$ dengan skala $\frac{2}{3}$ dengan pusat $I$, maka $[XYZ]=\left (\frac{2}{3}\right)^2\times [DEF]=\frac{4}{9}\times\frac{66}{4}=\frac{22}{3}.$ Berarti $a+b=22+3=25$.
+		
+    \end{solusi}
+    
+    \item Sebuah papan berukuran $5 \times 5$ dibagi menjadi 25 kotak satuan. Bilangan-bilangan $1,2,3,4,$ dan $5$ dituliskan pada kotak satuan tersebut sedemikian sehingga setiap baris, setiap kolom, dan setiap diagonal yang mengandung lima bilangan hanya diisi oleh masing-masing dari bilangan tersebut sekali saja. Misalkan $S$ adalah jumlah bilangan pada empat kotak yang terletak di bawah kedua diagonal. Tentukan nilai terbesar $S$.
+    \begin{jawaban}
+	17
+    \end{jawaban}
+    \begin{solusi}
+	Perhatikan bahwa 3 kotak yang terletak di baris paling bawah harus berisi angka yang berbeda. Karena itu, jumlah maksimal dari 3 kotak tersebut adalah $5+4+3=12$. Jika kotak ketiga dari kiri pada baris keempat berisikan angka $5$, jumlah total maksimal dari 4 kotak yang berada di bawah kedua diagonal adalah $5+12=17$. Perhatikan bahwa total nilai 17 ini dapat diraih dengan konfigurasi seperti pada gambar di bawah.
+    \begin{center} 
+    \begin{tabular}{ |c|c|c|c|c| }
+        \hline
+        5 & 3 & 1 & 2 & 4 \\
+        \hline
+        3 & 4 & 2 & 5 & 1 \\
+        \hline
+        2 & 1 & 3 & 4 & 5 \\
+        \hline
+        4 & 2 & \cellcolor{green!30}5 & 1 & 3 \\
+        \hline
+        1 &\cellcolor{green!30}5 &\cellcolor{green!30}4 &\cellcolor{green!30}3 & 2 \\
+        \hline
+    \end{tabular}
+    \end{center}
+    \end{solusi}
+	
+    \item Misalkan $X = 3 + 33 + 333 + \dots + \underbrace{333 \dots 333}_{2016 \text{ angka } 3}$ dan $Y$ adalah jumlah digit dari $X$. Tentukanlah nilai $Y$.
+    \begin{jawaban}
+        6741
+    \end{jawaban}
+    \begin{solusi}
+        Misalkan fungsi $f$ yang didefinisikan dengan $f(n)=\underbrace{333\dots 333}_{n \text{ angka } 3}$. Perhatikan bahwa nilai $f(k)=\frac{1}{3}\times \underbrace{999 \dots 999}_{k \text{ angka } 9} = \frac{1}{3}\times (10^k-1)$. Akibatnya, $$f(k-2)+f(k-1)+f(k)=\frac{1}{3}\times (10^{k-2}-1)+\frac{1}{3}\times (10^{k-1}-1)+\frac{1}{3}\times (10^k-1)=37\times 10^{k-2}-1.$$
+        
+        Oleh karena itu, didapatkan 
+        \begin{align*}
+        X &= (f(1)+f(2)+f(3))+(f(4)+f(5)+f(6))+\dots+(f(2014)+f(2013)+f(2012)) \\
+        &= (37 \times 10^1 -1)+(37 \times 10^4 -1)+ \dots + (37 \times 10^{2014}-1)\\
+        &= 37(10^1+10^4+\dots+10^{2014})-(1+1+\dots+1)\\
+        &= \underbrace{370370\dots 370370}_{672 \text{ buah } 370} - 672\\
+        &= \underbrace{370370\dots 370370}_{670 \text{ buah } 370}369698
+        \end{align*}
+        jadi, jumlahan digit-digitnya adalah $670 \times (3+7+0)+3+6+9+6+9+8=6741$.
+    \end{solusi}
+	
+\end{enumerate}
+
+\newpage
+\section{Esai}
+\begin{enumerate}[resume]
+    \item Diberikan $\triangle ABC$ dimana $A',B',C'$ berturut-turut adalah pencerminan $A,B,C$ terhadap $BC,CA,AB$. Perpotongan lingkaran luar $\triangle ABB'$ dan $\triangle ACC'$ adalah $A_1$. Definisikan $B_1$ dan $C_1$ secara serupa. Buktikan bahwa $AA_1,BB_1,$ dan $CC_1$ konkuren (bertemu di satu titik).
+    \begin{solusi}
+		Notasikan $\dangle$ sebagai sudut berarah atau \textit{ directed angle} modulo $180^\circ$, dan $\angle$ sebagai sudut biasa.
+
+        \begin{center}
+        \begin{tikzpicture}[scale=1.5, dot/.style={circle, fill, inner sep=0.3pt, outer sep=0pt}]
+
+        % Definisikan titik-titik A, B, C (contoh segitiga sama sisi)
+        \tkzDefPoint(0,0){C}
+        \tkzDefPoint(2,0){B}
+        \tkzDefPoint(0.5,1.7){A}
+        
+        % lingkaran luar (circumcircle)
+        \tkzDefTriangleCenter[circum](A,B,C)\tkzGetPoint{O}
+        \tkzDrawCircle[thin](O,A)
+        \tkzDrawPoint(O)
+        \tkzLabelPoints(O)
+        
+        % Definisikan titik A', B', C'
+        \tkzDefPointBy[reflection = over B--C](A)
+        \tkzGetPoint{Ap}
+        \tkzDefPointBy[reflection = over C--A](B)
+        \tkzGetPoint{Bp}
+        \tkzDefPointBy[reflection = over A--B](C)
+        \tkzGetPoint{Cp}
+
+        % definisikan circumcircle lain
+        \tkzDefTriangleCenter[circum](A,B,Bp)
+        \tkzGetPoint{ABBp}
+        \tkzDefTriangleCenter[circum](A,C,Cp)
+        \tkzGetPoint{ACCp}
+
+        \tkzInterCC(ABBp,A)(ACCp,A) \tkzGetPoints{A2}{A1}
+        \tkzDrawPoints(A1)
+        \tkzLabelPoint[below](A1){$A_1$}
+        
+        \tkzDefTriangleCenter[circum](B,C,Cp)
+        \tkzGetPoint{BCCp}
+        \tkzDefTriangleCenter[circum](B,A,Ap)
+        \tkzGetPoint{BAAp}
+        
+        \tkzInterCC(BCCp,B)(BAAp,B)
+        \tkzGetPoints{B2}{B1}
+        \tkzDrawPoints(B1)
+        \tkzLabelPoint[below](B1){$B_1$}
+        
+        \tkzDefTriangleCenter[circum](C,A,Ap)
+        \tkzGetPoint{CAAp}
+        \tkzDefTriangleCenter[circum](C,B,Bp)
+        \tkzGetPoint{CBBp}
+        
+        \tkzInterCC(CAAp,C)(CBBp,C)
+        \tkzGetPoints{C2}{C1}
+        \tkzDrawPoints(C1)
+        \tkzLabelPoint[below](C1){$C_1$}
+
+        \tkzDrawCircles[thin, dotted, red](ABBp,A ACCp,A)
+        \tkzDrawCircles[thin, dotted](BAAp,B BCCp,B)
+        \tkzDrawCircles[thin, dotted, cyan](CAAp,C CBBp,C)
+
+        % A_B, A_C, dll
+        \tkzInterLC[common=A](A,C)(ABBp,A)
+        \tkzGetFirstPoint{Ab}
+        \tkzLabelPoint(Ab){$A_B$}
+        \tkzInterLC[common=A](A,B)(ACCp,A)
+        \tkzGetFirstPoint{Ac}
+        \tkzLabelPoint(Ac){$A_C$}
+        
+        \tkzInterLC[common=B](B,C)(BAAp,B)
+        \tkzGetFirstPoint{Ba}
+        \tkzLabelPoint(Ba){$B_A$}
+        \tkzInterLC[common=B](B,A)(BCCp,B)
+        \tkzGetFirstPoint{Bc}
+        \tkzLabelPoint(Bc){$B_C$}
+
+        \tkzInterLC[common=C](C,A)(CBBp,C)
+        \tkzGetFirstPoint{Cb}
+        \tkzLabelPoint(Cb){$C_B$}
+        \tkzInterLC[common=C](C,B)(CAAp,C)
+        \tkzGetFirstPoint{Ca}
+        \tkzLabelPoint(Ca){$C_A$}
+
+        \tkzDrawPolygon(A,B,C)
+        \tkzDrawSegments[thin, green](C,Ab C,Ba  A,Bc A,Cb B,Ca B,Ac)
+        \tkzDrawSegments[thin, blue](A,A B,Bp C,Cp)
+        \tkzDrawSegments[thin, dashed, red](A,A1 B,B1 C,C1)
+
+        \tkzDrawSegments[thick](Ab,Ac Ab,B Ac,C)
+
+        \tkzInterLL(C,Ac)(B,Ab)
+        \tkzGetPoint{Ha}
+        \tkzLabelPoint(Ha){$H_A$}
+        \tkzDrawPoints(A,B,C,Ap,Bp,Cp)
+        \tkzLabelPoints[above](A)
+        \tkzLabelPoints[below](B,C)
+        \tkzLabelPoint[right](Ap){$A'$}
+        \tkzLabelPoint[left](Bp){$B'$}
+        \tkzLabelPoint[below](Cp){$C'$}
+        
+        
+        
+        \end{tikzpicture}
+        \end{center}
+		
+		Misalkan $AC$ berpotongan dengan lingkaran $(ABB')$ untuk kedua kalinya di $A_B$ dan misalkan $AB$ berpotongan dengan lingkaran $(ACC')$ untuk kedua kalinya di $A_C$. Perhatikan karena $B'$ adalah hasil pencerminan $B$ terhadap $AA_B$, maka $AA_B$ adalah diameter lingkaran $(ABA_BB')$ sehingga  $BA_B \perp AB$. Dengan cara yang serupa dapat diperoleh bahwa juga bahwa $AA_C$ adalah diameter lingkaran $(ACA_CC')$ sehingga $CA_C \perp AC$.
+		
+		Dari fakta-fakta tersebut, didapat $\dangle A_BA_1A = \dangle AA_1A_C = 90^\circ$, maka $A_B, A_1, A_C$ segaris dan juga didapat bahwa $AA_1$ adalah garis tinggi $\triangle AA_BA_C$.
+		
+		Sekarang, misalkan $H_A$ adalah perpotongan antara $CA_C$ dan $BA_B$, maka $\angle ACH_A = \angle H_ABA = 90^\circ$ yang mengakibatkan $H_A$ adalah titik tinggi $\triangle AA_CA_B$ sekaligus $AH_A$ menjadi diameter lingkaran luar $\triangle ABC$. Karena $AA_1$ adalah garis tinggi $\triangle AA_BA_C$, maka $H_A$ berada di garis $AA_1$.
+		
+		Definisikan $H_B$ dan $H_C$ secara serupa dengan definisi $H_A$,maka didapat pula bahwa $H_B$ dan $H_C$ berturut-turut berada di garis $BB_1$ dan $CC_1$. Oleh karena itu, $AH_A$, $BH_B$, dan $CH_C$ adalah diameter lingkaran luar $\triangle ABC$, maka didapat $AH_A$, $BH_B$, dan $CH_C$ berpotongan di satu titik yaitu pusat lingkaran. Karena $A_1,B_1,C_1$ berturut-turut ada di garis $AH_A$, $BH_B$, $CH_C$ maka hal ini berakibat $AA_1$, $BB_1$, dan $CC_1$ berpotongan di satu titik. \qed
+    \end{solusi}
+
+    \item Diberikan polinomial $f(x)=x^n+a_1x^{n-1}+\dots+a_{n-1}x+a_n$ dengan koefisien bilangan bulat. Lalu, diketahui bahwa ada empat bilangan bulat berbeda $a,b,c,$ dan $d$ sehingga $f(a)=f(b)=f(c)=f(d)=5$. Tunjukkan bahwa tak ada bilangan bulat $k$ sehingga $f(k)=8$.
+    \begin{solusi}
+        Misalkan polinomial $g(x)$ sehingga $g(x)=f(x)-5$. Berarti $a,b,c,d$ adalah akar-akar dari polinomial $g(x)$ sehingga dapat kita misalkan $g(x)=p(x)(x-a)(x-b)(x-c)(x-d)$ untuk suatu polinomial $p(x)$.
+        
+        Andaikan ada $k \in \ZZ$ sehingga $f(k)=8$. Berarti haruslah $g(k)=f(k)-5=3$. Selanjutnya, karena $f(x)$ berkoefisien bulat, berarti $g(x)$ juga berkoefisien bulat. Alhasil, karena $g(k)=3$, berarti pada $3=g(k)=p(k)(k-a)(k-b)(k-c)(k-d)$ haruslah \\$p(k), (k-a), (k-b), (k-c), (k-d) \in \{-1,1,-3,3\}.$
+        
+        \begin{itemize}
+        \item Jika $p(k)=\pm 3$, berarti $(k-a), (k-b), (k-c), (k-d) \in \{-1,1\}$ yang menurut PHP, haruslah setidaknya ada dua diantara mereka bernilai sama, kontradiksi dengan fakta bahwa $a,b,c,d$ semuanya berbeda.
+                        
+        \item Jika $p(k)=\pm 1$, misalkan tanpa mengurangi keumuman $(k-a)=\pm3$. Berarti $(k-b), (k-c), (k-d) \in \{-1,1\}$ yang menurut PHP, haruslah setidaknya ada dua diantara mereka bernilai sama, kontradiksi dengan fakta bahwa $a,b,c,d$ semuanya berbeda.
+        \end{itemize}
+        
+        Berarti terbukti bahwa tak ada bilangan bulat $k$ sehingga $f(k)=8$. \qed
+    \end{solusi}
+
+    \newpage
+    \item Setelah show di teater TGR48, ketiga member: Intan, Giaa, dan Fritzy tiba-tiba terpikir untuk memainkan permainan "Dialog Dengan Kenari".
+    
+    Ada tiga ember kosong di atas meja. Intan, Giaa, dan Fritzy meletakkan kenari satu per satu ke dalam ember secara bergantian, dengan urutan yang ditentukan oleh Giaa di awal permainan. Dengan demikian, Intan meletakkan kenari di ember pertama atau kedua, Giaa meletakkan di ember kedua atau ketiga, dan Fritzy meletakkan di ember pertama atau ketiga. Pemain yang setelah gilirannya membuat ada tepat 2023 kenari di salah satu ember dinyatakan sebagai pemain yang kalah. Tunjukkan bahwa Intan dan Fritzy dapat bekerja sama sehingga membuat Giaa kalah.
+    \begin{solusi}
+        (Credit to Mikail Savero)
+        Definisikan satu siklus sebagai satu putaran permainan yang dilakukan masing-masing dari ketiga orang tersebut secara berurutan (dalam urutan tertentu) dengan Giaa mengawali satu siklus.
+
+        Untuk setiap giliran, definisikan tupel banyaknya kenari $(x,y,z)$ dimana $x,y,z$ berturut-turut adalah banyaknya biji kenari di ember kesatu, kedua, dan ketiga. Berarti di awal, banyaknya kenari adalah $(0,0,0)$. 
+
+        Misalkan banyaknya kenari sesaat sebelum siklus saat ini adalah $(x,y,z)$. Akan ditunjukkan bahwa Intan dan Fritzy dapat bekerja sama menjadikan banyaknya kenari menjadi $(x+1,y+1,z+1)$. Perhatikan, terlepas dari giliran mereka bertiga, jika Giaa meletakkan kenari di ember kedua, maka Intan dapat meletakkan kenari di ember pertama dan Fritzy dapat meletakkan kenari di ember ketiga. Lalu, jika Giaa meletakkan kenari di ember ketiga, maka Intan dapat meletakkan kenari di ember kedua dan Fritzy dapat meletakkan kenari di ember pertama. Kedua kasus tersebut akan membuat banyaknya kenari menjadi $(x+1, y+1, z+1)$. Kita definisikan langkah mengubah $(x,y,z)$ menjadi $(x+1,y+1,z+1)$ sebagai langkah netral.
+
+        Selanjutnya, tinjau giliran-giliran pertama dari permainan tersebut. Jika Giaa mempunyai giliran pertama, artinya Intan dan Fritzy dapat bekerja sama untuk mengimplementasi langkah netral berkali-kali sehingga banyaknya kenari menjadi $(2022,2022,2022)$. Dari sini, untuk giliran selanjutnya, pasti Giaa mau tidak mau meletakkan kenari ke 2023 ke salah satu ember kedua atau ketiga. Giaa kalah.
+
+        Jika Giaa giliran kedua, WLOG giliran pertama adalah giliran Intan. Ia meletakkan kenari ke ember kedua sehingga banyaknya kenari menjadi $(0,1,0)$. Dengan mengaplikasikan langkah netral berkali-kali, banyaknya kenari bisa menjadi $(2020,2021,2020)$. Dari sini, Intan bisa meletakkan kenari ke ember kedua menjadi $(2020,2022,2020)$. Jika Giaa meletakkan kenari di ember ketiga, maka Giaa kalah. Maka asumsikan Giaa meletakkan kenari di ember ketiga menjadi $(2020,2022,2021)$. Selanjutnya, Fritzy meletakkan kenari di ember ketiga sehingga menjadi $(2020,2022,2022)$. Lalu, Intan meletakkan kenari ke ember ketiga menjadi $(2020,2022,2022)$. Dari sini, mau bagaimanapun Giaa bergerak, pasti dia akan meletakkan kenari ke 2023 di ember kedua atau ketiga.
+
+        Jika Giaa giliran ketiga, Intan dan Fritzy masing-masing dapat meletakkan kenari ke ember kedua dan ketiga di giliran pertama dan kedua, menjadi $(0,1,1)$. Dengan menerapkan langkah netral berkali-kali, dapat diperoleh $(2021,2022,2022)$. Dari sini, mau bagaimanapun Giaa bergerak, pasti dia akan meletakkan kenari ke 2023 di ember kedua atau ketiga.
+
+        Terbukti, apapun pilihan yang dibuat Giaa dalam gilirannya, Intan dan Fritzy dapat bekerja sama untuk membuat Giaa kalah.
+    \end{solusi}
+\end{enumerate}
+
+\end{document}
