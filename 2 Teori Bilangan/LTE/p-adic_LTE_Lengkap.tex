@@ -1,12 +1,63 @@
 \documentclass[11pt]{scrartcl}
 \usepackage[hagavi]{azzam}
 
-\title{LTE - Soal Latihan}
+\title{p-adic Valuation and LTE}
+\date{\today}
 
 \begin{document}
 \maketitle
-\section{\textit{p-adic valuation}}
+
+\section{Materi Singkat}
+\subsection{p-adic valuation (pengantar LTE)}
 \begin{enumerate}
+    \item $p$ bilangan prima. $x \in \ZZ$. Didefinisikan \textbf{p-adic valuation} dari $x$ sebagai pangkat tertinggi dari $p$ yang membagi $x$. Notasinya adalah $\upsilon_p(x)=a$ berarti $p^a \mid x$ tetapi $p^{a+1} \nmid x$.
+    \item $\upsilon_p(xy) = \upsilon_p(x) + \upsilon_p(y)$.
+    \item $\upsilon_p(x^k)=k\upsilon_p(x)$.
+    \item $x \mid y$ maka $\upsilon_p(x) \le \upsilon_p(y)$.
+    \item $\upsilon_p(x+y) \ge \min(\upsilon_p(x),\upsilon_p(y))$.
+    \item Jika $\upsilon_p(x) \neq \upsilon_p(y)$ maka $\upsilon_p(x+y) = \min(\upsilon_p(x),\upsilon_p(y))$.
+\end{enumerate}
+
+\subsection{Legendre}
+\begin{enumerate}
+    \item Untuk semua bilangan bulat positif $n$ dan bilangan prima $p$, berlaku
+\begin{align*}
+    \upsilon_p(n!) = \sum_{i=1}^{\infty} \floor{\frac{n}{p^i}}.
+\end{align*}
+
+    \item Untuk semua bilangan bulat positif $n$ dan bilangan prima $p$, berlaku
+\begin{align*}
+    \upsilon_p(n!) = \dfrac{n-s_p(n)}{p-1}
+\end{align*}
+    dimana $s_p(n)$ menyatakan jumlah digit-digit $n$ dalam basis $p$.
+\end{enumerate}
+
+Coba buktikan \textbf{Lemma Kecil Berikut} yang dapat membantu banyak hal di kehidupan LTE anda :).
+
+\begin{enumerate}[resume]
+    \item Diberikan sembarang $x,y$ bilangan bulat dan $n$ bilangan asli. Misal $p$ merupakan sembarang bilangan prima sehingga $gcd(n,p)=1$ dan $p|x-y$ namun $p\nmid x$ dan $p\nmid y$. Maka
+    \[\upsilon_p(x^n-y^n) = \upsilon_p(x-y)\]
+    \item Diberikan sembarang $x,y$ bilangan bulat dan $n$ bilangan asli ganjil. Misal $p$ merupakan sembarang bilangan prima sehingga $gcd(n,p)=1$ dan $p|x+y$ namun $p\nmid x$ dan $p\nmid y$. Maka
+    \[\upsilon_p(x^n+y^n) = \upsilon_p(x+y)\]
+\end{enumerate}
+
+\subsection{LTE (Lifting The Exponent)}
+\begin{enumerate}
+    \item [Lemma 1] $x,y \in \ZZ$, $n \in \NN$, $p$ bilangan prima ganjil dengan $p \mid x-y$, $p \nmid x$, dan $p \nmid y$ maka $\upsilon_p(x^n-y^n)=\upsilon_p(x-y)+\upsilon_p(n)$.
+    \item [Lemma 2] $x,y \in \ZZ$, $n \in \NN$ bilangan ganjil, $p$ bilangan prima ganjil dengan $p \mid x+y$, $p \nmid x$, dan $p \nmid y$ maka $\upsilon_p(x^n+y^n)=\upsilon_p(x+y)+\upsilon_p(n)$.
+    \item [Lemma 3] $x,y \in \ZZ$, $n \in \NN$, $2 \nmid x$, $2 \nmid y$,  $4 \mid x-y$  maka $v_2(x^n-y^n)=v_2(x+y)+v_2(n)$.
+    \item [Lemma 4] $x,y \in \ZZ$, $n \in \NN$ bilangan genap, $2 \nmid x$, $2 \nmid y$,  $2 \mid x-y$ maka $v_2(x^n-y^n)=v_2(x+y)+v_2(x-y)+v_2(n)-1$.
+\end{enumerate}
+
+\section{Latihan Soal}
+\subsection{\textit{p-adic valuation}}
+\begin{enumerate}
+    \item Carilah nilai $\upsilon_3(17!)$.
+    \item Tentukan banyak angka 0 berturut-turut di belakang angka $103!$ .
+    \item Buktikan bahwa $\upsilon_2(\binom{2n}{n})$ bernilai sama dengan banyaknya angka $1$ pada representasi biner dari $n$.
+    \item Diberikan bilangan komposit $n$ dan $p$ pembagi prima dari $n$. Buktikan $\upsilon_p((2n)!) \geq 2+\upsilon_p(n!)$.
+    \item Buktikan apabila $3^n-2^n$ merupakan perpangkatan dari suatu bilangan prima ($p^a$), maka $n$ merupakan bilangan prima.
+    
     \item Prove that $\displaystyle\sum_{i=1}^{n} \dfrac{1}{i}$ is not an integer for $n \geq 2$.
     
     \item Prove that $\displaystyle\sum_{i=1}^{n} \dfrac{1}{2i+1}$ is not an integer for $n \geq 2$.
@@ -27,17 +78,9 @@
     (b) Using (a) or otherwise, prove that \[ \frac{(5m)!(5n)!}{m!n!(3m+n)!(3n+m)!}\] is integral for all positive integral $ m$ and $ n$. 
 
     \item (IMO 1968) Let $n$ be a natural number. Prove that\[ \left\lfloor \frac{n+2^0}{2^1} \right\rfloor + \left\lfloor \frac{n+2^1}{2^2} \right\rfloor +\cdots +\left\lfloor \frac{n+2^{n-1}}{2^n}\right\rfloor =n. \]
-    
-    \item Carilah nilai $\upsilon_3(17!)$.
-    
-    \item Tentukan banyak angka 0 berturut-turut di belakang angka $103!$ .
-    
-    \item Buktikan bahwa $\upsilon_2(\binom{2n}{n})$ bernilai sama dengan banyaknya angka $1$ pada representasi biner dari $n$.
-    
-    \item Diberikan bilangan komposit $n$ dan $p$ pembagi prima dari $n$. Buktikan $\upsilon_p((2n)!) \geq 2+\upsilon_p(n!)$.
 \end{enumerate}
 
-\section{LTE}
+\subsection{LTE}
 \begin{enumerate}[resume]
     \item Let $p > 2013$ be a prime. Also, let $a$ and $b$ be positive integers such that $p|(a + b)$ but $p^2 \nmid  (a + b)$. If $p^2|(a^{2013} + b^{2013})$ then find the number of positive integer $n \leq 2013$ such that $p^n|(a^{2013} + b^{2013})$.
     
