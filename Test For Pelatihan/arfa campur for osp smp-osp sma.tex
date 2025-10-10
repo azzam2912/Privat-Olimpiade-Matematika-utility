@@ -1,0 +1,161 @@
+\documentclass[11pt]{article}
+\usepackage[hagavi]{azzam}
+% %japanese
+\usepackage{CJKutf8}
+\begin{CJK*}{UTF8}{min}
+\title{Arfa の事前テスト}
+\end{CJK*}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{min}
+	
+	\date{Minggu, 5 Oktober 2025}
+	\author{Compiled by Azzam}
+	\maketitle
+	
+	\begin{soalbaru}
+	%ahsme 1989
+	Misalkan $x$ adalah bilangan real yang dipilih secara acak diantara 100 dan 200. Jika $\floor{\sqrt{x}}=12$, carilah peluang terjadinya $\floor{\sqrt{100x}}=120$.
+	\end{soalbaru}
+
+    \begin{soalbaru}
+        Sebuah bilangan palindrom 6 digit dengan digit terakhir 4 merupakan hasil perkalian antara dua atau lebih bilangan asli berurutan. Hitunglah hasil penjumlahan digit-digit palindrom tersebut.
+    \end{soalbaru}
+
+    \begin{soalbaru}
+        % smo 2024 junior
+        Misalkan $a$, $b$ dan $c$ adalah bilangan real yang memenuhi $a + b + c = 8$ dan $ab + bc + ca = 0$.
+Tentukan nilai maksimum dari $3(a + b)$.
+    \end{soalbaru}
+
+    \begin{soalbaru}
+    Misalkan $A$ adalah himpunan 9 sembarang bilangan asli yang faktor primanya adalah anggota dari himpunan $\{3,7,11\}$. Buktikan bahwa terdapat setidaknya dua anggota $A$ sehingga hasil kalinya merupakan bilangan kuadrat sempurna.
+\end{soalbaru}
+
+\begin{soalbaru}
+    Misalkan himpunan $A \subset \{1,2,3,\dots,4040\}$ dengan $|A| = 2021$. Tunjukkan bahwa ada dua elemen berbeda $a,b \in A$ sehingga $a \mid b$.
+\end{soalbaru}
+	
+	\begin{soalbaru}
+	% geometri hayattir
+	Diberikan segitiga $ABC$ siku-siku di $B$.Misalkan $D$ dan $E$ berturut-turut di segmen $AC$ dan $BC$ sedemikian sehingga $\angle EDC= 90^\circ$ dan $\angle CED = \angle AEB$. Jika $AE = 24$ dan $CE=EB$, tentukan panjang $DE$.
+	\end{soalbaru}
+	
+	\begin{soalbaru}
+	%ahsme 1988 prob 22
+	Berapa banyak bilangan bulat $n$ sehingga terdapat segitiga lancip yang mempunyai sisi $10,24$, dan $n$?
+	\end{soalbaru}
+
+        \begin{soalbaru}
+        Carilah semua solusi real dari sistem persamaan berikut
+	\begin{align*}
+		x+y &= \sqrt{4z-1} \\
+		y+z &= \sqrt{4x-1} \\
+		z+x &= \sqrt{4y-1}
+	\end{align*}
+    \end{soalbaru}
+
+    \begin{soalbaru}
+        % ksr 2021
+        Diberikan segitiga sama kaki $ABC$ dengan $AB=AC$. Titik $D$ dan $E$ berturut-turut merupakan titik tengah $AC$ dan $BC$, dan $M$ titik tengah $DE$. Jika $AM$ memotong $BC$ di $F$, buktikan bahwa $AF = 2 \cdot DF$.\\
+
+\usetikzlibrary{decorations.markings, arrows.meta} % Untuk tanda segmen yang sama panjang
+
+% Definisi untuk tanda segmen yang sama panjang (seperti di sketsa)
+\tikzset{
+    seg mark/.style={
+        decoration={markings, mark=at position 0.5 with {\draw[#1] (-2pt,-2pt) -- (2pt,2pt) (2pt,-2pt) -- (-2pt,2pt);}},
+        postaction={decorate}
+    },
+    seg mark half/.style={
+        decoration={markings, mark=at position 0.5 with {\draw[#1] (0pt,-2pt) -- (0pt,2pt);}},
+        postaction={decorate}
+    },
+    seg mark double/.style={
+        decoration={markings, mark=at position 0.5 with {\draw[#1] (-2pt,-2pt) -- (-2pt,2pt) (2pt,-2pt) -- (2pt,2pt);}},
+        postaction={decorate}
+    },
+    seg mark triple/.style={
+        decoration={markings, mark=at position 0.5 with {\draw[#1] (-4pt,-2pt) -- (-2pt,2pt) (0pt,-2pt) -- (0pt,2pt) (2pt,-2pt) -- (4pt,2pt);}},
+        postaction={decorate}
+    },
+}
+
+\begin{tikzpicture}[scale=1]
+    % 1. Definisikan segitiga sama kaki ABC (AB=AC)
+    \tkzDefPoint(0,0){B}
+    \tkzDefPoint(4,0){C}
+    \tkzDefPoint(2,4){A} % Titik A di tengah-tengah atas BC
+    
+    % Gambar segitiga ABC
+    \tkzDrawPolygon(A,B,C)
+
+    % 2. D adalah titik tengah AC, E adalah titik tengah BC, K titik tengah AB
+    \tkzDefMidPoint(A,C)\tkzGetPoint{D}
+    \tkzDefMidPoint(B,C)\tkzGetPoint{E}
+    
+    % 3. M adalah titik tengah DE
+    \tkzDefMidPoint(D,E)\tkzGetPoint{M}
+    
+    % 4. F adalah perpotongan AM dan BC
+    \tkzInterLL(A,M)(B,C)\tkzGetPoint{F}
+    
+    % Garis-garis yang menghubungkan titik-titik konstruksi
+    \tkzDrawSegments(A,D D,E A,M D,F M,F)
+    
+    % Gambar lingkaran luar ADM (yang akan disentuh oleh DF)
+    \tkzDefCircumCenter(A,D,M)\tkzGetPoint{O_ADM}
+    \tkzDrawCircle[blue](O_ADM,A) % Gambar lingkaran luar ADM
+    
+    % --- TANDA SEGMEN SAMA PANJANG ---
+    %\tkzDrawSegments[seg mark half=black](A,B A,C) % AB=AC
+    \tkzDrawSegments[seg mark=black](A,D D,C) % D midpoint AC
+    \tkzDrawSegments[seg mark half=black](B,E E,C) % E midpoint BC
+    \tkzDrawSegments[seg mark triple=black](D,M M,E) % M midpoint DE
+
+
+    % --- LABEL TITIK ---
+    \tkzDrawPoints[size=4, fill=black](A,B,C,D,E,M,F)
+    \tkzLabelPoints[above](A)
+    \tkzLabelPoints[below left](B)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[right](D)
+    \tkzLabelPoints[below](E,F)
+    \tkzLabelPoints[right](M)
+        
+    % --- ANGKA DARI SKETSA (jika perlu) ---
+    % \tkzLabelSegment[below](B,E){3} % Contoh angka
+    % \tkzLabelSegment[below](E,F){1}
+    % \tkzLabelSegment[below](F,C){2}
+    % \tkzLabelSegment[left](N,M){2}
+    % \tkzLabelSegment[right](D,M){2}
+    
+\end{tikzpicture}
+    \end{soalbaru}
+
+	\begin{soalbaru}
+	%aime 1986
+	Polinomial $1-x+x^2-x^3+\cdots+x^{16}-x^{17}$ dapat ditulis dalam bentuk $a_0+a_1y+a_2y^2+\cdots +a_{16}y^{16}+a_{17}y^{17}$, dimana $y=x+1$ dan semua $a_i$ adalah konstanta. Nilai dari $a_2$ adalah$\dots$
+	\end{soalbaru}
+ 
+	\begin{soalbaru}
+	%bmc bary
+	Segitiga $ABC$ mempunyai lingkaran luar $\Omega$. Garis bagi dalam $\angle A$ memotong sisi $BC$ dan $\Omega$ secara beruturut-turut di $D$ dan $L$ (selain $A$). Misalkan $M$ adalah titik tengah sisi $BC$. Lingkaran luar $\triangle  ADM$ memotong sisi $AB$ dan $AC$ di $Q$ dan $P$ (selain $A$) secara berutrut-turut. Jika $N$ adalah titik tengah segmen $PQ$, tunjukkan bahwa $MN \parallel AD$. 
+	\end{soalbaru}
+
+
+    \begin{soalbaru}
+        % taiwan
+		Sebuah polinomial $P(x)=x^3+ax^2+bx+c$ mempunyai tiga akar real yang berbeda. Polinomial $P(Q(x))$ tidak mempunyai akar real dimana $Q(x)=x^2+x+2001$. Buktikan bahwa $P(2001)>\frac{1}{64}$.
+    \end{soalbaru}	
+
+    \begin{soalbaru} 
+    Misalkan $p$ adalah bilangan prima. Buktikan bahwa $p \mid ab^p - ba^p$ untuk sembarang bilangan bulat positif $a$ dan $b$.
+\end{soalbaru}
+
+\end{CJK*}
+\end{document}
+
+
+
