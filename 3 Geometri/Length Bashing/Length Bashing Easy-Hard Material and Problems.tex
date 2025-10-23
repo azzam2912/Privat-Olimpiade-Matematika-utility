@@ -1,38 +1,7 @@
 \documentclass[11pt]{scrartcl}
-\usepackage{graphicx}
-\graphicspath{{./}}
-\usepackage[sexy]{evan}
-\usepackage[normalem]{ulem}
-\usepackage{hyperref}
-\usepackage{mathtools}
-\usetikzlibrary{calc}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdfpagemode=FullScreen,
-    }
+\usepackage[hagavi]{azzam}
 
-\renewcommand{\dangle}{\measuredangle}
-
-\renewcommand{\baselinestretch}{1.5}
-
-\addtolength{\oddsidemargin}{-0.4in}
-\addtolength{\evensidemargin}{-0.4in}
-\addtolength{\textwidth}{0.8in}
-% \addtolength{\topmargin}{-0.2in}
-% \addtolength{\textheight}{1in} 
-
-
-\setlength{\parindent}{0pt}
-
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
-\usepackage{mathrsfs}
-\usetikzlibrary{arrows}
-
-\title{Length Bashing: Easier Version}
+\title{Length Bashing in OSN SMA}
 \author{Azzam (IG: haxuv.world)}
 \date{\today}
 
@@ -44,7 +13,7 @@
 
 \newpage
 
-\section{Cara Halal dan Suci}
+\section{Cara Suci}
 Misalkan sebuah segitiga $ABC$ memiliki panjang sisi $AB=c$, $BC=a$, dan $CA=b$. Circumcenter dan incenternya masing-masing $O$ dan $I$. Serta panjang circumradius dan inradiusnya masing-masing $R$ dan $r$. $s=\frac{1}{2}(a+b+c)$. (gambar sendiri yah, saya malas gambar :) )
 
 \subsection{Teorema Pythagoras}
@@ -79,6 +48,7 @@ Salah satu teorema paling terkenal di kalangan awam (atau setidaknya di pop cult
     \item $\tan(a \pm b) = \dfrac{\tan a \pm \tan b}{1 \mp \tan a \tan b}$.
 \end{enumerate}
 
+
 \subsubsection{Dalil Sinus dan Dalil Cosinus}
 \begin{center}
     \begin{tikzpicture}
@@ -105,6 +75,21 @@ Salah satu teorema paling terkenal di kalangan awam (atau setidaknya di pop cult
         BC^2 &= CA^2 + AB^2 - 2\cdot CA \cdot AB \cdot \cos \angle A\\
         CA^2 &= AB^2 + BC^2 - 2\cdot AB \cdot BC \cdot \cos \angle B
     \end{align*}
+
+    \subsubsection{Latihan Soal Rumus Trigonometri}
+    \begin{enumerate}
+        \item (OSK SMA 2022) Diberikan segitiga $ABC$ seperti di gambar, dengan panjang $AB = 2BC$ dan $BD = CD$. Jika luas segitiga $DEC$ adalah 10, luas dari segitiga $AFE$ adalah \dots
+    
+    	\item Jika $A+B=45^\circ$ dan $\cos A\sin B=\frac{\sqrt{2}}{6}$, maka $\cos(B-A)=\dots$
+    	
+    	\item Nilai dari $\cos \dfrac{\pi}{7}\cdot \cos \dfrac{2\pi}{7} \cdot \cos \dfrac{4\pi}{7}$ adalah \dots
+    	
+    	\item Pada segitiga $ABC$, buktikan bahwa $\tan A + \tan B + \tan C = \tan A \tan B \tan C$.
+    	
+    	\item Tentukan nilai eksak dari $\tan 1^\circ \cdot \tan 2^\circ \cdot \tan 3^\circ \cdot \ldots \cdot \tan 89^\circ$.
+    	
+    	\item (OSK SMA 2005) Nilai dari $\sin^8 75^\circ - \cos^8 75^\circ$ adalah \dots
+    \end{enumerate}
 
 \subsection{Dalil Stewart}
     Pada segitiga $ABC$ dengan titik $D$ pada segmen $BC$, dimana $AB=c, BC=a, CA=b, AD=d, BD=m, CD=n$, maka berlaku
@@ -290,52 +275,8 @@ Jika $P$ berada di luar $\Gamma$ dan $E$ berada di $\Gamma$ sehingga $PE$ bersin
 \subsubsection{Euler's Theorem}
 Rumusnya aja yah: $OI^2=R^2-2Rr$. Intinya diturunin pake Power of A Point.
 
-\newpage
-\subsection{Sampel Soal}
-\begin{enumerate}
-    \item (OSK SMP 2016) Diketahui $ABCD$ dan $CEGH$ adalah dua persegipanjang kongruen dengan panjang $17$ cm, dan lebar $8$ cm. Titik $E$ berada di sisi $AB$ dan $D$ berada di sisi $GH$. Titik $F$ adalah titik potong sisi $AD$ dan $EG$. Luas segiempat $EFDC$ adalah .... $cm^2$.
-
-    \item Misalkan $ABC$ adalah segitiga lancip. Titik $D$, $E$, dan $F$ terletak pada sisi $BC$, $CA$, dan $AB$, berturut-turut, sedemikian sehingga $AD$, $BE$, dan $CF$ adalah garis tinggi segitiga $ABC$. Titik $H$ adalah titik tinggi segitiga $ABC$. Jika $DE = 8$, $DF = 15$, dan $EF = 17$, tentukan panjang $AH$.
-
-    \item (OSK 2015) Diberikan segitiga $ABC$ dengan sudut $\angle ABC = 90^\circ$. Lingkaran $L_1$ dengan $AB$ sebagai diameter sedangkan lingkaran $L_2$ dengan $BC$ sebagai diameternya. Kedua lingkaran $L_1$ dan $L_2$ berpotongan di $B$ dan $P$. Jika $AB = 5$, $BC = 12$ dan $BP = x$ maka nilai dari $\frac{240}{x}$ adalah \ldots
-
-    \item (OSK 2022) Diberikan segitiga $ABC$ siku-siku di B. Titik $D$ berada pada sisi $AB$ dan titik $E$ berada pada sisi $AC$. Diketahui $DE$ sejajar $BC$. Jika $AD = 21$, $DB = 3$, dan $BC = 32$, maka panjang $AE$ adalah \dots
-    
-    \item Let $ABC$ be a triangle with $\angle BAC = 60^\circ$. Let $AP$ bisect $\angle BAC$ and let $BQ$ bisect $\angle ABC$, with $P$ on $BC$ and $Q$ on $AC$. If $AB + BP = AQ + QB$, what are the angles of the triangle?
-
-    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
-
-    \item (OSK 2015) Pada segitiga $ABC$, garis tinggi $AD$, garis bagi $BE$ dan garis berat $CF$ berpotongan di satu titik. Jika panjang $AB = 4$ dan $BC = 5$, dan $CD = \frac{m^2}{n^2}$ dengan $m$ dan $n$ relatif prima, maka nilai dari $m - n$ adalah \ldots
-
-        \item Dalam segitiga $ABD$, $F$ berada pada segmen $AD$, $E$ berada pada sinar $BF$, $G$ berada pada segmen $BD$, dan $C$ adalah titik perpotongan dari $FG$ dan $ED$. Diketahui bahwa $AB = 15$, $BD = 18$, $AF = 15$, $DF = 12$, $BE = 24$, dan $CF = 17$. Temukan rasio $BG : FG$.
-    % https://drive.google.com/drive/search?q=parent:0B-4OltLGFEDFeG92VENBbmdZODA%20type:pdf%20menelaus
-
-    \item (OSK 2022) Diberikan $ABC$ siku-siku sama kaki dengan $BC=AB$. Misalkan $L$ titik tengah $BC$ dan $P$ pada sisi $AC$ sehingga $BP \perp AL$. Jika $CP=30\sqrt{2}$, maka panjang $AB$ adalah \ldots
-
-    \item Diberikan segitiga $ABC$ dengan panjang $BC = 36$. Misalkan $D$ adalah titik tengah $BC$ dan $E$ adalah titik tengah $AD$. Misalkan pula bahwa $F$ adalah perpotongan $BE$ dengan $AC$. Jika diketahui bahwa $AB$ menyinggung lingkaran luar segitiga $BFC$, hitunglah panjang $BF$.
-
-    \item Diberikan sebuah segiempat siklis $ABCD$ dengan $ABC$ adalah segitiga sama sisi. Jika $AD=2$ dan $CD=3$, panjang $BD=\dots$
-
-        \item (OSK 2016) Pada segitiga $ABC$, titik $M$ terletak pada $BC$ sehingga $AB=7, AM=3, BM=5$, dan $MC=6$. Panjang $AC$ adalah \dots
-
-    \item (HMMT 1999) Dalam segitiga $ABD$, $F$ berada pada segmen $AD$, $E$ berada pada sinar $BF$, $G$ berada pada segmen $BD$, dan $C$ adalah titik perpotongan dari $FG$ dan $ED$. Diketahui bahwa $AB = 15$, $BD = 18$, $AF = 15$, $DF = 12$, $BE = 24$, dan $CF = 17$. Temukan rasio $BG : FG$.
-    % https://drive.google.com/drive/search?q=parent:0B-4OltLGFEDFeG92VENBbmdZODA%20type:pdf%20menelaus
-
-    \item (\textbf{Soal Legend: OSK 2011,2012,2013,2018}) Diberikan segitiga $ABC$ dan lingkaran $\Gamma$ yang berdiameter $AB$ . Lingkaran $\Gamma$ memotong sisi $AC$ dan $BC$ berturut-turut di titik $D$ dan $E$. Jika $AD = \frac13 AC, BE =\frac14 BC$ dan $AB = 30$, maka luas segitiga $ABC$ adalah \dots
-
-    \item (OSN SL 2010) Pada segitiga $ABC$, misalkan $D$ adalah titik tengah $BC$, dan $BE$, $CF$ adalah garis tinggi. Buktikan bahwa $DE$ dan $DF$ keduanya adalah garis singgung lingkaran luar $\triangle AEF$. %(OSN SL 2010) 
-
-    %AIME 2016 I and AIME 2016 I
-    \item (AIME 2016 I) Misalkan $\triangle ABC$ adalah segitiga lancip dengan lingkaran $\omega,$ dan misalkan $H$ adalah titik potong dari garis tinggi $\triangle ABC.$ Garis singgung lingkaran luar $\triangle HBC$ di $H$ memotong $\omega$ pada titik $X$ dan $Y$ dengan $HA=3,HX=2,$ dan $HY=6.$ Carilah luas dari $\triangle ABC$.
-
-    \item (AIME 2016 I) Lingkaran $\omega_1$ dan $\omega_2$ bertemu di titik $X$ dan $Y$. Garis $\ell$ menyinggung lingkaran $\omega_1$ dan $\omega_2$ di $A$ dan $B$, berturut-turut, dengan garis $AB$ lebih dekat ke titik $X$ daripada $Y$. Lingkaran $\omega$ yang melewati $A$ dan $B$, memotong $\omega_1$ lagi di $D \neq A$ dan memotong $\omega_2$ lagi di $C \neq B$. Ketiga titik $C$, $Y$, $D$ segaris dengan $XC = 67$, $XY = 47$, dan $XD = 37$. Carilah panjang $AB$.
-\end{enumerate}
-
-
-\newpage
 \section{Analit Tidak Suci: Coordinate Bashing}
-\subsection{Rumus-rumus}
-Tidak semua, tapi cukup banyak:
+Tidak semua, tapi cukup banyak rumus:
 \begin{itemize}
     \item Persamaan garis yang menghubungkan titik $(x_1, y_1)$ dan titik $(x_2, y_2)$:
     \[ y - y_1 = m(x - x_1) \quad \text{dimana} \quad m = \frac{y_2 - y_1}{x_2 - x_1} \text{ adalah kemiringan garis.} \]
@@ -362,8 +303,38 @@ Tidak semua, tapi cukup banyak:
     \right| \]
 \end{itemize}
 
-\subsection{Sampel Soal}
+\section{Soal Latihan Mudah}
 \begin{enumerate}
+    \item (OSK SMP 2016) Diketahui $ABCD$ dan $CEGH$ adalah dua persegipanjang kongruen dengan panjang $17$ cm, dan lebar $8$ cm. Titik $E$ berada di sisi $AB$ dan $D$ berada di sisi $GH$. Titik $F$ adalah titik potong sisi $AD$ dan $EG$. Luas segiempat $EFDC$ adalah .... $cm^2$.
+
+    \item Misalkan $ABC$ adalah segitiga lancip. Titik $D$, $E$, dan $F$ terletak pada sisi $BC$, $CA$, dan $AB$, berturut-turut, sedemikian sehingga $AD$, $BE$, dan $CF$ adalah garis tinggi segitiga $ABC$. Titik $H$ adalah titik tinggi segitiga $ABC$. Jika $DE = 8$, $DF = 15$, dan $EF = 17$, tentukan panjang $AH$.
+
+    \item (OSK SMA 2015) Diberikan segitiga $ABC$ dengan sudut $\angle ABC = 90^\circ$. Lingkaran $L_1$ dengan $AB$ sebagai diameter sedangkan lingkaran $L_2$ dengan $BC$ sebagai diameternya. Kedua lingkaran $L_1$ dan $L_2$ berpotongan di $B$ dan $P$. Jika $AB = 5$, $BC = 12$ dan $BP = x$ maka nilai dari $\frac{240}{x}$ adalah \ldots
+
+    \item (OSK SMA 2022) Diberikan segitiga $ABC$ siku-siku di B. Titik $D$ berada pada sisi $AB$ dan titik $E$ berada pada sisi $AC$. Diketahui $DE$ sejajar $BC$. Jika $AD = 21$, $DB = 3$, dan $BC = 32$, maka panjang $AE$ adalah \dots
+    
+    \item Let $ABC$ be a triangle with $\angle BAC = 60^\circ$. Let $AP$ bisect $\angle BAC$ and let $BQ$ bisect $\angle ABC$, with $P$ on $BC$ and $Q$ on $AC$. If $AB + BP = AQ + QB$, what are the angles of the triangle?
+
+    \item (AMC 2004 10B) A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+
+    \item (OSK SMA 2015) Pada segitiga $ABC$, garis tinggi $AD$, garis bagi $BE$ dan garis berat $CF$ berpotongan di satu titik. Jika panjang $AB = 4$ dan $BC = 5$, dan $CD = \frac{m^2}{n^2}$ dengan $m$ dan $n$ relatif prima, maka nilai dari $m - n$ adalah \ldots
+
+        \item Dalam segitiga $ABD$, $F$ berada pada segmen $AD$, $E$ berada pada sinar $BF$, $G$ berada pada segmen $BD$, dan $C$ adalah titik perpotongan dari $FG$ dan $ED$. Diketahui bahwa $AB = 15$, $BD = 18$, $AF = 15$, $DF = 12$, $BE = 24$, dan $CF = 17$. Temukan rasio $BG : FG$.
+    % https://drive.google.com/drive/search?q=parent:0B-4OltLGFEDFeG92VENBbmdZODA%20type:pdf%20menelaus
+
+    \item (OSK SMA 2022) Diberikan $ABC$ siku-siku sama kaki dengan $BC=AB$. Misalkan $L$ titik tengah $BC$ dan $P$ pada sisi $AC$ sehingga $BP \perp AL$. Jika $CP=30\sqrt{2}$, maka panjang $AB$ adalah \ldots
+
+    \item Diberikan segitiga $ABC$ dengan panjang $BC = 36$. Misalkan $D$ adalah titik tengah $BC$ dan $E$ adalah titik tengah $AD$. Misalkan pula bahwa $F$ adalah perpotongan $BE$ dengan $AC$. Jika diketahui bahwa $AB$ menyinggung lingkaran luar segitiga $BFC$, hitunglah panjang $BF$.
+
+    \item Diberikan sebuah segiempat siklis $ABCD$ dengan $ABC$ adalah segitiga sama sisi. Jika $AD=2$ dan $CD=3$, panjang $BD=\dots$
+
+    \item (OSK SMA 2016) Pada segitiga $ABC$, titik $M$ terletak pada $BC$ sehingga $AB=7, AM=3, BM=5$, dan $MC=6$. Panjang $AC$ adalah \dots
+
+    \item (HMMT 1999) Dalam segitiga $ABD$, $F$ berada pada segmen $AD$, $E$ berada pada sinar $BF$, $G$ berada pada segmen $BD$, dan $C$ adalah titik perpotongan dari $FG$ dan $ED$. Diketahui bahwa $AB = 15$, $BD = 18$, $AF = 15$, $DF = 12$, $BE = 24$, dan $CF = 17$. Temukan rasio $BG : FG$.
+    % https://drive.google.com/drive/search?q=parent:0B-4OltLGFEDFeG92VENBbmdZODA%20type:pdf%20menelaus
+
+    \item (\textbf{Soal Legend: OSK SMA 2011,2012,2013,2018}) Diberikan segitiga $ABC$ dan lingkaran $\Gamma$ yang berdiameter $AB$ . Lingkaran $\Gamma$ memotong sisi $AC$ dan $BC$ berturut-turut di titik $D$ dan $E$. Jika $AD = \frac13 AC, BE =\frac14 BC$ dan $AB = 30$, maka luas segitiga $ABC$ adalah \dots
+    
     \item (PUMAC 2016) Let $ABCD$ be a square with side length 8. Let $M$ be the midpoint of $BC$ and let $\omega$ be the circle passing through $M$, $A$, and $D$. Let $O$ be the center of $\omega$, $X$ be the intersection point (besides $A$) of $\omega$ with $AB$, and $Y$ be the intersection point of $OX$ and $AM$. Find the length $OY$.
 
     \item (AMC 2004 10B) In the right triangle $\triangle ACE$, we have $AC = 12$, $CE = 16$, and $EA = 20$. Points $B$, $D$, and $F$ are located on $AC$, $CE$, and $EA$, respectively, so that $AB = 3$, $CD = 4$, and $EF = 5$. What is the ratio of the area of $\triangle DBF$ to that of $\triangle ACE$?
@@ -394,6 +365,36 @@ Tidak semua, tapi cukup banyak:
 
 
     \item (PUMAC 2018) Consider rectangle $ABCD$ with $AB = 30$ and $BC = 60$. Construct circle $T$ whose diameter is $AD$. Construct circle $S$ whose diameter is $AB$. Let circles $T$ and $S$ intersect at $P$, so that $P \neq A$. Let $AP$ intersect $BC$ at $E$. Let $F$ be the point on $AB$ so that $EF$ is tangent to the circle with diameter $AD$. Find the area of $\triangle AEF$.
+\end{enumerate}
+
+\section{Soal Latihan Medium - Susah}
+\begin{enumerate}
+    \item (OSN SMA SL 2010) Pada segitiga $ABC$, misalkan $D$ adalah titik tengah $BC$, dan $BE$, $CF$ adalah garis tinggi. Buktikan bahwa $DE$ dan $DF$ keduanya adalah garis singgung lingkaran luar $\triangle AEF$. %(OSN SMA SL 2010) 
+
+    %AIME 2020 I and AIME 2016 I
+    \item (AIME 2020 I) Misalkan $\triangle ABC$ adalah segitiga lancip dengan lingkaran luar $\omega,$ dan misalkan $H$ adalah titik potong dari garis tinggi $\triangle ABC.$ Garis singgung lingkaran luar $\triangle HBC$ di $H$ memotong $\omega$ pada titik $X$ dan $Y$ dengan $HA=3,HX=2,$ dan $HY=6.$ Carilah luas dari $\triangle ABC$.
+
+    \item (AIME 2016 I) Lingkaran $\omega_1$ dan $\omega_2$ bertemu di titik $X$ dan $Y$. Garis $\ell$ menyinggung lingkaran $\omega_1$ dan $\omega_2$ di $A$ dan $B$, berturut-turut, dengan garis $AB$ lebih dekat ke titik $X$ daripada $Y$. Lingkaran $\omega$ yang melewati $A$ dan $B$, memotong $\omega_1$ lagi di $D \neq A$ dan memotong $\omega_2$ lagi di $C \neq B$. Ketiga titik $C$, $Y$, $D$ segaris dengan $XC = 67$, $XY = 47$, dan $XD = 37$. Carilah panjang $AB$.
+
+    \item In acute triangle $ABC$ angle $B$ is greater than $C$. Let $M$ is midpoint of $BC$. $E$ and $F$ are the feet of the altitudes from $B$ and $C$ respectively. $K$ and $L$ are midpoint of $ME$ and $MF$ respectively. If $KL$ intersect the line through $A$ parallel to $BC$ in $P$, prove that $PA = PM$.
+    
+    \item (OSN SMA 2003) Diketahui segitiga $ABC$ siku-siku di $C$ dengan panjang sisi-sisinya merupakan bilangan bulat. Tentukan panjang sisi-sisi segitiga tersebut jika hasil kali dari dua sisi yang bukan sisi miring sama dengan tiga kali keliling segitiga.
+
+    \item (OSN SMA 2005) Misalkan $M$ suatu titik di dalam segitiga $ABC$ sedemikian rupa hingga $\angle AMC = 90^\circ$, $\angle AMB = 150^\circ$ dan $\angle BMC = 120^\circ$. Titik pusat lingkaran luar dari segitiga-segitiga $AMC$, $AMB$ dan $BMC$ berturut-turut adalah $P$, $Q$ dan $R$. Buktikan bahwa luas segitiga $PQR$ lebih besar dari luas segitiga $ABC$.
+
+    \item (OSN SMA 2006) Misalkan $S$ adalah himpunan semua segitiga $ABC$ yang memenuhi sifat: $\tan A$, $\tan B$ dan $\tan C$ adalah bilangan-bilangan asli. Buktikan bahwa semua segitiga anggota $S$ sebangun.
+
+    \item (OSN SMA 2008) Diberikan segitiga $ABC$ dengan panjang sisi-sisinya $a$, $b$, dan $c$. Garis-garis singgung lingkaran dalam segitiga $ABC$ yang sejajar dengan sisi-sisi segitiga $ABC$ membentuk tiga segitiga kecil. Pada masing-masing segitiga kecil dibuat lingkaran dalam. Buktikan bahwa jumlah luas dari lingkaran dalam segitiga $ABC$ dan ketiga lingkaran dalam segitiga kecil adalah
+    \[\frac{\pi(a^2 + b^2 + c^2)(b + c - a)(c + a - b)(a + b - c)}{(a + b + c)^3}\]
+
+    \item (OSN SMA 2011) Diberikan sebarang segitiga lancip $ABC$. Misalkan $\ell_a$ garis yang melalui $A$ dan tegak lurus $AB$, $\ell_b$ garis yang melalui $B$ dan tegak lurus $BC$, $\ell_c$ garis yang melalui $C$ dan tegak lurus $CA$. Misalkan garis $\ell_b$ dan $\ell_c$ berpotongan di titik $D$, garis $\ell_c$ dan $\ell_a$ berpotongan di titik $E$ dan terakhir garis $\ell_a$ dan $\ell_b$ berpotongan di titik $F$. Buktikan bahwa luas segitiga $DEF$ paling sedikit tiga kali luas segitiga $ABC$.
+
+    \item (OSN SMA 2013) Diberikan segitiga lancip $ABC$ dengan lingkaran luar $\omega$. Garis bagi $\angle BAC$ memotong $\omega$ di titik $M$. Misalkan $P$ suatu titik pada garis $AM$ dengan $P$ di dalam segitiga $ABC$. Garis melalui $P$ yang sejajar $AB$ dan garis melalui $P$ yang sejajar $AC$ memotong sisi $BC$ berturut-turut di titik $E$ dan $F$. Garis $ME$ dan $MF$ memotong $\omega$ lagi berturut-turut di titik $K$ dan $L$. Buktikan bahwa garis-garis $AM$, $BL$ dan $CK$ konkuren.
+
+    \item (OSN SMA 2014) Diberikan trapesium $ABCD$ dengan $AB$ sejajar $CD$ dan $AB < CD$. Misalkan diagonal $AC$ dan $BD$ bertemu di $E$ dan misalkan garis $AD$ dan $BC$ bertemu di titik $F$. Bangun jajar genjang $AEDK$ dan $BECL$. Buktikan bahwa garis $EF$ melalui titik tengah segmen $KL$.
+
+    \item (OSN SMA SL 2010) Pada segitiga $ABC$, misalkan $D$ adalah titik tengah $BC$, dan $BE$, $CF$ adalah garis tinggi. Buktikan bahwa $DE$ dan $DF$ keduanya adalah garis singgung lingkaran luar $\triangle AEF$. %(OSN SMA SL 2010) 
+
 \end{enumerate}
 
 
