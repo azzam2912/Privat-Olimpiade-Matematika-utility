@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[hagavi]{azzam}
+
+\title{Pemfaktoran, Sistem Persamaan, Barisan, dan Deret}
+\begin{document}
+\text{\Huge Pemfaktoran dan Sistem Persamaan}
+
+\section{Rumus}
+Tips: Jangan dihafal secara sengaja, tetapi banyak-banyaklah latihan soal, nanti hafal sendiri :D.
+	
+Untuk $x,y,z \in \CC$.
+    \subsection{\textit{Basic} yang paling sering muncul}
+    \begin{enumerate}
+        \item $x^2-y^2 = (x+y)(x-y)$.
+    \item $(x+y)^2 = x^2+2xy+y^2$.
+    \item $(x-y)^2 = x^2-2xy+y^2$.
+        \item $(x+y)^3 = x^3+y^3+3xy(x+y) = x^3+3x^2y+3xy^2+y^3$. 
+    \item $(x-y)^3 = x^3-y^3+3xy(x-y) = x^3-3x^2y+3xy^2-y^3$. 
+    \item $x^3-y^3 = (x-y)(x^2+xy+y^2)$.
+    \item $x^3+y^3 = (x+y)(x^2-xy+y^2)$.
+    \item $x^n-y^n = (x-y)(x^{n-1}+x^{n-2}y+x^{n-3}y^2+\dots+xy^{n-2}+y^{n-1})$ untuk $n \in \NN$.
+    \item $x^n+y^n = (x+y)(x^{n-1}-x^{n-2}y+x^{n-3}y^2-\dots+xy^{n-2}+y^{n-1})$ untuk $n$ bilangan asli \textbf{ganjil}.
+    \end{enumerate}
+
+    \subsection{Lebih \textit{Advanced}}
+\begin{enumerate}
+    \item $(x+y+z)^2 = x^2+y^2+z^2+2xy+2yz+2zx$.
+    \item $x^2+y^2+z^2+xy+yz+zx = \dfrac12(x+y)^2+\dfrac12(y+z)^2+\dfrac12(z+x)^2$.
+    \item $x^2+y^2+z^2-xy-yz-zx = \dfrac12(x-y)^2+\dfrac12(y-z)^2+\dfrac12(z-x)^2$.
+    \item $x^3+y^3+z^3-3xyz = (x+y+z)(x^2+y^2+z^2-xy-yz-zx)$.
+    \item $(x+1)(y+1)(z+1)=xyz+xy+yz+zx+x+y+z+1$.
+    \item (Identitas Sophie Germain) $x^4+4y^4=(x^2+2xy+2y^2)(x^2-2xy+2y^2)$.
+    \item (Ekspansi Binomial) $(x+y)^n = {n \choose 0}x^ny^0 + {n \choose 1}x^{n-1}y^1+{n \choose 2}x^{n-2}y^2 + \dots + {n \choose n}x^0y^n$.
+    \item (Fermat Two Square Identity / Brahmagupta-Fibonacci Identity)\\
+    $(a^2+b^2)(c^2+d^2)=(bc+ad)^2+(bd-ac)^2$ untuk $a,b,c,d \in \RR$.
+\end{enumerate}
+
+\section{Soal Latihan}
+\begin{enumerate}
+
+    \item  Nilai dari $\sqrt{5050^2-4950^2}$ adalah \dots
+
+    \item (OSP SMA 2008) Jika $0 < b < a$ dan $a^2+b^2=6ab$, maka nilai $\dfrac{a+b}{a-b}=\dots$
+    
+    \item Jika $x > 0$ dan $x + \dfrac{1}{x} =  5$, maka nilai $x^3+\dfrac{1}{x^3}$ adalah \dots
+    
+    \item (OSK SMA 2017) Diketahui $x-y=10$ dan $xy=10$. Nilai $x^4+y^4$ adalah \dots
+    
+    \item Jika $\dfrac{3a+8b}{2a-4b} = 5$ maka tentukan nilai dari $\dfrac{a^2+8b^2}{2ab}$.
+
+    \item Nilai dari $\dfrac{(2001+2025)^2-(2025-2001)^2}{2001^2+2025^2}$ adalah \dots\dots\dots
+
+    \item (AIME 1986) Tentukan nilai dari $(\sqrt{5}+\sqrt{6}+\sqrt{7})(\sqrt{5}+\sqrt{6}-\sqrt{7})(\sqrt{5}-\sqrt{6}+\sqrt{7})(-\sqrt{5}+\sqrt{6}+\sqrt{7})$.
+
+    \item Jika $x+y+3\sqrt{x+y}=18$ dan $x-y-2\sqrt{x-y}=15$, maka maka $x \cdot y = \dots\dots\dots$
+
+    \item Tentukan nilai $x$ yang memenuhi $x = (3-\sqrt{5})(\sqrt{3+\sqrt{5}}) + (3+\sqrt{5})(\sqrt{3-\sqrt{5}})$.
+
+    \item Jika diketahui bahwa $\sqrt{14y^2-20y+48} + \sqrt{14y^2-20y-15} = 9$, maka tentukan nilai dari $\sqrt{14y^2-20y+48} - \sqrt{14y^2-20y-15}$.
+
+    \item (OSP SMA 2006) Himpunan semua $x$ yang memenuhi $(x-1)^3+(x-2)^2=1$ adalah \dots\dots\dots
+
+    \item (OSP SMA 2007) Tentukan semua bilangan real x yang memenuhi $x^4 - 4x^3 + 5x^2 - 4x + 1 = 0$.
+
+    \item (OSK SMA 2018) Diketahui $x$ dan $y$ bilangan prima dengan $x < y$, dan $x^3+y^3+2018=30y^2-300y+3018$. Nilai $x$ yang memenuhi adalah \dots
+    
+    \item Jika $x=2021^3-2019^3$, maka nilai $\sqrt{\dfrac{x-2}{6}}$ adalah \dots
+
+    \item (OSK SMA 2019) Misalkan $a = 2\sqrt{2} - \sqrt{8-4\sqrt{2}}$ dan $b = 2\sqrt{2} + \sqrt{8-4\sqrt{2}}$. Jika $\dfrac{a}{b}+\dfrac{b}{a}=x+y\sqrt{2}$ dengan $x,y$ bulat, maka nilai $x+y$ adalah \dots
+    
+    \item (AIME 1983) $w$ dan $z$ adalah bilangan kompleks yang memenuhi $w^2+z^2=7$ dan $w^3+z^3=10$. Apakah nilai terbesar yang mungkin dari $w+z$?
+
+    \item (Baltic Way 1999) Tentukan semua bilangan real $a, b, c$ dan $d$ yang memenuhi sistem persamaan berikut:
+    \begin{align*}
+        abc+ab+bc+ca+a+b+c &= 1 \\
+        bcd+bc+cd+db+b+c+d &= 9 \\
+        cda+cd+da+ac+c+d+a &= 9 \\
+        dab+da+ab+bd+d+a+b &= 9
+    \end{align*}
+
+    \item Jika $x=\sqrt[3]{4}+\sqrt[3]{2}+1$, maka nilai dari $(1+\dfrac{1}{x})^3$ adalah \dots\dots\dots
+
+    \item (AIME 1987) Tentukan nilai dari $\dfrac{(10^4+324)(22^4+324)(34^4+324)(46^4+324)(58^4+324)}{(4^4+324)(16^4+324)(28^4+324)(40^4+324)(52^4+324)}$.
+
+    \item (Baltic Way 1993 Mathematical Team Contest) Tentukan semua bilangan bulat n yang memenuhi $\sqrt{\dfrac{25}{2}+\sqrt{\dfrac{625}{4}-n}} + \sqrt{\dfrac{25}{2}-\sqrt{\dfrac{625}{4}-n}}$ adalah bilangan bulat.
+
+    \item (Canadian MO 1998) Tentukan penyelesaian x real yang memenuhi persamaan:
+    \[ x = \sqrt{x-\dfrac{1}{x}} + \sqrt{1-\dfrac{1}{x}} \]
+
+    \item (AIME 1990) Bilangan real $a, b, x$ dan $y$ memenuhi $ax+by=3, \ ax^2+by^2=7, \ ax^3+by^3=16$ dan $ax^4+by^4=42$. Tentukan nilai dari $ax^5+by^5$.
+
+    \item (OSN 2003 SMP) Diketahui $a+b+c=0$. Tunjukkan bahwa $a^3+b^3+c^3=3abc$.
+
+\end{enumerate}
+
+\end{document}

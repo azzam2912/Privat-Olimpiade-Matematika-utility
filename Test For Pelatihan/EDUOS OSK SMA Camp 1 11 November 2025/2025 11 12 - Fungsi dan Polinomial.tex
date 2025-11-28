@@ -1,0 +1,272 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[hagavi]{azzam}
+
+\theoremstyle{definition}
+\newtheorem{contoh}{Contoh}
+
+\begin{document}
+\textbf{\Huge Fungsi dan Polinomial}
+
+\textbf{Disadur dari Diktat Pembinaan Olimpiade Matematika 5.2 Eddy Hermanto}
+
+\section*{Fungsi}
+
+\subsection*{A. Pengertian}
+Misalkan diketahui fungsi $y = f(x) = \frac{x+1}{3-2x}$.
+Untuk mencari nilai dari $f(2)$ maka cukup mengganti $x$ di ruas kanan dengan 2.
+Jadi, $f(2) = \frac{(2)+1}{3-2(2)} = -3$.
+
+Salah satu fungsi yang dibahas di dalam kelas adalah fungsi kuadrat, yaitu fungsi yang berbentuk $y = f(x) = ax^2+bx+c$.
+Nilai $x$ yang menyebabkan $y$ maksimum adalah $x_p = -\frac{b}{2a}$.
+Nilai $y$ maksimum $= y_{maks} = a(x_p)^2 + bx_p + c$ atau $y_{maks} = -\frac{b^2-4ac}{4a}$.
+
+Terkadang suatu fungsi tidak hanya memiliki satu variabel, tetapi dapat lebih dari satu variabel. Sebagai contoh adalah $f(x,y) = xy + x^2y + y^3$. Untuk mencari $f(1,2)$ cukup mengganti $x=1$ dan $y=2$ dari persamaan tersebut didapat $f(1,2) = 2+2+8=12$.
+
+\begin{contoh}[33]
+Misal f adalah suatu fungsi yang memetakan dari bilangan bulat positif ke bilangan bulat positif dan didefinisikan dengan $f(ab) = b \cdot f(a) + a \cdot f(b)$. Jika $f(10) = 19$, $f(12) = 52$ dan $f(15) = 26$. Tentukan nilai dari $f(8)$.
+\end{contoh}
+
+\begin{contoh}[34]
+(AHSME 1998) Misalkan $f(x)$ adalah fungsi yang memenuhi
+(a) untuk setiap bilangan real x dan y maka $f(x+y) = x + f(y)$ dan
+(b) $f(0) = 2$
+Nilai dari $f(1998)$ adalah \dots
+\end{contoh}
+
+\begin{contoh}[35]
+Jika $f(x)$ adalah fungsi yang tidak terdefinisi untuk $x=0$ dengan $f(x) + 2f(\frac{1}{x}) = 3x$. Tentukan $f(x)$.
+\end{contoh}
+
+\subsection*{B. Fungsi Komposisi}
+Fungsi komposisi merupakan gabungan lebih dari satu fungsi. 
+Misalkan diketahui fungsi $f(x)$ dan $g(x)$. Jika ingin mencari pemetaan suatu nilai terhadap fungsi $f(x)$ yang hasilnya dilanjutkan terhadap fungsi $g(x)$, maka akan digunakan fungsi komposisi. 
+Pemetaan terhadap fungsi $f(x)$ yang dilanjutkan oleh fungsi $g(x)$ ditulis sebagai $(g(x) \circ f(x))$. 
+Didefinisikan $(g(x) \circ f(x)) = g(f(x))$. 
+
+\begin{contoh}[36]
+Diketahui $f(x) = 3x+5$ dan $g(x) = 7-3x$. Tentukan pemetaan $x=2$ oleh fungsi $f(x)$ dilanjutkan $g(x)$.
+\end{contoh}
+
+\begin{contoh}[37]
+Diketahui $f(x) = x+7$ dan $(f \circ g)(x) = 5x+3$. Tentukan $g(x)$.
+\end{contoh}
+
+\begin{contoh}[38]
+Jika $g(x-5) = 7x+3$ maka tentukan $g(x)$.
+\end{contoh}
+
+\begin{contoh}[39]
+Diketahui $(g \circ f)(x) = 2x^2+5x-5$ dan $f(x)=x-1$. Maka $g(x) = \dots$
+\end{contoh}
+
+\begin{contoh}[40]
+Diketahui $(g \circ f)(x) = 4x^2+4x$ dan $g(x) = x^2-1$ dan berlaku $f(x) > 0$ untuk $x > -\frac{1}{2}$ maka $f(x-2)$ adalah \dots
+\end{contoh}
+
+\subsection*{C. Fungsi Invers dari $y=f(x)$}
+Jika diketahui nilai $y$ dan kita diminta mencari nilai $x$ untuk nilai $y$ tersebut, persoalan ini dapat diselesaikan apabila kita bisa mendapatkan fungsi inversnya yaitu $x=f(y)$. 
+
+\begin{contoh}[41]
+Tentukan invers dari fungsi $y = f(x) = 3x-8$.
+\end{contoh}
+
+\begin{contoh}[42]
+Tentukan invers dari fungsi $y = f(x) = \frac{x+1}{3-2x}$.
+\end{contoh}
+
+\subsection*{D. Hubungan fungsi invers dengan fungsi komposisi}
+Misalkan $f^{-1}(x)$ dan $g^{-1}(x)$ berturut-turut menyatakan fungsi invers dari $f(x)$ dan $g(x)$. Maka
+$(f \circ g)^{-1}(x) = (g^{-1} \circ f^{-1})(x)$
+$(g \circ f)^{-1}(x) = (f^{-1} \circ g^{-1})(x)$
+
+\begin{contoh}[43]
+Jika $f(x) = 5x+3$ dan $g(x) = \frac{2x+3}{5-x}$ maka tentukan $(f \circ g)^{-1}(x)$.
+\end{contoh}
+
+\section*{Latihan Fungsi}
+\begin{enumerate}
+    \item Jika $f(x) = -x+3$, maka $f(x^2) + (f(x))^2 - 2f(x) = \dots$
+    
+    \item Diketahui $g(x) = x+1$ dan $(g \circ f)(x) = 3x^2+4$. Maka $f(x) = \dots$
+    
+    \item (OSK 2007) Misalkan $f(x) = 2x-1$, dan $g(x) = \sqrt{x}$. Jika $f(g(x)) = 3$, maka $x = \dots$
+    
+    \item Diketahui $(f \circ g)(x) = 5x$. Jika $g(x) = \frac{1}{5x-1}$ maka $f(x) = \dots$
+    
+    \item Fungsi $g(x) = x^2+2x+5$ dan $f(g(x)) = 3x^2+6x-8$, maka $f(x) = \dots$
+    
+    \item Jika $f(x) = 2x+1$, $g(x) = 5x^2+3$ dan $h(x) = 7x$ maka $(f \circ g \circ h)(x) = \dots$
+    
+    \item Ditentukan $f(x) = \frac{ax+1}{2-x}$. Jika $f^{-1}(4) = 1$ maka $f(3) = \dots$
+    
+    \item Jika $f^{-1}(x) = \frac{x}{x+1}$ dan $g^{-1}(x) = 2x-1$, maka $(g \circ f)^{-1}(x) = \dots$
+    
+    \item Jika $f(x) = \sqrt{x^2+1}$ dan $(f \circ g)(x) = \frac{\sqrt{x^2-4x+5}}{x-2}$ dan berlaku $g(x) \ge 0$ untuk $x>2$, maka $g(x-3) = \dots$
+    
+    \item (OSK 2011 Tipe 3) Misalkan f suatu fungsi yang memenuhi $f(xy) = \frac{f(x)}{y}$ untuk semua bilangan real positif x dan y. Jika $f(100)=3$ maka $f(10)$ adalah \dots
+    
+    \item (OSK 2003) Misalkan f suatu fungsi yang memenuhi $f(\frac{1}{x}) + \frac{1}{x}f(-x) = 2x$ untuk setiap bilangan real $x \ne 0$. Berapakah nilai $f(2)$?
+    
+    \item (AHSME 1996) Sebuah fungsi $f : Z \to Z$ dan memenuhi
+    \[ f(n) = \begin{cases} n+3 & \text{jika n ganjil} \\ \frac{n}{2} & \text{jika n genap} \end{cases} \]
+    Misalkan k adalah bilangan ganjil dan $f(f(f(k))) = 27$. Tentukan penjumlahan digit-digit dari k.
+    
+    \item (OSP 2004) Misalkan f sebuah fungsi yang memenuhi $f(x)f(y) - f(xy) = x+y$, untuk setiap bilangan bulat x dan y. Berapakah nilai $f(2004)$?
+    
+    \item (OSK 2006) Jika $f(xy) = f(x+y)$ dan $f(7)=7$, maka $f(49) = \dots$
+    
+    \item (NHAC 1998-1999 Second Round) Misalkan f adalah fungsi untuk semua bilangan bulat x dan y yang memenuhi $f(x+y) = f(x)+f(y)+6xy+1$ dan $f(-x)=f(x)$. Nilai dari $f(3)$ sama dengan \dots
+    
+    \item (OSP 2009) Suatu fungsi $f : Z \to Q$ mempunyai sifat $f(x+1) = \frac{1+f(x)}{1-f(x)}$ untuk setiap $x \in Z$. Jika $f(2) = 2$, maka nilai fungsi $f(2009)$ adalah \dots
+    
+    \item (AIME 1988) Misalkan $f(n)$ adalah kuadrat dari jumlah angka-angka n. Misalkan juga $f^2(n)$ didefinisikan sebagai $f(f(n))$, $f^3(n)$ sebagai $f(f(f(n)))$ dan seterusnya. Tentukan nilai dari $f^{1988}(11)$.
+\end{enumerate}
+
+\section*{Polinomial / Suku Banyak}
+\subsection*{A. Pengertian Suku Banyak}
+Bentuk-bentuk aljabar berikut disebut juga dengan suku banyak atau polinom dalam peubah (variabel) x:
+(i) $x^2 - 5x + 9$
+(ii) $4x^3 + 6x - 2x$
+(iii) $2x^4 - 7x^3 + 8x^2 + x - 5$
+(iv) $-2x^5 + x^4 + 7x^3 - 8x^2 + 3x - 4$
+
+Yang dimaksud derajat suatu sukubanyak dalam peubah x adalah pangkat tertinggi dari peubah x yang termuat dalam suku banyak tersebut. 
+
+\subsection*{B. Kesamaan Suku Banyak}
+Misalkan $f(x) = a_n x^n + \dots + a_0$ dan $g(x) = b_n x^n + \dots + b_0$.
+Kalau $f(x)$ sama dengan $g(x)$ (dapat ditulis $f(x) \equiv g(x)$) maka harus memenuhi $a_n = b_n, a_{n-1} = b_{n-1}, \dots, a_0 = b_0$. 
+
+\begin{contoh}[44]
+Diketahui kesamaan dua buah suku banyak $p(x+1) + q(x-1) \equiv 7x-3$. Nilai $p+2q = \dots$
+\end{contoh}
+
+\subsection*{C. Pembagian Suku Banyak}
+Pembagian $f(x)$ oleh $p(x)$ dapat ditulis sebagai berikut:
+$f(x) = p(x) \cdot g(x) + s(x)$
+dengan $f(x)$ adalah suku banyak yang akan dibagi, $p(x)$ adalah pembagi, $g(x)$ adalah hasil bagi, $s(x)$ adalah sisa pembagian. 
+Persyaratan $s(x)$ adalah bahwa pangkat tertinggi (derajat) dari $s(x)$ harus kurang dari $p(x)$. 
+
+\begin{contoh}[45]
+Tentukan hasil bagi dan sisanya jika $4x^4 + 3x^3 - 2x^2 + x - 7$ dibagi $x^2 + 4x - 2$.
+\end{contoh}
+
+\begin{contoh}[46]
+Tentukan hasil bagi dan sisanya jika $f(x) = x^3 + 2x^2 + 3x - 5$ dibagi $x-2$.
+\end{contoh}
+\begin{solusi}
+(Menggunakan Horner)
+\begin{center}
+\begin{tabular}{c | c c c | c}
+2 & 1 & 2 & 3 & -5 \\
+  &   & 2 & 8 & 22 \\
+\cline{2-5}
+  & 1 & 4 & 11 & 17 \\
+\end{tabular}
+\end{center}
+Maka pembagian $f(x) = x^3 + 2x^2 + 3x - 5$ oleh $x-2$ akan menghasilkan $x^2+4x+11$ dengan sisa 17. 
+\end{solusi}
+
+\subsection*{D. Teorema Sisa}
+Jika suku banyak $f(x)$ dibagi oleh $x-k$ maka sisanya adalah $f(k)$. 
+Lebih lanjut, jika $f(x)$ dibagi $(ax+b)$ maka sisanya adalah $f(-\frac{b}{a})$. 
+
+\begin{contoh}[47]
+Tentukan sisanya jika $f(x) = x^4 - 6x^3 - 6x^2 + 8x + 6$ dibagi $x-2$.
+\end{contoh}
+
+\begin{contoh}[48]
+Diketahui bahwa $f(x)$ jika dibagi $x-1$ bersisa 5 sedangkan jika dibagi $x+1$ akan bersisa 3. Maka jika $f(x)$ dibagi $x^2-1$ akan memiliki sisa \dots
+\end{contoh}
+
+\subsection*{E. Teorema Faktor}
+Misalkan $f(x)$ adalah suku banyak. $(x-k)$ merupakan faktor dari $f(x)$ jika dan hanya jika $f(k)=0$. 
+Ini memiliki arti: 
+(1) Jika $(x-k)$ merupakan faktor dari $f(x)$ maka $f(k)=0$. 
+(2) Jika $f(k)=0$ maka $(x-k)$ merupakan faktor dari $f(x)$. 
+$k$ adalah merupakan akar-akar persamaan $f(x)=0$. 
+
+\begin{contoh}[49]
+Tunjukkan bahwa $(x+2)$ merupakan faktor dari $f(x) = x^4 + 3x^3 + 4x^2 + 8x + 8$.
+\end{contoh}
+
+\begin{contoh}[50]
+Tentukan semua faktor linier dari $x^4 - 2x^3 - 13x^2 + 14x + 24 = 0$.
+\end{contoh}
+
+\subsection*{F. Teorema Vieta}
+Jika $p(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0$ adalah polinomial dengan akar-akar $x_1, x_2, \dots, x_n$ (pembuat nol $p(x)=0$), maka berlaku: 
+\begin{align*}
+    x_1 + x_2 + \dots + x_n &= -\frac{a_{n-1}}{a_n} \\
+    \sum_{i<j} x_i x_j &= \frac{a_{n-2}}{a_n} \\
+    \sum_{i<j<k} x_i x_j x_k &= -\frac{a_{n-3}}{a_n} \\
+    &\dots \\
+    x_1 x_2 x_3 \dots x_n &= (-1)^n \frac{a_0}{a_n}
+\end{align*}
+
+\begin{contoh}[51]
+Persamaan kuadrat $x^2+5x-7=0$ memiliki akar-akar $x_1$ dan $x_2$. Tentukan nilai $x_1^3 + x_2^3$.
+\end{contoh}
+
+\begin{contoh}[52]
+Persamaan suku banyak $x^4 - 5x^3 - 16x^2 + 41x - 15 = 0$ memiliki akar-akar a, b, c dan d. Maka nilai dari
+\begin{enumerate}
+    \item[a.] $a^2+b^2+c^2+d^2$
+    \item[b.] $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}$
+\end{enumerate}
+adalah \dots
+\end{contoh}
+
+\begin{contoh}[53]
+(OSP 2005/Canadian MO 1996) Jika $\alpha, \beta$ dan $\gamma$ adalah akar-akar $x^3-x-1=0$ maka tentukan nilai $\frac{1+\alpha}{1-\alpha} + \frac{1+\beta}{1-\beta} + \frac{1+\gamma}{1-\gamma}$.
+\end{contoh}
+
+\section*{Latihan Polinomial}
+\begin{enumerate}
+    \item Jika $f(x)$ dibagi dengan $(x-2)$ sisanya 24, sedangkan jika dibagi dengan $(x+5)$ sisanya 10. Jika $f(x)$ dibagi dengan $x^2+3x-10$ sisanya adalah \dots
+    
+    \item Jika $v(x)$ dibagi $x^2-x$ dan $x^2+x$ berturut-turut akan bersisa $5x+1$ dan $3x+1$, maka bila $v(x)$ dibagi $x^2-1$ sisanya adalah \dots
+    
+    \item (OSP 2006) Jika $(x-1)^2$ membagi $ax^4+bx^3+1$ maka $ab = \dots$
+    
+    \item (OSK 2008) Jika a dan b adalah bilangan-bilangan bulat dan $x^2-x-1$ merupakan faktor dari $ax^3+bx^2+1$, maka $b = \dots$
+    
+    \item (AHSME 1999) Tentukan banyaknya titik potong maksimal dari dua grafik $y=p(x)$ dan $y=q(x)$ dengan $p(x)$ dan $q(x)$ keduanya adalah suku banyak berderajat empat dan memenuhi koefisien $x^4$ dari kedua suku banyak tersebut adalah 1.
+    
+    \item Suku banyak $f(x)$ dibagi $(x+1)$ sisanya -2 dan dibagi $(x-3)$ sisanya 7. Sedangkan suku banyak $g(x)$ jika dibagi $(x+1)$ akan bersisa 3 dan jika dibagi $(x-3)$ akan bersisa 2. Diketahui $h(x)=f(x) \cdot g(x)$. Jika $h(x)$ dibagi $x^2-2x-3$, maka sisanya adalah \dots
+    
+    \item (OSP 2009) Misalkan $p(x)=x^2-6$ dan $A=\{x \in \mathbb{R} | p(p(x))=x\}$. Nilai maksimal dari $\{|x| : x \in A\}$ adalah \dots
+    
+    \item Jika persamaan $(3x^2-x+1)^3$ dijabarkan dalam suku-sukunya maka akan menjadi persamaan polinomial $a_6 x^6 + a_5 x^5 + a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0$. Tentukan nilai dari:
+    \begin{enumerate}
+        \item[a)] $a_6 + a_5 + a_4 + a_3 + a_2 + a_1 + a_0$
+        \item[b)] $a_6 - a_5 + a_4 - a_3 + a_2 - a_1 + a_0$
+        \item[c)] $a_6 + a_5 + a_4 + a_3 + a_2 + a_1$
+        \item[d)] $a_6 + a_4 + a_2 + a_0$
+    \end{enumerate}
+    
+    \item (OSK 2010) Polinom $P(x)=x^3-x^2+x-2$ mempunyai tiga pembuat nol yaitu a, b, dan c. Nilai dari $a^3+b^3+c^3$ adalah \dots
+    
+    \item Tentukan semua nilai m sehingga persamaan $x^4 - (3m+2)x^2 + m^2 = 0$ memiliki 4 akar real yang membentuk barisan aritmatika.
+    
+    \item (OSP 2008) Misalkan a, b, c, d bilangan rasional. Jika diketahui persamaan $x^4+ax^3+bx^2+cx+d=0$ mempunyai 4 akar real, dua di antaranya adalah $\sqrt{2}$ dan $\sqrt{2008}$. Nilai dari $a+b+c+d$ adalah \dots
+    
+    \item (OSP 2010) Persamaan kuadrat $x^2-px-2p=0$ mempunyai dua akar real $\alpha$ dan $\beta$. Jika $\alpha^3+\beta^3=16$, maka hasil tambah semua nilai p yang memenuhi adalah \dots
+    
+    \item (AIME 1996) Akar-akar $x^3+3x^2+4x-11=0$ adalah a, b dan c. Persamaan pangkat tiga dengan akar-akar $a+b$, $a+c$ dan $b+c$ adalah $x^3+rx^2+sx+t=0$. Tentukan nilai t.
+    
+    \item (OSK 2003/South Carolina MC 1996) Misalkan bahwa $f(x) = x^5+ax^4+bx^3+cx^2+dx+c$ dan bahwa $f(1)=f(2)=f(3)=f(4)=f(5)$. Berapakah nilai a?
+    
+    \item (AIME 1993) Misalkan $p_0(x)=x^3+313x^2-77x-8$ dan $p_n(x)=p_{n-1}(x-n)$. Tentukan koefisien x dari $p_{20}(x)$.
+    
+    \item (OSP 2009) Misalkan a, b, c adalah akar-akar polinom $x^3-8x^2+4x-2$. Jika $f(x)=x^3+px^2+qx+r$ adalah polinom dengan akar-akar $a+b-c$, $b+c-a$, $c+a-b$ maka $f(1) = \dots$
+    
+    \item (NAHC 1995-1996 Second Round) Misalkan $p(x) = x^6+ax^5+bx^4+cx^3+dx^2+ex+f$ adalah polinomial yang memenuhi $p(1)=1, p(2)=2, p(3)=3, p(4)=4, p(5)=5$ dan $p(6)=6$. Nilai dari $p(7)$ adalah \dots
+    
+    \item (OSP 2010) Diberikan polinomial $P(x)=x^4+ax^3+bx^2+cx+d$ dengan a, b, c, dan d konstanta. Jika $P(1)=10$, $P(2)=20$ dan $P(3)=30$ maka nilai $\frac{P(12)+P(-8)}{10} = \dots$
+    
+    \item (AIME 2003 Bagian Kedua) Akar-akar persamaan $x^4-x^3-x^2-1=0$ adalah a, b, c dan d. Tentukan nilai dari $p(a)+p(b)+p(c)+p(d)$ jika $p(x)=x^6-x^5-x^3-x^2-x$.
+    
+    \item (Canadian MO 1970) Diberikan polinomial $f(x) = x^n+a_1 x^{n-1}+a_2 x^{n-2}+\dots+a_{n-1}x+a_n$ dengan koefisien $a_1, a_2, \dots, a_n$ semuanya bulat dan ada 4 bilangan bulat berbeda a, b, c dan d yang memenuhi $f(a)=f(b)=f(c)=f(d)=5$. Tunjukkan bahwa tidak ada bilangan bulat k yang memenuhi $f(k)=8$.
+\end{enumerate}
+
+\end{document}

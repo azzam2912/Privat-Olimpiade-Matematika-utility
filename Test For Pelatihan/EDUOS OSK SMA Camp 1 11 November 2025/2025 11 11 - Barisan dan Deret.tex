@@ -1,0 +1,212 @@
+\documentclass{article}
+\usepackage[hagavi]{azzam}
+
+\newtheorem{contoh}{Contoh}
+\newcommand{\bracket}[1]{\left( #1 \right)}
+\usepackage[makeroom]{cancel}
+
+\title{Barisan dan Deret}
+
+\begin{document}
+\text{\Huge Barisan dan Deret}
+
+\section{Barisan dan Deret Aritmatika}
+\subsection{Barisan Aritmatika (\textit{Arithmetic Sequence}}
+Barisan dengan suku (\textit{term}) pertama $a$ dan beda barisan antar suku (\textit{common difference}) $b$. Rumus umum suku ke-$n$ barisan ini adalah $U_n = a + (n-1)b$.
+\begin{align*}
+    a, \quad a+b, \quad a+2b, \quad \ldots, \quad a+(n-1)b
+\end{align*}
+
+\subsection{Deret Aritmatika (\textit{Arithmetic Series})}
+Penjumlahan $n$ suku pertama dari deret artimatika dengan rumus 
+\begin{align*}
+    S_n = a + (a+b) + (a+2b) + \ldots + (a+(n-1)b) = \dfrac{n}{2}\left(2a+(n-1)b\right) =\dfrac{n}{2}\left(U_1+U_n\right)
+\end{align*}
+
+\section{Barisan dan Deret Geometri}
+\subsection{Barisan Geometri (\textit{Geometric Sequence})}
+Barisan dengan suku (\textit{term}) pertama $a$ dan rasio antar suku (\textit{common ratio}) $r$. Rumus umum suku ke-$n$ barisan ini adalah $U_n = ar^{n-1}$.
+\begin{align*}
+    a, \quad ar, \quad ar^2, \quad \ldots, \quad ar^{n-1}
+\end{align*}
+
+\subsection{Deret Geometri (\textit{Geometric Series})}
+Penjumlahan $n$ suku pertama dari deret artimatika dengan rumus
+\begin{align*}
+    S_n = a + ar+ar^2+\ldots+ar^{n-1} = \dfrac{a(1-r^n)}{1-r}
+\end{align*}
+
+\subsection{Deret Geometri Tak Hingga}
+Penjumlahan suku pertama sampai tak hingga dari deret artimatika dengan rumus berikut:\\
+\textbf{Syarat Wajib: } $-1 < r < 1$.
+\begin{align*}
+    S_\infty = a + ar+ar^2+\ldots = \dfrac{a}{1-r}
+\end{align*}
+
+\section{Bentuk Barisan dan Deret Lainnya}
+
+\subsection{Bentuk Tak Hingga Lainnya}
+\begin{contoh}
+Jika $x=\sqrt{2\sqrt{2\sqrt{2\sqrt{2\cdots}}}}$ adalah sebuah bilangan bulat, hitunglah nilai $x$.
+\end{contoh}
+\begin{solusi}
+    \begin{align*}
+        x &= \sqrt{2\sqrt{2\sqrt{2\sqrt{2\cdots}}}}\\
+        x &= \sqrt{2x}\\
+        x^2 &= 2x\\
+        x^2 - 2x &= 0\\
+        x(x - 2) &= 0\\
+        \text{karena } x &\neq 0 \text{ maka } x = 2
+    \end{align*}
+\end{solusi}
+
+\subsection{Rumus Cepat Yang Berguna}
+\begin{itemize}
+\item $1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}{2}$
+\item $1^2 + 2^2 + 3^2 + \cdots + n^2 = \dfrac{n(n+1)(2n+1)}{6}$
+\item $1^3 + 2^3 + 3^3 + \cdots + n^3 = \left(\dfrac{n(n+1)}{2}\right)^2$
+\end{itemize}
+
+\subsection{Fibonacci Sequence / Barisan Fibonacci}
+Barisan dengan setiap suku adalah jumlah dari dua suku sebelumnya.
+\[1, 1, 2, 3, 5, 8, 13, 21, 34, \ldots\]
+Rumus rekursifnya: $F_n = F_{n-1} + F_{n-2}$, with $F_1 = F_2 = 1$
+
+\subsection{Telescoping Series}
+Examples speak louder than theory:
+\begin{contoh}
+Nilai sederhana dari $\bracket{\dfrac{1}{2}}\times\bracket{\dfrac{2}{3}}\times\ldots\times\bracket{\dfrac{99}{100}}$ adalah \ldots
+\end{contoh}
+\begin{solusi}
+    \begin{align*}
+        \bracket{\dfrac{1}{\cancel{2}}}\times\bracket{\dfrac{\cancel{2}}{\cancel{3}}}\times\bracket{\dfrac{\cancel{3}}{\cancel{4}}}\times\ldots\times\bracket{\dfrac{\cancel{98}}{\cancel{99}}}\times\bracket{\dfrac{\cancel{99}}{100}}=\dfrac{1}{100}
+    \end{align*}
+\end{solusi}
+\begin{contoh}
+Nilai sederhana dari $\dfrac{1}{1\times 2} + \dfrac{1}{2 \times 3} + \dfrac{1}{3 \times 4} + \dots + \dfrac{1}{99 \times 100}$ adalah \ldots
+\end{contoh}
+\begin{solusi}
+    \begin{align*}
+        \bracket{\dfrac{1}{1} - \dfrac{1}{2}} + \bracket{\dfrac{1}{2} - \dfrac{1}{3}} + \bracket{\dfrac{1}{3} - \dfrac{1}{4}} + \ldots + \bracket{\dfrac{1}{98} - \dfrac{1}{99}} + \bracket{\dfrac{1}{99} - \dfrac{1}{100}}=\dfrac{1}{1}-\dfrac{1}{100}=\dfrac{99}{100}
+    \end{align*}
+\end{solusi}
+
+\subsection{Sigma dan Pi}
+\subsubsection{Sigma}
+\begin{contoh}
+$$\sum_{k=3}^{100} 2k = 2(3)+2(4)+2(5)+\ldots+2(100)$$
+\end{contoh}
+
+\subsubsection{Pi}
+\begin{contoh}
+$$\prod_{k=5}^{67} k^3 = 5^3 \times 6^3 \times 7^3 \times \ldots \times 67^3$$
+\end{contoh}
+
+\section{Latihan Soal Dasar Banget \textit{(Sanity Test)}}
+\begin{enumerate}
+    % Soal 1: Barisan Aritmatika (Mencari U_n)
+    \item Diketahui suatu barisan aritmatika dengan suku pertama adalah 5 dan beda adalah 3. Tentukan nilai dari suku ke-20 ($U_{20}$) barisan tersebut.
+
+    % Soal 2: Deret Aritmatika (Mencari S_n)
+    \item Hitunglah jumlah 15 suku pertama ($S_{15}$) dari deret aritmatika berikut:
+    $ 2 + 6 + 10 + 14 + \dots $
+
+    % Soal 3: Barisan Geometri (Mencari U_n)
+    \item Suku pertama dari sebuah barisan geometri adalah 3 dan rasionya adalah 2. Tentukan suku ke-8 ($U_8$).
+
+    % Soal 4: Deret Geometri (Mencari S_n)
+    \item Tentukan jumlah 6 suku pertama ($S_6$) dari deret geometri:
+    $ 1 + 3 + 9 + 27 + \dots $
+
+    % Soal 5: Deret Geometri Tak Hingga (Mencari S_tak_hingga)
+    \item Tentukan jumlah tak hingga ($S_\infty$) dari deret geometri berikut:
+    $ 16 + 8 + 4 + 2 + \dots $
+    
+    % Soal 6: Barisan Aritmatika (Mencari n)
+    \item Pada suatu barisan aritmatika, diketahui suku pertamanya adalah 7 dan bedanya adalah 4. Jika suku ke-n ($U_n$) barisan tersebut adalah 83, tentukan nilai $n$.
+\end{enumerate}
+
+\section{Latihan Soal}
+\begin{enumerate}
+    \item Perhatikan barisan bilangan 500, 465, 430, 395, ... Suku negatifnya yang pertama adalah \dots
+    
+    \item Pada suatu deret aritmatika berlaku $u_2+u_5+u_6+u_9 = 40$. Maka $S_{10} = \dots$
+    
+    \item (OSK SMA 2006) Diketahui $a+(a+1)+(a+2)+\dots+50 = 1139$. Jika $a$ bilangan positif, maka $a = \dots$
+    
+    \item (OSK SMA 2011 Tipe 3) Bilangan bulat positif terkecil $a$ sehingga $2a+4a+6a+\dots+200a$ merupakan kuadrat sempurna adalah \dots
+    
+    \item (AIME 1984) Barisan $a_1, a_2, a_3, \dots, a_{98}$ memenuhi $a_{n+1} = a_n + 1$ untuk $n=1, 2, 3, \dots, 97$ dan mempunyai jumlah sama dengan 137. Tentukan nilai dari $a_2+a_4+a_6+\dots+a_{98}$.
+    
+    \item Misalkan $u_n$ adalah suku ke-n dari suatu barisan aritmatika. Jika $u_k = t$ dan $u_t = k$ maka tentukan nilai dari suku ke-$(k+t)$.
+    
+    \item (OSK SMA 2004) Agar bilangan $2^0+2^1+2^2+\dots+2^n$ sedekat mungkin kepada 2004, haruslah $n = \dots$
+    
+    \item Jika $9-7x$, $5x-6$ dan $x-1$ adalah tiga suku pertama deret geometri tak hingga, maka jumlah suku-sukunya adalah \dots
+    
+    \item Pada suatu deret tak hingga, suku-suku yang bernomor ganjil berjumlah $9/4$ sedangkan suku-suku yang bernomor genap berjumlah $3/4$, maka suku pertamanya adalah \dots
+    
+    \item (OSP SMA 2006) Afkar memilih suku-suku barisan geometri takhingga $1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \dots$ untuk membuat barisan geometri takhingga baru yang jumlahnya $\frac{1}{7}$. Tiga suku pertama pilihan Afkar adalah \dots
+    
+    \item Tiga buah bilangan merupakan barisan aritmatika. Bila suku tengahnya dikurangi 5, maka terbentuk suatu barisan geometri dengan rasio sama dengan 2. Jumlah barisan aritmatika itu adalah \dots
+    
+    \item Tentukan rumus jumlah $n$ suku pertama dari barisan 4, 10, 20, 35, 56, \dots
+    
+    \item (AIME 1992) Misalkan $A$ adalah barisan $a_1, a_2, a_3, \dots$ dengan $a_{19}=a_{92}=0$ dan $\Delta A$ didenisikan dengan barisan $a_2-a_1, a_3-a_2, a_4-a_3, \dots$ Jika semua suku-suku barisan $\Delta(\Delta A)$ sama dengan 1, maka nilai $a_1$ adalah \dots
+    
+    \item (MATNC 2001) Tentukan jumlah 100 bilangan asli pertama yang bukan bilangan kuadrat sempurna.
+    
+    \item (OSK SMA 2009) Bilangan bulat positif terkecil $n$ dengan $n>2009$ sehingga $\sqrt{\frac{1^3+2^3+3^3+\dots+n^3}{n}}$ merupakan bilangan bulat adalah \dots
+    
+    \item (AIME 1985) Barisan bilangan bulat $a_1, a_2, a_3, \dots$ memenuhi $a_{n+2} = a_{n+1} - a_n$ untuk $n > 0$. Jumlah 1492 bilangan pertama adalah 1985 dan jumlah 1985 bilangan pertama adalah 1492. Tentukan jumlah 2001 bilangan pertama.
+    
+    \item Nilai $x$ yang memenuhi persamaan:
+    \[ \sqrt{x\sqrt{x\sqrt{x\dots}}} = \sqrt{4x+\sqrt{4x+\sqrt{4x+\dots}}} \]
+    adalah \dots
+    
+    \item Tentukan jumlah dari:
+    \[ \frac{1}{1+\sqrt{2}} + \frac{1}{\sqrt{2}+\sqrt{3}} + \frac{1}{\sqrt{3}+\sqrt{4}} + \dots + \frac{1}{\sqrt{99}+\sqrt{100}} \]
+
+    % problem 11
+    \item (Romania 1990) Tentukan bilangan bulat positif $m$ terkecil sedemikian sehingga
+    \[ \binom{2n}{n} < m^n \]
+    untuk semua bilangan bulat positif $n$.
+
+    % problem 3
+    \item (AHSME 1999) Misalkan $x_1, x_2, \dots, x_n$ adalah barisan bilangan bulat sedemikian sehingga
+    \begin{itemize}
+        \item[(i)] $-1 \le x_i \le 2$, untuk $i = 1, 2, \dots, n$;
+        \item[(ii)] $x_1 + x_2 + \dots + x_n = 19$;
+        \item[(iii)] $x_1^2 + x_2^2 + \dots + x_n^2 = 99$.
+    \end{itemize}
+    Tentukan nilai minimum dan maksimum yang mungkin dari
+    \[ x_1^3 + x_2^3 + \dots + x_n^3. \]
+
+    % problem 2
+    \item Tentukan suku umum dari barisan yang didefinisikan oleh $x_0 = 3, x_1 = 4$ dan
+    \[ x_{n+1} = x_{n-1}^2 - n x_n \]
+    untuk semua $n \in \mathbb{N}$.
+
+    % problem 13
+    \item Hitunglah
+    \[ \frac{3}{1! + 2! + 3!} + \frac{4}{2! + 3! + 4!} + \dots + \frac{2025}{2023! + 2024! + 2025!} \]
+
+    % problem 19
+    \item (Modifikasi Korea MO 2001) Misalkan $f(x) = \frac{2}{4^x + 2}$ untuk bilangan real $x$.
+    Hitunglah
+    \[ f\left(\frac{1}{2025}\right) + f\left(\frac{2}{2025}\right) + \dots + f\left(\frac{2024}{2025}\right). \]
+
+    % problem 27
+    \item (China 1992) Buktikan bahwa
+    \[ 16 < \sum_{k=1}^{80} \frac{1}{\sqrt{k}} < 17. \]
+
+    % problem 30
+    \item Hitunglah
+    \[ \sum_{k=0}^{n} \frac{1}{(n-k)!(n+k)!} \]
+
+    % problem 43
+    \item Buktikan bahwa
+    \[ \frac{1}{2} \cdot \frac{3}{4} \cdot \ldots \cdot\frac{67}{68} < \frac{1}{\sqrt{102}}\]
+\end{enumerate}
+
+\end{document}
