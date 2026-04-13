@@ -1,0 +1,332 @@
+\documentclass[12pt]{article}
+\usepackage{azzam}
+
+\begin{document}
+\title{Review Mixed Questions}
+\date{6-7 :p April 2026}
+\maketitle
+
+% https://drive.google.com/file/d/1a9dwlnUW-QKvDBZ6ICRHpbVWPE9LiODw/view
+
+\section*{Algebra}
+
+\begin{enumerate}
+    % number 19
+    \item For any positive real numbers $a, b, c$, $\dfrac{a}{b+c}+\dfrac{b}{c+a}+\dfrac{c}{a+b}\ge\dfrac{3}{2}.$
+    
+    % number 20
+    \item Let $a, b, c$ be positive numbers such that $a+b+c\le3$. Prove that $\dfrac{1}{1+a}+\dfrac{1}{1+b}+\dfrac{1}{1+c}\ge\dfrac{3}{2}.$
+    
+    % number 21
+    \item Prove that for any positive real numbers $a, b, c$, $\dfrac{a}{10b+11c}+\dfrac{b}{10c+11a}+\dfrac{c}{10a+11b}\ge\dfrac{1}{7}.$
+    
+    % number 22
+    \item Prove that for any positive real numbers $a, b, c, d, e$, 
+    $$\dfrac{a}{b+2c+3d+4e}+\dfrac{b}{c+2d+3e+4a}+\dfrac{c}{d+2e+3a+4b}+\dfrac{d}{e+2a+3b+4c}+\dfrac{e}{a+2b+3c+4d}\ge\dfrac{1}{2}.$$
+    
+    % number 23
+    \item Let $n$ be a positive integer and let $a_{1},a_{2},...,a_{n}$ be $n$ positive real numbers such that $a_{1}+a_{2}+\cdot\cdot\cdot+a_{n}=1$. Is it true that 
+    $$\dfrac{a_{1}^{4}}{a_{1}^{2}+a_{2}^{2}}+\dfrac{a_{2}^{4}}{a_{2}^{2}+a_{3}^{2}}+\cdot\cdot\cdot+\dfrac{a_{n}^{4}}{a_{n}^{2}+a_{1}^{2}}\ge\dfrac{1}{2n}?$$
+    
+    % number 24
+    \item Let $a, b, c, d$ be nonnegative real numbers such that $ab+bc+cd+da=1$. Prove that 
+    $$\dfrac{a^{3}}{b+c+d}+\dfrac{b^{3}}{a+c+d}+\dfrac{c^{3}}{a+b+d}+\dfrac{d^{3}}{a+b+c}\ge\dfrac{1}{3}.$$
+    
+    % number 25
+    \item (IMO 95) Let $a, b$ and $c$ be positive real numbers such that $abc=1$. Prove that 
+    $$\dfrac{1}{a^{3}(b+c)}+\dfrac{1}{b^{3}(a+b)}+\dfrac{1}{c^{3}(a+b)}\ge\dfrac{3}{2}.$$
+    \textit{Note: Cauchy's inequality is useful for these questions: $(x_{1}^{2}+x_{2}^{2}+\cdot\cdot\cdot+x_{i}^{2})(y_{1}^{2}+y_{2}^{2}+\cdot\cdot\cdot+y_{i}^{2})\ge(x_{1}y_{1}+x_{2}y_{2}+\cdot\cdot\cdot+x_{i}y_{i})^{2}.$ Equality holds iff $x_{j}=ty_{j}$ for all $j$, where $t$ is some constant.}
+
+    % number 27
+    \item Let $\{x_{n}\}$, $n\in\mathbb{N}$ be a sequence of numbers satisfying the condition 
+    $|x_{1}|<1$, $x_{n+1}=\dfrac{-x_{n}+\sqrt{3-3x_{n}^{2}}}{2}; (n\ge1)$.
+    \begin{enumerate}
+        \item[(a)] What other condition does $x_{1}$ need to satisfy so that all the numbers of the sequence are positive?
+        \item[(b)] Is the given sequence periodic?
+    \end{enumerate}
+    
+    % number 28
+    \item Suppose that a function $f$ defined on the positive integers satisfies $f(1)=1, f(2)=2$ and $f(n+2)=f(n+2-f(n+1))+f(n+1-f(n)), (n\ge1)$.
+    \begin{enumerate}
+        \item[(a)] Show that $0\le f(n+1)-f(n)\le1$.
+        \item[(b)] Show that if $f(n)$ is odd, then $f(n+1)=f(n)+1$.
+        \item[(c)] Determine, with justification, all values of $n$ for which $f(n)=2^{10}+1.$
+    \end{enumerate}
+
+    % number 36
+    \item Given three real numbers such that the sum of any two of them is not equal to 1, prove that there are two numbers $x$ and $y$ such that $xy/(x+y-1)$ does not belong to the interval $(0, 1)$.
+
+    % number 38
+    \item Let $\Gamma(x_{1},x_{2},x_{3},x_{4})=(x_{1}-x_{2},x_{2}-x_{3},x_{3}-x_{4},x_{4}-x_{1})$. If $x_{1}, x_{2}, x_{3}, x_{4}$ are not equal integers, show that there is no $n$ such that $\Gamma^{n}(x_{1},x_{2},x_{3},x_{4})=(x_{1},x_{2},x_{3},x_{4})$.
+
+    % number 39
+    \item Start with $n$ pairwise different integers $x_{1},x_{2},x_{3},...,x_{n},n>2$ and repeat the following step: 
+    $$T:(x_{1},x_{2},\cdot\cdot\cdot,x_{n})\rightarrow\left(\dfrac{x_{1}+x_{2}}{2},\dfrac{x_{2}+x_{3}}{2},\cdot\cdot\cdot,\dfrac{x_{n}+x_{1}}{2}\right).$$ 
+    Show that $T,T^{2},\cdot\cdot\cdot$, finally leads to nonintegral component.
+
+    % number 40
+    \item Is it possible to transform $f(x)=x^{2}+4x+3$ into $g(x)=x^{2}+10x+9$ by a sequence of transformations of the form $f(x)\rightarrow x^{2}f(1/x+1)$ or $f(x)\rightarrow(x-1)^{2}f(1/(x-1))?$
+
+    % number 46
+    \item Let $a_{1}=0$, $|a_{2}|=|a_{1}+1|,\cdot\cdot\cdot,|a_{n}|=|a_{n-1}+1|$. Prove that $\dfrac{a_{1}+a_{2}+\cdot\cdot\cdot+a_{n}}{n}\ge-\dfrac{1}{2}.$
+
+    % number 48
+    \item Can you select from $1,\dfrac{1}{2},\dfrac{1}{4},\dfrac{1}{8},...$ an infinite geometric sequence with sum (a) $\dfrac{1}{5}?$ (b) ?
+
+    % number 49
+    \item Let $x_{0}, a>0$, $x_{n+1}=\dfrac{1}{2}(x_{n}+\dfrac{a}{x_{n}})$. Find $\lim_{n\rightarrow\infty}a_{n}$.
+
+    % number 50
+    \item Let $0<a<b$, $a_{0}=a$ and $b_{0}=b.$ For $n\ge0,$ define $a_{n+1}=\sqrt{a_{n}b_{n}}, b_{n+1}=\dfrac{a_{n}+b_{n}}{2}$. Show that $\lim_{n\rightarrow\infty}a_{n}=\lim_{n\rightarrow\infty}b_{n}.$
+
+    % number 52
+    \item Determine all $\alpha\in\mathbb{R}$ such that there exists a nonconstant function $f:\mathbb{R}\rightarrow\mathbb{R}$ such that $f(\alpha(x+y))=f(x)+f(y)$.
+
+    % number 53
+    \item Let $f:\mathbb{N}\rightarrow\mathbb{N}$ be a function satisfying
+    \begin{enumerate}
+        \item[(a)] For every $n\in\mathbb{N}$, $f(n+f(n))=f(n)$.
+        \item[(b)] For some $n_{0}\in\mathbb{N},$ $f(n_{0})=1$.
+    \end{enumerate}
+    Show that $f(n)=1$ for all $n\in\mathbb{N}$.
+
+    % number 54
+    \item Suppose that $f:\mathbb{N}\rightarrow\mathbb{N}$ satisfies $f(1)=1$ and for all $n$,
+    \begin{enumerate}
+        \item[(a)] $3f(n)f(2n+1)=f(2n)(1+3f(n)),$
+        \item[(b)] $f(2n)<6f(n)$.
+    \end{enumerate}
+    Find all $(k, m)$ such that $f(k)+f(m)=2001.$
+
+    % number 55
+    \item Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a function such that for all $x,y\in\mathbb{R}$
+    $$f(x^{3}+y^{3})=(x+y)((f(x))^{2}-f(x)f(y)+(f(y))^{2}).$$
+    Prove that for all $x\in\mathbb{R}$, $f(2001x)=2001f(x)$.
+
+    % number 56
+    \item Find all functions $f:\mathbb{N}\rightarrow\mathbb{N}$ with the property that for all $n\in\mathbb{N}$,
+    $$\dfrac{1}{f(1)f(2)}+\dfrac{1}{f(2)f(3)}+\cdot\cdot\cdot+\dfrac{1}{f(n)f(n+1)}=\dfrac{f(f(n))}{f(n+1)}.$$
+
+    % number 57
+    \item Define $f:\mathbb{N}\rightarrow\mathbb{N}$ and $g:\mathbb{N}\rightarrow\mathbb{Z}$ such that
+    \begin{enumerate}
+        \item[(a)] $f(x,x)=x$,
+        \item[(b)] $f(x,y)=f(y,x)$,
+        \item[(c)] $f(x,y)=f(x,x+y)$,
+        \item[(d)] $g(2001)=2002$,
+        \item[(e)] $g(xy)=g(x)+g(y)+mg(f(x,y))$.
+    \end{enumerate}
+    Determine all integers $m$ for which $g$ exists.
+
+    % number 58
+    \item Let $a_{0}=2001$ and $a_{n+1}=\dfrac{a_{n}^{2}}{a_{n}+1}.$ Find the largest integer smaller than or equal to $a_{1001}$.
+
+    % number 59
+    \item Given a polynomial $f(x)=x^{100}-600x^{99}+\cdot\cdot\cdot$ with 100 real roots and that $f(7)>1$ show that at least one of the roots is greater than 7.
+
+    % number 68
+    \item The nonnegative real numbers $a, b, c, A, B, C$ and $k$ satisfy $a+A=b+B=c+C=k$. Prove that $aB+bC+cA\le k^{2}$.
+
+    % number 69
+    \item Find the least constant $C$ such that the inequality 
+    $$x_{1}x_{2}+x_{2}x_{3}+...+x_{2000}x_{2001}+x_{2001}x_{1}\le C$$ 
+    holds for any $\sum_{i=1}^{2001}x_{i}=2001, x_{1},...,x_{2001}\ge0$. For this constant $C$, determine the instances of equality.
+
+    % number 71
+    \item Consider the polynomial $p(x)=x^{2001}+a_{1}x^{2000}+a_{2}x^{1999}+...+a_{2000}x+1$ where all the $a_{i}$ are nonnegative. If the equation $p(x)=0$ has 2001 real roots, prove that $p(2001)\ge2002^{2001}$.
+
+    % number 72
+    \item Let $a, b, c, d$ be nonnegative real numbers such that $a+b+c+d=1.$ Prove that 
+    $$bcd + cda + dab+abc+ 176 abcd \le 27$$ 
+    Determine when equality holds.
+
+    % number 73
+    \item A sequence $\{a_{k}\}$ satisfies the following conditions:
+    \begin{enumerate}
+        \item[(a)] $a_{0}=\dfrac{1}{2001}$
+        \item[(b)] $a_{k+1}=a_{k}+\dfrac{1}{n}a_{k}^{2}$, $k=0,1,2,...,n.$
+    \end{enumerate}
+    Prove that $1-\dfrac{1}{2000n}<2000a_{n}<1$.
+\end{enumerate}
+
+
+\section*{Number Theory}
+
+\begin{enumerate}[resume]
+    % number 26
+    \item A sequence of natural numbers $\{a_{n}\}$ is defined by $a_{1}=1, a_{2}=3$ and $a_{n}=(n+1)a_{n-1}-na_{n-2}(n\ge2)$. Find all values of $n$ such that $11|a_{n}$.
+
+    % number 30
+    \item Given is a prime $p>3$. Set $q=p^{3}$. Define the sequence $\{a_{n}\}$ by:
+    $$a_{n}=\begin{cases}n & \text{for } n=0,1,2,...,p-1,\\ a_{n-1}+a_{n-p} & \text{for } n>p-1\end{cases}$$
+    Determine the remainder when $a_{q}$ is divided by $p$.
+
+    % number 32
+    \item Find all prime numbers $p$ for which the number $p^{2}+11$ has exactly 6 different divisors (including 1 and the number itself.)
+
+    % number 33
+    \item Determine all pairs $(a, b)$ of positive integers such that $ab^{2}+b+7$ divides $a^{2}b+a+b$.
+
+    % number 34
+    \item Let $p$ be an odd prime. Prove that 
+    $$1^{p-2}+2^{p-2}+3^{p-2}+\cdot\cdot\cdot+\left(\dfrac{p-1}{2}\right)^{p-2}\equiv\dfrac{2-2^{p}}{p} \pmod p.$$
+
+    % number 35
+    \item (10th grade) Let $d(n)$ denote the greatest odd divisor of the natural number $n$. Define the function $f:\mathbb{N}\rightarrow\mathbb{N}$ by $f(2n-1)=2^{n}$, $f(2n)=n+2n/d(n)$ for all $n\in\mathbb{N}.$ Find all $k$ such that $f(f(...(1)...))=1997$ where $f$ is iterated $k$ times.
+
+    % number 51
+    \item Let $a_0=0, a_{1}=1$, $a_{n}=2a_{n-1}+a_{n-2}, n>1$. Show that $2^{k}|a_{n}$ if and only if $2^{k}|n.$
+
+    % number 60
+    \item We define $S(n)$ as the number of ones in the binary representation of $n$. Does there exist a positive integer $n$ such that $\dfrac{S(n^{2})}{S(n)}<\dfrac{501}{2001}$?
+
+    % number 63
+    \item Suppose $\{a_{i}\}_{i=n}^{m}$ is a finite sequence of integers, and there is a prime $p$ and some $k$, $n\le k\le m$ such that $p|a_{k}$ but $p \nmid a_{j}$, $n\le j\le m, j\ne k$. Prove that $\sum_{i=n}^{m}\dfrac{1}{a_{i}}$ cannot be an integer.
+
+    % number 64
+    \item Prove that for any choice of $m$ and $n$, $m, n>1$, $\sum_{i=n}^{m}\dfrac{1}{i}$ cannot be a positive integer.
+
+    % number 66
+    \item Consider the recursions $x_{n+1}=2x_{n}+3y_{n}$, $y_{n+1}=x_{n}+2y_{n}$ with $x_{1}=2, y_{1}=1$. Show that for each integer $n\ge1$, there is a positive integer $K_{n}$ such that $x_{2n+1}=2(K_{n}^{2}+(K_{n}+1)^{2})$.
+\end{enumerate}
+
+
+\section*{Geometry}
+
+\begin{enumerate}[resume]
+
+
+    % number 9
+    \item Let $ARBPCQ$ be a hexagon. Suppose that $\angle AQR=\angle ARQ=15^{\circ}$, $\angle BPR=\angle CPQ=30^{\circ}$ and $\angle BRP=\angle CQP=45^{\circ}$. Prove that $AB$ is perpendicular to $AC$.
+
+    % number 10
+    \item $\Gamma_{1}$ and $\Gamma_{2}$ are two circles on the plane such that $\Gamma_{1}$ and $\Gamma_{2}$ lie outside each other. An external common tangent to the two circles touches $\Gamma_{1}$ at $A$ and $\Gamma_{2}$ at $C$ and an internal common tangent to the two circles touches $\Gamma_{1}$ at $B$ and $\Gamma_{2}$ at $D$. Prove that the intersection of $AB$ and $CD$ lie on the line joining the centres of $\Gamma_{1}$ and $\Gamma_{2}$.
+
+    % number 11
+    \item Let $E$ and $F$ be the midpoints of $AC$ and $AB$ of $\triangle ABC$ respectively. Let $D$ be a point on $BC$. Suppose that
+    \begin{enumerate}
+        \item[(i)] $P$ is a point on $BF$ and $DP$ is parallel to $CF$,
+        \item[(ii)] $Q$ is a point on $CE$ and $DQ$ is parallel to $BE$,
+        \item[(iii)] $PQ$ intersects $BE$ and $CF$ at $R$ and $S$ respectively.
+    \end{enumerate}
+    Prove that $PQ=3RS.$
+
+    % number 12
+    \item Let $AD$, $BE$ and $CF$ be the altitudes of an acute-angled triangle $ABC$. Let $P$ be a point on $DF$ and $K$ the point of intersection between $AP$ and $EF$. Suppose $Q$ is a point on $EK$ such that $\angle KAQ=\angle DAC$. Prove that $AP$ bisects $\angle FPQ$.
+
+    % number 13
+    \item In a square $ABCD$, $\mathcal{C}$ is a circular arc centred at $A$ with radius $AB$, $P$ and $M$ are points on $CD$ and $BC$ respectively such that $PM$ is tangent to $\mathcal{C}$. Let $AP$ and $AM$ intersect $BD$ at $Q$ and $N$ respectively. Prove that the vertices of the pentagon $PQNMC$ lie on a circle.
+
+    % number 14
+    \item In triangle $ABC$, the angle bisectors of angle $B$ and $C$ meet the median $AD$ at points $E$ and $F$ respectively. If $BE=CF$, prove that $\triangle ABC$ is isosceles.
+
+    % number 15
+    \item Let $ABCD$ be a convex quadrilateral. Prove that there exists a point $E$ in the plane of $ABCD$ such that $\triangle ABE$ is similar to $\triangle CDE$.
+
+    % number 16
+    \item Let $P, Q$ be points taken on the side $BC$ of a triangle $ABC$, in the order $B, P, Q, C$. Let the circumcircles of $\triangle PAB, \triangle QAC$ intersect at $M (\ne A)$ and those of $\triangle PAC, \triangle QAB$ at $N (\ne A)$. Prove that $A, M, N$ are collinear if and only if $P, Q$ are symmetric in the midpoint $A^{\prime}$ of $BC$.
+
+    % number 17
+    \item About a set of four concurrent circles of the same radius $r$, four of the common tangents are drawn to determine the circumscribing quadrilateral $ABCD$. Prove that $ABCD$ is a cyclic quadrilateral.
+
+    % number 18
+    \item Three circles of the same radius $r$ meet at a common point. Prove that the triangle having the other three points of intersections as vertices has circumradius equal to $r$.
+
+    % number 61
+    \item A semicircle $S$ is drawn on one side of a straight line $l$. $C$ and $D$ are points on $S$. The tangents to $S$ at $C$ and $D$ meet $l$ at $B$ and $A$ respectively, with the center of the semicircle between them. Let $E$ be the point of intersection of $AC$ and $BD$, and $F$ be the point on $l$ such that $EF$ is perpendicular to $l$. Prove that $EF$ bisects $\angle CFD$.
+
+    % number 67
+    \item Suppose that $ABCD$ is a tetrahedron and its four altitudes $AA_{1}, BB_{1}, CC_{1}, DD_{1}$ intersect at the point $H$. Let $A_{2}, B_{2}, C_{2}$ be points on $AA_{1}, BB_{1}, CC_{1}$ respectively such that $AA_{2}:A_{2}A_{1}=BB_{2}:B_{2}B_{1}=CC_{2}:C_{2}C_{1}=2:1.$ Show that the points $H, A_{2}, B_{2}, C_{2}, D_{1}$ are on a sphere.
+
+    % number 70
+    \item Let $D$ be a point inside an acute triangle $ABC$ such that $DA\cdot DB\cdot AB+DB\cdot DC\cdot BC+DC\cdot DA\cdot CA=AB\cdot BC\cdot CA.$ Determine the geometric position of $D$.
+
+    % number 74
+    \item Let $ABC$ be an equilateral triangle. Draw the semicircle $\Gamma$ which has $BC$ as its diameter, where $\Gamma$ lies on the opposite side of $BC$ as $A$. Show that the straight lines drawn from $A$ that trisect the line $BC$ also trisect $\Gamma$ when they are extended.
+
+    % number 75
+    \item $ABC$ is an equilateral triangle. $P$ is the midpoint of arc $AC$ of its circumcircle, and $M$ is an arbitrary point of the arc. $N$ is the midpoint of $BM$ and $K$ is the foot of the perpendicular from $P$ to $MC$. Prove that $\triangle ANK$ is an equilateral triangle.
+
+    % number 76
+    \item Two concentric circles are given with a common centre $O$. From a point $A$ on the outer circle, two tangents to the inner circle are drawn, meeting the latter at $D$ and $E$ respectively. $AD$ and $ED$ are extended to meet the outer circle at $C$ and $B$ respectively. Show that $(\dfrac{AB}{BC})^{2}=\dfrac{BE}{BD}$.
+
+    % number 77
+    \item Ali Baba the carpet merchant has a rectangular piece of carpet whose dimensions are unknown. Unfortunately, his tape measure is broken and he has no other measuring instruments. However, he finds that if he lays it flat on the floor of either of his storerooms, then each corner of the carpet touches a different wall of that room. He knows that the sides of the carpet are integral numbers of feet, and that his two storerooms have the same (unknown) length, but widths of 38 and 50 feet respectively. What are the carpet's dimensions?
+
+    % number 78
+    \item Let $I$ be the incentre of the non-isosceles triangle $ABC$. Let the incircle of $ABC$ touch the sides $BC, CA$ and $AB$ at the points $A_{1}, B_{1}$ and $C_{1}$ respectively. Prove that the circumcentres of $\triangle AIA_{1}, \triangle BIB_{1}$ and $\triangle CIC_{1}$ are collinear.
+\end{enumerate}
+
+
+\section*{Combinatorics}
+
+\begin{enumerate}[resume]
+    % number 1
+    \item Consider the set of integers $A=\{2^{a}3^{b}5^{c}:0\le a,b,c\le5\}$. Find the smallest number $n$ such that whenever $S$ is a subset of $A$ with $n$ elements, you can find two numbers $p, q$ in $A$ with $p|q$.
+
+    % number 2
+    \item "Words" are formed with the letters $A$ and $B$. Using the words $x_{1},x_{2},...,x_{n}$ we can form a new word if we write these words consecutively one next to another: $x_{1}x_{2}...x_{n}$. A word is called a palindrome, if it is not changed after rewriting its letters in the reverse order. Prove that any word with 1995 letters $A$ and $B$ can be formed with less than 800 palindromes.
+
+    % number 3
+    \item Let $n\ge2$ be an integer and $M=\{1,2,...,n\}$. For every $k\in\{1,2,...,n-1\}$, let $x_{k}=\dfrac{1}{n+1}\displaystyle\sum_{A \subseteq M,|A|=k}(\min A+\max A).$ Prove that $x_{1},x_{2},...,x_{n-1}$ are integers, not all divisible by 4.
+
+
+    % number 4
+    \item The lattice frame construction of $2\times2\times2$ cube is formed with 54 metal shafts of length 1 (points of shafts' connection are called junctions). An ant starts from some junction $A$ and creeps along the shafts in accordance with the following rule: when the ant reaches the next junction it turns to a perpendicular shaft. At some moment the ant reaches the initial junction $A$; there is no junction (except for $A$) where the ant has been twice. What is the maximum length of the ant's path?
+
+    % number 5
+    \item Let $n$ black and $n$ white objects be placed on the circumference of a circle, and define any set of $m$ consecutive objects from this cyclic sequence to be an $m$-chain.
+    \begin{enumerate}
+        \item[(a)] Prove that for each natural number $k\le n$, there exists a chain of $2k$ consecutive pieces on the circle of which exactly $k$ are black.
+        \item[(b)] Prove that there are at least two such chains that are disjoint if $k\le\sqrt{2n+2}-2$.
+    \end{enumerate}
+
+    % number 6
+    \item We are given 1999 rectangles with sides of integer not exceeding 1998. Prove that among these 1999 rectangles there are rectangles, say $A, B$ and $C$ such that $A$ will fit inside $B$ and $B$ will fit inside $C$.
+
+    % number 7
+    \item We are given $N$ lines $(N>1)$ in a plane, no two of which are parallel and no three of which have a point in common. Prove that it is possible to assign, to each region of the plane determined by these lines, a non-zero integer of absolute value not exceeding $N$, such that the sum of the integers on either side of any of the given lines is equal to 0.
+
+    % number 8
+    \item Let $S$ be a set of $2n+1$ points in the plane such that no three are collinear and no four concyclic. A circle will be called good if it has 3 points of $S$ on its circumference, $n-1$ points in its interior and $n-1$ in its exterior. Prove that the number of good circles has the same parity as $n$.
+    
+
+    % number 29
+    \item Determine the number of all sequences $\{x_{1},x_{2},...,x_{n}\}$, with $x_{i}\in\{a,b,c\}$ for $i=1,2,...,n$ that satisfy $x_{1}=x_{n}=a$ and $x_{i}\ne x_{i+1}$ for $i=1,2,...,n-1$.
+
+    % number 31
+    \item $A$ and $B$ are two candidates taking part in an election. Assume that $A$ receives $m$ votes and $B$ receives $n$ votes, where $m, n\in\mathbb{N}$ and $m>n.$ Find the number of ways in which the ballots can be arranged in order that when they are counted, one at a time, the number of votes for $A$ will always be more than that for $B$ at any time during the counting process.
+
+    % number 37
+    \item In the parliament of country A, each MP has at most 3 enemies. Prove that it is always possible to separate the parliament into two houses so that every MP in each house has at most one enemy in his own house.
+
+    % number 41
+    \item Is it possible to arrange the integers $1,1,2,2,..., 1998, 1998$, such that there are exactly $i-1$ other numbers between any two $i$'s?
+
+    % number 42
+    \item A rectangular floor can be covered by $n$ $2\times2$ and $m$ $1\times4$ tiles, one tile got smashed. Show that one can not substitute that tile by the other type ($2\times2$ or $1\times4$).
+
+    % number 43
+    \item In how many ways can you tile a $2\times n$ rectangle by $2\times1$ dominoes?
+
+    % number 44
+    \item In how many ways can you tile a $2\times n$ rectangle by $1\times1$ squares and L trominoes?
+
+    % number 45
+    \item In how many ways can you tile a $2\times n$ rectangle by $2\times2$ squares and L trominoes?
+
+    % number 47
+    \item Find the number $a_{n}$ of all permutations $\sigma$ of $\{1,2,...,n\}$ with $|\sigma(i)-i|\le1$ for all $i$.
+
+    % number 62
+    \item At a round table are 2002 girls, playing a game with $n$ cards. Initially, one girl holds all the cards. In each turn, if at least one girl holds at least two cards, one of these girls must pass a card to each of her two neighbours. The game ends when each girl is holding at most one card.
+    \begin{enumerate}
+        \item[(a)] Prove that if $n\ge2002$, then the game cannot end.
+        \item[(b)] Prove that if $n<2002$, then the game must end.
+    \end{enumerate}
+
+    % number 65
+    \item There is a tournament where 10 teams take part, and each pair of teams plays against each other once and only once. Define a cycle $\{A, B, C\}$ to be such that team $A$ beats team $B$, $B$ beats $C$ and $C$ beats $A$. Two cycles $\{A, B, C\}$ and $\{C, A, B\}$ are considered the same. Find the largest possible number of cycles after all the teams have played against each other.
+\end{enumerate}
+
+\end{document}
