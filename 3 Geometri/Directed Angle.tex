@@ -1,35 +1,5 @@
-\documentclass[11pt]{scrartcl}
-\usepackage{graphicx}
-\graphicspath{{./}}
-\usepackage[sexy]{evan}
-\usepackage[normalem]{ulem}
-\usepackage{hyperref}
-\usepackage{mathtools}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdfpagemode=FullScreen,
-    }
-
-\renewcommand{\dangle}{\measuredangle}
-
-\renewcommand{\baselinestretch}{1.5}
-
-\addtolength{\oddsidemargin}{-0.4in}
-\addtolength{\evensidemargin}{-0.4in}
-\addtolength{\textwidth}{0.8in}
-% \addtolength{\topmargin}{-0.2in}
-% \addtolength{\textheight}{1in} 
-
-
-\setlength{\parindent}{0pt}
-
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
-\usepackage{mathrsfs}
-\usetikzlibrary{arrows}
+\documentclass[12pt, a4paper]{scrartcl}
+\usepackage{azzam}
 
 \title{Directed Angle}
 \author{Curated by Azzam (IG: haxuv.world)}
@@ -44,9 +14,9 @@
     \begin{solusi}
         Notasikan $\measuredangle$ sebagai sudut berarah atau \textit{directed angle}. (gambar sendiri yah :) )
 		
-		\begin{lemmarev}[Buktikan sendiri :)]
+		\begin{lemma}[Buktikan sendiri :)]
 		(Alternate segment theorem) Misalkan garis $DB$ menyinggung lingkaran luar $ABC$ di $B$. Maka $\measuredangle DBA = \measuredangle BCA$
-		\end{lemmarev}
+		\end{lemma}
 		Misalkan $(ABC)$ dan $(ABD)$ berturut-turut adalah lingkaran luar $\triangle ABC$ dan $\triangle ABD$ berturut-turut. Perhatikan, karena $MC$ menyinggung $(ABC)$ di $C$, maka $\measuredangle MCD = \measuredangle CAB$. Karena $MD$ menyinggung $(ABD)$ di $D$, maka $\measuredangle CDM = \measuredangle BAD$.
 		
 		Sekarang perhatikan bahwa $$\measuredangle DMC = -\measuredangle CDM -\measuredangle MCD = -\measuredangle BAD -\measuredangle CAB = -\measuredangle CAD = \measuredangle DAC$$ yang berarti $ADMC$ siklis. Selanjutnya, perhatikan karena $MC$ menyinggung $(ABC)$ di $C$ dan karena $KL \parallel CM$ maka $$\measuredangle KAB = \measuredangle CAB = \measuredangle MCD = \measuredangle KLC = \measuredangle KLB$$ yang mana menyebabkan $AKBL$ siklis.

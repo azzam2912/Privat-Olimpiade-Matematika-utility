@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage[hagavi]{azzam}
+
+\begin{document}
+\section*{Soal}
+\begin{enumerate}
+\item Tentukan banyaknya bilangan bulat positif $n \le 1000$ yang merupakan kelipatan 3 atau 4 tetapi bukan kelipatan 5.
+
+\item Tentukan banyaknya pasangan bilangan bulat $(x,y)$ yang memenuhi persamaan $xy = x + y + 2026$.
+
+\item Tentukan banyaknya susunan huruf berbeda yang dapat dibentuk dari kata "OLIMPIADE" sedemikian rupa sehingga semua huruf vokal selalu berdampingan.
+
+\item Tentukan banyaknya titik potong maksimal yang dapat dibentuk oleh 10 lingkaran dan 5 garis lurus di sebuah bidang datar.
+
+\item Tentukan banyaknya bilangan bulat $x$ dengan $1 \le x \le 100$ sedemikian rupa sehingga $x^2 + x + 1$ habis dibagi 3.
+
+\item Tentukan banyaknya solusi bilangan bulat non-negatif dari persamaan $a + b + c + d = 15$.
+
+\item Tentukan banyaknya angka nol berurutan di bagian akhir dari nilai $100!$.
+
+\item Tentukan banyaknya akar real yang memenuhi persamaan $x^4 - 5x^2 + 4 = 0$.
+
+\item Tentukan banyaknya segitiga yang dapat dibentuk menggunakan titik-titik sudut dari sebuah segi-12 beraturan (dodekagon) sedemikian rupa sehingga tidak ada sisi segitiga yang merupakan sisi segi-12 tersebut.
+
+\item Tentukan banyaknya cara 5 siswa dapat mengembalikan 5 buku perpustakaan yang berbeda sedemikian rupa sehingga tidak ada satupun siswa yang menerima buku yang ia pinjam sebelumnya.
+
+\item Tentukan banyaknya faktor pembagi positif dari $10^5$ yang bukan merupakan kelipatan 10.
+
+\item Tentukan banyaknya himpunan bagian dari $\{1, 2, 3, 4, 5, 6, 7, 8\}$ yang mengandung setidaknya satu bilangan genap.
+
+\item Tentukan banyaknya tripel bilangan bulat $(x, y, z)$ yang memenuhi sistem persamaan $x + y = 2$ dan $xy - z^2 = 1$.
+
+\item Tentukan banyaknya diagonal ruang yang terdapat pada sebuah bangun ruang prisma segi-8 beraturan.
+
+\item Tentukan banyaknya rute terpendek di bidang Kartesius dari titik $(0,0)$ menuju $(5,5)$ jika pergerakan hanya diizinkan ke kanan atau ke atas, tanpa melewati titik $(2,2)$.
+\end{enumerate}
+
+\section*{Pembahasan}
+\begin{enumerate}
+
+\item Misalkan $A$, $B$, dan $C$ berturut-turut adalah himpunan bilangan kelipatan 3, 4, dan 5 yang kurang dari atau sama dengan 1000. Kita mencari $|(A \cup B) \setminus C| = |A \cup B| - |(A \cup B) \cap C|$. 
+Banyaknya bilangan kelipatan 3 atau 4 adalah $|A \cup B| = 333 + 250 - 83 = 500$.
+Banyaknya bilangan kelipatan 3 atau 4 yang juga merupakan kelipatan 5 adalah kelipatan 15 atau 20, yaitu $|(A \cap C) \cup (B \cap C)| = 66 + 50 - 16 = 100$. 
+Hasil akhirnya adalah $500 - 100 = 400$.
+
+\item Persamaan dapat dimanipulasi menjadi $xy - x - y + 1 = 2027$, yang dapat difaktorkan menjadi $(x-1)(y-1) = 2027$. Karena $2027$ adalah bilangan prima, faktor pembaginya di himpunan bilangan bulat hanyalah $1, -1, 2027$, dan $-2027$. Ini memberikan 4 kemungkinan pasangan untuk $(x-1)$ dan $(y-1)$. Jadi, terdapat 4 pasangan $(x,y)$ yang memenuhi.
+
+\item Kata "OLIMPIADE" memiliki 5 huruf vokal (O, I, I, A, E) dan 4 konsonan (L, M, P, D). Jika 5 huruf vokal digabungkan menjadi 1 blok kesatuan, terdapat $1 + 4 = 5$ entitas. Banyaknya cara menyusun 5 entitas ini adalah $5! = 120$. Di dalam blok vokal itu sendiri, banyaknya permutasi dengan memperhitungkan 2 huruf I yang identik adalah $\frac{5!}{2!} = 60$. Total susunan berbeda adalah $120 \times 60 = 7200$.
+
+\item Titik potong maksimal diperoleh jika semua objek saling berpotongan secara optimal. 
+Titik potong antar 10 lingkaran: $\binom{10}{2} \times 2 = 90$. 
+Titik potong antar 5 garis: $\binom{5}{2} \times 1 = 10$. 
+Titik potong antara garis dan lingkaran: $10 \times 5 \times 2 = 100$. 
+Total titik potong maksimal adalah $90 + 10 + 100 = 200$.
+
+\item Tinjau persamaan $x^2 + x + 1 \pmod 3$. 
+Jika $x \equiv 0 \pmod 3$, maka hasilnya $\equiv 1 \pmod 3$. 
+Jika $x \equiv 1 \pmod 3$, maka hasilnya $\equiv 1+1+1 = 3 \equiv 0 \pmod 3$. 
+Jika $x \equiv 2 \pmod 3$, maka hasilnya $\equiv 4+2+1 = 7 \equiv 1 \pmod 3$.
+Syarat terpenuhi hanya jika $x \equiv 1 \pmod 3$. Dalam rentang $1 \le x \le 100$, nilai yang memenuhi berbentuk deret aritmetika $1, 4, 7, \dots, 100$. Banyaknya adalah $\lfloor \frac{100-1}{3} \rfloor + 1 = 34$.
+
+\item Menggunakan metode \textit{Stars and Bars}, banyaknya solusi bilangan bulat non-negatif dari persamaan $x_1 + x_2 + \dots + x_k = n$ dirumuskan dengan $\binom{n+k-1}{k-1}$. Untuk $n=15$ dan $k=4$, diperoleh $\binom{15+4-1}{4-1} = \binom{18}{3} = \frac{18 \times 17 \times 16}{3 \times 2 \times 1} = 816$.
+
+\item Banyaknya angka nol berurutan di akhir faktorial ekuivalen dengan mencari pangkat faktor 5 dalam dekomposisi prima nilai tersebut. Menggunakan Teorema Legendre, pangkat dari 5 pada $100!$ adalah $\lfloor \frac{100}{5} \rfloor + \lfloor \frac{100}{25} \rfloor = 20 + 4 = 24$.
+
+\item Misalkan $y = x^2$, persamaan menjadi $y^2 - 5y + 4 = 0$. Bentuk ini dapat difaktorkan menjadi $(y-1)(y-4) = 0$, sehingga solusinya $y = 1$ atau $y = 4$. Substitusi kembali menghasilkan $x^2 = 1 \implies x = \pm 1$ dan $x^2 = 4 \implies x = \pm 2$. Ada 4 akar real yang memenuhi.
+
+\item Total segitiga yang dapat dibentuk dari dodekagon adalah $\binom{12}{3} = 220$. 
+Segitiga dengan tepat 1 sisi bersekutu dibentuk dari 1 sisi segi-12 (12 cara) dan 1 titik yang tidak bersebelahan ($12-4=8$ titik), total $12 \times 8 = 96$. 
+Segitiga dengan 2 sisi bersekutu sama dengan jumlah titik sudut segi-12, yaitu 12. 
+Maka banyaknya segitiga tanpa sisi bersekutu adalah $220 - 96 - 12 = 112$.
+
+\item Kasus ini adalah masalah \textit{derangement} (kekacauan) untuk 5 objek, yaitu menyusun objek sedemikian rupa sehingga tidak ada satupun yang berada di posisi aslinya. Rumus derangement untuk $n=5$ adalah $D_5 = 5! \left( \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} \right) = 120 \left( \frac{1}{2} - \frac{1}{6} + \frac{1}{24} - \frac{1}{120} \right) = 60 - 20 + 5 - 1 = 44$.
+
+\item Faktorisasi prima dari $10^5$ adalah $2^5 \times 5^5$. Agar suatu pembagi bukan merupakan kelipatan 10, pembagi tersebut tidak boleh memuat faktor 2 dan 5 secara bersamaan. Maka, faktor tersebut harus berbentuk $2^a$ ($0 \le a \le 5$, ada 6 kemungkinan) atau $5^b$ ($0 \le b \le 5$, ada 6 kemungkinan). Karena angka $1$ ($2^0 5^0$) dihitung dua kali, jumlah total faktornya adalah $6 + 6 - 1 = 11$.
+
+\item Total himpunan bagian dari himpunan beranggota 8 elemen adalah $2^8 = 256$. Himpunan bagian yang tidak memenuhi syarat (tidak memiliki bilangan genap) adalah subset yang hanya disusun dari anggota bilangan ganjil $\{1, 3, 5, 7\}$, yang banyaknya $2^4 = 16$. Maka himpunan bagian yang memiliki setidaknya satu angka genap adalah $256 - 16 = 240$.
+
+\item Dari persamaan pertama, substitusi $y = 2 - x$ ke persamaan kedua sehingga diperoleh $x(2-x) - z^2 = 1 \implies 2x - x^2 - z^2 = 1$. Pindah ruaskan persamaan ini membentuk $(x-1)^2 + z^2 = 0$. Karena jumlahan dari dua bilangan kuadrat real yang menghasilkan nol hanya mungkin jika keduanya nol, maka $x-1 = 0 \implies x=1$ dan $z=0$. Nilai $y = 2-1 = 1$. Hanya ada 1 tripel solusi, yaitu $(1, 1, 0)$.
+
+\item Pada prisma segi-$n$ beraturan, sebuah diagonal ruang dibentuk dengan menghubungkan sebuah titik di alas atas dengan sebuah titik di alas bawah yang bukan merupakan titik tepat di bawahnya, dan bukan pula 2 titik yang berada di sebelahnya. Dari setiap titik di alas atas, terdapat $(n - 3)$ pilihan titik di alas bawah. Untuk prisma segi-8, terdapat $8 \times (8-3) = 40$ diagonal ruang.
+
+\item Banyaknya seluruh rute terpendek di bidang Kartesius dari $(0,0)$ menuju $(5,5)$ dihitung dengan kombinasi $\binom{5+5}{5} = \binom{10}{5} = 252$. Banyaknya rute yang diwajibkan melewati $(2,2)$ adalah kombinasi dari $(0,0) \to (2,2)$ dikali kombinasi $(2,2) \to (5,5)$, yaitu $\binom{4}{2} \times \binom{6}{3} = 6 \times 20 = 120$. Maka rute yang tidak melewati titik $(2,2)$ berjumlah $252 - 120 = 132$.
+
+\end{enumerate}
+\end{document}

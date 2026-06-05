@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[hagavi]{azzam}
+
+\begin{document}
+
+\title{Menghitung (Lebih Mudah)}
+\section*{Soal}
+\begin{enumerate}
+
+\item Tentukan banyaknya subhimpunan $A \subseteq \{1, 2, 3, \dots, 12\}$ sedemikian rupa sehingga jumlah dari semua elemen di dalam $A$ habis dibagi 3 (himpunan kosong dihitung memiliki jumlah elemen 0).
+
+\item Tentukan banyaknya bilangan bulat positif $n \le 1000$ sedemikian rupa sehingga $\lfloor \sqrt{n} \rfloor$ habis membagi $n$.
+
+\item Tentukan banyaknya fungsi polinomial $P(x)$ berderajat 3 dengan koefisien bilangan bulat yang memenuhi $P(1) = 1$, $P(2) = 2$, $P(3) = 3$, dan $|P(0)| \le 100$.
+
+\item Tentukan banyaknya cara memilih 3 titik sudut dari sebuah segi-20 beraturan (ikosagon) sedemikian rupa sehingga ketiga titik tersebut membentuk sebuah segitiga tumpul.
+
+\item Tentukan banyaknya barisan biner (string yang hanya terdiri dari angka 0 dan 1) sepanjang 10 karakter yang tidak mengandung substring "010".
+
+\item Tentukan banyaknya pasangan bilangan bulat positif urut $(a,b)$ dengan $1 \le a, b \le 50$ sedemikian rupa sehingga $a^b + b^a$ habis dibagi 3.
+
+\item Tentukan banyaknya pasangan bilangan bulat $(x,y)$ dengan $|x| \le 100$ dan $|y| \le 100$ yang memenuhi persamaan $x^2 + x = y^4 + y^2$.
+
+\item Tentukan banyaknya kata sepanjang 8 karakter yang dapat dibentuk dari huruf-huruf $\{A, B, C\}$ sedemikian rupa sehingga jumlah huruf $A$ yang digunakan bersifat genap dan jumlah huruf $B$ yang digunakan bersifat ganjil.
+
+\item Tentukan banyaknya nilai bilangan bulat positif $k \le 1000$ sedemikian rupa sehingga lingkaran $x^2 + y^2 = k$ dan garis lurus $3x + 4y = 25$ memiliki tepat dua titik potong yang koordinat $(x,y)$ keduanya merupakan bilangan bulat.
+
+\item Tentukan banyaknya bilangan bulat positif $n \le 500$ yang dapat dinyatakan dalam bentuk $n = \lfloor x \rfloor + \lfloor 2x \rfloor + \lfloor 3x \rfloor$ untuk suatu bilangan real $x$.
+
+\end{enumerate}
+
+\newpage
+
+\section*{Solusi}
+\begin{enumerate}
+
+\item \textbf{Jawaban: 1376} \\
+Menggunakan metode akar persatuan (roots of unity). Polinomial pembangkit untuk himpunan bagian adalah $P(x) = \prod_{k=1}^{12} (1+x^k)$. Kita ingin mencari jumlah koefisien dari suku-suku dengan pangkat kelipatan 3, yang diberikan oleh:
+$$ \frac{1}{3} \left( P(1) + P(\omega) + P(\omega^2) \right) $$
+di mana $\omega = e^{2\pi i / 3}$.
+Kita hitung $P(1) = 2^{12} = 4096$. Karena $\prod_{k=1}^{3} (1+\omega^k) = (1+\omega)(1+\omega^2)(1+1) = (-\omega^2)(-\omega)(2) = 2$, siklus ini berulang 4 kali sehingga $P(\omega) = 2^4 = 16$. Demikian pula $P(\omega^2) = 16$. Totalnya adalah $\frac{4096 + 16 + 16}{3} = 1376$.
+
+\item \textbf{Jawaban: 92} \\
+Misalkan $k = \lfloor \sqrt{n} \rfloor$, maka $k^2 \le n < (k+1)^2$. Kita tuliskan $n = k^2 + r$ dengan $0 \le r \le 2k$. Karena $k \mid n$, maka $k \mid r$. Nilai $r$ yang mungkin adalah $0, k,$ atau $2k$. Sehingga untuk setiap $k$, terdapat 3 nilai $n$ yang memenuhi. 
+Untuk $k$ dari 1 hingga 30, terdapat $30 \times 3 = 90$ nilai. Untuk $k=31$, nilai $n$ yang mungkin adalah $31^2 = 961$ dan $961+31 = 992$ (karena $961+62 > 1000$). Total keseluruhannya adalah $90 + 2 = 92$.
+
+\item \textbf{Jawaban: 32} \\
+Definisikan $Q(x) = P(x) - x$. Karena $P(1)=1, P(2)=2, P(3)=3$, maka $Q(x)$ memiliki akar 1, 2, dan 3. Karena $P(x)$ berderajat 3, $Q(x)$ dapat ditulis sebagai $Q(x) = c(x-1)(x-2)(x-3)$ untuk suatu bilangan bulat tak nol $c$.
+Maka $P(x) = c(x-1)(x-2)(x-3) + x$. Substitusi $x=0$ menghasilkan $P(0) = -6c$. Karena $|P(0)| \le 100$, kita peroleh $|-6c| \le 100 \implies |c| \le 16$. Karena $c \neq 0$, terdapat 16 nilai positif dan 16 nilai negatif untuk $c$. Total fungsi polinomial yang mungkin adalah $16 \times 2 = 32$.
+
+\item \textbf{Jawaban: 720} \\
+Total cara memilih 3 titik adalah $\binom{20}{3} = 1140$. Segitiga siku-siku terbentuk jika salah satu sisinya adalah diameter. Ada 10 diameter, masing-masing menyisakan 18 titik untuk membentuk sudut siku-siku, sehingga ada $10 \times 18 = 180$ segitiga siku-siku. 
+Segitiga lancip dihitung dengan rumus $\frac{n(n-2)(n-4)}{24} = \frac{20 \times 18 \times 16}{24} = 240$. Banyaknya segitiga tumpul adalah Total dikurangi siku-siku dan lancip, yaitu $1140 - 180 - 240 = 720$.
+
+\item \textbf{Jawaban: 351} \\
+Misalkan $f_n$ adalah banyaknya barisan biner panjang $n$ yang tidak mengandung "010". Dengan menyusun relasi rekurensi berdasarkan kemungkinan karakter terakhir, didapat $f_n = f_{n-1} + f_{n-2} + f_{n-4}$. 
+Dengan nilai awal $f_1 = 2$, $f_2 = 4$, $f_3 = 7$, $f_4 = 12$, kita dapat menghitung nilai selanjutnya: $f_5 = 21$, $f_6 = 37$, $f_7 = 65$, $f_8 = 114$, $f_9 = 200$, $f_{10} = 351$.
+
+\item \textbf{Jawaban: 706} \\
+Tinjau $(a,b) \pmod 3$. Ekspresi $a^b + b^a \equiv 0 \pmod 3$. Berdasarkan analisis kasus sisa bagi:
+\begin{itemize}
+    \item Jika $a \equiv 0, b \equiv 0$: $16 \times 16 = 256$ pasang.
+    \item Jika $a \equiv 1, b \equiv 2$: Memerlukan $a$ ganjil ($9$ angka) dan $b$ sembarang ($17$ angka), ada $9 \times 17 = 153$ pasang.
+    \item Jika $a \equiv 2, b \equiv 1$: Simetris, ada $17 \times 9 = 153$ pasang.
+    \item Jika $a \equiv 2, b \equiv 2$: Memerlukan paritas berbeda ($9$ genap, $8$ ganjil), ada $9 \times 8 + 8 \times 9 = 144$ pasang.
+\end{itemize}
+Total keseluruhan adalah $256 + 153 + 153 + 144 = 706$.
+
+\item \textbf{Jawaban: 40} \\
+Kalikan persamaan dengan 4 dan tambahkan 1 sehingga diperoleh $(2x+1)^2 = (2y^2+1)^2$. Akar kuadratnya memberikan dua kemungkinan:
+1) $2x+1 = 2y^2+1 \implies x = y^2$. Dengan batasan $|x| \le 100$, diperoleh $y^2 \le 100 \implies -10 \le y \le 10$ ($21$ solusi).
+2) $2x+1 = -2y^2-1 \implies x = -y^2-1$. Diperoleh $|-y^2-1| \le 100 \implies y^2 \le 99 \implies -9 \le y \le 9$ ($19$ solusi).
+Karena kedua kasus tidak beririsan, totalnya adalah $21 + 19 = 40$.
+
+\item \textbf{Jawaban: 1640} \\
+Menggunakan Fungsi Pembangkit Eksponensial (EGF). EGF untuk A (genap) adalah $\cosh(x)$, B (ganjil) adalah $\sinh(x)$, dan C (bebas) adalah $e^x$. Perkalian ketiganya adalah:
+$$ \cosh(x) \sinh(x) e^x = \left(\frac{e^x + e^{-x}}{2}\right) \left(\frac{e^x - e^{-x}}{2}\right) e^x = \frac{e^{3x} - e^{-x}}{4} $$
+Kita mencari koefisien dari $\frac{x^8}{8!}$, yang bernilai $\frac{3^8 - (-1)^8}{4} = \frac{6561 - 1}{4} = 1640$.
+
+\item \textbf{Jawaban: 6} \\
+Substitusi parameter garis $3x+4y=25$, yaitu $x = 7+4t$ dan $y = 1-3t$ (untuk $t \in \mathbb{Z}$), ke persamaan lingkaran menghasilkan $25((t+1)^2 + 1) = k$. 
+Agar terdapat tepat dua titik potong berkoordinat bulat, maka $(t+1)^2$ harus menghasilkan kuadrat sempurna tak nol, misalkan $m^2 > 0$. Dengan batasan $k \le 1000$, kita peroleh $25(m^2+1) \le 1000 \implies m^2 \le 39$. Nilai bilangan bulat positif $m$ yang memenuhi adalah $1, 2, 3, 4, 5, 6$. Maka ada tepat 6 nilai $k$.
+
+\item \textbf{Jawaban: 334} \\
+Fungsi $f(x) = \lfloor x \rfloor + \lfloor 2x \rfloor + \lfloor 3x \rfloor$ meningkat sebesar 6 ketika $x$ meningkat sebesar 1 (karena $f(x+1) = f(x) + 6$). Dalam interval $x \in [0, 1)$, $f(x)$ hanya mengambil 4 nilai: 0, 1, 2, dan 3. Ini berarti $f(x)$ melompati 2 nilai setiap kelipatan 6 (yaitu bentuk $6k+4$ dan $6k+5$). 
+Batas $n \le 500$ berada di dalam blok ke-84 ($k=83$), yang berakhir pada $6 \times 83 + 2 = 500$. Banyaknya nilai yang dilewati sepenuhnya dalam rentang ini adalah $83 \times 2 = 166$ nilai. Maka total bilangan bulat positif yang dapat dinyatakan adalah $500 - 166 = 334$.
+
+\end{enumerate}
+
+\end{document}

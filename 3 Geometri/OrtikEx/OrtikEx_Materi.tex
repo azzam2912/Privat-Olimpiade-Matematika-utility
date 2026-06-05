@@ -1,39 +1,9 @@
-\documentclass[11pt]{scrartcl}
-\usepackage{graphicx}
-\graphicspath{{./}}
-\usepackage[sexy]{evan}
-\usepackage[normalem]{ulem}
-\usepackage{hyperref}
-\usepackage{mathtools}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdfpagemode=FullScreen,
-    }
-
-\renewcommand{\dangle}{\measuredangle}
-
-\renewcommand{\baselinestretch}{1.5}
-
-\addtolength{\oddsidemargin}{-0.4in}
-\addtolength{\evensidemargin}{-0.4in}
-\addtolength{\textwidth}{0.8in}
-% \addtolength{\topmargin}{-0.2in}
-% \addtolength{\textheight}{1in} 
-
-
-\setlength{\parindent}{0pt}
-
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
-\usepackage{mathrsfs}
-\usetikzlibrary{arrows}
+\documentclass[12pt]{scrartcl}
+\usepackage{azzam}
 
 \title{Ortik dan Ex: Dua Konfigurasi Dasar}
 \author{Azzam (IG: haxuv.world)}
-\date{Jumat, 19 Januari 2024}
+\date{\today}
 
 \begin{document}
 \maketitle
@@ -42,7 +12,7 @@ Dalam dunia olimpiade geometri, konfigurasi Ortik (Orthic Triangle and related s
 \section{Ortik}
 \subsection{Banyak Lingkaran!}
 Diberikan segitiga $ABC$ dengan garis tinggi $AD, BE, CF$. Orthocenter / titik tinggi $H$. Titik tengah $M$. 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \begin{asy}
     size(10cm);
@@ -102,7 +72,7 @@ Beberapa metode pembuktian
     \item Homothety / Dilatasi.
     \item Trigonometri.
 \end{itemize}
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \begin{asy}
     size(7cm);
@@ -151,9 +121,8 @@ Beberapa metode pembuktian
  \item (OSN 2010) Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$ dan titik tinggi $H$. Misalkan $K$ sebarang titik di dalam segitiga $ABC$ yang tidak sama dengan $O$ maupun $H$. Titik $L$ dan $M$ terletak di luar segitiga $ABC$ sedemikian sehingga $AKCL$ dan $AKBM$ jajaran genjang. Terakhir, misalkan $BL$ dan $CM$ berpotongan di titik $N$ dan misalkan juga $J$ adalah titik tengah $HK$. Buktikan bahwa $KONJ$ jajaran genjang.
  \end{enumerate}
 
- \newpage
 \section{Ex}
-Chapter ini sebagian besar diambil dari Chapter 1 Evan Chen's EGMO (Euclidean Geometry on Mathematical Olympiad). Sangat direkomendasikan (baca atau mati! becanda) agar mempelajarinya dengan baik di buku tersebut :).
+Chapter ini sebagian besar diambil dari Chapter 1 Evan Chen's EGMO (Euclidean Geometry on Mathematical Olympiad). Sangat direkomendasikan agar mempelajarinya dengan baik di buku tersebut :).
 \begin{lemma}
   [Incenter-Excenter Lemma]
   Let $ABC$ be a triangle with incenter $I$, $A$-excenter $I_A$.
@@ -161,7 +130,7 @@ Chapter ini sebagian besar diambil dari Chapter 1 Evan Chen's EGMO (Euclidean Ge
   (that is, the midpoint of the diameter $\ol{II_A}$)
   coincides with the arc midpoint $L$ of minor arc $BC$.
 \end{lemma}
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \begin{asy}
     pair A = dir(110);

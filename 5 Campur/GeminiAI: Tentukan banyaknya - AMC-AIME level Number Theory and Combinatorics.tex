@@ -1,0 +1,74 @@
+\documentclass{scrartcl}
+\usepackage[hagavi]{azzam}
+
+\title{Menghitung}
+\begin{document}
+
+\section*{Soal}
+\begin{enumerate}
+% Answer: 511
+
+\item Tentukan banyaknya himpunan bagian tak kosong $S$ dari $\{1, 2, \dots, 15\}$ sedemikian sehingga hasil kali semua elemen di dalam $S$ merupakan bilangan kuadrat sempurna.
+
+% Answer: 7
+
+\item Tentukan banyaknya polinomial monik $P(x)$ berderajat 4 dengan koefisien bilangan bulat sedemikian sehingga $P(x)$ membagi $x^{12} - 1$ di $\mathbb{Z}[x]$.
+
+% Answer: 946
+
+\item Tentukan banyaknya bilangan bulat positif $n \le 100000$ sedemikian sehingga $\lfloor \sqrt{n} \rfloor$ habis membagi $n$.
+
+% Answer: 22
+
+\item Tentukan banyaknya segitiga siku-siku dengan panjang sisi-sisi bilangan bulat dan panjang salah satu sisi siku-sikunya adalah 2024.
+
+% Answer: 93600
+
+\item Tentukan banyaknya himpunan bagian $A$ dari $\{1, 2, \dots, 20\}$ sedemikian sehingga jika $x \in A$, maka $2x \notin A$.
+
+% Answer: 232
+
+\item Tentukan banyaknya fungsi $f: \{1, 2, \dots, 7\} \to \{1, 2, \dots, 7\}$ sedemikian sehingga $f(f(x)) = x$ untuk semua $x \in \{1, 2, \dots, 7\}$.
+
+% Answer: 3
+
+\item Tentukan banyaknya pasangan bilangan real $(x,y)$ yang memenuhi sistem persamaan $x^3 - 3xy^2 = 2024$ dan $y^3 - 3x^2y = 2023$.
+
+% Answer: 7
+
+\item Tentukan banyaknya nilai $x$ dalam interval $[0, 2\pi]$ yang memenuhi persamaan $\sin(x) + \sin(2x) + \sin(3x) = 0$.
+
+% Answer: 166
+
+\item Tentukan banyaknya bilangan bulat positif $n \le 1000$ sedemikian sehingga $\lfloor \frac{n}{2} \rfloor + \lfloor \frac{n}{3} \rfloor + \lfloor \frac{n}{6} \rfloor = n$.
+
+% Answer: 504
+
+\item Tentukan banyaknya barisan biner $(x_1, x_2, \dots, x_{10})$ dengan $x_i \in \{0, 1\}$ sedemikian sehingga tidak ada tiga angka 0 yang berurutan dalam barisan tersebut.
+\end{enumerate}
+
+\section*{Pembahasan}
+
+\begin{enumerate}
+
+\item \textbf{Answer: 511} Faktorisasi prima dari bilangan 1 hingga 15 hanya melibatkan bilangan prima 2, 3, 5, 7, 11, dan 13 (6 buah prima). Setiap subset dapat direpresentasikan sebagai vektor biner berdimensi 6 yang menyatakan paritas eksponen primanya. Karena ada 15 elemen dan rank maksimal adalah 6, dimensi ruang nol-nya adalah $15 - 6 = 9$. Banyaknya subset tidak kosong yang hasil kalinya kuadrat sempurna adalah $2^9 - 1 = 511$.
+
+\item  \textbf{Answer: 7} Akar-akar dari $x^{12}-1$ adalah akar ke-12 dari persatuan. $x^{12}-1 = \Phi_1 \Phi_2 \Phi_3 \Phi_4 \Phi_6 \Phi_{12}$ dengan derajat masing-masing 1, 1, 2, 2, 2, 4. Kita mencari kombinasi faktor polinomial ini yang jumlah derajatnya sama dengan 4. Kombinasi derajat yang mungkin adalah 4 (1 cara), 2+2 (3 cara), dan 2+1+1 (3 cara). Totalnya ada $1 + 3 + 3 = 7$ polinomial.
+
+\item  \textbf{Answer: 946} Misalkan $n = k^2 + r$ dengan $0 \le r \le 2k$. Maka $\lfloor \sqrt{n} \rfloor = k$. Agar $k$ membagi $n$, $k$ harus membagi $r$, sehingga $r \in \{0, k, 2k\}$. Untuk setiap $k \le 315$, ada 3 nilai $n$ (yaitu $k^2, k^2+k, k^2+2k$). Untuk $k = 316$, hanya $316^2 = 99856$ yang $\le 100000$. Total nilai $n$ yang memenuhi adalah $315 \times 3 + 1 = 946$.
+
+\item  \textbf{Answer: 22} Misalkan sisi-sisinya adalah $a$, $2024$, dan $c$ dengan $c$ sisi miring. Maka $c^2 - a^2 = 2024^2 \implies (c-a)(c+a) = 2^6 \cdot 11^2 \cdot 23^2$. Keduanya harus genap, sehingga $\left(\frac{c-a}{2}\right)\left(\frac{c+a}{2}\right) = 2^4 \cdot 11^2 \cdot 23^2$. Banyaknya faktor dari nilai ini adalah $5 \times 3 \times 3 = 45$. Karena $c > a > 0$, kita ambil pasangan faktor $(x, y)$ dengan $x < y$. Banyaknya pasangan adalah $\frac{45 - 1}{2} = 22$.
+
+\item  \textbf{Answer: 93600} Kita mempartisi himpunan ke dalam rantai $x, 2x, 4x, \dots$ untuk setiap $x$ ganjil. Untuk rantai panjang $n$, banyaknya cara memilih elemen tanpa berurutan adalah bilangan Fibonacci $F_{n+2}$. Rantai-rantai yang ada berukuran 5 (sebanyak 1), 3 (sebanyak 2), 2 (sebanyak 2), dan 1 (sebanyak 5). Total cara adalah $F_7 \times F_5^2 \times F_4^2 \times F_3^5 = 13 \times 5^2 \times 3^2 \times 2^5 = 93600$.
+
+\item  \textbf{Answer: 232} Syarat $f(f(x)) = x$ berarti $f$ adalah sebuah involusi (hanya memiliki siklus panjang 1 atau 2). Banyaknya titik tetap $k$ harus bernilai ganjil: 7, 5, 3, atau 1. Jika $k=7$ ada 1 cara. $k=5$ ada 21 cara. $k=3$ ada $\binom{7}{4} \cdot \frac{4!}{2^2 \cdot 2!} = 105$ cara. $k=1$ ada $\binom{7}{6} \cdot \frac{6!}{2^3 \cdot 3!} = 105$ cara. Total fungsi adalah $1 + 21 + 105 + 105 = 232$.
+
+\item  \textbf{Answer: 3} Misalkan $z = x + iy$. Persamaan tersebut setara dengan mencari bagian riil dan imajiner dari $z^3$. Perhatikan bahwa $(x+iy)^3 = (x^3-3xy^2) + i(3x^2y-y^3)$. Sistem persamaan memberikan $z^3 = 2024 - 2023i$. Karena nilai di ruas kanan bukan nol, persamaan ini memiliki tepat 3 akar kompleks yang berbeda, yang berkorespondensi dengan 3 pasangan $(x,y)$ riil.
+
+\item  \textbf{Answer: 7} Kita gunakan identitas $\sin(x) + \sin(3x) = 2 \sin(2x) \cos(x)$. Persamaan menjadi $\sin(2x) (2 \cos(x) + 1) = 0$. Kasus $\sin(2x) = 0$ memberikan solusi $x \in \{0, \frac{\pi}{2}, \pi, \frac{3\pi}{2}, 2\pi\}$ (5 nilai). Kasus $\cos(x) = -\frac{1}{2}$ memberikan solusi $x \in \{\frac{2\pi}{3}, \frac{4\pi}{3}\}$ (2 nilai). Tidak ada irisan antar kedua kasus, sehingga terdapat 7 solusi.
+
+\item  \textbf{Answer: 166} Misalkan $n = 6k + r$ dengan $0 \le r < 6$. Substitusi ke persamaan menghasilkan $6k + \lfloor \frac{r}{2} \rfloor + \lfloor \frac{r}{3} \rfloor + \lfloor \frac{r}{6} \rfloor = 6k + r$. Mengecek $r$ dari 0 hingga 5, persamaan ini hanya benar saat $r = 0$. Jadi $n$ harus kelipatan 6. Banyaknya kelipatan 6 yang positif dan $\le 1000$ adalah $\lfloor \frac{1000}{6} \rfloor = 166$.
+
+\item  \textbf{Answer: 504} Misalkan $a_n$ adalah banyaknya barisan biner panjang $n$ yang tidak memuat "000". Barisan ini memenuhi relasi rekurensi Tribonacci $a_n = a_{n-1} + a_{n-2} + a_{n-3}$ untuk $n \ge 4$. Dengan nilai awal $a_1 = 2$, $a_2 = 4$, $a_3 = 7$, kita dapat menghitung suku-suku berikutnya berturut-turut: 13, 24, 44, 81, 149, 274, hingga mencapai $a_{10} = 504$.
+\end{enumerate}
+\end{document}
