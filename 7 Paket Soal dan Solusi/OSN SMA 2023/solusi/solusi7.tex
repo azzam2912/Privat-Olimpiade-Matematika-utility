@@ -1,0 +1,71 @@
+\input{soal/soal7}
+\newline
+\input{proposer/RWK}
+\begin{motivasi}
+    Dari soal yang meminta membuktikan ketersinggungan, saya langsung terpikir dengan \textit{alternate segment theorem}. Dari sini saya berusaha membuktikan bahwa $\angle DEC = \angle MCP$. Nah dari tujuan ini, saya berusaha memaksa untuk \textit{angle chasing} karena sepertinya soal ini bagus untuk permainan sudut, (\textit{feeling}). Lalu, hal ini diperkuat dengan fakta bahwa beberapa sudut bernilai $90^\circ$ karena keadaan diameter lingkaran serta ada sudut yang sama dari dua garis yang saling sejajar. 
+
+    Selain itu, dari keadaan titik $M$ sebagai titik tengah $PB$ dan keadaan $PB$ menyinggung $(ABC)$ di $B$, saya langsung teringat dengan \textit{power of a point}, atau lebih tepatnya sebuah \textit{lemma} di bukunya Evan Chen. Dari situ mudah dicapai tujuan kita untuk mencari kesebangunan dan sudut-sudut yang sama.
+\end{motivasi}
+\begin{solusi}[oleh Azzam L. H.]
+    Notasikan $\dangle$ sebagai \textit{directed angle}. Misalkan garis $DE$ memotong garis $AN$ dan $CP$ berturut-turut di $F$ dan $G$.
+    
+    Dengan \textit{power of a point} di lingkaran $(ABC)$ kita punya $MP^2=MB^2=MN \cdot MC$ yang menyebabkan $\triangle MNP \sim \triangle MPC$ sehingga $\dangle NPM = \dangle MCP$.
+    Selanjutnya, perhatikan bahwa $\dangle BEF = \dangle BNF = 90^\circ$ yang menunjukkan bahwa $FNBE$ siklis. Dengan memadukan hal tersebut dan fakta bahwa $DE \parallel PB$, serta pemakaian \textit{alternate segment theorem} karena $PC$ menyinggung $(ABC)$ di $C$, akan didapat
+    \begin{align*}
+        \dangle NBF = \dangle NEF = \dangle NPM = \dangle MCP = \dangle NAC = \dangle NBC
+    \end{align*}
+    yang langsung mengakibatkan $B,F,C$ segaris. 
+    \begin{center}
+        \begin{asy}
+            import olympiad;
+            import geometry;
+            size(200);
+            pair A,B,C;
+            A = dir(180);
+            B = dir(0);
+            C = dir(108);
+            draw(B--A--C--B);
+            dot("$A$", A, W);
+            dot("$B$", B, E);
+            dot("$C$", C, NW);  
+            circle abc = circumcircle(triangle(A,B,C));
+            line tangentB = tangent(abc, B);
+            line tangentC = tangent(abc, C);
+            pair P = intersectionpoint(tangentB, tangentC);
+            dot("$P$", P, N);
+            draw(abc, red);
+            draw(B--P, blue);
+            draw(P--C);
+            pair M = (B+P)/2;
+            dot("$M$", M, E);
+            draw(C--M);
+            pair NN[] = intersectionpoints(line(C,M),abc);
+            pair N = NN[0];
+            dot("$N$", N, N);
+            draw(A--N--B);
+            pair E = intersectionpoint(line(P,N),line(A,B));
+            dot("$E$", E, S);
+            draw(P--E);
+            draw(C--E);
+            pair PAR = E-B+M;
+            line ED = line(PAR, E);
+            pair D = intersectionpoint(line(C,M),ED);
+            dot("$D$", D, N);
+            draw(E--D, blue);
+            pair G = intersectionpoint(line(C,P),ED);
+            dot("$G$", G, NW);
+            draw(D--G, blue);
+            circle cde = circumcircle(triangle(C,E,D));
+            draw(cde, red+dashed);
+            pair F = intersectionpoint(line(C,B),line(A,N));
+            dot("$F$", F , SW);
+            draw(circumcircle(triangle(C,F,E)), blue);
+            draw(circumcircle(triangle(N,F,E)), blue);
+        \end{asy}
+    \end{center}
+    Selanjutnya, kita juga punya $CFEA$ siklis karena $\dangle CFE = \dangle CAE = 90^\circ$. Oleh karena itu dengan bantuan \textit{alternate segment theorem} bisa didapat 
+    \begin{align*}
+        \dangle DEC = \dangle FEC = \dangle FAC = \dangle NAC = \dangle NCP
+    \end{align*}
+    yang menyebabkan $PC$ menyinggung lingkaran luar $(CDE)$ di $C$. Terbukti.
+\end{solusi}

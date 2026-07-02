@@ -1,0 +1,37 @@
+\input{soal/soal2}
+\newline
+\input{proposer/VI}
+\begin{motivasi}
+    Jika dilihat pada soal, ekspresi $f(\dots) = \floor{\dots}$ menandakan bahwa $f$ bernilai bulat untuk semua $y$, oleh karena itu aman dikatakan bahwa ini adalah fungsi yang bernilai bulat. Lalu, saya sendiri coba "memaksa" agar $f(0)$ atau ekspresi yang mirip ditemukan agar mungkin bisa mendapatkan ekspresi yang lebih bagus lagi. Selain itu, dari ekspresi di soal saya mempunyai tujuan untuk membuktikan bahwa $f(\dots) = \floor{\dots} + \text{sesuatu}$.
+\end{motivasi}
+\begin{solusi}[oleh Azzam L. H.]
+    Notasikan $P(x,y)$ sebagai asersi $x$ dan $y$ pada persamaan di soal. Pertama jika diasersi $P(x,-f(x)+y)$ untuk sebarang $x,y \in \RR$ maka 
+    \begin{align*}
+        f(y) = \floor{x + f(f(-f(x)+y))}
+    \end{align*}
+    yang menunjukkan bahwa $f: \RR \to \ZZ$ atau hasil pemetaan $f$ harus bulat.
+    Selanjutnya, karena $f(f(0))$ bulat, dengan asersi $P(x,0)$ untuk sembarang $x \in \RR$ akan didapat
+    \begin{align*}
+        f(f(x)) = \floor{x+f(f(0))} = \floor{x}+f(f(0))
+    \end{align*}
+    oleh karena itu, jika diasersi $P(x,-f(x))$ untuk sembarang $x \in \RR$ dengan persamaan sebelumnya (ganti $x$ dengan $-f(x)$) dan karena hasil $f$ bulat, maka akan didapat
+    \begin{align*}
+        f(0) &= \floor{x+f(f(-f(x)))}\\
+        f(0) &= \floor{x} + f(f(-f(x)))\\
+        f(0) &= \floor{x} + \floor{-f(x)} + f(f(0))\\
+        f(0) &= \floor{x} -f(x) + f(f(0))\\
+        f(x) &= \floor{x} + f(f(0))-f(0)
+    \end{align*}
+    Karena $f(0)$ konstan dan bulat, maka $t = f(f(0))-f(0)$ juga bernilai konstan dan bulat sehingga $f(x) = \floor{x}+t$. Jika dicek ke soal,
+    \begin{align*}
+        f(f(x)+y)&=f(\floor{x}+t+y)\\
+                &=\floor{\floor{x}+t+y}+t\\
+                &=\floor{\floor{x}}+\floor{y}+t+t\\
+                &= \floor{\floor{x}} + \floor{\floor{y}+t+t}\\
+                &= \floor{\floor{x}+\floor{\floor{y}+t+t}}\\
+                &= \floor{x+f(\floor{y}+t)}\\
+                &= \floor{x+f(f(y))}
+    \end{align*}
+    ternyata $\boxed{f(x) = \floor{x} + t}$ untuk sembarang $x \in \RR$ dan konstanta $t \in \ZZ$ adalah fungsi yang memenuhi soal. 
+    
+\end{solusi}

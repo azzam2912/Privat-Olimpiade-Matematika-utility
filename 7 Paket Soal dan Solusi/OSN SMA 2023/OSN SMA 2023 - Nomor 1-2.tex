@@ -1,0 +1,55 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx,amsmath,amssymb,amsthm,amsfonts,babel}
+\usepackage{tikz, tkz-euclide}
+\usepackage{lipsum}
+\usepackage{setspace}
+\graphicspath{ {./} }
+\usetikzlibrary{calc,through,intersections}
+\usepackage[paperwidth=16cm, paperheight=16cm,margin=1cm]{geometry}
+
+\colorlet{EvanRed}{Red!50!Purple}
+
+\newcommand{\siku}[4][.5cm]
+	{
+	\coordinate (tempa) at ($(#3)!#1!(#2)$);
+	\coordinate (tempb) at ($(#3)!#1!(#4)$);
+	\coordinate (tempc) at ($(tempa)!0.5!(tempb)$);%midpoint
+	\draw[black] (tempa) -- ($(#3)!2!(tempc)$) -- (tempb);
+	}
+	\usetikzlibrary{calc,positioning,intersections}
+
+\setstretch{1.5}
+
+\usepackage{etoolbox}
+\newcommand{\zerodisplayskips}{%
+  \setlength{\abovedisplayskip}{5pt}%
+  \setlength{\belowdisplayskip}{5pt}%
+  \setlength{\abovedisplayshortskip}{5pt}%
+  \setlength{\belowdisplayshortskip}{5pt}}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+\setlength\parindent{10pt}
+
+\title{Solusi OSN Matematika SMA 2023 part 1}
+\author{Nomor 1 dan 2 hari pertama}
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage
+\section{Soal}
+\subsection{Nomor 1 Hari Pertama}
+\input{soal/soal1}
+\subsection{Nomor 2 Hari Pertama}
+\input{soal/soal2}
+
+\section{Solusi}
+\subsection{Nomor 1 Hari Pertama}
+\input{solusi/solusi1}
+\subsection{Nomor 2 Hari Pertama}
+\input{solusi/solusi2}
+
+\end{document}

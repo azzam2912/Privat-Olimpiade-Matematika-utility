@@ -1,0 +1,49 @@
+\input{soal/soal1}
+\newline
+\input{proposer/RWK}
+\begin{motivasi}
+    Dari syarat pencerminan $A$ ke $A'$ akan terbentuk segitiga yang kongruen dengan $ABC$ yaitu $A'BC$. Dari sini karena letak $A'DE$ "lebih dekat" dengan $A'BC$ maka saya iseng ingin buktikan kedua lingkaran tersebut ternyata punya satu lingkaran luar yang sama (dan ternyata benar). 
+\end{motivasi}
+\begin{solusi}[oleh Azzam L. H.]
+    Notasikan $\dangle$ sebagai $\textit{directed angle} \mod 180^\circ$.
+    Perhatikan karena $A'$ adalah refleksi dari $A$ terhadap $BC$, maka $AC=CA'$ dan $AB=BA'$ sehingga $\triangle ABC \cong \triangle A'BC$. Oleh karena itu, panjang jari-jari lingkaran luar segitiga $ABC$ dan $A'BC$ sama. Dari sini cukup dibuktikan bahwa ternyata lingkaran $(A'BC)$ dan $(A'DE)$ adalah lingkaran yang sama atau cukup dibuktikan bahwa $A',B,E,D,C$ berada di satu lingkaran yang sama.
+    \begin{center}
+        \begin{asy}
+            import geometry;
+            import olympiad;
+            size(170);
+            pair A = (0,1.75);
+            pair B = (2,0);
+            pair C = (-1,0);
+            real ab = length(A-B);
+            pair AD[] = intersectionpoints(line(A,C),circle(B,ab));
+            pair D = AD[0];
+            real ac = length(A-C);
+            pair AE[] = intersectionpoints(line(A,B),circle(C,ac));
+            pair E = AE[1];
+            pair A1 = reflect(B,C)*A;
+            circle abc = circumcircle(triangle(A,B,C));
+            circle dea1 = circumcircle(triangle(A1,D,E));
+            dot("$A$", A, N);
+            dot("$B$", B, E);
+            dot("$C$", C, W);
+            dot("$D$", D, NW);
+            dot("$E$", E, NE);
+            dot("$A'$", A1, SW);
+            draw(B--C--A1--B);
+            draw(A--B--D, blue);
+            draw(A--C--E, red);
+            draw(abc);
+            draw(dea1, dashed);
+        \end{asy}
+    \end{center}
+    Perhatikan bahwa karena $AB=BD$ dan $AC=CE$ maka 
+    \begin{align*}
+        \dangle BDC = \dangle BDA = \dangle DAE = \dangle AEC = \dangle BEC
+    \end{align*}
+    yang menunjukkan $B,D,E,C$ berada di satu lingkaran. Di sisi lain 
+    \begin{align*}
+        \dangle BEC = \dangle AEC = \dangle CAB = \dangle BA'C
+    \end{align*}
+    yang menunjukkan $A'B,E,C$ berada di satu lingkaran. Dari kedua fakta tersebut, dapat disimpulkan bahwa $A',B,E,D,C$ berada di satu lingkaran yang sama, sesuai yang ingin dibuktikan.
+\end{solusi}

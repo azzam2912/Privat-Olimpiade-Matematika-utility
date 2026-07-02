@@ -1,0 +1,55 @@
+\input{soal/soal3}
+\newline
+\input{proposer/MA}
+\begin{motivasi}(oleh Muhammad Afifurrahman)
+    \begin{itemize}
+        \item Motivasi untuk solusi ini berasal dari $f(n(n+1))=1$ (karena Asep dapat berpindah ke $n^2$ atau $(n+1)^2$ dalam kasus ini).
+\item \textit{case work}nya tidak terlalu berat jika sudah memiliki klaim tersebut.
+\item Dengan menguji semua kemungkinan, seseorang dapat membuktikan bahwa $f(17)=3$ yang menghasilkan sebuah kasus ketaksamaan.
+\item Tentu saja, batasan klaim tersebut tidak optimal. Namun, klaim tersebut sudah cukup untuk membuktikan pernyataan di soal.
+\item Selain itu, batasan masalah ini tidak optimal untuk nilai $n$ yang besar; khususnya, dengan memodifikasi (dan mempertimbangkan lebih banyak kasus modulo...), ada $C(k)$ sedemikian sehingga $f(n)\leq (n-C(k))/k$ untuk semua nilai $n$ yang cukup besar.
+\item Lebih lanjut, teman saya menunjukkan bahwa $f(n) \leq \lceil \log_2 n \rceil$ untuk semua nilai $n$ yang cukup besar, dengan memperhatikan bahwa $f(2^{k})=1$ ketika $k$ ganjil. 
+    \end{itemize}
+\end{motivasi}
+\begin{solusi}(oleh Muhammad Afifurrahman)
+    Misalkan $f(n)$ menotasikan langkah terkecil yang dibutuhkan Asep untuk menang. 
+
+    \begin{claim*}
+        $f(xy)\leq |x-y|$. 
+        \begin{bukti}
+            \item Jika $x=y$, Asep sudah selesai. Andaikan $x \neq y$ , WLOG $x>y$, Asep dapat melanjutkan seperti berikut ini:
+            \item Jika Neneng memilih naik, Asep dapat mengganti $xy$ dengan $x(y+1)$.
+            \item Jika Neneng memilih turun, Asep dapat mengganti $xy$ dengan $(x-1)y$. Langkah ini valid karena $x\geq 2$.
+            Dalam setiap langkah, Asep akan mengurangi selisih antara kedua bilangan tersebut sebanyak tepat 1. Oleh karena itu, dengan menerapkan strategi ini sebanyak $x-y$ kali, Asep akan menang. Terbukti.
+        \end{bukti}
+    \end{claim*}
+
+    
+    Sekarang kita akan membagi kasus berdasarkan $n$ modulo $4$.
+
+\begin{enumerate}
+    \item Jika $n=4k\geq 16$, 
+    kita dapat langsung menggunakan klaim untuk mendapatkan
+    \[f(n) \leq |k-4| = \dfrac{n-16}{4} < \dfrac{n-5}{4}.\]
+    
+    \item Jika $n=4k+2 \geq 18$,
+    pertama-tama kita tambahkan atau kurangkan $2$ untuk mendapatkan $4k$ atau $4k+4$. Kemudian kita terapkan klaim tersebut. Dengan mengikuti strategi ini, kita dapat
+    \[f(n) \ leq 1+ |(k+1)-4| = \dfrac{n-10}{4} < \dfrac{n-5}{4}.\]
+    
+    \item Jika $n=4k+3 \geq 19$ dan langkah pertama Neneng adalah "naik", Asep dapat mengubah bilangan tersebut menjadi $4k+4$. Maka,
+    \[f(n) \leq 1+|(k+1)-4| =\dfrac{n-11}{4} < \dfrac{n-5}{4}.\]
+    
+    \item Jika $n=4k+3 \geq 19$ dan langkah pertama Neneng adalah "turun", Asep dapat mengubah bilangan tersebut menjadi $4k+2$. Maka,
+    \[f(n) \leq 1+\dfrac{(n-1)-10}{4} =\dfrac{n-7}{4} < \dfrac{n-5}{4}.\]
+    
+    \item Jika $n=4k+1 \geq 17$ dan langkah pertama Neneng adalah "turun", 
+    Asep dapat mengubah bilangan tersebut menjadi $4k$. Maka,
+    \[f(n) \leq 1+|k-4| =\dfrac{n-13}{4} < \dfrac{n-5}{4}.\]
+    
+    \item Jika $n=4k+1 \geq 17$ dan langkah pertama Neneng adalah "naik", 
+    Asep dapat mengubah bilangan tersebut menjadi $4k+2$. Maka,
+    \[f(n) \leq 1+\dfrac{(n+1)-10}{4} =\dfrac{n-5}{4}.\]
+\end{enumerate}
+
+Sisa kasus lainnya adalah $n=14$, di mana Asep dapat mengganti $14 \to 16$ atau $14 \to 12 \to (9 \text{ atau } 16)$, dan $n=15$, di mana Asep dapat mengganti $15 \to 16$ atau $15 \to 12 \to (9 \text{ atau } 16)$. Terbukti.
+\end{solusi}

@@ -1,0 +1,36 @@
+\input{soal/soal4}
+\input{proposer/MA}
+\begin{motivasi}(oleh Muhammad Afifurrahman)
+    Inti utama dari masalah ini (ketika saya memikirkan soal ini) adalah klaim dalam solusi tersebut. Bagian yang paling sulit setelah membuktikan klaim-klaim tersebut adalah untuk menyembunyikan klaim tersebut dalam soal dan pastinya $99.9 \%$ itu cuma jadi pengalih perhatian; setiap pecahan pada interval $(0,1)$ harusnya bisa (dan mungkin juga untuk nol?). Selain itu, dengan menambahkan beberapa digit di depan, ada tak terhingga banyaknya $N$ yang memenuhi pernyataan tersebut.
+\end{motivasi}
+
+\begin{solusi}(oleh Muhammad Afifurrahman)
+    Pertama akan dibuktikan klaim yang lebih kuat.
+    
+    \begin{claim*}
+        Terdapat barisan bilangan bulat positif $(a_i)_{i=3}^\infty$ sehingga pernyataan berikut berlaku: 
+        \begin{itemize}
+            \item Untuk semua $n\geq 3$, $a_n$ hanya mengandung digit $1, 2, 3,$
+            
+            \item $a_n$ memiliki tepat $n$ digit,
+            
+            \item $v_2(a_n)=n$, dan 
+            
+            \item semua digit pada $a_n$, kecuali digit terakhir, bernilai ganjil.
+        \end{itemize}
+        \begin{bukti}
+            Akan dilakukan induksi pada $n$. 
+            
+            Untuk $n=3$, ambil $a_3=312$. Misalkan ada $a_k$ yang memenuhi untuk suatu $k\geq 3$. Ternyata, baik $10^k+a_k$ maupun $3 \cdot 10^k+a_k$ dapat dibagi oleh $2^{k+1}$, dikarenakan
+            
+            \[ 10^k+a_k \equiv 2^k + 2^k \equiv 0 \pmod {2^{k+1}}, \]
+            
+            dan salah satunya tidak dapat dibagi oleh $2^{k+2}$ (karena selisih kedua bilangan tersebut adalah $2 \cdot 10^k$ yang tidak dapat dibagi oleh $2^{k+2}$). Oleh karena itu, dapat dipilih $a_{k+1}$ sebagai salah satu dari dua bilangan tersebut. Klaim terbukti,
+        \end{bukti}
+    \end{claim*}
+
+    Dari klaim tersebut, maka kita dapat mengkonstruksi $N$ dengan $3000$ digit yang memenuhi syarat di soal. Ambil $2023$ digit terakhir dari $N$ sebagai $a_{2023}$ yang telah dikonstruksi sebelumnya, dan ambil 977 digit pertama dari $N$ sebagai $3 \ldots 322$, dengan 975 digit 3 dan dua digit 2. Dengan konstruksi $a_n$, dapat dilihat bahwa $N$ memiliki tiga digit genap yang semuanya adalah 2, dan 2997 digit ganjil yang merupakan 1 atau 3. Oleh karena itu, konstruksi ini memenuhi persyaratan persentase dan digit. 
+    Selanjutnya, kita punya
+    \[ N = 3\ldots 322 \cdot 10^{2023} + a_{2023}. \]
+    Suku pertama dapat dibagi oleh $2^{2024}$, dan suku kedua dapat dibagi oleh $2^{2023}$, tetapi tidak dapat dibagi oleh $2^{2024}$. Oleh karena itu, $v_2(N)=2023$. Konstruksi tersebut memenuhi. Dapat disimpulkan bahwa bilangan $N$ yang dimaksud ada. Terbukti
+\end{solusi}

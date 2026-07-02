@@ -1,0 +1,22 @@
+\input{soal/soal8}
+\newline
+\input{proposer/VI}
+\begin{motivasi}
+    (oleh Valentio Iverson) Kesulitan utama dari soal ini terletak pada konstruksi, yang menurut saya sebenarnya cukup masuk akal. 
+    
+    Kita bisa mulai dengan mengerjakan kasus-kasus untuk $\min(a,b,c)$, sehingga dapat dibuktikan bahwa $\min(a,b,c) = 1$ tidak berhasil.
+    
+    Kemudian, coba $\min(a,b,c) = 2$, atau ketika kita menginginkan agar $b^2 - 8c$ dan $c^2 - 8b$ adalah kuadrat sempurna. Intuisi yang paling "natural" untuk dicoba adalah memaksa $b$ menjadi polinomial dalam $c$ sehingga $b^2 - 8c$ adalah kuadrat dari polinomial dalam $c$, yang berarti kita ingin sesuatu yang berbentuk seperti $b = 2c + 1$. Kemudian sisanya gampang, coba paksa agar $c^2 - 8(2c + 1) = (c - 8)^2 - 72$ menjadi kuadrat sempurna.
+\end{motivasi}
+\begin{solusi}(oleh Valentio Iverson)
+    Jawabannya adalah $\boxed{8}$, yang tercapai saat $(a,b,c) = (2,17,35)$. Dapat dilihat bahwa pada konstruksi tersebut,
+    \[ S(a,b,c) = \left \{-17, - 5,  -\frac{7}{2},  -2, - \frac{1}{2},  - \frac{1}{5}, - \frac{2}{7}, - \frac{1}{17}  \right \}. \]
+    
+    Untuk membuktikan bahwa batasan tersebut adalah yang paling besar, dapat dilihat agar $px^2 + qx + r$ memiliki solusi rasional, maka haruslah $q^2 - 4pr \ge 0$.
+    
+    Perhatikan bahwa ada permutasi $(d,e,f)$ dari $(a,b,c)$ sehingga $d < e < f$. 
+    
+    Dalam kasus ini, $d^2 - 4ef < 0$ dan oleh karena itu baik $ex^2 + dx + f$ maupun $fx^2 + dx + e$ tidak memberikan akar yang rasional. 
+    
+    Oleh karena itu, paling banyak hanya ada $2 \cdot 4 = 8$ akar rasional dari $4$ persamaan kuadrat yang tersisa, seperti yang ingin dibuktikan.
+\end{solusi}

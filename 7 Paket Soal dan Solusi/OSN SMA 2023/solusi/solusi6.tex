@@ -1,0 +1,16 @@
+\input{soal/soal6}
+\input{proposer/RWK}
+\begin{motivasi}
+    Setelah saya mencoba-coba beberapa kasus, mulai dari $n=2,3,4,6$ saya mendapatkan suatu pola bahwa banyak solusi berbentuk $2^\text{sesuatu}$. Lalu, dari pola tersebut saya terpikir untuk memakai induksi karena soal persyaratan di soal pasti tergantung oleh kondisi sebelumnya, banyak permutasi pada $n+1$ pasti ada bagian yang merupakan permutasi pada $n$ yang memenuhi. Dari sini tinggal memikirkan bagaimana mengkonstruksi permutasi tersebut.
+\end{motivasi}
+\begin{solusi}[oleh Azzam L. H.]
+    Misalkan tupel $T_n=(a_1,a_2,\dots,a_n)$ yang memenuhi (yang merupakan permutasi dari $(1,2,\dots,n)$) disebut sebagai \textit{kawaii}. Misalkan banyaknya $n$ \textit{kawaii} yang memenuhi adalah $A_n$. Akan dibuktikan dengan induksi di $n$ bahwa $A_n=2^{n-1}$ untuk $n \in \NN$.
+
+    Untuk $n=1$ jelas bahwa $(a_1)=(1)$ sehingga $A_1=1=2^{1-1}$. Untuk $n=2$ jelas bahwa $(a_1,a_2) = (1,2), (2,1)$ sehingga $A_2=2^{2-1}$. 
+    
+    Andaikan pernyataan benar untuk $n=k \in \NN$, $T_k=(a_1,a_2,\dots,a_k)$ adalah \textit{kawaii} dengan $A_k = 2^{k-1}$. 
+    
+    Untuk $n=k+1$, misalkan $T_{k+1}=(b_1,b_2,\dots,b_{k+1})$ adalah permutasi yang \textit{kawaii}. Perhatikan karena $T_k$ merupakan permutasi \textit{kawaii}, maka untuk membentuk $T_{k+1}$, kita tidak bisa menyisipkan $k+1$ di antara $a_1,a_2,\dots,a_k$ (tidak bisa menyisipkan di "gap" antara suku-suku sebelumnya). Kita hanya dapat menyisipkan $k+1$ di "kiri" atau "kanan" tupel $T_k$ sehingga $T_{k+1}$ sama dengan $(k+1,a_1,\dots,a_k)$ atau $(a_1,\dots,a_k,k+1)$.  Hal ini karena nilai dari $a_1+\dots+a_k = 1+\dots+k$, jika disisipkan $k+1$ di "gap" antar suku-suku tersebut (selain di kiri dan kanan tupel $T_k$), maka tidak akan ada nilai $r$ yang membuat $b_{r+1}+\dots+b_{r+k}=1+2+\dots+k$.
+    
+    Oleh karena itu, untuk setiap $T_k$ yang kawaii, akan ada dua buah $T_{k+1}$ yang juga kawaii. Dari sini akan didapat $A_{k+1}=2A_k = 2\cdot 2^{k-1} = 2^{k+1 -1}$. Dari induksi tersebut, terbukti bahwa banyaknya permutasi yang memenuhi soal tersebut adalah $2^{n-1}$.
+\end{solusi}

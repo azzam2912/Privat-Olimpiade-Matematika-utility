@@ -1,0 +1,23 @@
+\input{soal/soal5}
+\newline
+\input{proposer/RWK}
+\begin{motivasi}
+    Pendefinisian $a=dx$ dan $b=dy$ dengan $d=\operatorname{FPB}(a,b)$ seringkali menjadi kunci penyelesaian banyak soal, termasuk soal ini. Motivasi munculnya cukup mudah apalagi di soal diberikan syarat keterbagian, sehingga harusnya intuisi secara alami untuk menjadikan $a$ dan $b$ menjadi faktor yang dapat dibagi oleh suatu bilangan $d$.
+\end{motivasi}
+\begin{solusi}[oleh Azzam L. H.]
+    Misalkan $a=dx$ dan $b=dy$ dengan $d,x,y \in \NN$ dan $\operatorname{FPB}(x,y)=1$. Dari sini jelas bahwa $\operatorname{FPB}(a,b)=d$ dan $\operatorname{KPK}(a,b) = dxy$.
+
+    Akan dibuktikan bahwa $d=y$. Andaikan $d \neq y$ kita punya
+    \begin{align*}
+        a+ 1 &\mid \operatorname{FPB}(a, b)+\operatorname{KPK}(a, b)\\
+        dx+1 &\mid d+dxy\\
+        dx+1 &\mid d+dxy - y(dx+1)\\
+        dx+1 &\mid d-y
+    \end{align*}
+    yang menyebabkan $dx+1 \le |d-y|$.
+    Di sisi lain
+    \begin{align*}
+        d-y < d < dx + 1 \text{ dan } y-d < y \le dy = b \le a < a+1 = dx+1
+    \end{align*}
+    yang setara dengan $|d-y| < dx+1$. Tetapi hal ini akan menyebabkan $|d-y| < dx+1 \le |d-y|$, kontradiksi. Oleh karena itu haruslah $d=y$ sehingga mengakibatkan $b=dy=d^2$ merupakan bilangan kuadrat sempurna.
+\end{solusi}
