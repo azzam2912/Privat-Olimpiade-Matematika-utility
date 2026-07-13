@@ -1,37 +1,5 @@
 \documentclass[11pt]{scrartcl}
-\usepackage{graphicx}
-\graphicspath{{./}}
-\usepackage[sexy]{evan}
-\usepackage[normalem]{ulem}
-\usepackage{hyperref}
-\usepackage{mathtools}
-\usepackage{geometry}
-\usepackage{asymptote}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdfpagemode=FullScreen,
-    }
-
-\renewcommand{\dangle}{\measuredangle}
-
-\renewcommand{\baselinestretch}{1.5}
-
-\addtolength{\oddsidemargin}{-0.4in}
-\addtolength{\evensidemargin}{-0.4in}
-\addtolength{\textwidth}{0.8in}
-% \addtolength{\topmargin}{-0.2in}
-% \addtolength{\textheight}{1in} 
-
-
-\setlength{\parindent}{0pt}
-
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
-\usepackage{mathrsfs}
-\usetikzlibrary{arrows}
+\usepackage[hagavi]{azzam}
 
 \usepackage[most]{tcolorbox}
 
@@ -52,50 +20,55 @@
 \newline
 \textbf{(Proposed by Wildan Bagus Wicaksono)}
 \begin{center}
-    \begin{asy}
-        import olympiad;
-        import geometry;
-        size(200);
+    \begin{tikzpicture}[scale=0.7, dot/.style={circle, fill, inner sep=0.5pt, outer sep=0pt}]
 
-        pair A,B,C,D,P,Q,R,X,S;
-        A = (-4,3);
-        B = (4,3);
-        C = (4,-3);
-        D = (-4,-3);
-        line l = perpendicular(A, line(A,C));
-        P = intersectionpoint(l, line(B,C));
-        Q = C/3+2*D/3;
-        R = intersectionpoint(line(P,Q),line(A,D));
-        X = intersectionpoint(line(B,R),line(A,Q));
-        S = foot(A,P,R);
-        dot("$A$", A, NW);
-        dot("$B$", B, NE);
-        dot("$C$", C, SE);
-        dot("$D$", D, SW);
-        dot("$P$", P, N);
-        dot("$Q$", Q, SE);
-        dot("$Q'$", Q, NW);
-        dot("$R$", R, NW);
-        dot("$X$", X, SW);
-        dot("$X'$", X, SE);
-        dot("$S$", S, SE);
-        draw(A--C);
-        draw(A--P);
-        draw(A--S--B);
-        draw(B--P--R--A);
-        draw(A--X--C);
-        draw(rightanglemark(A,X,C,10), red);
-        draw(rightanglemark(A,S,Q,10), red);
-        draw(rightanglemark(A,D,C,10), red);
-        draw(rightanglemark(A,B,P,10), red);
-        draw(B--R);
-        draw(A--B--C--D--A);
-        draw(circumcircle(triangle(A,B,C)), red);
-        draw(circumcircle(triangle(A,B,S)), blue);
-        draw(circumcircle(triangle(A,D,Q)));
-        draw(circumcircle(triangle(B,S,Q)), dashed+blue);
-        draw(B--S--Q--X--B, orange);
-    \end{asy}
+        \tkzDefPoint(-4,3){A}
+        \tkzDefPoint(4,3){B}
+        \tkzDefPoint(4,-3){C}
+        \tkzDefPoint(-4,-3){D}
+
+        % P perpotongan garis tegak lurus AC di A dengan BC
+        \tkzDefLine[orthogonal=through A](A,C)\tkzGetPoint{lp}
+        \tkzInterLL(A,lp)(B,C)\tkzGetPoint{P}
+        % Q = C/3 + 2D/3
+        \tkzDefPoint(-1.33333,-3){Q}
+        \tkzInterLL(P,Q)(A,D)\tkzGetPoint{R}
+        \tkzInterLL(B,R)(A,Q)\tkzGetPoint{X}
+        \tkzDefPointBy[projection=onto P--R](A)\tkzGetPoint{S}
+
+        \tkzDrawPolygon(A,B,C,D)
+        \tkzDrawSegment(A,C)
+        \tkzDrawSegment(A,P)
+        \tkzDrawSegments(A,S S,B)
+        \tkzDrawSegments(B,P P,R R,A)
+        \tkzDrawSegments(A,X X,C)
+        \tkzDrawSegment(B,R)
+
+        \tkzDefTriangleCenter[circum](A,B,C)\tkzGetPoint{O1}\tkzDrawCircle[red](O1,A)
+        \tkzDefTriangleCenter[circum](A,B,S)\tkzGetPoint{O2}\tkzDrawCircle[blue](O2,A)
+        \tkzDefTriangleCenter[circum](A,D,Q)\tkzGetPoint{O3}\tkzDrawCircle(O3,A)
+        \tkzDefTriangleCenter[circum](B,S,Q)\tkzGetPoint{O4}\tkzDrawCircle[dashed,blue](O4,B)
+        \tkzDrawPolygon[orange](B,S,Q,X)
+
+        \tkzMarkRightAngle[red, size=0.2143](A,X,C)
+        \tkzMarkRightAngle[red, size=0.2143](A,S,Q)
+        \tkzMarkRightAngle[red, size=0.2143](A,D,C)
+        \tkzMarkRightAngle[red, size=0.2143](A,B,P)
+
+        \tkzDrawPoints[fill=black, size=3](A,B,C,D,P,Q,R,X,S)
+        \tkzLabelPoint[above left](A){$A$}
+        \tkzLabelPoint[above right](B){$B$}
+        \tkzLabelPoint[below right](C){$C$}
+        \tkzLabelPoint[below left](D){$D$}
+        \tkzLabelPoint[above](P){$P$}
+        \tkzLabelPoint[below right](Q){$Q$}
+        \tkzLabelPoint[above left](Q){$Q'$}
+        \tkzLabelPoint[above left](R){$R$}
+        \tkzLabelPoint[below left](X){$X$}
+        \tkzLabelPoint[below right](X){$X'$}
+        \tkzLabelPoint[below right](S){$S$}
+
+    \end{tikzpicture}
 \end{center}
 \subsection{Solusi}
 \begin{proof}[\textbf{Solusi}]
