@@ -1,37 +1,56 @@
 # LaTeX build artifacts
 *.aux
-*.bbl
-*.bcf
-*.blg
-*.fdb_latexmk
-*.fls
-*.idx
-*.ilg
-*.ind
-*.lof
 *.log
-*.lot
 *.out
-*.pre
-*.run.xml
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
 *.synctex.gz
 *.synctex(busy)
-*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.dvi
+*.xdv
 *.nav
 *.snm
 *.vrb
-*.xdv
-*.dvi
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.glg
 *.acn
 *.acr
 *.alg
-*.glg
-*.glo
-*.gls
-*.auxlock
+*.ist
+*.ptc
+pdf/
 
-# Editor / OS cruft
+# Compiled output (regeneratable from source)
+*.pdf
+
+# Asymptote output
+*.pre
+*.asy.log
+
+# minted (code highlighting)
+_minted-*/
+
+# macOS
 .DS_Store
-Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Editor files
+*.swp
+*.swo
 *~
-.*.swp
+.vscode/*
+# ...except the shared LaTeX Workshop build config (see CLAUDE.md).
+!.vscode/settings.json
+.idea/
