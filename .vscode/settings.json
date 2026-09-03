@@ -1,0 +1,58 @@
+{
+  // ---------------------------------------------------------------
+  // LaTeX Workshop, set up for this repo's conventions:
+  //   * PDFs go in a "pdf/" subfolder next to the .tex
+  //   * pdflatex runs from the REPO ROOT, so azzam.sty and 0Figure/
+  //     relative paths resolve (running it from the class folder does not)
+  //   * nonstopmode, never -halt-on-error: a missing 0Figure/ PNG still
+  //     produces a usable PDF
+  // ---------------------------------------------------------------
+
+  "latex-workshop.latex.outDir": "%DIR%/pdf",
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex-from-root",
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd \"%WORKSPACE_FOLDER%\" && mkdir -p \"%OUTDIR%\" && pdflatex -synctex=1 -interaction=nonstopmode -output-directory=\"%OUTDIR%\" \"%DOC_EXT%\"; exit 0"
+      ],
+      "env": {}
+    }
+  ],
+
+  // Two passes, so \tableofcontents / \pageref settle.
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex x2 (from repo root)",
+      "tools": ["pdflatex-from-root", "pdflatex-from-root"]
+    }
+  ],
+
+  // Build on every save, and show the PDF in a VS Code tab.
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  // Click PDF -> jump to source, and ctrl/cmd-alt-J source -> PDF.
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.view.pdf.zoom": "page-width",
+
+  // Every .tex here is a standalone document with its own \documentclass, so
+  // the file in the active editor is always the root. (Leave root detection
+  // on its default: it picks the active editor's file for exactly this case.)
+
+  // Tidy the build artifacts out of pdf/, leaving only the PDF.
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot",
+    "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo",
+    "*.gls", "*.fls", "*.log", "*.fdb_latexmk", "*.snm", "*.nav",
+    "*.vrb", "*.pre", "*.bcf", "*.run.xml", "*.auxlock", "*.xdv"
+  ],
+
+  // The .synctex.gz is what makes click-to-jump work, so it is NOT in the
+  // clean list above. 0-scripts/clean.sh does remove it.
+
+  "files.associations": { "*.sty": "latex" }
+}
