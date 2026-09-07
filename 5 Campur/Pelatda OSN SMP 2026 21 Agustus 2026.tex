@@ -1,0 +1,84 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[hagavi]{azzam}
+
+\title{Selected JJMO and IWYMIC Problems --- Algebra, Number Theory, Geometry, Combinatorics}
+\author{Compiled from Japan Junior MO Preliminary and IWYMIC (IMC)}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent
+\textit{Delapan soal isian singkat pilihan untuk latihan OSN SMP tingkat nasional: dua soal per bidang, dipilih yang pernyataannya pendek tetapi memerlukan satu ide kunci. Semua jawaban berupa nilai, bukan pembuktian.}
+
+% ============================================================
+\section*{Algebra}
+% ============================================================
+
+\begin{enumerate}
+    % Answer: 2005  (Sort as a_1 < ... < a_21 with a_21 = 2015; the binding case is a_1 + ... + a_11 > a_12 + ... + a_21. Since 101 must be one of them it can only be a_1, so with m = a_11 the left side is at most 101 + (m-9) + ... + m = 101 + 10m - 45 and the right side is at least (m+1) + ... + (m+9) + 2015 = 9m + 2060, forcing m > 2004; distinctness also gives m + 10 <= 2015, so m <= 2005. m = 2005 works: 101, 1996, ..., 2005, 2006, ..., 2015 gives 20106 > 20105.)
+    \item (IWYMIC 2015 Section A \#3) The largest of 21 distinct integers is 2015 and one of the other numbers is 101. The sum of any 11 of them is greater than the sum of the other 10. Find the middle number, that is, the one which is greater than 10 others and smaller than the remaining 10.
+
+    % Answer: 48.875  (Write the number as n + f with n the integer part and f the fractional part, so nf = 42 and f = 42/n < 1 forces n > 42. The value n + 42/n increases for n > sqrt(42), so take the smallest valid n; 42/n terminates only when n/gcd(42,n) is a product of 2s and 5s, which first happens at n = 48 since 42/48 = 7/8 = 0.875.)
+    \item (JJMO Preliminary 2024 \#4) A positive rational number has a terminating decimal representation, and the product of its integer part and its fractional part is equal to 42. Find the minimum possible value of this rational number. (A terminating decimal is a decimal with finitely many digits after the decimal point, such as $2.024$ or $5$. For a positive real $r$, its integer part is the greatest integer not exceeding $r$, and its fractional part is $r$ minus its integer part.)
+\end{enumerate}
+
+% ============================================================
+\section*{Number Theory}
+% ============================================================
+
+\begin{enumerate}[resume]
+    % Answer: 31  (If p = q then p^2 | 15(p-1)^2 forces p | 15 and p | (p-1)^2, impossible. So p < q, and q | 15(p-1)(q-1) gives q | 15(p-1); likewise p | 15(q-1). Checking the finitely many cases leaves (p,q) = (2,3), (2,5), (3,5), so the sum of pq is 6 + 10 + 15 = 31.)
+    \item (JJMO Preliminary 2022 \#2) For all pairs of prime numbers $(p,q)$ with $p\le q$ such that $15(p-1)(q-1)$ is a multiple of $pq$, find the sum of the values of $pq$.
+
+    % Answer: 288  (Put u = x+1 >= 2. Clearing denominators turns the equation into y + u + 1 = uy/2015, i.e. uy - 2015u - 2015y = 2015, so (u-2015)(y-2015) = 2015 x 2016 = 2^5 x 3^2 x 5 x 7 x 13 x 31, which has 6 x 3 x 2 x 2 x 2 x 2 = 288 divisors. Both factors negative is impossible because |u-2015| <= 2013 and |y-2015| <= 2014 give a product below 2015 x 2016, so exactly 288 solutions remain.)
+    \item (IWYMIC 2015 Section A \#6) How many positive integral solutions $(x, y)$ are there for the equation $\frac{1}{x+1}+\frac{1}{y}+\frac{1}{(x+1)y}=\frac{1}{2015}$?
+\end{enumerate}
+
+% ============================================================
+\section*{Geometry}
+% ============================================================
+
+\begin{enumerate}[resume]
+    % Answer: 9  (Since BCDE is a rectangle inscribed in the circle, its diagonals are diameters and its centre is the centre O of the circle. Put O at the origin with B = (-w/2, 1/2), E = (w/2, 1/2) where w = BE, so r^2 = w^2/4 + 1/4. As AB = AE, A = (0, r), and AB^2 = w^2/4 + (r - 1/2)^2 = 36 becomes 2r^2 - r - 36 = 0, giving r = 4.5 and diameter 9.)
+    \item (JJMO Preliminary 2022 \#3) There is a cyclic pentagon $ABCDE$, where quadrilateral $BCDE$ is a rectangle satisfying $BC=DE=1$. When $AB=EA=6$, find the diameter of the circle. Note that $XY$ denotes the length of line segment $XY$.
+
+    % Answer: $\sqrt{123}$  (The four midpoints form the Varignon parallelogram; a parallelogram is cyclic only if it is a rectangle, so the diagonals AC and BD are perpendicular. For a quadrilateral with perpendicular diagonals, AB^2 + CD^2 = BC^2 + DA^2, hence DA^2 = 10^2 + 12^2 - 11^2 = 123.)
+    \item (IWYMIC 2015 Section A \#7) The midpoints of the sides $AB$, $BC$, $CD$, $DA$ of a convex quadrilateral $ABCD$ lie on the same circle. If $AB=10$ cm, $BC=11$ cm and $CD=12$ cm, determine, in cm, the length of the side $DA$.
+\end{enumerate}
+
+% ============================================================
+\section*{Combinatorics}
+% ============================================================
+
+\begin{enumerate}[resume]
+    % Answer: 22  (Only 45^2 - 2022 = 3 cells stay white. The grid contains floor(45/n)^2 pairwise disjoint n x n subgrids, and blocking them all needs at least that many white cells; for n = 22 this is 2^2 = 4 > 3, so an all-black 22 x 22 subgrid always survives. For n = 23 a single white cell at row 23, column 23 lies in every 23 x 23 subgrid, so 23 fails and the answer is 22.)
+    \item (JJMO Preliminary 2022 \#5) There is a $45\times45$ grid, and 2022 cells are chosen and painted black. Find the maximum possible positive integer $n$ such that, regardless of how the cells are painted, there always exists an $n\times n$ subgrid in which all cells are painted black.
+
+    % Answer: 54  (Among the 6 adjacent pairs we need an equal pair of each of the three letters, so the 7 boxes split into maximal blocks of equal letters with at least three blocks of size at least 2, forcing block sizes 2+2+3 or 2+2+2+1. Inclusion--exclusion over "letter X has no doubled pair" -- or a direct check of all $3^7$ strings -- gives 54.)
+    \item (JJMO Preliminary 2023 \#3) How many ways are there to write one of the letters A, B, or C in each of 7 boxes arranged in a horizontal row, such that there exist two adjacent boxes both containing A, two adjacent boxes both containing B, and two adjacent boxes both containing C? Note that ways of writing that coincide by rotation or reflection are counted as distinct.
+\end{enumerate}
+
+% ============================================================
+\section*{Soal Penutup --- satu per bidang, tingkat kesulitan tertinggi}
+% ============================================================
+
+\noindent
+\textit{Keempat soal berikut diambil dari tiga nomor terakhir tiap naskah, yaitu bagian tersulitnya. Setiap soal bertumpu pada satu gagasan yang tidak terlihat dari pernyataannya.}
+
+\begin{enumerate}[resume]
+    % Answer: 5  (For five numbers the sums a_i + a_j with i <= j number at least 2 x 5 - 1 = 9, with equality exactly when the five are in arithmetic progression. So the numbers must be an AP, and the sum of five terms of an AP is 5 times the middle term, hence always a multiple of 5. It is no better than 5: 1,2,3,4,5 and 2,3,4,5,6 give sums 15 and 20, whose gcd is 5.)
+    \item (IWYMIC 2015 Section A \#12) Five different positive integers are such that if we take any two of them, possibly the same number twice, exactly nine different sums may be obtained. Find the largest positive integer which can divide the sum of any five such numbers.
+
+    % Answer: 45  (Let k^2 = 7p^n + 9, so (k-3)(k+3) = 7p^n. Splitting the factor 7 and the powers of p between k-3 and k+3, whose difference is 6, leaves only k = 10 (p = 13, n = 1), k = 11 (p = 2, n = 4) and k = 24 (p = 3, n = 4); verified 100 = 7 x 13 + 9, 121 = 7 x 16 + 9, 576 = 7 x 81 + 9. The sum is 10 + 11 + 24 = 45.)
+    \item (IWYMIC 2015 Section A \#10) Find the sum of all the positive integers which can be expressed as $\sqrt{7p^n+9}$ for some positive integer $n$ and some prime number $p$.
+
+    % Answer: $\sqrt{26}$  (P is the first Brocard point. Writing w for the Brocard angle, BP = c sin w / sin B and similarly for the others, and since angle APB = 180 - B one gets [PAB] : [PBC] : [PCA] = bc/a : ca/b : ab/c. With b = c = x this gives [PAB]/[PCA] = x^2/a^2 = 5/4, so x = a sqrt5 / 2. Then cos A = 3/5, cot w = cot A + 2 cot B = 7/4, sin^2 w = 16/65, and [PAB] = x^2 sin^2 w / (2 sin A) = 5 a^2 / 26 = 5 forces a^2 = 26.)
+    \item (JJMO Preliminary 2022 \#11) There is a point $P$ inside an isosceles triangle $ABC$ with $AB=AC$, satisfying $\angle PAB=\angle PBC=\angle PCA$. If the areas of triangles $PAB$ and $PCA$ are 5 and 4 respectively, find the length of line segment $BC$. Note that $XY$ denotes the length of line segment $XY$.
+
+    % Answer: $57\cdot 6^{56}$  (Let S_0 = 0 and S_k = a_1 + ... + a_k. Every contiguous sum is a difference S_j - S_i with i < j, so the condition says all such differences lie in [-5, 6]; equivalently the 57 values S_0, ..., S_56 fit in a window of 12 consecutive integers positioned by the running maximum, which leaves 6 choices for each step after fixing the window. Small cases confirm the count is (n+1) 6^n: n = 1 gives 12, n = 2 gives 108, n = 3 gives 864.)
+    \item (JJMO Preliminary 2026 \#11) How many tuples of integers $(a_{1},a_{2},...,a_{56})$ satisfy $-5\le a_{i}+a_{i+1}+\cdot\cdot\cdot+a_{j}\le 6$ for any integers $i, j$ satisfying $1\le i\le j\le 56$?
+\end{enumerate}
+
+\end{document}

@@ -111,3 +111,21 @@ git add -A && git commit -m "<what changed>" && git push origin master
 `.vscode/settings.json` (checked in) already configures the **LaTeX Workshop** extension for this repo. It is not a WYSIWYG renderer — it just automates a real compile: on save it runs `pdflatex` (twice, so cross-references settle) from the **workspace root** rather than the file's own folder, because relative asset paths (a shared style file, a shared image folder) only resolve from there; output goes into a `pdf/` subfolder next to the source, nonstopmode so a broken figure/citation doesn't block the build, and it cleans up build artifacts after each build. Open a `.tex` file and press **⌘⌥V** (or the TeX sidebar → *View LaTeX PDF → in a tab*) to open the built-in PDF.js viewer tab; it rebuilds on every ⌘S. SyncTeX is on, so ⌘-click in the PDF jumps to the source line and ⌘⌥J goes the other way.
 
 Do not change the recipe to a plain `pdflatex %DOC%` — LaTeX Workshop would then run it from the file's own folder, where shared assets (style files, image folders) resolving via relative paths from the repo root would not be found. Do not add `-halt-on-error` either, for the same reason the compile scripts avoid it: a single broken problem/figure would otherwise block the whole PDF instead of just leaving a gap.
+
+## Writing style: avoid AI-sounding prose
+
+Solutions here are written in Indonesian, in the owner's own voice. A solution can be completely correct and still read as machine-written. These are the signals to hunt for and remove before finishing any prose (solution bodies, problem statements, commit messages, chat replies) in this repo. The examples are English, but the same habits show up in Indonesian and get the same treatment.
+
+| Signal | Sounds like AI | Write this instead |
+|---|---|---|
+| The em dash | "The triangle is isosceles—and that is the whole trick." | Use a comma, a colon, or a full stop. Never the long dash. |
+| Hyphenated compounds | "a classic angle-chasing shortcut" | "a classic angle chasing shortcut" |
+| AI vocabulary | "Let us delve into this robust approach and leverage the key insight." | "Let us look at what makes this approach work." |
+| The "not X but Y" move | "This is not just about angles, it is about seeing the configuration." | "The trick is to see the configuration differently." |
+| Reflexive lists of three | "Look at the sides, the angles, and the symmetry." | "Look at the sides and the angles." (Two is enough when two is enough.) |
+| Hedging pile-up | "This might perhaps be one possible way you could arguably approach it." | "Here is one way to approach it." |
+| Uniform rhythm | Every sentence the same length and shape. | Vary it. Short sentence. Then a longer one that takes its time and lets the idea settle before it stops. |
+| "It is worth noting" | "It is worth noting that $OI \perp BC$." | "Note that $OI \perp BC$." |
+| Empty summary closer | "In conclusion, we have successfully solved the problem." | Cut it. The `\blacksquare` already says so. |
+
+Never use a hyphen or en/em dash as a sentence-joining punctuation mark. A hyphenated compound word is fine only when it is standard spelling and no natural unhyphenated alternative exists; when in doubt, write it as two words.
