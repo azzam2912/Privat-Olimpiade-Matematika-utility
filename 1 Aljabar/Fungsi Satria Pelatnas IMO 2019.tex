@@ -1,0 +1,317 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\linespread{1.3}
+\begin{document}
+\title{Persamaan Fungsi}
+\author{Satria Stanza P}
+\date{25 September 2018}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\section{Pengantar}
+
+Dua objek dapat dikaitkan dengan menggunakan sebuah operasi yang disebut relasi. Kita dapat sebut objek $a$ berelasi dengan objek $b$ jika memenuhi syarat relasi yang kita inginkan. Dapat kita tuliskan $a \sim b$ jika keduanya berelasi atau $a \nsim b$ jika keduanya tidak berelasi. Sebagai contoh sebuah relasi adalah $a \sim b$ jika $b$ merupakan kuadrat dari $a$. Dapat dicek bahwa $2 \sim 4$ demikian juga $-3 \sim 9$. Akan tetapi $0 \nsim 1$. Demikian juga kita dapat menemukan bahwa jika $x \sim x^2$ untuk setiap bilangan kompleks $x$. Atau juga kita dapat menyimpulkan jika $x, y \in \mathbb{R}$, $x \sim y^2$ jika dan hanya jika $x = -y$.
+
+Selain objek, relasi juga dapat mengaitkan anggota-anggota dari dua himpunan. Sebut saja himpunan tersebut $A$ dan $B$. Jika $a \in A$ dan $b \in B$ berelasi, selain dapat disimbolkan $a \sim b$ kita juga dapat melihatnya sebagai pasangan terurut $(a,b)$. Intinya jika $a$ dan $b$ berelasi, maka pasangan $(a,b)$ ada. Dengan kata lain, relasi antara $A$ dan $B$ dapat dilihat sebagai himpunan bagian dari $A \times B = \{(x,y) \mid x \in A, y \in B\}$.
+
+Contoh yang sederhana adalah relasi antara himpunan $A = \{1,2\}$ dengan $B = \{u,v,w\}$. Salah satunya adalah $\{(1,u), (1,v), (2,v)\}$, yang merupakan himpunan bagian dari\\ $A \times B = \{(1,u), (1,v), (1,w), (2,u), (2,v), (2,w)\}$. Dapat dicek pula $\emptyset$ juga merupakan relasi antara $A$ dan $B$.
+
+Contoh istimewa dari sebuah relasi adalah pemetaan atau sebutan lainnya adalah fungsi (total). Fungsi (total) yang merupakan relasi dengan sifat untuk setiap $a \in A$ terdapat tepat sebuah $b \in B$ sedemikian sehingga $a \sim b$. Selanjutnya dari sifat tersebut muncul beberapa fakta antara lain:
+\begin{enumerate}
+\item Dari fakta ketunggalan $b$ untuk masing-masing $a$, maka $(a,b)$ dapat dituliskan dalam $b = f(a)$ dengan $f$ menyatakan nama fungsi. Dapat diterjemahkan pula $f$ memetakan $A$ ke $B$ dengan $f$ memetakan $a$ ke $b$.
+\item Himpunan $A$ disebut daerah asal (domain), himpunan $B$ disebut daerah kawan (kodomain).
+\item Daerah hasil (range) dari fungsi $f$ merupakan himpunan $\{f(a) \mid a \in A\} \subseteq B$ sebab bisa jadi telah diketahui bahwa beberapa anggota $A$ berelasi dengan objek lain di luar $B$.
+\item Istilah pra peta dari $f$ adalah domain itu sendiri. Sedangkan peta (image) adalah daerah hasil. Adapun ada juga istilah domain alami. Istilah tersebut muncul ketika didefinisikan relasinya terlebih dahulu. Sebagai contoh kita ingin merelasikan bilangan real $x$ dengan bilangan real lain melalui fungsi $f$ sehingga $x$ direlasikan dengan $f(x) = \sqrt{x}$. Hal ini memunculkan fakta bahwa hanya $x \ge 0$ saja yang dapat direlasikan. Akibatnya bilangan real tak negatif merupakan domain alami dari $f$.
+\end{enumerate}
+
+Suatu fungsi yang memetakan $A$ ke $B$ dengan sifat $f$ memetakan $a$ ke $f(a)$ ditulis
+\begin{align*}
+f : A &\rightarrow B \\
+a &\mapsto f(a)
+\end{align*}
+Sebagai contoh misalkan fungsi dari $\mathbb{R}$ ke $\mathbb{R}$ yang merelasikan $x$ dengan bilangan bulat terbesar yang lebih kecil dari $x$. Dituliskan
+\begin{align*}
+f : \mathbb{R} &\rightarrow \mathbb{R} \\
+x &\mapsto \lfloor x \rfloor
+\end{align*}
+
+Pada materi ini kita akan bekerja pada fungsi dengan domain maupun kodomain himpunan bilangan kompleks. Bagian utamanya adalah fungsi dengan domain maupun kodomain bilangan rasional dan bilangan real.
+
+
+
+
+\section{Klasifikasi Fungsi}
+
+Setelah mengenali definisi fungsi, selanjutnya akan kita kenali beberapa fungsi yang menarik.
+\begin{enumerate}
+\item Fungsi satu-satu atau injektif adalah fungsi $f$ yang memenuhi sifat untuk sebarang $a,b$ di domain $f$, jika $f(a) = f(b)$ maka $a = b$. Sebagai contoh $f : \mathbb{R} \rightarrow \mathbb{R}$ dengan $f(x) = x$ untuk setiap $x \in \mathbb{R}$. Dapat dicek bahwa $f$ injektif. Sedangkan fungsi $g : \mathbb{R} \rightarrow \mathbb{R}$ dengan $g(x) = x^2$ untuk setiap $x \in \mathbb{R}$ bukan fungsi injektif karena $g(-1) = g(1)$ padahal $-1 \ne 1$. Jika domain $g$ diganti menjadi bilangan real taknegatif, maka $g$ menjadi injektif.
+\item Fungsi pada atau surjektif adalah fungsi $f$ yang memenuhi sifat untuk setiap $b$ pada kodomainnya terdapat $a$ pada domainnya sehingga $f(a) = b$. Definisi tersebut dengan kata lain menyatakan bahwa peta dari $f$ sama dengan kodomain dari $f$. Contoh yang cukup sederhana adalah fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ dengan $f(x) = x^n$ dengan $n \in \mathbb{N}$. Jika $n$ genap maka $f$ tidak surjektif, sebaliknya jika $n$ ganjil maka $f$ surjektif.
+\item Fungsi yang injektif sekaligus surjektif disebut fungsi bijektif (satu-satu dan pada). Fungsi yang bijektif juga biasa disebut bijeksi. Contoh fungsi bijektif dari $\mathbb{R}$ ke $\mathbb{R}$ adalah $f(x) = x^3$ untuk setiap $x \in \mathbb{R}$. Contoh fungsi injektif tapi tidak surjektif adalah $f(x) = 2^x, \forall x \in \mathbb{R}$ karena range $f$ hanya interval $(0, +\infty)$. Contoh fungsi surjektif tapi tidak injektif adalah $f(x) = x^3 - x, \forall x \in \mathbb{R}$ karena $f(0) = f(1)$. Sedangkan contoh fungsi yang tidak injektif sekaligus surjektif adalah $f(x) = x^2, \forall x \in \mathbb{R}$.
+\item Jika memperhatikan karakteristik kurva fungsi $f(x) = x^n$ pada domain himpunan bilangan real, maka akan ada pola menarik. Saat $n$ ganjil maka kurvanya simetris terhadap titik $(0,0)$ atau dengan kata lain $f(x) = -f(-x), \forall x \in \mathbb{R}$. Sedangkan saat $n$ genap maka kurvanya simetris terhadap sumbu-$y$ atau dengan kata lain $f(x) = f(-x), \forall x \in \mathbb{R}$. Dari pola tersebut kemudian muncul istilah fungsi yang memenuhi sifat $f(x) = -f(-x), \forall x \in \mathbb{R}$ disebut dengan fungsi ganjil. Sedangkan fungsi yang memenuhi sifat $f(x) = f(-x), \forall x \in \mathbb{R}$ disebut dengan fungsi genap. Contoh fungsi ganjil yang terkenal adalah fungsi $f$ sehingga $f(x) = \sin x, \forall x \in \mathbb{R}$. Sedangkan fungsi $f$ sehingga $f(x) = \cos x, \forall x \in \mathbb{R}$ merupakan contoh fungsi genap.
+\item Karena $\mathbb{R}$ memiliki urutan maka dapat kita lihat ada fungsi yang kurvanya cenderung naik ketika nilai inputnya naik. Demikian juga kita dapat melihat ada fungsi yang cenderung turun ketika inputnya turun. Secara formal fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ yang memenuhi $f(x) \ge f(y)$ untuk setiap $x,y \in \mathbb{R}$ dengan $x > y$ disebut fungsi monoton naik. Sebaliknya jika $f(x) \le f(y)$ untuk setiap $x,y \in \mathbb{R}$ dengan $x > y$ disebut fungsi monoton turun. Fungsi yang memenuhi $f(x) > f(y)$ untuk setiap $x,y \in \mathbb{R}$ dengan $x > y$ disebut fungsi yang naik tegas. Fungsi yang memenuhi $f(x) < f(y)$ untuk setiap $x,y \in \mathbb{R}$ dengan $x > y$ disebut fungsi yang turun tegas. Contoh fungsi yang naik tegas adalah $f(x) = 2^x, \forall x \in \mathbb{R}$. Sedangkan $f(x) = \frac{1}{x}$ turun tegas pada domain $(0,+\infty)$. Contoh fungsi monoton naik tapi tidak naik tegas adalah $f(x) = \lfloor x \rfloor$ di $\mathbb{R}$.
+\end{enumerate}
+
+\section{Persamaan Fungsi}
+Topik utama dari materi ini adalah persamaan fungsi. Persamaan fungsi merupakan persamaan yang melibatkan nilai fungsi di suatu domain tertentu. Persamaan yang disajikan merupakan persamaan yang tidak secara eksplisit menyebutkan fungsi yang dimaksud.
+
+
+
+Sederhananya misalkan kita memiliki fungsi $f$ di domain real dengan $f(x) = x^2, \forall x \in \mathbb{R}$. Pernyataan tersebut sudah eksplisit memperlihatkan fungsi yang dimaksud. Tetapi jika kita ubah sedikit menjadi $f(x)^2 = x^2, \forall x \in \mathbb{R}$, kita memiliki banyak sekali kemungkinan fungsi. Bisa saja $f(x) = x, \forall x \in \mathbb{R}$. Bisa juga $f(x) = -x, \forall x \in \mathbb{R}$. Tetapi bisa juga $f(x) = x$ untuk $x \in A$ dan $f(x) = -x$ untuk $x \in \mathbb{R} \setminus A$. Jadi pernyataan $f(x)^2 = x^2, \forall x \in \mathbb{R}$ untuk menjelaskan apa saja fungsinya. Soal-soal persamaan fungsi berkaitan dengan hal tersebut.
+
+Agar lebih jelas, pertama kita lihat persamaan fungsi yang sederhana terlebih dahulu. Carilah fungsi $f : A \rightarrow B$ sehingga $f(x+y) = f(x)+y$. Dari contoh ini ada banyak hal yang bisa kita simak.
+\begin{enumerate}
+\item Saat $A = B = \mathbb{N}$, yang bisa dilakukan pertama adalah menguji bagaimana jika $x = 1$. Mengapa substitusi $x = 1$? Karena 1 merupakan bilangan asli terkecil dan semua bilangan asli merupakan kelipatan 1. Mungkin juga alasannya terlalu mengada-ada. Tetapi yang jelas kita ingin menguji persamaan tersebut dengan substitusi sesuatu yang membuatnya terlihat sederhana. Kita peroleh $f(1+y) = f(1)+y$. Dapat dianalisa bahwa $f(1) = f(1)+1-1$ dan $f(t) = f(1)+t-1$ untuk setiap $t \ge 2$. Bisa kita simpulkan bahwa $f(t) = f(1)+t-1, \forall t \in \mathbb{N}$. Jangan lupa menguji fungsi tersebut ke persamaan awal yakni $f(x+y) = f(x)+y \iff f(1)+x+y-1 = f(1)+x-1+y$ sudah benar.
+
+Selanjutnya bagaimana jika yang kita substitusikan adalah $y = 1$? Hasil yang kita dapatkan adalah $f(x+1) = f(x)+1$. Selanjutnya kita berjalan dari $x = 1, 2, 3, \dots$ kita akan dapatkan pola $f(x) = f(1)+x-1$ untuk setiap $x \in \mathbb{N}$ melalui proses induksi matematika. Tinggal dicek ke persamaan awal apa yang telah kita peroleh.
+
+\item Saat $A = B = \mathbb{Z}$, substitusi $y = 1$ masih bisa dilakukan karena induksi bisa dijalankan mundur. Sedangkan substitusi $x = 1$ tidak terpengaruh, jadi pasti berhasil. Tetapi $0 \in \mathbb{Z}$ yang merupakan modal bagus untuk melakukan substitusi. Artinya substitusi $y = 0$ atau $x = 0$ merupakan langkah bagus. Substitusi $y = 0$ tidak berarti apa-apa. Substitusi $x = 0$ menghasilkan $f(y) = f(0)+y$ yang berarti kita sudah dapatkan hasil. Analog saat $A = B = \mathbb{Q}$. Akan tetapi saat substitusi $y = 1$ induksi tidak akan bekerja. Jalan terbaiknya tetap substitusi $x = 0$.
+
+\item Sekarang mudah dicek saat $A = B = \mathbb{R}$ dengan substitusi $x = 0$. Tetapi fakta lain yang bisa didapat dari soal ini adalah $f$ bijektif. Membuktikan injektifnya dengan cara jika $f(a) = f(b)$ maka $f(a)+b = f(a+b) = f(b)+a$ sehingga $a = b$. Demikian juga jika substitusi $x = 0 \implies y = k - f(0)$ maka $f(k - f(0)) = k$ untuk sebarang $k \in \mathbb{R}$ sehingga surjektif. Selain itu juga naik tegas karena jika dipilih sebarang $y$ real positif, $x+y > x$ berakibat $f(x+y) = f(x)+y > f(x)$. Meskipun demikian kegunaan fakta tersebut belum tampak signifikan karena soal dapat diselesaikan langsung dengan substitusi. Satu hal lagi yang menarik, jika $x, y$ posisinya ditukar kita akan dapatkan $f(x)+y = f(x+y) = f(y)+x$ sehingga $f(x)-x = f(y)-y$ maka $f(x)-x$ konstan untuk setiap $x \in \mathbb{R}$. Cara ini disebut menukar variabel.
+
+
+\end{enumerate}
+
+Berikut ini soal sederhana terkait persamaan fungsi
+\begin{enumerate}
+\item Carilah semua fungsi $f$ yang memenuhi $f(f(x)+y) = f(x)+y$ untuk setiap $x, y$ di domainnya dengan domain dan kodomain:
+\begin{enumerate}
+\item $\mathbb{R}, \mathbb{Q}$, atau $\mathbb{Z}$
+\item $\mathbb{N}$
+\end{enumerate}
+\end{enumerate}
+
+
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Carilah semua fungsi $f$ yang memenuhi $f(x+f(y)) = f(x)+y$ untuk setiap $x, y$ di domainnya dengan domain dan kodomain:
+\begin{enumerate}
+\item $\mathbb{R}, \mathbb{Q}$, atau $\mathbb{Z}$
+\item $\mathbb{N}$
+\end{enumerate}
+\item Teliti apakah fungsi pada soal nomor 1 dan 2 injektif, surjektif, atau monoton.
+\end{enumerate}
+
+\subsection{Substitusi}
+Jika kita mengamati suatu fungsi yang memenuhi persamaan tertentu, sepantasnya kita tertarik untuk melihat efek persamaan yang ada jika dimasukkan suatu input. Sebagai misal jika kita mempunyai fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ yang untuk $x, y \in \mathbb{R}$ berlaku $f(f(x+y)+f(x-y)) = f(y)$. Beberapa substitusi yang dapat kita lakukan untuk mendapatkan solusi $f$ yang memenuhi adalah sebagai berikut:
+\begin{enumerate}
+\item Substitusi $y = 0$ menghasilkan $f(2f(x)) = f(0), \forall x \in \mathbb{R}$.
+\item Substitusi $y = x$ yang artinya membuat nol salah satu ekspresinya diperoleh $f(f(2x)+f(0)) = f(x), \forall x \in \mathbb{R}$. Demikian juga substitusi $y = -x$ menghasilkan $f(f(0)+f(2x)) = f(-x), \forall -x \in \mathbb{R}$. Akibatnya $f(x) = f(-x), \forall x \in \mathbb{R}$.
+\item Substitusi $x = 0$ diperoleh $f(f(y)+f(-y)) = f(y) \iff f(2f(y)) = f(y) \iff f(0) = f(y)$. Jadi $f$ fungsi konstan. Jangan lupa mengecek kembali ke persamaan awal fungsi konstan apa saja yang memenuhi.
+\end{enumerate}
+
+Contoh lain dari fungsi yang dapat dicari menggunakan substitusi adalah $f : \mathbb{R} \rightarrow \mathbb{R}$ dengan $f(f(x+y)) = x + f(y), \forall x, y \in \mathbb{R}$. Untuk mendapatkannya dilakukan substitusi antara lain:
+\begin{enumerate}
+\item Substitusi $x = 0$ yang menghasilkan $f(f(y)) = f(y), \forall y \in \mathbb{R}$.
+\item Dari hasil sebelumnya $f(f(x+y)) = f(x+y), \forall x, y \in \mathbb{R}$. Alhasil kita punya $f(x+y) = x + f(y), \forall x, y \in \mathbb{R}$. Menjadi cukup mudah bukan?
+\end{enumerate}
+
+Contoh lagi fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ dengan $f(x+y)+xf(y) = f(xy)+f(x)+y, \forall x, y \in \mathbb{R}$. Tanpa menggunakan substitusi standar, yang akan kita coba adalah menghilangkan ekspresi di masing-masing ruas. Caranya adalah dengan memilih yang akan kita hilangkan. Misalkan akan kita hilangkan ekspresi $f(x+y)$ dan $f(xy)$. Maka substitusi yang kita lakukan harus mengakibatkan $x+y = xy$ yaitu $y = \frac{x}{x-1}$ dengan $x \ne 1$. Dihasilkan
+
+
+$$x f\left(\frac{x}{x-1}\right) = f(x) - \frac{x}{x-1}$$
+
+
+Pada persamaan terakhir dapat disubstitusikan $x = \frac{y}{y-1}$ karena $x \ne 1$. Akan diperoleh
+
+
+$$\left(\frac{y}{y-1}\right) f(y) = f\left(\frac{y}{y-1}\right) + y$$
+
+
+Karena $x = \frac{y}{y-1} \iff y = \frac{x}{x-1}$ maka jika $x \ne 1$ sebarang bilangan real berakibat $y$ juga dapat mewakili semua bilangan real selain 1. Silakan dicek. Ya selanjutnya $y$ diganti dengan $x$ dan kalikan kedua ruas persamaan kedua dengan $x$ kemudian jumlahkan kedua persamaan. Kita akan dapatkan $f(x) = x$ untuk setiap $x \ne 1$. Bagaimana dengan $f(1)$? Cukup dengan memanfaatkan $f(2) = 2$ dan substitusi $x = y = 1$ pada persamaan awal.
+
+Contoh terakhir adalah fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ dengan $f(f(x+y)+f(x-y)) = x^2 f(y), \forall x, y \in \mathbb{R}$. Seperti soal-soal sebelumnya, kita lakukan substitusi antara lain:
+
+
+
+\begin{enumerate}
+\item Substitusi $x-y = 0$ diperoleh $f(2f(x)) = x^2 f(x), \forall x \in \mathbb{R}$.
+\item Substitusi $y = 0$ diperoleh $f(2f(x)) = x^2 f(0), \forall x \in \mathbb{R}$.
+\item Substitusi $x = 2f(0)$ pada persamaan sebelumnya diperoleh $f(2f(2f(0))) = 4f(0)^3$. Padahal $f(2f(2f(0))) = f(0)$ jika dalam dihitung dulu. Kita dapatkan $f(0) = 0, f(0) = \frac{1}{2}$ atau $f(0) = -\frac{1}{2}$. Seolah-olah kita menambahkan lagi. Atau bisa dilihat sebagai menarik nilai pada persamaan $2f(2f(0)) = 0$.
+\item Terakhir dengan substitusi $y = x$ dan $y = -x$ kita dapatkan
+\begin{align*}
+f(f(2x)+f(0)) &= x^2 f(x) \\
+f(f(0)+f(2x)) &= x^2 f(-x)
+\end{align*}
+yang berarti $f(-x) = f(x)$. Selanjutnya kita dapat tukar variabel $x$ dan $y$. Maksudnya dapat dilakukan manipulasi
+\begin{align*}
+x^2 f(y) &= f(f(x+y)+f(x-y)) \\
+&= f(f(y+x)+f(y-x)) \\
+&= y^2 f(x)
+\end{align*}
+yang ekuivalen dengan $\frac{f(x)}{x^2} = \frac{f(y)}{y^2}$ untuk setiap $x, y \in \mathbb{R}$ yang tak nol. Artinya $\frac{f(x)}{x^2}$ konstan untuk setiap $x$ tak nol. Silakan dicek fungsi $f(x) = c x^2$ apa saja yang memenuhi. Jangan lupa mengecek $f(0)$ mana saja yang mungkin.
+\end{enumerate}
+
+Berikut ini latihan soal yang dapat dipakai untuk meningkatkan kemampuan substitusi.
+\begin{enumerate}
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(f(y+f(x))) = f(x+y) + f(x) + y$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(y) + f(x+f(y)) = y + f(f(x)+f(f(y)))$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R}^+ \rightarrow \mathbb{R}^+$ sehingga $f(x)f(y) = 2f(x+yf(x))$ untuk setiap $x, y \in \mathbb{R}^+$.
+\item Carilah semua fungsi $f : \mathbb{Q}^+ \rightarrow \mathbb{Q}^+$ sehingga $f(x)+f(y)+2xy f(xy) = \frac{f(xy)}{f(x+y)}$ untuk setiap $x, y \in \mathbb{Q}^+$.
+\item Carilah semua fungsi $f : \mathbb{Z} \rightarrow \mathbb{Z}$ sehingga $f(m+n)+f(mn-1) = f(m)f(n)+2$ untuk setiap $x, y \in \mathbb{Z}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x-y) = f(x+y)f(y)$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua pasangan fungsi $(f,g)$ dengan $f, g : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x^3+2y)+f(x+y) = g(x+2y)$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $x f(x) - y f(y) = (x-y) f(x+y)$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x^2+y^2) = f(xy)$ untuk setiap $x, y \in \mathbb{R}$.
+\end{enumerate}
+
+
+
+\begin{enumerate}
+\setcounter{enumi}{9}
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(f(x)y+x) = x f(y) + f(x)$ untuk setiap $x, y \in \mathbb{R}$ dan persamaan $f(t) = -t$ memiliki tepat satu solusi.
+\item Carilah semua fungsi $f : \mathbb{N} \rightarrow \mathbb{N}$ sehingga $f(2x+3y) = 2f(x)+3f(y)+4$ untuk setiap $x, y \in \mathbb{N}$.
+\item Carilah semua bilangan asli $k$ sehingga terdapat fungsi $f : \mathbb{N} \rightarrow \mathbb{Z}$ sehingga
+\begin{enumerate}
+\item $f(1995) = 1996$, dan
+\item untuk setiap $a, b \in \mathbb{N}$ berlaku $f(ab) = f(a) + f(b) + k f(\text{fpb}(a,b))$
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Induksi Matematika}
+Bahasan berikutnya adalah mengenai sebuah cara untuk menyelesaikan persamaan fungsi dengan domain $\mathbb{N}, \mathbb{Z}$, atau $\mathbb{Q}$. Kita tentu sudah akrab dengan induksi matematika, kali ini dibahas mengenai kegunaan induksi matematika untuk mendapatkan bentuk fungsi dari suatu persamaan fungsi.
+
+Lebih jelasnya kita gunakan contoh fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ dengan $f(x+y) = f(x)+f(y)+2xy$ untuk setiap $x, y \in \mathbb{Q}$. Berikut ini langkah-langkah penyelesaiannya:
+\begin{enumerate}
+\item Substitusi $x = y = 0$ menghasilkan $f(0) = 0$.
+\item Substitusi $x = y = 1$ untuk mendapatkan $f(2) = 2f(1)+2$. Selanjutnya substitusi $x = 2, y = 1$ didapat $f(3) = 3f(1)+6$. Substitusi $x = 3, y = 1$ didapat $f(4) = 4f(1)+12$. Dengan induksi pada $\mathbb{N}$ dapat dibuktikan pola $f(n) = n f(1) + n(n-1)$ untuk setiap $n \in \mathbb{N}$.
+\item Substitusi $y = -x$ untuk mendapatkan hubungan antara $f(-x)$ dan $f(x)$. Dengan demikian kita dapatkan nilai $f(n)$ untuk setiap $n \in \mathbb{Z}$.
+\item Terakhir dengan tetapkan suatu $n \in \mathbb{N}$ kemudian dicari kaitan nilai fungsi pada himpunan $\left\{\frac{p}{n} \mid p = 1, 2, \dots, p\right\}$.
+\end{enumerate}
+
+Karena ini cukup mudah, kita langsung ke latihan. Berikut latihan soal terkait induksi matematika
+\begin{enumerate}
+\item Carilah semua fungsi $f : \mathbb{Q} \rightarrow \mathbb{R}$ sehingga $f(x+y) = f(x)f(y)$ untuk setiap $x, y \in \mathbb{Q}$.
+\item Carilah semua fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x+y) = f(x)+f(y)+xy$ untuk setiap $x, y \in \mathbb{Q}$.
+\item Carilah semua fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x+y) = f(x)+f(y)+xy(x+y)$ untuk setiap $x, y \in \mathbb{Q}$.
+\item Carilah semua fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ dengan $f(1) = 2$ dan $f(xy) = f(x)f(y)-f(x+y)+1$ untuk setiap $x, y \in \mathbb{Q}$.
+\item Carilah semua fungsi kontinu $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga untuk setiap $x, y \in \mathbb{Q}, f\left(\sqrt{x^2+y^2}\right) = f(x)f(y)$.
+\item Carilah semua fungsi $f : \mathbb{Q}^+ \rightarrow \mathbb{Q}^+$ sehingga memenuhi:
+\begin{enumerate}
+\item $f(x+1) = f(x)+1$ dan
+\item $f(x)^2 = f(x^2)$
+\end{enumerate}
+\end{enumerate}
+
+
+
+\noindent untuk setiap $x \in \mathbb{Q}$.
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item Carilah semua fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x^2+y) = x f(x) + f(y)$ untuk setiap $x, y \in \mathbb{Q}$.
+\item Carilah semua fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x-y)+f(x+y) = 2f(x)$ untuk setiap $x, y \in \mathbb{Q}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga
+\begin{enumerate}
+\item $f(xy) = f(x)f(y)$, dan
+\item $f(x+y) = f(x)+f(y)+2xy$
+\end{enumerate}
+untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi kontinu $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x+f(y)) = y + f(x+1)$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{N} \rightarrow \mathbb{N}$ sehingga $f(f(m+n)+f(m-n)) = 8m$ untuk setiap $m, n \in \mathbb{N}$ dengan $m > n$.
+\item Carilah semua fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x+y+z) = f(x)+f(y)+f(z)+3(x+y)(y+z)(z+x)$ untuk setiap $x, y, z \in \mathbb{Q}$.
+\end{enumerate}
+
+\subsection{Memanfaatkan Fungsi Cauchy}
+Sebelumnya telah kita selesaikan persamaan fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x+y) = f(x)+f(y)+2xy$ untuk setiap $x, y \in \mathbb{Q}$. Pertanyaannya bagaimana jika domain dan kodomainnya diganti $\mathbb{R}$? Apakah induksi masih bisa dipakai mengingat pada bilangan real tidak ada prinsip induksi matematika? Jelas tidak.
+
+Untuk itu kita perlu tambahan fakta. Ada beberapa fakta yang dapat ditambahkan, tetapi intinya berujung pada satu fakta yaitu untuk setiap bilangan real, terdapat barisan bilangan rasional yang konvergen ke bilangan tersebut.
+
+Nah sebelum itu, kita perlu mengenal tipe-tipe fungsi apa saja yang dapat diselesaikan menggunakan cara ini. Beberapa diantaranya terangkum oleh Cauchy. Misalkan $f : \mathbb{R} \rightarrow \mathbb{R}$.
+
+Fungsi-fungsi Cauchy adalah fungsi yang memenuhi salah satu dari:
+\begin{enumerate}
+\item $f(x+y) = f(x)+f(y)$ untuk setiap $x, y \in \mathbb{R}$. Fungsi ini disebut fungsi Cauchy aditif.
+\item $f(xy) = f(x)f(y)$ untuk setiap $x, y \in \mathbb{R}$. Fungsi ini disebut fungsi Cauchy multiplikatif.
+\item $f(x+y) = f(x)f(y)$ untuk setiap $x, y \in \mathbb{R}$. Fungsi ini disebut fungsi Cauchy eksponensial.
+\item $f(xy) = f(x)+f(y)$ untuk setiap $x, y \in \mathbb{R}$. Fungsi ini disebut fungsi Cauchy logaritmik.
+\end{enumerate}
+
+Pertama yang akan kita bahas adalah fungsi Cauchy aditif. Dari latihan sebelumnya kita dapat mencari solusi dari fungsi $f : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x+y) = f(x)+f(y)$ untuk setiap $x, y \in \mathbb{Q}$ menggunakan induksi matematika. Langsung saja, solusi yang akan kita dapatkan berbentuk $f(x) = cx$ untuk setiap $x \in \mathbb{Q}$ dengan $c$ real konstan. Adapun untuk mencari nilai fungsi $f$ pada domain real, kita dapat menambahkan fakta diantaranya:
+
+
+
+\begin{enumerate}
+\item Kontinu di $\mathbb{R}$ artinya kontinu di setiap titik di himpunan bilangan real. Kita tahu bahwa untuk setiap bilangan irasional $y$ terdapat barisan bilangan rasional $a_1, a_2, \dots$ yang konvergen ke $y$. Karena $f$ kontinu maka
+\begin{align*}
+f(y) &= f\left(\lim_{n \rightarrow \infty} a_n\right) \\
+&= \lim_{n \rightarrow \infty} f(a_n) \\
+&= \lim_{n \rightarrow \infty} c a_n \\
+&= cy
+\end{align*}
+\item Kontinu di satu titik. Misalkan $f$ kontinu di $t$ maka $\lim_{x \rightarrow t} f(x) = f(t)$. Akibatnya untuk sebarang $a \in \mathbb{R}$
+\begin{align*}
+\lim_{x \rightarrow a} f(x) &= \lim_{x \rightarrow a} f(x-a+a-t+t) \\
+&= \lim_{x \rightarrow a} f(x-a+t) + \lim_{x \rightarrow a} f(a-t) \\
+&= f(t) + f(a-t) \\
+&= f(a)
+\end{align*}
+Jadi $f$ kontinu di setiap titik. Sesuai kesimpulan sebelumnya maka $f(x) = cx$ untuk setiap $x \in \mathbb{R}$.
+\item Monoton. Misalkan $f$ monoton naik maka untuk setiap barisan rasional $\{a_n\}$ yang naik dan konvergen ke bilangan irasional $y$ maka $f(a_n) \le f(y)$. Demikian juga untuk setiap barisan rasional $\{b_n\}$ yang turun dan konvergen ke bilangan irasional $y$ maka $f(y) \le f(b_n)$. Akibatnya
+\begin{align*}
+\lim_{n \rightarrow \infty} f(a_n) &\le f(y) \le \lim_{n \rightarrow \infty} f(b_n) \\
+\lim_{n \rightarrow \infty} c a_n &\le f(y) \le \lim_{n \rightarrow \infty} c b_n \\
+cy &\le f(y) \le cy
+\end{align*}
+Tentunya $f(y) = cy$.
+\end{enumerate}
+
+Berikut ini beberapa permasalahan terkait fungsi Cauchy
+\begin{enumerate}
+\item Carilah semua fungsi kontinu $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(xy) = y f(x) + x f(y)$ untuk setiap $x, y \in \mathbb{R} \setminus \{0\}$.
+\item Jika $f : \mathbb{R} \rightarrow \mathbb{R}$ merupakan solusi dari persamaan fungsi $f(x+y) = f(x)f(y)$ untuk setiap $x, y \in \mathbb{R}$, buktikan bahwa $f(x) = 0$ untuk setiap $x \in \mathbb{R}$ atau $f(x) \ne 0$ untuk setiap $x \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga untuk setiap $x, y \in \mathbb{R}$ berlaku $f(x+y) = f(x) + f(y) + \lambda f(x)f(y)$ dengan $\lambda$ suatu konstanta real.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga untuk setiap $x, y \in \mathbb{R}$ berlaku $f(x+y) = a^{xy} f(x) f(y)$ dengan $a$ suatu konstanta real.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f\left(\sqrt{x^2+y^2}\right) = f(x)f(y)$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f\left(\sqrt{x^2+y^2}\right) = f(x)+f(y)$ untuk setiap $x, y \in \mathbb{R}$.
+\end{enumerate}
+
+
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $\vert{}f(x)+f(y)\vert{}\vert{}f(u)+f(v)\vert{} = f(xu-yv) + f(xv+yu)$ untuk setiap $x, y, u, v \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x+y) = f(x)+f(y)$ dan $f(xy) = f(x)f(y)$ untuk setiap $x, y \in \mathbb{R}$.
+\item
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x+y)+f(x)f(y) = f(xy)+f(x)+f(y)$ untuk setiap $x, y \in \mathbb{R}$.
+\end{enumerate}
+
+\subsection{Memanfaatkan Injektif dan Surjektif}
+Pada awal bab ini kita telah mempelajari klasifikasi fungsi termasuk sifat injektif dan surjektif suatu fungsi. Kali ini kita coba memanfaatkan sifat tersebut untuk menyelesaikan persamaan fungsi. Dimulai dari satu contoh fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x)+f(x+f(y)) = 2x+y$ untuk setiap $x, y \in \mathbb{R}$. Langkah awal kita untuk menyelesaikan persamaan fungsi ini masih menggunakan substitusi. Berikut dua diantara beberapa cara yang bisa dimanfaatkan:
+\begin{enumerate}
+\item $x = y = 0$ untuk mendapatkan $f(0)+f(f(0)) = 0$. Kemudian substitusi $x = f(0), y = -2f(0)$ untuk mendapatkan $f(f(0))+f(f(0)+f(-2f(0))) = 0$. Apa yang menarik dari kedua substitusi ini? Poin utamanya adalah mendapatkan bentuk $f(0) = f(f(0)+f(-2f(0)))$. Bentuk $f(a) = f(b)$ berguna jika kita memiliki pernyataan $f(a) = f(b) \iff a = b$. Inilah sifat injektif. Jika fungsi tersebut injektif maka $0 = f(0)+f(-2f(0)) \iff -f(0) = f(-2f(0)) \iff f(f(0)) = f(-2f(0))$. Sekali lagi karena injektif maka $f(0) = -2f(0) \iff f(0) = 0$. Setelah mendapatkan $f(0) = 0$ maka substitusi $y = 0$ menghasilkan $f(x) = x$.
+
+Untuk membuktikan injektifnya andaikan kita punya $f(x) = f(y)$.
+
+\item Jika kita substitusi $x = 0$ dan $y = z - f(0)$ untuk sebarang bilangan real yang tetap, kita akan dapatkan $f(f(z-f(0))) = z$. Maknanya untuk sebarang $z \in \mathbb{R}$ kita selalu memiliki pra peta. Sifat ini yang kita sebut surjektif. Dari situ kita dapatkan selalu ada $a \in \mathbb{R}$ sehingga $f(a) = 0$. Kemudian substitusikan $y = a$ didapat $f(x) = x + \frac{a}{2}$. Substitusikan ke persamaan awal, kita akan dapatkan $a = 0$. Selesai.
+
+
+\end{enumerate}
+
+Soal berikutnya adalah mencari fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga
+
+Berikut ini soal yang dapat diselesaikan menggunakan fakta bahwa fungsi tersebut injektif maupun surjektif.
+\begin{enumerate}
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(f(x)+y) = 2x + f(f(y)-x)$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x f(x) + f(y)) = f(x^2) + y$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x f(x) + f(y)) = f(x)^2 + y$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x^2 + f(y)) = x f(x) + y$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f, g : \mathbb{Q} \rightarrow \mathbb{Q}$ sehingga $f(x+g(y)) = g(x) + 2y + f(y)$ untuk setiap $x, y \in \mathbb{Q}$.
+\end{enumerate}
+
+
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x f(y) + f(x)) = 2f(x) + xy$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x^2 - f(y)^2) = x f(x) - y^2$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f, g : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $g$ bijektif dan $f(g(x)+y) = g(f(y)+x)$ untuk setiap $x, y \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x+y^2+z) = f(f(x)) + y f(x) + f(z)$ untuk setiap $x, y, z \in \mathbb{R}$.
+\item Carilah semua fungsi $f : \mathbb{R} \rightarrow \mathbb{R}$ sehingga $f(x+y+f(y)) = f(f(x)) + 2y$ untuk setiap $x, y \in \mathbb{R}$.
+\end{enumerate}
+
+\end{document}

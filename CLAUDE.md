@@ -101,6 +101,14 @@ git add -A && git commit -m "<what changed>" && git push origin master
 - If the push is rejected because `origin/master` moved (an Overleaf sync), `git pull --rebase origin master` and push again. Report a genuine conflict rather than resolving it blind.
 - The one thing to ask about first: deleting or moving files the owner did not ask you to touch.
 
+### Where the problems come from
+
+The source archive is the sibling repo **`../Project-Helvethia/`** (absolute: `/Users/xeratha-hagavi/LaTeX Project/Project-Helvethia/`), which holds one folder per contest series (`OSN - Olimpiade Sains Nasional/`, `Helvethia/Helvethia SASMO/`, `Helvethia/Helvethia WMI/`, `Helvethia/Helvethia SEAMO/`, `Questions Bank/`, `AIME/`, …) and its own `CLAUDE.md` describing each one's conventions.
+
+The most useful entry points are the `*-categorized.tex` files under `OSN - Olimpiade Sains Nasional/<level>/<stage> <level>/`, which merge every year of a stage into one topic-organised file and tag each problem with a topic code (`% Aljabar: A7. Relasi, Fungsi, dan Persamaan Fungsional`). Grepping that tag across the OSK/OSP/OSN categorized files is normally the fastest way to assemble a new set. `OSN - Olimpiade Sains Nasional/list-materi-osn.md` lists the full taxonomy.
+
+Building a gathered set therefore spans two repos: **read from `Project-Helvethia`, write here.** Commit each side separately, and only commit there if a source file actually changed.
+
 ## Output rules
 
 - Output the complete `.tex` file, ready to compile.
