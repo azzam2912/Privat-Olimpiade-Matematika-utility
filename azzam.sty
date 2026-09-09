@@ -473,7 +473,7 @@
 			paperheight=\paperheight,
 			margin=1cm,
 			includeheadfoot,
-			headheight=20pt,
+			headheight=17pt,
 			headsep=\azzamheadsep,
 			footskip=\azzamfootskip
 		}
@@ -487,7 +487,7 @@
 				% The two-line title/author header needs more vertical room than
 				% the default 20pt; enlarge the head only for standard classes so
 				% the KOMA branch below keeps its own (working) head layout.
-				\geometry{headheight=40pt}
+				\geometry{headheight=17pt}
 				\renewcommand{\headrulewidth}{0.5pt}
 				\renewcommand{\footrulewidth}{0.0pt}
 				\pagestyle{fancy}
@@ -510,7 +510,7 @@
 			% line against \headheight/\footheight, then quietly resizes them
 			% and shaves \topmargin when they are too small, which drags the
 			% header toward the paper edge. Reserve the room up front instead.
-			\geometry{headheight=44pt}
+			\geometry{headheight=17pt}
 			\setlength{\footheight}{\azzamfootskip}
 			\renewcommand{\headfont}{}
 			\automark{section}

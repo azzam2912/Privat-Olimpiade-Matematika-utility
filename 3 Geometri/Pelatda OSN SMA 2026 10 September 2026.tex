@@ -1,6 +1,7 @@
 \documentclass[12pt]{scrartcl}
 \usepackage[hagavi]{azzam}
 \usetikzlibrary{calc,intersections,angles,quotes,through}
+\usepackage[font=small,format=plain,justification=raggedright,singlelinecheck=false]{caption}
 
 % Garis putus putus bawaan tikz tebalnya 0.4pt, hilang begitu dicetak.
 % Tebalkan sekalian renggangkan polanya biar tetap terbaca sebagai garis putus putus.
@@ -16,7 +17,7 @@
 \date{10 September 2026}
 
 \begin{document}
-\textbf{\Huge Pelatda OSN SMA DKI Jakarta 2026: \\Geometri}
+\textbf{\Huge Pelatda OSN SMA DKI Jakarta 2026: \\ Geometri}
 
 \renewcommand*\contentsname{Daftar Isi}
 \tableofcontents
@@ -30,11 +31,9 @@ Misalkan kita diminta membuktikan bahwa suatu titik $X$ punya sifat $\mathcal{P}
 
 Kunci teknik ini ada pada ketunggalan \textit{(uniqueness)}. Dua garis yang tidak sejajar berpotongan tepat di satu titik, sebuah garis memotong lingkaran paling banyak di dua titik, dan sebuah busur punya tepat satu titik tengah. Begitu $X$ dan $X'$ terbukti memenuhi syarat yang menentukan satu titik saja, keduanya wajib berimpit (\textit{coincide}).
 
-\begin{lemma*}[Pencerminan titik tinggi terhadap sisi]
-Diberikan $\triangle ABC$ dengan titik tinggi $H$. Pencerminan $H$ terhadap garis $BC$ terletak pada lingkaran luar $\triangle ABC$.
-\end{lemma*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.8]
   \coordinate (O)  at (0,0);
@@ -60,8 +59,16 @@ Diberikan $\triangle ABC$ dengan titik tinggi $H$. Pencerminan $H$ terhadap gari
   \node[above left]  at (D)  {$D$};
   \node[below]       at (Hb) {$H'$};
 \end{tikzpicture}
-\caption{$H'$ adalah pencerminan $H$ terhadap $BC$, dan ia mendarat di lingkaran luar.}
-\end{figure}
+\captionof{figure}{$H'$ adalah pencerminan $H$ terhadap $BC$, dan ia mendarat di lingkaran luar.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+\begin{lemma*}[Pencerminan titik tinggi terhadap sisi]
+Diberikan $\triangle ABC$ dengan titik tinggi $H$. Pencerminan $H$ terhadap garis $BC$ terletak pada lingkaran luar $\triangle ABC$.
+\end{lemma*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{proof}
 Misalkan $D$ kaki garis tinggi dari $A$, dan definisikan $H'$ sebagai pencerminan $H$ terhadap $BC$. Kita akan menunjukkan $ABH'C$ siklis, sehingga $H'$ berimpit dengan titik potong kedua garis $AD$ dengan lingkaran luar. Untuk sementara anggap $\triangle ABC$ lancip, supaya $H$ berada di dalam segitiga.
@@ -80,9 +87,9 @@ Perhatikan alur berpikirnya. Kita tidak pernah menghitung apa pun tentang titik 
 \section{Sudut Berarah (\textit{Directed Angles})}
 \label{sec:sudut-berarah}
 
-Bukti lemma tadi sebenernya cuma berlaku kalau $\triangle ABC$ lancip, walau nggak pernah dibilang begitu. Coba $\angle A$ tumpul: $H$ pindah ke luar segitiga, $\angle BHC$ jadi $\angle A$ (bukan $180^\circ - \angle A$), dan langkah $\angle BAC + \angle BH'C = 180^\circ$ nggak berlaku lagi, padahal lemmanya sendiri tetap benar. Ini pas banget dijadikan alasan buat kenalan sama sudut berarah, karena dengan itu kita nggak perlu pisah kasus lancip vs tumpul sama sekali.
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
@@ -108,8 +115,14 @@ Bukti lemma tadi sebenernya cuma berlaku kalau $\triangle ABC$ lancip, walau ngg
   \node[below right] at (D)  {$D$};
   \node[below]       at (Hb) {$H'$};
 \end{tikzpicture}
-\caption{Segitiga tumpul di $A$: $H$ pindah ke luar segitiga, tapi $H'$ tetap mendarat di lingkaran luar.}
-\end{figure}
+\captionof{figure}{Segitiga tumpul di $A$: $H$ pindah ke luar segitiga, tapi $H'$ tetap mendarat di lingkaran luar.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+Bukti lemma tadi sebenernya cuma berlaku kalau $\triangle ABC$ lancip. Coba $\angle A$ tumpul: $H$ pindah ke luar segitiga, $\angle BHC$ jadi $\angle A$ (bukan $180^\circ - \angle A$), dan langkah $\angle BAC + \angle BH'C = 180^\circ$ nggak berlaku lagi, padahal lemmanya sendiri tetap benar. Ini pas banget dijadikan alasan buat kenalan sama sudut berarah, karena dengan itu kita nggak perlu pisah kasus lancip vs tumpul sama sekali.
+\end{minipage}
+\par\bigskip
+
 
 \begin{definition*}[Sudut berarah]
 Untuk dua garis $\ell, m$, notasi $\measuredangle(\ell, m)$ adalah rotasi dari $\ell$ ke $m$, modulo $180^\circ$. Untuk tiga titik,
@@ -166,11 +179,9 @@ Nggak ada lagi $180^\circ - \angle A$, nggak ada asumsi $H$ di dalam segitiga, d
 \section{Lemma Kecil tapi \textit{Powerful}}
 \subsection{Sudut Isogonal: $\measuredangle BAH = \measuredangle OAC$}
 
-\begin{theorem*}
-Pada $\triangle ABC$ dengan titik tinggi $H$ dan titik pusat lingkaran luar $O$, garis $AH$ dan garis $AO$ simetris terhadap garis bagi $\angle A$. Dalam sudut berarah, $\measuredangle BAH = \measuredangle OAC$.
-\end{theorem*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
@@ -198,8 +209,16 @@ Pada $\triangle ABC$ dengan titik tinggi $H$ dan titik pusat lingkaran luar $O$,
   \node[below left]  at (D) {$D$};
   \node[right]       at (O) {$O$};
 \end{tikzpicture}
-\caption{Garis tinggi $AD$ dan jari jari $AO$ membentuk sudut yang sama terhadap $AB$ dan $AC$.}
-\end{figure}
+\captionof{figure}{Garis tinggi $AD$ dan jari jari $AO$ membentuk sudut yang sama terhadap $AB$ dan $AC$.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+\begin{theorem*}
+Pada $\triangle ABC$ dengan titik tinggi $H$ dan titik pusat lingkaran luar $O$, garis $AH$ dan garis $AO$ simetris terhadap garis bagi $\angle A$. Dalam sudut berarah, $\measuredangle BAH = \measuredangle OAC$.
+\end{theorem*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{proof}
 Misalkan $D$ kaki garis tinggi dari $A$, sehingga $AH$ dan $AD$ adalah garis yang sama. Pada $\triangle ABD$ berlaku $\measuredangle ABD + \measuredangle BDA + \measuredangle DAB = 0$ dengan $\measuredangle BDA = 90^\circ$. Karena $D$ pada garis $BC$, kita punya $\measuredangle ABD = \measuredangle ABC$, jadi
@@ -220,11 +239,9 @@ Salah satu akibatnya: garis bagi $\angle A$ otomatis jadi garis bagi $\angle HAO
 
 \subsection{Pencerminan Titik Tinggi terhadap Titik Tengah Sisi}
 
-\begin{theorem*}
-Misalkan $M$ titik tengah $BC$ dan $A'$ titik antipoda $A$ pada lingkaran luar $\triangle ABC$. Maka $M$ adalah titik tengah $HA'$, dan $BHCA'$ jajar genjang.
-\end{theorem*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
@@ -251,8 +268,16 @@ Misalkan $M$ titik tengah $BC$ dan $A'$ titik antipoda $A$ pada lingkaran luar $
   \node[above right] at (O)  {$O$};
   \node[below]       at (Ab) {$A'$};
 \end{tikzpicture}
-\caption{$BHCA'$ jajar genjang, sehingga $M$ sekaligus titik tengah $BC$ dan titik tengah $HA'$.}
-\end{figure}
+\captionof{figure}{$BHCA'$ jajar genjang, sehingga $M$ sekaligus titik tengah $BC$ dan titik tengah $HA'$.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+\begin{theorem*}
+Misalkan $M$ titik tengah $BC$ dan $A'$ titik antipoda $A$ pada lingkaran luar $\triangle ABC$. Maka $M$ adalah titik tengah $HA'$, dan $BHCA'$ jajar genjang.
+\end{theorem*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{proof}
 Karena $AA'$ diameter, berlaku $\measuredangle ACA' = 90^\circ$, jadi $A'C \perp AC$. Garis tinggi dari $B$ juga tegak lurus $AC$, sehingga $BH \parallel A'C$. Dengan cara yang sama $\measuredangle ABA' = 90^\circ$ memberi $A'B \perp AB$, sedangkan $CH \perp AB$, jadi $CH \parallel A'B$.
@@ -262,11 +287,9 @@ Kedua pasang sisi berhadapan pada $BHCA'$ sejajar, jadi ia jajar genjang, dan di
 
 \subsection{Jarak Titik Sudut ke Titik Tinggi: $AH = 2 \cdot OM$}
 
-\begin{theorem*}
-Pada $\triangle ABC$ dengan titik tinggi $H$, titik pusat lingkaran luar $O$, dan $M$ titik tengah $BC$, berlaku $AH = 2 \cdot OM$ dan $AH \parallel OM$.
-\end{theorem*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
@@ -293,8 +316,16 @@ Pada $\triangle ABC$ dengan titik tinggi $H$, titik pusat lingkaran luar $O$, da
   \node[above right] at (O)  {$O$};
   \node[below]       at (Ab) {$A'$};
 \end{tikzpicture}
-\caption{$OM$ adalah garis tengah $\triangle AHA'$, jadi panjangnya separuh $AH$.}
-\end{figure}
+\captionof{figure}{$OM$ adalah garis tengah $\triangle AHA'$, jadi panjangnya separuh $AH$.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+\begin{theorem*}
+Pada $\triangle ABC$ dengan titik tinggi $H$, titik pusat lingkaran luar $O$, dan $M$ titik tengah $BC$, berlaku $AH = 2 \cdot OM$ dan $AH \parallel OM$.
+\end{theorem*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{proof}
 Pakai hasil sebelumnya: $M$ adalah titik tengah $HA'$, dengan $A'$ antipoda $A$. Pada $\triangle AHA'$, titik $O$ adalah titik tengah $AA'$ dan $M$ titik tengah $HA'$. Jadi $OM$ merupakan garis tengah segitiga tersebut, yang berarti $OM \parallel AH$ dan $AH = 2 \cdot OM$.
@@ -305,15 +336,9 @@ Segitiga siku siku $OMB$ langsung kasih $OM = R\cos A$, jadi $AH = 2R\cos A$. Be
 \subsection{Incenter-Excenter Lemma}
 \label{sec:incenter-excenter}
 
-\begin{theorem*}[Incenter-Excenter Lemma]
-Misalkan $I$ titik pusat lingkaran dalam $\triangle ABC$ dan $I_A$ titik pusat lingkaran singgung luar yang menyinggung sisi $BC$. Jika garis bagi $\angle A$ memotong lingkaran luar lagi di $M$, maka
-\[
-MB = MI = MC = MI_A.
-\]
-Dengan kata lain, $M$ adalah pusat lingkaran yang melalui $B$, $I$, $C$, dan $I_A$.
-\end{theorem*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
@@ -339,8 +364,20 @@ Dengan kata lain, $M$ adalah pusat lingkaran yang melalui $B$, $I$, $C$, dan $I_
   \node[right]       at (M)  {$M$};
   \node[below]       at (Ia) {$I_A$};
 \end{tikzpicture}
-\caption{Titik tengah busur $BC$ menjadi pusat satu lingkaran yang memuat $B$, $I$, $C$, dan $I_A$.}
-\end{figure}
+\captionof{figure}{Titik tengah busur $BC$ menjadi pusat satu lingkaran yang memuat $B$, $I$, $C$, dan $I_A$.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+\begin{theorem*}[Incenter-Excenter Lemma]
+Misalkan $I$ titik pusat lingkaran dalam $\triangle ABC$ dan $I_A$ titik pusat lingkaran singgung luar yang menyinggung sisi $BC$. Jika garis bagi $\angle A$ memotong lingkaran luar lagi di $M$, maka
+\[
+MB = MI = MC = MI_A.
+\]
+Dengan kata lain, $M$ adalah pusat lingkaran yang melalui $B$, $I$, $C$, dan $I_A$.
+\end{theorem*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{proof}
 Di sini kita balik pakai sudut biasa. Seluruh argumennya soal garis bagi dan panjang ruas, dua hal yang emang nggak dikenal $\measuredangle$.
@@ -371,9 +408,9 @@ Homoteti dengan pusat $O$ dan faktor $k$ memetakan setiap titik $P$ ke $P'$ deng
 \vec{OP'} = k \cdot \vec{OP}.
 \]
 
-Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari $O$ (membesar jika $k>1$, mengecil jika $0<k<1$), sedangkan $k<0$ bayangan menyeberang ke sisi lain $O$ dan bangunnya terbalik.
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.72]
   \coordinate (O)  at (0,0);
@@ -400,7 +437,7 @@ Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari 
   \node[above]       at (Cb) {$C'$};
   \node at (2.6,-0.8) {$k = 2$};
 \end{tikzpicture}
-\hspace{1.2cm}
+\\[8pt]
 \begin{tikzpicture}[scale=0.72]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (1.3,0.7);
@@ -426,22 +463,24 @@ Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari 
   \node[left]        at (Cb) {$C'$};
   \node at (1.4,-2.6) {$k = -1$};
 \end{tikzpicture}
-\caption{Homoteti berpusat $O$ dengan faktor positif dan faktor negatif.}
-\end{figure}
+\captionof{figure}{Homoteti berpusat $O$ dengan faktor positif dan faktor negatif.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari $O$ (membesar jika $k>1$, mengecil jika $0<k<1$), sedangkan $k<0$ bayangan menyeberang ke sisi lain $O$ dan bangunnya terbalik.
 
 Tips: Kalau ada dua lingkaran yang bersinggungan, titik singgungnya otomatis menjadi pusat homoteti yang memetakan lingkaran yang satu ke lingkaran yang lain. Begitu pusatnya ketemu, setiap titik, bayangannya, dan pusat homoteti selalu segaris, dan setiap garis singgung terpetakan ke garis singgung yang sejajar dengannya.
+\end{minipage}
+\par\bigskip
+
+
 
 \subsection{Lingkaran yang Menyinggung Tali Busur}
 \label{sec:talibusur}
 
-\begin{theorem*}[Lemma Archimedes]
-Diberikan lingkaran $\Omega$ dengan tali busur $AB$. Misalkan $\omega$ lingkaran yang menyinggung $AB$ di $K$ dan menyinggung $\Omega$ dari dalam di $T$. Misalkan $M$ titik tengah busur $AB$ yang tidak memuat $T$. Maka $T$, $K$, $M$ segaris, dan
-\[
-MK \cdot MT = MB^2 = MA^2.
-\]
-\end{theorem*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{190pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=1.05]
   \coordinate (O) at (0,0);
@@ -469,8 +508,19 @@ MK \cdot MT = MB^2 = MA^2.
   \node[below left]  at (O) {$O$};
   \node[left]        at (P) {$P$};
 \end{tikzpicture}
-\caption{Homoteti berpusat $T$ memetakan $\omega$ ke $\Omega$ dan membawa $K$ ke $M$.}
-\end{figure}
+\captionof{figure}{Homoteti berpusat $T$ memetakan $\omega$ ke $\Omega$ dan membawa $K$ ke $M$.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-190pt-16pt\relax}
+\vspace{0pt}
+\begin{theorem*}[Lemma Archimedes]
+Diberikan lingkaran $\Omega$ dengan tali busur $AB$. Misalkan $\omega$ lingkaran yang menyinggung $AB$ di $K$ dan menyinggung $\Omega$ dari dalam di $T$. Misalkan $M$ titik tengah busur $AB$ yang tidak memuat $T$. Maka $T$, $K$, $M$ segaris, dan
+\[
+MK \cdot MT = MB^2 = MA^2.
+\]
+\end{theorem*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{proof}
 Kedua lingkaran bersinggungan dalam di $T$, jadi pusat $\omega$, pusat $\Omega$, dan $T$ segaris. Akibatnya ada homoteti $h$ berpusat $T$ dengan faktor positif yang memetakan $\omega$ ke $\Omega$.
@@ -488,14 +538,9 @@ Lingkaran dalam dan $A$-excircle sama sama menyinggung kedua sisi sudut $A$, jad
 $A$-excircle dari $\triangle ABC$ adalah lingkaran yang menyinggung sisi $BC$ serta perpanjangan sisi $AB$ dan $AC$. Pusatnya disebut $A$-excenter dan dinotasikan $I_A$. Analogi definisi untuk sudut $B$ dan $C$.
 \end{definition*}
 
-\begin{lemma*}[Panjang garis singgung ke excircle]
-Misalkan $B_1$ dan $C_1$ titik singgung $A$-excircle pada perpanjangan $AB$ dan $AC$. Jika $s$ menyatakan setengah keliling $\triangle ABC$, maka
-\[
-AB_1 = AC_1 = s.
-\]
-\end{lemma*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{175pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.95]
   \coordinate (A)  at (-0.3,2.8);
@@ -523,8 +568,19 @@ AB_1 = AC_1 = s.
   \node[left]        at (B1) {$B_1$};
   \node[right]       at (C1) {$C_1$};
 \end{tikzpicture}
-\caption{Panjang garis singgung dari $A$ ke $A$-excircle sama dengan setengah keliling.}
-\end{figure}
+\captionof{figure}{Panjang garis singgung dari $A$ ke $A$-excircle sama dengan setengah keliling.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-175pt-16pt\relax}
+\vspace{0pt}
+\begin{lemma*}[Panjang garis singgung ke excircle]
+Misalkan $B_1$ dan $C_1$ titik singgung $A$-excircle pada perpanjangan $AB$ dan $AC$. Jika $s$ menyatakan setengah keliling $\triangle ABC$, maka
+\[
+AB_1 = AC_1 = s.
+\]
+\end{lemma*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{proof}
 Panjang dua garis singgung dari satu titik ke sebuah lingkaran selalu sama, jadi $AB_1 = AC_1$. Misalkan $X$ titik singgung $A$-excircle dengan $BC$. Dengan alasan yang sama, $BB_1 = BX$ dan $CC_1 = CX$. Maka
@@ -549,15 +605,9 @@ Kuasa titik $P$ terhadap lingkaran $\omega$ berpusat $O$ dan berjari jari $r$ ad
 Nilainya positif kalau $P$ di luar $\omega$, nol kalau $P$ pada $\omega$, dan negatif kalau $P$ di dalam $\omega$.
 \end{definition*}
 
-\begin{theorem*}
-Jika sebuah garis melalui $P$ memotong $\omega$ di $X$ dan $Y$, maka
-\[
-PX \cdot PY = \left| \operatorname{Pow}_\omega(P) \right|.
-\]
-Khususnya, kalau $P$ di luar $\omega$ dan $PT$ menyinggung $\omega$ di $T$, maka $PT^2 = \operatorname{Pow}_\omega(P)$.
-\end{theorem*}
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{220pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.95]
   \coordinate (O) at (0,0);
@@ -579,8 +629,20 @@ Khususnya, kalau $P$ di luar $\omega$ dan $PT$ menyinggung $\omega$ di $T$, maka
   \node[below right] at (Y) {$Y$};
   \node[above]       at (T) {$T$};
 \end{tikzpicture}
-\caption{$PX \cdot PY = PT^2 = OP^2 - r^2$.}
-\end{figure}
+\captionof{figure}{$PX \cdot PY = PT^2 = OP^2 - r^2$.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-220pt-16pt\relax}
+\vspace{0pt}
+\begin{theorem*}
+Jika sebuah garis melalui $P$ memotong $\omega$ di $X$ dan $Y$, maka
+\[
+PX \cdot PY = \left| \operatorname{Pow}_\omega(P) \right|.
+\]
+Khususnya, kalau $P$ di luar $\omega$ dan $PT$ menyinggung $\omega$ di $T$, maka $PT^2 = \operatorname{Pow}_\omega(P)$.
+\end{theorem*}
+\end{minipage}
+\par\bigskip
+
 
 \begin{theorem*}[Kebalikan kuasa titik]
 Misalkan $A$, $B$, $X$, $Y$ empat titik berbeda sehingga garis $AB$ dan garis $XY$ berpotongan di $P$. Jika
@@ -591,9 +653,9 @@ dan $P$ berada di dalam kedua ruas $AB$ dan $XY$ sekaligus, atau di luar keduany
 \end{theorem*}
 \subsection{Sumbu Radikal (\textit{Radical Axis})}
 
-Sumbu radikal $\omega_1, \omega_2$ (berpusat $O_1, O_2$) adalah tempat kedudukan titik dengan $\operatorname{Pow}_{\omega_1}(P) = \operatorname{Pow}_{\omega_2}(P)$, berupa garis lurus tegak lurus $O_1O_2$. Kalau kedua lingkaran berpotongan di $A, B$, sumbu radikalnya persis garis $AB$.
-
-\begin{figure}[H]
+\noindent
+\begin{minipage}[t]{210pt}
+\vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.9]
   \coordinate (O1) at (0,0);
@@ -613,10 +675,16 @@ Sumbu radikal $\omega_1, \omega_2$ (berpusat $O_1, O_2$) adalah tempat kedudukan
   \node[below right] at (B)  {$B$};
   \node[ForestGreen] at (1.51,3.0) {sumbu radikal};
 \end{tikzpicture}
-\caption{Sumbu radikal dua lingkaran yang berpotongan.}
-\end{figure}
+\captionof{figure}{Sumbu radikal dua lingkaran yang berpotongan.}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr\textwidth-210pt-16pt\relax}
+\vspace{0pt}
+Sumbu radikal $\omega_1, \omega_2$ (berpusat $O_1, O_2$) adalah tempat kedudukan titik dengan $\operatorname{Pow}_{\omega_1}(P) = \operatorname{Pow}_{\omega_2}(P)$, berupa garis lurus tegak lurus $O_1O_2$. Kalau kedua lingkaran berpotongan di $A, B$, sumbu radikalnya persis garis $AB$.
+\end{minipage}
+\par\bigskip
 
-Untuk tiga lingkaran berpusat tak segaris, ketiga sumbu radikal berpasangan bertemu di satu titik, \textbf{titik pusat radikal}. Bentuk pakainya: jika $A, B \in \omega_1$, $C, D \in \omega_2$, dan garis $AB$ memotong garis $CD$ di $P$, maka
+
+Untuk tiga lingkaran berpusat tak segaris, ketiga sumbu radikal berpasangan bertemu di satu titik, \textbf{titik pusat radikal \textit{(radical center)}}. Bentuk pakainya: jika $A, B \in \omega_1$, $C, D \in \omega_2$, dan garis $AB$ memotong garis $CD$ di $P$, maka
 \[
 A, B, C, D \text{ konsiklis} \iff P \in \text{sumbu radikal}(\omega_1, \omega_2).
 \]
