@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[hagavi]{azzam}
 \usetikzlibrary{calc,intersections,angles,quotes,through}
 
@@ -348,7 +348,7 @@ Di sisi lain, $\angle MIB$ adalah sudut luar $\triangle ABI$ di titik $I$, jadi
 \]
 Kedua sudut sama, jadi $\triangle MBI$ sama kaki dengan $MB = MI$. Argumen simetris memberi $MC = MI$.
 
-Untuk $I_A$, ingat bahwa $BI$ adalah garis bagi dalam $\angle B$ sedangkan $BI_A$ garis bagi luarnya, sehingga $\angle IBI_A = 90^\circ$. Titik $I$, $M$, $I_A$ segaris karena ketiganya ada pada garis bagi $\angle A$. Jadi $\triangle IBI_A$ siku siku di $B$ dengan hipotenusa $II_A$, dan $M$ pada hipotenusa itu memenuhi $MB = MI$. Titik tengah hipotenusa adalah satu satunya titik pada hipotenusa yang berjarak sama ke $B$ dan ke $I$, jadi $M$ titik tengah $II_A$ dan $MI_A = MI = MB$.
+Untuk $I_A$, ingat bahwa $BI$ adalah garis bagi dalam $\angle B$ sedangkan $BI_A$ garis bagi luarnya, sehingga $\angle IBI_A = 90^\circ$. Titik $I$, $M$, $I_A$ segaris karena ketiganya ada pada garis bagi $\angle A$. Jadi $\triangle IBI_A$ siku siku di $B$ dengan diameter $II_A$, dan $M$ pada diameter itu memenuhi $MB = MI$. Titik tengah diameter adalah pusat lingkaran yang berjarak sama ke $B$ dan ke $I$, jadi $M$ titik tengah $II_A$ dan $MI_A = MI = MB$.
 \end{proof}
 
 \section{Homoteti (Homothety) / Dilatasi}
@@ -422,7 +422,7 @@ Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari 
 \caption{Homoteti berpusat $O$ dengan faktor positif dan faktor negatif.}
 \end{figure}
 
-Di olimpiade, homoteti jarang diberikan; ia harus dikenali. Kalau ada dua lingkaran yang bersinggungan, titik singgungnya otomatis menjadi pusat homoteti yang memetakan lingkaran yang satu ke lingkaran yang lain. Begitu pusatnya ketemu, dua kesimpulan langsung tersedia: setiap titik, bayangannya, dan pusat homoteti selalu segaris, dan setiap garis singgung terpetakan ke garis singgung yang sejajar dengannya. Biasanya dua kalimat itu saja yang dibutuhkan.
+Di olimpiade, homoteti jarang diberikan sebagai soal, hal ini harus dikenali secara implisit. Kalau ada dua lingkaran yang bersinggungan, titik singgungnya otomatis menjadi pusat homoteti yang memetakan lingkaran yang satu ke lingkaran yang lain. Begitu pusatnya ketemu, dapat kesimpulan: setiap titik, bayangannya, dan pusat homoteti selalu segaris, dan setiap garis singgung terpetakan ke garis singgung yang sejajar dengannya. Biasanya dua kalimat itu saja yang dibutuhkan.
 
 \subsection{Lingkaran yang Menyinggung Tali Busur}
 \label{sec:talibusur}
@@ -531,7 +531,7 @@ Karena kedua panjang itu sama dan jumlahnya $2s$, masing masing bernilai $s$.
 
 Dari sini mengalir sederet akibat yang sering dipakai: $BX = s - c$, $CX = s - b$, dan titik singgung lingkaran dalam pada $BC$ merupakan pencerminan $X$ terhadap titik tengah $BC$.
 
-\section{Titik yang Ternyata Beneran Berkuasa}
+\section{titik KUASA}
 
 \subsection{Kuasa Titik (\textit{Power of a Point - P.O.P.})}
 \begin{definition*}
@@ -582,9 +582,6 @@ PA \cdot PB = PX \cdot PY,
 \]
 dan $P$ berada di dalam kedua ruas $AB$ dan $XY$ sekaligus, atau di luar keduanya sekaligus, maka $A$, $B$, $X$, $Y$ konsiklis.
 \end{theorem*}
-
-Syarat letak $P$ itu bukan sekadar formalitas, itu yang jamin kedua hasil kali bertanda sama kalau kuasanya ditulis secara berarah. Teorema kebalikan ini sering banget nolongin soal: begitu ketemu kesamaan hasil kali panjang tapi belum ada lingkarannya, kesiklisannya langsung bisa disimpulkan.
-
 \subsection{Sumbu Radikal (\textit{Radical Axis})}
 
 Sumbu radikal $\omega_1, \omega_2$ (berpusat $O_1, O_2$) adalah tempat kedudukan titik dengan $\operatorname{Pow}_{\omega_1}(P) = \operatorname{Pow}_{\omega_2}(P)$, berupa garis lurus tegak lurus $O_1O_2$. Kalau kedua lingkaran berpotongan di $A, B$, sumbu radikalnya persis garis $AB$.
@@ -617,116 +614,117 @@ Untuk tiga lingkaran berpusat tak segaris, ketiga sumbu radikal berpasangan bert
 A, B, C, D \text{ konsiklis} \iff P \in \text{sumbu radikal}(\omega_1, \omega_2).
 \]
 \section{Latihan Soal}
-\subsection{Latihan Soal Angle Chasing}
+
+Tiap soal diberi tanda kurung siku berisi simbol, petunjuk teknik apa yang biasanya membuka jalan. Satu soal boleh punya lebih dari satu simbol, dan soal tanpa simbol berarti kuncinya ada di tempat lain, misalnya perbandingan panjang atau proyektif.
+
+\begin{itemize}
+  \item $\bigstar$ \quad Angle chasing: sudut berarah dan lemma kecil tapi \textit{powerful} pada \S\ref{sec:sudut-berarah}.
+  \item $\heartsuit$ \quad Homoteti atau dilatasi.
+  \item $\triangle$ \quad Kuasa titik dan sumbu radikal.
+\end{itemize}
 
 \begin{enumerate}[resume]
-  \item (OSP 2017) Diberikan segitiga $ABC$ yang ketiga garis tingginya berpotongan di titik $H$. Tentukan semua titik $X$ pada sisi $BC$ sehingga pencerminan $H$ terhadap titik $X$ terletak pada lingkaran luar segitiga $ABC$.
+  \item (OSP 2017)[$\bigstar$] Diberikan segitiga $ABC$ yang ketiga garis tingginya berpotongan di titik $H$. Tentukan semua titik $X$ pada sisi $BC$ sehingga pencerminan $H$ terhadap titik $X$ terletak pada lingkaran luar segitiga $ABC$.
 
-  \item Segitiga $ABC$ memiliki titik tinggi $H$ dan titik pusat lingkaran dalam $I$. Buktikan bahwa $A$, $B$, $H$, $I$ konsiklis jika dan hanya jika $\angle ACB = 60^\circ$.
+  \item {}[$\bigstar$] Segitiga $ABC$ memiliki titik tinggi $H$ dan titik pusat lingkaran dalam $I$. Buktikan bahwa $A$, $B$, $H$, $I$ konsiklis jika dan hanya jika $\angle ACB = 60^\circ$.
 
-  \item Misalkan $C$ adalah titik pada setengah lingkaran berdiameter $AB$, terletak pada busurnya dan bukan pada diameternya. Misalkan $D$ titik tengah busur $AC$. Notasikan $E$ sebagai proyeksi $D$ pada garis $BC$, dan $F$ perpotongan $AE$ dengan setengah lingkaran tersebut. Buktikan bahwa $BF$ membagi $DE$ sama panjang.
+  \item {}[$\bigstar$] Misalkan $C$ adalah titik pada setengah lingkaran berdiameter $AB$, terletak pada busurnya dan bukan pada diameternya. Misalkan $D$ titik tengah busur $AC$. Notasikan $E$ sebagai proyeksi $D$ pada garis $BC$, dan $F$ perpotongan $AE$ dengan setengah lingkaran tersebut. Buktikan bahwa $BF$ membagi $DE$ sama panjang.
 
-  \item (OSN 2002) Diberikan segitiga $ABC$ dengan $AC > BC$. Pada lingkaran luar segitiga $ABC$ terletak titik $D$ yang merupakan titik tengah busur $AB$ yang memuat titik $C$. Misalkan $E$ titik pada $AC$ sehingga $DE$ tegak lurus $AC$. Buktikan bahwa $AE = EC + CB$.
+  \item (OSN 2002)[$\bigstar$] Diberikan segitiga $ABC$ dengan $AC > BC$. Pada lingkaran luar segitiga $ABC$ terletak titik $D$ yang merupakan titik tengah busur $AB$ yang memuat titik $C$. Misalkan $E$ titik pada $AC$ sehingga $DE$ tegak lurus $AC$. Buktikan bahwa $AE = EC + CB$.
 
-  \item (OSN 2007) Titik $A$, $B$, $C$, $D$ terletak pada lingkaran $S$ sedemikian sehingga $AB$ merupakan diameter $S$, tetapi $CD$ bukan diameter $S$. Diketahui pula $C$ dan $D$ berada pada sisi berbeda terhadap $AB$. Garis singgung terhadap $S$ di $C$ dan di $D$ berpotongan di titik $P$. Titik $Q$ dan $R$ berturut turut adalah perpotongan garis $AC$ dengan $BD$ dan perpotongan garis $AD$ dengan $BC$. Buktikan bahwa $P$, $Q$, $R$ segaris, lalu buktikan bahwa $QR \perp AB$.
+  \item (OSN 2007)[$\bigstar\,\triangle$] Titik $A$, $B$, $C$, $D$ terletak pada lingkaran $S$ sedemikian sehingga $AB$ merupakan diameter $S$, tetapi $CD$ bukan diameter $S$. Diketahui pula $C$ dan $D$ berada pada sisi berbeda terhadap $AB$. Garis singgung terhadap $S$ di $C$ dan di $D$ berpotongan di titik $P$. Titik $Q$ dan $R$ berturut turut adalah perpotongan garis $AC$ dengan $BD$ dan perpotongan garis $AD$ dengan $BC$. Buktikan bahwa $P$, $Q$, $R$ segaris, lalu buktikan bahwa $QR \perp AB$.
 
-  \item (OSN 2009) Diberikan segitiga lancip $ABC$. Lingkaran dalamnya menyinggung $BC$, $CA$, $AB$ berturut turut di $D$, $E$, $F$. Garis bagi $\angle A$ memotong $DE$ dan $DF$ berturut turut di $K$ dan $L$. Misalkan $AA_1$ garis tinggi dan $M$ titik tengah $BC$.
+  \item (OSN 2009)[$\bigstar$] Diberikan segitiga lancip $ABC$. Lingkaran dalamnya menyinggung $BC$, $CA$, $AB$ berturut turut di $D$, $E$, $F$. Garis bagi $\angle A$ memotong $DE$ dan $DF$ berturut turut di $K$ dan $L$. Misalkan $AA_1$ garis tinggi dan $M$ titik tengah $BC$.
   \begin{enumerate}
     \item[(a)] Buktikan bahwa $BK$ dan $CL$ tegak lurus garis bagi $\angle BAC$.
     \item[(b)] Tunjukkan bahwa $A_1KML$ adalah segiempat talibusur.
   \end{enumerate}
 
-  \item (OSN 2015) Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$. Garis $AO$ memotong lingkaran luar segitiga $ABC$ lagi di titik $D$. Misalkan $P$ titik pada sisi $BC$. Garis melalui $P$ yang tegak lurus $AP$ memotong garis $DB$ dan $DC$ berturut turut di $E$ dan $F$. Garis melalui $D$ yang tegak lurus $BC$ memotong $EF$ di $Q$. Buktikan bahwa $EQ = FQ$ jika dan hanya jika $BP = CP$.
+  \item (OSN 2015)[$\bigstar$] Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$. Garis $AO$ memotong lingkaran luar segitiga $ABC$ lagi di titik $D$. Misalkan $P$ titik pada sisi $BC$. Garis melalui $P$ yang tegak lurus $AP$ memotong garis $DB$ dan $DC$ berturut turut di $E$ dan $F$. Garis melalui $D$ yang tegak lurus $BC$ memotong $EF$ di $Q$. Buktikan bahwa $EQ = FQ$ jika dan hanya jika $BP = CP$.
 
-  \item (IMO 2006) Diberikan segitiga $ABC$ dengan titik pusat lingkaran dalam $I$. Titik $P$ di dalam segitiga memenuhi
+  \item (IMO 2006)[$\bigstar$] Diberikan segitiga $ABC$ dengan titik pusat lingkaran dalam $I$. Titik $P$ di dalam segitiga memenuhi
   \[
   \angle PBA + \angle PCA = \angle PBC + \angle PCB.
   \]
   Buktikan bahwa $AP \ge AI$, dan kesamaan terjadi tepat ketika $P = I$.
 
-  \item (IMO SL 2010) Let $\triangle ABC$ be an acute triangle with $D$, $E$, $F$ the feet of the altitudes lying on $\overline{BC}$, $\overline{CA}$, and $\overline{AB}$ respectively. One of the intersection points of the line $\overline{EF}$ and the circumcircle is $P$. The lines $\overline{BP}$ and $\overline{DF}$ meet at point $Q$. Prove that $|AP| = |AQ|$.
+  \item (IMO SL 2010)[$\bigstar$] Let $\triangle ABC$ be an acute triangle with $D$, $E$, $F$ the feet of the altitudes lying on $\overline{BC}$, $\overline{CA}$, and $\overline{AB}$ respectively. One of the intersection points of the line $\overline{EF}$ and the circumcircle is $P$. The lines $\overline{BP}$ and $\overline{DF}$ meet at point $Q$. Prove that $|AP| = |AQ|$.
 
-  \item (Korea 2022) Let $ABC$ be an acute triangle with circumcenter $O$, and let $D$, $E$, and $F$ be the feet of altitudes from $A$, $B$, and $C$ to sides $BC$, $CA$, and $AB$, respectively. Denote by $P$ the intersection of the tangents to the circumcircle of $ABC$ at $B$ and $C$. The line through $P$ perpendicular to $EF$ meets $AD$ at $Q$, and let $R$ be the foot of the perpendicular from $A$ to $EF$. Prove that $DR$ and $OQ$ are parallel.
+  \item (Korea 2022)[$\bigstar$] Let $ABC$ be an acute triangle with circumcenter $O$, and let $D$, $E$, and $F$ be the feet of altitudes from $A$, $B$, and $C$ to sides $BC$, $CA$, and $AB$, respectively. Denote by $P$ the intersection of the tangents to the circumcircle of $ABC$ at $B$ and $C$. The line through $P$ perpendicular to $EF$ meets $AD$ at $Q$, and let $R$ be the foot of the perpendicular from $A$ to $EF$. Prove that $DR$ and $OQ$ are parallel.
 
-  \item (IMO 2014) Let $P$ and $Q$ be on segment $BC$ of an acute triangle $ABC$ such that $\angle PAB=\angle BCA$ and $\angle CAQ=\angle ABC$. Let $M$ and $N$ be the points on $AP$ and $AQ$, respectively, such that $P$ is the midpoint of $AM$ and $Q$ is the midpoint of $AN$. Prove that the intersection of $BM$ and $CN$ is on the circumference of triangle $ABC$.
+  \item (IMO 2014)[$\bigstar$] Let $P$ and $Q$ be on segment $BC$ of an acute triangle $ABC$ such that $\angle PAB=\angle BCA$ and $\angle CAQ=\angle ABC$. Let $M$ and $N$ be the points on $AP$ and $AQ$, respectively, such that $P$ is the midpoint of $AM$ and $Q$ is the midpoint of $AN$. Prove that the intersection of $BM$ and $CN$ is on the circumference of triangle $ABC$.
 
-  \item (Wildan Bagus Wicaksono) Diberikan persegi panjang $ABCD$. Titik $P$ adalah perpotongan garis $BC$ dengan garis yang melalui $A$ dan tegak lurus $AC$. Titik $Q$ pada segmen $CD$. Garis $PQ$ memotong garis $AD$ di $R$. Garis $BR$ memotong garis $AQ$ di $X$. Buktikan bahwa jika titik $Q$ bergerak sepanjang segmen $CD$, maka besar $\angle BXC$ konstan.
+  \item (Wildan Bagus Wicaksono)[$\bigstar$] Diberikan persegi panjang $ABCD$. Titik $P$ adalah perpotongan garis $BC$ dengan garis yang melalui $A$ dan tegak lurus $AC$. Titik $Q$ pada segmen $CD$. Garis $PQ$ memotong garis $AD$ di $R$. Garis $BR$ memotong garis $AQ$ di $X$. Buktikan bahwa jika titik $Q$ bergerak sepanjang segmen $CD$, maka besar $\angle BXC$ konstan.
 
-  \item (Japan 2022) In an isosceles triangle $ABC$, $AB=AC$. Take a point $O$ inside the triangle (not on the boundary). Draw a circle $\omega$ with center $O$ and passing through $C$. Suppose $\omega\cap BC=\{C,D\}$, $\omega\cap AC=\{C,E\}$. Denote the circumcircle of $\triangle AEO$ as $\Gamma$. And suppose $\Gamma\cap\omega=\{E,F\}$. Prove that the circumcenter of $\triangle BDF$ is on $\Gamma$.
+  \item (Japan 2022)[$\bigstar$] In an isosceles triangle $ABC$, $AB=AC$. Take a point $O$ inside the triangle (not on the boundary). Draw a circle $\omega$ with center $O$ and passing through $C$. Suppose $\omega\cap BC=\{C,D\}$, $\omega\cap AC=\{C,E\}$. Denote the circumcircle of $\triangle AEO$ as $\Gamma$. And suppose $\Gamma\cap\omega=\{E,F\}$. Prove that the circumcenter of $\triangle BDF$ is on $\Gamma$.
 
-  \item (All-Russian 2022 Grade 9) Given triangle $ABC$ with incenter $I$ and $A$-excenter $J$. Circle $\omega_b$ centered at point $O_b$ passes through point $B$ and is tangent to line $CI$ at point $I$. Circle $\omega_c$ with center $O_c$ passes through point $C$ and touches line $BI$ at point $I$. Let $O_bO_c$ and $IJ$ intersect at point $K$. Find the ratio $IK/KJ$.
+  \item (All-Russian 2022 Grade 9)[$\bigstar\,\triangle$] Given triangle $ABC$ with incenter $I$ and $A$-excenter $J$. Circle $\omega_b$ centered at point $O_b$ passes through point $B$ and is tangent to line $CI$ at point $I$. Circle $\omega_c$ with center $O_c$ passes through point $C$ and touches line $BI$ at point $I$. Let $O_bO_c$ and $IJ$ intersect at point $K$. Find the ratio $IK/KJ$.
 
-  \item (Japan 2023) In an acute triangle $ABC$, let $D,E,F$ be the midpoints of $BC,CA,AB$ respectively. Let $X,Y$ be the feet of altitude from $D$ to $AB,AC$ respectively. The line through $F$ parallel to $XY$ meets line $DY$ at $P$. Prove that $AD\perp EP$.
+  \item (Japan 2023)[$\bigstar$] In an acute triangle $ABC$, let $D,E,F$ be the midpoints of $BC,CA,AB$ respectively. Let $X,Y$ be the feet of altitude from $D$ to $AB,AC$ respectively. The line through $F$ parallel to $XY$ meets line $DY$ at $P$. Prove that $AD\perp EP$.
 
-  \item (British MO 2019) Let $ABC$ be a triangle. Let $L$ be the line through $B$ perpendicular to $AB$. The perpendicular from $A$ to $BC$ meets $L$ at the point $D$. The perpendicular bisector of $BC$ meets $L$ at the point $P$. Let $E$ be the foot of the perpendicular from $D$ to $AC$.
+  \item (British MO 2019)[$\bigstar$] Let $ABC$ be a triangle. Let $L$ be the line through $B$ perpendicular to $AB$. The perpendicular from $A$ to $BC$ meets $L$ at the point $D$. The perpendicular bisector of $BC$ meets $L$ at the point $P$. Let $E$ be the foot of the perpendicular from $D$ to $AC$.
 
 Prove that triangle $BPE$ is isosceles.
 
-  \item (OSP 2019) Diberikan segitiga $ABC$, dengan $AC > BC$, dan lingkaran luarnya yang berpusat di $O$. Misalkan $M$ adalah titik pada lingkaran luar segitiga $ABC$ sehingga $CM$ adalah garis bagi $\angle ACB$. Misalkan $\Gamma$ adalah lingkaran berdiameter $CM$. Garis bagi $\angle BOC$ dan garis bagi $\angle AOC$ memotong $\Gamma$ berturut-turut di $P$ dan $Q$. Jika $K$ adalah titik tengah $CM$, buktikan bahwa $P, Q, O, K$ terletak pada satu lingkaran.
+  \item (OSP 2019)[$\bigstar$] Diberikan segitiga $ABC$, dengan $AC > BC$, dan lingkaran luarnya yang berpusat di $O$. Misalkan $M$ adalah titik pada lingkaran luar segitiga $ABC$ sehingga $CM$ adalah garis bagi $\angle ACB$. Misalkan $\Gamma$ adalah lingkaran berdiameter $CM$. Garis bagi $\angle BOC$ dan garis bagi $\angle AOC$ memotong $\Gamma$ berturut-turut di $P$ dan $Q$. Jika $K$ adalah titik tengah $CM$, buktikan bahwa $P, Q, O, K$ terletak pada satu lingkaran.
 
-  \item (KTOM Januari 2025) Diberikan persegi \(ABCD\) dan titik \(E\) pada ruas \(CD\). Misalkan \(F\) adalah titik pada ruas \(AE\) sehingga \(BF\) tegak lurus \(AE\). Dengan cara serupa, misalkan \(G\) adalah titik pada ruas \(EB\) sehingga \(AG\) tegak lurus \(EB\). Misalkan garis \(DF\) dan \(CG\) berpotongan di \(H\). Buktikan bahwa
+  \item (KTOM Januari 2025)[$\bigstar$] Diberikan persegi \(ABCD\) dan titik \(E\) pada ruas \(CD\). Misalkan \(F\) adalah titik pada ruas \(AE\) sehingga \(BF\) tegak lurus \(AE\). Dengan cara serupa, misalkan \(G\) adalah titik pada ruas \(EB\) sehingga \(AG\) tegak lurus \(EB\). Misalkan garis \(DF\) dan \(CG\) berpotongan di \(H\). Buktikan bahwa
 \[
 \angle DFC + \angle DGC = 90^\circ + \angle AHD + \angle BHC.
 \]
 
-  \item (JBMO 2018) Diberikan $\triangle ABC$ dimana $A',B',C'$ berturut-turut adalah pencerminan $A,B,C$ terhadap $BC,CA,AB$. Perpotongan lingkaran luar $\triangle ABB'$ dan $\triangle ACC'$ adalah $A_1$. Definisikan $B_1$ dan $C_1$ secara serupa. Buktikan bahwa $AA_1,BB_1,$ dan $CC_1$ konkuren (bertemu di satu titik).
+  \item (JBMO 2018)[$\bigstar\,\triangle$] Diberikan $\triangle ABC$ dimana $A',B',C'$ berturut-turut adalah pencerminan $A,B,C$ terhadap $BC,CA,AB$. Perpotongan lingkaran luar $\triangle ABB'$ dan $\triangle ACC'$ adalah $A_1$. Definisikan $B_1$ dan $C_1$ secara serupa. Buktikan bahwa $AA_1,BB_1,$ dan $CC_1$ konkuren (bertemu di satu titik).
 
-  \item (Korea 2023) In a triangle $ABC ~(\overline{AB} < \overline{AC})$, points $D (\neq A, B)$ and $E (\neq A, C)$ lies on side $AB$ and $AC$ respectively. Point $P$ satisfies $\overline{PB}=\overline{PD}, \overline{PC}=\overline{PE}$. $X (\neq A, C)$ is on the arc $AC$ of the circumcircle of triangle $ABC$ not including $B$. Let $Y (\neq A)$ be the intersection of circumcircle of triangle $ADE$ and line $XA$. Prove that $\overline{PX} = \overline{PY}$.
+  \item (Korea 2023)[$\bigstar\,\triangle$] In a triangle $ABC ~(\overline{AB} < \overline{AC})$, points $D (\neq A, B)$ and $E (\neq A, C)$ lies on side $AB$ and $AC$ respectively. Point $P$ satisfies $\overline{PB}=\overline{PD}, \overline{PC}=\overline{PE}$. $X (\neq A, C)$ is on the arc $AC$ of the circumcircle of triangle $ABC$ not including $B$. Let $Y (\neq A)$ be the intersection of circumcircle of triangle $ADE$ and line $XA$. Prove that $\overline{PX} = \overline{PY}$.
 
-  \item (All-Russian 2022 Grade 11) An acute-angled triangle $ABC$ is fixed on a plane with largest side $BC$. Let $PQ$ be an arbitrary diameter of its circumscribed circle, and the point $P$ lies on the smaller arc $AB$, and the point $Q$ is on the smaller arc $AC$. Points $X, Y, Z$ are feet of perpendiculars dropped from point $P$ to the line $AB$, from point $Q$ to the line $AC$ and from point $A$ to line $PQ$. Prove that the center of the circumscribed circle of triangle $XYZ$ lies on a fixed circle.
-
-\textit{Terjemahan: } Diberikan sebuah segitiga lancip $ABC$ yang tetap di sebuah bidang dengan sisi terpanjangnya adalah $BC$. Misalkan $PQ$ adalah sebuah diameter sembarang dari lingkaran luar segitiga $ABC$, dengan titik $P$ berada di busur $AB$ yang lebih kecil  dan titik $Q$ berada di busur $AC$ yang lebih kecil. Titik $X,Y,Z$ berturut-turut adalah kaki tinggi titik $P$ ke garis $AB$, titik $Q$ ke garis $AC$, dan titik $A$ ke garis $PQ$. Buktikan bahwa pusat lingkaran luar segitiga $XYZ$ berada pada sebuah lingkaran tetap.
+  \item (All-Russian 2022 Grade 11)[$\bigstar$] An acute-angled triangle $ABC$ is fixed on a plane with largest side $BC$. Let $PQ$ be an arbitrary diameter of its circumscribed circle, and the point $P$ lies on the smaller arc $AB$, and the point $Q$ is on the smaller arc $AC$. Points $X, Y, Z$ are feet of perpendiculars dropped from point $P$ to the line $AB$, from point $Q$ to the line $AC$ and from point $A$ to line $PQ$. Prove that the center of the circumscribed circle of triangle $XYZ$ lies on a fixed circle.
 \end{enumerate}
 
 \newpage
 
 
-\subsection{Latihan Soal Homothety}
 
 \begin{enumerate}[resume]
-  \item Buktikan bahwa titik berat segitiga membagi setiap garis berat dengan rasio $2:1$, lalu jelaskan homoteti mana yang dipakai.
+  \item {}[$\heartsuit$] Buktikan bahwa titik berat segitiga membagi setiap garis berat dengan rasio $2:1$, lalu jelaskan homoteti mana yang dipakai.
 
-  \item (Garis Euler) Pada segitiga $ABC$, misalkan $O$, $G$, $H$, dan $N_9$ berturut turut titik pusat lingkaran luar, titik berat, titik tinggi, dan pusat lingkaran sembilan titik. Buktikan keempatnya segaris, dan $G$ membagi $OH$ dengan rasio $2:1$.
+  \item (Garis Euler)[$\heartsuit$] Pada segitiga $ABC$, misalkan $O$, $G$, $H$, dan $N_9$ berturut turut titik pusat lingkaran luar, titik berat, titik tinggi, dan pusat lingkaran sembilan titik. Buktikan keempatnya segaris, dan $G$ membagi $OH$ dengan rasio $2:1$.
 
-  \item Buktikan lemma lingkaran sembilan titik: titik tengah ketiga sisi, ketiga kaki garis tinggi, dan titik tengah $AH$, $BH$, $CH$ terletak pada satu lingkaran berjari jari $R/2$.
+  \item {}[$\heartsuit$] Buktikan lemma lingkaran sembilan titik: titik tengah ketiga sisi, ketiga kaki garis tinggi, dan titik tengah $AH$, $BH$, $CH$ terletak pada satu lingkaran berjari jari $R/2$.
 
-  \item (OSN 2018) Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran yang bersinggungan di titik $A$ dengan $\Gamma_2$ di dalam $\Gamma_1$. Misalkan $B$ titik pada $\Gamma_2$ dan garis $AB$ memotong $\Gamma_1$ di titik $C$. Misalkan $D$ titik pada $\Gamma_1$ dan $P$ sebarang titik pada garis $CD$, boleh pada perpanjangan segmen $CD$. Garis $BP$ memotong $\Gamma_2$ di titik $Q$. Tunjukkan bahwa $A$, $D$, $P$, $Q$ terletak pada satu lingkaran.
+  \item (OSN 2018)[$\heartsuit\,\bigstar$] Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran yang bersinggungan di titik $A$ dengan $\Gamma_2$ di dalam $\Gamma_1$. Misalkan $B$ titik pada $\Gamma_2$ dan garis $AB$ memotong $\Gamma_1$ di titik $C$. Misalkan $D$ titik pada $\Gamma_1$ dan $P$ sebarang titik pada garis $CD$, boleh pada perpanjangan segmen $CD$. Garis $BP$ memotong $\Gamma_2$ di titik $Q$. Tunjukkan bahwa $A$, $D$, $P$, $Q$ terletak pada satu lingkaran.
 
-  \item (OSN 2022) Pada segitiga $ABC$, titik $D$ dan $E$ berada pada sisi $AB$ dan $AC$ sehingga $DE \parallel BC$. Diketahui terdapat titik $P$ di interior segiempat $BDEC$ dengan $\angle BPD = \angle CPE = 90^\circ$. Buktikan bahwa garis $AP$ melalui titik pusat lingkaran luar segitiga $EPD$ dan segitiga $BPC$.
+  \item (OSN 2022)[$\heartsuit\,\bigstar$] Pada segitiga $ABC$, titik $D$ dan $E$ berada pada sisi $AB$ dan $AC$ sehingga $DE \parallel BC$. Diketahui terdapat titik $P$ di interior segiempat $BDEC$ dengan $\angle BPD = \angle CPE = 90^\circ$. Buktikan bahwa garis $AP$ melalui titik pusat lingkaran luar segitiga $EPD$ dan segitiga $BPC$.
 
-  \item Diberikan segitiga $ABC$ dengan lingkaran luar $\Omega$ dan titik $D$ pada $BC$. Gambar lingkaran yang menyinggung $AD$ di $L$, menyinggung $BC$ di $K$, dan menyinggung $\Omega$ dari dalam. Tunjukkan bahwa titik pusat lingkaran dalam $\triangle ABC$ terletak pada $KL$.
+  \item {}[$\heartsuit\,\bigstar$] Diberikan segitiga $ABC$ dengan lingkaran luar $\Omega$ dan titik $D$ pada $BC$. Gambar lingkaran yang menyinggung $AD$ di $L$, menyinggung $BC$ di $K$, dan menyinggung $\Omega$ dari dalam. Tunjukkan bahwa titik pusat lingkaran dalam $\triangle ABC$ terletak pada $KL$.
 
-  \item (Philippine 2022) In $\triangle ABC$, let $D$ be the point on side $BC$ such that $AB + BD = DC + CA$. The line $AD$ intersects the circumcircle of $\triangle ABC$ again at point $X \neq A$. Prove that one of the common tangents of the circumcircles of $\triangle BDX$ and $\triangle CDX$ is parallel to $BC$.
+  \item (Philippine 2022)[$\heartsuit$] In $\triangle ABC$, let $D$ be the point on side $BC$ such that $AB + BD = DC + CA$. The line $AD$ intersects the circumcircle of $\triangle ABC$ again at point $X \neq A$. Prove that one of the common tangents of the circumcircles of $\triangle BDX$ and $\triangle CDX$ is parallel to $BC$.
 
-  \item (BAMO 2013) Let $H$ be the orthocenter of an acute triangle $ABC$. Consider the circumcenters of triangles $ABH$, $BCH$, and $CAH$. Prove that they are the vertices of a triangle congruent to $ABC$.
+  \item (BAMO 2013)[$\heartsuit\,\bigstar$] Let $H$ be the orthocenter of an acute triangle $ABC$. Consider the circumcenters of triangles $ABH$, $BCH$, and $CAH$. Prove that they are the vertices of a triangle congruent to $ABC$.
 
-  \item (EGMO 2013) Sisi $BC$ dari segitiga $ABC$ diperpanjang melewati $C$ ke titik $D$ sehingga $CD = BC$. Sisi $CA$ diperpanjang melewati $A$ ke titik $E$ sehingga $AE = 2CA$. Buktikan bahwa jika $AD = BE$, maka $ABC$ segitiga siku siku.
+  \item (EGMO 2013)[$\heartsuit$] Sisi $BC$ dari segitiga $ABC$ diperpanjang melewati $C$ ke titik $D$ sehingga $CD = BC$. Sisi $CA$ diperpanjang melewati $A$ ke titik $E$ sehingga $AE = 2CA$. Buktikan bahwa jika $AD = BE$, maka $ABC$ segitiga siku siku.
 
-  \item (OSN 2018) Misalkan $I$ dan $O$ berturut turut titik pusat lingkaran dalam dan lingkaran luar segitiga $ABC$. Lingkaran singgung luar $\omega_A$ menyinggung sisi $BC$ di $N$ serta menyinggung perpanjangan sisi $AB$ dan $AC$ masing masing di $K$ dan $M$. Jika titik tengah ruas garis $KM$ berada pada lingkaran luar segitiga $ABC$, buktikan bahwa $O$, $I$, dan $N$ segaris.
+  \item (OSN 2018)[$\heartsuit$] Misalkan $I$ dan $O$ berturut turut titik pusat lingkaran dalam dan lingkaran luar segitiga $ABC$. Lingkaran singgung luar $\omega_A$ menyinggung sisi $BC$ di $N$ serta menyinggung perpanjangan sisi $AB$ dan $AC$ masing masing di $K$ dan $M$. Jika titik tengah ruas garis $KM$ berada pada lingkaran luar segitiga $ABC$, buktikan bahwa $O$, $I$, dan $N$ segaris.
 
-  \item (IMO 2024) Let $ABC$ be a triangle with $AB < AC < BC$. Let the incenter and incircle of triangle $ABC$ be $I$ and $\omega$, respectively. Let $X$ be the point on line $BC$ different from $C$ such that the line through $X$ parallel to $AC$ is tangent to $\omega$. Similarly, let $Y$ be the point on line $BC$ different from $B$ such that the line through $Y$ parallel to $AB$ is tangent to $\omega$. Let $AI$ intersect the circumcircle of triangle $ABC$ at $P \ne A$. Let $K$ and $L$ be the midpoints of $AC$ and $AB$, respectively.
+  \item (IMO 2024)[$\heartsuit\,\bigstar$] Let $ABC$ be a triangle with $AB < AC < BC$. Let the incenter and incircle of triangle $ABC$ be $I$ and $\omega$, respectively. Let $X$ be the point on line $BC$ different from $C$ such that the line through $X$ parallel to $AC$ is tangent to $\omega$. Similarly, let $Y$ be the point on line $BC$ different from $B$ such that the line through $Y$ parallel to $AB$ is tangent to $\omega$. Let $AI$ intersect the circumcircle of triangle $ABC$ at $P \ne A$. Let $K$ and $L$ be the midpoints of $AC$ and $AB$, respectively.
 Prove that $\angle KIL + \angle YPX = 180^{\circ}$.
 
 (Proposed by Dominik Burek, Poland)
 
-  \item (Lemma Klasik) Diberikan segitiga $ABC$ dengan $AB \neq AC$. Misalkan titik $I$ adalah pusat lingkaran dalam dan $r$ adalah panjang jari-jari lingkaran dalam segitiga $ABC$. Definisikan $X$ sebagai titik tengah $BC$ dan $Y$ sebagai perpotongan $XI$ dengan garis tinggi dari $A$. Buktikan bahwa panjang $AY = r$.
+  \item (Lemma Klasik)[$\heartsuit$] Diberikan segitiga $ABC$ dengan $AB \neq AC$. Misalkan titik $I$ adalah pusat lingkaran dalam dan $r$ adalah panjang jari-jari lingkaran dalam segitiga $ABC$. Definisikan $X$ sebagai titik tengah $BC$ dan $Y$ sebagai perpotongan $XI$ dengan garis tinggi dari $A$. Buktikan bahwa panjang $AY = r$.
 
-  \item (USAMO 2015) Quadrilateral $APBQ$ is inscribed in circle $\omega$ with $\angle P = \angle Q = 90^{\circ}$ and $AP = AQ < BP$. Let $X$ be a variable point on segment $\overline{PQ}$. Line $AX$ meets $\omega$ again at $S$ (other than $A$). Point $T$ lies on arc $AQB$ of $\omega$ such that $\overline{XT}$ is perpendicular to $\overline{AX}$. Let $M$ denote the midpoint of chord $\overline{ST}$. As $X$ varies on segment $\overline{PQ}$, show that $M$ moves along a circle.
+  \item (USAMO 2015)[$\heartsuit\,\bigstar$] Quadrilateral $APBQ$ is inscribed in circle $\omega$ with $\angle P = \angle Q = 90^{\circ}$ and $AP = AQ < BP$. Let $X$ be a variable point on segment $\overline{PQ}$. Line $AX$ meets $\omega$ again at $S$ (other than $A$). Point $T$ lies on arc $AQB$ of $\omega$ such that $\overline{XT}$ is perpendicular to $\overline{AX}$. Let $M$ denote the midpoint of chord $\overline{ST}$. As $X$ varies on segment $\overline{PQ}$, show that $M$ moves along a circle.
 \end{enumerate}
 
 \newpage
 
 
-\subsection{Latihan Soal Length Chasing}
 
 \begin{enumerate}[resume]
-  \item (OSK 2011, 2012, 2013, 2018) Diberikan segitiga $ABC$ dan lingkaran $\Gamma$ berdiameter $AB$. Lingkaran $\Gamma$ memotong sisi $AC$ dan $BC$ berturut turut di $D$ dan $E$. Jika $AD = \frac13 AC$, $BE = \frac14 BC$, dan $AB = 30$, tentukan luas segitiga $ABC$.
+  \item (OSP 2018)[$\heartsuit$] Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran berbeda dengan jari jari sama, berpusat di $O_1$ dan $O_2$, dan bersinggungan di titik $P$. Garis $\ell$ melalui $O_1$ menyinggung $\Gamma_2$ di titik $A$, serta memotong $\Gamma_1$ di titik $X$ dengan $X$ di antara $A$ dan $O_1$. Misalkan $M$ titik tengah $AX$ dan $Y$ titik potong $PM$ dengan $\Gamma_2$, dengan $Y \neq P$. Buktikan bahwa $XY$ sejajar $O_1O_2$.
 
-  \item (OSP 2018) Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran berbeda dengan jari jari sama, berpusat di $O_1$ dan $O_2$, dan bersinggungan di titik $P$. Garis $\ell$ melalui $O_1$ menyinggung $\Gamma_2$ di titik $A$, serta memotong $\Gamma_1$ di titik $X$ dengan $X$ di antara $A$ dan $O_1$. Misalkan $M$ titik tengah $AX$ dan $Y$ titik potong $PM$ dengan $\Gamma_2$, dengan $Y \neq P$. Buktikan bahwa $XY$ sejajar $O_1O_2$.
+  \item (OSN 2019)[$\triangle$] Diberikan lingkaran berpusat $O$. Titik $A$ di dalam lingkaran namun bukan pada kelilingnya, dan $B$ pencerminan $A$ terhadap $O$. Sebarang titik $P$ terletak pada keliling lingkaran. Garis yang tegak lurus $AP$ dan melalui $P$ memotong lingkaran di $Q$. Buktikan bahwa $AP \times BQ$ konstan selama $P$ bergerak pada lingkaran.
 
-  \item (OSN 2019) Diberikan lingkaran berpusat $O$. Titik $A$ di dalam lingkaran namun bukan pada kelilingnya, dan $B$ pencerminan $A$ terhadap $O$. Sebarang titik $P$ terletak pada keliling lingkaran. Garis yang tegak lurus $AP$ dan melalui $P$ memotong lingkaran di $Q$. Buktikan bahwa $AP \times BQ$ konstan selama $P$ bergerak pada lingkaran.
-
-  \item (Teorema Pitot) Diberikan segiempat $ABCD$. Buktikan bahwa jika ada lingkaran yang termuat di dalamnya dan menyinggung keempat sisinya, maka $AB + CD = BC + DA$.
+  \item (Teorema Pitot)[$\triangle$] Diberikan segiempat $ABCD$. Buktikan bahwa jika ada lingkaran yang termuat di dalamnya dan menyinggung keempat sisinya, maka $AB + CD = BC + DA$.
 
   \item Pada segitiga $ABC$, titik $D$, $E$, $F$ berturut turut terletak pada segmen $BC$, $CA$, $AB$. Misalkan $P$ perpotongan $AD$ dan $EF$. Tunjukkan bahwa
   \[
@@ -737,65 +735,64 @@ Prove that $\angle KIL + \angle YPX = 180^{\circ}$.
 
   \item Diberikan trapesium $ABCD$ dengan $AD \parallel BC$ dan $AB$ tidak sejajar $CD$. Garis $AB$ dan $CD$ berpotongan di $Q$, sedangkan $AC$ dan $BD$ berpotongan di $P$. Buktikan bahwa garis $PQ$ melalui titik tengah $BC$ dan titik tengah $AD$.
 
-  \item (OSN 2013) Diberikan segitiga lancip $ABC$ dengan lingkaran luar $\omega$. Garis bagi $\angle BAC$ memotong $\omega$ lagi di titik $M$. Misalkan $P$ titik pada $AM$ dan di dalam segitiga $ABC$. Garis melalui $P$ yang sejajar $AB$ dan garis melalui $P$ yang sejajar $AC$ memotong $BC$ berturut turut di $E$ dan $F$. Garis $ME$ dan $MF$ memotong $\omega$ berturut turut di $K$ dan $L$. Buktikan bahwa $AM$, $BL$, $CK$ konkuren.
+  \item (OSN 2013)[$\bigstar$] Diberikan segitiga lancip $ABC$ dengan lingkaran luar $\omega$. Garis bagi $\angle BAC$ memotong $\omega$ lagi di titik $M$. Misalkan $P$ titik pada $AM$ dan di dalam segitiga $ABC$. Garis melalui $P$ yang sejajar $AB$ dan garis melalui $P$ yang sejajar $AC$ memotong $BC$ berturut turut di $E$ dan $F$. Garis $ME$ dan $MF$ memotong $\omega$ berturut turut di $K$ dan $L$. Buktikan bahwa $AM$, $BL$, $CK$ konkuren.
 
-  \item (OSP 2020) Diketahui segitiga $ABC$ tidak sama kaki dengan garis tinggi $AA_1$, $BB_1$, $CC_1$. Misalkan $B_A$ dan $C_A$ berturut turut pada $BB_1$ dan $CC_1$ sehingga $A_1B_A \perp BB_1$ dan $A_1C_A \perp CC_1$. Garis $B_AC_A$ dan $BC$ berpotongan di $T_A$. Definisikan $T_B$ dan $T_C$ dengan cara serupa. Buktikan bahwa $T_A$, $T_B$, $T_C$ kolinear.
+  \item (OSP 2020)[$\triangle$] Diketahui segitiga $ABC$ tidak sama kaki dengan garis tinggi $AA_1$, $BB_1$, $CC_1$. Misalkan $B_A$ dan $C_A$ berturut turut pada $BB_1$ dan $CC_1$ sehingga $A_1B_A \perp BB_1$ dan $A_1C_A \perp CC_1$. Garis $B_AC_A$ dan $BC$ berpotongan di $T_A$. Definisikan $T_B$ dan $T_C$ dengan cara serupa. Buktikan bahwa $T_A$, $T_B$, $T_C$ kolinear.
 
-  \item (OSN 2023) Diberikan segitiga $ABC$ dengan $\angle ACB = 90^\circ$ dan lingkaran luar $\omega$. Garis singgung $\omega$ di $B$ dan di $C$ bertemu di $P$. Misalkan $M$ titik tengah $PB$. Garis $CM$ memotong $\omega$ di $N$, dan garis $PN$ memotong $AB$ di $E$. Titik $D$ pada $CM$ memenuhi $ED \parallel BM$. Buktikan bahwa lingkaran luar $CDE$ menyinggung $\omega$.
+  \item (OSN 2023)[$\heartsuit\,\triangle$] Diberikan segitiga $ABC$ dengan $\angle ACB = 90^\circ$ dan lingkaran luar $\omega$. Garis singgung $\omega$ di $B$ dan di $C$ bertemu di $P$. Misalkan $M$ titik tengah $PB$. Garis $CM$ memotong $\omega$ di $N$, dan garis $PN$ memotong $AB$ di $E$. Titik $D$ pada $CM$ memenuhi $ED \parallel BM$. Buktikan bahwa lingkaran luar $CDE$ menyinggung $\omega$.
 
-  \item (IMO 2008) Misalkan $H$ titik tinggi segitiga lancip $ABC$. Lingkaran $\Gamma_A$ berpusat di titik tengah $BC$ dan melalui $H$ memotong garis $BC$ di titik $A_1$ dan $A_2$. Definisikan $B_1$, $B_2$, $C_1$, $C_2$ dengan cara serupa. Buktikan bahwa keenam titik tersebut konsiklis.
+  \item (IMO 2008)[$\triangle$] Misalkan $H$ titik tinggi segitiga lancip $ABC$. Lingkaran $\Gamma_A$ berpusat di titik tengah $BC$ dan melalui $H$ memotong garis $BC$ di titik $A_1$ dan $A_2$. Definisikan $B_1$, $B_2$, $C_1$, $C_2$ dengan cara serupa. Buktikan bahwa keenam titik tersebut konsiklis.
 
-  \item (USAMO 1997) Diberikan segitiga $ABC$. Ambil titik $D$, $E$, $F$ berturut turut pada sumbu sumbu $BC$, $CA$, $AB$. Tunjukkan bahwa garis melalui $A$ tegak lurus $EF$, garis melalui $B$ tegak lurus $FD$, dan garis melalui $C$ tegak lurus $DE$ konkuren.
+  \item (USAMO 1997)[$\triangle$] Diberikan segitiga $ABC$. Ambil titik $D$, $E$, $F$ berturut turut pada sumbu sumbu $BC$, $CA$, $AB$. Tunjukkan bahwa garis melalui $A$ tegak lurus $EF$, garis melalui $B$ tegak lurus $FD$, dan garis melalui $C$ tegak lurus $DE$ konkuren.
 
-  \item (Simulasi Semifinal OSN SMP DKI Jakarta 2025) Diketahui $ABCD$ adalah segiempat talibusur dimana $AB$ dan $CD$ berpotongan di $E$. Titik $K$ dan $L$ terletak pada $CD$ dan $AB$ berturut-turut sehingga $\angle KAD = \angle KBC$ dan $\angle LDA = \angle LCB$. Buktikan bahwa $EK = EL$.
+  \item (Simulasi Semifinal OSN SMP DKI Jakarta 2025)[$\bigstar\,\triangle$] Diketahui $ABCD$ adalah segiempat talibusur dimana $AB$ dan $CD$ berpotongan di $E$. Titik $K$ dan $L$ terletak pada $CD$ dan $AB$ berturut-turut sehingga $\angle KAD = \angle KBC$ dan $\angle LDA = \angle LCB$. Buktikan bahwa $EK = EL$.
 
-  \item (Finland 2019) Let $ABCD$ be a cyclic quadrilateral whose side $AB$ is at the same time the diameter of the circle. The lines $AC$ and $BD$ intersect at point $E$ and the extensions of lines $AD$ and $BC$ intersect at point $F$. Segment $EF$ intersects the circle at $G$ and the extension of segment $EF$ intersects $AB$ at $H$. Show that if $G$ is the midpoint of $FH$, then $E$ is the midpoint of $GH$.
+  \item (Finland 2019)[$\bigstar\,\triangle$] Let $ABCD$ be a cyclic quadrilateral whose side $AB$ is at the same time the diameter of the circle. The lines $AC$ and $BD$ intersect at point $E$ and the extensions of lines $AD$ and $BC$ intersect at point $F$. Segment $EF$ intersects the circle at $G$ and the extension of segment $EF$ intersects $AB$ at $H$. Show that if $G$ is the midpoint of $FH$, then $E$ is the midpoint of $GH$.
 
-  \item (Pelatda Pra OSP SMA DKI Jakarta 2024) Pada segitiga $ABC$, titik $D$ adalah kaki garis tinggi dari $C$. Titik $E$ dan $F$ pada $AC$ dan $BC$, berturut-turut $AE = AD$ dan $BF = BD$. Titik $S$ adalah refleksi $C$ pada titik pusat lingkaran luar $\triangle ABC$. Buktikan bahwa $SE=SF$.
+  \item (Pelatda Pra OSP SMA DKI Jakarta 2024)[$\triangle$] Pada segitiga $ABC$, titik $D$ adalah kaki garis tinggi dari $C$. Titik $E$ dan $F$ pada $AC$ dan $BC$, berturut-turut $AE = AD$ dan $BF = BD$. Titik $S$ adalah refleksi $C$ pada titik pusat lingkaran luar $\triangle ABC$. Buktikan bahwa $SE=SF$.
 
-  \item (USAJMO 2023) In an acute triangle $ABC$, let $M$ be the midpoint of $\overline{BC}$. Let $P$ be the foot of the perpendicular from $C$ to $AM$. Suppose that the circumcircle of triangle $ABP$ intersects line $BC$ at two distinct points $B$ and $Q$. Let $N$ be the midpoint of $\overline{AQ}$. Prove that $NB=NC$.
+  \item (USAJMO 2023)[$\triangle$] In an acute triangle $ABC$, let $M$ be the midpoint of $\overline{BC}$. Let $P$ be the foot of the perpendicular from $C$ to $AM$. Suppose that the circumcircle of triangle $ABP$ intersects line $BC$ at two distinct points $B$ and $Q$. Let $N$ be the midpoint of $\overline{AQ}$. Prove that $NB=NC$.
 
-  \item (KSR 2021) Diberikan segitiga sama kaki $ABC$ dengan $AB=AC$. Titik $D$ dan $E$ berturut-turut merupakan titik tengah $AC$ dan $BC$, dan $M$ titik tengah $DE$. Jika $AM$ memotong $BC$ pada $F$, buktikan bahwa $DF$ menyinggung lingkaran luar $ADM$.
+  \item (KSR 2021)[$\triangle$] Diberikan segitiga sama kaki $ABC$ dengan $AB=AC$. Titik $D$ dan $E$ berturut-turut merupakan titik tengah $AC$ dan $BC$, dan $M$ titik tengah $DE$. Jika $AM$ memotong $BC$ pada $F$, buktikan bahwa $DF$ menyinggung lingkaran luar $ADM$.
 
-  \item (OSS Pradipta Dirgantara 2026) Diberikan segitiga $ABC$ dengan $\angle CAB = 75\dg$ dan $ABC=15\dg$. Titik $D$ pada segmen $BC$ sehingga $BD=CA$ dan $E$ pada sinar $CA$ sehingga $CE=BC$. Misalkan $F$ titik tengah $AB$ dan $M$ perpotongan $CF$ dengan $BE$. Tunjukkan bahwa $CM$ dan $DM$ menyinggung lingkaran luar segitiga $AEF$.
+  \item (OSS Pradipta Dirgantara 2026)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dengan $\angle CAB = 75\dg$ dan $ABC=15\dg$. Titik $D$ pada segmen $BC$ sehingga $BD=CA$ dan $E$ pada sinar $CA$ sehingga $CE=BC$. Misalkan $F$ titik tengah $AB$ dan $M$ perpotongan $CF$ dengan $BE$. Tunjukkan bahwa $CM$ dan $DM$ menyinggung lingkaran luar segitiga $AEF$.
 
-  \item (Soal Latihan) Diberikan segitiga $ABC$ dan lingkaran luar $\omega$ dari segitiga tersebut. Ditarik sembarang garis yang sejajar $BC$, yang memotong sisi $AB$ dan $AC$ secara berurutan di titik $X$ dan $Y$. Misalkan $M$ adalah titik tengah dari busur $BC$ pada lingkaran $\omega$ yang tidak memuat titik $A$. Garis $MX$ dan $MY$ memotong lingkaran $\omega$ kembali di titik $S$ dan $T$ secara berurutan. Misalkan $ST$ dan $XY$ berpotongan di titik $P$. Tunjukkan bahwa garis $AP$ menyinggung lingkaran $\omega$.
+  \item (Soal Latihan)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dan lingkaran luar $\omega$ dari segitiga tersebut. Ditarik sembarang garis yang sejajar $BC$, yang memotong sisi $AB$ dan $AC$ secara berurutan di titik $X$ dan $Y$. Misalkan $M$ adalah titik tengah dari busur $BC$ pada lingkaran $\omega$ yang tidak memuat titik $A$. Garis $MX$ dan $MY$ memotong lingkaran $\omega$ kembali di titik $S$ dan $T$ secara berurutan. Misalkan $ST$ dan $XY$ berpotongan di titik $P$. Tunjukkan bahwa garis $AP$ menyinggung lingkaran $\omega$.
 
-  \item (Berkeley MT 2024) The incircle of scalene triangle $\triangle{ABC}$ is tangent to $\overline{BC}, \overline{AC},$ and $\overline{AB}$ at points $D, E,$ and $F,$ respectively. The line $EF$ intersects line $BC$ at $P$ and line $AD$ at $Q.$ The circumcircle of $\triangle{AEF}$ intersects line $AP$ again at point $R \neq A$. If $I$ is the incenter of $\triangle{ABC}$, prove that $I,Q,R$ are collinear.
+  \item (Berkeley MT 2024)[$\bigstar\,\triangle$] The incircle of scalene triangle $\triangle{ABC}$ is tangent to $\overline{BC}, \overline{AC},$ and $\overline{AB}$ at points $D, E,$ and $F,$ respectively. The line $EF$ intersects line $BC$ at $P$ and line $AD$ at $Q.$ The circumcircle of $\triangle{AEF}$ intersects line $AP$ again at point $R \neq A$. If $I$ is the incenter of $\triangle{ABC}$, prove that $I,Q,R$ are collinear.
 \end{enumerate}
 
 \newpage
 
-\subsection{Latihan Soal 2020-2025}
 
 \begin{enumerate}[resume]
-  \item (OSN 2020) Diberikan segitiga lancip $ABC$ dan titik $D$ pada segmen $BC$. Lingkaran $c_1$ adalah lingkaran yang melalui $A$, $D$, dan memiliki titik pusat pada garis $AC$, sedangkan lingkaran $c_2$ adalah lingkaran yang melalui $A$, $D$, dan memiliki titik pusat pada garis $AB$. Misalkan $P \neq A$ adalah titik potong lingkaran $c_1$ dengan $AB$ dan $Q \neq A$ adalah titik potong lingkaran $c_2$ dengan $AC$. Buktikan bahwa $AD$ garis bagi $\angle PDQ$.
+  \item (OSN 2020)[$\bigstar$] Diberikan segitiga lancip $ABC$ dan titik $D$ pada segmen $BC$. Lingkaran $c_1$ adalah lingkaran yang melalui $A$, $D$, dan memiliki titik pusat pada garis $AC$, sedangkan lingkaran $c_2$ adalah lingkaran yang melalui $A$, $D$, dan memiliki titik pusat pada garis $AB$. Misalkan $P \neq A$ adalah titik potong lingkaran $c_1$ dengan $AB$ dan $Q \neq A$ adalah titik potong lingkaran $c_2$ dengan $AC$. Buktikan bahwa $AD$ garis bagi $\angle PDQ$.
 
-  \item (OSN 2020) Diberikan segiempat talibusur $ABCD$. Misalkan $X$ titik pada sisi $BC$ ($X \neq C$) sehingga garis $AX$ tegak lurus dengan garis bagi $\angle CBD$, dan $Y$ titik pada sisi $AD$ ($Y \neq D$) sehingga garis $BY$ tegak lurus dengan garis bagi $\angle CAD$. Buktikan bahwa $XY$ sejajar dengan $CD$.
+  \item (OSN 2020)[$\bigstar$] Diberikan segiempat talibusur $ABCD$. Misalkan $X$ titik pada sisi $BC$ ($X \neq C$) sehingga garis $AX$ tegak lurus dengan garis bagi $\angle CBD$, dan $Y$ titik pada sisi $AD$ ($Y \neq D$) sehingga garis $BY$ tegak lurus dengan garis bagi $\angle CAD$. Buktikan bahwa $XY$ sejajar dengan $CD$.
 
-  \item (OSN 2021) Diberikan segitiga $ABC$ dengan lingkaran luarnya $l$. Titik $M$ berada di dalam segitiga $ABC$ sehingga $AM$ garis bagi $\angle BAC$. Lingkaran dengan pusat $M$ dan jari-jari $MB$ memotong $l$ dan $BC$ berturut-turut di $D$ dan $E$ ($B \neq D$ dan $B \neq E$). Misalkan $P$ titik tengah busur $BC$ di $l$ yang tidak mengandung $A$. Buktikan $AP$ garis bagi $\angle DPE$ jika dan hanya jika $\angle B = 90^\circ$.
+  \item (OSN 2021)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dengan lingkaran luarnya $l$. Titik $M$ berada di dalam segitiga $ABC$ sehingga $AM$ garis bagi $\angle BAC$. Lingkaran dengan pusat $M$ dan jari-jari $MB$ memotong $l$ dan $BC$ berturut-turut di $D$ dan $E$ ($B \neq D$ dan $B \neq E$). Misalkan $P$ titik tengah busur $BC$ di $l$ yang tidak mengandung $A$. Buktikan $AP$ garis bagi $\angle DPE$ jika dan hanya jika $\angle B = 90^\circ$.
 
-  \item (OSN 2021) Diberikan segitiga lancip $ABC$. Titik $D$ dan $E$ berturut-turut merupakan titik tengah segmen $AB$ dan $AC$. Misalkan $L_1$ dan $L_2$ berturut-turut lingkaran luar segitiga $ABC$ dan $ADE$. Garis $CD$ memotong lingkaran $L_1$ dan $L_2$ pada $M$ ($M \neq C$) dan $N$ ($N \neq D$). Jika $DM = DN$, buktikan bahwa $ABC$ segitiga sama kaki.
+  \item (OSN 2021)[$\heartsuit\,\bigstar$] Diberikan segitiga lancip $ABC$. Titik $D$ dan $E$ berturut-turut merupakan titik tengah segmen $AB$ dan $AC$. Misalkan $L_1$ dan $L_2$ berturut-turut lingkaran luar segitiga $ABC$ dan $ADE$. Garis $CD$ memotong lingkaran $L_1$ dan $L_2$ pada $M$ ($M \neq C$) dan $N$ ($N \neq D$). Jika $DM = DN$, buktikan bahwa $ABC$ segitiga sama kaki.
 
-  \item (OSN 2022) Pada segitiga $ABC$, titik $D$ dan $E$ berada pada sisi $AB$ dan $AC$ berturut-turut sehingga $DE$ sejajar $BC$. Diketahui terdapat titik $P$ pada interior segiempat $BDEC$ sehingga
+  \item (OSN 2022)[$\heartsuit\,\bigstar$] Pada segitiga $ABC$, titik $D$ dan $E$ berada pada sisi $AB$ dan $AC$ berturut-turut sehingga $DE$ sejajar $BC$. Diketahui terdapat titik $P$ pada interior segiempat $BDEC$ sehingga
   $$\angle BPD = \angle CPE = 90^\circ.$$
   Buktikan bahwa garis $AP$ melalui titik pusat lingkaran luar dari segitiga-segitiga $EPD$ dan $BPC$.
 
-  \item (OSN 2022) Diberikan persegi panjang $ABCD$. Titik $E, F$ terletak pada diagonal $AC$ sehingga $F$ di antara $A, E$ dan $E$ terletak di antara $C, F$. Lingkaran luar segitiga $BEF$ memotong $AB$ dan $BC$ pada $G, H$ dan lingkaran luar segitiga $DEF$ memotong $AD$ dan $CD$ pada $I, J$. Buktikan bahwa $GJ, IH,$ dan $AC$ berpotongan di satu titik.
+  \item (OSN 2022)[$\triangle$] Diberikan persegi panjang $ABCD$. Titik $E, F$ terletak pada diagonal $AC$ sehingga $F$ di antara $A, E$ dan $E$ terletak di antara $C, F$. Lingkaran luar segitiga $BEF$ memotong $AB$ dan $BC$ pada $G, H$ dan lingkaran luar segitiga $DEF$ memotong $AD$ dan $CD$ pada $I, J$. Buktikan bahwa $GJ, IH,$ dan $AC$ berpotongan di satu titik.
 
-  \item (OSN 2023) Diberikan segitiga lancip $ABC$ dengan sisi terpanjang $BC$. Titik $D, E$ berturut-turut pada $AC, AB$ sehingga $BA = BD$ dan $CA = CE$. Titik $A'$ merupakan pencerminan $A$ terhadap garis $BC$. Buktikan bahwa lingkaran luar segitiga $ABC$ dan $A'DE$ mempunyai panjang jari-jari yang sama.
+  \item (OSN 2023)[$\bigstar$] Diberikan segitiga lancip $ABC$ dengan sisi terpanjang $BC$. Titik $D, E$ berturut-turut pada $AC, AB$ sehingga $BA = BD$ dan $CA = CE$. Titik $A'$ merupakan pencerminan $A$ terhadap garis $BC$. Buktikan bahwa lingkaran luar segitiga $ABC$ dan $A'DE$ mempunyai panjang jari-jari yang sama.
 
-  \item (OSN 2023) Diberikan segitiga $ABC$ dengan $\angle ACB = 90^\circ$. Misalkan $\omega$ lingkaran luar $ABC$. Garis singgung terhadap $\omega$ di titik $B$ dan $C$ bertemu di $P$. Misalkan $M$ titik tengah $PB$. Garis $CM$ memotong $\omega$ di $N$ dan garis $PN$ memotong $AB$ di $E$. Titik $D$ pada $CM$ sehingga $ED \parallel BM$. Buktikan bahwa lingkaran luar $CDE$ menyinggung $\omega$.
+  \item (OSN 2023)[$\heartsuit\,\triangle$] Diberikan segitiga $ABC$ dengan $\angle ACB = 90^\circ$. Misalkan $\omega$ lingkaran luar $ABC$. Garis singgung terhadap $\omega$ di titik $B$ dan $C$ bertemu di $P$. Misalkan $M$ titik tengah $PB$. Garis $CM$ memotong $\omega$ di $N$ dan garis $PN$ memotong $AB$ di $E$. Titik $D$ pada $CM$ sehingga $ED \parallel BM$. Buktikan bahwa lingkaran luar $CDE$ menyinggung $\omega$.
 
-  \item (OSN 2024) Diberikan segitiga $ABC$ yang lingkaran luarnya berpusat di $O$ dan ketiga garis tingginya berpotongan di $H$. Garis $AH$ dan garis $BH$ memotong lingkaran luar segitiga $ABC$ sekali lagi berturut-turut di titik $D$ dan $E$. Misalkan $A'$ dan $B'$ berturut-turut menyatakan titik pusat lingkaran luar segitiga $AHE$ dan lingkaran luar segitiga $BHD$. Jika $A', B', O,$ dan $H$ tidak segaris, buktikan $OH$ melalui titik tengah ruas garis $A'B'$.
+  \item (OSN 2024)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ yang lingkaran luarnya berpusat di $O$ dan ketiga garis tingginya berpotongan di $H$. Garis $AH$ dan garis $BH$ memotong lingkaran luar segitiga $ABC$ sekali lagi berturut-turut di titik $D$ dan $E$. Misalkan $A'$ dan $B'$ berturut-turut menyatakan titik pusat lingkaran luar segitiga $AHE$ dan lingkaran luar segitiga $BHD$. Jika $A', B', O,$ dan $H$ tidak segaris, buktikan $OH$ melalui titik tengah ruas garis $A'B'$.
 
   \item (OSN 2024) Diberikan $A_1, A_2, \dots, A_n$, suatu segi-$n$ dengan $n \ge 3$ dan $\angle A_j \le 180^\circ$ untuk setiap $j$. Untuk setiap $i \le n$, misalkan $\alpha_i$ adalah nilai terkecil yang mungkin dari $\angle A_i A_j A_{i+1}$ dengan $j$ berbeda dari $i$ dan $i + 1$. (Di sini kita definisikan $A_{n+1} = A_1$). Buktikan bahwa
   $$\alpha_1 + \alpha_2 + \dots + \alpha_n \le 180^\circ.$$
   Tentukan seluruh kasus dimana kesamaan terjadi.
 
-  \item (OSN 2025) Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$. Titik $D$ dan $E$ terletak pada lingkaran luar segitiga $ABC$ sehingga $AD$ tegak lurus $BC$ dan $BE$ tegak lurus $CA$. Ruas garis $CD$ memotong lingkaran berdiameter $DO$ di titik $P$, sedangkan ruas garis $CE$ memotong lingkaran berdiameter $EO$ di titik $Q$. Buktikan bahwa $OP = OQ$.
+  \item (OSN 2025)[$\bigstar\,\triangle$] Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$. Titik $D$ dan $E$ terletak pada lingkaran luar segitiga $ABC$ sehingga $AD$ tegak lurus $BC$ dan $BE$ tegak lurus $CA$. Ruas garis $CD$ memotong lingkaran berdiameter $DO$ di titik $P$, sedangkan ruas garis $CE$ memotong lingkaran berdiameter $EO$ di titik $Q$. Buktikan bahwa $OP = OQ$.
 
-  \item (OSN 2025) Diberikan segitiga $ABC$ dengan sisi $BC$ lebih panjang dari sisi $CA$ dan $M$ adalah titik tengah sisi $AB$. Lingkaran dalam segitiga $ABC$ menyinggung sisi-sisi $BC, CA, AB$ berturut-turut di titik-titik $D, E, F$. Misalkan $G$ adalah titik potong garis $DE$ dan garis $AB$, $O$ adalah titik pusat lingkaran luar segitiga $FCG$, dan garis $OA$ memotong lingkaran luar segitiga $FOG$ di titik $H \ (H \ne O)$. Jika $\angle OCB = 90^{\circ}$, buktikan bahwa $MH$ menyinggung lingkaran luar segitiga $FOG$.
+  \item (OSN 2025)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dengan sisi $BC$ lebih panjang dari sisi $CA$ dan $M$ adalah titik tengah sisi $AB$. Lingkaran dalam segitiga $ABC$ menyinggung sisi-sisi $BC, CA, AB$ berturut-turut di titik-titik $D, E, F$. Misalkan $G$ adalah titik potong garis $DE$ dan garis $AB$, $O$ adalah titik pusat lingkaran luar segitiga $FCG$, dan garis $OA$ memotong lingkaran luar segitiga $FOG$ di titik $H \ (H \ne O)$. Jika $\angle OCB = 90^{\circ}$, buktikan bahwa $MH$ menyinggung lingkaran luar segitiga $FOG$.
 \end{enumerate}
 
 \newpage
