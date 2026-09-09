@@ -1,6 +1,13 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{scrartcl}
 \usepackage[hagavi]{azzam}
 \usetikzlibrary{calc,intersections,angles,quotes,through}
+
+% Garis putus putus bawaan tikz tebalnya 0.4pt, hilang begitu dicetak.
+% Tebalkan sekalian renggangkan polanya biar tetap terbaca sebagai garis putus putus.
+\tikzset{
+  dashed/.append style={line width=0.9pt, dash pattern=on 3.5pt off 2.5pt},
+  dotted/.append style={line width=1pt, dash pattern=on 0.1pt off 2.4pt, line cap=round},
+}
 
 % titik hitam kecil di setiap koordinat yang disebut
 \newcommand{\titik}[1]{\foreach \p in {#1} \filldraw (\p) circle (1.4pt);}
@@ -21,7 +28,7 @@
 Misalkan kita diminta membuktikan bahwa suatu titik $X$ punya sifat $\mathcal{P}$, dan sifat $\mathcal{P}$ itu sendiri sudah cukup untuk menentukan sebuah titik secara tunggal. Alih alih menyerang $X$ langsung, definisikan titik baru $X'$ yang memenuhi $\mathcal{P}$, lalu buktikan $X' = X$. Titik $X'$ inilah yang disebut \emph{phantom point} atau titik bayangan.
 \end{definition*}
 
-Kunci teknik ini ada pada ketunggalan \textit{(uniqueness)}. Dua garis yang tidak sejajar berpotongan tepat di satu titik, sebuah garis memotong lingkaran paling banyak di dua titik, dan sebuah busur punya tepat satu titik tengah. Begitu $X$ dan $X'$ terbukti memenuhi syarat yang menentukan satu titik saja, keduanya wajib berimpit.
+Kunci teknik ini ada pada ketunggalan \textit{(uniqueness)}. Dua garis yang tidak sejajar berpotongan tepat di satu titik, sebuah garis memotong lingkaran paling banyak di dua titik, dan sebuah busur punya tepat satu titik tengah. Begitu $X$ dan $X'$ terbukti memenuhi syarat yang menentukan satu titik saja, keduanya wajib berimpit (\textit{coincide}).
 
 \begin{lemma*}[Pencerminan titik tinggi terhadap sisi]
 Diberikan $\triangle ABC$ dengan titik tinggi $H$. Pencerminan $H$ terhadap garis $BC$ terletak pada lingkaran luar $\triangle ABC$.
@@ -63,12 +70,12 @@ Dari $\angle HBC = 90^\circ - \angle C$ dan $\angle HCB = 90^\circ - \angle B$ k
 \[
 \angle BHC = 180^\circ - \angle HBC - \angle HCB = \angle B + \angle C = 180^\circ - \angle A.
 \]
-Pencerminan mempertahankan besar sudut, jadi $\angle BH'C = \angle BHC = 180^\circ - \angle A$. Akibatnya $\angle BAC + \angle BH'C = 180^\circ$, yang berarti $ABH'C$ siklis.
+Pencerminan mempertahankan (\textit{preserve}) besar sudut, jadi $\angle BH'C = \angle BHC = 180^\circ - \angle A$. Akibatnya $\angle BAC + \angle BH'C = 180^\circ$, yang berarti $ABH'C$ siklis.
 
 Sekarang $H'$ terletak pada garis $AD$ (karena $H$ dan $H'$ simetris terhadap $BC$ dan $AD \perp BC$) sekaligus pada lingkaran luar. Garis $AD$ memotong lingkaran luar di $A$ dan satu titik lain saja, dan $H' \ne A$. Jadi $H'$ tepat titik potong kedua tersebut.
 \end{proof}
 
-Perhatikan alur berpikirnya. Kita tidak pernah menghitung apa pun tentang titik potong kedua garis $AD$ dengan lingkaran luar. Kita membuat titik tandingannya, membuktikan ia siklis, lalu memakai ketunggalan \textit{(uniqueness)} untuk menutup argumen. Pola yang sama muncul lagi di \S\ref{sec:talibusur} untuk membuktikan kolinearitas $T$, $K$, $M$.
+Perhatikan alur berpikirnya. Kita tidak pernah menghitung apa pun tentang titik potong kedua garis $AD$ dengan lingkaran luar. Kita membuat titik lainnya, membuktikan ia siklis, lalu memakai \textit{uniqueness} untuk mebuktikan. Hal yang sama muncul di \S\ref{sec:talibusur} untuk membuktikan kolinearitas $T$, $K$, $M$.
 
 \section{Sudut Berarah (\textit{Directed Angles})}
 \label{sec:sudut-berarah}
@@ -77,7 +84,7 @@ Bukti lemma tadi sebenernya cuma berlaku kalau $\triangle ABC$ lancip, walau ngg
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.72]
+\begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (1.026,2.819);
   \coordinate (B)  at (-2.819,1.026);
@@ -165,7 +172,7 @@ Pada $\triangle ABC$ dengan titik tinggi $H$ dan titik pusat lingkaran luar $O$,
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (-0.776,2.898);
   \coordinate (B)  at (-2.719,-1.268);
@@ -219,7 +226,7 @@ Misalkan $M$ titik tengah $BC$ dan $A'$ titik antipoda $A$ pada lingkaran luar $
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (-0.776,2.898);
   \coordinate (B)  at (-2.719,-1.268);
@@ -261,7 +268,7 @@ Pada $\triangle ABC$ dengan titik tinggi $H$, titik pusat lingkaran luar $O$, da
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (-0.776,2.898);
   \coordinate (B)  at (-2.719,-1.268);
@@ -308,7 +315,7 @@ Dengan kata lain, $M$ adalah pusat lingkaran yang melalui $B$, $I$, $C$, dan $I_
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.78]
+\begin{tikzpicture}[scale=0.7]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (-0.752,2.067);
   \coordinate (B)  at (-2.167,-0.382);
@@ -368,7 +375,7 @@ Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari 
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.62]
+\begin{tikzpicture}[scale=0.72]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (1.3,0.7);
   \coordinate (B)  at (2.4,0.35);
@@ -394,7 +401,7 @@ Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari 
   \node at (2.6,-0.8) {$k = 2$};
 \end{tikzpicture}
 \hspace{1.2cm}
-\begin{tikzpicture}[scale=0.62]
+\begin{tikzpicture}[scale=0.72]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (1.3,0.7);
   \coordinate (B)  at (2.4,0.35);
@@ -422,7 +429,7 @@ Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari 
 \caption{Homoteti berpusat $O$ dengan faktor positif dan faktor negatif.}
 \end{figure}
 
-Di olimpiade, homoteti jarang diberikan sebagai soal, hal ini harus dikenali secara implisit. Kalau ada dua lingkaran yang bersinggungan, titik singgungnya otomatis menjadi pusat homoteti yang memetakan lingkaran yang satu ke lingkaran yang lain. Begitu pusatnya ketemu, dapat kesimpulan: setiap titik, bayangannya, dan pusat homoteti selalu segaris, dan setiap garis singgung terpetakan ke garis singgung yang sejajar dengannya. Biasanya dua kalimat itu saja yang dibutuhkan.
+Tips: Kalau ada dua lingkaran yang bersinggungan, titik singgungnya otomatis menjadi pusat homoteti yang memetakan lingkaran yang satu ke lingkaran yang lain. Begitu pusatnya ketemu, setiap titik, bayangannya, dan pusat homoteti selalu segaris, dan setiap garis singgung terpetakan ke garis singgung yang sejajar dengannya.
 
 \subsection{Lingkaran yang Menyinggung Tali Busur}
 \label{sec:talibusur}
@@ -478,7 +485,7 @@ Bagian panjangnya kembali memakai sudut biasa, sebab yang dicari adalah perbandi
 Lingkaran dalam dan $A$-excircle sama sama menyinggung kedua sisi sudut $A$, jadi ada homoteti berpusat $A$ yang memetakan yang satu ke yang lain. Itu sebabnya konfigurasi excircle enak dibaca dengan mata homoteti.
 
 \begin{definition*}
-$A$-excircle dari $\triangle ABC$ adalah lingkaran yang menyinggung sisi $BC$ serta perpanjangan sisi $AB$ dan $AC$. Pusatnya disebut $A$-excenter dan dinotasikan $I_A$. Definisi serupa berlaku untuk sudut $B$ dan $C$.
+$A$-excircle dari $\triangle ABC$ adalah lingkaran yang menyinggung sisi $BC$ serta perpanjangan sisi $AB$ dan $AC$. Pusatnya disebut $A$-excenter dan dinotasikan $I_A$. Analogi definisi untuk sudut $B$ dan $C$.
 \end{definition*}
 
 \begin{lemma*}[Panjang garis singgung ke excircle]
@@ -529,7 +536,7 @@ Panjang dua garis singgung dari satu titik ke sebuah lingkaran selalu sama, jadi
 Karena kedua panjang itu sama dan jumlahnya $2s$, masing masing bernilai $s$.
 \end{proof}
 
-Dari sini mengalir sederet akibat yang sering dipakai: $BX = s - c$, $CX = s - b$, dan titik singgung lingkaran dalam pada $BC$ merupakan pencerminan $X$ terhadap titik tengah $BC$.
+Dari sini didapat akibat yang sering dipakai: $BX = s - c$, $CX = s - b$, dan titik singgung lingkaran dalam pada $BC$ merupakan pencerminan $X$ terhadap titik tengah $BC$.
 
 \section{titik KUASA}
 
@@ -614,20 +621,14 @@ Untuk tiga lingkaran berpusat tak segaris, ketiga sumbu radikal berpasangan bert
 A, B, C, D \text{ konsiklis} \iff P \in \text{sumbu radikal}(\omega_1, \omega_2).
 \]
 \section{Latihan Soal}
-
-Tiap soal diberi tanda kurung siku berisi simbol, petunjuk teknik apa yang biasanya membuka jalan. Satu soal boleh punya lebih dari satu simbol, dan soal tanpa simbol berarti kuncinya ada di tempat lain, misalnya perbandingan panjang atau proyektif.
-
+Simbol berikut mengindikasikan soal tersebut bisa (bukan berarti harus) diselesaikan dengan cara tertentu:
 \begin{itemize}
-  \item $\bigstar$ \quad Angle chasing: sudut berarah dan lemma kecil tapi \textit{powerful} pada \S\ref{sec:sudut-berarah}.
+  \item $\bigstar$ \quad Angle chasing, sudut berarah dan lemma kecil tapi \textit{powerful} pada \S\ref{sec:sudut-berarah}.
   \item $\heartsuit$ \quad Homoteti atau dilatasi.
   \item $\triangle$ \quad Kuasa titik dan sumbu radikal.
 \end{itemize}
 
-\begin{enumerate}[resume]
-  \item (OSP 2017)[$\bigstar$] Diberikan segitiga $ABC$ yang ketiga garis tingginya berpotongan di titik $H$. Tentukan semua titik $X$ pada sisi $BC$ sehingga pencerminan $H$ terhadap titik $X$ terletak pada lingkaran luar segitiga $ABC$.
-
-  \item {}[$\bigstar$] Segitiga $ABC$ memiliki titik tinggi $H$ dan titik pusat lingkaran dalam $I$. Buktikan bahwa $A$, $B$, $H$, $I$ konsiklis jika dan hanya jika $\angle ACB = 60^\circ$.
-
+\begin{enumerate}
   \item {}[$\bigstar$] Misalkan $C$ adalah titik pada setengah lingkaran berdiameter $AB$, terletak pada busurnya dan bukan pada diameternya. Misalkan $D$ titik tengah busur $AC$. Notasikan $E$ sebagai proyeksi $D$ pada garis $BC$, dan $F$ perpotongan $AE$ dengan setengah lingkaran tersebut. Buktikan bahwa $BF$ membagi $DE$ sama panjang.
 
   \item (OSN 2002)[$\bigstar$] Diberikan segitiga $ABC$ dengan $AC > BC$. Pada lingkaran luar segitiga $ABC$ terletak titik $D$ yang merupakan titik tengah busur $AB$ yang memuat titik $C$. Misalkan $E$ titik pada $AC$ sehingga $DE$ tegak lurus $AC$. Buktikan bahwa $AE = EC + CB$.
@@ -654,7 +655,7 @@ Tiap soal diberi tanda kurung siku berisi simbol, petunjuk teknik apa yang biasa
 
   \item (IMO 2014)[$\bigstar$] Let $P$ and $Q$ be on segment $BC$ of an acute triangle $ABC$ such that $\angle PAB=\angle BCA$ and $\angle CAQ=\angle ABC$. Let $M$ and $N$ be the points on $AP$ and $AQ$, respectively, such that $P$ is the midpoint of $AM$ and $Q$ is the midpoint of $AN$. Prove that the intersection of $BM$ and $CN$ is on the circumference of triangle $ABC$.
 
-  \item (Wildan Bagus Wicaksono)[$\bigstar$] Diberikan persegi panjang $ABCD$. Titik $P$ adalah perpotongan garis $BC$ dengan garis yang melalui $A$ dan tegak lurus $AC$. Titik $Q$ pada segmen $CD$. Garis $PQ$ memotong garis $AD$ di $R$. Garis $BR$ memotong garis $AQ$ di $X$. Buktikan bahwa jika titik $Q$ bergerak sepanjang segmen $CD$, maka besar $\angle BXC$ konstan.
+  \item (Wildan Bagus W.)[$\bigstar$] Diberikan persegi panjang $ABCD$. Titik $P$ adalah perpotongan garis $BC$ dengan garis yang melalui $A$ dan tegak lurus $AC$. Titik $Q$ pada segmen $CD$. Garis $PQ$ memotong garis $AD$ di $R$. Garis $BR$ memotong garis $AQ$ di $X$. Buktikan bahwa jika titik $Q$ bergerak sepanjang segmen $CD$, maka besar $\angle BXC$ konstan.
 
   \item (Japan 2022)[$\bigstar$] In an isosceles triangle $ABC$, $AB=AC$. Take a point $O$ inside the triangle (not on the boundary). Draw a circle $\omega$ with center $O$ and passing through $C$. Suppose $\omega\cap BC=\{C,D\}$, $\omega\cap AC=\{C,E\}$. Denote the circumcircle of $\triangle AEO$ as $\Gamma$. And suppose $\Gamma\cap\omega=\{E,F\}$. Prove that the circumcenter of $\triangle BDF$ is on $\Gamma$.
 
@@ -662,11 +663,7 @@ Tiap soal diberi tanda kurung siku berisi simbol, petunjuk teknik apa yang biasa
 
   \item (Japan 2023)[$\bigstar$] In an acute triangle $ABC$, let $D,E,F$ be the midpoints of $BC,CA,AB$ respectively. Let $X,Y$ be the feet of altitude from $D$ to $AB,AC$ respectively. The line through $F$ parallel to $XY$ meets line $DY$ at $P$. Prove that $AD\perp EP$.
 
-  \item (British MO 2019)[$\bigstar$] Let $ABC$ be a triangle. Let $L$ be the line through $B$ perpendicular to $AB$. The perpendicular from $A$ to $BC$ meets $L$ at the point $D$. The perpendicular bisector of $BC$ meets $L$ at the point $P$. Let $E$ be the foot of the perpendicular from $D$ to $AC$.
-
-Prove that triangle $BPE$ is isosceles.
-
-  \item (OSP 2019)[$\bigstar$] Diberikan segitiga $ABC$, dengan $AC > BC$, dan lingkaran luarnya yang berpusat di $O$. Misalkan $M$ adalah titik pada lingkaran luar segitiga $ABC$ sehingga $CM$ adalah garis bagi $\angle ACB$. Misalkan $\Gamma$ adalah lingkaran berdiameter $CM$. Garis bagi $\angle BOC$ dan garis bagi $\angle AOC$ memotong $\Gamma$ berturut-turut di $P$ dan $Q$. Jika $K$ adalah titik tengah $CM$, buktikan bahwa $P, Q, O, K$ terletak pada satu lingkaran.
+  \item (British MO 2019)[$\bigstar$] Let $ABC$ be a triangle. Let $L$ be the line through $B$ perpendicular to $AB$. The perpendicular from $A$ to $BC$ meets $L$ at the point $D$. The perpendicular bisector of $BC$ meets $L$ at the point $P$. Let $E$ be the foot of the perpendicular from $D$ to $AC$. Prove that triangle $BPE$ is isosceles.
 
   \item (KTOM Januari 2025)[$\bigstar$] Diberikan persegi \(ABCD\) dan titik \(E\) pada ruas \(CD\). Misalkan \(F\) adalah titik pada ruas \(AE\) sehingga \(BF\) tegak lurus \(AE\). Dengan cara serupa, misalkan \(G\) adalah titik pada ruas \(EB\) sehingga \(AG\) tegak lurus \(EB\). Misalkan garis \(DF\) dan \(CG\) berpotongan di \(H\). Buktikan bahwa
 \[
@@ -678,18 +675,6 @@ Prove that triangle $BPE$ is isosceles.
   \item (Korea 2023)[$\bigstar\,\triangle$] In a triangle $ABC ~(\overline{AB} < \overline{AC})$, points $D (\neq A, B)$ and $E (\neq A, C)$ lies on side $AB$ and $AC$ respectively. Point $P$ satisfies $\overline{PB}=\overline{PD}, \overline{PC}=\overline{PE}$. $X (\neq A, C)$ is on the arc $AC$ of the circumcircle of triangle $ABC$ not including $B$. Let $Y (\neq A)$ be the intersection of circumcircle of triangle $ADE$ and line $XA$. Prove that $\overline{PX} = \overline{PY}$.
 
   \item (All-Russian 2022 Grade 11)[$\bigstar$] An acute-angled triangle $ABC$ is fixed on a plane with largest side $BC$. Let $PQ$ be an arbitrary diameter of its circumscribed circle, and the point $P$ lies on the smaller arc $AB$, and the point $Q$ is on the smaller arc $AC$. Points $X, Y, Z$ are feet of perpendiculars dropped from point $P$ to the line $AB$, from point $Q$ to the line $AC$ and from point $A$ to line $PQ$. Prove that the center of the circumscribed circle of triangle $XYZ$ lies on a fixed circle.
-\end{enumerate}
-
-\newpage
-
-
-
-\begin{enumerate}[resume]
-  \item {}[$\heartsuit$] Buktikan bahwa titik berat segitiga membagi setiap garis berat dengan rasio $2:1$, lalu jelaskan homoteti mana yang dipakai.
-
-  \item (Garis Euler)[$\heartsuit$] Pada segitiga $ABC$, misalkan $O$, $G$, $H$, dan $N_9$ berturut turut titik pusat lingkaran luar, titik berat, titik tinggi, dan pusat lingkaran sembilan titik. Buktikan keempatnya segaris, dan $G$ membagi $OH$ dengan rasio $2:1$.
-
-  \item {}[$\heartsuit$] Buktikan lemma lingkaran sembilan titik: titik tengah ketiga sisi, ketiga kaki garis tinggi, dan titik tengah $AH$, $BH$, $CH$ terletak pada satu lingkaran berjari jari $R/2$.
 
   \item (OSN 2018)[$\heartsuit\,\bigstar$] Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran yang bersinggungan di titik $A$ dengan $\Gamma_2$ di dalam $\Gamma_1$. Misalkan $B$ titik pada $\Gamma_2$ dan garis $AB$ memotong $\Gamma_1$ di titik $C$. Misalkan $D$ titik pada $\Gamma_1$ dan $P$ sebarang titik pada garis $CD$, boleh pada perpanjangan segmen $CD$. Garis $BP$ memotong $\Gamma_2$ di titik $Q$. Tunjukkan bahwa $A$, $D$, $P$, $Q$ terletak pada satu lingkaran.
 
@@ -705,27 +690,17 @@ Prove that triangle $BPE$ is isosceles.
 
   \item (OSN 2018)[$\heartsuit$] Misalkan $I$ dan $O$ berturut turut titik pusat lingkaran dalam dan lingkaran luar segitiga $ABC$. Lingkaran singgung luar $\omega_A$ menyinggung sisi $BC$ di $N$ serta menyinggung perpanjangan sisi $AB$ dan $AC$ masing masing di $K$ dan $M$. Jika titik tengah ruas garis $KM$ berada pada lingkaran luar segitiga $ABC$, buktikan bahwa $O$, $I$, dan $N$ segaris.
 
-  \item (IMO 2024)[$\heartsuit\,\bigstar$] Let $ABC$ be a triangle with $AB < AC < BC$. Let the incenter and incircle of triangle $ABC$ be $I$ and $\omega$, respectively. Let $X$ be the point on line $BC$ different from $C$ such that the line through $X$ parallel to $AC$ is tangent to $\omega$. Similarly, let $Y$ be the point on line $BC$ different from $B$ such that the line through $Y$ parallel to $AB$ is tangent to $\omega$. Let $AI$ intersect the circumcircle of triangle $ABC$ at $P \ne A$. Let $K$ and $L$ be the midpoints of $AC$ and $AB$, respectively.
-Prove that $\angle KIL + \angle YPX = 180^{\circ}$.
+  \item (IMO 2024)[$\heartsuit\,\bigstar$] Let $ABC$ be a triangle with $AB < AC < BC$. Let the incenter and incircle of triangle $ABC$ be $I$ and $\omega$, respectively. Let $X$ be the point on line $BC$ different from $C$ such that the line through $X$ parallel to $AC$ is tangent to $\omega$. Similarly, let $Y$ be the point on line $BC$ different from $B$ such that the line through $Y$ parallel to $AB$ is tangent to $\omega$. Let $AI$ intersect the circumcircle of triangle $ABC$ at $P \ne A$. Let $K$ and $L$ be the midpoints of $AC$ and $AB$, respectively. Prove that $\angle KIL + \angle YPX = 180^{\circ}$.
 
-(Proposed by Dominik Burek, Poland)
 
   \item (Lemma Klasik)[$\heartsuit$] Diberikan segitiga $ABC$ dengan $AB \neq AC$. Misalkan titik $I$ adalah pusat lingkaran dalam dan $r$ adalah panjang jari-jari lingkaran dalam segitiga $ABC$. Definisikan $X$ sebagai titik tengah $BC$ dan $Y$ sebagai perpotongan $XI$ dengan garis tinggi dari $A$. Buktikan bahwa panjang $AY = r$.
 
   \item (USAMO 2015)[$\heartsuit\,\bigstar$] Quadrilateral $APBQ$ is inscribed in circle $\omega$ with $\angle P = \angle Q = 90^{\circ}$ and $AP = AQ < BP$. Let $X$ be a variable point on segment $\overline{PQ}$. Line $AX$ meets $\omega$ again at $S$ (other than $A$). Point $T$ lies on arc $AQB$ of $\omega$ such that $\overline{XT}$ is perpendicular to $\overline{AX}$. Let $M$ denote the midpoint of chord $\overline{ST}$. As $X$ varies on segment $\overline{PQ}$, show that $M$ moves along a circle.
-\end{enumerate}
 
-\newpage
-
-
-
-\begin{enumerate}[resume]
   \item (OSP 2018)[$\heartsuit$] Misalkan $\Gamma_1$ dan $\Gamma_2$ dua lingkaran berbeda dengan jari jari sama, berpusat di $O_1$ dan $O_2$, dan bersinggungan di titik $P$. Garis $\ell$ melalui $O_1$ menyinggung $\Gamma_2$ di titik $A$, serta memotong $\Gamma_1$ di titik $X$ dengan $X$ di antara $A$ dan $O_1$. Misalkan $M$ titik tengah $AX$ dan $Y$ titik potong $PM$ dengan $\Gamma_2$, dengan $Y \neq P$. Buktikan bahwa $XY$ sejajar $O_1O_2$.
 
   \item (OSN 2019)[$\triangle$] Diberikan lingkaran berpusat $O$. Titik $A$ di dalam lingkaran namun bukan pada kelilingnya, dan $B$ pencerminan $A$ terhadap $O$. Sebarang titik $P$ terletak pada keliling lingkaran. Garis yang tegak lurus $AP$ dan melalui $P$ memotong lingkaran di $Q$. Buktikan bahwa $AP \times BQ$ konstan selama $P$ bergerak pada lingkaran.
-
-  \item (Teorema Pitot)[$\triangle$] Diberikan segiempat $ABCD$. Buktikan bahwa jika ada lingkaran yang termuat di dalamnya dan menyinggung keempat sisinya, maka $AB + CD = BC + DA$.
-
+  
   \item Pada segitiga $ABC$, titik $D$, $E$, $F$ berturut turut terletak pada segmen $BC$, $CA$, $AB$. Misalkan $P$ perpotongan $AD$ dan $EF$. Tunjukkan bahwa
   \[
   \frac{AB}{AF} \cdot CD + \frac{AC}{AE} \cdot BD = \frac{AD}{AP} \cdot BC.
@@ -747,26 +722,15 @@ Prove that $\angle KIL + \angle YPX = 180^{\circ}$.
 
   \item (Simulasi Semifinal OSN SMP DKI Jakarta 2025)[$\bigstar\,\triangle$] Diketahui $ABCD$ adalah segiempat talibusur dimana $AB$ dan $CD$ berpotongan di $E$. Titik $K$ dan $L$ terletak pada $CD$ dan $AB$ berturut-turut sehingga $\angle KAD = \angle KBC$ dan $\angle LDA = \angle LCB$. Buktikan bahwa $EK = EL$.
 
-  \item (Finland 2019)[$\bigstar\,\triangle$] Let $ABCD$ be a cyclic quadrilateral whose side $AB$ is at the same time the diameter of the circle. The lines $AC$ and $BD$ intersect at point $E$ and the extensions of lines $AD$ and $BC$ intersect at point $F$. Segment $EF$ intersects the circle at $G$ and the extension of segment $EF$ intersects $AB$ at $H$. Show that if $G$ is the midpoint of $FH$, then $E$ is the midpoint of $GH$.
-
-  \item (Pelatda Pra OSP SMA DKI Jakarta 2024)[$\triangle$] Pada segitiga $ABC$, titik $D$ adalah kaki garis tinggi dari $C$. Titik $E$ dan $F$ pada $AC$ dan $BC$, berturut-turut $AE = AD$ dan $BF = BD$. Titik $S$ adalah refleksi $C$ pada titik pusat lingkaran luar $\triangle ABC$. Buktikan bahwa $SE=SF$.
-
   \item (USAJMO 2023)[$\triangle$] In an acute triangle $ABC$, let $M$ be the midpoint of $\overline{BC}$. Let $P$ be the foot of the perpendicular from $C$ to $AM$. Suppose that the circumcircle of triangle $ABP$ intersects line $BC$ at two distinct points $B$ and $Q$. Let $N$ be the midpoint of $\overline{AQ}$. Prove that $NB=NC$.
 
   \item (KSR 2021)[$\triangle$] Diberikan segitiga sama kaki $ABC$ dengan $AB=AC$. Titik $D$ dan $E$ berturut-turut merupakan titik tengah $AC$ dan $BC$, dan $M$ titik tengah $DE$. Jika $AM$ memotong $BC$ pada $F$, buktikan bahwa $DF$ menyinggung lingkaran luar $ADM$.
 
   \item (OSS Pradipta Dirgantara 2026)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dengan $\angle CAB = 75\dg$ dan $ABC=15\dg$. Titik $D$ pada segmen $BC$ sehingga $BD=CA$ dan $E$ pada sinar $CA$ sehingga $CE=BC$. Misalkan $F$ titik tengah $AB$ dan $M$ perpotongan $CF$ dengan $BE$. Tunjukkan bahwa $CM$ dan $DM$ menyinggung lingkaran luar segitiga $AEF$.
 
-  \item (Soal Latihan)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dan lingkaran luar $\omega$ dari segitiga tersebut. Ditarik sembarang garis yang sejajar $BC$, yang memotong sisi $AB$ dan $AC$ secara berurutan di titik $X$ dan $Y$. Misalkan $M$ adalah titik tengah dari busur $BC$ pada lingkaran $\omega$ yang tidak memuat titik $A$. Garis $MX$ dan $MY$ memotong lingkaran $\omega$ kembali di titik $S$ dan $T$ secara berurutan. Misalkan $ST$ dan $XY$ berpotongan di titik $P$. Tunjukkan bahwa garis $AP$ menyinggung lingkaran $\omega$.
+  \item [$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dan lingkaran luar $\omega$ dari segitiga tersebut. Ditarik sembarang garis yang sejajar $BC$, yang memotong sisi $AB$ dan $AC$ secara berurutan di titik $X$ dan $Y$. Misalkan $M$ adalah titik tengah dari busur $BC$ pada lingkaran $\omega$ yang tidak memuat titik $A$. Garis $MX$ dan $MY$ memotong lingkaran $\omega$ kembali di titik $S$ dan $T$ secara berurutan. Misalkan $ST$ dan $XY$ berpotongan di titik $P$. Tunjukkan bahwa garis $AP$ menyinggung lingkaran $\omega$.
 
   \item (Berkeley MT 2024)[$\bigstar\,\triangle$] The incircle of scalene triangle $\triangle{ABC}$ is tangent to $\overline{BC}, \overline{AC},$ and $\overline{AB}$ at points $D, E,$ and $F,$ respectively. The line $EF$ intersects line $BC$ at $P$ and line $AD$ at $Q.$ The circumcircle of $\triangle{AEF}$ intersects line $AP$ again at point $R \neq A$. If $I$ is the incenter of $\triangle{ABC}$, prove that $I,Q,R$ are collinear.
-\end{enumerate}
-
-\newpage
-
-
-\begin{enumerate}[resume]
-  \item (OSN 2020)[$\bigstar$] Diberikan segitiga lancip $ABC$ dan titik $D$ pada segmen $BC$. Lingkaran $c_1$ adalah lingkaran yang melalui $A$, $D$, dan memiliki titik pusat pada garis $AC$, sedangkan lingkaran $c_2$ adalah lingkaran yang melalui $A$, $D$, dan memiliki titik pusat pada garis $AB$. Misalkan $P \neq A$ adalah titik potong lingkaran $c_1$ dengan $AB$ dan $Q \neq A$ adalah titik potong lingkaran $c_2$ dengan $AC$. Buktikan bahwa $AD$ garis bagi $\angle PDQ$.
 
   \item (OSN 2020)[$\bigstar$] Diberikan segiempat talibusur $ABCD$. Misalkan $X$ titik pada sisi $BC$ ($X \neq C$) sehingga garis $AX$ tegak lurus dengan garis bagi $\angle CBD$, dan $Y$ titik pada sisi $AD$ ($Y \neq D$) sehingga garis $BY$ tegak lurus dengan garis bagi $\angle CAD$. Buktikan bahwa $XY$ sejajar dengan $CD$.
 
@@ -786,16 +750,12 @@ Prove that $\angle KIL + \angle YPX = 180^{\circ}$.
 
   \item (OSN 2024)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ yang lingkaran luarnya berpusat di $O$ dan ketiga garis tingginya berpotongan di $H$. Garis $AH$ dan garis $BH$ memotong lingkaran luar segitiga $ABC$ sekali lagi berturut-turut di titik $D$ dan $E$. Misalkan $A'$ dan $B'$ berturut-turut menyatakan titik pusat lingkaran luar segitiga $AHE$ dan lingkaran luar segitiga $BHD$. Jika $A', B', O,$ dan $H$ tidak segaris, buktikan $OH$ melalui titik tengah ruas garis $A'B'$.
 
-  \item (OSN 2024) Diberikan $A_1, A_2, \dots, A_n$, suatu segi-$n$ dengan $n \ge 3$ dan $\angle A_j \le 180^\circ$ untuk setiap $j$. Untuk setiap $i \le n$, misalkan $\alpha_i$ adalah nilai terkecil yang mungkin dari $\angle A_i A_j A_{i+1}$ dengan $j$ berbeda dari $i$ dan $i + 1$. (Di sini kita definisikan $A_{n+1} = A_1$). Buktikan bahwa
-  $$\alpha_1 + \alpha_2 + \dots + \alpha_n \le 180^\circ.$$
-  Tentukan seluruh kasus dimana kesamaan terjadi.
 
   \item (OSN 2025)[$\bigstar\,\triangle$] Diberikan segitiga lancip $ABC$ dengan titik pusat lingkaran luar $O$. Titik $D$ dan $E$ terletak pada lingkaran luar segitiga $ABC$ sehingga $AD$ tegak lurus $BC$ dan $BE$ tegak lurus $CA$. Ruas garis $CD$ memotong lingkaran berdiameter $DO$ di titik $P$, sedangkan ruas garis $CE$ memotong lingkaran berdiameter $EO$ di titik $Q$. Buktikan bahwa $OP = OQ$.
 
   \item (OSN 2025)[$\bigstar\,\triangle$] Diberikan segitiga $ABC$ dengan sisi $BC$ lebih panjang dari sisi $CA$ dan $M$ adalah titik tengah sisi $AB$. Lingkaran dalam segitiga $ABC$ menyinggung sisi-sisi $BC, CA, AB$ berturut-turut di titik-titik $D, E, F$. Misalkan $G$ adalah titik potong garis $DE$ dan garis $AB$, $O$ adalah titik pusat lingkaran luar segitiga $FCG$, dan garis $OA$ memotong lingkaran luar segitiga $FOG$ di titik $H \ (H \ne O)$. Jika $\angle OCB = 90^{\circ}$, buktikan bahwa $MH$ menyinggung lingkaran luar segitiga $FOG$.
 \end{enumerate}
 
-\newpage
 % \section{Pembahasan Soal Tambahan}
 
 % Pembahasan berikut disalin dari arsip \emph{Geometry Everyday Project}. Urutannya mengikuti urutan soal tambahan pada tiap grup.

@@ -454,8 +454,11 @@
 	% gap overrides either one after loading azzam, e.g.
 	%   \usepackage[hagavi]{azzam}
 	%   \geometry{headsep=6pt, footskip=14pt}
+	% \azzamfootskip stays at least one stretched text line tall: KOMA's
+	% scrlayer-scrpage refuses a footskip that cannot hold a full footer line
+	% and silently enlarges it, so 22pt keeps the 12pt/1.5 layout warning free.
 	\providecommand{\azzamheadsep}{10pt}
-	\providecommand{\azzamfootskip}{18pt}
+	\providecommand{\azzamfootskip}{22pt}
 
 	\ifazzamfancy
 		\usepackage{geometry}
@@ -503,6 +506,12 @@
 		}
 		{
 			\usepackage[headsepline]{scrlayer-scrpage}
+			% KOMA measures the two line header (plus its rule) and the footer
+			% line against \headheight/\footheight, then quietly resizes them
+			% and shaves \topmargin when they are too small, which drags the
+			% header toward the paper edge. Reserve the room up front instead.
+			\geometry{headheight=44pt}
+			\setlength{\footheight}{\azzamfootskip}
 			\renewcommand{\headfont}{}
 			\automark{section}
 			% center header
