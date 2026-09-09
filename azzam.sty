@@ -447,6 +447,16 @@
 	\renewcommand{\baselinestretch}{1.5}
 	\setlength{\parindent}{0pt}
 	
+	% Vertical breathing room between the body text and the header/footer.
+	% geometry defaults (headsep=25pt, footskip=30pt) leave a wide empty band
+	% on both ends; these tighter values let the text sit close to the head
+	% rule and close to the page number. A document that wants a different
+	% gap overrides either one after loading azzam, e.g.
+	%   \usepackage[hagavi]{azzam}
+	%   \geometry{headsep=6pt, footskip=14pt}
+	\providecommand{\azzamheadsep}{10pt}
+	\providecommand{\azzamfootskip}{18pt}
+
 	\ifazzamfancy
 		\usepackage{geometry}
 		% Bind the layout to the *actual* paper dimensions set by the document
@@ -460,7 +470,9 @@
 			paperheight=\paperheight,
 			margin=1cm,
 			includeheadfoot,
-			headheight=20pt
+			headheight=20pt,
+			headsep=\azzamheadsep,
+			footskip=\azzamfootskip
 		}
 		\usepackage{lastpage}
 
