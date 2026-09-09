@@ -171,7 +171,7 @@
 		void filldraw(picture pic = currentpicture, conic g, pen fillpen=defaultpen, pen drawpen=defaultpen)
 			{ filldraw(pic, (path) g, fillpen, drawpen); }
 		void fill(picture pic = currentpicture, conic g, pen p=defaultpen)
-			{ filldraw(pic, (path) g, p); }
+			{ fill(pic, (path) g, p); }
 		// some geometry
 		pair foot(pair P, pair A, pair B) { return foot(triangle(A,B,P).VC); }
 		pair orthocenter(pair A, pair B, pair C) { return orthocentercenter(A,B,C); }
@@ -448,44 +448,50 @@
 	\setlength{\parindent}{0pt}
 	
 	\ifazzamfancy
+		\usepackage{geometry}
+		% Bind the layout to the *actual* paper dimensions set by the document
+		% class so the 1cm margins (and the header/footer positions) stay
+		% correct for any paper size (a4paper, legalpaper, letterpaper, ...).
+		% Without this, geometry can keep computing the layout for a default
+		% paper size, leaving e.g. the footer floating far above the bottom edge
+		% on taller paper such as legalpaper.
+		\geometry{
+			paperwidth=\paperwidth,
+			paperheight=\paperheight,
+			margin=1cm,
+			includeheadfoot,
+			headheight=20pt
+		}
+		\usepackage{lastpage}
+
     	\@ifundefined{KOMAClassName}
 		{
             %%Page margin settings
 			\usepackage{fancyhdr}
-			\setlength{\headheight}{0.75in}
-			\setlength{\oddsidemargin}{0in}
-			\setlength{\evensidemargin}{0in}
-			\setlength{\voffset}{-1.0in}
-			\setlength{\headsep}{10pt}
-			\setlength{\textwidth}{6.5in}
-			\setlength{\headwidth}{6.5in}
-			\setlength{\textheight}{8.75in}
-			\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
-			\setlength{\footskip}{0.3in}
 			\ifazzamhdr
+				% The two-line title/author header needs more vertical room than
+				% the default 20pt; enlarge the head only for standard classes so
+				% the KOMA branch below keeps its own (working) head layout.
+				\geometry{headheight=40pt}
 				\renewcommand{\headrulewidth}{0.5pt}
 				\renewcommand{\footrulewidth}{0.0pt}
 				\pagestyle{fancy}
-				\lhead{\small Azzam Labib Hakim \textbar Instagram: @haxuv\_world \textbar Threads: @azzam\_29\_12}
+				% Mimic the scrartcl (scrlayer-scrpage) header/footer layout:
+				%   left header  -> bold title + author
+				%   right header -> date
+				%   center foot  -> page number
+				\lhead{\textbf{\thetitle}\\
+						\theauthor}
 				\chead{}
-				\rhead{}
+				\rhead{\small \thedate\\}
 				\lfoot{}
-				\cfoot{\thepage}
+				\cfoot{Page \thepage\ of \pageref{LastPage}}
 				\rfoot{}
 			\fi
 		}
 		{
 			\usepackage[headsepline]{scrlayer-scrpage}
 			\renewcommand{\headfont}{}
-			\addtolength{\textheight}{1.33in}
-			% to make it still centered, oddsidemargin + evensidemargin = textwidth
-			\addtolength{\oddsidemargin}{-0.45in}
-			\addtolength{\evensidemargin}{-0.45in}
-			\addtolength{\textwidth}{0.9in}
-			\addtolength{\footskip}{-0.5in}
-			\addtolength{\headsep}{-0.16in}
-			\addtolength{\voffset}{0.15in}
-
 			\automark{section}
 			% center header
 			\chead{}
@@ -494,8 +500,8 @@
 					\theauthor}
 			% right header
 			\ohead{\small \thedate\\}
-			% center header
-			\cfoot{\pagemark}
+			% center footer
+			\cfoot{Page \thepage\ of \pageref{LastPage}}
 			% left footer
 			\ifoot{}
 			% right footer
