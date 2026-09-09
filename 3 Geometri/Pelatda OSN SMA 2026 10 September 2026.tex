@@ -73,11 +73,11 @@ Perhatikan alur berpikirnya. Kita tidak pernah menghitung apa pun tentang titik 
 \section{Sudut Berarah (\textit{Directed Angles})}
 \label{sec:sudut-berarah}
 
-Bukti lemma tadi menyimpan satu celah yang gampang terlewat: ia diam diam memakai asumsi bahwa $\triangle ABC$ lancip. Coba ambil $\angle A$ tumpul. Titik tinggi $H$ pindah ke luar segitiga, besar $\angle BHC$ bukan lagi $180^\circ - \angle A$ melainkan $\angle A$ sendiri, dan langkah $\angle BAC + \angle BH'C = 180^\circ$ runtuh. Pernyataan lemmanya tetap benar, hanya buktinya yang harus ditulis ulang.
+Bukti lemma tadi diam-diam memakai asumsi $\triangle ABC$ lancip. Kalau $\angle A$ tumpul, $H$ pindah ke luar segitiga, $\angle BHC = \angle A$ (bukan $180^\circ - \angle A$), dan langkah $\angle BAC + \angle BH'C = 180^\circ$ runtuh, meski pernyataan lemmanya tetap benar. Sudut berarah menutup celah ini sekali untuk selamanya, tanpa pemisahan kasus.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=0.72]
   \coordinate (O)  at (0,0);
   \coordinate (A)  at (1.026,2.819);
   \coordinate (B)  at (-2.819,1.026);
@@ -101,83 +101,60 @@ Bukti lemma tadi menyimpan satu celah yang gampang terlewat: ia diam diam memaka
   \node[below right] at (D)  {$D$};
   \node[below]       at (Hb) {$H'$};
 \end{tikzpicture}
-\caption{Segitiga tumpul di $A$: titik tinggi $H$ kabur ke luar segitiga, tetapi $H'$ tetap mendarat di lingkaran luar.}
+\caption{Segitiga tumpul di $A$: $H$ kabur ke luar segitiga, tetapi $H'$ tetap mendarat di lingkaran luar.}
 \end{figure}
 
-Menggambar ulang setiap konfigurasi itu melelahkan, dan selalu ada satu posisi yang lupa diperiksa. Sudut berarah menghapus pekerjaan itu sekaligus.
-
 \begin{definition*}[Sudut berarah]
-Untuk dua garis $\ell$ dan $m$, tulis $\measuredangle(\ell, m)$ untuk besar rotasi yang membawa $\ell$ ke $m$, diukur modulo $180^\circ$. Untuk tiga titik, singkatannya
+Untuk dua garis $\ell, m$, notasi $\measuredangle(\ell, m)$ adalah rotasi dari $\ell$ ke $m$, modulo $180^\circ$. Untuk tiga titik,
 \[
 \measuredangle ABC := \measuredangle(BA, BC).
 \]
+Bedanya dari $\angle ABC$ biasa: (i) $BA, BC$ dibaca sebagai garis penuh, bukan sinar, dan (ii) hasilnya modulo $180^\circ$, jadi $\measuredangle ABC = -\measuredangle ABC + 180^\circ$ dan $90^\circ = -90^\circ$.
 \end{definition*}
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[scale=1.0]
-  \draw[blue,thick]  (-2.4,-1.2) -- (2.4,1.2) node[right] {$\ell$};
-  \draw[red,thick]   (-1.65,2.2) -- (1.65,-2.2) node[below] {$m$};
-  \draw[->,ForestGreen,very thick] (26.57:1.15) arc (26.57:126.87:1.15);
-  \node[ForestGreen] at (76:1.85) {$\measuredangle(\ell,m)$};
-  \filldraw (0,0) circle (1.4pt);
-\end{tikzpicture}
-\caption{Sudut berarah adalah rotasi dari $\ell$ ke $m$, dibaca modulo $180^\circ$.}
-\end{figure}
-
-Ada dua hal yang membedakannya dari sudut biasa. Pertama, yang diputar adalah garis, bukan sinar, jadi $BA$ dan $BC$ dibaca sebagai garis penuh. Kedua, hasilnya hidup modulo $180^\circ$, sehingga $\measuredangle ABC = 30^\circ$ dan $\measuredangle ABC = 210^\circ$ menyatakan hal yang sama, dan $-90^\circ$ sama saja dengan $90^\circ$. Kita memang kehilangan informasi tentang besar sudut yang sebenarnya. Imbalannya sepadan: rumusnya berlaku apa pun letak titiknya.
-
-\subsection{Aturan Main}
+\subsection{Properti}
 
 \begin{enumerate}
   \item \textbf{Antisimetri.} $\measuredangle ABC = -\measuredangle CBA$.
-  \item \textbf{Penjumlahan berantai.} $\measuredangle(\ell, m) + \measuredangle(m, n) = \measuredangle(\ell, n)$, yang dalam notasi tiga titik menjadi $\measuredangle ABC + \measuredangle CBD = \measuredangle ABD$.
-  \item \textbf{Segaris.} Tiga titik $A$, $B$, $C$ segaris jika dan hanya jika $\measuredangle ABC = 0$. Lebih umum, nilai $\measuredangle XBY$ tidak berubah kalau $X$ diganti sebarang titik lain pada garis $BX$.
-  \item \textbf{Sejajar dan tegak lurus.} $\ell \parallel m$ jika dan hanya jika $\measuredangle(\ell, m) = 0$, sedangkan $\ell \perp m$ jika dan hanya jika $\measuredangle(\ell, m) = 90^\circ$.
-  \item \textbf{Jumlah sudut segitiga.} $\measuredangle ABC + \measuredangle BCA + \measuredangle CAB = 0$. Ruas kanannya nol, bukan $180^\circ$, karena $180^\circ \equiv 0$.
-  \item \textbf{Konsiklis.} Untuk empat titik berbeda $A$, $B$, $X$, $Y$ yang tidak ada tiga di antaranya segaris,
+  \item \textbf{Penjumlahan berantai.} $\measuredangle(\ell, m) + \measuredangle(m, n) = \measuredangle(\ell, n)$, yakni $\measuredangle ABC + \measuredangle CBD = \measuredangle ABD$.
+  \item \textbf{Segaris.} $A, B, C$ segaris $\iff \measuredangle ABC = 0$.
+  \item \textbf{Sejajar/tegak lurus.} $\ell \parallel m \iff \measuredangle(\ell,m) = 0$; \quad $\ell \perp m \iff \measuredangle(\ell,m) = 90^\circ$.
+  \item \textbf{Jumlah sudut segitiga.} $\measuredangle ABC + \measuredangle BCA + \measuredangle CAB = 0$ (bukan $180^\circ$, karena $180^\circ \equiv 0$).
+  \item \textbf{Konsiklis.} Untuk $A, B, X, Y$ berbeda, tanpa tiga segaris,
   \[
   A, B, X, Y \text{ konsiklis} \iff \measuredangle XAY = \measuredangle XBY.
   \]
-  Satu baris ini menelan dua teorema sekaligus: sudut keliling yang menghadap busur sama, dan sudut berhadapan segiempat talibusur yang berjumlah $180^\circ$. Dalam dunia berarah keduanya adalah pernyataan yang persis sama.
-  \item \textbf{Sudut singgung.} Jika $t$ menyinggung lingkaran luar $\triangle ABC$ di titik $A$, maka $\measuredangle(t, AB) = \measuredangle ACB$.
-  \item \textbf{Pencerminan membalik tanda.} Kalau $A'$, $B'$, $C'$ berturut turut pencerminan $A$, $B$, $C$ terhadap satu garis yang sama, maka $\measuredangle A'B'C' = -\measuredangle ABC$.
+  Satu baris ini merangkum sudut keliling sebusur sekaligus segiempat talibusur.
+  \item \textbf{Sudut singgung.} $t$ menyinggung lingkaran luar $\triangle ABC$ di $A \implies \measuredangle(t, AB) = \measuredangle ACB$.
+  \item \textbf{Pencerminan.} $A', B', C'$ pencerminan $A, B, C$ terhadap garis yang sama $\implies \measuredangle A'B'C' = -\measuredangle ABC$.
 \end{enumerate}
 
 \subsection{Yang Tidak Boleh Dilakukan}
 
-Sudut berarah bukan alat serbaguna. Sekali dipakai di luar wilayahnya, kesimpulannya bisa salah tanpa terlihat salah.
-
 \begin{itemize}
-  \item \textbf{Jangan membagi dua.} Modulo $180^\circ$, dari $2x = 2y$ hanya bisa disimpulkan $x = y$ atau $x = y + 90^\circ$. Jadi garis bagi sudut, titik pusat lingkaran dalam, dan lemma kutub selatan di \S\ref{sec:incenter-excenter} semuanya berada di luar jangkauan sudut berarah.
-  \item \textbf{Jangan pakai sudut pusat.} Hubungan sudut pusat sama dengan dua kali sudut keliling adalah pernyataan modulo $360^\circ$. Ia tidak selamat kalau dipaksa masuk ke modulo $180^\circ$.
-  \item \textbf{Jangan campur dengan panjang.} Sudut berarah tidak mengenal jarak. Begitu argumennya menyentuh aturan sinus, kesebangunan dengan rasio, atau segitiga sama kaki, kembalilah ke sudut biasa.
-  \item \textbf{Jangan pakai kata ``di antara''.} Letak relatif titik, sisi mana dari sebuah garis, busur besar atau busur kecil, semuanya tak terlihat oleh sudut berarah. Ini justru sumber kekuatannya, tetapi juga berarti soal yang menuntut kesimpulan tentang letak tetap butuh argumen terpisah.
-  \item \textbf{Jangan menulis $180^\circ - \theta$.} Di dunia berarah, lawan dari $\theta$ adalah $-\theta$. Menulis $\measuredangle ABC = 180^\circ - \measuredangle XYZ$ sama saja dengan menulis $\measuredangle ABC = -\measuredangle XYZ$, dan kalau maksudnya bukan itu, berarti ada langkah yang keliru.
+  \item \textbf{Membagi dua.} Dari $2x = 2y$ (mod $180^\circ$) hanya boleh disimpulkan $x = y$ atau $x = y + 90^\circ$. Garis bagi, titik pusat lingkaran dalam, dan Incenter-Excenter Lemma (\S\ref{sec:incenter-excenter}) di luar jangkauan.
+  \item \textbf{Sudut pusat.} Sudut pusat $= 2 \times$ sudut keliling berlaku modulo $360^\circ$, tidak selamat dipaksa masuk modulo $180^\circ$.
+  \item \textbf{Panjang.} Begitu argumen menyentuh aturan sinus, rasio kesebangunan, atau segitiga sama kaki, kembali ke sudut biasa.
+  \item \textbf{Kata ``di antara''.} Letak relatif titik dan busur besar/kecil tak terlihat oleh $\measuredangle$; kesimpulan tentang letak butuh argumen terpisah.
+  \item \textbf{Menulis $180^\circ - \theta$.} Lawan $\theta$ adalah $-\theta$, bukan $180^\circ - \theta$.
 \end{itemize}
-
-Pegangan praktisnya sederhana. Pakai sudut berarah untuk membuktikan kekonsiklisan, kesegarisan, kesejajaran, dan ketegaklurusan. Lepas kembali ke sudut biasa begitu yang dibicarakan adalah garis bagi, panjang, atau pertidaksamaan.
 
 \subsection{Lemma Pencerminan Titik Tinggi, Sekali Lagi}
 
-Sekarang lemma pada \S1 bisa dibuktikan tanpa gambar sama sekali, dan buktinya berlaku untuk segitiga lancip maupun tumpul.
-
 \begin{proof}[Bukti ulang dengan sudut berarah]
-Karena $BH \perp AC$ dan $CH \perp AB$, penjumlahan berantai memberi
+Karena $BH \perp AC$ dan $CH \perp AB$,
 \[
 \measuredangle BHC = \measuredangle(HB, AC) + \measuredangle(AC, AB) + \measuredangle(AB, HC)
         = 90^\circ + \measuredangle CAB + 90^\circ = \measuredangle CAB.
 \]
-Titik $H'$ adalah pencerminan $H$ terhadap $BC$, sedangkan $B$ dan $C$ tetap di tempatnya, jadi pencerminan itu membalik tanda:
+$H'$ pencerminan $H$ terhadap $BC$, dengan $B, C$ tetap, jadi
 \[
-\measuredangle BH'C = -\measuredangle BHC = -\measuredangle CAB = \measuredangle BAC.
+\measuredangle BH'C = -\measuredangle BHC = -\measuredangle CAB = \measuredangle BAC,
 \]
-Dengan kriteria konsiklis, $A$, $B$, $H'$, $C$ terletak pada satu lingkaran, yaitu lingkaran luar $\triangle ABC$.
-
-Sisanya sama seperti sebelumnya. Titik $H'$ ada pada garis $AD$ karena $AD \perp BC$ dan pencerminan terhadap $BC$ memetakan garis $AD$ ke dirinya sendiri. Garis $AD$ memotong lingkaran luar hanya di dua titik, salah satunya $A$, dan $H' \ne A$. Jadi $H'$ adalah titik potong kedua tersebut.
+dan kriteria konsiklis memberi $A, B, H', C$ satu lingkaran, yaitu lingkaran luar $\triangle ABC$. Sisanya seperti bukti pertama: $H'$ ada pada garis $AD$ karena pencerminan terhadap $BC$ memetakan garis $AD \perp BC$ ke dirinya sendiri, dan $AD$ memotong lingkaran luar di $A$ serta satu titik lain, yaitu $H'$.
 \end{proof}
 
-Bandingkan dengan bukti pertama. Tidak ada lagi $180^\circ - \angle A$, tidak ada lagi pengandaian bahwa $H$ di dalam segitiga, dan tidak ada kasus yang perlu dipisah. Selebihnya, dua bukti itu menyusuri jalan yang sama.
+Tidak ada lagi $180^\circ - \angle A$, tidak ada pengandaian $H$ di dalam segitiga, dan tidak ada kasus yang dipisah.
 
 \section{Lemma Kecil tapi \textit{Powerful}}
 \subsection{Sudut Isogonal: $\measuredangle BAH = \measuredangle OAC$}
@@ -230,9 +207,9 @@ Untuk ruas satunya, tarik garis singgung $t$ pada lingkaran luar di titik $A$. A
 Kedua ruas bernilai sama, jadi $\measuredangle BAH = \measuredangle OAC$.
 \end{proof}
 
-Perhatikan bahwa buktinya tidak pernah menyebut $\triangle AOC$ sama kaki maupun sudut pusat, dua hal yang justru terlarang dalam sudut berarah. Garis singgung di $A$ yang menggantikan keduanya, dan itu trik yang layak diingat: setiap kali muncul $O$ dalam sebuah \textit{angle chase}, ganti $O$ dengan garis singgung.
+Buktinya tidak pernah menyebut $\triangle AOC$ sama kaki maupun sudut pusat, dua hal yang terlarang dalam sudut berarah. Garis singgung di $A$ menggantikan keduanya: trik ini layak diingat, setiap kali muncul $O$ dalam sebuah \textit{angle chase}, ganti $O$ dengan garis singgung.
 
-Konsekuensinya sering lebih berguna daripada pernyataannya sendiri. Kalau $AI$ garis bagi $\angle A$, maka $AI$ sekaligus garis bagi $\angle HAO$, dan $AH = AO$ tepat ketika $\angle A = 60^\circ$.
+Akibatnya, garis bagi $\angle A$ sekaligus garis bagi $\angle HAO$, dan $AH = AO \iff \angle A = 60^\circ$.
 
 \subsection{Pencerminan Titik Tinggi terhadap Titik Tengah Sisi}
 
@@ -273,7 +250,7 @@ Misalkan $M$ titik tengah $BC$ dan $A'$ titik antipoda $A$ pada lingkaran luar $
 \begin{proof}
 Karena $AA'$ diameter, berlaku $\measuredangle ACA' = 90^\circ$, jadi $A'C \perp AC$. Garis tinggi dari $B$ juga tegak lurus $AC$, sehingga $BH \parallel A'C$. Dengan cara yang sama $\measuredangle ABA' = 90^\circ$ memberi $A'B \perp AB$, sedangkan $CH \perp AB$, jadi $CH \parallel A'B$.
 
-Kedua pasang sisi berhadapan pada segiempat $BHCA'$ sejajar, jadi ia jajar genjang. Diagonalnya, yaitu $BC$ dan $HA'$, saling membagi dua sama panjang di $M$.
+Kedua pasang sisi berhadapan pada $BHCA'$ sejajar, jadi ia jajar genjang, dan diagonalnya $BC$, $HA'$ saling membagi dua sama panjang di $M$.
 \end{proof}
 
 \subsection{Jarak Titik Sudut ke Titik Tinggi: $AH = 2 \cdot OM$}
@@ -316,12 +293,12 @@ Pada $\triangle ABC$ dengan titik tinggi $H$, titik pusat lingkaran luar $O$, da
 Pakai hasil sebelumnya: $M$ adalah titik tengah $HA'$, dengan $A'$ antipoda $A$. Pada $\triangle AHA'$, titik $O$ adalah titik tengah $AA'$ dan $M$ titik tengah $HA'$. Jadi $OM$ merupakan garis tengah segitiga tersebut, yang berarti $OM \parallel AH$ dan $AH = 2 \cdot OM$.
 \end{proof}
 
-Dari sinilah datang rumus $AH = 2R\cos A$, sebab segitiga siku siku $OMB$ memberi $OM = R\cos A$. Kalau di sebuah soal muncul jarak titik sudut ke titik tinggi, hampir selalu bentuk $2R\cos A$ inilah yang dipakai.
+Segitiga siku siku $OMB$ memberi $OM = R\cos A$, jadi $AH = 2R\cos A$, bentuk yang hampir selalu dipakai untuk jarak titik sudut ke titik tinggi.
 
-\subsection{Incenter Excenter Lemma}
+\subsection{Incenter-Excenter Lemma}
 \label{sec:incenter-excenter}
 
-\begin{theorem*}[Lemma kutub selatan]
+\begin{theorem*}[Incenter-Excenter Lemma]
 Misalkan $I$ titik pusat lingkaran dalam $\triangle ABC$ dan $I_A$ titik pusat lingkaran singgung luar yang menyinggung sisi $BC$. Jika garis bagi $\angle A$ memotong lingkaran luar lagi di $M$, maka
 \[
 MB = MI = MC = MI_A.
@@ -376,7 +353,7 @@ Untuk $I_A$, ingat bahwa $BI$ adalah garis bagi dalam $\angle B$ sedangkan $BI_A
 
 \section{Homoteti (Homothety) / Dilatasi}
 
-Homoteti, atau dilatasi kalau memakai istilah kurikulum sekolah, adalah transformasi yang mengubah ukuran sebuah bangun tanpa mengubah bentuknya. Ia ditentukan oleh dua data saja:
+Homoteti (dilatasi, dalam istilah kurikulum sekolah) adalah transformasi yang mengubah ukuran sebuah bangun tanpa mengubah bentuknya, ditentukan oleh dua data:
 \begin{enumerate}
   \item \textbf{Titik pusat} $O$, satu satunya titik yang tidak bergerak, \textit{fixed point}.
   \item \textbf{Faktor skala} $k$, bilangan real tak nol yang sekaligus menentukan besar perubahan ukuran dan arah pemetaannya.
@@ -387,7 +364,7 @@ Homoteti dengan pusat $O$ dan faktor $k$ memetakan setiap titik $P$ ke $P'$ deng
 \vec{OP'} = k \cdot \vec{OP}.
 \]
 
-Tanda $k$ menentukan letak bayangan. Untuk $k > 0$ bayangan berada pada sinar yang sama dengan aslinya dari $O$, membesar kalau $k > 1$ dan mengecil kalau $0 < k < 1$. Untuk $k < 0$ bayangan menyeberang ke sisi lain $O$, jadi bangunnya ikut terbalik.
+Tanda $k$ menentukan letak bayangan: $k>0$ bayangan sesinar dengan aslinya dari $O$ (membesar jika $k>1$, mengecil jika $0<k<1$), sedangkan $k<0$ bayangan menyeberang ke sisi lain $O$ dan bangunnya terbalik.
 
 \begin{figure}[H]
 \centering
@@ -606,11 +583,11 @@ PA \cdot PB = PX \cdot PY,
 dan $P$ berada di dalam kedua ruas $AB$ dan $XY$ sekaligus, atau di luar keduanya sekaligus, maka $A$, $B$, $X$, $Y$ konsiklis.
 \end{theorem*}
 
-Syarat letak $P$ itu bukan hiasan. Ia yang menjamin kedua hasil kali punya tanda yang sama kalau kuasanya ditulis secara berarah. Teorema kebalikan ini pula yang paling sering menyelamatkan soal: begitu kalian punya kesamaan hasil kali panjang tetapi belum punya lingkaran, kesiklisannya tinggal dipungut.
+Syarat letak $P$ menjamin kedua hasil kali bertanda sama kalau kuasanya ditulis secara berarah. Teorema kebalikan ini paling sering menyelamatkan soal: begitu ada kesamaan hasil kali panjang tanpa lingkaran, kesiklisannya tinggal dipungut.
 
 \section{Sumbu Radikal}
 
-Sumbu radikal dua lingkaran $\omega_1$ dan $\omega_2$ yang berpusat di $O_1$ dan $O_2$ adalah tempat kedudukan titik yang kuasanya terhadap kedua lingkaran sama besar. Tempat kedudukan itu berupa garis lurus yang tegak lurus $O_1O_2$. Kalau kedua lingkaran berpotongan di $A$ dan $B$, sumbu radikalnya persis garis $AB$.
+Sumbu radikal $\omega_1, \omega_2$ (berpusat $O_1, O_2$) adalah tempat kedudukan titik dengan $\operatorname{Pow}_{\omega_1}(P) = \operatorname{Pow}_{\omega_2}(P)$, berupa garis lurus tegak lurus $O_1O_2$. Kalau kedua lingkaran berpotongan di $A, B$, sumbu radikalnya persis garis $AB$.
 
 \begin{figure}[H]
 \centering
@@ -635,7 +612,10 @@ Sumbu radikal dua lingkaran $\omega_1$ dan $\omega_2$ yang berpusat di $O_1$ dan
 \caption{Sumbu radikal dua lingkaran yang berpotongan.}
 \end{figure}
 
-Untuk tiga lingkaran yang pusatnya tidak segaris, ketiga sumbu radikal berpasangan bertemu di satu titik yang disebut \textbf{titik pusat radikal}. Bentuk pakainya di soal biasanya begini: kalau $A$, $B$ terletak pada $\omega_1$, titik $C$, $D$ terletak pada $\omega_2$, dan garis $AB$ memotong garis $CD$ di $P$, maka $A$, $B$, $C$, $D$ konsiklis jika dan hanya jika $P$ berada pada sumbu radikal $\omega_1$ dan $\omega_2$.
+Untuk tiga lingkaran berpusat tak segaris, ketiga sumbu radikal berpasangan bertemu di satu titik, \textbf{titik pusat radikal}. Bentuk pakainya: jika $A, B \in \omega_1$, $C, D \in \omega_2$, dan garis $AB$ memotong garis $CD$ di $P$, maka
+\[
+A, B, C, D \text{ konsiklis} \iff P \in \text{sumbu radikal}(\omega_1, \omega_2).
+\]
 \section{Latihan Soal}
 \subsection{Latihan Soal Angle Chasing}
 
