@@ -73,7 +73,7 @@ Perhatikan alur berpikirnya. Kita tidak pernah menghitung apa pun tentang titik 
 \section{Sudut Berarah (\textit{Directed Angles})}
 \label{sec:sudut-berarah}
 
-Bukti lemma tadi diam-diam memakai asumsi $\triangle ABC$ lancip. Kalau $\angle A$ tumpul, $H$ pindah ke luar segitiga, $\angle BHC = \angle A$ (bukan $180^\circ - \angle A$), dan langkah $\angle BAC + \angle BH'C = 180^\circ$ runtuh, meski pernyataan lemmanya tetap benar. Sudut berarah menutup celah ini sekali untuk selamanya, tanpa pemisahan kasus.
+Bukti lemma tadi sebenernya cuma berlaku kalau $\triangle ABC$ lancip, walau nggak pernah dibilang begitu. Coba $\angle A$ tumpul: $H$ pindah ke luar segitiga, $\angle BHC$ jadi $\angle A$ (bukan $180^\circ - \angle A$), dan langkah $\angle BAC + \angle BH'C = 180^\circ$ nggak berlaku lagi, padahal lemmanya sendiri tetap benar. Ini pas banget dijadikan alasan buat kenalan sama sudut berarah, karena dengan itu kita nggak perlu pisah kasus lancip vs tumpul sama sekali.
 
 \begin{figure}[H]
 \centering
@@ -101,7 +101,7 @@ Bukti lemma tadi diam-diam memakai asumsi $\triangle ABC$ lancip. Kalau $\angle 
   \node[below right] at (D)  {$D$};
   \node[below]       at (Hb) {$H'$};
 \end{tikzpicture}
-\caption{Segitiga tumpul di $A$: $H$ kabur ke luar segitiga, tetapi $H'$ tetap mendarat di lingkaran luar.}
+\caption{Segitiga tumpul di $A$: $H$ pindah ke luar segitiga, tapi $H'$ tetap mendarat di lingkaran luar.}
 \end{figure}
 
 \begin{definition*}[Sudut berarah]
@@ -154,7 +154,7 @@ $H'$ pencerminan $H$ terhadap $BC$, dengan $B, C$ tetap, jadi
 dan kriteria konsiklis memberi $A, B, H', C$ satu lingkaran, yaitu lingkaran luar $\triangle ABC$. Sisanya seperti bukti pertama: $H'$ ada pada garis $AD$ karena pencerminan terhadap $BC$ memetakan garis $AD \perp BC$ ke dirinya sendiri, dan $AD$ memotong lingkaran luar di $A$ serta satu titik lain, yaitu $H'$.
 \end{proof}
 
-Tidak ada lagi $180^\circ - \angle A$, tidak ada pengandaian $H$ di dalam segitiga, dan tidak ada kasus yang dipisah.
+Nggak ada lagi $180^\circ - \angle A$, nggak ada asumsi $H$ di dalam segitiga, dan nggak ada kasus yang perlu dipisah.
 
 \section{Lemma Kecil tapi \textit{Powerful}}
 \subsection{Sudut Isogonal: $\measuredangle BAH = \measuredangle OAC$}
@@ -207,9 +207,9 @@ Untuk ruas satunya, tarik garis singgung $t$ pada lingkaran luar di titik $A$. A
 Kedua ruas bernilai sama, jadi $\measuredangle BAH = \measuredangle OAC$.
 \end{proof}
 
-Buktinya tidak pernah menyebut $\triangle AOC$ sama kaki maupun sudut pusat, dua hal yang terlarang dalam sudut berarah. Garis singgung di $A$ menggantikan keduanya: trik ini layak diingat, setiap kali muncul $O$ dalam sebuah \textit{angle chase}, ganti $O$ dengan garis singgung.
+Perhatikan, buktinya nggak pernah pakai $\triangle AOC$ sama kaki atau sudut pusat, dua hal yang emang dilarang di sudut berarah. Garis singgung di $A$ yang gantiin keduanya. Trik ini worth diinget: tiap ketemu $O$ di angle chasing, coba ganti $O$ dengan garis singgungnya.
 
-Akibatnya, garis bagi $\angle A$ sekaligus garis bagi $\angle HAO$, dan $AH = AO \iff \angle A = 60^\circ$.
+Salah satu akibatnya: garis bagi $\angle A$ otomatis jadi garis bagi $\angle HAO$ juga, dan $AH = AO$ persis kalau $\angle A = 60^\circ$.
 
 \subsection{Pencerminan Titik Tinggi terhadap Titik Tengah Sisi}
 
@@ -293,7 +293,7 @@ Pada $\triangle ABC$ dengan titik tinggi $H$, titik pusat lingkaran luar $O$, da
 Pakai hasil sebelumnya: $M$ adalah titik tengah $HA'$, dengan $A'$ antipoda $A$. Pada $\triangle AHA'$, titik $O$ adalah titik tengah $AA'$ dan $M$ titik tengah $HA'$. Jadi $OM$ merupakan garis tengah segitiga tersebut, yang berarti $OM \parallel AH$ dan $AH = 2 \cdot OM$.
 \end{proof}
 
-Segitiga siku siku $OMB$ memberi $OM = R\cos A$, jadi $AH = 2R\cos A$, bentuk yang hampir selalu dipakai untuk jarak titik sudut ke titik tinggi.
+Segitiga siku siku $OMB$ langsung kasih $OM = R\cos A$, jadi $AH = 2R\cos A$. Bentuk ini yang paling sering kepake kalau soal nanya jarak titik sudut ke titik tinggi.
 
 \subsection{Incenter-Excenter Lemma}
 \label{sec:incenter-excenter}
@@ -336,7 +336,7 @@ Dengan kata lain, $M$ adalah pusat lingkaran yang melalui $B$, $I$, $C$, dan $I_
 \end{figure}
 
 \begin{proof}
-Di sini sudut berarah sengaja ditinggalkan. Seluruh argumennya berputar pada garis bagi dan panjang ruas, dua hal yang tidak dikenal oleh $\measuredangle$.
+Di sini kita balik pakai sudut biasa. Seluruh argumennya soal garis bagi dan panjang ruas, dua hal yang emang nggak dikenal $\measuredangle$.
 
 Tulis $\angle A = 2\alpha$, $\angle B = 2\beta$, $\angle C = 2\gamma$. Karena $AM$ garis bagi $\angle A$, titik $M$ adalah titik tengah busur $BC$ yang tidak memuat $A$, sehingga $\angle MBC = \angle MAC = \alpha$. Maka
 \[
@@ -583,9 +583,9 @@ PA \cdot PB = PX \cdot PY,
 dan $P$ berada di dalam kedua ruas $AB$ dan $XY$ sekaligus, atau di luar keduanya sekaligus, maka $A$, $B$, $X$, $Y$ konsiklis.
 \end{theorem*}
 
-Syarat letak $P$ menjamin kedua hasil kali bertanda sama kalau kuasanya ditulis secara berarah. Teorema kebalikan ini paling sering menyelamatkan soal: begitu ada kesamaan hasil kali panjang tanpa lingkaran, kesiklisannya tinggal dipungut.
+Syarat letak $P$ itu bukan sekadar formalitas, itu yang jamin kedua hasil kali bertanda sama kalau kuasanya ditulis secara berarah. Teorema kebalikan ini sering banget nolongin soal: begitu ketemu kesamaan hasil kali panjang tapi belum ada lingkarannya, kesiklisannya langsung bisa disimpulkan.
 
-\section{Sumbu Radikal}
+\subsection{Sumbu Radikal (\textit{Radical Axis})}
 
 Sumbu radikal $\omega_1, \omega_2$ (berpusat $O_1, O_2$) adalah tempat kedudukan titik dengan $\operatorname{Pow}_{\omega_1}(P) = \operatorname{Pow}_{\omega_2}(P)$, berupa garis lurus tegak lurus $O_1O_2$. Kalau kedua lingkaran berpotongan di $A, B$, sumbu radikalnya persis garis $AB$.
 
@@ -595,7 +595,7 @@ Sumbu radikal $\omega_1, \omega_2$ (berpusat $O_1, O_2$) adalah tempat kedudukan
   \coordinate (O1) at (0,0);
   \coordinate (O2) at (3.4,0);
   \coordinate (A)  at (1.510,1.311);
-  \coordinate (B)  at (1.510,-1.311);
+  \coordinate (B)  at (1.50,-1.311);
 
   \draw[blue] (O1) circle (2);
   \draw[red] (O2) circle (2.3);
