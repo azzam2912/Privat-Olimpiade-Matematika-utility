@@ -64,16 +64,30 @@ colons `:`, parentheses, and ambiguous abbreviations.
 
 ## Compiling
 
-Each document is standalone. Custom packages (`azzam`, `evan`) must be findable —
-they live at the repo root and are assumed to also be installed in the user's
-local `texmf` tree (some deeply-nested handouts `\usepackage{evan}` without a local
-copy). If a compile fails to find a style, either compile from the repo root or
-add the root to `TEXINPUTS`.
+Use `0-scripts/`; don't call `pdflatex` by hand. The scripts already do the three things that are easy to get wrong: they run from the **repository root** (so `0Figure/` image paths and `azzam.sty` resolve), they run two passes (so `\tableofcontents` and `\pageref` settle), and they delete the build artifacts afterwards.
+
+```bash
+bash 0-scripts/compile-one.sh NAME_OR_PATH [MORE ...]   # one or more files
+bash 0-scripts/compile.sh -d "FOLDER"                   # every .tex in one folder
+bash 0-scripts/watch.sh NAME_OR_PATH                    # rebuild on every save, open the PDF
+```
+
+(The scripts are stored without the executable bit, so invoke them via `bash`.)
+
+`compile-one.sh` accepts a bare filename with or without `.tex` and searches the whole repo for it, so `bash 0-scripts/compile-one.sh "Simulasi Mini KSK 07"` works from anywhere.
+
+**Where the PDF lands** — by default in a `pdf/` subfolder next to the `.tex`. Pass **`--here`** to write it directly beside the `.tex` instead.
+
+Both compile scripts run `nonstopmode` **without** `-halt-on-error` on purpose: a missing `0Figure/` PNG or one broken problem still yields a PDF containing everything else. Such a file is reported as `OK with N error(s)` and the log excerpts are written next to the PDF as `<name>.errlog`; only a file that produces no PDF at all counts as failed. Check the `.errlog` before assuming a compile was clean, and delete it once the cause is understood (`0-scripts/clean.sh` removes them, plus any stray artifacts, repo-wide).
+
+(`compile.sh`'s bare `LEVEL GRADE` form targets an `OSN - ...` folder layout this repo does not have; use `-d` here.)
+
+Custom packages (`azzam`, `evan`) live at the repo root and are assumed to also be installed in the user's local `texmf` tree (some deeply-nested handouts `\usepackage{evan}` without a local copy). If a compile fails to find a style, add the root to `TEXINPUTS`.
 
 Handouts that embed diagrams use inline Asymptote (`\begin{asy} … \end{asy}`) via
 Evan Chen's `olympiad.asy` / `geometry.asy`. Compiling regenerates
-`<jobname>-N.asy` / `<jobname>-N.pdf` intermediates — these are **build artifacts**,
-already covered by `.gitignore`; do not commit them.
+`<jobname>-N.asy` / `<jobname>-N.pdf` intermediates — these are **build artifacts**;
+do not commit them.
 
 ## House rules for edits
 
@@ -97,6 +111,7 @@ git add -A && git commit -m "<what changed>" && git push origin master
 
 - Commit **directly to `master`**; do not create a branch or open a PR. This is a single-author materials repo synced with Overleaf, and a branch just strands the files.
 - Do this at the end of the task, once the `.tex` compiles — not after every intermediate edit.
+- Run `bash 0-scripts/clean.sh` from the repo root before committing, to remove stray build artifacts and `.errlog` files (the compile scripts already clean up after themselves, so this is the safety net).
 - `git add -A` is intended: PDFs and build artifacts are already gitignored, so it picks up sources only. Still, glance at `git status` first — if it sweeps in unrelated half-finished edits the owner was working on, commit only your own paths instead and say so.
 - If the push is rejected because `origin/master` moved (an Overleaf sync), `git pull --rebase origin master` and push again. Report a genuine conflict rather than resolving it blind.
 - The one thing to ask about first: deleting or moving files the owner did not ask you to touch.
@@ -112,7 +127,7 @@ Building a gathered set therefore spans two repos: **read from `Project-Helvethi
 ## Output rules
 
 - Output the complete `.tex` file, ready to compile.
-- **Always compile it afterwards** with `./0-scripts/compile-one.sh "<filename>"` from the repo root, leaving the PDF in the `pdf/` subfolder next to the `.tex`. Saving the `.tex` without its PDF is an unfinished job. See "Building Documents" in `CLAUDE.md`.
+- **Always compile it afterwards** with `bash 0-scripts/compile-one.sh "<filename>"` from the repo root (see "Compiling" above), leaving the PDF in the `pdf/` subfolder next to the `.tex`. Saving the `.tex` without its PDF is an unfinished job. The `pdf/` output is gitignored, so the compile is local proof the file builds, not something to commit.
 
 ### Live preview inside VS Code
 
