@@ -1,0 +1,66 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Invarian}
+\author{Azzam and Akeyla}
+\date{Januari 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Invarian dan Monovarian}
+Invarian meninjau suatu properti yang selalu tetap, sedangkan monovarian meninjau suatu properti yang berubah ke arah yang sama.
+
+\begin{example}
+    Terdapat $13$ bunglon merah, $15$ bunglon hijau, dan $17$ bunglon kuning di sebuah pulau. Saat dua ekor bunglon yang berbeda warna bertemu, mereka berdua akan berganti warna menjadi warna ketiga. Mungkinkah suatu saat seluruh bunglon tersebut berwarna merah?
+\end{example}
+
+\begin{proof}[Solusi]
+    Jawabannya adalah tidak mungkin. Misalkan $M, H, K$ secara berturut-turut adalah banyak bunglon merah, hijau, dan kuning yang ada di pulau di suatu saat. Invarian dari masalah ini adalah $(M - H) \pmod{3}$ (dan juga $(H - K) \pmod{3}$ serta $(K - M) \pmod{3}$). Di kondisi awal, $M - H \equiv 1 \pmod{3}$ akan tetapi saat semuanya berwarna merah, $M - H \equiv 0 \pmod{3}$. Sehingga, hal ini tidak mungkin terjadi.
+\end{proof}
+
+\begin{example}
+    Di papan tulis, terdapat bilangan $1$ sampai $20$. Setiap menit seseorang menghapus dua bilangan $a,b$ dan menuliskan $ab + a + b$ sebagai penggantinya. Buktikan bahwa setelah 19 menit, bilangan yang tertulis di papan selalu sama, tidak peduli urutan bilangan yang dihapus.
+\end{example}
+
+\begin{proof}[Solusi]
+    Invariannya adalah $\prod_{i = 1}^{20} (a_i + 1)$.
+\end{proof}
+
+\begin{example}
+    Diberikan sebuah himpunan $\{3, 4, 12\}$. Pada setiap langkah, kita dapat memilih dua bilangan $a,b$ dan menggantinya dengan $0,6a - 0,8b$ dan $0,8a + 0,6b$. Mungkinkah suatu saat himpunan tersebut menjadi $\{4, 6, 12\}$?
+\end{example}
+
+\begin{proof}[Solusi]
+    Jika nilai elemen di himpunan tersebut di suatu saat adalah $\{a,b,c\}$, invariannya adalah $a^2 + b^2 + c^2$. Karena $4^2 + 6^2 + 12^2 \neq 3^2 + 4^2 + 12^2$, maka himpunan tersebut tidak akan dapat menjadi $\{4, 6, 12\}$?
+\end{proof}
+
+\subsection{Soal-soal}
+\begin{problem}
+    Dalam bahasa uwu hanya ada dua huruf: u dan w. Sebuah kata dalam bahasa uwu akan memiliki makna yang sama apabila string 'uw' yang ada dihapus. Makna kata juga tidak akan berubah saat disisipkan string 'wu' atau 'wuuw' di bagian kata manapun. Sebagai contoh, 'uwu' memiliki makna yang sama dengan 'u' (dua huruf pertama dihapus), 'uwuwu' (disisipkan string 'wu' di akhir kata), dan 'uwwuuwu' (disisipkan 'wuuw' setelah huruf kedua). Apakah kata 'uwu' dan 'wuw' dapat dipastikan memiliki makna yang sama?
+\end{problem}
+
+\begin{problem}
+    Terdapat papan catur $8 \times 8$ dengan pewarnaan biasa. David dapat melakukan operasi membalik warna (hitam menjadi putih dan sebaliknya) di sebuah baris atau kolom papan catur. Apakah David dapat membuat seluruh, kecuali satu, petak catur berwarna putih?
+\end{problem}
+
+\begin{problem}
+    Bilangan asli $1, 2, ..., 2021$ tertulis di papan. Di setiap langkahnya, Frank dapat mengganti dua bilangan dengan selisihnya. Apakah mungkin terdapat situasi saat semua bilangan yang ada di papan tulis bernilai $0$.
+\end{problem}
+
+\begin{problem}
+    Di negara Iran dan Irak, mata uangnya adalah Dinar dan Dikar. Di Iran, satu Dinar dapat ditukar dengan 10 Dikar. Di Irak, satu Dikar dapat ditukar dengan 10 Dinar. Ali sang pebisnis bepergian ke dua negara tersebut dengan membawa 1 Dinar. Dia dapat menukarkan uangnya di kedua negara tersebut tanpa biaya tambahan. Asumsikan ia tidak menghabiskan uangnya dalam Dinar dan Dikar, buktikan bahwa banyak uang Dinar dan Dikar yang ia miliki di suatu saat tidak akan pernah sama.
+\end{problem}
+
+\begin{problem}
+    Terdapat sebuah tumpukan batu berisi 1001 batu di meja. Di setiap langkahnya, Vadim dapat memilih salah satu tumpukan batu yang memuat lebih dari satu batu, membuang salah satu batunya, dan membagi sisa batu di tumpukan tersebut menjadi dua tumpukan batu yang jumlahnya tidak harus sama. Apakah mungkin Vadim dapat membuat semua tumpukan batu di meja memiliki tepat 3 buah batu?
+\end{problem}
+
+\begin{problem}
+    (IMO SL 2014)Terdapat $2^m$ kertas yang semuanya tertuliskan angka 1. Di setiap langkahnya, Morteza dapat mengambil dua kertas dan mengganti bilangan yang terulis di kedua kertas tersebut menjadi jumlah dari bilangan di kedua kertas tersebut sebelumnya. Buktikan bahwa setelah $m2^{m - 1}$ langkah, jumlah bilangan yang ada di semua kertas akan lebih dari $4^m$.
+\end{problem}
+\end{document}

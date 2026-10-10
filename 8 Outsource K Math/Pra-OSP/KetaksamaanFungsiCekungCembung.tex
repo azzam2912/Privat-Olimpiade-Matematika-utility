@@ -1,0 +1,76 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Ketaksamaan fungsi cekung-cembung}
+\author{Azzam and Akeyla}
+\date{Januari 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Definisi}
+\begin{definition}
+    Sebuah fungsi $f: [a,b] \rightarrow \mathbb{R}$ disebut sebagai fungsi cekung di interval $[a, b]$ apabila untuk setiap bilangan real $x, y \in [a,b]$ dan $\alpha \in (0,1)$ berlaku ketaksamaan
+    \[f(ax + (1 - \alpha)y) \leq \alpha f(x) + (1 - \alpha) f(y)\]
+    Apabila tanda kebalikannya yang berlaku, maka $f$ adalah fungsi cembung di $[a,b]$
+\end{definition}
+
+Pengecekan apakah sebuah fungsi itu cekung atau cembung dapat dilakukan dengan mengecek nilai turunan kedua. Apabila nilai turunan kedua dari suatu fungsi di sebuah interval selalu bernilai positif, maka fungsi tersebut cekung. Jika selalu negatif, maka cembung.
+
+Beberapa properti yang berhubungan dengan kecekungan fungsi:
+\begin{enumerate}
+    \item Jika $f$ cekung, maka $-f$ cembung dan sebaliknya
+    \item Jika $f_i$ cekung dan $c_i > 0$ untuk $i = 1, 2, ..., n$, maka $c_1f_1 + c_2f_2 + ... + c_nf_n$ juga merupakan fungsi cekung
+\end{enumerate}
+
+\section{Nilai ekstrem di fungsi cekung dan cembung}
+Apabila sebuah fungsi $f$ cekung di sebuah interval $[a,b]$, maka nilai maksimal dari fungsi di interval tersebut hanya dapat tercapai di ujung interval, yakni $a$ atau $b$.
+
+Kebalikannya juga berlaku: fungsi cembung di interval $[a,b]$ hanya mungkin memiliki nilai minimal di ujung interval
+
+\section{Soal-soal}
+\begin{problem}
+    [Mathematics and Youth Magazine 2001] Misalkan $a, b, c$ adalah bilangan real yang berada di interval $[1,2]$. Buktikanlah bahwa \[a^3 + b^3 + c^3 \leq 5abc\]
+\end{problem}
+
+\begin{problem}
+    [Vietnam MO 30th] Misalkan $a, b, c$ adalah bilangan real positif yang berada di interval $[1,2]$. Buktikan bahwa \[(a+b+c)\Big(\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c}\Big) \leq 10\]
+\end{problem}
+
+\begin{problem}
+    [Perumuman soal sebelumnya] Misal $p < q$ adalah bilangan real positif dan $a_1, a_2, ..., a_n \in [p,q]$. Buktikan bahwa \[(a_1 + a_2 + ... + a_n)\Big(\dfrac{1}{a_1} + \dfrac{1}{a_2} + ... + \dfrac{1}{a_n}\Big) \leq n^2 + \dfrac{k_n(p-q)^2}{4pq}\] dengan $k_n = n^2$ jika $n$ genap dan $n^2 - 1$ jika ganjil
+\end{problem}
+
+\begin{problem}
+    Misal $x_1, x_2,..., x_{2021}$ adalah bilangan real yang berada di interval $[-1,1]$. Carilah interval nilai yang mungkin dari \[x_1x_2 + x_2x_3 + ... + x_{2020}x_{2021} + x_{2021}x_1\]
+\end{problem}
+
+\begin{problem}
+    Misal $x_1, x_2, ..., x_n$ adalah bilangan real yang berada di interval $[0,1]$. Cari interval nilai yang mungkin dari \[x_1(1-x_2) + x_2(1-x_3) + ... + x_n(1-x_1)\]
+\end{problem}
+
+\begin{problem}
+    [Mathematics and Youth Magazine] Diberikan bilangan real positif $x_1, x_2, ..., x_n \in [a, b]$. Tentukan nilai maksimal dari \[(x_1 - x_2)^2 + (x_1 - x_3)^2 + ... + (x_1 - x_n)^2 + (x_2 - x_3)^2 + ... + (x_{n-1} - x_n)^2\]
+\end{problem}
+
+\begin{lemma}
+    Misal $f$ adalah fungsi cekung yang terdefinisi di $[a, b] \in \mathbb{R}$ dan $x_1, x_2, ..., x_n \in [a,b]$ serta $x_1 + x_2 + ... + x_n = s$ dengan $na \leq s \leq nb$. Nilai maksimal dari \[f(x_1) + f(x_2) + ... + f(x_n)\] akan dapat tercapai jika dan hanya jika terdapat setidaknya $n - 1$ bilangan di $(x_1, ..., x_n)$ yang bernilai $a$ atau $b$
+\end{lemma}
+
+\begin{proof}[Bukti]
+    Gunakan definisi fungsi cekung dan ambil kasus $n = 2$
+\end{proof}
+
+\begin{problem}
+    Misal $a_1, a_2, ..., a_n$ adalah bilangan real positif yang ada di interval $[0,2]$ dan $a_1 + a_2 + ... + a_n = n$. Carilah nilai maksimal dari \[a_1^2 + a_2^2 + ... + a_n^2\]
+\end{problem}
+
+\begin{problem}
+    Misal $a,b,c\in[0,2]$ dan $a + b + c = 5$. Buktikan bahwa \[a^2 + b^2 + c^2 \leq 9\]
+\end{problem}
+
+\end{document}

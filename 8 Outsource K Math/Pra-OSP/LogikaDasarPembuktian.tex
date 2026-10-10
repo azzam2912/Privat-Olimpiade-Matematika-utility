@@ -1,0 +1,98 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Logika dan Dasar Pembuktian}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+\section{Pembuktian}
+\subsection{Kontradiksi}
+\begin{example}
+    Buktikan bahwa $\sqrt{2}$ bukan merupakan bilangan rasional. Dengan kata lain, tidak ada bilangan bulat $a$ dan $b$ yang memenuhi $\sqrt{2} = \dfrac{a}{b}$.
+\end{example}
+\begin{proof}[Solusi]
+    Asumsikan ada dan $a, b$ relatif prima. Coba tinjau apakah $2$ membagi $a$ dan $b$.
+\end{proof}
+
+\begin{example}
+    Buktikan bahwa bilangan prima ada tak hingga
+\end{example}
+
+\subsection{Kontrapositif}
+\begin{example}
+    Diberikan bilangan bulat $n$ sedemikian hingga $n^2$ merupakan bilangan genap. Buktikan bahwa $n$ juga merupakan bilangan genap.
+\end{example}
+\begin{proof}[Petunjuk menuju solusi]
+    Kontrapositif dari pernyataan yang dinyatakan seharusnya lebih mudah untuk dibuktikan. 
+\end{proof}
+
+\subsection{Pembuktian Eksistensi}
+Pembuktian eksistensi bisa dilakukan secara langsung (konstruksi):
+\begin{example}
+    Buktikan bahwa terdapat sepuluh bilangan asli komposit berurutan
+\end{example}
+atau tak langsung
+\begin{example}
+    Buktikan bahwa untuk setiap bilangan asli $x$ dan $y$ yang relatif prima, selalu terdapat sebuah bilangan asli $m$ sehingga $xm \equiv 1 (\text{mod} y)$
+\end{example}
+
+\subsection{Prove or Disprove}
+\begin{example}
+    Apakah ada dua bilangan asli berurutan yang banyak faktor positifnya sama dan lebih dari empat?
+\end{example}
+
+\begin{example}
+    Apakah ada sepuluh bilangan asli berurutan yang banyak faktor positifnya sama dengan sepuluh?
+\end{example}
+
+\subsection{Jika dan Hanya jika}
+Saat sebuah persoalan meminta buktikan penyataan "A jika dan hanya jika B", itu artinya ada dua pernyataan yang harus dibuktikan: "Jika A maka B" dan "Jika B maka A". 
+\begin{example}
+    Buktikan bahwa $\left\lfloor \dfrac{x}{3} \right\rfloor = \dfrac{x}{3}$ jika dan hanya jika $x$ adalah bilangan asli kelipatan $3$.
+\end{example}
+
+\section{Latihan}
+\begin{problem}
+    Buktikan bahwa $\sqrt{3}$ merupakan bilangan irasional
+\end{problem}
+\begin{problem}
+    Buktikan bahwa $log_2{5}$ merupakan bilangan irasional
+\end{problem}
+\begin{problem}
+    Untuk setiap pernyataan yang ada, buktikan jika benar atau tunjukkan bahwa salah.
+    \begin{enumerate}
+        \item Jika $a$ rasional dan $b$ irasional maka $a + b$ irasional
+        \item Jika $a$ dan $b$ irasional maka $a + b$ juga irasional
+        \item Jika $a$ dan $b$ irasional maka $a^b$ juga irasional
+    \end{enumerate}
+\end{problem}
+\begin{problem}
+    Buktikan bahwa jika $x + y + z = 7$ dan $x, y, z$ adalah bilangan asli berbeda maka $(x - 4)(y - 4)(z - 4) = 0$
+\end{problem}
+\begin{problem}
+    Diketahui bahwa $a, b, c$ adalah bilangan real positif. Jika polinomial $ax^2 + bx + c = 0$ punya akar real maka buktikan bahwa kedua akar tersebut negatif 
+\end{problem}
+\begin{problem}
+    Diberikan sebuah bilangan bulat $a, b, c$ yang memenuhi $a^2 + b^2 = c^2$. Buktikan bahwa $abc$ genap.
+\end{problem}
+\begin{problem}
+    Diberikan enam bilangan real taknol $a, b, c, d, e, f$. Buktikan bahwa bilangan $ab, cd, ef, -ac, -be,$ dan $-df$ pasti memuat bilangan positif dan negatif.
+\end{problem}
+\begin{problem}
+    Diketahui bahwa semua bilangan asli yang berbentuk $a^2 + 1$ tidak memiliki faktor prima yang berbentuk $4k + 3$. Buktikan bahwa ada tak hingga bilangan prima yang berbentuk $4k + 1$.
+\end{problem}
+\begin{problem}
+    Di sebuah pesta yang diikuti oleh $2000$ orang, pada setiap empat orang yang dipilih secara acak, akan ada setidaknya satu orang yang mengenal ketiga orang lainnya. Diketahui bahwa ada tiga orang di pesta tersebut yang tidak saling kenal. Buktikan bahwa $1997$ orang lain di pesta tersebut mengenal semua orang di pesta tersebut. (Asumsikan jika A kenal B maka B juga kenal A). 
+\end{problem}
+\begin{problem}
+    Misalkan $ABC$ adalah sebuah segitiga dengan $AB = BC$. Buktikan bahwa $\triangle ABC$ adalah segitiga tumpul jika dan hanya jika persamaan $$Ax^2 + Bx +C = 0$$ memiliki dua akar real berbeda dengan $A, B, C$ adalah sudut-sudut $\triangle ABC$ dalam radian.
+\end{problem}
+\begin{problem}
+    Buktikan bahwa bilangan $x$ rasional jika dan hanya jika terdapat tiga suku berbeda yang membentuk barisan geometri yang dapat dipilih dari barisan $$x, x + 1, x+2,x+3,....$$
+\end{problem}
+\end{document}

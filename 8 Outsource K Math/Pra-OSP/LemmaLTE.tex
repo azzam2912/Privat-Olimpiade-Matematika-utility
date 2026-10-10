@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{LTE}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+\begin{center}
+    Lemma LTE (Lifting The Exponent Lemma) merupakan salah satu topik yang baru di teori bilangan dan merupakan metode yang cukup ampuh dalam menyelesaikan beberapa persamaan Diophantine eksponensial . \\
+    Lemma LTE membantu kita dalam menemukan pangkat terbesar dari suatu bilangan prima $p$ yang membagi $a^n\pm b^n$ untuk suatu bilangan asli $a,b.$
+\end{center}
+
+\section{Definisi}
+Definisikan $v_p(a)$ sebagai bilangan bulat terbesar sehingga $p^{v_p(a)}|a$ , dimana $p$ merupakan bilangan prima dan $a$ merupakan bilangan asli .
+\\ Contoh : $v_3(54)=3$ , $v_5(100)=2$ , $v_2(2)=1$ , $v_5(7)=0$ .
+
+\section{Dua Lemma yang cukup penting}
+
+\begin{lemma}
+Misalkan $x$ dan $y$ adalah bilangan bulat dan $n$ adalah bilangan asli . Diberikan sebarang bilangan prima $p$ yang memenuhi FPB$(n,p)=1$ , $p|x-y$ dan $x,y$ keduanya tidak habis dibagi oleh $p$ . Maka $$v_p(x^n-y^n)=v_p(x-y).$$
+\end{lemma}
+\begin{proof}[Bukti]
+Amati bahwa $$x^n-y^n=(x-y)(x^{n-1}+x^{n-2}y+\dots +y^{n-1})$$
+Maka , kita hanya perlu membuktikan kalau $(x^{n-1}+x^{n-2}y+\dots +y^{n-1})$ tidak habis dibagi $p$
+Karena $x\equiv y$(mod $p$) , maka $$(x^{n-1}+x^{n-2}y+\dots +y^{n-1}) \equiv nx^n-1(mod p)$$
+Akibatnya , $p$ tidak membagi $(x^{n-1}+x^{n-2}y+\dots +y^{n-1})$
+dan $v_p(x^n-y^n)=v_p(x-y)$
+\end{proof}
+
+\begin{lemma}
+Misalkan $x$ dan $y$ adalah bilangan bulat dan $n$ adalah bilangan ganjil . Diberikan sebarang bilangan prima $p$ yang memenuhi FPB$(n,p)=1$ , $p|x+y$ dan $x,y$ keduanya tidak habis dibagi oleh $p$ . Maka $$v_p(x^n+y^n)=v_p(x+y).$$
+\end{lemma}
+
+\begin{proof}[Bukti]
+Dengan cara yang sama dengan Lemma 1 , kecuali bahwa $x \equiv -y(mod p)$
+\end{proof} 
+
+\section{Lemma LTE}
+
+\begin{lemma}[LTE Tipe 1]
+Misalkan $x$ dan $y$ adalah bilangan bulat dan $n$ adalah bilangan asli . Diberikan sebarang bilangan prima \textit{ganjil} $p$ yang memenuhi $p|x-y$ dan $x,y$ keduanya tidak habis dibagi oleh $p$ . Maka $$v_p(x^n-y^n)=v_p(x-y)+v_p(n).$$
+\end{lemma}
+
+\begin{lemma}[LTE Tipe 2]
+Misalkan $x$ dan $y$ adalah bilangan bulat dan $n$ adalah bilangan ganjil positif. Diberikan sebarang bilangan prima \textit{ganjil} $p$ yang memenuhi $p|x+y$ dan $x,y$ keduanya tidak habis dibagi oleh $p$ . Maka $$v_p(x^n+y^n)=v_p(x+y)+v_p(n).$$
+\end{lemma}
+
+\begin{lemma}[LTE Tipe 3]
+Misalkan $x$ dan $y$ adalah bilangan ganjil sehingga $4|x-y$ dan $n$ adalah bilangan asli . Maka $$v_2(x^n-y^n)=v_2(x-y)+v_2(n)$$
+\end{lemma}
+
+\begin{lemma}[LTE Tipe 4]
+Misalkan $x$ dan $y$ adalah bilangan ganjil dan $n$ adalah bilangan ganjil positif . Maka $$v_2(x^n-y^n)=v_2(x-y)+v_2(x+y)+v_2(n)-1$$
+\end{lemma}
+
+\section{Contoh Penggunaan}
+\begin{example}
+Misal $p$ adalah bilangan prima yang lebih besar dari 2016 , $a,b$ adalah bilangan bulat sehingga $p|a+b , p^2|a+b$ dan $p^2|a^{2015}+b^{2015}$ . Ada berapa banyak nilai $n$ bilangan asli $\leq 2016$ sehingga $p^n|a^{2016}+b^{2016}$ ?
+\end{example}
+\begin{proof}[Solusi]
+Asumsikan $a$ dan $b$ tidak habis dibagi oleh $p$.\\
+Karena $p>2016$ , maka $p$ tidak membagi 2015 dan $p$ ganjil .\\
+Dengan Lemma 2 , didapat $v_p(a^{2015}+b^{2015})=v_p(a+b)=1.$\\
+Padahal , $p^2|a^{2015}+b^{2015}$ , kontradiksi .\\
+Akibatnya $p|a$ dan $p|b$ . \\
+Misalkan $a=xp$ dan $b=yp$ untuk suatu bilagan bulat $x,y$ .\\
+Maka , $a^{2016}+b^{2016}=p^{2016}(x^{2016}+y^{2016})$.\\
+Ada 2016 nilai $n$ yang memenuhi , yakni ${{1,2,3\dots 2016}}.$
+\end{proof}
+\begin{example}
+Misalkan $a,n$ bilangan asli , $p$ bilangan prima ganjil dan memenuhi $a^p \equiv 1(mod p^n)$ . Buktikan bahwa $a\equiv 1(mod p^{n-1}).$
+\end{example}
+\begin{proof}
+Jelas bahwa $p$ tidak membagi $a$.\\
+Asumsikan $a\not\equiv 1(mod p^{n-1})$ , maka $a-1 \not\equiv 0(mod p^{n-1})$  .\\
+Akibatnya , $v_p(a-1)<n-1$\\
+Maka , dengan teorema LTE ,
+\begin{equation} 
+    \begin{split}
+    v_p(a^p-1) & = v_p(a-1) +v_p(p)\\
+               & < n-1 +1 \\
+               & = n
+    \end{split}
+\end{equation}
+Akibatnya $a^p-1 \not\equiv 0 \pmod{p^n}$ , kontradiksi.\\
+Maka , $a \equiv 1 \pmod{p^{n-1}}$ .
+\end{proof}
+
+\section{Soal-Soal}
+\begin{enumerate}
+    \item Sebut suatu bilangan bulat sebagai \textit{square-free} jika bilangan tersebut tidak memiliki faktor bilangan kuadrat sempurna selain 1 . Jika $a>2$ adalah bilangan genap , buktikan bahwa bilangan $a^{a-1}-1$ bukan merupakan \textit{square-free}.
+    \item Carilah semua solusi $(a,p,k)$ ,  dengan $a,k$ adalah bilangan bulat dan $p$ adalah bilangan prima , dari persamaan $$a^p-1=p^k$$
+    \item Carilah semua pasangan bilangan bulat $(a,b)$ dengan $a,b>1$ sehingga $b^a|a^b-1$
+    \item (Iran Second Round 2008) Tunjukkan bahwa satu-satunya nilai $a$ sehingga $4(a^n+1)$ merupakan bilangan kubik untuk setiap bilangan asli $n$ adalah 1
+    \item Tunjukkan bahwa $a^n-b^n$ memiliki pembagi prima yang bukan merupakan pembagi dari $a-b$
+    \item (Irlandia 1996) Misalkan $p$ merupakan bilangan prima dan $a,n$ merupakan bilangan asli . Buktikan bahwa jika $2^p+3^p=a^n$ maka $n=1$
+    \item Carilah semua bilangan asli $n$  sehingga $$2^n|3^n-1$$
+    \item (Rumania TST 1994) Misalkan $n$ adalah bilangan ganjil positif . Buktikan bahwa $((n-1)^n+1)^2$ membagi $n(n-1)^{(n-1)^n+1}+n$
+    \item Misalkan $p\geq 5$ adalah bilangan prima . Carilah nilai maksimal dari bilangan asli $k$ sehingga $$p^k|(p-2)^{2(p-1)}-(p-4)^{(p-1)}$$
+    \item (IMO SL 1991) Carilah nilai bilangan asli $k$ terbesar sehingga $1991^k$ habis membagi $$1990^{1991^{1992}}+1992^{1991^{1990}}$$
+    \item Carilah semua bilangan asli $a$ sehingga $3^a$ membagi $5^a+1$
+    \item (Bulgaria 1997) Buktikan bahwa jika $n$ adalah bilangan asli dan bilangan $3^n-2^n$ merupakan suatu bilangan prima berpangkat , maka $n$ adalah bilangan prima 
+    \item Carilah semua solusi bilangan asli dari persamaan $$(n-1)!+1=n^m$$
+    \item (Rusia 1996) Misalkan $x,y,n,p,k$ adalah bilangan asli dengan $n$ ganjil dan $p$ prima ganjil . Buktikan bahwa jika $x^n+y^n=p^k$ , maka $n=p^m$ untuk suatu bilangan asli $m$
+    \item (Romanian Junior TST 2008) Misalkan $p$ adalah bilangan prima , $p \neq 3$ dan $a,b$ addalah bilangan bulat sehingga $p|a+b$ dan $p^2|a^3+b^3$ . Buktikan bahwa $p^2|a+b$ atau $p^3|a^3+b^3$
+    \item (IMO 1990)Temukan semua bilangan asli $n$ sehingga $$\dfrac{2^n+1}{n^2}$$ adalah bilangan bulat .
+\end{enumerate}
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Persamaan Diophantine}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+
+\section{Pendahuluan}
+Persamaan Diophantine adalah persamaan yang bekerja pada bilangan bulat. Dalam artikel ini, akan dibahas beberapa metode untuk menyelesaikan persamaan diophantine
+\section{Faktorisasi}
+Dengan sedikit memanipulasi persamaan menjadi bentuk yang dapat difaktorisasikan, kemudian membagi kasus untuk setiap kemungkinan pemfaktoran. Yakni, mengatur ulang persamaan yang diberikan menjadi dalam bentuk \[f_1(x_1,x_2,...,x_k)f_2(x_1,x_2,...,x_k)...f_n(x_1,x_2,...,x_k) = a\] 
+
+Beberapa bentuk faktorisasi yang dapat digunakan adalah:
+\begin{enumerate}
+    \item $(a + p)(b + q) = ab + qa + pb + pq$
+    \item $(xa + y)(wb + z) = xwab + zxa + ywb + yz$
+    \item $a^3 + b^3 + c^3 - 3abc = (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca)$
+    \item $a^4 + 4b^4 = (a^2 - 2ab + 2b^2)(a^2 + 2ab + 2b^2)$
+\end{enumerate}
+
+\begin{example}
+    Carilah solusi bilangan asli dari persamaan $$x^3-y^3=xy+61$$
+\end{example}
+
+\begin{proof}[Solusi]
+    Bentuk persamaan ini mengingatkan akan persamaan $x^3+y^3+z^3-3xyz=(x+y+z)(x^2+y^2+z^2-xy-yz-zx)$. Yang diperlukan adalah membuat faktor 3 muncul di bagian $xy$ dengan tidak mengubah sifat kubik dari $x^3$ dan $-y^3$ . Hal ini dapat dilakukan dengan mengalikan 27 di kedua ruas . Sehingga didapat $$(3x)^3+(-3y)^3+(-1)^3-3(3x)(-3y)(-1)=1646$$
+    Maka , $$(3x-3y-1)(9x^2+9y^2+1+3x-3y+9xy)=2\times823$$
+    Karena $3x-3y-1\equiv 2(mod 3)$ dan $9x^2+9y^2+1+3x-3y+9xy>3x-3y-1$ , maka $3x-3y-1=2$ dan $9x^2+9y^2+1+3x-3y+9xy=823$ . \\
+    Akibatnya , $x=y+1$ , dan dengan memasukkan nilai tersebut ke persamaan , didapat solusi $(x,y)=(6,5)$
+\end{proof}
+
+\section{Manfaatkan Ketaksamaan}
+Beberapa ketaksamaan yang cukup umum digunakan antara lain ketaksamaan QM-AM-GM-HM dan Cauchy-Schwarz. Selain itu , sifat bahwa jika $a|b$ maka $|a|\leq|b|$ atau $b=0$ juga merupakan salah satu teknik yang seringkali dapat menyelesaikan soal . \\
+Teknik pertidaksamaan yang lain adalah teknik \textit{bounding} . Bounding adalah memanfaatkan sifat bahwa diantara dua bilangan berpangkat $n$ yang berurutan ($x^n$ dan $(x+1)^n$) tidak ada bilangan lain yang berpangkat $n$. \\
+
+\begin{example}
+    Carilah solusi bilangan asli dari persamaan $$3(xy+yz+zx)=4xyz$$
+\end{example}
+    
+\begin{proof}[Solusi]
+    Secara intuitif , kita akan merasa bahwa solusi dari persamaan tidak dapat bernilai begitu besar karena nilai ruas kanan akan tumbuh lebih cepat daripada ruas kiri . Kita juga dapat memerhatikan bahwa persamaan ini simetris , sehingga dapat diasumsikan tanpa mengurangi keumuman (WLOG) , $x\leq y\leq z$ . Dengan membagi kedua ruas dengan $3xyz$ , didapat $$\frac{1}{x}+\frac{1}{y}+\frac{1}{z}=\frac{4}{3}$$
+    Perhatikan bahwa semakin besar nilai dari $x,y,z$ , semakin kecil nilai dari ruas kiri . \\
+    Karena $x\leq y\leq z$ , maka $\frac{4}{3}=\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\leq\frac{3}{x}$ .
+    Sehingga , $x\leq 2$ .\\
+    \textbf{Kasus 1} $x=1$\\
+    Maka , $\frac{1}{y}+\frac{1}{z}=\frac{1}{3}$.\\
+    Karena $y\leq z$ , maka $\frac{1}{3}=\frac{1}{y}+\frac{1}{z}\leq\frac{2}{y}$ .
+    Sehingga , $3<y\leq 6$ . Dengan mengecek nilai $y=4,5,6$ , didapat solusi $(x,y,z)=(1,6,6),(1,4,12)$dan permutasinya.\\
+    \textbf{Kasus 2} $x=2$ \\
+    Maka , $\frac{1}{y}+\frac{1}{z}=\frac{5}{6}$.\\
+    Karena $y\leq z$ , maka $\frac{5}{6}=\frac{1}{y}+\frac{1}{z}\leq\frac{2}{y}$ .
+    Sehingga , $y\leq 2$ . Dengan mengecek nilai $y=2$ , didapat solusi $(x,y,z)=(2,2,3)$dan permutasinya.\\
+    \\
+    Maka , seluruh solusinya adalah $(x,y,z)=(1,1,6),(1,4,12),(2,2,3)$ dan permutasi
+\end{proof}
+
+\section{Modulo}
+Modulo seringkali menjadi \textit{problem-killer}. Dengan menggunakan analisis dari modulo suatu bilangan (biasanya modulo bilangan prima tertentu atau bilangan dua berpangkat) , kita dapat menunjukkan bahwa suatu persamaan tidak memiliki solusi bilangan bulat atau mereduksi kemungkinan solusi (biasanya pada persamaan diophantine yang varibelnya berposisi sebagai pangkat) .\\
+
+\begin{example}
+    Carilah semua pasangan bilangan asli $(x,y)$ yang memenuhi persamaan $$x^2-y!=2001$$
+\end{example}
+
+\begin{proof}[Solusi]
+    Barangkali pemilihan bilangan yang akan dijadikan modulo disini belum terlihat jelas . Bagaimana kalau dengan modulo 2 ? Jika $y\geq 2$ , maka $x$ ganjil dan jika $y=1$ , maka $x$ tidak bulat . Belum terlihat titik terang dari soal ini . \\
+    Atau mungkin dengan modulo 3 ?\\ Jika $y\geq 3$ , maka $x$ habis dibagi 3 . Akibatnya , $x^2\equiv 0$(mod 9) , sedangkan $2001 \equiv 3$(mod 9) . \\
+    Maka  $y! \equiv 6$( mod 9) .Jika $y \geq 6$ , kita punya $y! \equiv 0$(mod 9) .
+    Sehingga hanya perlu dicek nilai $y=1,2,3,4,5$ . \\
+    Setelah pengecekan , didapat solusi $(x,y)=(25,4)$
+\end{proof}
+    
+\section{Fermat's Method of InfInite Descent(FMID)}
+FMID secara umum menyatakan bahwa tidak ada barisan bilangan asli tak hingga yang monoton turun tegas $(a_1>a_2>a_3>...)$ . FMID biasanya digunakan dengan cara menunjukkan bahwa apabila suatu persamaan memiliki suatu solusi bilangan asli dan untuk sebagian besar solusi persamaan tersebut berakibat adanya suatu solusi bilangan asli yang lebih kecil , maka persamaan tersebut tidak memiliki solusi bilangan asli kecuali mungkin di sebagian kecil pengecualian.\\
+
+\begin{example}
+    Carilah semua solusi bilangan bulat dari persamaan $$x^4+y^4+z^4=9u^4$$
+\end{example}
+\begin{proof}
+    Pangkat 4 seakan-akan menyugestikan penggunaan mod 5. \\
+    Kita juga dapat menemukan satu solusi trivial , yakni $(0,0,0)$ .\\
+    Asumsikan ada solusi yang lain , $(x,y,z,u)$ .\\
+    Jika $u=0$ ,maka $x=y=z=0$ juga .\\
+    Asumsikan $u \neq 0$ dan tidak habis dibagi 5 , maka ruas kanan kongruen 4 modulo 5 . \\
+    Tinjau bahwa $x^4,y^4,z^4$ kongruen 0 atau 1(mod 5) , akibatnya ruas kiri kongruen 0,1,2 atau 3 modulo 5 .\\
+    Maka , $u$ habis dibagi 5 dan demikian pula $x,y,z$.\\
+    Misalkan $u=5u_1 , x=5x_1 , y=5y_1 , z=5z_1$ , maka dengan membagi kedua ruas dengan 625 , didapat $${x_1}^4+{y_1}^4+{z_1}^4=9{u_1}^4$$
+    Sehingga $(x_1,y_1,z_1,u_1)$ juga merupakan solusi persamaan . Padahal ,  kita punya $|u_1|<|u|$ . Akibatnya ,dengan mengulangi prosedur ini di $(x_1,y_1,z_1,u_1)$ , didapat barisan tak hingga bilangan asli monoton turun tegas yang jelas tidak mungkin ada . \\
+    Maka , satu-satunya solusi adalah $(x,y,z,u)=(0,0,0,0)$
+\end{proof}
+    
+\section{Diskriminan}
+Perhatikan bahwa agar sebuah persamaan kuadrat $ax^2 + bx + c$ memiliki solusi $x$ yang merupakan bilangan bulat, haruslah nilai dari diskriminannya, $b^2 - 4ac$ merupakan bilangan kuadrat (jika tidak, $x$ bahkan bukan merupakan bilangan rasional). 
+
+\begin{example}
+    Tentukan semua bilangan bulat $x,y$ yang memenuhi persamaan $x^2+y^2=xy^2+25$
+\end{example}
+    
+\section{Latihan}
+\begin{problem}
+    (2; Belanda MO 2015) Cari semua bilangan prima $(p,q)$ yang memenuhi persamaan \[7pq^2 + p = q^3 + 43p^3 + 1 \]
+\end{problem}
+
+\begin{problem}
+    (2; Belanda MO 2014) Cari semua tripel bilangan asli $(a, b, c)$ yang memenuhi $a \leq b \leq c$ dan \[abc = 2(a + b + c)\]
+\end{problem}
+
+\begin{problem}
+    (2; Belanda MO 2011) Cari semua bilangan asli $(a, b, n)$ yang memenuhi persamaan \[a! + b! = 2^n\]
+\end{problem}
+
+\begin{problem}
+    (2,5; Arab Saudi BMO TST 2013) Cari semua bilangan asli $(x, y, z)$ yang memenuhi persamaan \[2^x + 21^y = z^2\]
+\end{problem}
+
+\begin{problem}
+    (2,5; PEN H 82) Cari semua bilangan asli $a, b, c$ yang memenuhi persamaan \[a!b! = a! + b! + c!\]
+\end{problem}    
+
+\begin{problem}
+    (2,5; Nigeria MO Round 2 2022) Diberikan bilangan asli $k, l, m, n$ yang memenuhi persamaan $k + l + m + n = km = ln$. Tentukan semua nilai yang mungkin dari $k + l + m + n$.
+\end{problem}
+
+\begin{problem}
+    (3; USAMO kelima) Carilah semua solusi bilangan bulat dari persamaan \[a^2 + b^2 + c^2 = a^2b^2\] 
+\end{problem}
+
+\begin{problem}
+    (3; Arab Saudi GMO TST 2014) Cari semua bilangan asli $(x, y, z)$ yang memenuhi persamaan \[5^x + 3^y - 2^z = 32\]
+\end{problem}
+
+\begin{problem}
+    (3; IMO SL 2019) Cari semua bilangan asli $(a, b, c)$ yang memenuhi persamaan \[a^3 + b^3 + c^3 = (abc)^2 \]
+\end{problem}
+    
+\begin{problem}
+    (3; Kazakhstan 2022, Grade 8) Cari semua bilangan asli $m, n$ yang memenuhi persamaan \[(3m + n + 1)^2 = 16mn\]     
+\end{problem}
+    
+\end{document}

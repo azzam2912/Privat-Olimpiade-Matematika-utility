@@ -1,0 +1,95 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Pigeonhole Principle}
+\author{Azzam and Akeyla}
+\date{Januari 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Deifinisi dan Contoh}
+Ide dari prinsip ini simpel:
+\begin{quote}
+    'Jika terdapat $kn + 1$ merpati yang akan dimasukkan ke dalam $n$ sangkar, maka pasti terdapat sebuah sangkar yang berisi $k + 1$ merpati'    
+\end{quote}
+
+\begin{example}
+    $n$ orang bertemu di sebuah pertemuan. Setelah pertemuan, mereka saling bersalaman. Bisa saja ada dua orang yang tidak bersalaman, tetapi dua orang paling banyak bersalaman satu kali. Buktikan bahwa ada dua orang yang banyak jabat tangannya sama.
+\end{example}
+
+
+\begin{proof}[Solusi]
+    Perhatikan banyak jabat tangan yang dilakukan oleh setiap orang yang ada. Banyak jabat tangan maksimal yang mungkin dilakukan oleh orang di pertemuan tersebut adalah $n - 1$, yaitu saat orang tersebut berjabat tangan dengan semua orang yang lain. Sementara itu, banyak jabat tangan minimal yang mungkin dilakukan oleh orang di pertemuan tersebut adalah $0$.
+    
+    Banyak kemungkinan jabat tangan yang mungkin adalah $n$. Sedangkan, banyak orang yang ada juga $n$. Asumsikan tidak ada dua orang yang banyak jabat tangannya sama, maka dapat disimpulkan bahwa untuk setiap bilangan cacah $i$ dengan $0 \leq i \leq n - 1$, terdapat (tepat) satu orang yang jumlah jabat tangannya adalah $i$. Secara khusus, terdapat orang yang berjabat tangan sebanyak $0$ dan sebanyak $n - 1$ kali. Namun, kedua hal ini tidak mungkin terjadi secara bersamaan di suatu pertemuan karena mengindikasikan ada orang yang berjabat tangan dengan semua orang lain dan ada orang yang tidak berjabat tangan dengan siapapun.
+    
+    Sehingga, dapat disimpulkan bahwa asumsi salah dan paling banyak ada $n - 1$ kemungkinan banyak jabat tangan yang mungkin. Karena ada $n$ orang, maka berdasarkan PHP, pasti ada dua orang yang memiliki jumlah jabat tangan yang sama. 
+\end{proof}
+
+\begin{example}
+    Diberikan suatu persegi $3 \times 3$ satuan. Akan diletakkan 10 titik di persegi tersebut. Buktikan bahwa terdapat dua titik yang berjarak tidak lebih dari $\sqrt{2}$ satuan.
+\end{example}
+
+\begin{proof}[Solusi]
+    Bagilah persegi tersebut menjadi 9 persegi satuan. Maka, dengan PHP, terdapat dua titik yang terletak di persegi satuan yang sama. Padahal, jarak maksimal keduanya adalah panjang diagonal persegi satuan, yakni $\sqrt{2}$ satuan.
+\end{proof}
+
+\section{Soal-soal}
+    \begin{problem}
+        Pengenalan PHP
+        \begin{enumerate}
+            \item Buktikan bahwa untuk sembarang 13 orang, ada dua orang yang lahir di bulan yang sama.
+            \item Buktikan bahwa untuk sembarang 16 bilangan asli dua digit, pasti ada dua bilangan yang banyak faktor positifnya sama.
+            \item Buktikan bahwa untuk sembarang 12 bilangan asli dua digit, pasti ada dua bilangan yang selisihnya berbentuk $\overline{aa}$ untuk suatu digit $a$.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{problem}
+        Buktikan bahwa di himpunan bilangan asli $\{a_1, a_2, ..., a_n\}$, pasti ada beberapa bilangan yang apabila dijumlahkan akan habis dibagi oleh $n$
+    \end{problem}
+
+    \begin{problem}
+        Pilih sembarang $n + 1$ bilangan dari himpunan $\{1, 2, ..., 2n\}$. Buktikan bahwa ada dua bilangan di antaranya, misal $x,y$ sehingga $x|y$.
+    \end{problem}
+    
+    \begin{problem}
+        (Bilangan Ramsey) Asumsikan jika $A$ mengenal $B$ maka $B$ juga mengenal $A$. Buktikan bahwa dari sembarang $6$ orang, pasti ada 3 orang yang saling mengenal atau 3 orang yang saling asing.
+    \end{problem}
+
+    \begin{problem}
+        (Filipina MO 2009) Setiap titik di kelliling lingkaran diwarnai merah atau biru. 
+        \begin{enumerate}[a.]
+            \item Buktikan bahwa selalu ada sebuah segitiga sama kaki yang ketiga titiknya terletak di keliling lingkaran yang setiap titik sudutnya berwarna yang sama.
+            \item Apakah selalu ada segitiga sama sisi yang ketiga titiknya terletak di keliling lingkaran ini yang ketiga titik sudutnya berwarna sama?
+        \end{enumerate}
+    \end{problem}
+    
+    \begin{problem}
+        Buktikan bahwa untuk sebarang himpunan 10 bilangan dua digit berbeda, terdapat dua himpunan bagian berbeda yang saling lepas dan memiliki jumlah sama.    
+    \end{problem}
+
+    \begin{problem}
+        Suatu papan $6 \times 6$ akan diubini dengan ubin $1 \times 2$ yang tidak saling tumpang tindih. Buktikan bahwa papan tersebut dapat dipotong dengan suatu garis lurus tanpa memotong sebuah ubin.    
+    \end{problem}
+    
+    \begin{problem}
+        (IMO 1978) Sebuah organisasi rahasia internasional beranggotakan 1978 orang dari 6 negara. Setiap anggota diberikan nama berupa bilangan asli berbeda dari $1,2,3,...,1978$. Buktikan bahwa terdapat seseorang yang namanya merupakan jumlah dari dua nama anggota berbeda dari negaranya atau dua kali nama salah satu anggota dari negaranya.    
+    \end{problem}
+    
+    \begin{problem}
+        Bilangan asli dari 1 sampai 81 dituliskan di persegi $9 \times 9$. Buktikan bahwa terdapat 2 petak bersebelahan yang berselisih tidak kurang dari 6.    
+    \end{problem}
+    
+    \begin{problem}
+        (Tournament of Town 1986) Di sebuah turnamen sepakbola (setiap tim bertemu tepat satu kali, 2 poin untuk menang, 1 poin untuk seri, dan 0 poin untuk kalah), 28 tim berkompetisi. Selama turnamen, lebih dari 75\% pertandingan berakhir dengan seri. Buktikan bahwa terdapat dua tim yang mendapat nilai yang sama.     
+    \end{problem}
+    
+    \begin{problem}
+        Misalkan $a_1 \leq a_2 \leq a_3 \leq ... \leq a_n$ adalah bilangan-bilangan asli yang memenuhi $a_1+a_2+a_3+...+a_n=2n$ dan $a_n \neq n+1$. Buktikan bahwa jika $n$ genap maka terdapat suatu himpunan bagian $S$ dari himpunan $\{a_1,a_2,a_3,...,a_n\}$ dan jumlah nilai anggota $S$ adalah $n$. Buktikan pula bahwa hal ini juga berlaku untuk $n$ ganjil dengan tambahan syarat $a_n \neq 2$    
+    \end{problem}
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Barisan Rekursif}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+
+\section{Definisi}
+Rekursi adalah suatu persamaan untuk menentukan nilai suatu suku ke-$n$, $a_n$, yang bergantung dari nilai beberapa suku sebelumnya. Solusi dari persamaan rekursi adalah suatu persamaan yang menentukan nilai suatu suku ke-$n$, $a_n$, yang bergantung hanya pada nilai $n$.
+
+
+\section{Induksi}
+ Induksi dapat digunakan dalam menentukan bentuk umum dari sebuah barisan.
+ 
+ \begin{example}
+     Barisan $(a_n)$ memenuhi sifat bahwa untuk setiap bilangan cacah $m\geq n$, berlaku \[a_{m+n} + a_{m-n} = \frac{1}{2}(a_{2m} + a_{2n})\] dan $a_1 = 1$. Tentukan bentuk umum dari barisan ini.
+ \end{example}
+ 
+ \begin{proof}[Solusi]
+     Dengan mensubstitusikan $n = 0$ di persamaan pada soal, diperoleh bahwa $\frac{1}{2}(a_{2m} + a_0) = 2a_m$. Dengan mensubstitusikan $n = m$ di persamaan pada soal, diperoleh $a_{2m} = a_{2m} + a_0$. Dari kedua persamaan ini, dapat disimulkan bahwa $a_0 = 0$ dan $a_{2m} = 4a_m$ untuk setiap $m$ bilangan asli. Akibatnya, $a_0 = 0, a_1 = 1,$ dan $a_2 = 4$. Hal ini menimbulkan kecurigaan bahwa $a_n = n^2$. Akan dibuktikan dengan induksi.\\
+     Asumsikan bahwa $a_i = i^2$ untuk $i = 0, 1, 2,..., k$. Perhatikan bahwa dengan mensubstitusikan $k$ sebagai $m$ dan $1$ sebagai $n$ pada persamaan pada soal, diperoleh \[a_{k + 1} + a_{k - 1} = \frac{1}{2}(a_{2k} - a_2) = \frac{1}{2}(4a_k + 4a_1)\]
+     Sehingga, $a_{k + 1} = 2a_k - a_{k - 1} + 2a_1 = k^2 + 2k + 1 = (k+1)^2$. Sesuai dengan hal yang ingin dibuktikan. Karena $a_0$ dan $a_1$ memenuhi syarat $a_n  n^2$, dapat disimpulkan dengan prinsip induksi bahwa $a_n = n^2$ untuk semua bilangan cacah $n$.
+ \end{proof}
+ 
+\section{Teleskoping}
+
+Prinsip teleskoping banyak digunakan dalam menentukan jumlahan atau perkalian suatu deret. Bentuk yang umum digunakan adalah:
+
+\textbf{Teleskoping Penjumlahan:} \[\sum_{i=1}^n \left(a_{i+1} - a_i\right) = (a_2 - a_1) + (a_3 - a_2) + ... + (a_{n+1} - a_n) = a_{n+1} - a_1 \]
+
+\textbf{Teleskoping Perkalian:} \[\prod_{i=1}^n \left(\frac{a_{i+1}}{a_i}\right) = \frac{a_2}{a_1} \cdot \frac{a_3}{a_2} \cdot ... \cdot \frac{a_{n+1}}{a_n} = \frac{a_{n+1}}{a_1}\]
+
+Mari kita bahas salah satu contoh klasik:
+\begin{example}
+Tentukanlah nilai dari \[\frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + ... + \frac{1}{n(n+1)}\]
+\end{example}
+
+\begin{proof}[Solusi]
+Perhatikanlah bahwa 
+\begin{align*}
+    \frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + ... + \frac{1}{n(n+1)} &= \sum_{i=1}^{n} \left(\frac{1}{k(k+1)}\right)\\
+    &= \sum_{i=1}^{n} \left(\frac{1}{k} - \frac{1}{k+1}\right)\\
+    &= \frac{1}{1} - \frac{1}{n+1}\\
+    &= \frac{n}{n+1}
+\end{align*}
+\end{proof}
+
+Manipulasi bentuk barisan menjadi bentuk lain yang dapat digunakan telekoping terkadang dapat membantu. Seperti pada soal berikut:
+\begin{example}
+    [India RMO 2018] Barisan bilangan real $(a_n)$ memenuhi hubungan $a_1 = 2$ dan $a_{n+1} = \frac{a_n^2 + 1}{2}$ untuk $n\geq 1$. Buktikan bahwa untuk setiap bilangan asli $N$ berlaku \[\sum_{i=1}^N \frac{1}{a_i + 1} < 1\]
+\end{example}
+
+\begin{proof}[Solusi]
+Perhatikanlah bahwa
+\begin{align*}
+    \frac{1}{a_k + 1} &= \frac{a_k - 1}{a_k^2 - 1}\\
+    &= \frac{a_k + 1 - 2}{a_k^2 - 1}\\
+    &= \frac{1}{a_k - 1} - \frac{2}{a_k^2 - 1}\\
+    &= \frac{1}{a_k - 1} - \frac{1}{a_{k+1} - 1}\\
+\end{align*}
+Sehingga, \[\sum_{i=1}^N \frac{1}{a_i + 1} = \frac{1}{a_1 - 1} - \frac{1}{a_N - 1} = 1 - \frac{1}{a_N - 1}\]
+Hal terakhir yang perlu dilakukan adalah membuktikan bahwa $a_N > 1$ untuk setiap bilangan asli $N$. Namun, hal ini dapat dibuktikan dengan induksi. Sehingga, $\frac{1}{a_N - 1}$ merupakan bilangan positif dan \[\sum_{i=1}^N \frac{1}{a_i + 1} = 1 - \frac{1}{a_N - 1} < 1\]    
+\end{proof}
+
+\section{Periodisitas}
+Sebuah barisan $\{a_n\}$ disebut periodik dengan periode $k$ apabila untuk setiap bilangan asli $n$ yang cukup besar berlaku $a_n = a_{n + k}$
+
+\section{Latihan}
+\begin{problem}
+    (CMIMC 2023 Team) Misalkan $a_1, a_2, ...,$ adalah barisan bilangan real yang memenuhi $$a_n = \frac{a_{n-1}a_{n-2}}{3a_{n-2}-2a_{n-1}}$$ untuk setiap bilangan $n\geq 3$. Jika $a_1 = 1$ dan $a_{10} = 10$, tentukan nilai dari $a_{19}$.
+\end{problem}
+
+\begin{problem}
+    (Irlandia MO 2002) Barisan bilangan $(a_n)$ didefinisikan sebagai $a_1 = a_2 = a_3 = 1$ dan $a_{n + 1}a_{n - 2} - a_na_{n - 1} = 2$ untuk setiap bilangan asli $n \geq 3$. Buktikan bahwa $a_n$ merupakan bilangan asli untuk setiap $n \geq 1$.
+\end{problem}
+
+\begin{problem}
+    Diberikan barisan $a_n$ yang memenuhi $a_n = \dfrac{n}{(n - 1)^{\frac{4}{3}} + n^{\frac{4}{3}} + (n + 1)^{\frac{4}{3}}}$. Buktikan bahwa $a_1 + a_2 + ... + a_{999} < 50$
+\end{problem}
+
+\begin{problem}
+    (Yunani MO 2013) Diberikan barisan bilangan real $(a_n)$ yang memenuhi $a_1 = 2$ dan $a_n=\left(\frac{n+1}{n-1} \right)\left(a_1+a_2+...+a_{n-1} \right),n\geq 2$. Tentukan nilai dari $a_{2013}$.
+\end{problem}
+
+\begin{problem}
+    (Utah MO 2022) Tentukan semua barisan bilangan real $a_1, a_2, ...,$ sedemikian hingga untuk setiap bilangan asli $m, n \geq 1$ dipunyai 
+    \begin{align*}
+        a_{m+n} &= a_m+a_n - mn \text{ dan} \\
+        a_{mn} &= m^2a_n + n^2a_m + 2a_ma_n. \\
+    \end{align*}
+\end{problem}
+
+% \begin{problem}
+%     (Nigeria MO 2019) Diberikan sebuah barisan bilangan $(x_n)$ yang didefinisikan dengan $x_0=0, x_1=1$ dan $x_{n+2}=3x_{n+1}-2 x_{n}$ untuk bilangan cacah $n$. Definisikan barisan $(y_n)$ dengan $y_n = x_n^2 + 2^{n + 2}$ untuk setiap bilangan cacah $n$. Buktikan bahwa untuk setiap bilangan asli $n$, $y_n$ merupakan kuadrat dari bilangan ganjil.
+% \end{problem}
+
+\end{document}

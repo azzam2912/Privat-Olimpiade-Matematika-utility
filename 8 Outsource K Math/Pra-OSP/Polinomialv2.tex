@@ -1,0 +1,99 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+
+\title{Polinomial}
+\author{Azzam and Akeyla}
+\date{August 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Pengertian}
+Polinomial dengan derajat $n$ adalah sebuah bentuk aljabar $p(x)$ yang memenuhi $$p(x) = a_nx^n + a_{n - 1}x^{n - 1} + ... + a_0$$ dengan $a_n \neq 0$. $a_r$ disebut sebagai koefisien dari $x^r$.\\
+Setiap polinomial $p(x)$ dapat difaktorkan menjadi $$p(x) = a_n(x-r_1)(x-r_2)...(x-r_n)$$Bilangan-bilangan $r_1, ..., r_n$ disebut sebagai akar dari polinomial $p(x)$. Di antara akar-akar ini, bisa jadi ada yang sama.\\
+Jika diketahui $p(a) = 0$ untuk suatu bilangan $a$, maka $p(x) = (x - a)q(x)$ dengan $q(x)$ juga polinomial.\\
+
+\section{Properti dasar}
+\begin{enumerate}
+    \item Untuk setiap polinomial $P(x)$ dan $Q(x)$, hubungan dari derajat keduanya adalah :
+    \begin{enumerate}
+        \item $deg(PQ) = deg(P) + deg(Q)$
+        \item $deg(aP + bQ) \leq max\{deg(P),deg(Q)\}$
+    \end{enumerate} 
+    \item \textit{Algoritma Pembagian Polinomial}. Diberikan polinomial $A(x)$ dan $B(x)$ dengan $B(x)$ bukan polinomial nol, maka terdapat secara unik polinomial $P(x)$ dan $Q(x)$ sedemikian hingga $A(x) = P(x)*B(x) + Q(x)$ dimana $deg(Q) < deg(B)$. Polinomial $P(x)$ disebut sebagai hasil bagi dan $Q(x)$ disebut sebagai sisa pembagian. Secara khusus, jika $Q(x)$ adalah poliomial nol, maka $B(x)$ disebut sebagai faktor dari $A(x)$.
+    \item \textit{Teorema Sisa pembagian}. Jika polinomial $P(x)$ dibagi oleh $x-a$, maka sisa pembagiannya adalah $P(a)$. 
+    \item \textit{Teorema Faktor}. Jika $P(a) = 0$, maka $x-a$ adalah faktor dari $P(x)$.
+    \item Apabila $P(x)$ merupakan sebuah polinomial dengan koefisien bilangan bulat, maka $x - a$ selalu habis membagi $P(x) - P(a)$
+    \item \textit{Teorema Fundamental Aljabar}. Setiap polinomial $P(x)$ dengan derajat $n \geq 1$ memiliki tepat $n$ akar kompleks (tidak harus berbeda) yang unik. Sehingga $P(x) = a_n(x-r_1)(x-r_2)...(x-r_n)$ dimana $a_n$ adalah \textit{leading coefficient} dan $r_1,r_2,...,r_n$ adalah akar-akar kompleks yang tidak harus berbeda.
+    \item \textit{Teorema Vieta}. Diberikan polinomial $P(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_0$ adalah polinomial dengan koefisien kompleks dengan $a_n \neq 0$ dan misalkan $r_1,r_2,...,r_n$ adalah akar-akar dari $P$ (berlaku multiplisitas). Maka $$\sum_{i=1}^n r_i = -\frac{a_{n-1}}{a_n}$$ , $$\sum_{1\leq j \leq k \leq n} r_jr_k = \frac{a_{n-2}}{a_n}$$
+    Dan secara umum untuk $1 \leq k \leq n$, jumlah seluruh perkalian sebanyak $k$ akar-akar dari polinomial = $$(-1)^k \frac{a_{n-k}}{a_n}$$ 
+    \item Setiap polinomial berderajat ganjil pasti memiliki setidaknya satu akar real
+    \item Jika $P(x)$ adalah polinomial dengan koefisien real, maka untuk tiap $z$ akar kompleks dari $P$, maka $\bar{z}$ juga merupakan akar kompleks dari $P$. Konsekuensinya, setiap polinomial berderajat ganjil memiliki setidaknya satu akar real.
+    \item \textit{Teorema Nilai Antara}. Jika $P(x)$ adalah suatu fungsi yang kontinu di interval $[a,b], P(a) = x, P(b) = y$, maka untuk tiap bilangan $z$ di interval $[x,y]$ (atau $[y,x]$), terdapat suatu bilangan $c$ di interval $[a,b]$ sedemikian hingga $P(c) = z$. Secara khusus, hal ini berarti apabila terdapat suatu bilangan $a,b$ dan polinomial $P$, serta $P(a)>0>P(b)$, maka $P(x)$ memiliki akar real yang terletak di antara $a$ dan $b$.
+\end{enumerate}
+
+\section{Contoh Soal}
+\begin{example}
+    [Norwegia MO 2020] Buktikan bahwa persamaan $x^2 \cdot (x - 1)^2 \cdot (x - 2)^2 \cdot ... \cdot (x -  1008)^2 \cdot (x- 1009)^2 =  c$ memiliki $2020$ akar real apabila diketahui $0 < c <\frac{(1009 \cdot1007 \cdot  ... \cdot 3\cdot 1)^4}{2^{2020}}$
+\end{example}
+
+\begin{proof}[Solusi]
+    Tulis $P(x) = x^2 \cdot (x - 1)^2 \cdot (x - 2)^2 \cdot ... \cdot (x -  1008)^2 \cdot (x- 1009)^2 - c$. Perhatikan bahwa $P(k) = -c < 0$ untuk setiap $k = 0, 1, ..., 1009$. Sementara itu, $P\left(k + \frac{1}{2}\right) < 0$ dan juga $P\left(-\frac{1}{2}\right) < 0$. Berdasarkan Teorema Nilai Antara, dapat disimpulkan bahwa terdapat akar real di masing-masing interval $(-\frac{1}{2}, 0), (0, \frac{1}{2}), ..., (1009, \frac{2019}{2})$.
+\end{proof}
+
+\begin{example}
+    [Azerbaijan MO 2015] Tentukan semua polinomial berkoefisien real $P(x)$ yang memenuhi $$P(P(x))=(x^2+x+1)\cdot P(x)$$ untuk setiap bilangan real $x$.
+\end{example}
+
+\begin{proof}[Solusi]
+    Pertama, cari solusi polinomial konstan. Dengan mensubstitusikan $P(x) = c$ diperoleh $c = (x^2 + x + 1)c$ untuk setiap bilangan real $x$ yang memiliki solusi $c = 0$. \\
+    Asumsi polinomial tidak konstan. Akan dicari derajat $P$ terlebih dahulu. Di ruas kiri, derajatnya sama dengan $n^2$. Di ruas kanan, derajatnya sama dengan $n + 2$. Sehingga, $n^2 = n + 2$ yang memiliki solusi $n = 2$. \\
+    Ambil salah satu akar dari $P$ yakni $z$. Subsitusikan nilai $x$ menjadi $z$ di persamaan awal dan didapat $P(0) = 0$. Akibatnya, $P(x) = ax^2 + bx$ untuk suatu bilangan bulat $a$ dan $b$. Substitusikan lagi nilai ini ke persamaan awal dan diperoleh bahwa nilai $a = b = 1$ yang memberikan dua solusi $P(x) = x^2 + x + 1$. \\
+    Sehingga, terdapat dua solusi: $P(x) = 0$ dan $P(x) = x^2 + x + 1$
+\end{proof}
+
+\begin{example}
+    [Thailand MO 2020] Tentukan semua polinomial $P(x)$ berkoefisien bulat sedemikian hingga $P(n) | n! + 2$ untuk setiap bilangan asli $n$.
+\end{example}
+
+\begin{proof}[Solusi]
+    Jika polinomial $P$ konstan dan sama dengan $c$ maka $c|1! + 2 = 3$ dan $c|2! + 2 = 4$ yang hanya dapat tercapai saat $c = 1$ atau $c = -1$. \\
+    Jika polinomial $P$ nonkonstan, pasti terdapat sebuah bilangan asli  $m$ dan $n$ yang memenuhi $m = P(n) > 2$. Ambil bilangan asli $k$ yang cukup besar sehingga memenuhi $k > m$ dan $m|P(k)$. (Bilangan ini ada dikarenakan $P(a) \equiv P(b) \pmod{m}$ dapat tercapai saat $a \equiv b \pmod{m}$.) Sehingga, $m|P(k)|k! + 2$. Namun, $m < k$ yang memberikan $m|k!$. Akibatnya, $m|2$. Hal ini kontradiktif dengan fakta bahwa $m = P(n) > 2$. Sehingga, tidak ada solusi polinomial nonkonstan.
+\end{proof}
+
+\section{Soal}
+\begin{problem}
+    [Danube MO 2017] Tentukan semua polinomial berkoefisien bulat $P(x)$ sedemikian hingga selalu terdapat bilangan bulat $k$ yang memenuhi $P(a) + P(b) - P(c) = k(a^2 + b^2 - c^2)$ untuk setiap bilangan bulat $a, b, c$.
+\end{problem}
+
+\begin{problem}
+    % 360 46
+    Misalkan $a, b, c$ adalah bilangan real dengan $a > 0$ sedemikian hingga polinomial \[T(x) = ax^2 + bcx + b^3 + c^3 - 4abc\] memiliki akar yang tidak real. Buktikan bahwa tepat satu dari polinomial $T_1(x) = ax^2 + bx + c$ dan $T_2(x) = ax^2 + cx + b$ hanya bernilai positif untuk setiap bilangan real $x$.
+\end{problem}
+
+\begin{problem}
+    [Auckland MO 2022] Seorang guru menuliskan polinomial $x^2 + 10x + 20$ di papan tulis. Secara bergantian, setiap siswa di kelas menaikkan atau menurunkan nilai koefisien dari $x$ atau nilai konstanta dari polinomial tersebut dengan sebesar satu. Pada akhirnya, polinomial yang tertulis di papan adalah $x^2 + 20x + 10$. Apakah dapat dipastikan bahwa pada suatu waktu tertulis polinomial yang memiliki akar bulat di papan tulis?
+\end{problem}
+
+\begin{problem}
+    % 1.93 Math Olympiad Treasure 
+    Cari bilangan real $a, b, c$ yang memenuhi sistem persamaan 
+    \begin{align*}
+        x + y + z = 4\\
+        x^2 + y^2 + z^2 = 14 \\
+        x^3 + y^3 + z^3 = 34
+    \end{align*}
+\end{problem}
+
+\begin{problem}
+    [Vietnam MO 1992] Perhatikan polinomial \[P(x) = 1 + x^2 + x^9 + x^{n_1} + ... + x^{n_s} + x^{1992}\] dengan $n_1, n_2 , ..., n_s$ merupakan bilangan asli yang memenuhi $9 < n_1 < n_2 < ... < n_s < 1992$. Buktikan bahwa jika $P(x)$ memiliki akar real, maka nilainya tidak lebih dari $\dfrac{1 - \sqrt{5}}{2}$
+\end{problem}
+
+\end{document}
+
+    

@@ -1,0 +1,133 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Pencacahan}
+\author{Azzam and Akeyla}
+\date{Juli 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Permutasi, Kombinasi, Pertambahan, dan Perkalian}
+\begin{example}[HMMT Kombinatorika Februari 2013]
+    Berapa banyak permutasi dari $(a_1, a_2,..., a_8)$ dari $\{1, 2, 3,..., 8\}$ yang memenuhi $a_1 - a_2 + a_3 - a_4 + a_5 - a_6 + a_7 - a_8 = 0$?
+\end{example}
+
+\begin{proof}[Solusi]
+     Bagi semua bilangan yang ada menjadi dua bagian berdasarkan tandanya (+ atau -). Kedua bagian akan memiliki jumlah $36 : 2 = 18$. Tanpa mengurangi keumuman, asumsikan bahwa $1$ memiliki tanda $+$, maka, kuadrupel bilangan yang memuat $1$ dan memiliki total jumlah $18$ adalah ${(1, 2, 7, 8), (1, 3, 6, 8), (1, 4, 5, 8), (1, 4, 6, 7)}$. Terdapat 4 kuadrupel bilangan yang memenuhi. Kalikan ini dengan 2 untuk menentukan tanda yang dimiliki oleh 1. Kalikan ini dengan $4!4!$ untuk mengatur posisi bilangan yang ada di kedua kuadrupel. Sehingga, banyak permutasinya adalah $2\cdot 4\cdot 4! \cdot 4! = 4608$
+\end{proof}
+
+\section{Teorema Stars and Bars}
+\begin{theorem}
+    [Teorema Stars and Bars] Apabila terdapat sebuah persamaan bilangan cacah \[a_1 + a_2 + ... + a_r = n\] dengan $a_1, a_2,...,a_r, n, r$ merupakan bilangan cacah, maka banyak solusi $(a_1, a_2, ...,a_r)$ yang memenuhi adalah $\binom{n + r - 1}{r - 1}$.
+    
+    Jika $a_1, a_2, ..., a_r$ didefinisikan sebagai bilangan asli, maka banyak solusinya menjadi $\binom{n - 1}{r - 1}$
+\end{theorem}
+
+\begin{example}
+    [HMMT Kombinatorika Februari 2014, dimodifikasi] Terdapat $16$ donat yang akan dibagikan kepada Arseniy, Bogdan, Clotaire, dan Damir. Donat-donat tersebut dianggap tidak berbeda. Setiap orang mendapatkan minimal $1$ donat dan tidak ada orang yang mendapat lebih dari setengah donat yang ada. Beraoa banyak cara membagi donat tersebut?
+\end{example}
+
+\begin{proof}
+     Persoalan ini dapat dipandang sebagai persoalan Stars and Bars di bilangan asli dengan $n = 16, r = 4,$ dan sedikit tambahan bahwa setiap $a$ tidak lebih dari 8. Perhitungan dapat dilakukan dengan menghitung banyak pembagian donat sehingga setiap orang mendapatkan donat dikurangi dengan banyak pembagian donat yang memuat satu orang mendapatkan lebih dari delapan donat. Untuk perhitungan yang pertama, cukup gunakan teorema Stars and Bars untuk mendapatkan hasil $\binom{15}{3}$. 
+     
+     Untuk menghitung banyak pembagian donat yang membuat terdapat orang yang mendapatkan lebih dari 8 donat, perhatikanlah terlebih dahulu bahwa dalampembagian tersebut, hanya ada satu orang saja yang mendapat lebih dari 8 donat. Terdapat empat cara untuk memilih orang yang akan mendapat lebih dari 8 donat tersebut. Tanpa mengurangi keumuman, asumsikan bahwa Arseniy yang akan mendapat lebih dari 8 donat tersebut. Notasikan $a, b, c, d$ sebagai banyak donat yang diterima oleh Arseniy, Bogdan. Clotaire, dan Damir. Notasikan pula $a' = a - 8$. Karena Arseniy mendapat lebih dari 8 donat, maka $a'$ adalah bilangan asli dan memenuhi persamaan $a' + b + c + d = 8$. Banyak solusi persamaan yang terakhir ini dapat dihitung dengan teorema Stars and Bars: $\binom{7}{4}$. 
+     
+     Dengan menggabungkan kedua bagian di atas, dapat disimpulkan bahwa banyak cara membagi donat sesuai dengan yang diinginkan adalah $\binom{15}{3} - 4\binom{7}{4} = 315$
+\end{proof}
+
+\section{Koefisien Binomial}
+Beberapa properti yang melibatkan koefisien binomial:
+\begin{enumerate}
+    \item $(x + y)^n = \sum_{i = 0}^n \binom{n}{i} x^iy^{n - i}$
+    \item $\binom{n}{r} = \binom{n}{n - r}$
+    \item $\binom{n}{k}\binom{k}{r} = \binom{n}{r}\binom{n - r}{k - r}$
+    \item $\binom{n}{r} = \binom{n}{r - 1} + \binom{n - 1}{r - 1}$
+    \item $\sum_{i = 0}^k \binom{m}{i}\binom{n}{k - i} = \binom{m + n}{k}$
+\end{enumerate}
+
+\section{Rekursi}
+\begin{example}
+    Seekor semut bergerak dari titik $O(0,0)$ menuju titik $B(n,1)$ di koordinat cartesius dengan $n$ bilangan asli. Jika semut tersebut hanya dapat melewati titik-titik yang dibatasi oleh persegi panjang yang dua titik bersebrangannya adalah $O$ dan $B$, dan setiap kali bergerak, ia hanya dapat memilih salah satu gerak berikut :
+        \begin{enumerate}
+            \item Satu langkah ke kanan
+            \item Satu langkah ke atas
+            \item Diagonal ke kanan bawah
+        \end{enumerate}
+        Ada berapa banyak cara semut tersebut bergerak dari $O$ ke $B$ ?
+\end{example}
+
+\begin{proof}[Solusi]
+     Misalkan banyak cara semut bergerak dari titik $O(0,0)$ ke titik $B_n(n,1)$ adalah $b_n$ dan banyak cara semut bergerak dari titik $O(0,0)$ ke titik $A_n(n,0)$ adalah $a_n$. Maka $a_n$ dan $b_n$ memenuhi persamaan rekursi berikut: \\
+            \begin{enumerate}
+                \item $b_n = b_{n-1} + a_n$
+                \item $a_n = a_{n-1} + b_{n-1}$
+            \end{enumerate}
+        Dari sini didapatkan hubungan 
+            \begin{equation*}
+                \begin{split}
+                    b_{n+1} & = b_n + a_{n+1}\\
+                            & = 2b_n + a_n\\  
+                \end{split}
+            \end{equation*}
+        Sehingga $$a_n = b_{n+1} - 2b_n$$
+        Padahal $a_n = b_n - b_{n-1}$, sehingga
+        $$b_{n+1} - 3b_n + b_{n-1} = 0, n \geq 1$$
+        dengan $b_0 = 1, b_1 = 3$. Dengan menyelesaikan persamaan rekursi ini, didapat $$b_n = \dfrac{\sqrt{5}\big((3 + \sqrt{5})^{n+1} - (3 - \sqrt{5})^{n+1}\big)}{2^n \times 10}$$
+\end{proof}
+
+\section{Latihan}
+\begin{problem}
+    (HMMT Kombinatorika Februari 2014) Hitunglah banyak tripel himpunan $(A, B, C)$ yang memenuhi:
+    \begin{enumerate}
+        \item $A, B, C \subseteq \{1, 2, 3, ..., 8\}$ 
+        \item $|A \cap B| = |B \cap C| = |C \cap A| = 2$
+        \item $|A| = |B| = |C| = 4$
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    (Finlandia MO 2013) Sebuah himpunan bagian $E$ dari himpunan $\{1, 2, 3, ..., 50\}$ disebut \textit{spesial} apabila tidak memuat pasangan anggota yang berbentuk $\{x, 3x\}$. Sebuah himpunan \textit{spesial} disebut sebagai himpunan \textit{superspesial} apabila himpunan tersebut memuat sebanyak mungkin anggota. Tentukan banyak anggota di himpunan \textit{superspesial} dan tentukan banyak himpunan \textit{superspesial}.
+\end{problem}
+
+\begin{problem}
+    (Irlandia MO 2020) Sebuah meja bundar memiliki $2N$ kursi. Dikarenakan aturan \textit{social distancing}, tidak boleh ada dua orang yang duduk di kursi yang bersebelahan. Berapa banyak cara memilih kursi-kursi di meja sehingga dapat diduduki oleh $N - 1$ orang?
+\end{problem}
+
+\begin{problem}
+    (HMMT Kombinatorika Februari 2018) Sebuah jendela berukuran $4 \time 4$ terdiri dari 16 panel kaca. Panel kaca tersebut dapat berwarna merah, kuning, atau hijau. Berapa banyak cara mewarnai semua panel kaca yang ada sedemikian hingga setiap panel kaca memiliki warna yang sama dengan tepat dua panel kaca yang bersebelahan dengannya?
+\end{problem}
+
+\begin{problem}
+    (HMMT Kombinatorika Februari 2018) Seekor semut berada di titik $(0,0)$ hendak pergi ke $(18, 18)$ dengan setiap langkahnya bergerak sejauh 1 unit ke atas atau 1 unit ke kanan. Berapa banyak cara semut tersebut bergerak sehingga ia melakukan perpindahan arah arah sebanyak ganjil kali?
+\end{problem}
+
+\begin{problem}
+    (Kanada MO 2004) Berapa banyak cara menaruh delapan bidak benteng di papan catur berukuran $9 \times 9$ sedemikian hingga semua bidak terletak di petak yang berwarna sama dan tidak ada sepasang bidak benteng yang terletak di kolom atau baris yang sama?
+\end{problem}
+
+\begin{problem}
+    (HMMT Gut November 2018) Sebuah labirin $m \times n$ adalah sebuah grid berukuran $n \times n$ yang seluruh petaknya berupa dinding atau lahan kosong. Sebuah labirin disebut sebagai $valid$ apabila terdapat jalan dari petak pojok kiri atas ke petak pojok kanan bawah yang semuanya melewati petak-petak lahan kosong. Banyak labirin berukuran $2\times 5$ yang valid adalah .... 
+\end{problem}
+
+\begin{problem}
+    (HMMT Gut November 2018) Abbot menuliskan huruf $A$ di papan tulis. Setiap menitnya, Abbot menuliskan string baru dari string yang sebelumnya yang ada di papan dengan mengganti semua kemunculan $A$ menjadi $AB$ dan $B$ menjadi $BA$. Setelah $10$ menit, terdapat $1024$ huruf yang ada di papan tulis. Berapa banyak pasangan huruf berurutan yang sama?
+\end{problem}
+
+\begin{problem}
+    (Kanada MO 2005) Perhatikan sebuah segitiga sama sisi dengan panjang sisi bilangan asli $n$. Segitiga ini dibagi menjadi beberapa segitiga satuan. Notasikan $f(n)$ sebagai banyak jalur pergerakan dari segitiga satuan paling atas ke segitiga satuan tengah di baris paling bawah dengan syarat jalur tersebut hanya boleh bergerak ke segitiga satuan lain yang bersisian, tidak boleh ada pergerakan ke baris atas, dan tidak boleh kembali ke segitiga satuan yang sudah dikunjungi. Tentukan nilai dari $f(2021)$
+\end{problem}
+
+\begin{problem}
+    (Kanada MO 2009) Diberikan sebuah papan berukuran $m \times n$ yang seluruh petaknya berwarna hitam atau putih. Sebuah petak hitam di papan disebut sebagai \textit{terdampar} apabila terdapat petak putih di sebelah kirinya pada baris yang sama dan terdapat petak putih di sebelah atasnya pada kolom yang sama. Tentukan banyak papan berukuran $2\times 2021$ yang tidak memuat petak hitam yang \textit{terdampar}.
+\end{problem}
+
+\begin{problem}
+    (Kanada MO 2019) Misalkan $m$ dan $n$ adalah dua bilangan asli. Sebuah papan berukuran $2m \times 2n$ satuan diwarnai secara selang-seling seperti papan catur. Tentukan banyak cara menaruh $mn$ buah bidak di petak putih yang ada di papan sedemikian hingga tidak ada bidak yang bersebelahan secara diagonal.  
+\end{problem}
+
+\end{document}

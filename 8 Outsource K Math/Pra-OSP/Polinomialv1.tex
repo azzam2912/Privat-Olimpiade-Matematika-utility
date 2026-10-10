@@ -1,0 +1,95 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\begin{document}
+\title{Polinomial}
+\author{Azzam and Akeyla}
+\date{Mar 2023}
+\maketitle
+
+\section{Pengertian}
+Polinomial dengan derajat $n$ adalah sebuah bentuk aljabar $p(x)$ yang memenuhi $$p(x) = a_nx^n + a_{n - 1}x^{n - 1} + ... + a_0$$ dengan $a_n \neq 0$. $a_r$ disebut sebagai koefisien dari $x^r$.\\
+Setiap polinomial $p(x)$ dapat difaktorkan menjadi $$p(x) = a_n(x-r_1)(x-r_2)...(x-r_n)$$Bilangan-bilangan $r_1, ..., r_n$ disebut sebagai akar dari polinomial $p(x)$. Di antara akar-akar ini, bisa jadi ada yang sama.\\
+Jika diketahui $p(a) = 0$ untuk suatu bilangan $a$, maka $p(x) = (x - a)q(x)$ dengan $q(x)$ juga polinomial.\\
+
+\section{Properti dasar}
+\begin{enumerate}
+    \item Untuk setiap polinomial $P(x)$ dan $Q(x)$, hubungan dari derajat keduanya adalah :
+    \begin{enumerate}
+        \item $deg(PQ) = deg(P) + deg(Q)$
+        \item $deg(aP + bQ) \leq max\{deg(P),deg(Q)\}$
+    \end{enumerate} 
+    \item \textit{Algoritma Pembagian Polinomial}. Diberikan polinomial $A(x)$ dan $B(x)$ dengan $B(x)$ bukan polinomial nol, maka terdapat secara unik polinomial $P(x)$ dan $Q(x)$ sedemikian hingga $A(x) = P(x)*B(x) + Q(x)$ dimana $deg(Q) < deg(B)$. Polinomial $P(x)$ disebut sebagai hasil bagi dan $Q(x)$ disebut sebagai sisa pembagian. Secara khusus, jika $Q(x)$ adalah poliomial nol, maka $B(x)$ disebut sebagai faktor dari $A(x)$.
+    \item \textit{Teorema Sisa pembagian}. Jika polinomial $P(x)$ dibagi oleh $x-a$, maka sisa pembagiannya adalah $P(a)$. 
+    \item \textit{Teorema Faktor}. Jika $P(a) = 0$, maka $x-a$ adalah faktor dari $P(x)$.
+    \item Apabila $P(x)$ merupakan sebuah polinomial dengan koefisien bilangan bulat, maka $x - a$ selalu habis membagi $P(x) - P(a)$
+    \item \textit{Teorema Fundamental Aljabar}. Setiap polinomial $P(x)$ dengan derajat $n \geq 1$ memiliki tepat $n$ akar kompleks (tidak harus berbeda) yang unik. Sehingga $P(x) = a_n(x-r_1)(x-r_2)...(x-r_n)$ dimana $a_n$ adalah \textit{leading coefficient} dan $r_1,r_2,...,r_n$ adalah akar-akar kompleks yang tidak harus berbeda.
+    \item \textit{Teorema Vieta}. Diberikan polinomial $P(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_0$ adalah polinomial dengan koefisien kompleks dengan $a_n \neq 0$ dan misalkan $r_1,r_2,...,r_n$ adalah akar-akar dari $P$ (berlaku multiplisitas). Maka $$\sum_{i=1}^n r_i = -\frac{a_{n-1}}{a_n}$$ , $$\sum_{1\leq j \leq k \leq n} r_jr_k = \frac{a_{n-2}}{a_n}$$
+    Dan secara umum untuk $1 \leq k \leq n$, jumlah seluruh perkalian sebanyak $k$ akar-akar dari polinomial = $$(-1)^k \frac{a_{n-k}}{a_n}$$ 
+    \item Setiap polinomial berderajat ganjil pasti memiliki setidaknya satu akar real
+    \item Jika $P(x)$ adalah polinomial dengan koefisien real, maka untuk tiap $z$ akar kompleks dari $P$, maka $\bar{z}$ juga merupakan akar kompleks dari $P$. Konsekuensinya, setiap polinomial berderajat ganjil memiliki setidaknya satu akar real.
+    \item \textit{Teorema Nilai Antara}. Jika $P(x)$ adalah suatu fungsi yang kontinu di interval $[a,b], P(a) = x, P(b) = y$, maka untuk tiap bilangan $z$ di interval $[x,y]$ (atau $[y,x]$), terdapat suatu bilangan $c$ di interval $[a,b]$ sedemikian hingga $P(c) = z$. Secara khusus, hal ini berarti apabila terdapat suatu bilangan $a,b$ dan polinomial $P$, serta $P(a)>0>P(b)$, maka $P(x)$ memiliki akar real yang terletak di antara $a$ dan $b$.
+\end{enumerate}
+
+\section{Contoh soal}
+\begin{example}
+    Diberikan sebuah polinomial berderajat 5 yang memenuhi $p(1) = 10, p(2) = 20, p(3) = 30, p(4) = 40, p(5) = 50$, dan $p(0) = -12$. Tentukan nilai $p(6)$
+\end{example}
+
+\begin{example}
+    (KSK 2021 Kemampuan Dasar) Bilangan asli $n$ dikatakan \textit{menarik} apabila terdapat suku banyak (polinom) dengan koefisien bilangan bulat $P(x)$ yang memenuhi $P(7) = 2021$ dan $P(n) = 2045$. Banyak bilangan prima yang \textit{menarik} adalah ...
+\end{example}
+
+\begin{example}
+    (OSK 2022 Kemampuan Dasar) Jika sisa pembagian $x^{2021} + x^{1011} + x^{506} + x^{258} + x^{127}$ oleh $x^2 - 1$ adalah $Ax + B$, maka nilai dari $4A + 5B$ adalah ...
+\end{example}
+
+\section{Soal}
+\begin{problem}
+    (Israel MO 2014) Misal $p$ adalah polinomial berkoefisien bilangan bulat yang memenuhi $p(16) = 36, p(14) = 16,$ dan $p(5) = 25$. Buktikan bahwa semua nilai yang mungkin dari $p(10)$ pasti habis dibagi oleh $60$
+\end{problem}
+
+\begin{problem}
+    Diberikan sebuah polinomial berderajat 5 yang memenuhi $p(i) = \frac{i}{i + 1}$ untuk $i = 0,1,2,3,4,5$. Tentukan nilai $p(6)$.
+\end{problem}
+
+\begin{problem}
+(AIME II 2020) Misal $P(x) = x^2 - 3x - 7$. Polinomial $Q$ dan $R$ adalah polinomial kuadrat monik. Diketahui bahwa setiap pasang dari polinomial $P+Q, Q+R, $  dan $R+P$ memiliki akar yang sama dan ketiga akar ini berbeda. Jika $Q(0) = 2,$ nilai dari $R(0)$ adalah ... 
+\end{problem}
+
+\begin{problem}
+    (Thailand MO 2022) Tentukan semua bilangan asli $n$ sedemikian hingga terdapat sebuah polinomial monik $P(x)$ berderajat $n$ dan berkoefisien bilangan bulat dan untuk setiap bilangan bulat $a, b, c$ berlaku $P(a)P(b) \neq P(c)$
+\end{problem}
+
+\begin{problem}
+    (Brazil MO 2007) Diberikan polinomial $p(x) = x^2 + 2007x + 1$. Notasikan polinomial $p_n(x) = p_{n - 1}(p(x))$ dan $p_0(x) = p(x)$. Buktikan bahwa untuk setiap bilangan asli $n$, $p_n(x)$ memiliki setidaknya satu akar real. 
+\end{problem}
+
+\begin{problem}
+    (Bangladesh MO 2021) $P(x)$ adalah polinomial dengan koefisien yang merupakan bilangan cacah. Jika $P(1) = 5$ dan $P(P(1)) = 177$, tentukan semua nilai yang mungkin bagi $P(10)$.
+\end{problem}
+
+\begin{problem}
+    (Tes Pra-Pelatnas Arab Saudi 2014) Buktikan bahwa polinomial $p(x) = (x^2 - 12x + 11)^4 + 23$ tidak bisa dinyatakan sebagai perkalian tiga polinomial nonkonstan dengan koefisien bilangan bulat
+\end{problem}
+
+% \begin{problem}
+% (Belarus MO 2019) Bilangan real positif $a, b$ memenuhi persyaratan berikut: Polinomial $P(x) = x^3 + ax^2 + 2bx - 1$ memiliki tiga akar real berbeda sedangkan polinomial $Q(x) = 2x^2 + 2bx + a$ tidak punya akar real. Buktikan bahwa $a - b > 1$. 
+% \end{problem}
+
+% \begin{problem}
+% (Belarus MO 2019) Tentukan semua polinomial nonkonstan berkoefisien real $P$ dan $Q$ yang memenuhi persamaan $P(Q(x)) = P(x)Q(x) - P(x)$.
+% \end{problem}
+
+% \begin{problem}
+% (HMMT Februari 2020) Diberikan polinomial $P(x)$ berderajat maksimal $2020$ yang memenihi $P(k^2) = k$ untuk $k = 0, 1, ..., 2020$. Tentukan nilai dari $P(2021^2)$.
+% \end{problem}
+
+\begin{problem}
+(Kanada MO 2013) Tentukan semua polinomial $P(x)$ dengan koefisien real sehingga \[(x + 1)P(x - 1) - (x - 1)P(x)\] merupakan polinomial konstan.
+\end{problem}
+    
+\end{document}

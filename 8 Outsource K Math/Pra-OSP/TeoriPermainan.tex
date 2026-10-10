@@ -1,0 +1,85 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Teori Permainan}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+
+\section{Definisi Permainan dalam Kombinatorika}
+\begin{enumerate}
+    \item Pemain terdiri dari dua orang yang bermain secara bergantian
+    \item Memiliki posisi awal
+    \item Memiliki beberapa langkah yang dapat dilakukan pada tiap giliran
+    \item Tidak boleh berakhir seri
+    \item Tidak boleh berlangsung terus-menerus
+    \item Posisi permainan tidak dapat berulang
+    \item Langkah yang dilakukan harus terdefinisi dan deterministik
+\end{enumerate}
+Dalam sebuah permainan, biasanya diasumsikan bahwa kedua pemain bermain secara optimal. Artinya, suatu pemain tidak akan mengambil langkah yang membuatnya kalah apabila ada langkah yang dapat membuatnya menang
+
+\section{Posisi permainan}
+Terdapat dua tipe posisi permainan: posisi menang dan posisi kalah.
+
+Posisi menang adalah posisi yang apabila seorang pemain mendapatkan posisi tersebut pada gilirannya, ia dipastikan akan menang jika melakukan langkah yang benar.
+Posisi menang adalah posisi yang dapat diubah menjadi posisi kalah hanya dalam satu langkah.
+
+Posisi kalah adalah posisi yang apabila seorang pemain mendapatkan posisi tersebut pada gilirannya, ia dipastikan akan kalah jika pemain yang lain bermain dengan benar.
+Posisi kalah adalah posisi yang berubah menjadi posisi menang apapun langkah yang dimainkannya.
+
+\section{Strategi menang}
+Strategi seorang pemain yang berada di posisi menang untuk memaksa pemain yang lain mendapatkan posisi kalah pada tiap gilirannya.
+
+\begin{example}
+Diberikan $100$ batu di meja. A dan B bermain dengan $100$ batu tersebut secara bergantian. Setiap gilirannya, pemain dapat mengambil $1$ sampai $10$ batu (jika ada). Pemain yang menang adalah pemain yang dapat mengambil batu terakhir. Jika A mendapat giliran pertama, siapa yang memiliki strategi menang?
+\end{example}
+
+\subsection{Simetri}
+\begin{example}
+Terdapat banyak sekali koin berjari-jari $0,5$ cm. A dan B secara bergantian menaruh koin pada meja bundar berjari-jari $30$ cm sehingga tidak ada koin yang bertumpuk. Pemain yang tidak dapat menaruh koin kalah. Siapa yang memiliki strategi menang?
+\end{example}
+
+\section{Soal-soal}
+\begin{problem}
+Ada $n$ batu di meja. Mio dan Ritsu secara bergantian mengambil sebanyak $1$ atau prima batu dari meja. Pemain yang mengambil batu terakhir adalah pemenangnya. Jika Mio bermain terlebih dahulu, untuk nilai $n$ berapa sajakah Mio menang?
+\end{problem}
+
+\begin{problem}
+Ada dua tumpukan batu yang masing-masing terdiri dari $100$ batu. Upin dan Ipin secara bergantian mengambil beberapa batu dari satu tumpukan. Upin mendapat giliran pertama. Pemain yang mengambil batu terakhir menang. Siapakah yang memiliki strategi menang?
+Bagaimana kalau ada tiga tumpukan batu?
+\end{problem}
+
+\begin{problem}
+    [Auckland MO 2018] Alice dan Bob bermain sebuah permainan. Mereka berdua secara bergantian menuliskan bilangan asli yang tidak lebih dari $2018$. Bilangan yang sudah pernah ditulis di papan tulis tidak boleh ditulis lagi. Seorang pemain menang apabila setelah gilirannya selesai, terdapat tiga bilangan di papan yang membentuk barisan aritmetika. Apabila Alice mendapat giliran pertama, siapakah yang akan memiliki strategi menang? 
+\end{problem}
+
+\begin{problem}
+Terdapat sebuah papan catur $8 \times 8$ dan sebuah bidak benteng yang berada di petak kiri bawah. Benteng ini hanya bisa bergerak lurus ke atas dan ke kanan. Alpha dan Beta secara bergantian menggerakkan benteng ini agar sampai di petak kanan atas. Pemain yang berhasil menggerakkan benteng ke petak kanan atas menang. Jika Alpha mendapat giliran pertama, siapakah yang memiliki strategi menang?
+\end{problem}
+
+\begin{problem}
+Tertulis bilangan $120$ di papan tulis. Abdel dan Temon secara bergantian mengurangkan bilangan yang ada di papan tulis dengan salah satu faktor positifnya dan mengganti bilangan yang ada di papan dengan hasil tersebut. Pemain yang menuliskan angka $0$ kalah. Jika Abdel bermain terlebih dahulu, siapakah yang memiliki strategi menang?
+\end{problem}
+
+\begin{problem}[OSP 2017]
+Pada suatu papan catur berukuran $2017 \times n$, Ani dan Banu melakukan permen. Pemain pertama memilih suatu persegi dan kemudian mewarnainya dengan warna merah. Pemain berikutnya memilih suatu persegi dari daerah yang belum diberi warna merah dan kemudian mewarnainya dengan warna merah. Persegi yang dipilih boleh sebarang ukuran namun harus tepat menutup sejumlah persegi satuan pada papan catur. Kemudian kedua pemain bergantian melakukan hal tersebut. Seorang pemain dikatakan menang jika pemain berikutnya tidak bisa lagi melanjutkan permainan. Jika Ani mendapat giliran pertama, tentukan semua nilai $n \geq 2017$ sehingga Ani mempunyai strategi untuk memenangkan permainan.
+\end{problem}
+
+\begin{problem}
+Diberikan $n$ batu di meja. Secara bergantian, Yuuta dan Rikka mengambil $1, 3$, atau $8$ batu dari meja. Pemain yang mengambil batu terakhir menang. Jika Yuuta mendapat giliran pertama, untuk nilai $n$ berapakah Rikka memiliki strategi menang?
+\end{problem}
+
+\begin{problem}
+Diberikan sebuah batu di papan catur berukuran $n \times n$. Batu ini terletak di petak sebelah sudut. Yui dan Azusa secara bergantian menggerakkan batu ke petak yang bersebelahan dan belum pernah dilewati sebelumnya. Pemain yang tidak bisa menggerakkan batu kalah. Yui mendapat giliran pertama. Untuk nilai $n$ berapakah Yui menang?
+\end{problem}
+
+\begin{problem}[Soal 4, extended]
+Tertulis bilangan $120$ di papan tulis. Abdel dan Temon secara bergantian mengurangkan bilangan yang ada di papan tulis dengan salah satu faktor positifnya yang \textbf{bukan $1$ atau bilangan itu sendiri} dan mengganti bilangan yang ada di papan dengan hasil tersebut. Pemain yang tidak dapat melakukan langkah kalah. Jika Abdel bermain terlebih dahulu, siapakah yang memiliki strategi menang?
+\end{problem}
+
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Excircle}
+\author{Azzam and Akeyla}
+\date{Januari 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Definisi}
+\begin{definition}
+Diberikan sebuah segitiga $ABC$. $A$-excircle adalah lingkaran yang bersinggungan dengan segmen garis $BC$, sinar garis $AB$, dan sinar garis $AC$. Titik pusat dari $A$-excircle disebut sebagai $A$-excenter.
+\end{definition}
+
+\section{Pengenalan Konfigurasi}
+Diberikan segitiga $ABC$. Notasikan:
+\begin{enumerate}
+    \item $I$ sebagai incenter, $I_A, I_B, I_C$ sebagai $A-, B-, $ dan $C-$excenter
+    \item $\omega_A, \omega_B, \omega_C$ sebagai $A-, B-, $ dan $C-$ excircle
+    \item $O$ sebagai titik pusat lingkaran luar $ABC$
+    \item $\Omega$ sebagai lingkaran luar $ABC$
+    \item $\omega_0$ sebagai lingkaran dalam $ABC$
+    \item $A_1$ sebagai perpotongan $AI$ dan $\Omega$. Dengan cara yang sama, definisikan $B_1, C_1$
+    \item $A_0, B_0, C_0$ perpotongan $\omega_0$ dengan $BC, CA, AB$
+    \item $A'_0, B'_0 , C'_0$ adalah antipodal dari $A_0, B_0, C_0$ terhadap $\omega_0$
+    \item $A_a, B_a, C_a$ perpotongan $\omega_A$ dengan $BC, CA, AB$. Dengan cara yang sama, definisikan $A_b, B_b, C_b, A_c, B_c, C_c$
+    \item $A'_a, B'_a, C'_a$ adalah antipodal dari $A_a$ terhadap $\omega_A$. Dengan cara yang sama, definisikan $A'_b, B'_b, C'_b, A'_c, B'_c, C'_c$
+    \item Panjang $AB, BC, CA$ adalah $c, a, b$ dan $s = \dfrac{a + b + c}{2}$
+    \item $AH_a, BH_b, CH_c$ adalah garis tinggi di segitiga $ABC$.
+    \item $A_h, B_h, C_h$ adalah titik tengah $AH_a, BH_b, CH_c$.
+\end{enumerate}
+Buktikanlah properti-properti berikut:
+\begin{enumerate}
+    \item $I_A$ adalah perpotongan garis bagi dalam sudut $A$, garis bagi luar sudut $B$, dan garis bagi luar sudut $C$. Demikian pula dengan $I_B$ dan $I_C$
+    \item $A_1I = A_1B = A_1C$.
+    \item $IBI_AC, IAI_BC, IAI_CB$ adalah segiempat siklis.
+    \item $A_1$ adalah titik pusat lingkaran luar segiempat $IBI_AC$.
+    \item $I_A,C,I_B$ segaris. Demikian pula dengan $I_BAI_C$ dan $I_CAI_B$.
+    \item Incenter dari segitiga $ABC$ merupakan titik tinggi dari $I_AI_BI_C$.
+    \item $BA_a = CA_0, CB_b = AB_0, AC_c = BC_0$
+    \item Panjang jari-jari $\omega_A, \omega_B, \omega_C$ adalah $\dfrac{L}{s - a}, \dfrac{L}{s - b}, \dfrac{L}{s - c}$
+    \item $A, A'_0, A_a$ segaris. Dengan cara yang serupa, $B, B'_0, B_b$ dan $C, C'_0, C_c$ juga segaris
+    \item $AA_a, BB_b, CC_c$ berpotongan di satu titik. Titik ini disebut sebagai titik Nagel
+    \item $A, A_0, A'_a$ segaris. Dengan cara yang serupa, $B, B_0, B'_b$ dan $C, C_0, C'_c$ juga segaris
+    \item $A_h, I, A_a$ segaris dan begitu pula dengan $B_h, I, B_b$ dan $C_h, I, C_c$
+    \item $A_h, A_0, I_A$ segaris dan begitu pula dengan $B_h, B_0, I_B$ dan $C_h, C_0, I_C$
+\end{enumerate}
+
+\section{Soal}
+\subsection{Mudah}
+\begin{problem}
+    [HMMT 2013, dimodifikasi] Diberikan segitiga $ABC$ dengan $2BC = AB + AC$ dan incenter $I$ serta lingkaran luar $\omega$. Misal $D$ adalah perpotongan $AI$ dan $\omega$ yang bukan $A$. Buktikan bahwa:
+    \begin{enumerate}
+        \item $I$ adalah titik tengah $AD$
+        \item $OI$ tegak lurus dengan $AI$
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    [ToT 1999 Autumn A-level] Titik $K, L$ terletak di sisi $AC, BC$ dari segitiga $ABC$ dan merupakan titik singgung dari B-excircle dan A-excircle dengan sisi di hadapannya. Buktikan garis lurus yang menghubungkan titik tengah $KL$ dan titik tengah $AB$ akan:
+    \begin{enumerate}
+        \item Membagi keliling $ABC$ menjadi dua bagian yang sama panjang
+        \item Sejajar dengan garis bagi dalam $\angle{ACB}$
+    \end{enumerate}
+\end{problem}
+
+\subsection{Menengah}
+\begin{problem}
+    [Spanyol 2021] $ABC$ adalah segitiga dengan $AB \neq AC$. $I$ adalah incenter $ABC$. $\gamma$ adalah lingkaran dalam $ABC$. $D$ adalah titik tengah $BC$. Garis singgung (selain garis $BC$) ke $\gamma$ dari $D$ memotong $\gamma$ di titik $E$. Buktikan bahwa $AE$ dan $DI$ sejajar
+\end{problem}
+
+\begin{problem}
+    [Sharygin MO XVII] Segitiga $ABC$ memiliki lingkaran luar $\Omega$ dan incenter $I$. Titik $M$ adalah titik tengah busur $BAC$. $AI$ memotong $\Omega$ di $N \neq A$. $A$-excircle menyinggung $BC$ di $E$. Titik $Q \neq I$ terletak di lingkaran luar $MIN$ sehingga $QI$ sejajar dengan $BC$. Buktikan bahwa $AE$ dan $QN$ berpotongan di titik yang terletak di keliling $\Omega$    
+\end{problem}
+
+\subsection{Susah}
+\begin{problem}
+    [USAMO 1999] Misal $ABCD$ adalah trapesium sama kaki dengan $AB$ sejajar $CD$. $\omega$ adalah lingkaran dalam dari $BCD$ yang menyinggung $CD$ di $E$. Misal $F$ adalah titik di garis bagi sudut $angle{DAC}$ sehingga $EF$ tegak lurus dengan $CD$. Lingkaran luar $ACF$ memotong garis $CD$ di titik $C$ dan $G$. 
+\end{problem}
+
+
+\end{document}

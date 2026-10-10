@@ -1,0 +1,219 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+
+\title{Keterbagian}
+\author{Azzam and Akeyla}
+\date{Maret 2023}
+
+\begin{document}
+
+\maketitle
+\section{Keterbagian}
+Diberikan dua buah bilangan bulat $a$ dan $b$ dengan $a \neq 0$. Kita menyebut $a$ membagi $b$ apabila terdapat suatu bilangan bulat $c$ sedemikian hingga $b = ca$. Kita akan menotasikan ini dengan $a|b$.
+
+\subsection{Sifat keterbagian terhadap bilangan-bilangan kecil}
+\begin{enumerate}
+    \item Sebuah bilangan asli habis dibagi 2 apabila digit terakhirnya habis dibagi oleh 2
+    \item Sebuah bilangan asli habis dibagi 4 apabila dua digit terakhirnya habis dibagi oleh 4
+    \item Sebuah bilangan asli habis dibagi 8 apabila tiga digit terakhirnya habis dibagi oleh 8
+    \item Secara umum, sebuah bilangan asli habis dibagi oleh $2^n$ apabila $n$ digit terakhirnya habis dibagi oleh $2^n$ untuk setiap bilangan asli $n$
+    \item Sebuah bilangan asli habis dibagi oleh 5 apabila digit terakhirnya habis dibagi oleh 5 (yakni 0 atau 5)
+    \item Sebuah bilangan asli habis dibagi oleh 25 apabila dua digit terakhirnya habis dibagi oleh 25 (yakni 00,25,50 atau 75)
+    \item Secara umum, sebuah bilangan asli habis dibagi oleh $5^n$ apabila $n$ digit terakhirnya habis dibagi oleh $5^n$ untuk setiap bilangan asli $n$
+    \item Sebuah bilangan asli habis dibagi oleh $3$ apabila jumlah digit bilangan tersebut habis dibagi $3$
+    \item Sebuah bilangan asli habis dibagi 9 apabila jumlah digit bilangan tersebut habis dibagi 9
+    \item Sebuah bilangan asli habis dibagi 11 apabila selisih jumlah digit di tempat ganjil dan jumlah digit di tempat genap juga habis dibagi 11
+    \item Sebuah bilangan habis dibagi $10^n$ apabila n digit terakhirnya sama dengan 0
+    \item Sebuah bilangan habis dibagi $ab$ untuk bilangan asli $a$ dan $b$ yang relatif prima (tidak punya faktor bersama selain 1) apabila bilangan tersebut habis dibagi oleh $a$ dan $b$
+    
+    Untuk seterusnya, untuk sebuah bilangan asli $n$, notasikan $f(n)$ sebagai bilangan asli yang terbentuk dari menghapus digit terakhir dari $n$ jika $n$ memiliki minimal dua digit dan sama dengan $0$ jika $n$ hanya punya satu digit. Notasikan pula $g(n)$ sebagai digit terakhir dari $n$. Sebagai contoh $f(421)=42$ dan $g(421)=1$
+
+    \item Sebuah bilangan asli $n$ habis dibagi oleh $7$ apabila $f(n)-2g(n)$ juga habis dibagi oleh $7$
+    \item Sebuah bilangan asli $n$ habis dibagi oleh $13$ apabila $f(n)-9g(n)$ juga habis dibagi oleh $13$
+    \item Sebuah bilangan asli $n$ habis dibagi oleh $17$ apabila $f(n)-5g(n)$ juga habis dibagi oleh $17$
+    \item Sebuah bilangan asli $n$ habis dibagi oleh $19$ apabila $f(n)-17g(n)$ juga habis dibagi oleh $19$
+    \item Sebuah bilangan asli $n$ habis dibagi oleh $23$ apabila $f(n)-16g(n)$ juga habis dibagi oleh $23$
+\end{enumerate}
+
+\subsection{Latihan Sifat Keterbagian Bilangan}
+\begin{problem}
+    (Afrika Selatan MO 2006) Sederhanakan pecahan $$\frac{2121212121210}{1121212121211}$$ ke bentuk paling sederhana.
+\end{problem}
+
+\begin{problem}
+    (Afrika Selatan MO 2021) Tentukan bilangan asli terkecil dan terbesar dengan representasi digit yang berbentuk $ababa (a \neq 0)$ dan habis dibagi $11$.
+\end{problem}
+
+\begin{problem}
+    (AIME 1984) Bilangan asli $n$ adalah bilangan asli terkecil yang habis dibagi oleh $15$ dan semua digitnya sama dengan $8$ atau $0$. Tentukan nilai dari $\frac{n}{15}$.
+\end{problem}
+
+\begin{problem}
+    (Kualifikasi Chile MO 2017)
+    Dengan menggunakan dua digit berbeda $2$ dan $d$, bilangan $90$ digit $m = 2d22d222d2222d...$ habis dibagi oleh $9$. Tentukan semua nilai yang mungkin dari $d$.
+\end{problem}
+
+\begin{problem}
+    (El Salvador MO 2020) Perhatikan bilangan $$x_n =\overline{abaabaaab...b}\overline{\underbrace{a...a}_{n\,\, kali}{b}}$$ dengan $a\neq 0$ dan $b$ keduanya merupakan digit. Tentukan banyak bilangan asli $n$ dengan $1 \leq n \leq 2020$ sedemikian hingga $x_n$ habis dibagi oleh $11$ tak peduli apapun nilai $a$ dan $b$.
+\end{problem}
+
+\subsection{Beberapa Properti}
+\begin{enumerate}
+\item Untuk setiap bilangan bulat $a \neq 0$, $a|0$
+\item Untuk setiap bilangan bulat $a \neq 0$, $a|a$
+\item Untuk setiap bilangan bulat $a,b \neq 0$, jika $a|b$ dan $b|c$, maka $a|c$
+\item Untuk setiap bilangan bulat $a \neq 0$, jika $a|b$ dan $a|c$, maka $a|\alpha b + \beta c$ untuk setiap bilangan bulat $\alpha, \beta$
+\item Untuk setiap bilangan bulat $a,b \neq 0$ dengan $a|b$, maka $|a|\leq |b|$
+\item Untuk setiap bilangan bulat $a,b \neq 0$ dengan $a|b$ dan $b|a$, maka $|a| = |b|$
+\end{enumerate}
+\subsection{Algoritma Pembagian}
+Untuk setiap bilangan asli $a,b$, terdapat pasangan \textbf{unik} bilangan cacah $(q,r)$ yang memenuhi $$b = qa + r,  r<a$$ 
+% \textbf{Bukti :} \\
+% Jika $a > b$, maka $q = 0$ dan $r = b$\\
+% Jika $a = b$, maka $q = 1$ dan $r = 0$\\
+% Jika $a < b$, maka ambil $q$ sebagai bilangan bulat terkecil yang memenuhi $(q + 1)a > b$. Maka $qa \leq b$ dan $r = b - qa$ memenuhi $0 \leq r < a$.\\
+% Untuk membuktikan keunikan, asumsikan terdapat dua pasangan $(q,r)$ dan $(q',r')$ yang memenuhi properti tersebut, maka $aq + r = aq' + r'$. Akibatnya, $a(q - q') = (r' - r)$ dan $a| r' - r$. Maka, $|r' - r| \geq a$ atau $|r' - r| = 0$. Kemungkinan pertama tidak mungkin dapat dicapai karena $0 \leq r,r' < a$. Maka $r' = r$ dan $q = q'$.
+
+\subsection{Contoh soal}
+\begin{problem}
+    Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 | 100$
+\end{problem}
+
+\begin{problem}
+    Carilah semua bilangan bulat $h$ yang memenuhi $n + 1 | n^2 + 99$
+\end{problem}
+
+\subsection{Latihan Keterbagian}
+\begin{problem}
+    Carilah semua bilangan asli $n$ sehingga $n + 1| n^2 + 1$.
+\end{problem}
+
+\begin{problem}
+    Carilah semua bilangan asli $n$ sehingga $n + 10| n^3 + 100$
+\end{problem}
+
+\begin{problem}
+    (Finlandia MO 2001) Tentukan semua bilangan asli $n$ sedemikian hingga $n^2 + 2$ habis membagi $2 + 2001n$
+\end{problem}
+
+\begin{problem}
+    (India PRMO 2014) Banyak bilangan asli $n$ di antara $1$ sampai $2014$ sehingga $\frac{8n}{9999 - n}$ merupakan bilangan bulat adalah ...
+\end{problem}
+
+\begin{problem}
+    Diberikan sebuah barisan sepuluh bilangan asli naik tegas sedemikian hingga setiap bilangan membagi bilangan berikutnya. Jika diketahui jumlah kesepuluh bilangan tersebut adalah $1918$, maka semua kemungkinan bilangan kesepuluh dari barisan tersebut adalah?
+\end{problem}
+
+\begin{problem}
+    Tentukan semua nilai bilangan asli $n$ sedemikian hingga $\lfloor \sqrt{n} \rfloor$ membagi $n$
+\end{problem}
+
+% \newpage
+
+% \section{Bilangan Prima}
+% Suatu bilangan disebut sebagai bilangan prima apabila hanya ada tepat satu bilangan $d>1$ yang membagi $p$, yakni $d = p$. Bilangan asli yang $n>1$ disebut sebagai komposit jika $n$ bukan bilangan prima.
+% \subsection{Teorema Faktorisasi Prima}
+% Setiap bilangan asli $n > 1$ dapat dipresentasikan secara unik sebagai perkalian dari bilangan- bilangan prima.\\
+% Sebagai akibat dari teorema di atas, setiap biangan asli $n > 1$ dapat dinyatakan secara unik dalam bentuk $$n = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$$ dimana $p_1,p_2,...,p_k$ adalah bilangan prima berbeda dan $\alpha_1,\alpha_2,...,\alpha_k$ adalah bilangan asli.
+% \subsection{Beberapa Properti yang Sering Digunakan}
+% \begin{enumerate}
+% \item Banyak bilangan prima adalah tak hingga
+% \item Setiap bilangan prima yang lebih besar dari $3$ pasti berbentuk $6k \pm 1$ untuk suatu bilangan asli $k$
+% \item Jika $a,b$ adalah bilangan bulat dan $p$ bilangan prima sehingga $p|ab$, maka $p|a$ atau $p|b$ (atau keduanya)
+% \end{enumerate}
+
+% \subsection{Latihan Bilangan Prima}
+% \begin{problem}
+%     Tentukan semua bilangan asli $n$ sedemikian hingga $3n - 4, 4n - 5$, dan $5n - 3$ semuanya merupakan bilangan prima
+% \end{problem}
+
+% \begin{problem}
+%     (OSK 2011) Tentukan semua bilangan asli $p$ sedemikian hingga $p, p + 8$, dan $p + 16$ semuanya merupakan bilangan prima
+% \end{problem}
+
+% \begin{problem}
+%     Tentukan semua bilangan asli $a, b$ sedemikian hingga $a^4 + 4b^4$ merupakann bilangan prima.
+% \end{problem}
+
+% \begin{problem}
+%     (OSP 2010) Tentukan semua bilangan prima $p$ sehingga $p^2 + 7^3$ merupakan bilangan kubik.
+% \end{problem}
+
+% % \subsection{Soal-Soal}
+% % \begin{enumerate}
+% % \item Buktikan bahwa bilangan prima $> 3$ selalu berbentuk $6k \pm 1$ untuk sutau bilangan asli $k$.
+% % \item Buktikan bahwa untuk $p>3$ prima, $24|p^2 - 1$
+% % \item Tunjukkan bahwa untuk $a,b$ bilangan asli,  $a^4 + 4b^4$ merupakan bilangan prima hanya saat $a = b = 1$
+% % \item Jika $p$ adalah bilangan prima ganjil dan $\dfrac{a}{b} = \dfrac{1}{1} + \dfrac{1}{2} + ... + \dfrac{1}{p - 1}$, buktikan bahwa $p|a$
+% % \item Buktikan bahwa jika $a^n + 1$ dan $a$ bilangan asli yang lebih besar dari 1, maka $a$ genap dan $n = 2^k$ untuk suatu bilangan cacah $k$. Bilangan prima dalam bentuk $2^{2^k} + 1$ disebut sebagai bilangan prima Fermat.
+% % \item Buktikan bahwa jika $a^n - 1$ dan $a$ bilangan asli yang lebih besar dari 1, maka $a = 2$ dan $n$ prima. Bilangan prima dalam bentuk $2^n - 1$ disebut sebagai bilangan prima Mersenne.
+% % \item Misalkan $p,q,r$ adalah bilangan prima yang memenuhi $p^2 + q^2 = r^n$ dengan $n$ adalah bilangan asli. Tunjukkan bahwa $n = 1$
+% % \end{enumerate}
+
+% \section{FPB dan KPK (Bahasa inggris : GCD and LCM)}
+% \subsection{FPB}
+% Misalkan untuk bilangan asli $k$, himpunan $D_k$ adalah himpunan seluruh faktor positif dari $k$. $FPB(m,n)$ adalah anggota terbesar di himpunan $D_m \cap D_n$. Ketika $FPB(m,n) = 1$, kita menyebut $m$ dan $n$ relatif prima.
+% \subsection{Properti FPB}
+% \begin{enumerate}
+% \item Jika $d = FPB(m,n), m = dm', n = dn'$, maka $FPB(m',n') = 1$
+% \item Jika $d = FPB(m,n), m = d'm", n = d'n", FPB(m",n") = 1$, maka $d' = d$
+% \item Jika $d'$ adalah faktor persekutuan dari $m$ dan $n$, maka $d'|d$
+% \item Jika $m = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$ dan $n = p_1^{\beta_1}p_2^{\beta_2}...p_k^{\beta_k}$ dengan $\alpha_i, \beta_i \geq 0$ dan $\alpha_i + \beta_i \geq 1$ untuk $i =1,2,..., k$, maka $$FPB(m,n) = p_1^{min(\alpha_1, \beta_1)}p_2^{min(\alpha_2, \beta_2)}...p_k^{min(\alpha_k, \beta_k)}$$
+% \item Jika $m = nq + r$, maka $FPB(m,n) = FPB(n,r)$
+% \end{enumerate}
+% \subsection{Algoritma Euclid}
+% Merupakan sebuah algoritma yang berguna untuk mencari FPB dari dua bilangan dengan menggunakan Algoritma Pembagian secara berulang :
+% \begin{align*}
+%   m  &= nq_1 + r_1,  1\leq r_1 < n \\
+%   n &= r_1q_2 + r_2, 1\leq r_2 < r_1 \\
+%   r_1 &= r_2q_3 + r_3, 1\leq r_3 < r_2 \\
+%   &... \\
+%   r_{k - 2} &= r_{k - 1}q_k + r_k, 1\leq r_k < r_{k - 1} \\
+%   r_{k - 1} &= r_kq_{k + 1} + r_{k + 1}, r_{k + 1} = 0
+% \end{align*}
+% Maka, $FPB(m,n) = FPB(n, r_1) = FPB(r_1, r_2) = ... = FPB(r_{k - 1}, r_k) = r_k$\\
+% Sebagai akibat dari Algoritma Euclid ini, untuk setiap bilangan asli $m,n$ terdapat bilangan bulat $a,b$ sedemikian hingga $am + bn = FPB(m,n)$.
+% \subsection{KPK}
+% Misalkan untuk bilangan asli $k$, himpunan $M_k$ adalah himpunan seluruh kelipatan positif dari $k$. $KPK(m,n)$ adalah anggota terkecil di himpunan $M_m \cap M_n$. 
+% \subsection{Properti KPK}
+% \begin{enumerate}
+% \item Jika $m = KPK(s,t), m = ss', m = tt'$, maka $FPB(s',t') = 1$
+% \item Jika $m'$ adalah kelipatan persekutuan dari $s$ dan $t$ dan $m' = ss' = tt', FPB(s',t') = 1$, maka $m' = m$
+% \item Jika $m'$ adalah kelipatan persekutuan dari $s$ dan $t$, maka $m|m'$
+% \item Jika $m = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$ dan $n = p_1^{\beta_1}p_2^{\beta_2}...p_k^{\beta_k}$ dengan $\alpha_i, \beta_i \geq 0$ dan $\alpha_i + \beta_i \geq 1$ untuk $i =1,2,..., k$, maka $$FPB(m,n) = p_1^{max(\alpha_1, \beta_1)}p_2^{max(\alpha_2, \beta_2)}...p_k^{max(\alpha_k, \beta_k)}$$
+% \item $FPB(m,n)\times KPK(m,n) = mn$
+% \end{enumerate}
+% \subsection{Latihan FPB dan KPK}
+% \begin{problem}
+%     Hitunglah $FPB(133, 198)$ dan $FPB(6436343, 12167)$
+% \end{problem}
+
+% \begin{problem}
+%      Berapa banyak pasangan bilangan asli $(x,y)$ yang memenuhi $FPB(x,y) = 5!$ dan $KPK(x,y) = 50!$?    
+% \end{problem}
+
+% \begin{problem}
+%     Definisikan $f(n) = FPB(n! + 1, (n + 1)!)$. Tentukan nilai dari $f(1) + f(2) + f(3) + ... + f(30)$
+% \end{problem}
+
+% \begin{problem}
+%     (OSK 2021 Kemampuan Lanjut) Bilangan asli ganjil $b$ terbesar sedemikian hingga barisan bilangan asli $a_n = n^2 + 19n + b$ memenuhi \[FPB(a_n, a_{n + 1}) = FPB(a_{n + 2}, a_{n + 1})\] untuk setiap bilangan asli $n$ adalah ...
+% \end{problem}
+
+% \begin{enumerate}
+% \item Hitunglah $FPB(133, 198)$ dan $FPB(6436343, 12167)$
+% \item Misalkan $m$ dan $n$ adalah bilangan asli yang memenuhi $$FPB(m,n) + KPK(m,n) = m + n.$$ Buktikan bahwa salah satu dari kedua bilangan itu membagi bilangan yang lainnya.
+% \item Carilah semua tripel bilangan asli $(a,b,c)$ sedemikian hingga $a^3 + b^3 + c^3$ habis dibagi $a^2b, b^2c,$ dan $c^2a$.
+% \item Misalkan $x,y,z$ adalah bilangan asli yang memenuhi $$\dfrac{1}{x} - \dfrac{1}{y} = \dfrac{1}{z}$$ Misalkaan $h = FPB(x,y,z)$. Tunjukkan bahwa $hxyz$ dan $h(y - x)$ keduanya merupakan bilangan kuadrat.
+% \item Berapa banyak pasangan bilangan asli $(x,y)$ yang memenuhi $FPB(x,y) = 5!$ dan $KPK(x,y) = 50!$?
+% \item Diberikan bilangan asli $a,b$ yang memenuhi $$\dfrac{a + 1}{b} + \dfrac{b + 1}{a}$$ adalah bilangan asli. Tunjukkan bahwa $FPB(a,b) \leq \sqrt{a + b}$
+% \end{enumerate}
+
+% \section{Chinese Remainder Theorem}
+% Misalkan $m_1,m_2,...,m_k$ adalah bilangan asli $\neq 1$ yang saling relatif prima. Maka, untuk setiap bilangan bulat $a_1,a_2,...,a_k$, sistem kekongruenan $x \equiv a_i$ (mod $m_i$), $i = 1,2,...,k$ memiliki solusi yang unik modulo $m = m_1m_2...m_k$, yakni $$\sum_{j = 1}^k \dfrac{m}{m_j}b_ja_j$$ dengan $b_j \equiv m_jm^{-1}$ (mod $m_j$)
+
+\end{document}

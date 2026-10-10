@@ -1,0 +1,76 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Jumlahan Koefisien Binomial}
+\author{Azzam and Akeyla}
+\date{September 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Definisi}
+Untuk setiap bilangan cacah $n$ dan $r$, berlaku $$\binom{n}{r} = \frac{n!}{r!(n-r)!}$$
+Pada artikel ini, disepakati bahwa jika $n<r$, nilai dari $\binom{n}{r} = 0$.
+
+\section{Properti dasar}
+\begin{enumerate}
+    \item $$\binom{n}{r} =\binom{n}{n-r}$$
+    \item $$\binom{n + 1}{r + 1} = \binom{n}{r + 1} + \binom{n}{r}$$
+    \item $$\binom{n}{m}\binom{m}{r} = \binom{n}{r}\binom{n-r}{m-r}$$
+    \item Dengan mensubstitusikan $r = 1$ di properti sebulumnya, didapat
+    $$m\binom{n}{m} =n \binom{n - 1}{m - 1}$$
+    % \item $$\binom{n}{r}\binom{n+r}{r} = \binom{n+r}{n-r}\binom{2r}{r}$$
+    % \item $$\binom{n}{r}\binom{2n}{n} = \binom{n+r}{r}\binom{2n}{n-r}$$
+    \item (Identitas Vandermonde) $$\sum_{i=0}^{r} \binom{m}{i} \binom{n}{r - i} = \binom{m+n}{r}$$
+    \item (Teorema Binomial) Untuk setiap $n$ bilangan cacah dan $x,y$ sembarang,
+    $$(x+y)^n = \sum_{r = 0}^n \binom{n}{r} x^{n-r}y^r$$
+    \item (Identitas Stik Hoki) $$\sum_{i = r}^n \binom{i}{r} = \binom{n+1}{r+1}$$
+    \\ Bukti: Ubah $\binom{r}{r}$ menjadi $\binom{r+1}{r+1}$ kemudian gunakan properti (2) berulang kali.
+\end{enumerate}
+
+\section{Soal}
+\begin{problem}
+Koefisien dari $x^5y^5$ pada penjabaran bentuk $(2x + 3y)^{10}$ adalah ...
+\end{problem}
+
+\begin{problem}
+Koefisien dari suku $x^{13}$ pada penjabaran bentuk $\left(x^2 + 2x\right)^{10}$ adalah ...
+\end{problem}
+
+\begin{problem}
+Koefisien dari $x^3$ pada penjabaran bentuk $\left(x^2 + \dfrac{1}{x}\right)^9$ adalah ...
+\end{problem}
+
+\begin{problem}
+Nilai dari $$\binom{100}{0} + \binom{100}{1} + ... + \binom{100}{100}$$ akan sama dengan ...
+\end{problem}
+
+\begin{problem}
+Nilai dari $$\sum_{r=0}^n p^r \binom{n}{r}$$ akan sama dengan ...
+\end{problem}
+
+\begin{problem}
+Nilai dari $$\binom{100}{0} - \binom{100}{1} + \binom{100}{2} - ... - \binom{100}{99} + \binom{100}{100}$$ akan sama dengan ...
+\end{problem}
+
+\begin{problem}
+Nilai dari $$\sum_{r = 0}^n \binom{2n + 1}{r}$$ akan sama dengan ...
+\end{problem}
+
+\begin{problem}
+Nilai dari $$\sum_{r = 0}^n \binom{2n}{r}$$ akan sama dengan ...
+\end{problem}
+
+\begin{problem}
+Nilai dari $$\sum_{r = 0}^n r\binom{n}{r}$$ akan sama dengan ...
+\end{problem}
+
+\begin{problem}
+Nilai dari $$\binom{12}{12} + \binom{13}{12} + \binom{14}{12} + ... + \binom{2024}{12}$$ akan sama dengan ...
+\end{problem}
+
+\end{document}

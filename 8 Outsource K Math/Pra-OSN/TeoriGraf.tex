@@ -1,0 +1,156 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Teori Graf}
+\author{Azzam and Akeyla}
+\date{28 Juni 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Definisi dan Notasi}
+Suatu graf $G$ adalah sebuah pasangan $G := (E,V)$ dimana : 
+\begin{enumerate}
+    \item $V$ merupakan sebuah himpunan yang memiliki anggota yang disebut \textit{titik, simpul,} atau \textit{vertex} (plural : \textit{vertices)}
+    \item $E$ merupakan sebuah himpunan yang memiliki anggota yang disebut \textit{sisi, garis,} atau \textit{edge} (plural : \textit{edges}), yang mana merupakan pasangan-pasangan dari titik di $V$. Dengan kata lain, $E$ berisi pasangan $(v_1, v_2)$ dengan $v_1, v_2 \in V$.
+\end{enumerate}
+
+Beberapa istilah yang sering terpakai dalam graf:
+\begin{enumerate}
+    \item Ketika sepasang titik $v_1,v_2$ di graf membentuk sisi $e = (v_1, v_2)$, kedua titik tersebut dikatakan sebagai \textbf{titik akhir (endpoints)} dari $v$.
+    \item Ketika titik $v_1$ dan $v_2$ merupakan sebuah titik yang sama, sisi $e = (v_1, v_2)$ disebut sebagai \textbf{gelang (loop)}.
+    \item Ketika terdapat lebih dari satu sisi yang memiliki pasangan titik akhir yang sama, beberapa sisi tersebut disebut sebagai \textbf{sisi ganda (multiple edges)}.
+    \item Suatu graf disebut sebagai \textbf{graf sederhana} jika graf tersebut tidak memuat gelang ataupun sisi ganda.
+    \item Suatu graf disebut sebagai \textbf{graf berarah} apabila sisi-sisinya mempunyai orientasi arah, yakni sisi $e_1 = (v_1, v_2)$ dan $e_2 = (v_2, v_1)$ dianggap sama.
+    \item Dua buah titik dikatakan \textbf{bertetangga (adjacent)} jika terdapat suatu sisi yang memiliki pasangan titik akhir kedua titik tersebut.
+    \item Sebuah titik $v$ dikatakan \textbf{bersisian (incident)} dengan sisi $e$ jika $v$ merupakan salah satu titik akhir dari $e$.
+    \item \textbf{Derajat (degree)} dari sebuah titik $v$ adalah banyak sisi yang bersisian dengan $v$.
+    \item Sebuah titik disebut sebagai \textbf{titik terpencil (isolated vertex)} jika derajat dari titik tersebut adalah 0.
+    \item \textbf{Walk} adalah sebuah barisan berselang-seling dari titik dan sisi (dimulai dan diakhiri oleh titik) sedemikian hingga setiap titik bersisian dengan sisi yang berada di urutan sebelum dan sesudahnya.
+    \item \textbf{Trail} merupakan sebuah walk yang tidak memuat sisi yang sama lebih dari sekali.
+    \item \textbf{Lintasan (Path)} merupakan sebuah trail yang tidak melewati sebuah titik lebih dari sekali. Suatu lintasan dengan panjang $n$ seringkali dinotasikan dengan $P_n$
+    \item \textbf{Sirkuit (Circuit)} merupakan sebuah trail yang dimulai dan diakhiri di titik yang sama.
+    \item \textbf{Siklus (Cycle)} merupakan sebuah lintasan yang dimulai dan diakhiri di titik yang sama.
+    \item Dalam graf sederhana, seringkali walk, trail, lintasan, sirkuit, dan siklus dinotasikan hanya dengan titik-titik yang dilewati saja.
+    \item \textbf{Panjang} dari suatu walk merupakan banyak sisi di walk tersebut. Hal yang sama berlaku untuk trail, lintasan, sirkuit, dan siklus.
+    \item Dua buah titik $v_1, v_2$ dikatakan \textbf{terhubung (connected)} jika terdapat suatu lintasan dari $v_1$ ke $v_2$
+    \item Sebuah graf dikatakan sebagai \textbf{terhubung (connected)} jika setiap pasang titik di graf tersebut terhubung.
+    \item \textbf{Jarak} dari dua buah titik $v_1$ dan $v_2$ yang terhubung adalah panjang terkecil dari lintasan dari $v_1$ ke $v_2$. Jika kedua titik tersebut tidak terhubung, jarak dari kedua titik tersebut adalah $\infty$.
+    \item Suatu graf $G_1 = (V_1, E_1)$ dikatakan sebagai \textbf{upagraf (subgraph)} dari sebuah graf $G = (V, E)$ jika $V_1 \subseteq V$, $E_1 \subseteq E$, dan $E_1$ memuat pasangan-pasangan titik yang ada di $V_1$.
+    \item \textbf{Komplemen (Complement)} dari suatu graf $G = (V, E)$ adalah suatu graf $\overline{G} = (V, E_1)$ dimana anggota dari $E_1$ merupakan semua garis yang kedua titik akhirnya tidak bertetangga di $G$. Dengan kata lain, dua titik bertetangga di $\overline{G}$ jika dan hanya jika kedua titik tidak bertetangga di $G$.
+    \item Sebuah \textbf{komponen (component)} dari suatu graf $G = (V, E)$ adalah graf $G_1 = (V_1, E_1)$ yang dibentuk dari beberapa titik di $E$ beserta seluruh sisi yang bersisian dengan titik-titik tersebut, sedemikian hingga $G_1$ adalah graf terhubung, namun tidak ada titik di $G_1$ yang terhubung dengan titik di himpunan $V - V_1$.
+    \item Sebuah graf dinamakan \textbf{graf lengkap (complete graph)} apabila setiap titik di graf tersebut bertetangga. Sebuah graf lengkap dengan $n$ titik seringkali dinotasikan dengan $K_n$. 
+\end{enumerate}
+
+\section{Soal-soal dalam bahasa graf}
+Kecuali dijelaskan lain, asumsikan semua graf yang ada di soal merupakan graf sederhana.
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Misalkan $G$ adalah suatu graf dengan $n$ titik, $m$ sisi, dan derajat dari titik-titik tersebut adalah $d_1, d_2, ..., d_n$. Tunjukkan bahwa $$\sum_{i = 1}^{n} d_i = 2m$$
+        \item Berdasarkan soal 1(a), tunjukkan bahwa dalam suatu graf, banyak titik yang berderajat ganjil adalah genap.
+        \item Tunjukkan bahwa untuk setiap graf dengan setidaknya dua titik, terdapat dua buah titik dengan derajat yang sama.
+    \end{enumerate}
+    \item Suatu sisi dikatakan sebagai \textbf{jembatan (bridge atau cut-edge)} apabila penghapusan sisi tersebut meningkatkan jumlah komponen di graf. Suatu titik dikatakan sebagai \textbf{titik artikulasi (articulation-point atau cut-vertex)} apabila penghapusan titik tersebut meningkatkan jumlah komponen di graf.
+    \begin{enumerate}
+        \item Tunjukkan bahwa jika suatu sisi merupakan jembatan, maka sisi tersebut tidak termuat di siklus manapun.
+        \item Tunjukkan bahwa jika suatu sisi tidak termuat di siklus manapun maka sisi tersebut merupakan jembatan.
+        \item Misalkan $v$ adalah sebuah titik artikulasi dari graf $G$. Tunjukkan bahwa $\overline{G} - v$ adalah graf terhubung.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Tunjukkan bahwa setiap walk dari titik $u$ ke $v$ memuat lintasan dari $u$ ke $v$
+        \item Tunjukkan bahwa setiap walk tertutup (walk yang dimulai dan diakhiri di titik yang sama) dengan panjang ganjil memuat suatu siklus dengan panjang ganjil. Bagaimana dengan walk tertutup dengan panjang genap?
+    \end{enumerate}
+    \item \textbf{Lintasan maksimal} di suatu graf $G$ adalah sebuah lintasan di $G$ yang mana tidak termuat di lintasan lain.
+    \begin{enumerate}
+        \item \label{it:existence-cycle} Diketahui setiap titik di graf $G$ memiliki derajat $\geq 2$. Tunjukkan bahwa $G$ memuat suatu siklus.
+        \item Jika $G$ adalah suatu graf dengan semua titiknya memiliki derajat $\geq k$, tunjukkan bahwa $G$ memuat lintasan dengan panjang $\geq k$. Jika $k\geq 2$, tunjukkan bahwa $G$ juga memuat siklus dengan panjang $\geq k + 1$.
+        \item Tunjukkan bahwa setiap graf dengan banyak titik lebih dari 1 memuat setidaknya dua titik yang bukan titik artikulasi.
+        \item Diberikan sebuah graf $G$ dengan banyak sisi $\geq$ banyak titik. Tunjukkan bahwa $G$ memuat sebuah siklus.
+    \end{enumerate}
+    \item Sebuah graf disebut sebagai \textbf{Eulerian} (dibaca oilerian) apabila terdapat suatu sirkuit yang memuat seluruh sisi.   
+    \begin{enumerate}
+        \item Tunjukkan bahwa setiap graf Eulerian memiliki maksimal satu komponen dan seluruh titiknya memiliki derajat genap.
+        \item Tunjukkan bahwa setiap graf yang memiliki maksimal satu komponen dan seluruh titiknya memiliki derajat genap merupakan graf Eulerian. (Hint: Gunakan \ref{it:existence-cycle} dan induksi) 
+    \end{enumerate}
+    \item Sebuah graf disebut sebagai \textbf{bipartite} apabila kita dapat membagi titik-titik graf tersebut menjadi dua bagian sehingga setiap sisi menghubungkan dua titik yang terletak di bagian yang berbeda. Suatu graf disebut sebagai \textbf{graf bipartite lengkap} jika setiap titik yang berada di bagian berbeda bertetangga. Graf bipartite lengkap seringkali dinotasikan dengan $K_{m,n}$.
+    \begin{enumerate}
+        \item Buktikan bahwa setiap graf bipartite tidak memiliki siklus yang memiliki panjang ganjil.
+        \item Buktikan bahwa setiap graf yang tidak memiliki siklus yang memiliki panjang ganjil adalah graf bipartite (Hint: Tinjau sebuah titik dan hitung jarak tiap titik ke titik tersebut)
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Tunjukkan bahwa komplemen dari sebuah graf tak-terhubung merupakan graf terhubung.
+        \item Tunjukkan bahwa setiap graf yang memiliki $n$ titik dan $k$ sisi memiliki setidaknya $n - k$ komponen. Menggunakan hasil ini, tarik kesimpulan bahwa banyak sisi minimal dari sebuah graf terhubung adalah $n - 1$.
+        \item Jika $G$ adalah suatu graf $n$ titik dengan besar derajat titik terkecil $\geq \frac{(n-1)}{2}$, tunjukkan bahwa $G$ adalah graf terhubung.
+    \end{enumerate}
+    \item Sebuah graf disebut sebagai \textbf{Hamiltonian} apabila terdapat suatu siklus yang memuat seluruh titik.
+    \begin{enumerate}
+        \item Teorema Dirac menyatakan bahwa apabila suatu graf $G$ dengan $n$ titik memenuhi :
+        \begin{enumerate}
+            \item $n\geq 2$
+            \item Derajat dari titik dengan derajat terkecil $\geq \dfrac{n}{2}$ 
+        \end{enumerate}
+        maka graf $G$ merupakan Hamiltonian. Buktikan Teorema Dirac.
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{Soal-soal dalam bahasa olimpiade}
+\begin{enumerate}
+    \item (OSN 2017) Lima orang siswa bertemu di suatu tempat. Sebuah trio adalah pasangan tiga siswa $(A,B,C)$ sehingga $A$ berjabat tangan dengan $B$ dan $B$ berjabat tangan dengan $C$, atau $A$ tidak berjabat tangan dengan $B$ dan $B$ tidak berjabat tangan dengan $C$. Jika trio $(A,B,C)$ dan $(C,B,A)$ dianggap sebagai trio yang sama, berapa paling sedikit banyaknya trio yang mungkin? \textbf{Hint: Myanmar, Seychelles}
+    \item (Tournament of Town 1986) Dalam sebuah turnamen, terdapat $20$ tim. Pada hari pertama, setiap tim bertanding tepat satu kali dengan satu tim lain. Pada hari kedua, setiap tim bertanding lagi tepat satu kali dengan satu tim lain yang berbeda dari hari pertama. Buktikan bahwa dapat dipilih sepuluh tim yang sama sekali belum pernah bertanding satu sama lain pada kedua hari tersebut. \textbf{Hint: Jerman, Malta}
+    \item (KTOM Februari 2020) Terdapat $2020$ peserta game di suatu taman. Diketahui bahwa setiap orang mempunyai tepat tiga teman, dimana pertemanan mutual. Ronde dimulai ketika peluit dibunyikan dan setiap peserta harus berpegang tangan dengan tepat satu temannya. Suatu ronde dikatakan menang jika terdapat tepat $1010$ pasangan teman. Diketahui bahwa kita dapat membuat peserta game menjadi sebuah lingkaran sehingga setiap orang yang berdiri bersebelahan berteman dengan satu sama lain. Tentukan total ronde maksimal yang dapat dimenangkan sehingga tidak ada pasangan yang lebih dari sekali muncul. \textbf{Hint: Estonia}
+    \item (KTOM April 2020) Negara KTOM memiliki $2020$ kota. Maskapai KTOM Airlines membuka penerbangan antar beberapa kota di negara tersebut. Namun, Jessen, yang tinggal di kota A, tidak dapat pergi ke kota B hanya dengan menggunakan KTOM Airlines (meskipun Jessen transit di kota lain dari kota A). Jessen memutuskan mendirikan KTOM Airways untuk menghindari persaingan langsung. KTOM Airways membuka penerbangan antar dua buah kota jika dan hanya jika KTOM Airlines tidak membuka penerbangan antar kedua kota tersebut. Buktikan bahwa dari sembarang kota di negara KTOM, Jessen kini dapat pergi ke sembarang kota lain hanya dengan menggunakan KTOM Airways (dengan transit diperbolehkan). \textit{Catatan: Apabila sebuah maskapai membuka penerbangan dari X ke Y, maskapai tersebut pasti membuka penerbangan dari Y ke  X.} \textbf{Hint: Chile}
+    \item Terdapat $75$ peserta OSN 2019 di suatu ruangan. Diketahui bahwa ketika diambil sembarang 4 orang dari kerumunan, pasti terdapat 3 orang di antaranya yang saling kenal. Apabila diketahui bahwa jika $A$ mengenal $B$ maka $B$ mengenal $A$, maka paling sedikit ada berapa pasang orang yang saling mengenal di ruangan itu? \textbf{Hint: Madagaskar}
+    \item Ada $n$ orang siswa di sekolah. Untuk setiap pasang siswa, mereka berdua adalah teman atau tidak saling kenal. Diketahui bahwa untuk setiap pasang siswa yang tak saling kenal, mereka berdua berteman dengan tepat satu siswa lain yang sama. Diketahui pula bahwa tidak ada tiga siswa yang saling berteman dan tidak ada siswa yang berteman dengan semua siswa lain. Tunjukkan bahwa banyak teman setiap siswa di sekolah ini adalah sama. \textbf{Hint: Slovenia}
+    \item (Harvard-MIT Mathematical Tournament 2003) Pada tahun baru, $a$ orang cucu datang ke rumah nenek. Sang nenek yang ingat akan kedatangan cucu-cucunya membuatkan mereka $b$ buah kue. Sayangnya, sang nenek lupa akan jumlah cucunya sehingga jumlah kue yang ada lebih sedikit dari jumlah cucu yang datang. Nay yang merupakan cucu tertua diberi tugas oleh sang nenek untuk membagi kue dengan pisau sehingga setiap cucu mendapat bagian yang sama. Tunjukkan bahwa Nay perlu memotong kue setidaknya sebanyak $a - gcd(a,b)$ kali. \textbf{Hint: Jerman, Namibia}
+    % \item Sebuah tes memiliki $n$ soal. Diketahui bahwa tepat tiga orang mengerjakan setiap soal, setiap pasang soal memiliki tepat satu orang yang mengerjakan kedua soal tersebut, dan tidak ada orang yang berhasil mengerjakan seluruh soal tes. Tentukan nilai $n$ maksimal. 
+    \item Terdapat 2015 kota di United States of Analitica (USA). Untuk menyambut globalisasi, Presiden USA berencana membangun jalan sedemikian hingga untuk sembarang dua kota $A$ dan $B$, terdapat suatu rute perjalanan dari kota melewati seluruh kota tepat satu kali dan berakhir di $B$. Jika diketahui pada awalnya tidak ada jalan yang menghubungkan kota manapun, berapa banyak jalan minimal yang perlu dibangun? \textbf{Hint: Amerika Serikat, Armenia}
+    % https://artofproblemsolving.com/community/c6h1694580
+    \item (Tuymaada 2000 Juniors) Terdapat 200 kota di Kerajaan Complexburg. Setiap kota memiliki tepat 3 jalan dua arah yang menghubungkan kota itu dengan kota lainnya. Buktikan bahwa Raja Complexburg dapat menutup 100 buah jalan sedemikian hingga tidak ada rute perjalanan dari suatu kota kembali ke kota itu lagi setelah melewati sebanyak ganjil jalan. \textbf{Hint: Jerman, Lichtenstein}
+    % https://artofproblemsolving.com/community/c6h1829761
+    % \item Terdapat 100 kota di Kerajaan Jogjawesome. Diketahui bahwa untuk setiap 4 kota, paling banyak terdapat 2 jalan. Tetukan banyak jalan maksimal yang ada di Jogjawesome.
+    % \item Terdapat $n$ buah kota di Euyland. Presiden Euyland memutuskan untuk membangun jalan di negara ini dengan cara sebagai berikut : Presiden membangun jalan antara dua kota $A$ dan $B$ jika dan hanya jika terdapat dua kota $X$ dan $Y$, yang berbeda dari $A$ dan $B$, sedemikian hingga tidak ada jalan di antara $A$ dan $X$, $X$ dan $Y$, dan $Y$ dan $B$. Paling banyak ada berapa jalan yang dapat dibangun sang Presiden Euyland?
+    \item (Rusia MO 2003) Terdapat 2019 kota di Euclidia. Setiap kota terhubung dengan kota lainnya dengan kereta api atau bus. Seorang turis ingin mengunjungi seluruh kota tepat satu kali dan kembali ke kota tempat ia memulai perjalanan tersebut. Tunjukkan bahwa turis tersebut dapat memilih salah satu kota, mengunjungi setiap kota tepat satu kali, kembali lagi ke kota awal, dengan hanya berpindah jenis moda transportasi maksimal satu kali. 
+    \textbf{Hint: Jepang, Mauritania}
+    % https://artofproblemsolving.com/community/c6h375583
+    \item (KTOM Desember 2020) Diberikan $2020$ bilangan asli berbeda yang memenuhi kondisi berikut:\\Untuk setiap empat bilangan $a$, $b$, $c$, dan $d$ dari $2020$ buah bilangan tersebut, dengan $a'$, $b'$, $c'$, dan $d'$ merupakan permutasi dari $\{a,b,c,d\}$, terdapat paling banyak tiga bilangan dari $\text{fpb}(a',b')$, $\text{fpb}(b',c')$, $\text{fpb}(c',d')$, dan $\text{fpb}(d',a')$ yang bernilai $505$.\\Definisikan $S$ sebagai banyak pasangan dua bilangan yang memiliki faktor persekutuan terbesar bernilai $505$. Buktikan bahwa $S \le 45890$. \textbf{Hint: Malaysia, Mozambik}
+    \item (IX International Festival for Young Mathematicians Sozopol, 10-12 Grade) Terdapat beberapa kota di Harmonikistan. Setiap kota di Harmonikstan terhubung dengan kota lain dengan jalan raya dua arah (terhubung langsung atau melewati kota lain). Di setiap kota, terdapat setidaknya 50 jalan raya yang menuju kota tersebut. Diketahui bahwa tidak ada rute perjalanan melalui jalan raya tersebut yang melewati setiap kota tepat satu kali. Banyak kota di Harmonikistan minimal adalah... \textbf{Hint: Samoa}
+    % https://artofproblemsolving.com/community/c6h1711429
+    \item (IMO SL 2001) Definisikan klik-$k$ sebagai suatu kumpulan $k$ orang sedemikian hingga setiap orang di antara $k$ orang tersebut saling berteman. Pertemanan bersifat timbal-balik. Di sebuah pesta, setiap pasang klik-3 yang ada memuat setidaknya satu orang yang sama dan tidak ada klik-5. Tunjukkan bahwa kita dapat memilih dua orang untuk keluar dari pesta tersebut sehingga di dalam pesta tersebut tidak ada klik-3 yang tersisa. \textbf{Hint: Afghanistan}
+    % https://artofproblemsolving.com/community/c6h17455
+    % \item Terdapat $2n$ orang di pesta sedemikian hingga setiap orang memiliki teman sebanyak genap di pesta tersebut. Buktikan bahwa terdapat dua orang yang memiliki teman bersama sebanyak genap.
+    % \item Terdapat $2n$ orang di pesta sedemikian hingga setiap orang bermusuhan dengan paling banyak $n - 1$ orang lainnya di pesta itu. Tunjukkan bahwa panitia pesta dapat mendudukkan mereka semua di sebuah meja bundar sedemikian hingga tidak ada dua orang yang bermusuhan duduk bersebelahan.
+\end{enumerate}
+
+\newpage
+
+\section{Hint}
+\begin{enumerate}
+    \item (Antananarivo) Tinjau komplemen graf tersebut
+    \item (Apia) Lihat kembali pembuktian Teorema Dirac
+    \item (Berlin) Graf bipartite
+    \item (Kabul) Bagi kasus saja
+    \item (Kuala Lumpur) Ubah ke bahasa graf: dua bilangan $a$ dan $b$ terhubung jika fpb nya sama dengan $505$ 
+    \item (Ljubljana) Tinjau dua orang A dan B. Tinjau hubungan teman-teman A dan teman-teman B
+    \item (Maputo) Double counting dengan banyak tripel $(x, y, z)$ dengan $(x, z)$ dan $(x, y)$ merupakan edge
+    \item (Naypyidaw) Dalam tiap tiga orang yang dipilih, maksimal dan minimal berapa banyak trio yang bisa terbentuk?
+    \item (Nouakchott) Tinjau Hamiltonian path dua moda transportasi untuk $n - 1$ kota dan sisipkan kota ke-$n$ dalam path tersebut di tempat yang sesuai
+    \item (Santiago) Tinjau kota P dan kota Q yang semula tidak terhubung oleh pesawat dan tinjau pula kota R dan S yang semula terhubung
+    \item (Tallinn) Visualisasikan mereka membentuk lingkaran dengan tiap orang memegang tangan kedua temannya
+    \item (Tokyo) Induksi
+    \item (Valletta) Buktikan bahwa tidak ada cycle dengan panjang ganjil
+    \item (Vaduz) Bagi kota ke dua komponen sampai banyak edge yang menghubungkan kedua komponen minimal (ada algoritmanya)
+    \item (Victoria) Bintang
+    \item (Washington DC) Buktikan bahwa tiap kota punya derajat minimal 3
+    \item (Windhoek) Tinjau hubungan banyak komponen dan banyak edge
+    \item (Yerevan) Konstruksikan dengan semua kota berderajat 3, kecuali satu kota yang berderajat 4
+\end{enumerate}
+
+\end{document}

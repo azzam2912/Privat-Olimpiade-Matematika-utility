@@ -1,0 +1,199 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Fungsi Aritmetika}
+\author{Azzam and Akeyla}
+
+
+\begin{document}
+
+\maketitle
+\section{Fungsi Multiplikatif}
+Sebuah fungsi $f$ disebut fungsi aritmetika apabila $f: \mathbb{N} \rightarrow \mathbb{C}$. Suatu fungsi aritmetika disebut sebagai fungsi multiplikatif apabila untuk setiap bilangan asli $m$ dan $n$ yang relatif prima, berlaku \[f(mn) = f(m)f(n)\]
+Beberapa fungsi aritmetika yang multiplikatif adalah:
+\begin{enumerate}
+    \item Banyak faktor positif $(\tau)$
+    \item Jumlah faktor positif $(\sigma)$
+    \item Euler Totient $(\varphi)$
+\end{enumerate}
+\section{Banyak faktor positif ($\tau$)}
+Untuk setiap bilangan asli $n$, definisikan $\tau(n)$ sebagai banyak faktor positif dari $n$. Apabila faktorisasi prima dari $n$ adalah $n = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$, maka \[\tau(n) = (\alpha_1 + 1)(\alpha_2 + 1)...(\alpha_k + 1)\]
+Coba buktikan beberapa properti yang menarik ini:
+\begin{enumerate}
+    \item $\tau(n)$ ganjil jika dan hanya jika $n$ kuadrat
+    \item Untuk setiap $n \geq 2$, berlaku \[\tau(n) = \sum_{k = 1}^n \left(\left\lfloor \dfrac{n}{k}\right\rfloor - \left\lfloor \dfrac{n - 1}{k}\right\rfloor\right)\]
+    \item $\tau(n) \leq 2\sqrt{n} - 1$
+    \item Hasil kali semua faktor positif dari $n$ akan sama dengan $\sqrt{n^{\tau(n)}}$
+\end{enumerate}
+
+\section{Jumlah faktor positif ($\sigma$)}
+Untuk setiap bilangan asli $n$, definisikan $\sigma(n)$ sebagai jumlah faktor positif dari $n$. Apabila faktorisasi prima dari $n$ adalah $n = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$, maka \[\sigma(n) = \frac{p_1^{\alpha_1 + 1} - 1}{p_1 - 1}\frac{p_2^{\alpha_2 + 1} - 1}{p_2 - 1}...\frac{p_k^{\alpha_k + 1} - 1}{p_k - 1}\]
+Coba buktikan beberapa properti yang menarik ini:
+\begin{enumerate}
+    \item Untuk setiap $n \geq 2$, berlaku \[\sigma(n) = \sum_{k = 1}^n k\left(\left\lfloor \dfrac{n}{k}\right\rfloor - \left\lfloor \dfrac{n - 1}{k}\right\rfloor\right)\]
+    \item Untuk setiap bilangan komposit $n$, berlaku $\sigma(n) \geq n + \sqrt{n} + 1$
+    \item Untuk setiap bilangan $n \geq 2$, berlaku $\dfrac{\sigma(n)}{\tau(n)} \geq \sqrt{n}$
+    \item Untuk setiap bilangan asli $n$, berlaku $\sigma(n) \leq n\left(1 + \dfrac{1}{2} + \dfrac{1}{3} + ... + \dfrac{1}{\tau(n)}\right)$
+    \item Untuk setiap bilangan asli $n$, berlaku $\sigma(1) + \sigma(2) + ... + \sigma(n) \leq n^2$
+\end{enumerate}
+
+Beberapa properti yang memerlukan sedikit-banyak kalkulus:
+\begin{enumerate}
+    \item Untuk setiap bilangan asli $n$, $\sigma(n) \leq n\left(1 + \ln{2} +  \dfrac{1}{2}\ln{\tau(n)}\right)$
+    \item Lebih ringkas lagi, untuk $n \geq 7$, berlaku $\sigma(n) < n\ln{n}$
+\end{enumerate}
+
+\section{Euler Totient ($\varphi$)}
+Untuk setiap bilangan asli $n$, definisikan $\varphi(n)$ sebagai banyak bilangan asli yang tidak kurang dari $n$ dan relatif prima dengan $n$. Apabila faktorisasi prima dari $n$ adalah $n = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$, maka \[\varphi(n) = n\left(1 - \dfrac{1}{p_1}\right)\left(1 - \dfrac{1}{p_2}\right)...\left(1 - \dfrac{1}{p_k}\right)\]
+Coba buktikan beberapa properti yang menarik ini:
+\begin{enumerate}
+    \item Jika $n$ dan $\varphi(n)$ relatif prima, maka $n$ square-free (tidak habis dibagi bilangan kuadrat selain $1$). Kebalikannya belum tentu berlaku. Counterexample: $6$
+    \item (Gauss) Untuk setiap bilangan asli $n$, berlaku \[\sum_{d|n} \varphi(d) = n\]
+    \item Untuk setiap bilangan komposit $n$, berlaku $\varphi(n) \leq n - \sqrt{n}$
+    \item Untuk setiap bilangan asli $n$ yang tidak sama dengan $2$ atau $6$, berlaku $\varphi(n) \geq \sqrt{n}$
+\end{enumerate}
+
+\section{Latihan}
+\begin{problem}
+    (Bilangan sempurna) Sebuah bilangan asli $n$ disebut sebagai bilangan sempurna apabila $\sigma(n) = 2n$. Buktikan bahwa $n$ merupakan sebuah bilangan genap sempurna jika dan hanya jika $n = 2^{p - 1}(2^p - 1)$ dengan $2^p - 1$ merupakan bilangan prima.
+
+    Fakta tambahan:
+    \begin{enumerate}
+        \item Bilangan $2^p - 1$ dengan $p$ dan $2^p - 1$ keduanya prima, disebut sebagai bilangan prima Mersenne
+        \item Belum diketahui apakah ada bilangan sempurna ganjil
+        \item Belum diketahui apakah ada tak hingga bilangan sempurna
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    (Tuymaada 2000) Notasikan $e(n) = \left\lfloor \frac{2000}{n} \right\rfloor$. Buktikan bahwa $$\tau(1) + \tau(2) + ...+\tau(2000) = e(1) + e(2) + ... + e(2000).$$
+\end{problem}
+
+\begin{problem}
+Soal yang serupa
+\begin{enumerate}
+    \item (Kanada MO 1999) Tentukan semua bilangan asli $n$ yang memenuhi $n = \tau(n)^2$.
+    \item (Thailand MO 2011) Tentukan semua bilangan asli $n$ yang memenuhi $n = \tau(n)^4$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+    (Filipina MO 2017) Buktikan bahwa $$\dfrac{1}{\sigma(n)} + \dfrac{1}{\varphi(n)} \geq \dfrac{2}{n}$$ dan tentukan kapan kesamaan tercapai.
+\end{problem}
+
+\begin{problem}
+    (St. Petersburg MO 1998) Buktikan bahwa tidak ada bilangan asli $N$ sedemikian hingga $\tau(n^2 + 1)$ monoton naik atau turun untuk setiap $n \geq N$
+\end{problem}
+
+\begin{problem}
+    (Andrzej Schinzel) Buktikan bahwa ada tak hingga bilangan asli $k$ sedemikian hingga $\varphi(n) = k$ tidak memiliki solusi.
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa ada tak hingga bilangan asli $n$ yang memenuhi $\varphi(n) = \frac{n}{3}$
+\end{problem}
+
+\begin{problem}
+    Carilah semua solusi persamaan $\varphi(n) = \tau(n)$
+\end{problem}
+
+\begin{problem}
+    (Turki MO 2022) Buktikan bahwa untuk setiap bilangan asli $k, n$ yang memenuhi $k \geq n!$, berlaku $\varphi(k) \geq (n - 1)!$.
+\end{problem}
+
+\begin{problem}
+    (AoPS, by user MC314159) Buktikan atau sanggah, untuk setiap bilangan asli $n$, berlaku $$\tau(2n-1)+\tau(2n+1) \leq \tau(2n)+\tau(2n+2)$$
+\end{problem}
+
+\newpage
+\section{Pembahasan}
+\subsection{$\tau$}
+\begin{enumerate}
+    \item  $\tau(n)$ ganjil ekivalen dengan $\alpha_1, \alpha_2, ..., \alpha_k$ semuanya genap ekivalen dengan $n$ kuadrat
+    \item $\left\lfloor \dfrac{n}{k} \right\rfloor - \left\lfloor \dfrac{n - 1}{k} \right\rfloor = 0$ saat $k$ tidak membagi $n$ dan $= 1$ saat $k$ membagi $n$
+    \item Jika $d$ merupakan faktor dari $n$ maka $\frac{n}{d}$ juga merupakan faktor dari $n$. Sehingga, setengah faktor dari $n$ lebih kecil dari $\sqrt{n}$, setengah faktor lainnya lebih besar dari $\sqrt{n}$, dan maksimal satu faktornya tepat sama dengan $\sqrt{n}$. Tentunya, banyak faktor yang kurang dari $\sqrt{n}$ maksimal ada sebanyak $\sqrt{n} - 1$, yang lebih dari $\sqrt{n}$ maksimal ada sebanyak $\sqrt{n} - 1$ juga, dan totalnya maksimal akan sama dengan $2(\sqrt{n} - 1) + 1 = 2\sqrt{n} - 1$. Kesamaan hanya tercapai saat semua $n = p^2$ dan semua $1, 2, ..., p - 1$ semuanya adalah faktor dari $n$. Hal ini tercapai saat $n = 1$ atau $4$
+    \item Gunakan fakta bahwa $d_kd_{\tau(n) - k} = n$ dan kalikan faktor-faktor dari $n$ secara berpasangan.
+\end{enumerate}
+\subsection{$\sigma$}
+\begin{enumerate}
+    \item Lihat bukti section $\tau$ nomor $2$
+    \item $n$ dan $1$ tentunya adalah faktor dari $n$. Selain itu, jika $d$ adalah faktor dari $n$ maka $\frac{n}{d}$ juga faktor dari $n$. Jika $n = p^2$ dengan $p$ adalah bilangan prima, maka $\sigma(n) = n + p + 1 = n + \sqrt{n} + 1$. Jika $n = ab$ dengan $a$ dan $b$ adalah bilangan berbeda yang bukan $1$ atau $n$ (pasti ada jika $n$ komposit dan bukan kuadrat bilangan prima), maka $\sigma(n) \geq n + a + b + 1 = n + 1 + a + \frac{n}{a} \geq n + 1 + 2\sqrt{n} > n + \sqrt{n} + 1$ dengan ketaksamaan kedua menggunakan AM-GM
+    \item Misal $d_1 < d_2 < ... < d_{\tau(n)}$ adalah faktor dari $n$. Tentunya, $d_kd_{\tau(n) - k} = n$ Amati bahwa $\sigma^2(n) = (d_1 +  ... + d_{\tau(n)})(d_{\tau(n)} + ... + d_1) \geq (n + ... + n)^2 = (n\tau(n))^2$ dengan menggunakan Cauchy-Schwarz. Ambil akar kuadratnya dan terbukti
+    \item Tentunya, 
+    \begin{align*}
+        \sigma(n) &= d_1 + d_2 + ... + d_{\tau(n)} \\
+        &= \dfrac{n}{d_1} + \dfrac{n}{d_2} + ... + \dfrac{n}{d_{\tau(n)}}\\
+        &= n \left(\dfrac{1}{d_1} + \dfrac{1}{d_2} + ... + \dfrac{1}{d_{\tau(n)}}\right)\\
+        &\leq n \left(\dfrac{1}{1} + \dfrac{1}{2} + ... + \dfrac{1}{\tau(n)}\right)
+    \end{align*}
+    sesuai dengan yang diinginkan
+    \item Amati bahwa \[\sigma(n) = \sum_{d|n} d\] dan 
+    \begin{align*}
+        \sum_{k = 1}^n \sigma(k) &= \sum_{k = 1}^n \sum_{d|n} d \\
+        &= \sum_{d = 1}^{n} df(d) 
+    \end{align*}
+    dengan $f(d)$ menyatakan banyak bilangan asli yang tak lebih dari $n$ dan merupakan kelipatan $d$. Tentunya, nilai ini akan sama dengan $\left\lfloor \frac{n}{d} \right\rfloor$ dan kesamaan menjadi 
+    \begin{align*}
+        &= \sum_{d = 1}^{n} d\left\lfloor \dfrac{n}{d} \right\rfloor \\
+        &\leq \sum_{d = 1}^{n} d \dfrac{n}{d} \\
+        &= \sum_{d = 1}^{n} n \\
+        &= n^2
+    \end{align*}
+    sesuai dengan yang ingin dibuktikan.
+\end{enumerate}
+\subsection{$\varphi$}
+\begin{enumerate}
+    \item Akibat langsung dari rumus nilai $\varphi(n)$.
+    \item Kelompokkan semua bilangan asli antara $1$ sampai $n$ dalam beberapa himpunan berbentuk $S_d = \{m| FPB(m, n) = d\}$. Tentunya, setiap bilangan asli $1 \leq m \leq n$ tergabung di tepat satu himpunan $S_d$ dengan $d|n$. Selain itu, banyak anggota himpunan $S_d$ akan sama dengan $\varphi\left(\frac{n}{d}\right)$. Jadi,
+    \begin{align*}
+        n &= \sum_{d|n} \varphi\left(\dfrac{n}{d}\right) \\
+        &= \sum_{d|n} \varphi(d)
+    \end{align*}
+    \item Misal faktor prima dari $n$ adalah $p_1 < p_2 < ... < p_k$. Tentunya, 
+    \begin{align*}
+        \varphi(n) &= n\left(1 - \dfrac{1}{p_1}\right)\left(1 - \dfrac{1}{p_2}\right)...\left(1 - \dfrac{1}{p_k}\right) \\
+        &\leq n\left(1 - \dfrac{1}{p_1}\right)
+    \end{align*}
+    Dikarenakan $n$ komposit maka $p_1 \leq \sqrt{n}$ karena $p_1$ adalah faktor proper terkecil dari $n$. Jadi, $\varphi(n) \leq n\left(1 - \frac{1}{\sqrt{n}}\right) = n - \sqrt{n}$
+    \item Jika $n = 2^m$ untuk suatu bilangan asli $m \geq 2$ maka $\varphi(n) = 2^m - 2^{m - 1} = 2^{m - 1} \geq \sqrt{2^{m}} = \sqrt{n}$. 
+    Jika $n = p^m$ untuk suatu bilangan prima ganjil $p$ dan bilangan asli $m$ maka $\varphi(n) = p^{m - 1}(p - 1) \geq \sqrt{p^m} = \sqrt{n}$. Lebih lanjut, jika $p \geq 5$ atau $p = 3, m \geq 2$ maka $\varphi(p^m) \geq \sqrt{2p^m}$  
+    Jika $n$ ganjil atau habis dibagi oleh $4$ maka $\varphi(n) = \varphi\left(p_1^{\alpha_1}\right)...\varphi\left(p_k^{\alpha_k}\right) \geq \sqrt{p_1^{\alpha_1}}...\sqrt{p_k^{\alpha_k}} = \sqrt{n}$.
+    Terakhir, jika $n = 2t$ dengan $t$ adalah bilangan ganjil selain $1$ dan $3$ maka $\varphi(n) = \varphi(2t) = \varphi(t) \geq \sqrt{2t}$
+\end{enumerate}
+\subsection{Latihan}
+\begin{enumerate}
+    \item Menunjukkan bahwa $n = 2^{p - 1}(2^p - 1)$, dengan $2^p - 1$ prima, merupakan bilangan sempurna cukup mudah. Untuk pembuktian arah sebaliknya, tulis $n = 2^kq$, dengan $q$ merupakan bilangan ganjil dan $k$ adalah bilangan asli. Jika $n$ adalah bilangan genap sempurna, maka $2^{k + 1}q = 2n = \sigma(n) = \sigma(2^kq) = \sigma(2^k)\sigma(q) = (2^{k + 1} - 1)\sigma(q)$. Dikarenakan $2^{k + 1} - 1$ merupakan bilangan ganjil, maka $2^{k + 1} - 1$ adalah faktor dari $q$. Dengan membagi kedua ruas dengan $2^{k + 1} - 1$ dan menggunakan $q = x(2^{k + 1}  - 1)$, didapat persamaaan $2^{k + 1}x = \sigma(q)$. Namun, $\sigma(q) \geq q + x = 2^{k + 1}x$. Sehingga, kesamaan tercapai dan $x = 1$ yang membuat $q = 2^{k + 1} - 1$. Selain itu, $2^{k + 1} - 1$ haruslah merupakan bilangan prima, sesuai dengan yang ingin dibuktikan. 
+    \item Amati bahwa
+    \begin{align*}
+    \sum_{k=1}^{2000}\tau(k) &= \sum_{k=1}^{2000}\sum_{d|k}1 \\
+    &= \sum_{d=1}^{2000}\sum_{d|k,k\in\{1,2,...,2000\}}1 \\
+    &= \sum_{d=1}^{2000} \left\lfloor\dfrac{2000}{d} \right \rfloor\\
+    &=\sum_{k=1}^{2000}e(k)
+    \end{align*}
+    \item 
+    \begin{enumerate}
+        \item Jelas $n = 1$ memenuhi. Untuk $n>1$, tulis $n = p_1^{2a_1}p_2^{2a_2}...p_k^{2a_k}$. Persamaan setara dengan $p_1^{a_1} p_2^{a_2}...p_k^{a_k} = (2a_1 + 1)(2a_2 + 1)...(2a_k + 1)$. Tentunya $p_i \neq 2$. Dapat dibuktikan dengan induksi bahwa $2a_i + 1 < 3^(2a_i + 1)$ untuk setiap bilangan asli $a_i > 1$. Dikarenakan $p_i \geq 3$, satu-satunya kemungkinan yang tersisa adalah $n = 3^2$ dan setelah dicek, nilai $n = 9$ memenuhi. Jadi, ada dua solusi: $1$ dan $9$.
+        \item Dengan cara yang serupa, akan didapat bahwa $n = 1$ memenuhi dan jika $n > 1$, maka $m = p_1^{a_1} p_2^{a_2}...p_k^{a_k} = (4a_1 + 1)(4a_2 + 1)...(4a_k + 1)$. Seperti sebelumnya, $p_i$ ganjil. Dikarenakan $7^k > 4k + 1$ untuk setiap bilangan asli $k$, $5^1 = 4\cdot 1 + 1$, dan $3^2 = 4\cdot 2 + 1$, dapat disimpulkan bahwa faktor prima terkecil dari $m$ (dan akibatnya, $n$) pasti kurang dari $7$. 
+        
+        Lebih lanjut, jika $m$ habis dibagi oleh $5^2$ atau bilangan prima yang lebih dari $7$, haruslah $v_3(m) = 1$. Dikarenakan $(2\cdot 3 + 1) = 7$ dan $3^1 = 3$, maka ruas $p_2^{a_2}...p_k^{a_k} = \frac{7}{3}(4a_2 + 1)...(4a_k + 1)$. Hal ini mengakibatkan $7|m$. Karena $\frac{7^2}{4\cdot 2 + 1} > \frac{7}{3}$, maka $v_7(m) = 1$ dan persamaan menjadi $p_2^{a_2}p_4^{a_4}...p_k^{a_k} = \frac{5}{3}(4a_2 + 1)(4a_4 + 1)...(4a_k + 1)$. Hal ini mengindikasikan bahwa $5|m$. Namun, karena $\frac{5^2}{4\cdot 2 + 1} > \frac{7}{3}$, maka $v_5(m) = 1$. Substitusi nilai ini dan diperoleh bahwa tidak ada solusinya.
+
+        Sehingga, $m$ hanya habis dibagi oleh bilangan prima $3$ dan $5$. Dapat dicek bahwa hanya $m = 3, 5, 15$ yang memenuhi. Sehingga, ada empat solusi: $1, 3^4, 5^4, 15^4$.
+    \end{enumerate}
+    \item Misal $n= \prod\limits_{i=1}^kp_i^{e_i}$, maka $$\sigma(n)\varphi(n) =\prod_{i=1}^k \frac{p_i^{e_i+1}-1}{p_i-1} \cdot (p_i-1)p_i^{e_i-1}\le \prod_{i=1}^k p_i^{e_i+1}\cdot p_i^{e_i-1} = n^2.$$ Sehingga, dengan AM-GM, $$\frac{1}{\sigma(n)} + \frac{1}{\varphi(n)}\ge \frac{2}{\sqrt{\sigma(n)\varphi(n)}} \ge \frac{2}{n}$$ Kesamaan tercapai saat $n = 1$.
+    \item Amati bahwa untuk $n$ genap, semua faktor dari $n^2 + 1$ ganjil dan tepat setengahnya harus lebih kecil dari $\sqrt{n^2 + 1} > n$. Jadi, $\tau(n^2 + 1) \leq 2(\frac{n}{2}) = n$.
+    Asumsikan $\tau(n^2 + 1)$ monoton naik (tentunya, tidak mungkin monoton turun). Maka, \[\tau((n + 1)^2 + 1) \geq \tau(n^2 + 1) + 2\] untuk setiap bilangan asli $n \geq N$. Ketaksamaan ini berlaku karena $\tau(k)$ bernilai genap saat $k$ bukan bilangan kuadrat. Akibatnya, \[\tau(n^2 + 1) \geq \tau(N^2 + 1) + 2(n - N) = k + 2n\] dengan $k = \tau(N^2 + 1) - 2N$ adalah bilangan konstan. Namun, untuk nilai $n > -k$, didapat $\tau(n^2 + 1) = k + 2n > n$ yang kontradiktif dengan fakta di awal. Jadi, $\tau(n^2 + 1)$ tidak akan pernah menjadi monoton.
+    \item Ambil contoh $k = 2\cdot 7^m$. Dengan menggunakan notasi faktorisasi prima seperti biasa, $\varphi(n) = p_1^{\alpha_1}...p_k^{\alpha_k}(p_1 - 1)...(p_k - 1)$. Tentunya, jika $n$ punya minimal dua faktor prima ganjil, maka $4|\varphi(n)$ dan $\varphi(n) \neq 2\cdot 7^m$. Lebih lanjut, jika $n = 2^ap^b$ untuk sebuah bilangan prima ganjil $p$ dan bilangan asli $a, b$, maka $\varphi(n) = 2^{a - 1}p^{b - 1}(p - 1)$ dan tidak mungkin sama dengan $2\cdot 7^m$.
+    \item Ambil bilangan $n = 2\cdot 3^m$
+    \item Tinjau fungsi $f(n) = \frac{\varphi(n)}{tau(n)}$. Fungsi ini adalah fungsi multiplikatif. Jika $n = p^k$ untuk suatu bilangan asli $k$ maka $f(p^k) = \frac{p^{k - 1}(p - 1)}{k + 1}$. Dikarenakan $\frac{p}{k + 2} \geq \frac{2}{k + 2} > \frac{1}{k + 1}$, diperoleh $f(p^{k + 1}) > f(p^k)$. Sehingga, nilai minimal dari $f(p^k)$ tercapai saat $k = 1$, yakni $f(p) = \frac{p - 1}{2}$. Nilai ini mencapai nilai minimal saat $p = 2$ yakni sebesar $\frac{1}{2}$. Lebih lanjut, $f(2^2) = \frac{2}{3}, f(2^3) = 1,$ dan $f(3) = 1$, bersmaa dengan $f(2) = \frac{1}{2}$ 
+    Dikarenakan $f(n) = f(p_1^{\alpha_1})...f(p_k^{\alpha_k})$ dan ingin dicari semua solusi dari $f(n) = 1$, maka cukup dicari semua solusi dari $f(p^a) \leq 2$ yang tercapai saat $p^a = 2, 4, 8, 16, 3, 9, 5$. Dari semua ini, yang nilainya kurang dari $1$ hanyalah $2$ dan $4$. Jadi, faktor prima dari $n$ haruslah tidak lebih dari $5$. Selain itu, karena $f(30) = f(2)f(3)f(5) = 1$, $f(20) = f(4)f(5) > 1$, $f(36) = f(4)f(9) > 1$ maka $n \leq 30$. Pengecekan manual untuk bilangan yang faktor primanya tidak lebih dari $5$, pangkat terbesar dari $2, 3, 5$ yang membaginya secara berturut-turut tidak lebih dari $4, 2, 1$, dan kurang dari $30$ akan mengerucut ke $1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 30$. Dapat dicek bahwa yang memenuhi $f(n) = 1$ hanyalah $n = 1, 3, 8, 10, 18, 24,$ dan $30$.
+    \item We can assume that $n\ge 3$ because if $n\leq 2$, then we are done since for every positive integer $k$, we have $\phi(k)\ge 1$. 
+    Let $k=p_1^{\alpha_1}\cdots p_t^{\alpha_t}$ where $\alpha_i>0$ and $p_1<\cdots < p_t$. It is obvious that $p_i\ge i+1$.
+    If $t\ge n-1$, then$$\phi{(k)}=\prod{(p_i-1)\left(p_i^{\alpha_i-1}\right)}\ge \prod{(p_i-1)}\ge t!\ge (n-1)!$$
+    If $t\leq n-2$, then$$\phi{(k)}=k\cdot \prod{\left(1-\frac 1{p_i}\right)}\ge k\cdot\prod_{j=1}^{t}{\left(\frac{j}{j+1}\right)}=\frac k{t+1}\ge \frac k{n-1}>(n-1)!$$
+    \item Salah, ambil $n = 157$. Idenya adalah dengan cari bilangan prima $p, q$ yang memenuhi $p + 1 = 2q$ dan $n = p$. Ruas kanan konstan dan ruas kiri bisa disesuaikan.
+\end{enumerate}
+
+\end{document}

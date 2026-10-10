@@ -1,0 +1,81 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Tripel Pythagoras}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+
+\section{Persamaan Pythagoras}
+Persamaan Pythagoras adalah persamaan \[x^2 + y^2 = z^2\] dengan $x, y, z$ adalah bilangan asli.
+Solusi dari persamaan Pythagoras disebut sebagai solusi primitif apabila $x, y, z$ saling relatif prima.
+
+\section{Solusi Primitif dari Persamaan Pythagoras}
+\begin{theorem}
+    Semua solusi primitif $(x, y, z)$ dari persamaan Pythagoras dengan $y$ genap adalah \[x = m^2 - n^2, y = 2mn, z = m^2 + n^2\] dengan $m > n$ adalah dua bilangan relatif prima dengan $m + n$ ganjil
+\end{theorem}
+\begin{proof}[Outline bukti]
+    \begin{enumerate}
+        \item Berdasarkan paritas, salah satu dari $x, y$ harus ganjil
+        \item Dengan modulo $4$, tepat salah satu dari $x$ dan $y$ harus ganjil
+        \item Misal $y = 2a$. Maka, $z + x = 2b$ dan $z - x = 2c$ dengan $b$ dan $c$ relatif prima
+        \item Akibatnya, $4a^2 = 4bc$ dan karena $b$ dan $c$ relatif prima, maka $b = m^2$ dan $c = n^2$
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}[Akibat]
+    Solusi umum dari persamaan Pythagoras adalah \[x = k(m^2 - n^2), y = 2kmn, z = k(m^2 + n^2)\] dengan $k, m, n$ adalah bilangan asli dan $m, n$ relatif prima dan berbeda paritas
+\end{corollary}
+
+\section{Ekstensi Persamaan Pythagoras}
+\begin{theorem}
+    Semua solusi dari persamaan \[x^2 + y^2 + z^2 = t^2\] dengan $x, y, z, t$ bilangan asli, $y, z$ genap adalah \[x = \dfrac{l^2 + m^2 - n^2}{n}, y = 2l, z = 2m, t = \dfrac{l^2 + m^2 + n^2}{n}\] dengan $l, m$ adalah dua bilangan asli sembarang dan $n$ adalah sembarang pembagi positif dari $l^2 + m^2$ yang kurang dari $\sqrt{l^2 + m^2}$
+\end{theorem}
+
+\begin{proof}[Outline bukti]
+    Yang pasti, dalam modulo $4$, minimal ada dua bilangan $x, y, z$ yang genap. Sisanya sesuaikan paritas dan substitusi biasa.
+\end{proof}
+
+\section{Soal}
+\begin{problem}
+    Carilah semua tripel bilangan asli yang memenuhi \[x^{-2} + y^{-2} = z^{-2}\]
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa tidak ada dua bilangan kuadrat yang jumlah dan selisih keduanya juga merupakan bilangan bulat
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa sistem persamaan \[x^2 + y^2 = u^2\] \[x^2 + 2y^2 = v^2\] tidak memiliki solusi di bilangan asli
+\end{problem}
+
+\begin{problem}
+    Carilah semua bilangan  asli $x, y$ yang memenuhi persamaan \[x^2 + y^2 = 1997(x - y)\]
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa untuk setiap bilangan asli $m, n$, \[2(m^4 + n^4)\] bukanlah bilangan kuadrat
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa untuk setiap bilangan asli $m, n$, \[m^4 + 6m^2n^2 + n^4\] bukanlah bilangan kuadrat
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa tidak ada segitiga siku-siku dengan panjang ketiga sisinya merupakan bilangan asli dan luasnya merupakan bilangan kuadrat
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa banyak tripel Pythagoras primitif yang merupakan sisi sebuah segitiga siku-siku berjari-jari lingkaran dalam $r$, dengan $r$ sebuah bilangan asli, pasti merupakan bilangan dua berpangkat
+\end{problem}
+
+\begin{problem}
+    Diberikan dua buah bilangan bulat $(a, b)$ taknol. Buktikan bahwa persamaann \[x^2 + y^2 = (a^2 + b^2)z^2\] memiliki tak hingga solusi di bilangan bulat $(x, y, z)$
+\end{problem}
+
+\end{document}

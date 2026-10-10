@@ -1,0 +1,218 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+\usepackage{multicol}
+
+
+\title{Trigonometri}
+\author{Azzam and Akeyla}
+\date{August 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Persamaan}
+Tentunya, banyak properti lain yang belum dicover modul ini. Namun, sebagian besar properti yang berguna akan ditulis di sini.
+\subsection{Well-Known}
+\begin{enumerate}
+    \item $\sin^2{x} + \cos^2{x} = 1$
+    \item $\sin{(x \pm y)} = \sin{x}\cos{y} \pm \sin{y}\cos{x}$
+    \item $\cos{(x \pm y)} = \cos{x}\cos{y} \mp \sin{x}\sin{y}$
+    \item $\tan{(x + y)} = \dfrac{\tan{x} \pm \tan{y}}{1 \mp \tan{x}\tan{y}}$
+\end{enumerate}
+\subsection{Double Angle}
+\begin{enumerate}
+    \item $\sin{2x} = 2\sin{x}\cos{x}$
+    \item $\cos{2x} = \cos^2{x} - \sin^2{x} = 2\cos^2{x} - 1 = 1 - 2\sin^2{x}$
+    \item $\tan{2x} = \dfrac{2\tan{x}}{1 - \tan^2{x}}$
+\end{enumerate}
+\subsection{Triple Angle}
+\begin{enumerate}
+    \item $\sin{3x} = 3\sin{x} - 4\sin^3{x}$
+    \item $\cos{3x} = 4\cos^3{x} - 3\cos{x}$
+    \item $\tan{3x} = \dfrac{3\tan{x} - \tan^3{x}}{1 - 3\tan^2{x}}$
+\end{enumerate}
+\subsection{Sum to Product}
+\begin{enumerate}
+    \item $\sin{x} + \sin{y} = 2\sin{\left(\dfrac{x + y}{2}\right)}\cos{\left(\dfrac{x - y}{2}\right)}$
+    \item $\cos{x} + \cos{y} = 2\cos{\left(\dfrac{x + y}{2}\right)}\cos{\left(\dfrac{x - y}{2}\right)}$
+\end{enumerate}
+\subsection{Product to Sum}
+\begin{enumerate}
+    \item $\sin{x}\sin{y} = \dfrac{1}{2}(\cos{(x - y)} - \cos{(x + y)})$
+    \item $\cos{x}\cos{y} = \dfrac{1}{2}(\cos{(x + y)} + \cos{(x - y)})$
+    \item $\sin{x}\cos{y} = \dfrac{1}{2}(\sin{(x + y)} - \sin{(y - x)})$
+\end{enumerate}
+\subsection{Half tangent}
+Misal $t = \tan{\frac{x}{2}}$. Maka,
+\begin{enumerate}
+    \item $\sin{x} = \dfrac{2t}{1 + t^2}$
+    \item $\cos{x} = \dfrac{1 - t^2}{1 + t^2}$
+    \item $\tan{x} = \dfrac{2t}{1 - t^2}$
+\end{enumerate}
+\subsection{Trigonometri Sudut pada Segitiga}
+\label{subsec:triangle_trigs}
+Misal diberikan sebuah segitiga $ABC$ dengan panjang sisi $BC = a, CA = b,$ dan $AC = b$ serta besar sudut $\angle{BAC} = \alpha, \angle{CBA} = \beta$, dan $\angle{ABC} = \beta$. Beberapa properti:
+\begin{enumerate}
+    \item $\sin{\alpha} + \sin{\beta} + \sin{\gamma} = 4\cos{\frac{\alpha}{2}}\cos{\frac{\beta}{2}}\cos{\frac{\gamma}{2}}$
+    \item $\cos{\alpha} + \cos{\beta} + \cos{\gamma} = 1 + 4\sin{\frac{\alpha}{2}}\sin{\frac{\beta}{2}}\sin{\frac{\gamma}{2}}$
+    \item $\tan{\alpha}\tan{\beta}\tan{\gamma} = \tan{\alpha} + \tan{\beta} + \tan{\gamma}$
+    \item $\tan{\frac{\alpha}{2}}\tan{\frac{\beta}{2}} + \tan{\frac{\beta}{2}}\tan{\frac{\gamma}{2}} + \tan{\frac{\gamma}{2}}\tan{\frac{\alpha}{2}} = 1$
+    \item $\sin{2\alpha} + \sin{2\beta} + \sin{2\gamma} = 4\sin{\alpha}\sin{\beta}\sin{\gamma}$
+    \item $\cos{2\alpha} + \cos{2\beta} + \cos{2\gamma} = -1 - 4\cos{\alpha}\cos{\beta}\cos{\gamma}$
+    \item $sin^2{\alpha} + \sin^2{\beta} + \sin^2{\gamma} = 2 + 2\cos{\alpha}\cos{\beta}\cos{\gamma}$
+    \item $\sin^2{\frac{\alpha}{2}} + \sin^2{\frac{\beta}{2}} + \sin^2{\frac{\gamma}{2}} + 2\sin{\frac{\alpha}{2}}\sin{\frac{\beta}{2}}\sin{\frac{\gamma}{2}} = 1$
+    \item $\cos^2{\alpha} + \cos^2{\beta} + \cos^2{\gamma} + 2\cos{\alpha}\cos{\beta}\cos{\gamma} = 1$
+\end{enumerate}
+
+\subsection{Jari-jari lingkaran luar dan dalam}
+Notasikan $R$ dan $r$ secara berturut-turut sebagai panjang jari-jari lingkaran luar dan lingkaran dalam
+\begin{enumerate}
+    \item (Dalil sinus) $\dfrac{a}{\sin{\alpha}} = \dfrac{b}{\sin{\beta}} = \dfrac{c}{\sin{\gamma}} = 2R$
+    \item $2R\sin{\alpha}\sin{\beta}\sin{\gamma} = r(\sin{\alpha} + \sin{\beta} + \sin{\gamma})$
+    \item $r = 4R\sin{\frac{\alpha}{2}}\sin{\frac{\beta}{2}}\sin{\frac{\gamma}{2}}$
+\end{enumerate}
+
+\subsection{Soal-soal}
+\begin{problem}
+    Buktikan bahwa \[\dfrac{\tan{3x}}{\tan{x}} = \tan{\left(\dfrac{\pi}{3} - x\right)}\tan{\left(\dfrac{\pi}{3} + x\right)}\] untuk setiap $x \neq \frac{k\pi}{6}$ dengan $k \in \mathbb{Z}$.
+    % 103 29
+\end{problem}
+
+\begin{problem}
+    (Turki MO 1998) Barisan $\{a_n\}$ didefinisikan sebagai $a_1 = t$ dan $a_{n+ 1} = 4a_n(1 - a_n)$ untuk setiap $n \geq 1$. Tentukan banyak bilangan real $t$ berbeda yang bisa dipilih agar $a_{1998} = 0$
+    % 103 20
+\end{problem}
+
+\begin{problem}
+    Tentukan semua nilai $x$ yang memenuhi persamaan \[\sin{x} + \sin{2x} + \sin{3x} = 0\]
+    % Krechmar Algebra 4 53
+\end{problem}
+
+\begin{problem}
+    Tentukan semua nilai $x$ yang memenuhi persamaan \[\sin{5x} = 16 \sin^5{x}\]
+    % Krechmar Algebra 4 54
+\end{problem}
+
+\begin{problem}
+    Tentukan semua nilai $x$ yang memenuhi persamaan \[(1 - \tan{x})(1 + \sin{2x}) = 1 + \tan{x}\]
+    % Krechmar Algebra 4 59
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa jika \[\tan{x} + \tan{2x} + \tan{3x} + \tan{4x} = 0\] maka $5x = k\pi$ atau $8 \cos{2x} = 1\pm \sqrt{17}$
+    % Krechmar Algebra 4 60
+\end{problem}
+
+\section{Ketaksamaan Trigonometri}
+Notasikan $\alpha, \beta, \gamma$ sebagai tiga sudut dari segitiga $ABC$.
+\subsection{Jensen-able atau AM-GM-able}
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\sin{\alpha} + \sin{\beta} + \sin{\gamma} \leq \frac{3\sqrt{3}}{2}$
+    \item $\sin{\alpha}\sin{\beta}\sin{\gamma} \leq \dfrac{3\sqrt{3}}{8}$
+    \item $\sin{\frac{\alpha}{2}} + \sin{\frac{\beta}{2}} + \sin{\frac{\gamma}{2}} \leq \frac{3}{2}$
+    \item $\sin{\frac{\alpha}{2}}\sin{\frac{\beta}{2}}\sin{\frac{\gamma}{2}} \leq \frac{1}{8}$
+    \item $\cos{\frac{\alpha}{2}} + \cos{\frac{\beta}{2}} + \cos{\frac{\gamma}{2}} \leq \frac{3\sqrt{3}}{2}$
+    \item $\cos{\frac{\alpha}{2}}\cos{\frac{\beta}{2}}\cos{\frac{\gamma}{2}} \leq \frac{3\sqrt{3}}{8}$
+    \item $\tan{\frac{\alpha}{2}} + \tan{\frac{\beta}{2}} + \tan{\frac{\gamma}{2}} \geq \sqrt{3}$
+    \item $\tan{\alpha} + \tan{\beta} + \tan{\gamma} \geq 3\sqrt{3}$
+\end{enumerate}
+\end{multicols}
+\subsection{Manfaatkan subsection \ref{subsec:triangle_trigs}}
+\begin{multicols}{2}
+\begin{enumerate}   
+    \item $\cos{\alpha} + \cos{\beta} + \cos{\gamma} \leq \frac{3}{2}$
+    \item $\cos{\alpha}\cos{\beta}\cos{\gamma} \leq \frac{1}{8}$
+    \item $\sin^2{\alpha} + \sin^2{\beta} + \sin^2{\gamma} \leq \frac{9}{4}$
+    \item $\cos^2{\alpha} + \cos^2{\beta} + \cos^2{\gamma} \geq \frac{3}{4}$
+    \item $\sin^2{\frac{\alpha}{2}} + \sin^2{\frac{\beta}{2}} + \sin^2{\frac{\gamma}{2}} \geq \frac{3}{4}$
+    \item $\cos^2{\frac{\alpha}{2}} + \cos^2{\frac{\beta}{2}} + \cos^2{\frac{\gamma}{2}} \leq \frac{9}{4}$
+    \item $\sin{2\alpha} + \sin{2\beta} + \sin{2\gamma} \leq \frac{3\sqrt{3}}{2}$
+    \item $\cos{2\alpha} + \cos{2\beta} + \cos{2\gamma} \geq -\frac{3}{2}$
+\end{enumerate}
+\end{multicols}
+
+\subsection{Soal-soal}
+\begin{problem}
+    Diberikan $0 \leq \alpha, \beta, \gamma \leq 90^{\circ}$ yang memenuhi $\sin{\alpha} + \sin{\beta} + \sin{\gamma} = 1$. Buktikan ketaksamaan \[\tan^2{\alpha} + \tan^2{\beta} + \tan^2{\gamma} \geq \dfrac{3}{8}\]
+    % cvetkovski 263
+\end{problem}
+
+\begin{problem}
+    Misal $\alpha, \beta, \gamma$ adalah sudut dari sebuah segitiga. Buktikan ketaksamaan \[\sin{\alpha} + \sin{\beta} + \sin{\gamma} \geq \sin{2\alpha} + \sin{2\beta} + \sin{2\gamma}\]
+    % cvetkovski 260
+\end{problem}
+
+\begin{problem}
+    Tentukan nilai minimal dari \[\dfrac{\sec^4{\alpha}}{\tan^2{\beta}} + \dfrac{\sec^4{\beta}}{\tan^2{\alpha}}\] untuk setiap bilangan real $\alpha, \beta \neq \frac{k\pi}{2}$ dengan $k \in \mathbb{Z}$
+    % 103 39
+\end{problem}
+
+\begin{problem}
+    Buktikan ketaksamaan \[\dfrac{\sin^3{a}}{\sin{b}} + \dfrac{\cos^3{a}}{\cos{b}} \geq \sec{(a - b)}\] untuk setiap $0 < a, b < \frac{\pi}{2}$
+    % 103 43
+\end{problem}
+
+\begin{problem}
+    Tentukan semua bilangan real $x$ yang memenuhi ketaksamaan $0 < x < \pi$ dan $\dfrac{8}{3 \sin x - \sin 3x} + 3\sin^2 x \leq 5$.
+    % Vietnam MO 1969 P2
+\end{problem}
+
+\begin{problem}
+    Misal $\tan{\theta} = n \tan{\varphi}$ dengan $n$ merupakan bilangan real positif. Buktikan bahwa \[\tan^2{(\theta - \varphi)} \leq \dfrac{(n - 1)^2}{4n}\]
+    % Krechmar 8 10
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa jika \[\dfrac{1}{\cos{\alpha}\cos{\beta}}+ \tan{\alpha}\tan{\beta} = \tan{\gamma}\] maka $\cos{2\gamma} \leq 0$.
+    % Krechmar 8 11
+\end{problem}
+
+\section{Substitusi Trigonometri pada Ketaksamaan}
+\subsection{Bentuk substitusi yang umum ditemui}
+\begin{enumerate}
+    \item Jika $a, b, c$ adalah bilangan real positif yang memenuhi $ab + bc + ca = 1$, maka terdapat sebuah segitiga dengan besar sudut $\alpha, \beta, \gamma$ ($\alpha + \beta + \gamma = \pi$) yang memenuhi \[a = \tan{\dfrac{\alpha}{2}}, b = \tan{\dfrac{\beta}{2}}, c = \tan{\dfrac{\gamma}{2}}\]
+    \item Jika $a, b, c$ adalah bilangan real positif yang memenuhi $ab + bc + ca = 1$, maka terdapat sebuah segitiga \textbf{lancip} dengan besar sudut $\alpha, \beta, \gamma$ ($\alpha + \beta + \gamma = \pi$, $0 < \alpha, \beta, \gamma < \frac{\pi}{2}$) yang memenuhi \[a = \cot{\alpha}, b = \cot{\beta}, c = \cot{\gamma}\]
+    \item Jika $a, b, c$ adalah bilangan real positif yang memenuhi $a + b + c = abc$, maka terdapat sebuah segitiga dengan besar sudut $\alpha, \beta, \gamma$ ($\alpha + \beta + \gamma = \pi$) yang memenuhi \[a = \cot{\dfrac{\alpha}{2}}, b = \cot{\dfrac{\beta}{2}}, c = \cot{\dfrac{\gamma}{2}}\]
+    \item Jika $a, b, c$ adalah bilangan real positif yang memenuhi $a + b + c = abc$, maka terdapat sebuah segitiga \textbf{lancip} dengan besar sudut $\alpha, \beta, \gamma$ ($\alpha + \beta + \gamma = \pi$, $0 < \alpha, \beta, \gamma < \frac{\pi}{2}$) yang memenuhi \[a = \tan{\alpha}, b = \tan{\beta}, c = \tan{\gamma}\]
+    \item Jika $a, b, c$ adalah bilangan real positif yang memenuhi $a^2 + b^2 + c^2 + 2abc = 1$, maka terdapat sebuah segitiga \textbf{lancip} dengan besar sudut $\alpha, \beta, \gamma$ ($\alpha + \beta + \gamma = \pi$, $0 < \alpha, \beta, \gamma < \frac{\pi}{2}$) yang memenuhi \[a = \sin{\dfrac{\alpha}{2}}, b = \sin{\dfrac{\beta}{2}}, c = \sin{\dfrac{\gamma}{2}}\]
+    \item Jika $a, b, c$ adalah bilangan real positif yang memenuhi $a^2 + b^2 + c^2 + 2abc = 1$, maka terdapat sebuah segitiga \textbf{lancip} dengan besar sudut $\alpha, \beta, \gamma$ ($\alpha + \beta + \gamma = \pi$, $0 < \alpha, \beta, \gamma < \frac{\pi}{2}$) yang memenuhi \[a = \cos{\alpha}, b = \cos{\beta}, c = \cos{\gamma}\]
+\end{enumerate}
+\subsection{Soal-soal}
+\begin{problem}
+    Diberikan bilangan real positif $a, b, c$ yang memenuhi $a + b + c = abc$. Buktikan ketaksamaan \[\dfrac{1}{\sqrt{1 + a^2}} + \dfrac{1}{\sqrt{1 + b^2}} + \dfrac{1}{\sqrt{1 + c^2}} \leq \dfrac{3}{2}\]
+    % cvetkivski 210
+\end{problem}
+
+\begin{problem}
+    $a, b, c$ adalah bilangan real positif yang memenuhi $a + b + c = 1$. Buktikan ketaksamaan \[\sqrt{\dfrac{1}{a} - 1}\sqrt{\dfrac{1}{b} - 1} + \sqrt{\dfrac{1}{b} - 1}\sqrt{\dfrac{1}{c} - 1} + \sqrt{\dfrac{1}{c} - 1}\sqrt{\dfrac{1}{a} - 1} \geq 6\]
+    % cvetkovski 213
+\end{problem}
+
+\begin{problem}
+    $a, b, c$ adalah bilangan real nonnegatif yang memenuhi $ab + bc + ca = 1$. Buktikan ketaksamaan \[\dfrac{a}{1 + a^2} + \dfrac{b}{1 + b^2} + \dfrac{c}{1 + c^2} \leq \dfrac{3\sqrt{3}}{4}\]
+    % cvetkovski 215
+\end{problem}
+
+
+\begin{problem}
+    (Romania MO 2002) Jika $a, b, c$ adalah bilangan real di interval $(0, 1)$, buktikan bahwa \[\sqrt{abc} + \sqrt{(1 - a)(1 - b)(1 - c)} < 1\]
+    % inequalities manfrino ex 1.7.7
+\end{problem}
+
+\begin{problem}
+    (Latvia MO 2002) Misal $a, b, c, d$ adalah bilangan real positif yang memenuhi \[\dfrac{1}{1 + a^4} + \dfrac{1}{1 + b^4} + \dfrac{1}{1 + c^4} + \dfrac{1}{1 + d^4} = 1\] Buktikan bahwa $abcd \geq 3$
+    % Topics in Equalities - Hojoo Lee Chapter 2 2.1 7
+\end{problem}
+
+\begin{problem}
+    Diberikan bilangan real positif $a, b, c$ yang memenuhi $(a + b)(b + c)(c + a) = 1$. Buktikan ketaksamaan \[ab + bc + ca \leq \dfrac{3}{4}\]
+    % cvetkovski 217
+\end{problem}
+\end{document}
+
+    

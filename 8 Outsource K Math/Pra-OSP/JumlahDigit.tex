@@ -1,0 +1,65 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Digit}
+\author{Azzam and Akeyla}
+\date{September 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Properti}
+Definisikan $S(n)$ sebagai jumlah digit dari $n$.
+\begin{enumerate}
+    \item Untuk sembarang bilangan asli $a$ dan $n$ berlaku $S(an) \leq aS(n)$
+    \item $S(n) \equiv n \pmod{9}$
+    \item $S(ab) \leq S(a)S(b)$
+\end{enumerate}
+
+
+\section{Soal-soal}
+    \begin{problem}
+    Buktikan properti yang sudah diberikan
+    \end{problem}
+
+    \begin{problem}
+    Apakah terdapat bilangan asli $N$ sedemikian hingga $N > 2024$ dan ada sebuah bilangan asli $k$ dengan $N$ digit, $S(k) = N$, dan $k$ habis dibagi oleh $N$?
+    \end{problem}
+
+    \begin{problem}[IGMO 2022]
+    Ambil sebuah bilangan asli $n_0$. Dapatkan $n_1$ sebagai jumlah kuadrat digit-digit $n_0$. Dengan cara yang serupa, konstruksikan $n_2, n_3, $ dan seterusnya. Buktikan bahwa barisan $\{n_i\}_{i = 0}^{\infty}$ selalu suatu saat akan periodik, berapapun nilai $n_0$.
+    \end{problem}
+    
+    \begin{problem}[Rusia MO 1999]
+    Dalam representasi desimal dari $N$, digitnya tampil secara menaik. Tentukan semua nilai yang mungkin dari $S(9N)$
+    \end{problem}
+    
+    \begin{problem}[Romania TST JBMO 1999]
+    Tentukan semua bilangan asli $n$ sedemikian hingga terdapat bilangan cacah $a$ dan $b$ sedemikian hingga \[S(a) = S(b) = S(a + b) = n\]
+    \end{problem}
+    
+    \begin{problem}[Rusia MO 1997]
+    Buktikan bahwa terdapat tak hingga banyaknya bilangan asli $n$ sedemikian hingga $S(3^n) \geq S(3^{n + 1})$
+    \end{problem}
+    
+    \begin{problem}[Rusia MO 1999]
+    Diketahui bahwa $S(N) = 100$ dan $S(44N) = 800$. Tentukan nilai dari $S(3N)$
+    \end{problem}
+    
+    \begin{problem}[IMO 1968]
+    Tentukan semua bilangan asli $n$ yang hasil kali digit-digitnya sama dengan $n^2 - 10n - 22$
+    \end{problem}
+    
+    \begin{problem}[Czech-Polish-Slovak Junior Match 2017]
+    Tentukan bilangan asli $n \geq 3$ terbesar sedemikian hingga terdapat bilangan asli $n$ digit $\bar{a_1a_2...a_n}$ yang nilai $a_1, a_2,$ dan $a_n$ taknol yang habis dibagi oleh $\bar{a_2...a_n}$
+    \end{problem}
+
+    \begin{problem}[KTOM April 2022]
+        Sebuah bilangan asli $n$ disebut sebagai \textit{Komi} apabila tidak ada digitnya yang bernilai $0$, jumlah digit $n$ sama dengan $2021$, tetapi jumlah digit dari $2n$ tidak lebih dari $1202$. Jika bilangan \textit{Komi} terbesar adalah $N$, banyak digit dari $N$ adalah ...
+    \end{problem}
+    
+\end{document}

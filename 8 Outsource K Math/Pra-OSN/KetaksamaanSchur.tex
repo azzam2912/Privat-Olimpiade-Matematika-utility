@@ -1,0 +1,93 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Ketaksamaan Schur}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+
+\section{Ketaksamaan Schur}
+\begin{theorem}[Ketaksamaan Schur]
+Misal $x, y, z \geq 0$ adalah bilangan real dan $t$ adalah bilangan real. Maka,
+\[x^t(x - y)(x - z) + y^t(y - x)(y - z) + z^t(z - x)(z - y) \geq 0\]
+Kesamaan terjadi jika dan hanya jika $x = y = z$ dan $x = y, z = 0$ (dan permutasinya)
+\end{theorem}
+
+\begin{proof}[Bukti]
+WLOG, $x \geq y \geq z$
+\end{proof}
+
+Dengan pembuktian yang serupa, kita bahkan dapat membuktikan bentuk umumnya
+\begin{theorem}[Ketaksamaan Schur Diperumum]
+Misal $x, y, z \geq 0$ adalah bilangan real dan $a, b, c$ adalah bilangan real yang memenuhi $a \geq b \geq c$ atau $a \leq b \leq c$. Maka,
+\[a(x - y)(x - z) + b(y - x)(y - z) + c(z - x)(z - y) \geq 0\]
+\end{theorem}
+
+\section{Beberapa akibat}
+\begin{enumerate}
+    \item Saat $t = 1$, \[x^3 + y^3 + z^3 + 3xyz \geq x^2y + x^2z + y^2x + y^2z + z^2x + z^2y\]
+    Perhatikan bahwa $xyz$ biasanya tidak berada di sisi yang lebih besar dari sebuah ketaksamaan
+    \item Saat $t = 2$, \[x^4 + y^4 + z^4 + xyz(x + y + z) \geq x^3y + x^3z + y^3x + y^3z + z^3x + z^3y\]
+\end{enumerate}
+
+\section{Contoh soal}
+\begin{problem}
+Misal $a, b, c$ adalah panjang sisi segitiga dan $s$ adalah setengah keliling. Buktikan bahwa \[a^3(s - a) + b^3(s - b) + c^3(s - c) \leq abcs\]
+\end{problem}
+
+\begin{proof}[Bukti]
+Tulis $s = \dfrac{a + b + c}{2}$, pindah ruas.
+\end{proof}
+
+\section{Soal}
+NB: Mungkin agak banyak ngebongkar
+\begin{problem}
+Misal $a, b, c$ adalah bilangan real positif. Buktikan ketaksamaan \[27 + \left(2 + \dfrac{a^2}{bc}\right) \left(2 + \dfrac{b^2}{ca}\right) \left(2 + \dfrac{c^2}{ab}\right) \geq 6(a + b + c)\left(\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c}\right)\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan real positif. Buktikan ketaksamaan \[\dfrac{a}{b + c} +  \dfrac{b}{c + a} + \dfrac{c}{a + b} \geq \dfrac{a^2 + bc}{(a + b)(a + c)} + \dfrac{b^2 + ca}{(b + a)(b + c)} + \dfrac{c^2 + ab}{(c + a)(c + b)}\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan nonnegatif. Buktikan ketaksamaan \[\dfrac{a}{4b^2 + bc + 4c^2} + \dfrac{b}{4c^2 + ca + 4a^2} + \dfrac{c}{4a^2 + ab + 4b^2} \geq \dfrac{1}{a + b + c}\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan nonnegatif yang memenuhi $a + b + c = 2$. Buktikan ketaksamaan \[a^4 + b^4 + c^4 + abc \geq a^3 + b^3 + c^3\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan nonnegatif yang memenuhi $a + b + c = 2$. Buktikan ketaksamaan \[a^3 + b^3 + c^3 + \dfrac{15abc}{4} \geq 2\]
+\end{problem}
+
+\begin{problem}
+Misal $x, y, z$ adalah bilangan real positif yang memenuhi $xyz = x + y + z + 2$. Buktikan bahwa \[xy + yz + zx \geq 2(x + y + z)\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan real positif yang memenuhi $a + b + c = 1$. Buktikan ketaksamaan $a^2 + b^2 + c^2 + 3abc \geq \dfrac{4}{9}$
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan real positif. Buktikan ketaksamaan \[a^2 + b^2 + c^2 + 2abc + 1 \geq 2(ab + bc + ca)\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan real positif. Buktikan ketaksamaan \[\dfrac{a^2 + bc}{(b + c)^2} + \dfrac{b^2 + ca}{(c + a)^2} + \dfrac{c^2 + ab}{(a + b)^2} \geq \dfrac{3}{2}\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan real positif yang memenuhi $abc = 1$. Buktikan ketaksamaan \[\dfrac{a^2 + bc}{a^2(b + c)} + \dfrac{b^2 + ca}{b^2(c + a)} + \dfrac{c^2 + ab}{c^2(a + b)} \geq ab + bc + ca\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c$ adalah bilangan nonnegatif. Buktikan ketaksamaan \[2(a^2 + b^2 + c^2) + abc + 8 \geq 5(a + b + c)\]
+\end{problem}
+
+\end{document}

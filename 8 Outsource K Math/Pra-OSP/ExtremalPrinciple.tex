@@ -1,0 +1,66 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Extremal Principle}
+\author{Azzam and Akeyla}
+\date{Januari 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Extreme Principle}
+Extreme principle merupakan salah satu cara pemecahan masalah dengan menganalisis objek dengan properti ekstrim tertentu, misalnya objek dengan nilai terkecil atau nilai terbesar.
+
+\begin{example}
+    Misalkan terdapat sekumpulan(berhingga) titik berwarna merah dan biru di bidang dengan sifat bahwa setiap segmen garis yang menghubungkan dua titik berwarna sama memuat titik dengan warna yang lain. Buktikan bahwa seluruh titik tersebut berada di sebuah garis lurus.
+\end{example}
+
+\begin{proof}[Solusi]
+    Asumsikan tidak semua titik berada di sebuah garis lurus, maka pasti terdapat setidaknya satu segitiga yang menghubungkan tiga titik. Pilih salah satu segitiga yang paing kecil luasnya (mungkin karena berhingga), misal $ABC$. Berdasarkan PHP, pasti ada dua yang berwarna sama misal $A,B$, di antara kedua titik tersebut pasti terdapat satu titik lain, misal $D$. Tinjau segitiga $ADC$, segitiga ini memiliki luas lebih kecil dari $ABC$, kontradiksi.
+\end{proof}
+
+\begin{example}
+    Setiap jalan di Semarang adalah jalan satu arah. Setiap kota dihubungkan oleh tepat satu jalan satu arah. Tunjukkan bahwa terdapat suatu kota yang dapat dicapai dari setiap kota dengan melalui paling banyak satu kota lainnya.
+\end{example}
+
+\begin{proof}[Solusi]
+    Tinjau kota yang dapat dicapai dari paling banyak kota, yaitu $N$ yang dapat dicapai dari $n$ kota. Misalkan $D$ adalah suatu himpunan kota yang dapat mencapai $N$ secara langsung dan $I$ himpunan kota yang dapat dicapai dari $N$ secara langsung. Jika $|I| = 0$, maka $N$ memenuhi. Jika tidak, maka tinjau setiap kota yang ada di $I$, jika terdapat kota di $D$ yang dapat dicapai dari kota tersebut, maka $N$ memenuhi. Jika tidak ada, maka setiap kota di $D$ dapat mencapai kota tersebut secara langsung, sehingga kota tersebut dapat dicapai dari $n + 1$ kota, kontradiksi.
+\end{proof}
+
+\subsection{Soal-soal}
+    \begin{problem}
+        Terdapat 2020 buah titik di lingkaran. Setiap titik diberi nilai suatu bilangan real yang merupakan rata-rata dari dua nilai titik yang ada di sebelahnya. Buktikan bahwa semua titik tersebut bernilai sama.    
+    \end{problem}
+    
+    \begin{problem}
+        Terdapat $n$ buah sumur dan $n$ buah sawah, buktikan bahwa dapat dibuat $n$ jalan lurus yang menghubungkan sawah dengan sumur tanpa ada jalan yang berpotongan.    
+    \end{problem}
+    
+    \begin{problem}
+        Buktikan bahwa untuk setiap segilima konveks, dapat dipilih tiga diagonal sehingga ketiga diagonal tersebut dapat membentuk segitiga.    
+    \end{problem}
+    
+    \begin{problem}
+        Terdapat sekumpulan orang di asrama. Setiap orang memiliki paling banyak tiga musuh di asrama tersebut. Buktikan bahwa kita dapat membagi orang-orang ini ke dua asrama sedemikian hingga setiap orang memiliki paling banyak satu musuh di asrama tersebut. (Permusuhan bersifat dua arah)
+    \end{problem}
+    
+    \begin{problem}
+        Buktikan bahwa terdapat tiga titik sudut berurutan $A,B,C$ di setiap segi-$n$ konveks $(n\geq 3)$ sedemikian hingga seluruh bagian segi-$n$ tersebut berada di interior lingkaran luar $\Delta ABC$.    
+    \end{problem}
+    
+    \begin{problem}
+        Terdapat $n$ titik di bidang yang tidak semuanya segaris. Buktikan bahwa terdapat garis lurus yang melewati tepat dua titik.    
+    \end{problem}
+    
+    \begin{problem}
+        Terdapat beberapa bilangan asli di papan tulis Pada setiap langkah, seseorang dapat menghapus dua bilangan asli dan menuliskan $FPB$ dan $KPK$ dari bilangan tersebut. Buktikan bahwa suatu saat bilangan-bilangan tersebut akan berhenti berganti        
+    \end{problem}
+    
+    \begin{problem}
+        Buktikan bahwa di antara $15$ bilangan asli yang saling relatif prima yang lebih dari 1 namun lebih kecil dari 1993, terdapat suatu bilangan prima.    
+    \end{problem}
+\end{document}

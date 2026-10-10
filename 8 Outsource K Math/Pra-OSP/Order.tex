@@ -1,0 +1,103 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Order}
+\date{Juni 2019}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+\section{Order}
+\subsection{Definisi}
+Misalkan $a$ dan $m$ adalah bilangan bulat dengan $m \neq 0$ dan $m \neq 1$ serta $FPB(a,m) = 1$. Suatu bilangan asli $x$ disebut order dari $a$ dalam modulo $m$ jika $$a^x \equiv 1 \pmod{m}$$ dan untuk setiap bilangan asli yang kurang dari $x$, $a^x \not\equiv 1 \pmod{m}$. Hal ini biasa dinotasikan dengan $x = ord_m(a)$
+\subsection{Sebuah teorema yang berguna}
+\begin{theorem}
+    Jika $z$ adalah bilangan asli sedemikian hingga $a^z \equiv 1 (mod m)$, maka $ord_m(a) | z$.
+\end{theorem}
+\textbf{Bukti :} Gunakan algoritma pembagian.\\
+Sebagai akibat dari teorema ini, $ord_m(a) | \phi(m)$
+\subsection{Soal-soal}
+\begin{problem}
+    Misalkan $z = ord_m(a)$. Buktikan bahwa $a^1, a^2, ..., a^{z - 1}$ semuanya memiliki sisa yang berbeda apabila dibagi dengan $m$.
+\end{problem}
+
+\begin{problem}
+    Jika $d = ord_n(x)$, tunjukkan bahwa $x^k \equiv 1$ (mod $n$) jika dan hanya jika $d|k$
+\end{problem}
+
+\begin{problem}
+    Misalkan $z = ord_m(a)$ dan $d$ adalah suatu bilangan asli. Nyatakan $ord_m(a^d)$ dalam bentuk $z$ dan $d$.
+\end{problem}
+
+\begin{problem}
+    Misalkan $a,n$ adalah bilangan asli. Tunjukkan bahwa $\phi(a^n - 1)$ habis dibagi oleh $n$.
+\end{problem}
+
+\begin{problem}
+    Faktor prima dari penjumlahan bentuk kuadrat
+    \begin{enumerate}
+        \item Tunjukkan bahwa setiap faktor prima ganjil $p$ dari suatu bilangan asli $n^2 + 1$ pasti berbentuk $p = 4k + 1$
+        \item Tunjukkan bahwa setiap faktor prima ganjil $p$ darissuatu bilangan asli $n^4 + 1$ pasti berbentuk $8k + 1$
+        \item Tunjukkan bahwa setiap faktor prima ganjil selain $3$ dari bilangan asli $n^2 + n + 1$ pasti berbentuk $6k + 1$ 
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Carilah semua bilangan asli $n$ yang memenuhi $n | 2^n - 1$.
+\end{problem}
+
+\begin{problem}
+    Misal $a,n$ adalah bilangan asli dengan $a > 1$. Jika $ p | a^{2^n} + 1$ maka buktikan bahwa $2^{n + 1} | p - 1$.
+\end{problem}
+
+\begin{problem}
+    Misal $p,q,r$ adalah bilangan prima ganjil sedemikian hingga $p | q^r + 1$. Buktikan bahwa salah satu diantara $2r | p - 1$ dan $p | q^2 - 1$ pasti terpenuhi
+\end{problem}
+
+\begin{problem}
+    Berapa banyak bilangan asli kelipatan $1001$ yang dapat dinyatakan dalam bentuk $10^i - 10^j$ dimana $i,j$ adalah bilangan asli dengan $0 \leq i < j \leq  99$?
+\end{problem}
+
+\begin{problem}
+    Misal $p$ adalah bilangan prima ganjil, $t$ bilangan asli, $m$ bilangan asli yang relatif prima dengan $p$ dan $p - 1$. Buktikan bahwa untuk setiap bilangan asli $a,b$ yang relatif prima dengan $p$, berlaku : $a^m \equiv b^m \pmod{p^t}$ jika dan hanya jika $a \equiv b \pmod{p^t}$
+\end{problem}
+
+\begin{problem}
+    Jika $a,b$ adalah dua bilangan asli yang relatif prima, tunjukkan bahwa setiap faktor positif ganjil dari $a^{2^n} + b^{2^n}$ mempunyai bentuk $2^{n + 1}m + 1$ dengan $m$ adalah bilangan ganjil.
+\end{problem}
+
+\begin{problem}
+    Faktor prima dari bilangan berbentuk $2^p - 1$
+    \begin{enumerate}
+        \item Tunjukkan bahwa jika $p$ adalah bilangan prima maka setiap faktor prima dari $2^p - 1$ lebih besar dari $p$.
+        \item Tunjukkan bahwa jika $p,q$ adaalh dua bilangan prim a ganjil dengan $q|2^p - 1$, maka salah satu dari dua hal berikut benar : $q|a - 1$ atau $q = 2kp + 1$
+        \item Tunjukkan bahwa setiap faktor prima ganjil dari $2^p - 1$ dengan $p$ prima ganjil, selalu berbentuk $2kp + 1$
+        \item Carilah faktor prima terkecil dari $2^{17} - 1$ dan $2^{29} - 1$
+        \item Buktikan bahwa ada tak hingga banyaknya bilangan prima yang berbentuk $2kp + 1$ dengan $p$ adalah bilangan prima ganjil yang telah ditentukan.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Jika $3 \leq d \leq 2^{n + 1}$ adalah bilangan asli, maka tunjukkan bahwa $d$ tidak membagi $a^{2^n} + 1$ untuk setiap bilangan asli $a$
+\end{problem}
+
+\begin{problem}
+   Misalkan $n$ adalah bilangan asli ganjil $\neq 1$. Buktikan bahwa $n \not| 3^n + 1$. 
+\end{problem}
+
+\begin{problem}
+    Misalkan $n$ adalah bilangan asli $\geq 1$ yang memenuhi $n | 3^n + 4^n$. Tunjukkan bahwa $7|n$.
+\end{problem}
+
+\begin{problem}
+    Carilah semua bilangan prima $p,q$ yang memenuhi $pq| (5^p - 2^p)(5^q - 2^q)$.
+\end{problem}
+
+\begin{problem}
+    Carilah semua tripel bilangan prima $(p,q,r)$ sedemikian hingga $p| q^r + 1$, $q| r^p + 1$, dan $r| p^q + 1$.
+\end{problem}
+\end{document}

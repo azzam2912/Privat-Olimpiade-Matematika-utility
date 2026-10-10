@@ -1,0 +1,71 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Eksponen Prima}
+\author{Azzam and Akeyla}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{$v_p$}
+\subsection{Definisi}
+Untuk $p$ bilangan prima dan $m$ bilangan asli, notasikan $n = v_p(m)$ sebagai pangkat terbesar dari $p$ yang membagi $m$. Dengan kata lain, $p^n | m$ dan $p^{n + 1} \not| m$.
+\subsection{Beberapa sifat yang berguna}
+\begin{enumerate}
+    \item $v_p(ab) = v_p(a) + v_p(b)$
+    \item $v_p(a + b) \geq min\{v_p(a), v_p(b)\}$
+    \item $v_p(FPB(a_1, a_2,..., a_n)) = \min{v_p(a_1), v_p(a_2),..., v_p(a_n)}$
+    \item $v_p(KPK(a_1, a_2,..., a_n)) = \max{v_p(a_1), v_p(a_2),..., v_p(a_n)}$
+    \item $v_p(n!) = \sum_{i = 1}^{\infty} \bigg\lfloor{\dfrac{n}{p^i}}\bigg\rfloor$ untuk setiap $n$ bilangan asli.
+    \item $v_p(n!) = \dfrac{n - s_p(n)}{p - 1}$ dengan $s_p(n)$ adalah jumlah digit-digit dari $n$ dalam basis $p$. (Hint : gunakan basis $p$ dan hitung kedua ruas)
+\end{enumerate}
+\subsection{Soal-soal}
+\begin{problem}
+    Buktikan bahwa untuk semua bilangan asli $n$, $2^n$ tidak habis membagi $n!$.
+\end{problem}
+
+\begin{problem}
+    Carilah semua bilangan asli $n$ yang memenuhi $2^{n - 1} | n!$
+\end{problem}
+
+\begin{problem}
+    Carilah semua bilangan asli $n$ yang memenuhi $n| (n - 1)!$    
+\end{problem}
+
+\begin{problem}
+    $v_p$ di binomial
+    \begin{enumerate}
+        \item Buktikan bahwa untuk setiap bilangan real $x, y$ berlaku $\lfloor x+y \rfloor \geq \lfloor x \rfloor + \lfloor y \rfloor$
+        \item Buktikan bahwa untuk setiap bilangan prima $p > 3$ dan $0 < i < p$, berlaku $$\binom{p}{i} \equiv 0 \pmod{p}$$
+        \item Perumum bentuk di atas menjadi $$\binom{p^k}{i} \equiv 0 \pmod{p}$$ untuk setiap bilangan asli $k$.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Jika $m$ adalah bilangan asli sedemikian hingga $p^r \leq m < p^{r+1}$ untuk suatu prima $p$ dan bilangan cacah $r$, maka buktikan bahwa $$p^{r+1} \not | \binom{m}{k}$$ untuk tiap bilangan cacah $k \leq m$.    
+\end{problem}
+
+\begin{problem}
+    Buktikan bahwa \[KPK(a, b, c)^2 | KPK(a, b)\cdot KPK(b, c) \cdot KPK(c, a)\]
+\end{problem}
+
+\begin{problem}
+    Tunjukkan bahwa untuk setiap bilangan asli $n$, $n!$ habis membagi $$\prod_{k = 0}^{n - 1} (2^n - 2^k)$$    
+\end{problem}
+
+\begin{problem}
+    Beberapa lemma untuk pembuktian lemma LTE :
+    \begin{enumerate}
+        \item Misalkan $x,y$ adalah dua bilangan bulat dan $n$ adalah bilangan asli. Diberikan sembarang bilangan prima $p$ sehingga $FPB(n,p) = 1, p| x - y, p \not| x, p\not| y$. Buktikan bahwa $$v_p(x^n - y^n) = v_p(x - y)$$
+        \item Simpulkan bahwa untuk $n$ bilangan asli ganjil dan $x,y,p$ bilangan yang memenuhi persyaratan di atas, berlaku $$v_p(x^n + y^n) = v_p(x + y)$$
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Misalkan $n$ adalah bilangan asli. Tunjukkan bahwa $$(n+1) KPK\left(\binom{n}{0}, \binom{n}{1},..., \binom{n}{n}\right) = KPK(1, 2,..., n+1)$$
+\end{problem}
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Power of Point}
+\author{Azzam and Akeyla}
+
+\begin{document}
+
+\maketitle
+
+\section{Definisi}
+Power of Point (POP) dari sebuah titik $X$ terhadap lingkaran $\omega$ yang berpusat di $O$ dan berjari-jari $r$ adalah \[\text{pow}_\omega(X) = OX^2 - r^2\]
+
+\section{Pengaruh Posisi Titik Terhadap Lingkaran}
+\subsection{Titik $X$ berada di luar lingkaran}
+Ikuti langkah-langkah berikut.
+\begin{enumerate}
+    \item Tarik garis singgung dari titik $X$ ke lingkaran $\omega$ yang menyinggung di titik $P$ dan $Q$. Jelas bahwa $XP = XQ$. Buktikan bahwa $\text{pow}_\omega(X) = XP^2 = XQ^2$.
+    \item Tarik garis yang dari $X$ yang memotong $\omega$ di titik $A$ dan $B$. Buktikan bahwa segitiga $XAP$ sebangun dengan $XPB$.
+    \item Buktikan juga bahwa $\text{pow}_\omega(X) = XA\cdot XB$
+    \item Simpulkan bahwa apabila ditarik dua garis dari titik $X$ yang memotong $\omega$ masing-masing di titik $A, B$ dan $C, D$, maka $XA\cdot XB = XC\cdot XD$. Pernyataan ini benar bahkan jika $C = D$, yakni saat $XC$ adalah garis singgung $\omega$
+    \item Buktikan inversnya: Apabila terdapat segiempat konveks $ABCD$ dengan $AB$ dan $CD$ berpotongan di $X$ dan $XA\cdot XB = XC\cdot XD$, maka $ABCD$ merupakan segiempat siklik. 
+\end{enumerate}
+\subsection{Titik $X$ berada di keliling lingkaran}
+Yakinkan diri kalian bahwa $\text{pow}_{\omega}(X) = 0$
+
+\subsection{Titik $X$ berada di dalam lingkaran}
+Ikuti langkah-langkah berikut.
+\begin{enumerate}
+    \item Periksa apakah power dari $X$ bernilai positif, negatif, atau nol.
+    \item Tarik garis $OX$ yang memotong lingkaran $\omega$ di dua titik $A$ dan $B$
+    \item Melambangkan apakah nilai $AX \cdot XB$?
+    \item Tarik tali busur lain yang melewati titik $X$. Misalkan tali busur ini memotong di titik $C$ dan $D$. Buktikan bahwa segitiga $AXC$ dan $BXD$ sebangun.
+    \item Buktikan bahwa $\text{pow}_{\omega}(X) = - XC\cdot XD$
+    \item Simpulkan bahwa apabila ditarik dua garis dari titik $X$ yang memotong $\omega$ masing-masing di titik $A, B$ dan $C, D$, maka $XA\cdot XB = XC\cdot XD$.
+    \item Buktikan inversnya: Apabila terdapat segiempat konveks $ABCD$ dengan $AC$ dan $BD$ berpotongan di $X$ dan $XA\cdot XC = XB\cdot XD$, maka $ABCD$ merupakan segiempat siklik. 
+\end{enumerate}
+
+\section{Radical Axis}
+Misalkan terdapat dua buah lingkaran nonkonsentris (alasannya?) $\omega_1$ dan $\omega_2$. Radical axis dari kedua lingkaran ini didefinisikan sebagai lokus semua titik yang memiliki power yang sama ke kedua lingkaran ini.
+
+\begin{enumerate}
+    \item (Opsional) Buktikan bahwa lokus tersebut merupakan sebuah garis yang tegak lurus terhadap garis yang menghubungkan kedua titik pusat lingkaran tersebut.
+    \item Tentukan radical axis dari dua buah lingkaran apabila kedua lingkaran tersebut berpotongan sebanyak: 
+    \begin{enumerate}
+        \item $2$ kali
+        \item $1$ kali
+        \item (Opsional) $0$ kali
+    \end{enumerate}
+    \item \textbf{Radical Center.} Jika terdapat tiga lingkaran dengan titik pusat yang tidak segaris, buktikan bahwa tiga radical axis yang terbentuk akan berpotongan di satu titik. Titik perpotongan ini disebut sebagai \textit{radical center}. Bagaimana jika ketiga titik pusat lingkaran tersebut segaris?
+    \item \textbf{Degenerate Circle.} Power dan Radical axis juga dapat didefinisikan apabila lingkaran yang diacu merupakan sebuah titik. Hal ini dikarenakan titik dapat dianggap sebagai lingkaran berjari-jari nol. Bagaimana bentuk radical axis dari:
+    \begin{enumerate}
+        \item Lingkaran dan titik?
+        \item Titik dan titik?
+    \end{enumerate}
+\end{enumerate}
+
+\section{Latihan}
+\subsection{Cek Ombak}
+\begin{problem}
+    Diberikan sebuah lingkaran dengan tali busur $AB$ dan $CD$ yang berpotongan di $X$. Jika diketahui bahwa $AX = 2, BX = 4, CX = 1$, panjang dari $DX$ adalah ...
+\end{problem}
+
+\subsection{Mudah}
+\begin{problem}
+    (AMC 2020 12B P10) Di sebuah persegi satuan $ABCD$, lingkaran dalam $\omega$ menyinggung $CD$ di titik $M$. Jika $AM$ memotong $\omega$ di titik $P$, panjang dari $AP$ adalah ...
+\end{problem}
+
+\begin{problem}
+    Misalkan $\omega_1$ dan $\omega_2$ adalah dua lingkaran yang berpotongan di dua titik $A$ dan $B$. Garis $\ell$ adalah garis singgung persekutuan kedua lingkaran. $\ell$ menyinggung lingkaran  masing-masing di titik $P$ dan $Q$. Buktikan bahwa perpanjangan garis $AB$ membagi dua segmen garis $PQ$ sama panjang.
+\end{problem}
+
+\subsection{Sedang}
+\begin{problem}
+    Diberikan segitiga $ABC$. Lingkaran dalam segitiga $ABC$ menyinggung sisi $BC, CA, AB$ berturut-turut di titik $D, E, F$. Titik $X$ dan $Y$ berturut-turut adalah titik tengah $BD$ dan $DC$. Titik $P$ dan $Q$ berturut-turut adalah titik tengah $BF$ dan $CE$. Buktikan bahwa $XP$ dan $YQ$ berpotongan di garis sumbu sisi $BC$.
+\end{problem}
+
+\begin{problem}
+    Diberikan dua buah lingkaran $\omega_1$ dan $\omega_2$ yang berpotongan di titik $S$ dan $T$. Garis singgung persekutuan kedua lingkaran menyinggung kedua lingkaran masing-masing di $A$ dan $B$. Jika $AS = x, BS = y,$ dan $AT = z$, tentukan panjang $BT$.
+\end{problem}
+
+\begin{problem}
+    (Swedia MO 2019 P2) $AB$ adalah diameter dari sebuah lingkaran. Titik $C$ dan $D$ terletak di keliling lingkaran. Sinar $AC$ dan $AD$ secara berturut-turut memotong garis singgung lingkaran dari titik $B$ di titik $P$ dan $Q$. Buktikan bahwa $P, C, D, Q$ membentuk segiempat siklik.     
+\end{problem}
+
+\begin{problem}
+    Diberikan setengah lingkaran yang berdiameter $AB$. Titik $C$ terletak di keliling setengah lingkaran (bukan di diameter). Titik $E$ adalah proyeksi titik $D$ terhadap garis $BC$. Titik $F$ adalah perpotongan $AE$ dengan setengah lingkaran. Buktikan bahwa $BF$ memotong segmen garis $DE$ sama panjang.
+\end{problem}
+
+\begin{problem}
+    (Irlandia MO 2019 P5) Titik $M$ terletak di sisi $BC$ dari sebuah segitiga $ABC$. Titik $P$ dan $Q$ secara berturut-turut adalah titik pusat lingkaran luar $ABM$ dan $ACM$. Titik $L$ merupakan perpotongan $BP$ dan $CQ$. Titik $K$ merupakan pencerminan titik $L$ terhadap garis $PQ$. Buktikan bahwa titik $M, P, Q,$ dan $K$ terletak di keliling lingkaran yang sama.
+\end{problem}
+
+\begin{problem}
+    (USAMO 1998) Misal lingkaran $\omega_1$ dan $\omega_2$ adalah lingkaran yang konsentris dengan $\omega_2$ terletak di interior $\omega_1$. Titik $A$ terletak di keliling $\omega_1$ dan $B$ terletak di keliling $\omega_2$ sedemikian hingga $AB$ merupakan garis singgung $\omega_2$. $C$ adalah titik perpotongan kedua $AB$ $\omega_1$. Titik $D$ adalah titik tengah $AB$. Sebuah garis yang melewati $A$ dan memotong $\omega_2$ di titik $E$ dan $F$ sedemikian hingga garis sumbu $DE$ dan garis sumbu $CF$ berpotongan di titik $M$ yang terletak di segmen garis $AB$. Tentukan rasio dari $AM:MC$.
+\end{problem}
+
+\begin{problem}
+    Diberikan segitiga $ABC$ dengan titik pusat lingkaran dalam $I$, titik pusat lingkaran luar $O$, jari-jari lingkaran dalam $r$, dan jari-jari lingkaran luar $R$. Buktikan bahwa $OI^2 = R(R - 2r)$
+\end{problem}
+
+\end{document}

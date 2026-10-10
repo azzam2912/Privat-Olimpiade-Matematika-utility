@@ -1,0 +1,224 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evanchen} 
+\usepackage{graphicx}
+\graphicspath{{8 Outsource K Math/Gambar/}}
+
+\title{Pertidaksamaan}
+\author{Azzam and Akeyla}
+\date{Juli 2022}
+
+\begin{document}
+\maketitle
+\section{No Square is Negative}
+\begin{theorem}
+[Trivial inequality]  Untuk setiap bilangan real $x$, $x^2 \geq 0$. Kesamaan berlaku hanya jika $x = 0$
+\end{theorem}
+\begin{proof}[Bukti]
+Asumsikan terdapat suatu bilangan real $x$ sehingga $x^2 < 0$. Kemungkinannya adalah : $x < 0, x = 0, x > 0$.
+\begin{enumerate}
+    \item Jika $x = 0$, maka $x^2 = 0 \not\leq 0$.
+    \item Jika $x^2 < 0 $ dan $x > 0$, maka $\frac{x^2}{x} < \frac{0}{x} = 0$, kontradiksi.
+    \item Jika $x^2 < 0$ dan $x < 0$, maka $\frac{x^2}{x} > \frac{0}{x} = 0$, kontradiksi.
+\end{enumerate}
+Maka, tidak ada bilangan real $x$ yang memenuhi
+\end{proof}
+Meskipun trivial, namun pertidaksamaan inilah yang menjadi dasar persamaan- persamaan lainnya. 
+\section{Completing the Square}
+Merupakan suatu teknik untuk merubah persamaan menjadi jumlahan beberapa persamaan kuadrat dan konstanta.
+\begin{example}
+Berapakah nilai minimum dari $x + \frac{1}{x}$ untuk $x$ bilangan real positif? Kapankah nilai minimum tersebut tercapai ?
+\end{example}
+\textbf{Solusi.} $x + \frac{1}{x} = x - 2 + \frac{1}{x} + 2 = (\sqrt{x} - \frac{1}{\sqrt{x}})^2 + 2 \geq 2$\\Kesamaan terjadi ketika $\sqrt{x} = \frac{1}{\sqrt{x}}$, yakni ketika $x = 1$\\
+
+\section{Empat Bersaudara yang Populer}
+\begin{theorem}
+Untuk $a,b$ bilangan real positif, notasikan \\ 
+$QM = \sqrt{\frac{a^2 + b^2}{2}}$, $AM = \frac{a + b}{2}$, $GM = \sqrt{ab}$, $HM = \frac{2}{\frac{1}{a} + \frac{1}{b}}$\\
+Maka, $$QM \geq AM \geq GM \geq HM$$ dengan kesamaan terjadi ketika $a = b$.
+\end{theorem}
+\begin{proof}[Bukti]
+[QM-AM] 
+    \begin{equation*} 
+        \begin{split}
+            & (a-b)^2 \geq 0\\
+            \iff & a^2 - 2ab + b^2 \geq 0\\
+            \iff & 2a^2 + 2b^2 \geq a^2 + 2ab + b^2\\
+            \iff & \frac{a^2 + b^2}{2} \geq \frac{a^2 + 2ab + b^2}{4}\\
+            \iff & \sqrt{\frac{a^2 + b^2}{2}} \geq \frac{a + b}{2} 
+        \end{split}
+    \end{equation*}
+[AM-GM]
+    \begin{equation*}
+        \begin{split}
+            & (\sqrt{a}-\sqrt{b})^2 \geq 0\\
+            \iff & a - 2\sqrt{ab} + b \geq 0\\
+            \iff & \frac{a + b}{2} \geq \sqrt{ab} 
+        \end{split}
+    \end{equation*}
+[GM-HM]
+    \begin{equation*}
+        \begin{split}
+            & (\sqrt{a} - \sqrt{b})^2 \geq 0\\
+            \iff & a - 2\sqrt{ab} + b \geq 0\\
+            \iff & a + b \geq 2\sqrt{ab}\\
+            \iff & 1 \geq \frac{2\sqrt{ab}}{a+b}\\
+            \iff & \sqrt{ab} \geq \frac{2ab}{a+b}\\
+            \iff & \sqrt{ab} \geq \frac{2}{\frac{1}{a} + \frac{1}{b}} 
+        \end{split}
+    \end{equation*}
+\end{proof}
+
+Persamaan QM-AM-GM-HM juga berlaku secara lebih umum.\\
+\begin{theorem}
+Untuk $n$ bilangan asli dan $a_1,a_2,a_3,...,a_n$ bilangan real positif, notasikan \\
+QM = $\sqrt{\dfrac{a_1^2 + a_2^2 +... + a_n^2}{n}}$ AM = $\dfrac{a_1 + a_2 + ... + a_n}{n}$ GM = $\sqrt[n]{a_1a_2...a_n}$ \newline HM = $\dfrac{n}{\dfrac{1}{a_1} + \dfrac{1}{a_2} + ... \dfrac{1}{a_n}}$\\
+Maka, $$QM \geq AM \geq GM \geq HM$$
+dengan kesamaan terjadi ketika $a_1 = a_2 = ... = a_n$
+\end{theorem}
+Kerangka bukti :
+    \begin{enumerate}
+        \item Buktikan pertidaksamaan AM-GM secara induksi pada nilai $n$. \\Petunjuk : Substitusikan nilai $x_i = \frac{a_i}{\sqrt[n]{a_1a_2...a_n}}$
+        \item Substitusikan $x_1 = \frac{1}{a_1}, x_2 = \frac{1}{a_2} + ... \frac{1}{a_n}$ untuk membuktikan pertidaksamaan GM-HM dengan merubahnya menjadi bentuk pertidaksamaan AM-GM (dengan variabel $x$, bukan $a$).
+        \item Untuk pertidaksamaan QM-AM akan di-skip terlebih dahulu hingga bagian berikutnya.
+    \end{enumerate}
+
+\begin{example}
+Butikan bahwa untuk setiap bilangan real positif $a,b,c$, $$\frac{a}{b} + \frac{b}{c} + \frac{c}{a} \geq 3$$
+\end{example}
+\begin{proof}
+Berdasarkan pertidaksamaan AM-GM, $$\frac{a}{b} + \frac{b}{c} + \frac{c}{a} \geq 3\sqrt[3]{\frac{a}{b}\frac{b}{c}\frac{c}{a}} = 3$$
+Kesamaan terjadi ketika $\frac{a}{b} =\frac{b}{c} =\frac{c}{a}$, 
+yakni ketika $a = b = c$
+\end{proof}
+\begin{example}
+Buktikan bahwa untuk setiap bilangan real positif $a,b,c$, $$\frac{ab}{c} + \frac{bc}{a} + \frac{ca}{b} \geq a + b +c$$
+\end{example}
+\begin{proof}
+Berdasarkan pertidaksamaan AM-GM, $$\frac{ab}{c} + \frac{bc}{a} \geq 2\sqrt{\frac{ab}{c}\frac{bc}{a}} = 2b $$
+Dengan cara yang serupa, diperoleh $\frac{bc}{a} + \frac{ca}{b} \geq 2c$ dan $\frac{ca}{b} + \frac{ab}{c} \geq 2a$.\\
+Dengan menjumlahkan ketiga pertidaksamaan tersebut dan membaginya dengan dua, didapat pertidaksamaan yang diinginkan.
+Kesamaan terjadi ketika $\frac{ab}{c} = \frac{bc}{a} = \frac{ca}{b}$ yakni ketika $a = b= c$
+\end{proof}
+
+\section{Sebuah Pertidaksamaan yang Berguna}
+\begin{theorem}
+[Pertidaksamaan Cauchy-Schwarz] Untuk setiap bilangan real $a_1,a_2,...,a_n$ dan $b_1,b_2,...,b_n$, berlaku $$(a_1^2 + a_2^2 + ... + a_n^2)(b_1^2 + b_2^2 +... + b_n^2) \geq (a_1b_1 + a_2b_2 + ... + a_nb_n)^2$$ dengan kesamaan terjadi jika salah satu dari tiga hal berikut terpenuhi : 
+        \begin{enumerate}
+            \item $a_1 = a_2 = ... = a_n = 0$
+            \item $b_1 = b_2 = ... = b_n = 0$
+            \item Terdapat suatu bilangan real $k$ sedemikian hingga $\frac{a_1}{b_1} = \frac{a_2}{b_2} = ... = \frac{a_n}{b_n} = k$
+        \end{enumerate}
+\end{theorem}
+\begin{proof}[Bukti]
+Tinjau fungsi $$f(x) = (a_1x -b_1)^2 + (a_2x - b_2)^2 + ... (a_nx - b_n)^2.$$ Amati bahwa $$f(x) = (a_1^2 + a_2^2 + ... + a_n^2)x^2 - 2(a_1b_1 + a_2b_2 + ... + a_nb_n)x + (b_1^2 + b_2^2 +... +b_n^2).$$ Fungsi ini merupakan fungsi kuadratik terhadap $x$. Selain itu, karena $f(x) \geq 0$, maka $f(x)$ menyinggung sumbu $x$ di tepat satu titik atau sama sekali tidak memotong. Dengan kata lain, diskriminan dari $f(x)$ merupakan bilangan non-positif. Sehingga, $$0 \geq \Delta = (2(a_1b_1 + a_2b_2 + ... + a_nb_n))^2 - 4(a_1^2 + a_2^2 + ... + a_n^2)(b_1^2 + b_2^2 + ... + b_n^2)$$ Dengan mengurutkan pertidaksamaan di atas, diperoleh pertidaksamaan Cauchy-Schwarz
+\end{proof}
+
+\begin{example}
+Jika diketahui tiga bilangan real positif $x,y,z$ yang memenuhi $x^2 + 2y^2 + 3z^2 = 4$. Tentukan nilai maksimal dari $5x + 6y + 7z$.
+\end{example}
+
+\textbf{Solusi.} Berdasarkan pertidaksamaan Cauchy-Schwarz, $$\frac{712}{3} = \Big(25 + 18 + \frac{49}{3}\Big)(x^2 + 2y^2 + 3z^2) \geq (\sqrt{25x^2} + \sqrt{36y^2} + \sqrt{49z^2})^2 = (5x + 6y + 7z)^2.$$ Sehingga, nilai maksimal dari $5x + 6y + 7z$ adalah $\sqrt{\frac{712}{3}}$. Nilai maksimal tersebut tercapai ketika $\frac{x^2}{25} = \frac{2y^2}{18} = \frac{9z^2}{49}$. 
+
+\subsection{Variasi dari Cauchy-Schwarz}
+\begin{theorem}
+[Pertidaksamaan CS-Engel] Untuk setiap bilangan real positif $a_1,a_2,...,a_n$ dan $b_1, b_2,.., b_n$, berlaku $$\frac{a_1^2}{b_1} + \frac{a_2^2}{b_2} + ... + \frac{a_n^2}{b_n} \geq \frac{(a_1 + a_2 + ... + a_n)^2}{b_1 + b_2 + ... + b_n}$$
+\end{theorem}    
+
+Amati bahwa kita dapat membuktikan pertidaksamaan $QM-AM$ dengan menggunakan pertidaksamaan CS-Engel.
+
+\begin{example}
+Jika $a,b$ adalah dua bilangan real positif, maka buktikan bahwa $$8(a^4 + b^4) \geq (a + b)^4$$
+\end{example}
+\textbf{Solusi.} Amati bahwa $$a^4 + b^4 = \frac{a^4}{1} + \frac{b^4}{1} \geq \frac{(a^2 + b^2)^2}{2} = \frac{(\frac{a^2}{1} + \frac{b^2}{1})^2}{2} \geq \frac{\Big(\frac{(a + b)^2}{2}\Big)^2}{2} = \frac{(a+b)^4}{8} \qed$$
+
+\newpage
+\section{Soal-Soal}
+\begin{problem}
+$x, y, z$ adalah bilangan real positif yang memenuhi $\dfrac{1}{x} + \dfrac{1}{y} + \dfrac{1}{z} = 1$. Buktikan ketaksamaan \[(x - 1)(y - 1)(z - 1) \geq 8\]
+\end{problem}
+
+\begin{problem}
+(2; Azerbaijan JBMO TST 2015 Day 1) Diberikan bilangan real positif $a, b, c$ yang memenuhi persamaan $a + b + c = 1$. Buktikan bahwa \[\dfrac{7 + 2b}{1 + a} + \dfrac{7 + 2c}{1 + b} + \dfrac{7 + 2a}{1 + c} \geq \dfrac{69}{4}\]
+\end{problem}
+
+\begin{problem}
+Diberikan bilangan real positif $x, y$ yang memenuhi $x + y = 2$. Buktikan bahwa \[x^3 y^3(x^3 + y^3) \leq 2\]
+\end{problem}
+
+\begin{problem}
+Bilangan real positif $a, b, c$ memenuhi persamaan $abc = 1$. Buktikan bahwa \[\dfrac{1 + ab}{1 + a} + \dfrac{1 + bc}{1 + b} + \dfrac{1 + ca}{1 + c} \geq 3\]
+\end{problem}
+
+\begin{problem}
+(2; OSP Bosnia-Herzegovina 2014 Grade 10) Diberikan bilangan real positif $a, b, c$ yang memenuhi persamaan $ab + bc + ca = 1$. Buktikan ketaksamaan \[\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c} \geq 3(a + b + c)\]
+\end{problem}
+
+\begin{problem}
+(2; Estonia MO 2003, diperumum) Misal $a, b, c$ adalah dua bilangan real positif yang tidak lebih besar dari $2$. Jika $k > 0$, buktikan bahwa \[\dfrac{abc}{a + kb + c} \leq \dfrac{4}{k + 2}\]
+\end{problem}
+
+\begin{problem}
+(2; Bangladesh MO 2019) Jika $a, b, c$ adalah bilangan real positif, buktikan bahwa \[\dfrac{a}{bc} + \dfrac{b}{ca} + \dfrac{c}{ab} \geq \dfrac{2}{a} + \dfrac{2}{b} - \dfrac{2}{c}\]
+\end{problem}
+
+\begin{problem}
+Misal $a, b, c \in \mathbb{R}$ sedemikian hingga $\dfrac{1}{3 + a} + \dfrac{1}{3 + b} + \dfrac{1}{3 + c} = \dfrac{1}{3 - a} + \dfrac{1}{3 - b} + \dfrac{1}{3 - c}$. Buktikan ketaksamaan \[\dfrac{1}{3 + a} + \dfrac{1}{3 + b} + \dfrac{1}{3 + c} \geq 1\]
+\end{problem}
+
+\begin{problem}
+(2;India RMO 2014 Region 4) Diberikan bilangan real positif $x, y$. Buktikan bahwa \[4x^4 + 4y^3 + 5x^2 + y + 1 \geq 12xy\]
+\end{problem}
+
+\begin{problem}
+
+Bilangan real positif $a, b, c$ memenuhi persamaan $abc = 1$. Buktikan bahwa \[\dfrac{1 + ab}{1 + a} + \dfrac{1 + bc}{1 + b} + \dfrac{1 + ca}{1 + c} \geq 3\]
+
+\end{problem}
+
+\begin{problem}
+
+(2; OSP Bosnia-Herzegovina 2014 Grade 10) Diberikan bilangan real positif $a, b, c$ yang memenuhi persamaan $ab + bc + ca = 1$. Buktikan ketaksamaan \[\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c} \geq 3(a + b = c)\]
+
+\end{problem}
+
+\begin{problem}
+
+(2; Estonia MO 2003, diperumum) Misal $a, b, c$ adalah dua bilangan real positif yang tidak lebih besar dari $2$. Jika $k > 0$, buktikan bahwa \[\dfrac{abc}{a + kb + c} \leq \dfrac{4}{k + 2}\]
+
+\end{problem}
+
+\begin{problem}
+
+(2; Bangladesh MO 2019) Jika $a, b, c$ adalah bilangan real positif, buktikan bahwa \[\dfrac{a}{bc} + \dfrac{b}{ca} + \dfrac{c}{ab} \geq \dfrac{2}{a} + \dfrac{2}{b} - \dfrac{2}{c}\]
+
+\end{problem}
+
+\begin{problem}
+
+Misal $a, b, c \in (-3,3)$ sedemikian hingga $\dfrac{1}{3 + a} + \dfrac{1}{3 + b} + \dfrac{1}{3 + c} = \dfrac{1}{3 - a} + \dfrac{1}{3 - b} + \dfrac{1}{3 - c}$. Buktikan ketaksamaan \[\dfrac{1}{3 + a} + \dfrac{1}{3 + b} + \dfrac{1}{3 + c} \geq 1 \]
+
+\end{problem}
+
+\begin{problem}
+
+(2;India RMO 2014 Region 4) Diberikan bilangan real positif $x, y$. Buktikan bahwa \[4x^4 + 4y^3 + 5x^2 + y + 1 \geq 12xy\]
+
+\end{problem}
+
+\begin{problem}
+
+(3; 239 Open MO 2016 Grade 10-11) $a, b, c$ adalah bilangan real positif yang memenuhi $abc = 1$. Buktikan bahwa \[2(a + b + c) + \dfrac{9}{(ab + bc + ca)^2} \geq 7\]
+
+\end{problem}
+
+\end{document}
+
+]
+\end{problem}
+
+\begin{problem}
+(3; 239 Open MO 2016 Grade 10-11) $a, b, c$ adalah bilangan real positif yang memenuhi $abc = 1$. Buktikan bahwa \[2(a + b + c) + \dfrac{9}{(ab + bc + ca)^2} \geq 7\]
+\end{problem}
+
+\end{document}
