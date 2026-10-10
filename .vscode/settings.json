@@ -19,14 +19,27 @@
         "cd \"%WORKSPACE_FOLDER%\" && mkdir -p \"%OUTDIR%\" && pdflatex -synctex=1 -interaction=nonstopmode -output-directory=\"%OUTDIR%\" \"%DOC_EXT%\"; exit 0"
       ],
       "env": {}
+    },
+    // asymptote.sty always writes a <jobname>.pre (plus <jobname>-N.asy
+    // intermediates for files with diagrams). autoClean below does not
+    // reliably remove them, so the recipe deletes them explicitly as its
+    // last step. This must stay AFTER both pdflatex passes.
+    {
+      "name": "cleanup-asy-leftovers",
+      "command": "bash",
+      "args": [
+        "-c",
+        "rm -f \"%OUTDIR%/%DOCFILE%.pre\" \"%OUTDIR%/%DOCFILE%\"-*.asy; exit 0"
+      ],
+      "env": {}
     }
   ],
 
-  // Two passes, so \tableofcontents / \pageref settle.
+  // Two passes, so \tableofcontents / \pageref settle, then cleanup.
   "latex-workshop.latex.recipes": [
     {
       "name": "pdflatex x2 (from repo root)",
-      "tools": ["pdflatex-from-root", "pdflatex-from-root"]
+      "tools": ["pdflatex-from-root", "pdflatex-from-root", "cleanup-asy-leftovers"]
     }
   ],
 
