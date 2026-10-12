@@ -1,0 +1,313 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Modulo dan Keterbagian - Materi
+% Adaptasi dari 8 Outsource K Math/Pra-OSK/Keterbagian.tex dan Modulo.tex,
+% disusun ulang mengikuti pola unit Materi/Latihan/Ujian.
+
+\title{Modulo dan Keterbagian - Materi}
+\date{12 Oktober 2026}
+
+\begin{document}
+\maketitle
+
+Modul ini merangkum dua fondasi teori bilangan yang hampir selalu muncul di OSK dan OSP:
+keterbagian dan kongruensi modulo. Kuasailah sifat dasarnya sampai hafal di luar kepala,
+karena hampir setiap soal teori bilangan tingkat lanjut memakainya tanpa menyebutnya lagi.
+
+\section{Keterbagian}
+
+\begin{definition}
+Diberikan dua bilangan bulat $a$ dan $b$ dengan $a \ne 0$.
+Kita menyebut $a$ \textbf{membagi} $b$ apabila terdapat bilangan bulat $c$
+sedemikian hingga $b = ca$. Notasinya adalah $a \mid b$.
+\end{definition}
+
+\begin{fact}[Sifat keterbagian]
+Untuk bilangan bulat $a, b, c$ dengan pembagi tak nol, berlaku:
+\begin{enumerate}
+    \item $a \mid 0$ dan $a \mid a$.
+    \item Jika $a \mid b$ dan $b \mid c$, maka $a \mid c$.
+    \item Jika $a \mid b$ dan $a \mid c$, maka
+    $a \mid \alpha b + \beta c$ untuk setiap bilangan bulat $\alpha, \beta$.
+    \item Jika $a \mid b$ dengan $b \ne 0$, maka $|a| \le |b|$.
+    \item Jika $a \mid b$ dan $b \mid a$, maka $|a| = |b|$.
+    \item Jika $a \mid b$, maka $a \mid bc$ untuk setiap bilangan bulat $c$.
+\end{enumerate}
+\end{fact}
+
+\begin{theorem}[Algoritma Pembagian]
+Untuk setiap bilangan asli $a$ dan $b$, terdapat pasangan \textbf{unik}
+bilangan cacah $(q, r)$ yang memenuhi
+\[ b = qa + r \quad \text{dengan} \quad 0 \le r < a. \]
+\end{theorem}
+
+\subsection{Aturan keterbagian bilangan kecil}
+
+\begin{enumerate}
+    \item Sebuah bilangan asli habis dibagi $2$ apabila digit terakhirnya genap.
+    \item Sebuah bilangan asli habis dibagi $4$ apabila dua digit terakhirnya habis dibagi $4$.
+    \item Sebuah bilangan asli habis dibagi $8$ apabila tiga digit terakhirnya habis dibagi $8$.
+    \item Secara umum, sebuah bilangan asli habis dibagi $2^n$ apabila
+    $n$ digit terakhirnya habis dibagi $2^n$.
+    \item Sebuah bilangan asli habis dibagi $5$ apabila digit terakhirnya $0$ atau $5$.
+    \item Sebuah bilangan asli habis dibagi $25$ apabila dua digit terakhirnya
+    $00$, $25$, $50$, atau $75$.
+    \item Secara umum, sebuah bilangan asli habis dibagi $5^n$ apabila
+    $n$ digit terakhirnya habis dibagi $5^n$.
+    \item Sebuah bilangan asli habis dibagi $3$ maupun $9$ apabila jumlah digitnya
+    habis dibagi $3$ maupun $9$.
+    \item Sebuah bilangan asli habis dibagi $11$ apabila selisih jumlah digit
+    di posisi ganjil dan jumlah digit di posisi genap habis dibagi $11$.
+    \item Sebuah bilangan habis dibagi $10^n$ apabila $n$ digit terakhirnya nol.
+    \item Sebuah bilangan habis dibagi $ab$ untuk $a$ dan $b$ yang relatif prima
+    apabila bilangan tersebut habis dibagi $a$ dan juga habis dibagi $b$.
+\end{enumerate}
+
+Untuk bilangan $n$ dengan sedikitnya dua digit, tulis $f(n)$ untuk bilangan yang
+diperoleh dengan menghapus digit terakhir $n$, dan $g(n)$ untuk digit terakhir $n$.
+Sebagai contoh, $f(421) = 42$ dan $g(421) = 1$. Maka:
+\begin{enumerate}
+    \item $n$ habis dibagi $7$ apabila $f(n) - 2g(n)$ habis dibagi $7$.
+    \item $n$ habis dibagi $13$ apabila $f(n) - 9g(n)$ habis dibagi $13$.
+    \item $n$ habis dibagi $17$ apabila $f(n) - 5g(n)$ habis dibagi $17$.
+    \item $n$ habis dibagi $19$ apabila $f(n) + 2g(n)$ habis dibagi $19$.
+\end{enumerate}
+
+\subsection{Contoh}
+
+\begin{example}
+Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid 100$.
+\end{example}
+\begin{proof}[Solusi]
+Syaratnya berarti $n + 1$ adalah faktor dari $100$.
+Faktor positif dari $100$ ada $9$ buah: $1, 2, 4, 5, 10, 20, 25, 50, 100$,
+dan masing-masing versi negatifnya juga memenuhi.
+Jadi $n + 1 \in \{\pm 1, \pm 2, \pm 4, \pm 5, \pm 10, \pm 20, \pm 25, \pm 50, \pm 100\}$,
+sehingga $n \in \{-101, -51, -26, -21, -11, -6, -5, -3, -2, 0, 1, 3, 4, 9, 19, 24, 49, 99\}$.
+\end{proof}
+
+\begin{example}
+Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid n^2 + 99$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $n^2 + 99 = (n + 1)(n - 1) + 100$.
+Karena $n + 1$ selalu membagi $(n + 1)(n - 1)$,
+syaratnya setara dengan $n + 1 \mid 100$.
+Jawabannya sama seperti contoh sebelumnya.
+Trik mengurangkan kelipatan pembagi untuk menyisakan konstanta ini akan muncul berulang kali.
+\end{proof}
+
+\section{FPB dan KPK}
+
+\begin{definition}
+Untuk bilangan asli $m$ dan $n$, $FPB(m, n)$ adalah faktor persekutuan positif
+terbesar keduanya, sedangkan $KPK(m, n)$ adalah kelipatan persekutuan positif
+terkecil keduanya. Jika $FPB(m, n) = 1$, maka $m$ dan $n$ disebut relatif prima.
+\end{definition}
+
+\begin{fact}[Sifat FPB]
+\begin{enumerate}
+    \item Jika $d = FPB(m, n)$ dan $m = dm'$, $n = dn'$, maka $FPB(m', n') = 1$.
+    \item Setiap faktor persekutuan dari $m$ dan $n$ membagi $FPB(m, n)$.
+    \item Jika $m = nq + r$, maka $FPB(m, n) = FPB(n, r)$.
+    \item Jika $m = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ dan
+    $n = p_1^{\beta_1} \cdots p_k^{\beta_k}$, maka
+    \[ FPB(m, n) = p_1^{\min(\alpha_1, \beta_1)} \cdots p_k^{\min(\alpha_k, \beta_k)}. \]
+\end{enumerate}
+\end{fact}
+
+\begin{theorem}[Algoritma Euclid dan Bezout]
+Dengan menerapkan algoritma pembagian berulang,
+\[ m = nq_1 + r_1, \quad n = r_1q_2 + r_2, \quad r_1 = r_2q_3 + r_3, \quad \dots \]
+sampai sisanya nol, sisa tak nol terakhir adalah $FPB(m, n)$.
+Akibatnya, untuk setiap bilangan asli $m$ dan $n$ terdapat bilangan bulat $a$ dan $b$
+sedemikian hingga $am + bn = FPB(m, n)$.
+\end{theorem}
+
+\begin{fact}[Sifat KPK]
+\begin{enumerate}
+    \item Setiap kelipatan persekutuan dari $m$ dan $n$ adalah kelipatan dari $KPK(m, n)$.
+    \item Dengan notasi faktorisasi prima yang sama,
+    \[ KPK(m, n) = p_1^{\max(\alpha_1, \beta_1)} \cdots p_k^{\max(\alpha_k, \beta_k)}. \]
+    \item $FPB(m, n) \times KPK(m, n) = mn$.
+\end{enumerate}
+\end{fact}
+
+\subsection{Contoh}
+
+\begin{example}
+Hitunglah $FPB(133, 198)$.
+\end{example}
+\begin{proof}[Solusi]
+Terapkan algoritma Euclid:
+$198 = 133 + 65$, lalu $133 = 2 \cdot 65 + 3$,
+lalu $65 = 21 \cdot 3 + 2$, lalu $3 = 2 + 1$.
+Sisa tak nol terakhir adalah $1$, jadi $FPB(133, 198) = 1$.
+\end{proof}
+
+\section{Kongruensi Modulo}
+
+\begin{definition}
+Misalkan $a$, $b$, dan $n$ bilangan bulat dengan $n \ne 0$.
+Kita menyebut $a$ \textbf{kongruen} dengan $b$ modulo $n$ apabila $n \mid a - b$.
+Notasinya adalah $a \equiv b \pmod{n}$.
+\end{definition}
+
+\begin{fact}[Sifat kongruensi]
+\begin{enumerate}
+    \item $a \equiv a \pmod{n}$.
+    \item Jika $a \equiv b \pmod{n}$, maka $b \equiv a \pmod{n}$.
+    \item Jika $a \equiv b \pmod{n}$ dan $b \equiv c \pmod{n}$, maka $a \equiv c \pmod{n}$.
+    \item Jika $a \equiv b \pmod{n}$, maka $ka \equiv kb \pmod{n}$ untuk setiap bilangan bulat $k$.
+    \item Jika $a \equiv b \pmod{n}$ dan $c \equiv d \pmod{n}$, maka
+    $ja + kc \equiv jb + kd \pmod{n}$ untuk setiap bilangan bulat $j$ dan $k$.
+    \item Jika $a \equiv b \pmod{n}$ dan $c \equiv d \pmod{n}$, maka $ac \equiv bd \pmod{n}$.
+    \item $a \equiv b \pmod{n_i}$ untuk $i = 1, \dots, k$ jika dan hanya jika
+    $a \equiv b \pmod{KPK(n_1, \dots, n_k)}$.
+\end{enumerate}
+\end{fact}
+
+\subsection{Teorema penting}
+
+\begin{theorem}[Invers modular]
+Untuk setiap bilangan asli $m$ dan $n$ yang relatif prima,
+terdapat bilangan asli $x$ sedemikian hingga $mx \equiv 1 \pmod{n}$.
+\end{theorem}
+
+\begin{theorem}[Euler]
+Misalkan $\varphi(m)$ menyatakan banyak bilangan asli tidak lebih dari $m$
+yang relatif prima dengan $m$. Jika faktorisasi prima dari $n$ adalah
+\[ n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}, \]
+maka
+\[ \varphi(n) = n\left(1 - \frac{1}{p_1}\right)\left(1 - \frac{1}{p_2}\right)
+\cdots\left(1 - \frac{1}{p_k}\right). \]
+Untuk $a$ dan $m$ yang relatif prima, berlaku $a^{\varphi(m)} \equiv 1 \pmod{m}$.
+\end{theorem}
+
+\begin{theorem}[Fermat Kecil]
+Untuk setiap bilangan prima $p$ dan bilangan bulat $a$, berlaku
+$a^p \equiv a \pmod{p}$. Jika $p \nmid a$, maka $a^{p-1} \equiv 1 \pmod{p}$.
+\end{theorem}
+
+\begin{theorem}[Wilson]
+Untuk setiap bilangan prima $p$, berlaku $(p-1)! \equiv -1 \pmod{p}$.
+\end{theorem}
+
+\begin{theorem}[Sisa Tiongkok / CRT]
+Misalkan $m_1, \dots, m_k$ bilangan asli lebih dari $1$ yang saling relatif prima.
+Maka untuk setiap bilangan bulat $a_1, \dots, a_k$, sistem kekongruenan
+$x \equiv a_i \pmod{m_i}$ memiliki solusi yang tunggal modulo $m_1 m_2 \cdots m_k$.
+\end{theorem}
+
+\subsection{Contoh}
+
+\begin{example}
+Carilah sisa pembagian $2^{100}$ oleh $13$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $13$ prima dan tidak membagi $2$, Fermat Kecil memberi $2^{12} \equiv 1 \pmod{13}$.
+Tulis $100 = 12 \cdot 8 + 4$, sehingga
+$2^{100} = (2^{12})^8 \cdot 2^4 \equiv 1^8 \cdot 16 \equiv 3 \pmod{13}$.
+Sisanya adalah $3$.
+\end{proof}
+
+\begin{example}[AIME 1983]
+Carilah sisa pembagian $6^{83} + 8^{83}$ oleh $49$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $6 = 7 - 1$ dan uraikan dengan binomial:
+\[ 6^{83} = (7-1)^{83} \equiv (-1)^{83} + 83 \cdot 7 \cdot (-1)^{82} \equiv -1 + 581 \equiv 41 \pmod{49}, \]
+karena semua suku dengan $7^2$ atau lebih tinggi habis dibagi $49$.
+Dengan cara yang sama,
+\[ 8^{83} = (7+1)^{83} \equiv 1 + 83 \cdot 7 \equiv 43 \pmod{49}. \]
+Jumlahnya $41 + 43 = 84 \equiv 35 \pmod{49}$.
+\end{proof}
+
+\section{Bilangan Prima}
+
+\begin{definition}
+Bilangan asli $p > 1$ disebut \textbf{prima} apabila satu-satunya pembagi
+positifnya adalah $1$ dan $p$ sendiri. Bilangan asli lebih dari $1$ yang bukan
+prima disebut \textbf{komposit}.
+\end{definition}
+
+\begin{theorem}[Faktorisasi prima]
+Setiap bilangan asli $n > 1$ dapat dinyatakan secara unik sebagai perkalian
+bilangan prima:
+\[ n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k} \]
+dengan $p_1, \dots, p_k$ prima berbeda dan $\alpha_i$ bilangan asli.
+\end{theorem}
+
+\begin{fact}[Sifat yang sering dipakai]
+\begin{enumerate}
+    \item Banyaknya bilangan prima tak hingga.
+    \item Setiap bilangan prima lebih dari $3$ berbentuk $6k \pm 1$ untuk suatu bilangan asli $k$.
+    \item Jika $p$ prima dan $p \mid ab$, maka $p \mid a$ atau $p \mid b$ (atau keduanya).
+\end{enumerate}
+\end{fact}
+
+\subsection{Contoh}
+
+\begin{example}
+Buktikan bahwa $24 \mid p^2 - 1$ untuk setiap bilangan prima $p > 3$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $p$ ganjil, $p - 1$ dan $p + 1$ adalah dua bilangan genap berurutan,
+sehingga salah satunya habis dibagi $4$. Jadi $8 \mid (p-1)(p+1) = p^2 - 1$.
+Di sisi lain, $p$ tidak habis dibagi $3$, jadi $p \equiv \pm 1 \pmod{3}$ dan
+$3 \mid p^2 - 1$. Karena $8$ dan $3$ relatif prima, $24 \mid p^2 - 1$.
+\end{proof}
+
+\section{Residu Pangkat}
+
+Tidak semua sisa bisa muncul sebagai nilai suatu pangkat.
+Keterbatasan ini sering menjadi kunci untuk menunjukkan suatu persamaan tidak punya solusi.
+
+\begin{fact}[Residu kuadrat]
+\begin{enumerate}
+    \item Sisa $x^2$ dibagi $3$ hanya bisa $0$ atau $1$.
+    \item Sisa $x^2$ dibagi $4$ hanya bisa $0$ atau $1$.
+    \item Sisa $x^2$ dibagi $5$ hanya bisa $0$, $1$, atau $4$.
+    \item Sisa $x^2$ dibagi $8$ hanya bisa $0$, $1$, atau $4$.
+\end{enumerate}
+\end{fact}
+
+\begin{fact}[Residu pangkat lebih tinggi]
+\begin{enumerate}
+    \item Sisa $x^3$ dibagi $7$ hanya bisa $0$, $1$, atau $6$.
+    \item Sisa $x^3$ dibagi $9$ hanya bisa $0$, $1$, atau $8$.
+    \item Sisa $x^4$ dibagi $16$ hanya bisa $0$ atau $1$.
+\end{enumerate}
+\end{fact}
+
+\subsection{Contoh}
+
+\begin{example}
+Carilah semua bilangan cacah $n$ sehingga $n^2 + 100$ merupakan bilangan kuadrat.
+\end{example}
+\begin{proof}[Solusi]
+Misalkan $n^2 + 100 = m^2$ untuk suatu bilangan cacah $m$.
+Maka $(m - n)(m + n) = 100$ dengan $m + n \ge m - n \ge 0$.
+Pasangan faktor $(m-n, m+n)$ yang jumlahnya genap hanyalah $(2, 50)$ dan $(10, 10)$,
+yang memberi $(m, n) = (26, 24)$ dan $(10, 0)$.
+Jadi $n = 0$ atau $n = 24$.
+\end{proof}
+
+\begin{example}
+Buktikan tidak ada bilangan asli $a$, $b$, $c$ yang memenuhi $a^2 + b^2 - 8c = 6$.
+\end{example}
+\begin{proof}[Solusi]
+Tinjau persamaan itu modulo $8$: syaratnya menjadi $a^2 + b^2 \equiv 6 \pmod{8}$.
+Padahal sisa kuadrat modulo $8$ hanya $0$, $1$, atau $4$,
+dan jumlah dua nilai semacam itu tidak pernah $6$ modulo $8$.
+Jadi persamaan tersebut tidak punya solusi.
+\end{proof}
+
+\section{Referensi}
+\begin{itemize}
+    \item Modul Pra-OSK: Keterbagian (Azzam dan Akeyla).
+    \item Modul Pra-OSK: Modulo (Azzam dan Akeyla).
+\end{itemize}
+
+\end{document}

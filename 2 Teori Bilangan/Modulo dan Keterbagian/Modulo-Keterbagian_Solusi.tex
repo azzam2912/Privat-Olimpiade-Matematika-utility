@@ -1,0 +1,268 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Modulo dan Keterbagian - Solusi
+% Pembahasan 27 soal Latihan dan 5 soal Ujian.
+
+\title{Modulo dan Keterbagian - Solusi}
+\date{12 Oktober 2026}
+
+\begin{document}
+\maketitle
+
+\section{Solusi Soal Latihan}
+
+\subsection{Keterbagian}
+
+\begin{enumerate}
+	\item Pernyataan B salah. Ambil $a = b = 2$ dan $c = 2$:
+	$a \mid c$ dan $b \mid c$ keduanya benar, tetapi $ab = 4$ tidak membagi $c = 2$.
+	Keempat pernyataan lainnya benar:
+	A karena $b \mid bc$ lalu gunakan sifat transitif;
+	C dan E langsung dari definisi;
+	D karena $0 = a \cdot 0$.
+
+	\item Jumlah digit keempat bilangan itu berturut-turut $4$, $6$, $8$, dan $10$.
+	Tidak ada yang habis dibagi $9$, jadi jawabannya $0$.
+
+	\item Habis dibagi $15$ berarti habis dibagi $3$ dan $5$.
+	Digit terakhir harus $0$, sebab $8$ ganjil.
+	Jadi $n$ terdiri dari $k$ digit $8$ diikuti satu digit $0$,
+	dan jumlah digitnya $8k$ harus habis dibagi $3$.
+	Nilai $k$ terkecil adalah $3$, sehingga $n = 8880$ dan $\frac{n}{15} = 592$.
+
+	\item Jumlahnya $n + (n+1) + (n+2) + (n+3) = 4n + 6 = 2(2n+3)$.
+	Untuk $n = 1$ jumlahnya $10$ dan untuk $n = 2$ jumlahnya $14$,
+	sehingga $p \mid FPB(10, 14) = 2$.
+	Di sisi lain $2$ selalu membagi $4n + 6$.
+	Jadi $p = 2$.
+
+	\item Tulis $n^2 + 1 = (n+1)(n-1) + 2$.
+	Syaratnya setara dengan $n + 1 \mid 2$,
+	sehingga $n + 1 \in \{\pm 1, \pm 2\}$ dan $n \in \{0, -2, 1, -3\}$.
+	Ada $4$ bilangan bulat yang memenuhi.
+
+	\item Kalikan pembilang dan penyebut dengan $4$:
+	\[ 4(x^2 - 2x + 7) = (2x-1)(2x-3) + 25. \]
+	Jika $2x - 1 \mid x^2 - 2x + 7$, maka $2x - 1 \mid 25$.
+	Konversnya juga benar karena $2x - 1$ ganjil sehingga relatif prima dengan $4$.
+	Jadi $2x - 1 \in \{\pm 1, \pm 5, \pm 25\}$,
+	yang memberi $6$ nilai $x$. Banyak himpunan bagiannya $2^6 = 64$.
+
+	\item Jika keempat bilangan bersisa sama modulo $N$,
+	maka $N$ membagi selisihnya: $4165$, $2975$, dan $1190$.
+	$FPB$ ketiganya adalah $595$:
+	$4165 - 2975 = 1190$, $2975 = 2 \cdot 1190 + 595$, dan $1190 = 2 \cdot 595$.
+	Karena $595$ membagi ketiga selisih itu, $N = 595$.
+
+	\item Bagi bersusun: $\frac{n^2+x}{n+1} = n - 1 + \frac{x+1}{n+1}$.
+	Jadi $n + 1$ harus faktor dari $x + 1$ yang nilainya minimal $2$.
+	Tepat dua faktor semacam itu berarti $x + 1 = p^2$ untuk suatu bilangan prima $p$.
+	Nilai terbesar di bawah $1000$ adalah $x + 1 = 31^2 = 961$,
+	sehingga $x = 960$.
+
+	\item Misalkan $d = n^2 + 2$. Dari $d \mid 2001n + 2$ diperoleh
+	\[ d \mid n(2001n+2) - 2001(n^2+2) = 2n - 4002. \]
+	Kemudian $2(2001n+2) - 2001(2n-4002) = 8008006$,
+	sehingga $d \mid 8008006 = 2 \cdot 19 \cdot 83 \cdot 2539$.
+	Untuk $n = 2001$ syarat terpenuhi dengan hasil bagi $1$.
+	Untuk $n > 2001$, ketaksamaan $n^2 + 2 \le 2(n - 2001)$ tidak punya solusi.
+	Untuk $n < 2001$, ketaksamaan $n^2 + 2 \le 2(2001 - n)$ memberi $n \le 62$.
+	Pembagi $8008006$ yang di bawah $62^2 + 2 = 3846$ adalah
+	$1, 2, 19, 38, 83, 166, 1577, 2539, 3154$,
+	dan yang berbentuk $n^2 + 2$ hanyalah $38 = 6^2 + 2$ dan $83 = 9^2 + 2$.
+	Pemeriksaan langsung: $\frac{2001 \cdot 6 + 2}{38} = 316$
+	dan $\frac{2001 \cdot 9 + 2}{83} = 217$.
+	Jadi $n \in \{6, 9, 2001\}$.
+
+	\item Jumlah kuadrat $1^2 + \dots + n^2 = \frac{n(n+1)(2n+1)}{6}$
+	dan jumlah biasa $1 + \dots + n = \frac{n(n+1)}{2}$,
+	sehingga hasil baginya $\frac{2n+1}{3}$.
+	Syaratnya $3 \mid 2n + 1$, yaitu $n \equiv 1 \pmod{3}$.
+	Bilangan $n \le 221$ yang memenuhi ada $\frac{220-1}{3} + 1 = 74$.
+\end{enumerate}
+
+\subsection{FPB dan KPK}
+
+\begin{enumerate}[resume]
+	\item Kurangkan berulang (algoritma Euclid):
+	selisih kedua bilangan adalah $999999999999$,
+	lalu $1121212121211 - 999999999999 = 121212121212$,
+	lalu $999999999999 = 8 \cdot 121212121212 + 30303030303$,
+	dan $121212121212 = 4 \cdot 30303030303$.
+	Jadi $FPB$nya $30303030303$, dan pecahannya senilai dengan $\frac{70}{37}$.
+
+	\item Pembilangnya $\frac{104 \cdot 105}{2} = 5460$
+	dan penyebutnya $\frac{(3+106) \cdot 104}{2} = 5668$.
+	$FPB(5460, 5668) = 52$ karena $5668 - 5460 = 208$,
+	$5460 = 26 \cdot 208 + 52$, dan $208 = 4 \cdot 52$.
+	Jadi $a = 105$, $b = 109$, dan $a + b = 214$.
+
+	\item Tulis $a = 2^x 5^y$ dan $b = 2^z 5^w$ dengan $x + z = y + w = 10$.
+	Syarat $a \mid b^2$ dan $b \mid a^2$ menjadi $x \le 2z$ dan $z \le 2x$,
+	yaitu $10 - x \le 2x$ dan $x \le 2(10 - x)$,
+	sehingga $x \in \{4, 5, 6\}$.
+	Hal yang sama berlaku untuk $y$.
+	Jadi ada $3 \cdot 3 = 9$ pasangan.
+\end{enumerate}
+
+\subsection{Modulo}
+
+\begin{enumerate}[resume]
+	\item Karena $10^6 \equiv 1 \pmod{7}$ dan $999999999 = 6 \cdot 166666666 + 3$,
+	\[ 10^{999999999} \equiv 10^3 = 1000 \equiv 6 \pmod{7}. \]
+	Sisanya $6$.
+
+	\item Pangkat dari $8$ bersiklus $4$ pada digit terakhir: $8, 4, 2, 6$.
+	Eksponen $8^{8^8}$ habis dibagi $4$, sehingga digit terakhirnya $6$.
+
+	\item Sistemnya setara dengan $N \equiv -3 \pmod{5}$,
+	$N \equiv -4 \pmod{7}$, $N \equiv -5 \pmod{9}$.
+	Dari $N = 9k + 4$ diperoleh $2k + 4 \equiv 3 \pmod{7}$, yaitu $k \equiv 3 \pmod{7}$.
+	Tulis $k = 7t + 3$ sehingga $N = 63t + 31$,
+	lalu $3t + 1 \equiv 2 \pmod{5}$ memberi $t \equiv 2 \pmod{5}$.
+	Nilai terkecil $N = 63 \cdot 2 + 31 = 157$ dengan jumlah digit $13$.
+
+	\item Tulis $A = 5k + 2$ dan $B = 5m + 3$.
+	Maka $A(A+1) = 25k^2 + 25k + 6 \equiv 6 \pmod{25}$
+	dan $5B = 25m + 15 \equiv 15 \pmod{25}$.
+	Jumlahnya bersisa $21$ modulo $25$.
+
+	\item Modulo $64$: $5^2 = 25$, $5^4 \equiv 49$, $5^8 \equiv 33$, $5^{16} \equiv 1$.
+	Karena $2021 = 16 \cdot 126 + 5$, diperoleh $5^{2021} \equiv 5^5 = 3125 \equiv 53$.
+	Demikian pula $11^2 \equiv 57$, $11^4 \equiv 49$, $11^8 \equiv 33$, $11^{16} \equiv 1$,
+	dan $2022 = 16 \cdot 126 + 6$ memberi $11^{2022} \equiv 11^6 \equiv 49 \cdot 57 \equiv 41$.
+	Jumlahnya $53 + 41 = 94 \equiv 30$.
+
+	\item Modulo $100$: $43^2 = 1849 \equiv 49$ dan $43^4 \equiv 49^2 = 2401 \equiv 1$.
+	Eksponen $43^{43}$ ganjil dengan $43 \equiv 3 \pmod{4}$,
+	sehingga $43^{43} \equiv 3 \pmod{4}$.
+	Jadi $43^{43^{43}} \equiv 43^3 = 43 \cdot 49 = 2107 \equiv 7$.
+
+	\item Tulis $2000 = 16 \cdot 125$.
+	Modulo $16$: $-2004 \equiv 1900 \equiv -4$ dan $25 \equiv 121 \equiv 9$,
+	sehingga $(-4)^n - (-4)^n + 9^n - 9^n = 0$.
+	Modulo $125$: $-2004 \equiv 121$ dan $1900 \equiv 25$,
+	sehingga $121^n - 25^n + 25^n - 121^n = 0$.
+	Kedua faktor membagi bentuk itu untuk setiap $n$,
+	jadi semua bilangan asli $n$ memenuhi.
+
+	\item Andaikan $3^n + 4^n \equiv 0 \pmod{11}$.
+	Karena $4 \cdot 3 \equiv 1 \pmod{11}$, kalikan kedua ruas dengan $3^n$:
+	$9^n \equiv -1 \pmod{11}$.
+	Padahal pangkat dari $9$ modulo $11$ bersiklus $9, 4, 3, 5, 1$,
+	tidak pernah $10$. Jadi tidak ada bilangan asli $n$ yang memenuhi.
+
+	\item Dari $a^{777} \equiv 77 \pmod{100}$:
+	$a$ harus ganjil (jika genap, ruas kiri $0$ modulo $4$ tetapi $77 \equiv 1$)
+	dan tidak habis dibagi $5$ (jika iya, ruas kiri $0$ modulo $25$ tetapi $77 \equiv 2$).
+	Jadi $FPB(a, 100) = 1$.
+	Modulo $4$: $a^{777} \equiv a \equiv 1$.
+	Modulo $25$: $a^{777} \equiv a^{17} \equiv 2$ karena $\varphi(25) = 20$.
+	Pemetaan $x \mapsto x^{17}$ bijektif pada $(\mathbb{Z}/25)^\times$
+	karena $FPB(17, 20) = 1$,
+	dan $a = 17$ memenuhi ($17^2 \equiv 14$, $17^4 \equiv 21$,
+	$17^8 \equiv 16$, $17^{16} \equiv 6$, $17^{17} \equiv 102 \equiv 2$).
+	Jadi $a \equiv 17 \pmod{25}$ dan $a \equiv 1 \pmod{4}$,
+	yang memberi $a \equiv 17 \pmod{100}$ secara tunggal.
+	Dua digit terakhirnya $17$.
+
+	\item Karena $7^4 = 2401 \equiv 1 \pmod{100}$ dan $707 = 4 \cdot 176 + 3$,
+	\[ 7^{707} \equiv 7^3 = 343 \equiv 43 \pmod{100}. \]
+	Dua digit terakhirnya $43$.
+\end{enumerate}
+
+\subsection{Bilangan Prima dan Pangkat}
+
+\begin{enumerate}[resume]
+	\item Modulo $3$, ketiga bilangan bersisa $p$, $p + 2$, $p + 1$:
+	mencakup semua sisa. Salah satunya habis dibagi $3$,
+	dan karena ketiganya prima, yang habis dibagi $3$ itu harus sama dengan $3$.
+	Hanya $p = 3$ yang mungkin, dan $3$, $11$, $19$ semuanya prima.
+
+	\item Faktorisasi Sophie Germain:
+	\[ a^4 + 4b^4 = (a^2 - 2ab + 2b^2)(a^2 + 2ab + 2b^2). \]
+	Agar hasilnya prima, faktor terkecil harus $1$:
+	$(a-b)^2 + b^2 = 1$, sehingga $a = b = 1$.
+	Faktor terbesarnya $5$, yang prima. Jadi $(a, b) = (1, 1)$.
+
+	\item Jika $m \ge 2$ dan $n \ge 2$, maka $6^m + 2^n + 2 \equiv 2 \pmod{4}$,
+	bukan kuadrat. Sisanya dua kasus.
+	Untuk $m = 1$: $8 + 2^n = k^2$.
+	Nilai $n = 1$ dan $n = 2$ gagal, $n = 3$ memberi $k = 4$,
+	dan untuk $n \ge 4$ diperoleh $k$ genap dengan
+	$(k/2)^2 = 2 + 2^{n-2} \equiv 2 \pmod{4}$, mustahil.
+	Untuk $n = 1$: $6^m + 4 = k^2$, yaitu $(k-2)(k+2) = 2^m 3^m$.
+	Nilai $m = 1$ memberi $10$, bukan kuadrat.
+	Untuk $m \ge 2$, $k$ genap dan $k > 2$.
+	Karena $k^2 \equiv 1 \pmod{3}$, tepat satu dari $k-2$, $k+2$ habis dibagi $3$.
+	Jika $k \equiv 0 \pmod{4}$, kedua faktor bersisa $2$ modulo $4$
+	sehingga $m = 2$, tetapi $6^2 + 4 = 40$ bukan kuadrat.
+	Jika $k \equiv 2 \pmod{4}$, tulis $k - 2 = 2^a 3^b$ dan $k + 2 = 2^c 3^d$
+	dengan $a, c \ge 2$, $a + c = m$, dan $\{b, d\} = \{0, m\}$.
+	Apabila $b = 0$ dan $c = a$: $2^a(3^m - 1) = 4$ mustahil karena $3^m - 1 \ge 8$.
+	Apabila $b = 0$ dan $c > a$: $2^a = 4$ dan $2^{c-2} 3^m = 2$, mustahil.
+	Apabila $b = 0$ dan $c < a$: $2^c = 4$ dan $3^m - 2^{m-4} = 1$ dengan $m \ge 4$,
+	mustahil karena ruas kirinya minimal $80$.
+	Apabila $d = 0$: harus $c > a$, lalu $2^a = 4$ dan $2^{m-4} - 3^m = 1$,
+	mustahil karena ruas kirinya negatif.
+	Jadi tidak ada solusi dengan $n = 1$.
+	Satu-satunya solusi adalah $(m, n) = (1, 3)$.
+
+	\item Jika $n > 2$ genap, maka $3n - 4$ genap dan minimal $8$: komposit.
+	Jika $n \ge 3$ ganjil, maka $5n - 3$ genap dan minimal $12$: komposit.
+	Untuk $n = 1$ bilangannya negatif.
+	Tinggal $n = 2$ yang memberi $2$, $3$, $7$, semuanya prima.
+\end{enumerate}
+
+\section{Solusi Soal Ujian}
+
+\begin{enumerate}
+	\item (Soal Wajib) Untuk setiap $n$:
+	$n^5 - n$ genap (paritas $n^5$ sama dengan $n$),
+	habis dibagi $3$ (karena $n^3 \equiv n$ memberi $n^5 = n^3 \cdot n^2 \equiv n \cdot n^2 = n^3 \equiv n$),
+	dan habis dibagi $5$ (Fermat Kecil).
+	Jadi $30 \mid n^5 - n$ untuk semua $n$.
+	Untuk $n = 2$ nilainya tepat $30$, sehingga $30$ adalah pembagi terbesar.
+
+	\item (Soal Wajib) Karena $2(3p+25) - 3(2p-5) = 65$,
+	syaratnya berakibat $2p - 5 \mid 65$.
+	Pembagi ganjil dari $65$ memberi $p \in \{3, 5, 9, 35\}$
+	(setelah membuang $p = 2$ yang membuat hasil baginya negatif
+	dan nilai $p$ yang tidak positif).
+	Keempatnya diperiksa memenuhi dengan hasil bagi $34$, $8$, $4$, $2$.
+
+	\item (Soal Wajib) Untuk setiap $n$:
+	$2 \mid n^7 - n$ (paritas),
+	$3 \mid n^7 - n$ (karena $n^3 \equiv n$ memberi $n^7 \equiv n$),
+	$7 \mid n^7 - n$ (Fermat Kecil).
+	Jadi $42 \mid n^7 - n$ untuk semua $n$.
+	Nilai terbesar $k$ yang selalu membagi adalah pembagi bersama terbesar
+	dari semua nilai $n^7 - n$:
+	untuk $n = 2$ nilainya $126$ dan $n = 3$ nilainya $2184$,
+	dengan $FPB(126, 2184) = 42$.
+	Jadi $k$ yang memenuhi tepat pembagi positif dari $42$,
+	yang banyaknya $8$.
+
+	\item (Soal Pilihan) Tulis $S = 1^n + \dots + m^n$.
+	Untuk $n$ ganjil, pasangkan suku ke-$k$ dengan suku ke-$(m+1-k)$:
+	\[ 2S = \sum_{k=1}^{m} \bigl(k^n + (m+1-k)^n\bigr), \]
+	dan setiap pasangan habis dibagi $m + 1$.
+	Dengan pasangan $k$ dan $m - k$ diperoleh pula $m \mid 2S$.
+	Karena $m$ dan $m + 1$ relatif prima, $m(m+1) \mid 2S$,
+	yaitu $\frac{m(m+1)}{2} \mid S$.
+	Jadi setiap $n$ ganjil valid, khususnya $2013$.
+	Sebaliknya, untuk $n$ genap ambil $m = 2$:
+	$\frac{1 + 2^n}{3}$ bulat hanya jika $2^n \equiv 2 \pmod{3}$,
+	yaitu $n$ ganjil. Jadi semua $n$ genap tidak valid:
+	tak hingga banyaknya.
+
+	\item (Soal Pilihan) Karena $209 = 11 \cdot 19$,
+	ada $\varphi(209) = 10 \cdot 18 = 180$ bilangan $a$ yang relatif prima dengan $209$.
+	Dari jumlah itu, yang memenuhi $a^2 \equiv 1 \pmod{209}$ adalah gabungan
+	$a \equiv \pm 1 \pmod{11}$ dan $a \equiv \pm 1 \pmod{19}$:
+	tepat $4$ bilangan menurut CRT.
+	Jadi yang memenuhi syarat ada $180 - 4 = 176$.
+\end{enumerate}
+
+\end{document}
