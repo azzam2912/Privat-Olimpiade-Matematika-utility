@@ -4,6 +4,20 @@ Rules for writing training material in this repo: `*_Materi.tex` modules
 first of all, plus the prose inside `_Latihan`, `_Ujian`, and `_Solusi`
 files. Read together with `CLAUDE.md`.
 
+## 0. Document format (Materi)
+
+- Preamble: `\documentclass[12pt]{scrartcl}` with
+  `\usepackage[hagavi]{azzam}`, then `\title`, `\date`, `\maketitle`.
+- Environments come from `azzam.sty` (repo root, declared with
+  thmtools, numbering shared): `definition`, `fact`, `theorem`,
+  `lemma`, `example`, `proof[Solusi]`, plus `exercise`, `problem`,
+  `claim`, `remark` when needed.
+- Skeleton: short intro paragraph after `\maketitle`; one `\section`
+  per subtopic; inside each section, every theory block
+  (definition / fact / theorem) is immediately followed by the
+  worked example(s) illustrating it; `\section{Referensi}` at the
+  end listing the source modules.
+
 ## 1. Every theory block gets a worked example
 
 Each definition, fact list, or theorem must be immediately followed by at
@@ -12,13 +26,16 @@ orphan theory: a student should never finish a theorem without seeing it
 in action right below. Place the example directly after the block it
 illustrates, not in a single lumped section at the end.
 
-## 2. Stack example-solution equations vertically
+## 2. Stack solution equations vertically (Materi and Solusi)
 
-In Materi example solutions, derivations go **downwards**, one equation
-per display line, in logical order: open with one short lead-in sentence,
-then `align*` / `\[...\]` lines, then a short closing line with the
-answer. Never chain a derivation inline inside a paragraph; students
-find that hard to follow.
+In Materi example solutions AND in every `_Solusi.tex` pembahasan,
+derivations go **downwards**, one equation per display line, in logical
+order: open with one short lead-in sentence, then `align*` / `\[...\]`
+lines, then a short closing line with the answer. Never chain a
+derivation inline inside a paragraph; students find that hard to follow.
+For proof-type solutions with few equations, break the argument into
+short paragraphs or steps with the key claims displayed; never leave a
+solution as one dense paragraph.
 
 Good:
 
@@ -54,7 +71,35 @@ Inline math stays allowed for naming symbols or stating facts
 Materi examples demonstrate the theory at easy to medium difficulty.
 Hard problems belong in `_Latihan.tex` / `_Ujian.tex`, not in Materi.
 
-## 4. Language and voice
+## 4. Geometry and pictures: always inline TikZ
+
+- Every diagram or figure in new material must be inline TikZ code
+  (`tikzpicture` environment), never an external PNG/JPG include.
+  The `.tex` stays self-contained and editable.
+- No extra preamble needed: `azzam.sty` already loads `pgfplots`,
+  `tkz-euclide`, and the `arrows` TikZ library.
+- Keep coordinates simple, label the points, and always compile to
+  check the picture.
+- Existing files that use Asymptote stay as they are; TikZ is the
+  standard for new material.
+
+Minimal shape:
+
+```latex
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (1,2);
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \node[below] at (A) {$A$};
+    \node[below] at (B) {$B$};
+    \node[above] at (C) {$C$};
+\end{tikzpicture}
+\end{center}
+```
+
+## 5. Language and voice
 
 Solutions are written in Indonesian, in the owner's own voice: direct,
 concise, one idea per sentence. Define notation before using it.
@@ -73,7 +118,7 @@ Hunt down these machine-written signals in every prose passage
 | "It is worth noting" | "It is worth noting that..." | "Note that..." |
 | Empty summary closer | "In conclusion, we solved it." | Cut it. The proof box already says so. |
 
-## 5. Sourcing and correctness
+## 6. Sourcing and correctness
 
 - Problem sources (contest, year, number) go in `%` comments only,
   never in the PDF, for Latihan and Ujian files. Materi examples may
@@ -81,17 +126,14 @@ Hunt down these machine-written signals in every prose passage
 - Record the answer in a `% Jawaban:` comment on every Latihan problem.
 - Verify every numeric answer independently (a second hand computation
   or a brute-force script). Never trust a source answer key blindly;
-  this repo has already caught wrong keys and wrong problem statements
+  this repo has already caught wrong keys and wrong statements
   in its source files.
 - Fix a wrong source statement instead of propagating it, and note the
   fix in a `%` comment. Drop a problem that is false as stated and
   report it to the owner rather than silently keeping or mangling it.
 
-## 6. LaTeX conventions
+## 7. LaTeX conventions
 
-- Preamble: `\documentclass[12pt]{scrartcl}` with
-  `\usepackage[hagavi]{azzam}`. Use its environments: `definition`,
-  `fact`, `theorem`, `lemma`, `example`, `proof[Solusi]`.
 - Display math for derivations (rule 2); inline math only for symbols
   and short references.
 - Notation: `\pmod{n}` for congruences, `\mid` for divisibility,
@@ -103,7 +145,7 @@ Hunt down these machine-written signals in every prose passage
   The `pdf/` output is gitignored local proof that the file builds,
   not something to commit.
 
-## 7. Scope hygiene
+## 8. Scope hygiene
 
 - One canonical copy of each handout; never duplicate across folders.
 - Single-topic material goes in folders `1`--`4`; `5 Campur/` is only
