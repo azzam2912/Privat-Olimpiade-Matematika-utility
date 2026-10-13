@@ -2,7 +2,7 @@
 \usepackage[hagavi]{azzam}
 
 % Modulo dan Keterbagian - Solusi
-% Pembahasan 27 soal Latihan dan 5 soal Ujian.
+% Pembahasan 72 soal Latihan dan 5 soal Ujian.
 
 \title{Modulo dan Keterbagian - Solusi}
 \date{12 Oktober 2026}
@@ -80,6 +80,59 @@
 	sehingga hasil baginya $\frac{2n+1}{3}$.
 	Syaratnya $3 \mid 2n + 1$, yaitu $n \equiv 1 \pmod{3}$.
 	Bilangan $n \le 221$ yang memenuhi ada $\frac{220-1}{3} + 1 = 74$.
+
+	\item Aturan $11$: $3a - 2b$ harus habis dibagi $11$.
+	Nilai $3a - 2b$ berada di antara $-15$ dan $27$,
+	sehingga kemungkinannya $-11$, $0$, $11$, atau $22$.
+	Keempat kasus memberi $(a, b) = (1, 7)$; $(2, 3)$, $(4, 6)$, $(6, 9)$;
+	$(5, 2)$, $(7, 5)$, $(9, 8)$; dan $(8, 1)$.
+	Bilangan terkecil $17171$ dan terbesar $98989$.
+
+	\item Pola digitnya membentuk blok berisi satu, dua, sampai dua belas digit $2$,
+	masing-masing diikuti satu digit $d$: total $2 + 3 + \dots + 13 = 90$ digit.
+	Jadi ada $12$ digit $d$ dan $78$ digit $2$,
+	dengan jumlah digit $156 + 12d$.
+	Agar habis dibagi $9$ perlu $3 + 3d \equiv 0 \pmod{9}$,
+	yaitu $d \equiv 2 \pmod{3}$.
+	Karena $d \ne 2$, diperoleh $d = 5$ atau $d = 8$.
+
+	\item Tulis $n^3 + 100 = (n + 10)(n^2 - 10n + 100) - 900$.
+	Syaratnya setara dengan $n + 10 \mid 900$.
+	Dengan $n + 10 \ge 11$, pembagi $900$ yang memenuhi ada $19$ buah,
+	memberi $n \in \{2, 5, 8, 10, 15, 20, 26, 35, 40, 50, 65, 80, 90, 140, 170, 215, 290, 440, 890\}$.
+
+	\item Untuk $n \le 2014$, nilai $\frac{8n}{9999-n}$ positif dan tidak lebih dari
+	$\frac{16112}{7985} < 2{,}02$, sehingga nilainya $1$ atau $2$.
+	Nilai $1$ memberi $n = 1111$, sedangkan nilai $2$ memberi $n = 1999{,}8$.
+	Jadi hanya ada $1$ bilangan yang memenuhi.
+
+	\item Tulis $n = k^2 + r$ dengan $0 \le r \le 2k$, sehingga $\lfloor \sqrt{n} \rfloor = k$.
+	Syarat $k \mid n$ setara dengan $k \mid r$,
+	sehingga $r \in \{0, k, 2k\}$.
+	Jawabannya $n = k^2$, $k^2 + k$, atau $k^2 + 2k$ untuk setiap bilangan asli $k$,
+	dan semuanya memang memenuhi.
+
+	\item Tulis $a_{i+1} = c_i a_i$ dengan $c_i \ge 2$ bulat.
+	Jumlahnya $a_1(1 + c_1 + c_1c_2 + \dots + c_1\cdots c_9) = 1918 = 2 \cdot 959$.
+	Jika $a_1 = 1$, tulis $S = 1918 = 1 + c_1T_1$:
+	$c_1T_1 = 1917 = 3^3 \cdot 71$ dengan $T_1 \ge 255$ memaksa $c_1 = 3$, $T_1 = 639$.
+	Mengulang cara yang sama ($638 = 2 \cdot 319$, $318 = 2 \cdot 159$, dan seterusnya)
+	memberi satu-satunya rantai $1, 3, 6, 12, 24, 48, 96, 192, 384, 1152$.
+	Jika $a_1 = 2$, maka $S = 959$ prima dan pelacakan yang sama buntu di tengah jalan.
+	Nilai $a_1 \ge 959$ mustahil karena $S \ge 1023$.
+	Jadi satu-satunya kemungkinan bilangan kesepuluh adalah $1152$.
+
+	\item Jumlah digit berselang-seling $x_n$ berbentuk $C_a a + C_b b$.
+	Blok ke-$k$ (dengan $k$ digit $a$ lalu satu digit $b$) berkontribusi
+	$(-1)^{E_k}b$ plus $-(-1)^{E_k}a$ jika $k$ ganjil,
+	dengan $E_k$ paritas posisi blok itu dari kanan.
+	Karena $D_k = k(k+3)/2$ (banyak digit sampai blok $k$) genap tepat saat
+	$k \equiv 0$ atau $1 \pmod{4}$, penjumlahan berpasangan memberi
+	$C_b = 0$ jika dan hanya jika $n \equiv 0$ atau $2 \pmod{4}$,
+	dan $C_a = 0$ jika dan hanya jika $n \equiv 0$ atau $3 \pmod{4}$.
+	Keduanya nol (nilai keduanya di $\{-1, 0, 1\}$, jadi nol modulo $11$ berarti nol)
+	jika dan hanya jika $4 \mid n$.
+	Ada $\lfloor 2020/4 \rfloor = 505$ nilai $n$ yang memenuhi.
 \end{enumerate}
 
 \subsection{FPB dan KPK}
@@ -104,6 +157,89 @@
 	sehingga $x \in \{4, 5, 6\}$.
 	Hal yang sama berlaku untuk $y$.
 	Jadi ada $3 \cdot 3 = 9$ pasangan.
+
+	\item Algoritma Euclid memberi $FPB(133, 198) = 1$ (lihat contoh di Materi).
+	Untuk yang kedua, $6436343 = 529 \cdot 12167$ tepat,
+	sehingga $FPB(6436343, 12167) = 12167$.
+
+	\item Untuk setiap bilangan prima $p$, pasangan valuasi $(v_p(x), v_p(y))$
+	harus bernilai $\min = v_p(5!)$ dan $\max = v_p(50!)$.
+	Karena $v_p(5!) < v_p(50!)$ untuk semua $15$ bilangan prima sampai $50$,
+	masing-masing prima memberi $2$ pilihan (yang mana mendapat nilai min).
+	Jadi ada $2^{15} = 32768$ pasangan.
+
+	\item Karena $FPB(n! + 1, n!) = 1$, berlaku $f(n) = FPB(n! + 1, n + 1)$.
+	Jika $n + 1$ prima, Wilson memberi $f(n) = n + 1$.
+	Jika $n + 1$ komposit dan bukan $4$, maka $(n+1) \mid n!$ sehingga $f(n) = 1$;
+	untuk $n + 1 = 4$ diperoleh $f(3) = FPB(7, 4) = 1$ juga.
+	Jadi $f(n) = n + 1$ saat $n + 1$ prima dan $1$ selainnya.
+	Prima dari $2$ sampai $31$ berjumlah $160$, dan $19$ nilai komposit menyumbang $1$,
+	sehingga totalnya $179$.
+
+	\item Misalkan $d_n = FPB(a_n, a_{n+1})$; syaratnya $d_n$ konstan.
+	Karena $d_n \mid 2(n+10)$ untuk semua $n$, nilai konstan itu membagi $2$.
+	Nilai $a_n$ selalu ganjil (sebab $b$ ganjil), jadi $d_n = 1$ untuk semua $n$.
+	Jika $p \mid a_n$ dan $p \mid n + 10$, maka $a_n \equiv b - 90 \pmod{p}$,
+	sehingga $p \mid b - 90$.
+	Agar tidak ada prima semacam itu untuk $n$ manapun, perlu $|b - 90| \le 1$,
+	yaitu $b \in \{89, 90, 91\}$.
+	Yang ganjil terbesar adalah $91$, dan pemeriksaan langsung menunjukkan $b = 91$
+	(serta $b = 89$) memang memberi $d_n = 1$ untuk semua $n$.
+
+	\item Tulis $d = FPB(m, n)$, $m = dm'$, $n = dn'$ dengan $FPB(m', n') = 1$.
+	Maka $KPK(m, n) = dm'n'$ dan syaratnya menjadi $1 + m'n' = m' + n'$,
+	yaitu $(m' - 1)(n' - 1) = 0$.
+	Jadi $m' = 1$ atau $n' = 1$, yang berarti $m \mid n$ atau $n \mid m$.
+
+	\item Tulis syaratnya $\frac{a^2 + b^2 + a + b}{ab} = k$ bulat.
+	Dengan $d = FPB(a, b)$, $a = da_1$, $b = db_1$:
+	$d^2(a_1^2 + b_1^2) + d(a_1 + b_1) = kd^2a_1b_1$,
+	sehingga $a_1 + b_1 = dM$ dengan $M = ka_1b_1 - a_1^2 - b_1^2$ bulat positif.
+	Jadi $d \mid a_1 + b_1$, maka $d \le a_1 + b_1 = \frac{a+b}{d}$,
+	yaitu $d^2 \le a + b$.
+
+	\item Syaratnya setara dengan $xy = z(y - x)$.
+	Tulis $x = hA$, $y = hB$, $z = hC$ dengan $FPB(A, B, C) = 1$,
+	sehingga $AB = C(B - A)$.
+	Misalkan $d_0 = FPB(A, B)$; karena $A'B'$ koprima dengan $B' - A'$,
+	diperoleh $B' - A' \mid d_0$.
+	Tulis $d_0 = (B' - A')K$, maka $C = KA'B'$.
+	Karena $K$ membagi $A$, $B$, $C$ sekaligus, $K = 1$.
+	Jadi $B - A = (B' - A')^2$ dan $ABC = (d_0A'B')^2$ keduanya kuadrat,
+	sehingga $h(y - x) = h^2(B - A)$ dan $hxyz = h^4ABC$ keduanya kuadrat.
+
+	\item Persamaannya homogen berderajat $3$, jadi cukup mengklasifikasikan
+	tripel primitif ($FPB(a, b, c) = 1$) lalu mengalikan dengan $t$.
+	Untuk setiap prima $p$ dengan valuasi $\alpha$, $\beta$, $\gamma$,
+	ketiga syarat keterbagian memaksa valuasi terkecil muncul sedikitnya dua kali
+	(jika unik, pertidaksamaan valuasinya langsung kontradiksi).
+	Akibatnya $p$ membagi tepat satu atau tepat tiga dari $a, b, c$;
+	pada tripel primitif tepat satu, jadi $a, b, c$ saling koprima berpasangan.
+	Dengan demikian $KPK(a^2b, b^2c, c^2a) = (abc)^2$ membagi $S = a^3 + b^3 + c^3$;
+	tulis $S = k(abc)^2$.
+	Putar tripel sehingga $a$ terbesar.
+	Jika $bc \ge \sqrt{a}$, maka $k = \frac{a}{b^2c^2} + \frac{b}{a^2c^2} + \frac{c}{a^2b^2} \le 3$.
+	Nilai $k = 3$ memaksa $b^2c^2 = a$ dan $S = 3a^3$, yaitu $(1, 1, 1)$.
+	Nilai $k = 2$ memberi $a^2 \mid b^3 + c^3$ dengan hasil bagi sekurangnya $a$,
+	sehingga $\max(b, c) = a$ untuk $a \ge 5$ (kontradiksi dengan kekoprimaan),
+	dan pemeriksaan $a \le 4$ tidak memberi solusi.
+	Nilai $k = 1$ memberi $b^3 + c^3 = a^2e$ dengan $e = b^2c^2 - a \ge 1$.
+	Jika $e = 1$, maka $a + 1 = b^2c^2$ dan $a^2 = b^3 + c^3$:
+	bilangan $b, c \ge 2$ akan memaksa $a \ge 15$, lalu $\max(b,c) \ge 5$,
+	lalu $a \ge 99$, dan seterusnya tanpa henti (mustahil),
+	jadi salah satu dari $b, c$ bernilai $1$, yang memberi $(3, 1, 2)$ dan $(3, 2, 1)$.
+	Jika $e \ge 2$, maka $2a^2 \le a^2e = b^3 + c^3 \le 2\max(b,c)^3$,
+	jadi $\max(b,c) \ge a^{2/3}$ dan
+	$\min(b, c) \le \sqrt{3a}/a^{2/3} = \sqrt{3}\,a^{-1/6} < 1$ untuk $a \ge 28$,
+	sehingga $a \le 27$; pemeriksaan berhingga atas pasangan koprima $bc \le 9$
+	(yang memenuhi $a^2 \mid b^3 + c^3$ sekaligus $e = b^2c^2 - a$)
+ menunjukkan tidak ada yang memenuhi.
+	Jika $bc < \sqrt{a}$, maka $kb^2c^2 = a + \frac{b^3+c^3}{a^2}$
+	terletak strikt di antara $a$ dan $a + 1$ untuk $a > 4$: mustahil.
+	Sisa $a \le 4$ tidak memberi solusi.
+	Jadi tripel primitifnya $(1, 1, 1)$ dan semua permutasi $(1, 2, 3)$
+	(keduanya diperiksa memenuhi), dan solusi umumnya
+	$(t, t, t)$ serta semua permutasi $(t, 2t, 3t)$.
 \end{enumerate}
 
 \subsection{Modulo}
@@ -170,6 +306,155 @@
 	\item Karena $7^4 = 2401 \equiv 1 \pmod{100}$ dan $707 = 4 \cdot 176 + 3$,
 	\[ 7^{707} \equiv 7^3 = 343 \equiv 43 \pmod{100}. \]
 	Dua digit terakhirnya $43$.
+
+	\item Pangkat dari $3$ modulo $10$ bersiklus $3, 9, 7, 1$.
+	Karena $13 \equiv 3 \pmod{10}$ dan $14 \equiv 2 \pmod{4}$,
+	digit terakhir $13^{14}$ adalah $9$.
+	Eksponen $14^{15}$ habis dibagi $4$, sehingga digit terakhir $13^{14^{15}}$ adalah $1$.
+
+	\item Hasil kalinya ganjil dan memuat faktor $5$ lebih dari tiga kali,
+	jadi bersisa $0$ modulo $125$.
+	Modulo $8$, setiap residu ganjil $1, 3, 5, 7$ muncul tepat $253$ kali,
+	sehingga hasil kalinya $\equiv (1 \cdot 3 \cdot 5 \cdot 7)^{253} \equiv 1 \pmod{8}$.
+	Bilangan yang $0$ modulo $125$ dan $1$ modulo $8$ adalah $625$.
+
+	\item Modulo $100$: $32^1 \equiv 32$, $32^2 \equiv 24$, $32^3 \equiv 68$,
+	$32^4 \equiv 76$, lalu berulang dengan periode $4$.
+	Karena $1032 \equiv 32 \pmod{100}$ dan $1032 \equiv 0 \pmod{4}$,
+	dua digit terakhir $1032^{1032}$ adalah $76$.
+	Untuk yang kedua, $17^4 \equiv 1 \pmod{40}$ memberi $17^{17} \equiv 17 \pmod{40}$,
+	tulis $17^{17} = 40t + 17$.
+	Karena $17^{40} \equiv 1 \pmod{100}$ (Euler),
+	$17^{17^{17}} \equiv 17^{17} \pmod{100}$.
+	Hitung $17^2 \equiv 89$, $17^4 \equiv 21$, $17^8 \equiv 41$, $17^{16} \equiv 81$,
+	sehingga $17^{17} \equiv 81 \cdot 17 = 1377 \equiv 77 \pmod{100}$.
+
+	\item Bilangan $m$ digit yang seluruh digitnya $d$ bernilai $dR_m$
+	dengan $R_m$ repunit $m$ digit.
+	Syaratnya $10 < dR_m < 100000$ (jadi $2 \le m \le 5$)
+	dan $dR_m \equiv 1 \pmod{3}$.
+	Karena $R_m \equiv m \pmod{3}$, syaratnya $dm \equiv 1 \pmod{3}$:
+	$3$ nilai $d$ untuk $m = 2$, tidak ada untuk $m = 3$,
+	$3$ nilai untuk $m = 4$, dan $3$ nilai untuk $m = 5$.
+	Total $9$ bilangan.
+
+	\item Karena $FPB(b, m) = 1$, $b$ punya invers modulo $m$.
+	Misalkan $u \equiv ab^{-1} \pmod{m}$; maka $u^x \equiv u^y \equiv 1 \pmod{m}$.
+	Dengan $d = FPB(x, y) = sx + ty$ (Bezout) diperoleh
+	$u^d = (u^x)^s(u^y)^t \equiv 1 \pmod{m}$,
+	yaitu $a^d \equiv b^d \pmod{m}$.
+
+	\item Jika $x^2 \equiv -1 \pmod{p}$ dengan $p$ ganjil,
+	maka $x$ berorde $4$ modulo $p$, sehingga $4 \mid p - 1$.
+	Konversnya, dari Wilson:
+	$(p-1)! \equiv \left(\left(\frac{p-1}{2}\right)!\right)^2(-1)^{(p+1)/2} \equiv -1 \pmod{p}$.
+	Untuk $p \equiv 1 \pmod{4}$ nilai $(p+1)/2$ ganjil,
+	sehingga $x = \left(\frac{p-1}{2}\right)!$ memenuhi $x^2 \equiv -1 \pmod{p}$.
+	(Catatan: $p = 2$ pengecualian, $x = 1$ memenuhi tetapi $2 \not\equiv 1 \pmod{4}$.)
+
+	\item Tulis repunitnya $\frac{10^{p-1} - 1}{9}$.
+	Fermat Kecil memberi $10^{p-1} \equiv 1 \pmod{p}$,
+	dan $9$ punya invers modulo $p$ karena $p \ge 7$.
+	Jadi $p$ membagi repunit tersebut.
+
+	\item Untuk $p = 2$ pemeriksaan langsung memberi $a$ dan $b$ genap.
+	Untuk $p > 2$: andaikan $p \nmid b$, maka $t \equiv ab^{-1} \pmod{p}$
+	memenuhi $t^2 + t + 1 \equiv 0$, sehingga $t^3 \equiv 1$ dan $t \not\equiv 1$.
+	Jadi $t$ berorde $3$, maka $3 \mid p - 1$.
+	Tetapi $p = 3k + 2$ memberi $p - 1 \equiv 1 \pmod{3}$: kontradiksi.
+	Jadi $p \mid b$, lalu $p \mid a^2$, lalu $p \mid a$.
+
+	\item Andaikan $n \mid 3^n + 1$ dan ambil $p$ pembagi prima terkecil $n$ ($p$ ganjil).
+	Maka $3^n \equiv -1 \pmod{p}$ dan $3^{2n} \equiv 1 \pmod{p}$.
+	Orde $d$ dari $3$ modulo $p$ memenuhi $d \mid 2n$ tetapi $d \nmid n$,
+	sehingga $v_2(d) = v_2(n) + 1 = 1$ (karena $n$ ganjil).
+	Jadi $d/2 \mid n$ dengan $d/2 < p$ (sebab $d \mid p - 1$),
+	sehingga $d/2 = 1$ karena $p$ pembagi prima terkecil.
+	Maka $d = 2$, yaitu $p \mid 8$: kontradiksi dengan $p$ ganjil.
+
+	\item Misalkan $d$ membagi keduanya dengan $m < n$.
+	Tulis $A = a^{2^m}$ dan $B = 2^{2^m}$: $d \mid A + B$ dan
+	$d \mid A^{2^k} + B^{2^k}$ dengan $k = n - m \ge 1$.
+	Karena $A \equiv -B \pmod{d}$ dan $2^k$ genap,
+	$d \mid 2B^{2^k} = 2^{2^n + 1}$.
+	Jadi $d$ pangkat dari $2$, tetapi kedua bilangan jelas ganjil.
+	Jadi $d = 1$.
+
+	\item Tulis $p = kn + 1$. Karena $p > n - 1 \ge 1$,
+	$p \nmid n - 1$ sehingga $p \mid n^2 + n + 1$.
+	Dari $kn + 1 \le n^2 + n + 1$ diperoleh $k \le n + 1$,
+	lalu $p \mid n(n + 1 - k)$ dengan $p \nmid n$ memberi $p \mid n + 1 - k$.
+	Karena $0 \le n + 1 - k < p$, harus $k = n + 1$.
+	Jadi $p = n^2 + n + 1$ dan $4p - 3 = (2n+1)^2$.
+
+	\item Misalkan $d$ pembagi bersama itu dan $q$ faktor primanya.
+	Modulo $q$: $a \equiv -b$ sehingga
+	$S = \frac{a^p+b^p}{a+b} \equiv p\,a^{p-1} \pmod{q}$.
+	Jika $q \mid a$ maka $q \mid b$, kontradiksi dengan kekoprimaan.
+	Jadi $q \nmid a$ dan $q \mid p$, yaitu $q = p$.
+	Jadi $d = p^e$; andaikan $e \ge 2$, maka $S \equiv p\,a^{p-1} \pmod{p^2}$
+	memberi $p \mid a$, lalu $p \mid b$: kontradiksi dengan kekoprimaan.
+	Jadi $d \in \{1, p\}$.
+
+	\item Pasangkan $i$ dengan $p - i$.
+	Dari $(p-i)^p \equiv -i^p \pmod{p^2}$ diperoleh $r_{p-i} \equiv -r_i \pmod{p^2}$.
+	Karena $0 < r_i, r_{p-i} < p^2$ (sebab $p \nmid i$),
+	berlaku $r_i + r_{p-i} = p^2$.
+	Ada $\frac{p-1}{2}$ pasangan, jadi jumlahnya $\frac{(p-1)p^2}{2}$.
+
+	\item Cukup menunjukkan $p^e \mid 2^{n!} - 1$ untuk setiap $p^e \parallel n^2 - 1$.
+	Karena $n$ genap, $n - 1$ dan $n + 1$ keduanya ganjil dan koprima,
+	sehingga $p^e$ membagi salah satunya dan $p^e \le n + 1$.
+	Misalkan $t$ orde $2$ modulo $p$: $t \mid p - 1 \le n$ dan $p^{e-1} \le n$,
+	keduanya membagi $n!$ dan saling koprima, jadi $t\,p^{e-1} \mid n!$.
+	LTE memberi $v_p(2^{t\,p^{e-1}} - 1) \ge e$,
+	sehingga $p^e \mid 2^{n!} - 1$. Gabungkan semua faktor prima dengan CRT.
+
+	\item Andaikan $2^b - 1 \mid 2^a + 1$ dengan $b > 2$.
+	Jika $b$ ganjil, orde $2$ modulo setiap faktor prima $p$ dari $2^b - 1$
+	membagi $b$ (jadi ganjil) dan $2a$ tetapi bukan $a$: mustahil,
+	karena orde ganjil yang membagi $2a$ pasti membagi $a$.
+	Jadi $b$ genap; jika $4 \mid b$, maka modulo $3$ memberi $a$ ganjil
+	sedangkan modulo $5$ memberi $a$ genap: kontradiksi.
+	Jadi $b = 2u$ dengan $u \ge 3$ ganjil.
+	Orde $2$ modulo $2^u + 1$ membagi $2u$ tetapi bukan $u$,
+	dan tepat sama dengan $2u$: orde $2d' < 2u$ berarti $d' \le u/2$,
+	sehingga $2^u + 1 \le 2^{2d'} - 1 < 2^u$: mustahil.
+	Jadi $2u \mid 2a$, yaitu $u \mid a$.
+	Tulis $a = uv$: modulo $2^u - 1$ berlaku $2^a = (2^u)^v \equiv 1$,
+	tetapi juga $2^a \equiv -1$: kontradiksi karena $2^u - 1 \ge 7$.
+
+	\item Tulis $1989 = 3^2 \cdot 13 \cdot 17$ dan $T_2 = n^n$, $T_3 = n^{T_2}$;
+	soalnya $n^{T_3} - n^{T_2}$.
+	Jika $3 \mid n$, maka $T_2 \ge 27$ sehingga $9$ membagi kedua suku.
+	Jika $13 \mid n$ atau $17 \mid n$, kesimpulannya langsung.
+	Jika tidak, Euler mereduksi soal menjadi $6 \mid T_3 - T_2$ (mod $9$),
+	$12 \mid T_3 - T_2$ (mod $13$), dan $16 \mid T_3 - T_2$ (mod $17$).
+	Selalu $T_3 - T_2 = n^n(n^{T_2-n} - 1)$ dengan $T_2 - n$ genap.
+	Faktor $2$ dipenuhi lewat paritas ($n^n$ atau $n^{T_2-n} - 1$ genap);
+	faktor $3$ dipenuhi $n^n$ saat $3 \mid n$ dan $n^{T_2-n} \equiv 1 \pmod{3}$ saat $3 \nmid n$.
+	Untuk faktor $16$ (mod $17$): jika $n$ genap ($n \ge 4$) maka $16 \mid n^n$;
+	jika $n$ ganjil maka $v_2(T_2 - n) \ge 3$ dan LTE memberi
+	$v_2(n^{T_2-n} - 1) \ge 3 + 3 - 1 = 5 \ge 4$.
+	Untuk faktor $4$ (mod $13$): jika $n$ genap maka $4 \mid n^n$;
+	jika $n$ ganjil maka $n^{T_2-n} \equiv 1 \pmod{8}$.
+
+	\item Ambil sebarang prima $p > \max(a, b)$ dan $n = (a+1)(p-1) + 1$.
+	Maka $a^n \equiv a \pmod{p}$ dan $n \equiv -a \pmod{p}$,
+	sehingga $p \mid a^n + n$.
+	Syarat memberi $p \mid b^n + n$, dan $b^n \equiv b \pmod{p}$,
+	sehingga $b \equiv a \pmod{p}$.
+	Berlaku untuk semua prima besar $p$, jadi $a = b$.
+
+	\item Untuk $a \ge b$: $x^a - 1 = x^{a-b}(x^b - 1) + (x^{a-b} - 1)$,
+	sehingga $FPB(x^a - 1, x^b - 1) = FPB(x^b - 1, x^{a-b} - 1)$.
+	Ini tepat langkah algoritma Euclid pada eksponen,
+	yang berakhir di $x^{FPB(a,b)} - 1$.
+
+	\item Jika $p \mid a$, ambil $m = p$.
+	Jika tidak, CRT memberi $m$ dengan $m \equiv a \pmod{p}$ dan $m \equiv 1 \pmod{p-1}$.
+	Maka $m^m \equiv 1 \pmod{p-1}$, tulis $m^m = 1 + s(p-1)$,
+	sehingga $m^{m^m} \equiv a^{m^m} = a(a^{p-1})^s \equiv a \pmod{p}$.
 \end{enumerate}
 
 \subsection{Bilangan Prima dan Pangkat}
@@ -213,6 +498,73 @@
 	Jika $n \ge 3$ ganjil, maka $5n - 3$ genap dan minimal $12$: komposit.
 	Untuk $n = 1$ bilangannya negatif.
 	Tinggal $n = 2$ yang memberi $2$, $3$, $7$, semuanya prima.
+
+	\item Modulo $6$, bilangan prima $p > 3$ tidak mungkin bersisa $0$, $2$, $3$, atau $4$
+	(genap atau kelipatan $3$).
+	Jadi $p \equiv 1$ atau $5 \pmod{6}$, yaitu $p = 6k + 1$ atau $6k + 5 = 6(k+1) - 1$.
+
+	\item Sama seperti contoh di Materi: $p$ ganjil memberi $8 \mid p^2 - 1$
+	(dari dua bilangan genap berurutan $p - 1$, $p + 1$),
+	$p \not\equiv 0 \pmod{3}$ memberi $3 \mid p^2 - 1$,
+	dan $8$ koprima dengan $3$.
+
+	\item Setiap bilangan di barisan (mulai $11$) berakhiran digit $11$,
+	sehingga bersisa $3$ modulo $4$.
+	Kuadrat hanya bersisa $0$ atau $1$ modulo $4$.
+	Jadi tidak ada yang kuadrat: jawabannya $0$.
+
+	\item Periksa $n \le 4$: $6$, $7$, $11$, $29$, bukan kubik.
+	Untuk $n = 5$: $120 + 5 = 125 = 5^3$.
+	Untuk $n \ge 6$: $9 \mid n!$ sehingga $n! + 5 \equiv 5 \pmod{9}$,
+	tetapi kubik modulo $9$ hanya $0$, $1$, atau $8$.
+	Jadi satu-satunya jawaban $n = 5$.
+
+	\item Jelas $p, q \ne 2$. Modulo $3$: jika $p \equiv 0$ maka $p + 6 = 9$,
+	jika $p \equiv 2$ maka $3 \mid p + 10$; jadi $p \equiv 1 \pmod{3}$.
+	Serupa, $q = 3$ atau $q \equiv 1 \pmod{3}$.
+	Jika $q \equiv 1$, maka $p + q + 1 \equiv 0 \pmod{3}$ dan lebih dari $3$: mustahil.
+	Jadi $q = 3$, dan $p \equiv 1 \pmod{3}$ dengan $p + 4$, $p + 6$, $p + 10$ prima.
+	Pemeriksaan prima $1$ modulo $3$ di bawah $100$ memberi
+	$p \in \{7, 13, 37, 97\}$, yang semuanya diperiksa memenuhi.
+
+	\item Pasangkan suku ke-$i$ dan ke-$(p-i)$:
+	$\frac{1}{i} + \frac{1}{p-i} = \frac{p}{i(p-i)}$.
+	Jumlahnya $p \cdot \frac{A}{B}$ dengan $B$ produk semua $i(p-i)$,
+	yang tidak habis dibagi $p$.
+	Dalam bentuk paling sederhana, faktor $p$ di pembilang tidak bisa tercoret,
+	jadi $p \mid a$.
+
+	\item Jika $a$ ganjil, $a^n + 1$ genap dan lebih dari $2$: komposit.
+	Jadi $a$ genap.
+	Jika $n$ punya faktor ganjil $t > 1$, tulis $n = mt$:
+	$a^n + 1 = (a^m)^t + 1$ habis dibagi $a^m + 1 > 1$: komposit.
+	Jadi $n$ tidak punya faktor ganjil lebih dari $1$, yaitu $n = 2^k$.
+
+	\item Karena $a - 1 \mid a^n - 1$, keprimaan memaksa $a - 1 = 1$, yaitu $a = 2$.
+	Jika $n = de$ komposit, maka $2^n - 1 = (2^d)^e - 1$ habis dibagi $2^d - 1 > 1$.
+	Jadi $n$ prima.
+
+	\item Untuk setiap $i = 1, \ldots, n$, pilih prima berbeda $p_i > n$.
+	CRT memberi $x$ dengan $x + i \equiv p_i \pmod{p_i^2}$ untuk semua $i$,
+	sehingga $v_{p_i}(x + i) = 1$.
+	Setiap $x + i$ punya faktor prima berpangkat tepat satu,
+	jadi bukan bilangan berpangkat sempurna.
+	(Ambil wakil $x$ yang cukup besar agar semua positif.)
+
+	\item Ya. Tulis $a_i = \prod_p p^{\alpha_{i,p}}$ dan $P = \prod_i a_i$.
+	Pilih prima berbeda $q_1, \ldots, q_k$.
+	Untuk setiap $p \mid P$, CRT memberi $\beta_p$ dengan
+	$\beta_p \equiv -\alpha_{i,p} \pmod{q_i}$ untuk semua $i$.
+	Maka $b = \prod_p p^{\beta_p}$ membuat $ba_i$ berpangkat $q_i$ sempurna.
+
+	\item Nilai $p = 2$ memberi $347$, bukan kubik.
+	Untuk $p$ ganjil, tulis $k^3 = p^2 + 343 > 343$, jadi $k \ge 8$ dan
+	$p^2 = (k - 7)(k^2 + 7k + 49)$ dengan kedua faktor positif.
+	Karena $p^2$ hanya berfaktor $(1, p^2)$ dan $(p, p)$,
+	dan $k - 7 < k^2 + 7k + 49$,
+	kasus $(p, p)$ memberi $k^2 + 6k + 56 = 0$ yang mustahil.
+	Jadi $k - 7 = 1$, $k = 8$, dan $p^2 = 169$, yaitu $p = 13$.
+	Periksa: $13^2 + 343 = 512 = 8^3$.
 \end{enumerate}
 
 \section{Solusi Soal Ujian}
