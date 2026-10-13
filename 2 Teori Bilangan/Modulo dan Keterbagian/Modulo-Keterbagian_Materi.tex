@@ -4,6 +4,8 @@
 % Modulo dan Keterbagian - Materi
 % Adaptasi dari 8 Outsource K Math/Pra-OSK/Keterbagian.tex dan Modulo.tex,
 % disusun ulang mengikuti pola unit Materi/Latihan/Ujian.
+% Gaya penulisan mengikuti mo_material.md: setiap teorema langsung
+% diikuti contoh soal, solusi contoh menumpuk persamaan ke bawah.
 
 \title{Modulo dan Keterbagian - Materi}
 \date{12 Oktober 2026}
@@ -12,7 +14,9 @@
 \maketitle
 
 Modul ini merangkum dua fondasi teori bilangan yang hampir selalu muncul di OSK dan OSP:
-keterbagian dan kongruensi modulo. Kuasailah sifat dasarnya sampai hafal di luar kepala,
+keterbagian dan kongruensi modulo. Setiap teorema langsung diikuti contoh soal,
+jadi bacalah teori lalu contohnya berpasangan.
+Kuasailah sifat dasarnya sampai hafal di luar kepala,
 karena hampir setiap soal teori bilangan tingkat lanjut memakainya tanpa menyebutnya lagi.
 
 \section{Keterbagian}
@@ -36,11 +40,49 @@ Untuk bilangan bulat $a, b, c$ dengan pembagi tak nol, berlaku:
 \end{enumerate}
 \end{fact}
 
+\begin{example}
+Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid 100$.
+\end{example}
+\begin{proof}[Solusi]
+Syaratnya berarti $n + 1$ adalah faktor dari $100 = 2^2 \cdot 5^2$.
+Faktor positifnya ada $9$ buah, dan masing-masing versi negatifnya juga memenuhi:
+\begin{align*}
+n + 1 &\in \{\pm 1, \pm 2, \pm 4, \pm 5, \pm 10, \pm 20, \pm 25, \pm 50, \pm 100\}, \\
+n &\in \{-101, -51, -26, -21, -11, -6, -5, -3, -2, 0, 1, 3, 4, 9, 19, 24, 49, 99\}.
+\end{align*}
+\end{proof}
+
+\begin{example}
+Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid n^2 + 99$.
+\end{example}
+\begin{proof}[Solusi]
+Kurangkan kelipatan pembagi untuk menyisakan konstanta:
+\[ n^2 + 99 = (n + 1)(n - 1) + 100. \]
+Karena $n + 1$ selalu membagi $(n + 1)(n - 1)$, syaratnya setara dengan
+\[ n + 1 \mid 100. \]
+Jawabannya sama seperti contoh sebelumnya.
+Trik menyisakan konstanta ini akan muncul berulang kali.
+\end{proof}
+
 \begin{theorem}[Algoritma Pembagian]
 Untuk setiap bilangan asli $a$ dan $b$, terdapat pasangan \textbf{unik}
 bilangan cacah $(q, r)$ yang memenuhi
 \[ b = qa + r \quad \text{dengan} \quad 0 \le r < a. \]
 \end{theorem}
+
+\begin{example}
+Buktikan bahwa di antara $n$ bilangan bulat berurutan, tepat satu habis dibagi $n$.
+\end{example}
+\begin{proof}[Solusi]
+Ambil $n$ bilangan berurutan $m, m + 1, \dots, m + n - 1$ dan bagi $m$ dengan $n$:
+\[ m = qn + r \quad \text{dengan} \quad 0 \le r < n. \]
+Jika $r = 0$, maka $m$ sendiri yang habis dibagi $n$.
+Jika $r > 0$, bilangan ke-$(n - r)$ setelah $m$ adalah
+\[ m + (n - r) = qn + r + n - r = (q + 1)n, \]
+yang habis dibagi $n$ dan masih di dalam barisan.
+Tidak mungkin ada dua, karena selisih dua kelipatan $n$ yang berbeda minimal $n$,
+sementara rentang barisan hanya $n - 1$.
+\end{proof}
 
 \subsection{Aturan keterbagian bilangan kecil}
 
@@ -74,28 +116,17 @@ Sebagai contoh, $f(421) = 42$ dan $g(421) = 1$. Maka:
     \item $n$ habis dibagi $19$ apabila $f(n) + 2g(n)$ habis dibagi $19$.
 \end{enumerate}
 
-\subsection{Contoh}
-
 \begin{example}
-Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid 100$.
+Buktikan bahwa setiap bilangan $6$ digit berbentuk $\overline{abcabc}$ habis dibagi $11$.
 \end{example}
 \begin{proof}[Solusi]
-Syaratnya berarti $n + 1$ adalah faktor dari $100$.
-Faktor positif dari $100$ ada $9$ buah: $1, 2, 4, 5, 10, 20, 25, 50, 100$,
-dan masing-masing versi negatifnya juga memenuhi.
-Jadi $n + 1 \in \{\pm 1, \pm 2, \pm 4, \pm 5, \pm 10, \pm 20, \pm 25, \pm 50, \pm 100\}$,
-sehingga $n \in \{-101, -51, -26, -21, -11, -6, -5, -3, -2, 0, 1, 3, 4, 9, 19, 24, 49, 99\}$.
-\end{proof}
-
-\begin{example}
-Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid n^2 + 99$.
-\end{example}
-\begin{proof}[Solusi]
-Tulis $n^2 + 99 = (n + 1)(n - 1) + 100$.
-Karena $n + 1$ selalu membagi $(n + 1)(n - 1)$,
-syaratnya setara dengan $n + 1 \mid 100$.
-Jawabannya sama seperti contoh sebelumnya.
-Trik mengurangkan kelipatan pembagi untuk menyisakan konstanta ini akan muncul berulang kali.
+Uraikan bilangannya:
+\begin{align*}
+\overline{abcabc} &= 1000 \cdot \overline{abc} + \overline{abc} \\
+&= 1001 \cdot \overline{abc} \\
+&= 7 \cdot 11 \cdot 13 \cdot \overline{abc}.
+\end{align*}
+Jadi bilangan itu bahkan habis dibagi $7$ dan $13$ juga.
 \end{proof}
 
 \section{FPB dan KPK}
@@ -125,6 +156,38 @@ Akibatnya, untuk setiap bilangan asli $m$ dan $n$ terdapat bilangan bulat $a$ da
 sedemikian hingga $am + bn = FPB(m, n)$.
 \end{theorem}
 
+\begin{example}
+Hitunglah $FPB(133, 198)$.
+\end{example}
+\begin{proof}[Solusi]
+Terapkan algoritma Euclid:
+\begin{align*}
+198 &= 133 + 65, \\
+133 &= 2 \cdot 65 + 3, \\
+65 &= 21 \cdot 3 + 2, \\
+3 &= 2 + 1.
+\end{align*}
+Sisa tak nol terakhir adalah $1$, jadi
+\[ FPB(133, 198) = 1. \]
+\end{proof}
+
+\begin{example}
+Tentukan bilangan bulat $a$ dan $b$ sehingga $133a + 198b = 1$.
+\end{example}
+\begin{proof}[Solusi]
+Bentuk Bezout diperoleh dengan membaca langkah Euclid di atas mundur dari belakang:
+\begin{align*}
+1 &= 3 - 2 \\
+&= 3 - (65 - 21 \cdot 3) \\
+&= 22 \cdot 3 - 65 \\
+&= 22 \cdot (133 - 2 \cdot 65) - 65 \\
+&= 22 \cdot 133 - 45 \cdot 65 \\
+&= 22 \cdot 133 - 45 \cdot (198 - 133) \\
+&= 67 \cdot 133 - 45 \cdot 198.
+\end{align*}
+Jadi $a = 67$ dan $b = -45$ memenuhi.
+\end{proof}
+
 \begin{fact}[Sifat KPK]
 \begin{enumerate}
     \item Setiap kelipatan persekutuan dari $m$ dan $n$ adalah kelipatan dari $KPK(m, n)$.
@@ -134,16 +197,22 @@ sedemikian hingga $am + bn = FPB(m, n)$.
 \end{enumerate}
 \end{fact}
 
-\subsection{Contoh}
-
 \begin{example}
-Hitunglah $FPB(133, 198)$.
+Hitunglah $KPK(24, 36)$ dan periksa $FPB(24, 36) \times KPK(24, 36) = 24 \cdot 36$.
 \end{example}
 \begin{proof}[Solusi]
-Terapkan algoritma Euclid:
-$198 = 133 + 65$, lalu $133 = 2 \cdot 65 + 3$,
-lalu $65 = 21 \cdot 3 + 2$, lalu $3 = 2 + 1$.
-Sisa tak nol terakhir adalah $1$, jadi $FPB(133, 198) = 1$.
+Faktorkan kedua bilangan:
+\begin{align*}
+24 &= 2^3 \cdot 3, \\
+36 &= 2^2 \cdot 3^2.
+\end{align*}
+Ambil pangkat terkecil untuk FPB dan terbesar untuk KPK:
+\begin{align*}
+FPB(24, 36) &= 2^2 \cdot 3 = 12, \\
+KPK(24, 36) &= 2^3 \cdot 3^2 = 72.
+\end{align*}
+Pemeriksaan:
+\[ 12 \cdot 72 = 864 = 24 \cdot 36. \]
 \end{proof}
 
 \section{Kongruensi Modulo}
@@ -168,12 +237,52 @@ Notasinya adalah $a \equiv b \pmod{n}$.
 \end{enumerate}
 \end{fact}
 
+\begin{example}
+Tentukan sisa pembagian $2^{10} + 3^{10}$ oleh $7$.
+\end{example}
+\begin{proof}[Solusi]
+Sederhanakan masing-masing suku modulo $7$:
+\begin{align*}
+2^3 = 8 &\equiv 1 \pmod{7}, \\
+2^{10} = (2^3)^3 \cdot 2 &\equiv 1^3 \cdot 2 \equiv 2 \pmod{7}.
+\end{align*}
+\begin{align*}
+3^2 = 9 &\equiv 2 \pmod{7}, \\
+3^4 &\equiv 2^2 \equiv 4 \pmod{7}, \\
+3^8 &\equiv 4^2 = 16 \equiv 2 \pmod{7}, \\
+3^{10} = 3^8 \cdot 3^2 &\equiv 2 \cdot 2 \equiv 4 \pmod{7}.
+\end{align*}
+Jumlahkan:
+\[ 2^{10} + 3^{10} \equiv 2 + 4 \equiv 6 \pmod{7}. \]
+Sisanya $6$.
+\end{proof}
+
 \subsection{Teorema penting}
 
 \begin{theorem}[Invers modular]
 Untuk setiap bilangan asli $m$ dan $n$ yang relatif prima,
 terdapat bilangan asli $x$ sedemikian hingga $mx \equiv 1 \pmod{n}$.
 \end{theorem}
+
+\begin{example}
+Tentukan bilangan asli $x$ sehingga $7x \equiv 1 \pmod{31}$.
+\end{example}
+\begin{proof}[Solusi]
+Terapkan Euclid pada $31$ dan $7$:
+\begin{align*}
+31 &= 4 \cdot 7 + 3, \\
+7 &= 2 \cdot 3 + 1.
+\end{align*}
+Baca mundur untuk bentuk Bezout:
+\begin{align*}
+1 &= 7 - 2 \cdot 3 \\
+&= 7 - 2 \cdot (31 - 4 \cdot 7) \\
+&= 9 \cdot 7 - 2 \cdot 31.
+\end{align*}
+Modulo $31$ suku terakhir lenyap:
+\[ 9 \cdot 7 \equiv 1 \pmod{31}. \]
+Jadi $x = 9$ memenuhi (periksa: $63 = 2 \cdot 31 + 1$).
+\end{proof}
 
 \begin{theorem}[Euler]
 Misalkan $\varphi(m)$ menyatakan banyak bilangan asli tidak lebih dari $m$
@@ -185,14 +294,63 @@ maka
 Untuk $a$ dan $m$ yang relatif prima, berlaku $a^{\varphi(m)} \equiv 1 \pmod{m}$.
 \end{theorem}
 
+\begin{example}
+Hitunglah $\varphi(100)$, lalu tentukan sisa $3^{41}$ dibagi $100$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $100 = 2^2 \cdot 5^2$ memberi
+\[ \varphi(100) = 100\left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{5}\right) = 100 \cdot \frac{1}{2} \cdot \frac{4}{5} = 40. \]
+Karena $3$ relatif prima dengan $100$, teorema Euler memberi
+\[ 3^{40} \equiv 1 \pmod{100}. \]
+Maka
+\[ 3^{41} = 3 \cdot 3^{40} \equiv 3 \cdot 1 \equiv 3 \pmod{100}. \]
+Sisanya $3$.
+\end{proof}
+
 \begin{theorem}[Fermat Kecil]
 Untuk setiap bilangan prima $p$ dan bilangan bulat $a$, berlaku
 $a^p \equiv a \pmod{p}$. Jika $p \nmid a$, maka $a^{p-1} \equiv 1 \pmod{p}$.
 \end{theorem}
 
+\begin{example}
+Carilah sisa pembagian $2^{100}$ oleh $13$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $13$ prima dan tidak membagi $2$, Fermat Kecil memberi
+\[ 2^{12} \equiv 1 \pmod{13}. \]
+Bagi pangkatnya:
+\[ 100 = 12 \cdot 8 + 4. \]
+Maka
+\begin{align*}
+2^{100} &= (2^{12})^8 \cdot 2^4 \\
+&\equiv 1^8 \cdot 16 \\
+&\equiv 3 \pmod{13}.
+\end{align*}
+Sisanya $3$.
+\end{proof}
+
 \begin{theorem}[Wilson]
 Untuk setiap bilangan prima $p$, berlaku $(p-1)! \equiv -1 \pmod{p}$.
 \end{theorem}
+
+\begin{example}
+Tentukan sisa pembagian $14!$ oleh $17$.
+\end{example}
+\begin{proof}[Solusi]
+Wilson memberi
+\[ 16! \equiv -1 \pmod{17}. \]
+Uraikan $16!$:
+\begin{align*}
+16! &= 16 \cdot 15 \cdot 14! \\
+&\equiv (-1) \cdot (-2) \cdot 14! \\
+&\equiv 2 \cdot 14! \pmod{17}.
+\end{align*}
+Jadi
+\[ 2 \cdot 14! \equiv -1 \pmod{17}. \]
+Karena $2^{-1} \equiv 9 \pmod{17}$ (sebab $2 \cdot 9 = 18 \equiv 1$):
+\[ 14! \equiv -1 \cdot 9 \equiv -9 \equiv 8 \pmod{17}. \]
+Sisanya $8$.
+\end{proof}
 
 \begin{theorem}[Sisa Tiongkok / CRT]
 Misalkan $m_1, \dots, m_k$ bilangan asli lebih dari $1$ yang saling relatif prima.
@@ -200,28 +358,39 @@ Maka untuk setiap bilangan bulat $a_1, \dots, a_k$, sistem kekongruenan
 $x \equiv a_i \pmod{m_i}$ memiliki solusi yang tunggal modulo $m_1 m_2 \cdots m_k$.
 \end{theorem}
 
-\subsection{Contoh}
-
 \begin{example}
-Carilah sisa pembagian $2^{100}$ oleh $13$.
+Tentukan bilangan asli terkecil $x$ dengan $x \equiv 2 \pmod{3}$ dan $x \equiv 3 \pmod{5}$.
 \end{example}
 \begin{proof}[Solusi]
-Karena $13$ prima dan tidak membagi $2$, Fermat Kecil memberi $2^{12} \equiv 1 \pmod{13}$.
-Tulis $100 = 12 \cdot 8 + 4$, sehingga
-$2^{100} = (2^{12})^8 \cdot 2^4 \equiv 1^8 \cdot 16 \equiv 3 \pmod{13}$.
-Sisanya adalah $3$.
+Dari syarat pertama, $x = 3k + 2$ untuk suatu bilangan cacah $k$.
+Substitusikan ke syarat kedua:
+\begin{align*}
+3k + 2 &\equiv 3 \pmod{5}, \\
+3k &\equiv 1 \pmod{5}.
+\end{align*}
+Karena $3 \cdot 2 = 6 \equiv 1 \pmod{5}$, nilai $k$ terkecil adalah $k = 2$:
+\[ x = 3 \cdot 2 + 2 = 8. \]
+Periksa: $8 \equiv 2 \pmod{3}$ dan $8 \equiv 3 \pmod{5}$.
 \end{proof}
 
 \begin{example}[AIME 1983]
 Carilah sisa pembagian $6^{83} + 8^{83}$ oleh $49$.
 \end{example}
 \begin{proof}[Solusi]
-Tulis $6 = 7 - 1$ dan uraikan dengan binomial:
-\[ 6^{83} = (7-1)^{83} \equiv (-1)^{83} + 83 \cdot 7 \cdot (-1)^{82} \equiv -1 + 581 \equiv 41 \pmod{49}, \]
-karena semua suku dengan $7^2$ atau lebih tinggi habis dibagi $49$.
-Dengan cara yang sama,
-\[ 8^{83} = (7+1)^{83} \equiv 1 + 83 \cdot 7 \equiv 43 \pmod{49}. \]
-Jumlahnya $41 + 43 = 84 \equiv 35 \pmod{49}$.
+Tulis $6 = 7 - 1$ dan uraikan dengan binomial.
+Semua suku dengan $7^2$ atau lebih tinggi habis dibagi $49$, jadi
+\begin{align*}
+6^{83} = (7-1)^{83} &\equiv (-1)^{83} + 83 \cdot 7 \cdot (-1)^{82} \\
+&\equiv -1 + 581 \\
+&\equiv 41 \pmod{49}.
+\end{align*}
+Dengan cara yang sama:
+\begin{align*}
+8^{83} = (7+1)^{83} &\equiv 1 + 83 \cdot 7 \\
+&\equiv 43 \pmod{49}.
+\end{align*}
+Jumlahkan:
+\[ 41 + 43 = 84 \equiv 35 \pmod{49}. \]
 \end{proof}
 
 \section{Bilangan Prima}
@@ -239,6 +408,18 @@ bilangan prima:
 dengan $p_1, \dots, p_k$ prima berbeda dan $\alpha_i$ bilangan asli.
 \end{theorem}
 
+\begin{example}
+Tentukan banyak faktor positif dari $2004$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorkan dahulu:
+\[ 2004 = 4 \cdot 501 = 2^2 \cdot 3 \cdot 167. \]
+Setiap faktor positif berbentuk $2^a 3^b 167^c$ dengan
+$0 \le a \le 2$, $0 \le b \le 1$, $0 \le c \le 1$.
+Banyak pilihannya:
+\[ (2 + 1)(1 + 1)(1 + 1) = 3 \cdot 2 \cdot 2 = 12. \]
+\end{proof}
+
 \begin{fact}[Sifat yang sering dipakai]
 \begin{enumerate}
     \item Banyaknya bilangan prima tak hingga.
@@ -247,16 +428,20 @@ dengan $p_1, \dots, p_k$ prima berbeda dan $\alpha_i$ bilangan asli.
 \end{enumerate}
 \end{fact}
 
-\subsection{Contoh}
-
 \begin{example}
 Buktikan bahwa $24 \mid p^2 - 1$ untuk setiap bilangan prima $p > 3$.
 \end{example}
 \begin{proof}[Solusi]
-Karena $p$ ganjil, $p - 1$ dan $p + 1$ adalah dua bilangan genap berurutan,
-sehingga salah satunya habis dibagi $4$. Jadi $8 \mid (p-1)(p+1) = p^2 - 1$.
-Di sisi lain, $p$ tidak habis dibagi $3$, jadi $p \equiv \pm 1 \pmod{3}$ dan
-$3 \mid p^2 - 1$. Karena $8$ dan $3$ relatif prima, $24 \mid p^2 - 1$.
+Karena $p$ ganjil, $p - 1$ dan $p + 1$ dua bilangan genap berurutan,
+jadi salah satunya habis dibagi $4$:
+\[ 8 \mid (p-1)(p+1) = p^2 - 1. \]
+Di sisi lain $p \equiv \pm 1 \pmod{3}$, sehingga
+\begin{align*}
+p^2 &\equiv 1 \pmod{3}, \\
+3 &\mid p^2 - 1.
+\end{align*}
+Karena $8$ dan $3$ relatif prima:
+\[ 24 \mid p^2 - 1. \]
 \end{proof}
 
 \section{Residu Pangkat}
@@ -273,6 +458,18 @@ Keterbatasan ini sering menjadi kunci untuk menunjukkan suatu persamaan tidak pu
 \end{enumerate}
 \end{fact}
 
+\begin{example}
+Buktikan tidak ada bilangan asli $a$, $b$, $c$ yang memenuhi $a^2 + b^2 - 8c = 6$.
+\end{example}
+\begin{proof}[Solusi]
+Tinjau persamaan itu modulo $8$:
+\[ a^2 + b^2 \equiv 6 \pmod{8}. \]
+Sisa kuadrat modulo $8$ hanya $0$, $1$, atau $4$,
+sehingga jumlah dua sisa hanya bisa
+\[ 0,\ 1,\ 2,\ 4,\ \text{atau}\ 5 \pmod{8}. \]
+Nilai $6$ tidak pernah muncul, jadi persamaan itu tidak punya solusi.
+\end{proof}
+
 \begin{fact}[Residu pangkat lebih tinggi]
 \begin{enumerate}
     \item Sisa $x^3$ dibagi $7$ hanya bisa $0$, $1$, atau $6$.
@@ -281,27 +478,36 @@ Keterbatasan ini sering menjadi kunci untuk menunjukkan suatu persamaan tidak pu
 \end{enumerate}
 \end{fact}
 
-\subsection{Contoh}
+\begin{example}
+Buktikan tidak ada bilangan bulat $x$ sehingga $x^3 \equiv 2 \pmod{7}$.
+\end{example}
+\begin{proof}[Solusi]
+Hitung semua kemungkinan $x^3$ modulo $7$:
+\begin{align*}
+0^3 &\equiv 0 \pmod{7}, \\
+1^3 &\equiv 1 \pmod{7}, \\
+2^3 = 8 &\equiv 1 \pmod{7}, \\
+3^3 = 27 &\equiv 6 \pmod{7}, \\
+4^3 = 64 &\equiv 1 \pmod{7}, \\
+5^3 = 125 &\equiv 6 \pmod{7}, \\
+6^3 = 216 &\equiv 6 \pmod{7}.
+\end{align*}
+Sisa yang muncul hanya $0$, $1$, dan $6$.
+Nilai $2$ tidak pernah muncul.
+\end{proof}
 
 \begin{example}
 Carilah semua bilangan cacah $n$ sehingga $n^2 + 100$ merupakan bilangan kuadrat.
 \end{example}
 \begin{proof}[Solusi]
 Misalkan $n^2 + 100 = m^2$ untuk suatu bilangan cacah $m$.
-Maka $(m - n)(m + n) = 100$ dengan $m + n \ge m - n \ge 0$.
-Pasangan faktor $(m-n, m+n)$ yang jumlahnya genap hanyalah $(2, 50)$ dan $(10, 10)$,
-yang memberi $(m, n) = (26, 24)$ dan $(10, 0)$.
+Pindahkan ruas dan faktorkan:
+\[ (m - n)(m + n) = 100, \qquad m + n \ge m - n \ge 0. \]
+Pasangan faktor $(m-n, m+n)$ yang jumlahnya genap hanyalah
+\[ (2, 50) \quad \text{dan} \quad (10, 10), \]
+yang memberi
+\[ (m, n) = (26, 24) \quad \text{dan} \quad (10, 0). \]
 Jadi $n = 0$ atau $n = 24$.
-\end{proof}
-
-\begin{example}
-Buktikan tidak ada bilangan asli $a$, $b$, $c$ yang memenuhi $a^2 + b^2 - 8c = 6$.
-\end{example}
-\begin{proof}[Solusi]
-Tinjau persamaan itu modulo $8$: syaratnya menjadi $a^2 + b^2 \equiv 6 \pmod{8}$.
-Padahal sisa kuadrat modulo $8$ hanya $0$, $1$, atau $4$,
-dan jumlah dua nilai semacam itu tidak pernah $6$ modulo $8$.
-Jadi persamaan tersebut tidak punya solusi.
 \end{proof}
 
 \section{Referensi}

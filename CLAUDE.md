@@ -46,6 +46,10 @@ Equation`, `Length Bashing`). Use **Title Case**, spaces allowed.
 - `<Subtopik>_Ujian.tex` — exam
 - `<Subtopik>_Solusi.tex` — solutions
 
+Materi modules follow the rules in `mo_material.md` (every theory block
+gets a worked example right below it; example solutions stack equations
+vertically).
+
 **One-off handouts:** clean Title-Case name, no suffix (e.g. `Ceva vs Menelaus.tex`).
 
 **Exams / simulations:** prefer `YYYY MM DD - <Deskripsi>.tex` when dated;
