@@ -2,7 +2,7 @@
 \usepackage[hagavi]{azzam}
 
 % Modulo dan Keterbagian - Soal Latihan
-% 27 soal: 10 Keterbagian, 3 FPB dan KPK, 10 Modulo, 4 Prima dan Pangkat.
+% 72 soal: 17 Keterbagian, 11 FPB dan KPK, 29 Modulo, 15 Prima dan Pangkat.
 % Sumber tiap soal hanya ditulis di komentar, tidak dimunculkan di PDF.
 % Soal pilihan ganda asli disajikan tanpa opsi jawaban sebagai soal isian,
 % kecuali soal konsep nomor 1 yang memang membutuhkan opsinya.
@@ -82,6 +82,53 @@
 	\[ \frac{1^2 + 2^2 + \dots + n^2}{1 + 2 + \dots + n} \]
 	merupakan bilangan bulat.
 
+	% Source: Afrika Selatan MO 2021 (Modul Pra-OSK Keterbagian)
+	% Jawaban: terkecil 17171, terbesar 98989
+	\item
+	Tentukan bilangan asli terkecil dan terbesar dengan representasi digit
+	yang berbentuk $ababa$ ($a \ne 0$) dan habis dibagi $11$.
+
+	% Source: Kualifikasi Chile MO 2017 (Modul Pra-OSK Keterbagian)
+	% Jawaban: d = 5 atau d = 8
+	\item
+	Dengan menggunakan dua digit berbeda $2$ dan $d$,
+	bilangan $90$ digit $m = 2d22d222d2222d\ldots$ (blok berikutnya terdiri dari
+	lima digit $2$ diikuti $d$, dan seterusnya) habis dibagi oleh $9$.
+	Tentukan semua nilai yang mungkin dari $d$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: n = 2, 5, 8, 10, 15, 20, 26, 35, 40, 50, 65, 80, 90, 140, 170, 215, 290, 440, 890
+	\item
+	Carilah semua bilangan asli $n$ sehingga $n + 10 \mid n^3 + 100$.
+
+	% Source: India PRMO 2014 (Modul Pra-OSK Keterbagian)
+	% Jawaban: 1
+	\item
+	Banyak bilangan asli $n$ di antara $1$ sampai $2014$ sehingga
+	$\frac{8n}{9999 - n}$ merupakan bilangan bulat adalah \dots
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: n = k^2, k^2 + k, atau k^2 + 2k untuk suatu bilangan asli k
+	\item
+	Tentukan semua bilangan asli $n$ sedemikian hingga $\lfloor \sqrt{n} \rfloor$ membagi $n$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 1152
+	\item
+	Diberikan sebuah barisan sepuluh bilangan asli naik tegas sedemikian hingga
+	setiap bilangan membagi bilangan berikutnya.
+	Jika jumlah kesepuluh bilangan tersebut adalah $1918$,
+	maka semua kemungkinan bilangan kesepuluh dari barisan tersebut adalah \dots
+
+	% Source: El Salvador MO 2020 (Modul Pra-OSK Keterbagian, notasi dirapikan)
+	% Jawaban: 505
+	\item
+	Perhatikan bilangan $x_n = \overline{ab\,aab\,aaab\,\cdots\,\underbrace{a\ldots a}_{n}b}$,
+	yaitu blok ke-$k$ terdiri dari $k$ digit $a$ diikuti satu digit $b$,
+	dengan $a \ne 0$ dan $b$ keduanya digit.
+	Tentukan banyak bilangan asli $n$ dengan $1 \le n \le 2020$ sedemikian hingga
+	$x_n$ habis dibagi oleh $11$ untuk semua nilai $a$ dan $b$.
+
 \end{enumerate}
 
 \section{FPB dan KPK}
@@ -105,6 +152,56 @@
 	\item
 	Banyaknya pasangan terurut bilangan asli $(a, b)$ sehingga $a$ membagi $b^2$,
 	$b$ membagi $a^2$, dan $ab = 10^{10}$ adalah \dots
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 1 dan 12167
+	\item
+	Hitunglah $FPB(133, 198)$ dan $FPB(6436343, 12167)$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 32768
+	\item
+	Berapa banyak pasangan bilangan asli $(x, y)$ yang memenuhi
+	$FPB(x, y) = 5!$ dan $KPK(x, y) = 50!$?
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 179
+	\item
+	Definisikan $f(n) = FPB(n! + 1, (n + 1)!)$.
+	Tentukan nilai dari $f(1) + f(2) + f(3) + \dots + f(30)$.
+
+	% Source: OSK SMA 2021 Kemampuan Lanjut (Modul Pra-OSK Keterbagian)
+	% Jawaban: 91
+	\item
+	Bilangan asli ganjil $b$ terbesar sedemikian hingga barisan bilangan asli
+	$a_n = n^2 + 19n + b$ memenuhi
+	\[ FPB(a_n, a_{n + 1}) = FPB(a_{n + 2}, a_{n + 1}) \]
+	untuk setiap bilangan asli $n$ adalah \dots
+
+	% Source: Modul Pra-OSK Keterbagian
+	\item
+	Misalkan $m$ dan $n$ adalah bilangan asli yang memenuhi
+	\[ FPB(m, n) + KPK(m, n) = m + n. \]
+	Buktikan bahwa salah satu dari kedua bilangan itu membagi bilangan yang lainnya.
+
+	% Source: Modul Pra-OSK Keterbagian
+	\item
+	Diberikan bilangan asli $a$ dan $b$ yang memenuhi
+	\[ \frac{a + 1}{b} + \frac{b + 1}{a} \]
+	adalah bilangan bulat. Tunjukkan bahwa $FPB(a, b) \le \sqrt{a + b}$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	\item
+	Misalkan $x$, $y$, $z$ adalah bilangan asli yang memenuhi
+	\[ \frac{1}{x} - \frac{1}{y} = \frac{1}{z}. \]
+	Misalkan $h = FPB(x, y, z)$.
+	Tunjukkan bahwa $hxyz$ dan $h(y - x)$ keduanya merupakan bilangan kuadrat.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: (t, t, t) dan semua permutasi dari (t, 2t, 3t) untuk t bilangan asli
+	\item
+	Carilah semua tripel bilangan asli $(a, b, c)$ sedemikian hingga
+	$a^3 + b^3 + c^3$ habis dibagi $a^2b$, $b^2c$, dan $c^2a$.
 
 \end{enumerate}
 
@@ -165,6 +262,113 @@
 	\item
 	Tentukan dua digit terakhir dari $7^{707}$.
 
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 9 dan 1
+	\item
+	Carilah digit terakhir dari $13^{14}$ dan $13^{14^{15}}$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 625
+	\item
+	Tentukan sisa pembagian saat $1 \times 3 \times 5 \times \dots \times 2023$ dibagi oleh $1000$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 76 dan 77
+	\item
+	Carilah dua digit terakhir dari $1032^{1032}$ dan $17^{17^{17}}$.
+
+	% Source: Argentina MO 2021 Level 1 (Modul Pra-OSK Modulo)
+	% Jawaban: 9
+	\item
+	Mikha menulis barisan aritmetika yang dimulai dari $1$ dengan selisih $3$, yakni
+	\[ 1, 4, 7, 10, 13, 16, \ldots \]
+	Kemudian, Fakhru menandai semua bilangan yang ditulis Mikha yang lebih dari $10$
+	dan kurang dari $100000$ dan seluruh digitnya sama.
+	Tentukan banyak bilangan yang ditandai oleh Fakhru.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $m$, $a$, $b$ adalah bilangan bulat dengan $a$ dan $b$ relatif prima dengan $m$.
+	Bilangan asli $x$ dan $y$ memenuhi $a^x \equiv b^x \pmod{m}$ dan $a^y \equiv b^y \pmod{m}$.
+	Tunjukkan bahwa $a^{FPB(x, y)} \equiv b^{FPB(x, y)} \pmod{m}$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: p ganjil)
+	\item
+	Misalkan $p$ adalah bilangan prima ganjil.
+	Tunjukkan bahwa terdapat bilangan asli $x$ sedemikian hingga $x^2 + 1$
+	habis dibagi oleh $p$ jika dan hanya jika $p \equiv 1 \pmod{4}$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: p - 1 digit)
+	\item
+	Misalkan $p \ge 7$ adalah bilangan prima.
+	Tunjukkan bahwa bilangan $11\ldots11$ (dengan $p - 1$ digit $1$) habis dibagi oleh $p$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $p$ adalah bilangan prima yang berbentuk $3k + 2$ yang membagi $a^2 + ab + b^2$
+	untuk suatu bilangan bulat $a$ dan $b$.
+	Buktikan bahwa $a$ dan $b$ keduanya habis dibagi oleh $p$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $n > 1$ adalah bilangan ganjil. Tunjukkan bahwa $n$ tidak membagi $3^n + 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ adalah bilangan ganjil.
+	Buktikan bahwa $a^{2^n} + 2^{2^n}$ dan $a^{2^m} + 2^{2^m}$ relatif prima saat $m \ne n$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: n > 1)
+	\item
+	Misalkan $n > 1$ adalah bilangan asli dan $p$ bilangan prima sedemikian hingga
+	$n$ membagi $p - 1$ dan $p$ membagi $n^3 - 1$.
+	Tunjukkan bahwa $4p - 3$ adalah bilangan kuadrat.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Jika $p$ adalah bilangan prima ganjil dan $a$, $b$ adalah dua bilangan asli yang relatif prima,
+	maka tunjukkan bahwa $FPB\left(a + b, \dfrac{a^p + b^p}{a + b}\right) = 1$ atau $p$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: (p - 1)p^2/2
+	\item
+	Misalkan $p$ adalah bilangan prima ganjil.
+	Untuk setiap $i = 1, 2, \ldots, p - 1$, notasikan $r_i$ sebagai sisa pembagian
+	ketika $i^p$ dibagi dengan $p^2$.
+	Carilah nilai dari $r_1 + r_2 + \dots + r_{p - 1}$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Buktikan bahwa untuk setiap bilangan genap positif $n$,
+	$n^2 - 1$ membagi $2^{n!} - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ dan $b > 2$ adalah bilangan asli.
+	Tunjukkan bahwa $2^a + 1$ tidak habis dibagi oleh $2^b - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $n > 2$ adalah bilangan asli.
+	Tunjukkan bahwa $n^{n^{n^n}} - n^{n^n}$ habis dibagi oleh $1989$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ dan $b$ adalah dua bilangan asli sedemikian hingga $b^n + n$
+	merupakan kelipatan dari $a^n + n$ untuk setiap bilangan asli $n$.
+	Tunjukkan bahwa $a = b$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $x$, $a$, $b$ adalah bilangan asli.
+	Tunjukkan bahwa $FPB(x^a - 1, x^b - 1) = x^{FPB(a, b)} - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ adalah bilangan asli dan $p$ bilangan prima.
+	Tunjukkan bahwa terdapat suatu bilangan asli $m$ yang memenuhi
+	\[ m^{m^m} \equiv a \pmod{p}. \]
+
 \end{enumerate}
 
 \section{Bilangan Prima dan Pangkat}
@@ -193,6 +397,72 @@
 	\item
 	Tentukan semua bilangan asli $n$ sedemikian hingga $3n - 4$, $4n - 5$,
 	dan $5n - 3$ semuanya merupakan bilangan prima.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Buktikan bahwa setiap bilangan prima yang lebih besar dari $3$
+	berbentuk $6k \pm 1$ untuk suatu bilangan asli $k$.
+
+	% Source: Modul Pra-OSK Modulo (soal yang sama sudah dibahas sebagai contoh di Materi)
+	\item
+	Buktikan bahwa untuk setiap bilangan prima $p > 3$ berlaku $24 \mid p^2 - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 0
+	\item
+	Banyak bilangan di barisan $11, 111, 1111, 11111, \ldots, 11\ldots11$
+	dengan bilangan terakhir terdiri dari $2022$ digit $1$,
+	yang merupakan bilangan kuadrat adalah \dots
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: n = 5
+	\item
+	Tentukan semua bilangan asli $n$ sehingga $n! + 5$ merupakan bilangan kubik.
+
+	% Source: Argentina MO 2021 Level 1 (Modul Pra-OSK Modulo)
+	% Jawaban: (p, q) = (7, 3), (13, 3), (37, 3), (97, 3)
+	\item
+	Tentukan semua bilangan prima $p$ dan $q$ yang lebih dari $1$ dan kurang dari $100$
+	sedemikian hingga lima bilangan berikut:
+	\[ p + 6,\quad p + 10,\quad q + 4,\quad q + 10,\quad p + q + 1 \]
+	semuanya merupakan bilangan prima.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Jika $p$ adalah bilangan prima ganjil dan
+	$\dfrac{a}{b} = \dfrac{1}{1} + \dfrac{1}{2} + \dots + \dfrac{1}{p - 1}$
+	dalam bentuk paling sederhana,
+	buktikan bahwa $p \mid a$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: memuat kata prima)
+	\item
+	Buktikan bahwa jika $a^n + 1$ merupakan bilangan prima dengan $a > 1$,
+	maka $a$ genap dan $n = 2^k$ untuk suatu bilangan cacah $k$.
+	(Bilangan prima berbentuk $2^{2^k} + 1$ disebut bilangan prima Fermat.)
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: memuat kata prima)
+	\item
+	Buktikan bahwa jika $a^n - 1$ merupakan bilangan prima dengan $a > 1$,
+	maka $a = 2$ dan $n$ prima.
+	(Bilangan prima berbentuk $2^n - 1$ disebut bilangan prima Mersenne.)
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Buktikan bahwa untuk setiap bilangan asli $n$,
+	terdapat $n$ buah bilangan asli berurutan yang tidak ada satupun
+	di antaranya yang merupakan bilangan berpangkat sempurna.
+
+	% Source: Modul Pra-OSK Modulo (redaksi diperbaiki)
+	% Jawaban: ya, selalu ada
+	\item
+	Apakah untuk setiap himpunan bilangan asli $\{a_1, a_2, \ldots, a_k\}$
+	terdapat suatu bilangan asli $b$ sedemikian hingga setiap anggota himpunan
+	$\{ba_1, ba_2, \ldots, ba_k\}$ merupakan bilangan berpangkat sempurna?
+
+	% Source: OSP SMA 2010 (Modul Pra-OSK Modulo)
+	% Jawaban: p = 13
+	\item
+	Tentukan semua bilangan prima $p$ sehingga $p^2 + 7^3$ merupakan bilangan kubik.
 
 \end{enumerate}
 
