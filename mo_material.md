@@ -1,10 +1,12 @@
 # mo_material.md
 
-Rules for writing training material in this repo: `*_Materi.tex` modules
-first of all, plus the prose inside `_Latihan`, `_Ujian`, and `_Solusi`
-files. Read together with `CLAUDE.md`.
+Rules for writing training material in this repo: `*_Modul.tex` units
+(Materi and Soal Latihan combined in one file) first of all, plus the
+prose inside `_Ujian` and `_Solusi` files. Read together with `CLAUDE.md`.
+(Older units keep separate `*_Materi.tex` / `*_Latihan.tex` files; the same
+rules apply to each part.)
 
-## 0. Document format (Materi)
+## 0. Document format (Modul)
 
 - Preamble: `\documentclass[12pt]{scrartcl}` with
   `\usepackage[hagavi]{azzam}`, then `\title`, `\date`, `\maketitle`.
@@ -12,11 +14,12 @@ files. Read together with `CLAUDE.md`.
   thmtools, numbering shared): `definition`, `fact`, `theorem`,
   `lemma`, `example`, `proof[Solusi]`, plus `exercise`, `problem`,
   `claim`, `remark` when needed.
-- Skeleton: short intro paragraph after `\maketitle`; one `\section`
-  per subtopic; inside each section, every theory block
-  (definition / fact / theorem) is immediately followed by the
-  worked example(s) illustrating it; `\section{Referensi}` at the
-  end listing the source modules.
+- Skeleton: short intro paragraph after `\maketitle`; `\part*{Materi}`
+  with one `\section` per subtopic (inside each section, every theory
+  block is immediately followed by the worked example(s) illustrating
+  it); then `\part*{Soal Latihan}` with the practice problems grouped
+  by `\section`; `\section{Referensi}` at the very end listing the
+  source modules.
 
 ## 1. Every theory block gets a worked example
 
@@ -69,7 +72,7 @@ Inline math stays allowed for naming symbols or stating facts
 ## 3. Keep Materi examples illustrative
 
 Materi examples demonstrate the theory at easy to medium difficulty.
-Hard problems belong in `_Latihan.tex` / `_Ujian.tex`, not in Materi.
+Hard problems belong in the Latihan part / `_Ujian.tex`, not in Materi.
 
 ## 4. Geometry and pictures: always inline TikZ
 
@@ -121,8 +124,8 @@ Hunt down these machine-written signals in every prose passage
 ## 6. Sourcing and correctness
 
 - Problem sources (contest, year, number) go in `%` comments only,
-  never in the PDF, for Latihan and Ujian files. Materi examples may
-  cite sources inline since they are teaching material.
+  never in the PDF, for the Latihan part and Ujian files. Materi
+  examples may cite sources inline since they are teaching material.
 - Record the answer in a `% Jawaban:` comment on every Latihan problem.
 - Verify every numeric answer independently (a second hand computation
   or a brute-force script). Never trust a source answer key blindly;

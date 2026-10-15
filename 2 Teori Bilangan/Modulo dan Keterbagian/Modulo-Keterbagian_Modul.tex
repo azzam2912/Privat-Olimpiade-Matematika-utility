@@ -1,0 +1,978 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Modulo dan Keterbagian - Modul (gabungan Materi dan Soal Latihan)
+% Digabung dari Modulo-Keterbagian_Materi.tex dan Modulo-Keterbagian_Latihan.tex.
+% Adaptasi dari 8 Outsource K Math/Pra-OSK/Keterbagian.tex dan Modulo.tex.
+% _Ujian dan _Solusi tetap terpisah.
+% Sumber tiap soal latihan hanya ditulis di komentar, tidak dimunculkan di PDF.
+% Soal pilihan ganda asli disajikan tanpa opsi jawaban sebagai soal isian,
+% kecuali soal konsep nomor 1 yang memang membutuhkan opsinya.
+
+\title{Modulo dan Keterbagian - Modul}
+\date{15 Oktober 2026}
+
+\begin{document}
+\maketitle
+
+\part*{Materi}
+
+Modul ini merangkum dua fondasi teori bilangan yang hampir selalu muncul di OSK dan OSP:
+keterbagian dan kongruensi modulo. Setiap teorema langsung diikuti contoh soal,
+jadi bacalah teori lalu contohnya berpasangan.
+Kuasailah sifat dasarnya sampai hafal di luar kepala,
+karena hampir setiap soal teori bilangan tingkat lanjut memakainya tanpa menyebutnya lagi.
+
+\section{Keterbagian}
+
+\begin{definition}
+Diberikan dua bilangan bulat $a$ dan $b$ dengan $a \ne 0$.
+Kita menyebut $a$ \textbf{membagi} $b$ apabila terdapat bilangan bulat $c$
+sedemikian hingga $b = ca$. Notasinya adalah $a \mid b$.
+\end{definition}
+
+\begin{fact}[Sifat keterbagian]
+Untuk bilangan bulat $a, b, c$ dengan pembagi tak nol, berlaku:
+\begin{enumerate}
+    \item $a \mid 0$ dan $a \mid a$.
+    \item Jika $a \mid b$ dan $b \mid c$, maka $a \mid c$.
+    \item Jika $a \mid b$ dan $a \mid c$, maka
+    $a \mid \alpha b + \beta c$ untuk setiap bilangan bulat $\alpha, \beta$.
+    \item Jika $a \mid b$ dengan $b \ne 0$, maka $|a| \le |b|$.
+    \item Jika $a \mid b$ dan $b \mid a$, maka $|a| = |b|$.
+    \item Jika $a \mid b$, maka $a \mid bc$ untuk setiap bilangan bulat $c$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid 100$.
+\end{example}
+\begin{proof}[Solusi]
+Syaratnya berarti $n + 1$ adalah faktor dari $100 = 2^2 \cdot 5^2$.
+Faktor positifnya ada $9$ buah, dan masing-masing versi negatifnya juga memenuhi:
+\begin{align*}
+n + 1 &\in \{\pm 1, \pm 2, \pm 4, \pm 5, \pm 10, \pm 20, \pm 25, \pm 50, \pm 100\}, \\
+n &\in \{-101, -51, -26, -21, -11, -6, -5, -3, -2, 0, 1, 3, 4, 9, 19, 24, 49, 99\}.
+\end{align*}
+\end{proof}
+
+\begin{example}
+Carilah semua bilangan bulat $n$ yang memenuhi $n + 1 \mid n^2 + 99$.
+\end{example}
+\begin{proof}[Solusi]
+Kurangkan kelipatan pembagi untuk menyisakan konstanta:
+\[ n^2 + 99 = (n + 1)(n - 1) + 100. \]
+Karena $n + 1$ selalu membagi $(n + 1)(n - 1)$, syaratnya setara dengan
+\[ n + 1 \mid 100. \]
+Jawabannya sama seperti contoh sebelumnya.
+Trik menyisakan konstanta ini akan muncul berulang kali.
+\end{proof}
+
+\begin{theorem}[Algoritma Pembagian]
+Untuk setiap bilangan asli $a$ dan $b$, terdapat pasangan \textbf{unik}
+bilangan cacah $(q, r)$ yang memenuhi
+\[ b = qa + r \quad \text{dengan} \quad 0 \le r < a. \]
+\end{theorem}
+
+\begin{example}
+Buktikan bahwa di antara $n$ bilangan bulat berurutan, tepat satu habis dibagi $n$.
+\end{example}
+\begin{proof}[Solusi]
+Ambil $n$ bilangan berurutan $m, m + 1, \dots, m + n - 1$ dan bagi $m$ dengan $n$:
+\[ m = qn + r \quad \text{dengan} \quad 0 \le r < n. \]
+Jika $r = 0$, maka $m$ sendiri yang habis dibagi $n$.
+Jika $r > 0$, bilangan ke-$(n - r)$ setelah $m$ adalah
+\[ m + (n - r) = qn + r + n - r = (q + 1)n, \]
+yang habis dibagi $n$ dan masih di dalam barisan.
+Tidak mungkin ada dua, karena selisih dua kelipatan $n$ yang berbeda minimal $n$,
+sementara rentang barisan hanya $n - 1$.
+\end{proof}
+
+\subsection{Aturan keterbagian bilangan kecil}
+
+\begin{enumerate}
+    \item Sebuah bilangan asli habis dibagi $2$ apabila digit terakhirnya genap.
+    \item Sebuah bilangan asli habis dibagi $4$ apabila dua digit terakhirnya habis dibagi $4$.
+    \item Sebuah bilangan asli habis dibagi $8$ apabila tiga digit terakhirnya habis dibagi $8$.
+    \item Secara umum, sebuah bilangan asli habis dibagi $2^n$ apabila
+    $n$ digit terakhirnya habis dibagi $2^n$.
+    \item Sebuah bilangan asli habis dibagi $5$ apabila digit terakhirnya $0$ atau $5$.
+    \item Sebuah bilangan asli habis dibagi $25$ apabila dua digit terakhirnya
+    $00$, $25$, $50$, atau $75$.
+    \item Secara umum, sebuah bilangan asli habis dibagi $5^n$ apabila
+    $n$ digit terakhirnya habis dibagi $5^n$.
+    \item Sebuah bilangan asli habis dibagi $3$ maupun $9$ apabila jumlah digitnya
+    habis dibagi $3$ maupun $9$.
+    \item Sebuah bilangan asli habis dibagi $11$ apabila selisih jumlah digit
+    di posisi ganjil dan jumlah digit di posisi genap habis dibagi $11$.
+    \item Sebuah bilangan habis dibagi $10^n$ apabila $n$ digit terakhirnya nol.
+    \item Sebuah bilangan habis dibagi $ab$ untuk $a$ dan $b$ yang relatif prima
+    apabila bilangan tersebut habis dibagi $a$ dan juga habis dibagi $b$.
+\end{enumerate}
+
+Untuk bilangan $n$ dengan sedikitnya dua digit, tulis $f(n)$ untuk bilangan yang
+diperoleh dengan menghapus digit terakhir $n$, dan $g(n)$ untuk digit terakhir $n$.
+Sebagai contoh, $f(421) = 42$ dan $g(421) = 1$. Maka:
+\begin{enumerate}
+    \item $n$ habis dibagi $7$ apabila $f(n) - 2g(n)$ habis dibagi $7$.
+    \item $n$ habis dibagi $13$ apabila $f(n) - 9g(n)$ habis dibagi $13$.
+    \item $n$ habis dibagi $17$ apabila $f(n) - 5g(n)$ habis dibagi $17$.
+    \item $n$ habis dibagi $19$ apabila $f(n) + 2g(n)$ habis dibagi $19$.
+\end{enumerate}
+
+\begin{example}
+Buktikan bahwa setiap bilangan $6$ digit berbentuk $\overline{abcabc}$ habis dibagi $11$.
+\end{example}
+\begin{proof}[Solusi]
+Uraikan bilangannya:
+\begin{align*}
+\overline{abcabc} &= 1000 \cdot \overline{abc} + \overline{abc} \\
+&= 1001 \cdot \overline{abc} \\
+&= 7 \cdot 11 \cdot 13 \cdot \overline{abc}.
+\end{align*}
+Jadi bilangan itu bahkan habis dibagi $7$ dan $13$ juga.
+\end{proof}
+
+\section{FPB dan KPK}
+
+\begin{definition}
+Untuk bilangan asli $m$ dan $n$, $FPB(m, n)$ adalah faktor persekutuan positif
+terbesar keduanya, sedangkan $KPK(m, n)$ adalah kelipatan persekutuan positif
+terkecil keduanya. Jika $FPB(m, n) = 1$, maka $m$ dan $n$ disebut relatif prima.
+\end{definition}
+
+\begin{fact}[Sifat FPB]
+\begin{enumerate}
+    \item Jika $d = FPB(m, n)$ dan $m = dm'$, $n = dn'$, maka $FPB(m', n') = 1$.
+    \item Setiap faktor persekutuan dari $m$ dan $n$ membagi $FPB(m, n)$.
+    \item Jika $m = nq + r$, maka $FPB(m, n) = FPB(n, r)$.
+    \item Jika $m = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ dan
+    $n = p_1^{\beta_1} \cdots p_k^{\beta_k}$, maka
+    \[ FPB(m, n) = p_1^{\min(\alpha_1, \beta_1)} \cdots p_k^{\min(\alpha_k, \beta_k)}. \]
+\end{enumerate}
+\end{fact}
+
+\begin{theorem}[Algoritma Euclid dan Bezout]
+Dengan menerapkan algoritma pembagian berulang,
+\[ m = nq_1 + r_1, \quad n = r_1q_2 + r_2, \quad r_1 = r_2q_3 + r_3, \quad \dots \]
+sampai sisanya nol, sisa tak nol terakhir adalah $FPB(m, n)$.
+Akibatnya, untuk setiap bilangan asli $m$ dan $n$ terdapat bilangan bulat $a$ dan $b$
+sedemikian hingga $am + bn = FPB(m, n)$.
+\end{theorem}
+
+\begin{example}
+Hitunglah $FPB(133, 198)$.
+\end{example}
+\begin{proof}[Solusi]
+Terapkan algoritma Euclid:
+\begin{align*}
+198 &= 133 + 65, \\
+133 &= 2 \cdot 65 + 3, \\
+65 &= 21 \cdot 3 + 2, \\
+3 &= 2 + 1.
+\end{align*}
+Sisa tak nol terakhir adalah $1$, jadi
+\[ FPB(133, 198) = 1. \]
+\end{proof}
+
+\begin{example}
+Tentukan bilangan bulat $a$ dan $b$ sehingga $133a + 198b = 1$.
+\end{example}
+\begin{proof}[Solusi]
+Bentuk Bezout diperoleh dengan membaca langkah Euclid di atas mundur dari belakang:
+\begin{align*}
+1 &= 3 - 2 \\
+&= 3 - (65 - 21 \cdot 3) \\
+&= 22 \cdot 3 - 65 \\
+&= 22 \cdot (133 - 2 \cdot 65) - 65 \\
+&= 22 \cdot 133 - 45 \cdot 65 \\
+&= 22 \cdot 133 - 45 \cdot (198 - 133) \\
+&= 67 \cdot 133 - 45 \cdot 198.
+\end{align*}
+Jadi $a = 67$ dan $b = -45$ memenuhi.
+\end{proof}
+
+\begin{fact}[Sifat KPK]
+\begin{enumerate}
+    \item Setiap kelipatan persekutuan dari $m$ dan $n$ adalah kelipatan dari $KPK(m, n)$.
+    \item Dengan notasi faktorisasi prima yang sama,
+    \[ KPK(m, n) = p_1^{\max(\alpha_1, \beta_1)} \cdots p_k^{\max(\alpha_k, \beta_k)}. \]
+    \item $FPB(m, n) \times KPK(m, n) = mn$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Hitunglah $KPK(24, 36)$ dan periksa $FPB(24, 36) \times KPK(24, 36) = 24 \cdot 36$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorkan kedua bilangan:
+\begin{align*}
+24 &= 2^3 \cdot 3, \\
+36 &= 2^2 \cdot 3^2.
+\end{align*}
+Ambil pangkat terkecil untuk FPB dan terbesar untuk KPK:
+\begin{align*}
+FPB(24, 36) &= 2^2 \cdot 3 = 12, \\
+KPK(24, 36) &= 2^3 \cdot 3^2 = 72.
+\end{align*}
+Pemeriksaan:
+\[ 12 \cdot 72 = 864 = 24 \cdot 36. \]
+\end{proof}
+
+\section{Kongruensi Modulo}
+
+\begin{definition}
+Misalkan $a$, $b$, dan $n$ bilangan bulat dengan $n \ne 0$.
+Kita menyebut $a$ \textbf{kongruen} dengan $b$ modulo $n$ apabila $n \mid a - b$.
+Notasinya adalah $a \equiv b \pmod{n}$.
+\end{definition}
+
+\begin{fact}[Sifat kongruensi]
+\begin{enumerate}
+    \item $a \equiv a \pmod{n}$.
+    \item Jika $a \equiv b \pmod{n}$, maka $b \equiv a \pmod{n}$.
+    \item Jika $a \equiv b \pmod{n}$ dan $b \equiv c \pmod{n}$, maka $a \equiv c \pmod{n}$.
+    \item Jika $a \equiv b \pmod{n}$, maka $ka \equiv kb \pmod{n}$ untuk setiap bilangan bulat $k$.
+    \item Jika $a \equiv b \pmod{n}$ dan $c \equiv d \pmod{n}$, maka
+    $ja + kc \equiv jb + kd \pmod{n}$ untuk setiap bilangan bulat $j$ dan $k$.
+    \item Jika $a \equiv b \pmod{n}$ dan $c \equiv d \pmod{n}$, maka $ac \equiv bd \pmod{n}$.
+    \item $a \equiv b \pmod{n_i}$ untuk $i = 1, \dots, k$ jika dan hanya jika
+    $a \equiv b \pmod{KPK(n_1, \dots, n_k)}$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Tentukan sisa pembagian $2^{10} + 3^{10}$ oleh $7$.
+\end{example}
+\begin{proof}[Solusi]
+Sederhanakan masing-masing suku modulo $7$:
+\begin{align*}
+2^3 = 8 &\equiv 1 \pmod{7}, \\
+2^{10} = (2^3)^3 \cdot 2 &\equiv 1^3 \cdot 2 \equiv 2 \pmod{7}.
+\end{align*}
+\begin{align*}
+3^2 = 9 &\equiv 2 \pmod{7}, \\
+3^4 &\equiv 2^2 \equiv 4 \pmod{7}, \\
+3^8 &\equiv 4^2 = 16 \equiv 2 \pmod{7}, \\
+3^{10} = 3^8 \cdot 3^2 &\equiv 2 \cdot 2 \equiv 4 \pmod{7}.
+\end{align*}
+Jumlahkan:
+\[ 2^{10} + 3^{10} \equiv 2 + 4 \equiv 6 \pmod{7}. \]
+Sisanya $6$.
+\end{proof}
+
+\subsection{Teorema penting}
+
+\begin{theorem}[Invers modular]
+Untuk setiap bilangan asli $m$ dan $n$ yang relatif prima,
+terdapat bilangan asli $x$ sedemikian hingga $mx \equiv 1 \pmod{n}$.
+\end{theorem}
+
+\begin{example}
+Tentukan bilangan asli $x$ sehingga $7x \equiv 1 \pmod{31}$.
+\end{example}
+\begin{proof}[Solusi]
+Terapkan Euclid pada $31$ dan $7$:
+\begin{align*}
+31 &= 4 \cdot 7 + 3, \\
+7 &= 2 \cdot 3 + 1.
+\end{align*}
+Baca mundur untuk bentuk Bezout:
+\begin{align*}
+1 &= 7 - 2 \cdot 3 \\
+&= 7 - 2 \cdot (31 - 4 \cdot 7) \\
+&= 9 \cdot 7 - 2 \cdot 31.
+\end{align*}
+Modulo $31$ suku terakhir lenyap:
+\[ 9 \cdot 7 \equiv 1 \pmod{31}. \]
+Jadi $x = 9$ memenuhi (periksa: $63 = 2 \cdot 31 + 1$).
+\end{proof}
+
+\begin{theorem}[Euler]
+Misalkan $\varphi(m)$ menyatakan banyak bilangan asli tidak lebih dari $m$
+yang relatif prima dengan $m$. Jika faktorisasi prima dari $n$ adalah
+\[ n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}, \]
+maka
+\[ \varphi(n) = n\left(1 - \frac{1}{p_1}\right)\left(1 - \frac{1}{p_2}\right)
+\cdots\left(1 - \frac{1}{p_k}\right). \]
+Untuk $a$ dan $m$ yang relatif prima, berlaku $a^{\varphi(m)} \equiv 1 \pmod{m}$.
+\end{theorem}
+
+\begin{example}
+Hitunglah $\varphi(100)$, lalu tentukan sisa $3^{41}$ dibagi $100$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $100 = 2^2 \cdot 5^2$ memberi
+\[ \varphi(100) = 100\left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{5}\right) = 100 \cdot \frac{1}{2} \cdot \frac{4}{5} = 40. \]
+Karena $3$ relatif prima dengan $100$, teorema Euler memberi
+\[ 3^{40} \equiv 1 \pmod{100}. \]
+Maka
+\[ 3^{41} = 3 \cdot 3^{40} \equiv 3 \cdot 1 \equiv 3 \pmod{100}. \]
+Sisanya $3$.
+\end{proof}
+
+\begin{theorem}[Fermat Kecil]
+Untuk setiap bilangan prima $p$ dan bilangan bulat $a$, berlaku
+$a^p \equiv a \pmod{p}$. Jika $p \nmid a$, maka $a^{p-1} \equiv 1 \pmod{p}$.
+\end{theorem}
+
+\begin{example}
+Carilah sisa pembagian $2^{100}$ oleh $13$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $13$ prima dan tidak membagi $2$, Fermat Kecil memberi
+\[ 2^{12} \equiv 1 \pmod{13}. \]
+Bagi pangkatnya:
+\[ 100 = 12 \cdot 8 + 4. \]
+Maka
+\begin{align*}
+2^{100} &= (2^{12})^8 \cdot 2^4 \\
+&\equiv 1^8 \cdot 16 \\
+&\equiv 3 \pmod{13}.
+\end{align*}
+Sisanya $3$.
+\end{proof}
+
+\begin{theorem}[Wilson]
+Untuk setiap bilangan prima $p$, berlaku $(p-1)! \equiv -1 \pmod{p}$.
+\end{theorem}
+
+\begin{example}
+Tentukan sisa pembagian $14!$ oleh $17$.
+\end{example}
+\begin{proof}[Solusi]
+Wilson memberi
+\[ 16! \equiv -1 \pmod{17}. \]
+Uraikan $16!$:
+\begin{align*}
+16! &= 16 \cdot 15 \cdot 14! \\
+&\equiv (-1) \cdot (-2) \cdot 14! \\
+&\equiv 2 \cdot 14! \pmod{17}.
+\end{align*}
+Jadi
+\[ 2 \cdot 14! \equiv -1 \pmod{17}. \]
+Karena $2^{-1} \equiv 9 \pmod{17}$ (sebab $2 \cdot 9 = 18 \equiv 1$):
+\[ 14! \equiv -1 \cdot 9 \equiv -9 \equiv 8 \pmod{17}. \]
+Sisanya $8$.
+\end{proof}
+
+\begin{theorem}[Sisa Tiongkok / CRT]
+Misalkan $m_1, \dots, m_k$ bilangan asli lebih dari $1$ yang saling relatif prima.
+Maka untuk setiap bilangan bulat $a_1, \dots, a_k$, sistem kekongruenan
+$x \equiv a_i \pmod{m_i}$ memiliki solusi yang tunggal modulo $m_1 m_2 \cdots m_k$.
+\end{theorem}
+
+\begin{example}
+Tentukan bilangan asli terkecil $x$ dengan $x \equiv 2 \pmod{3}$ dan $x \equiv 3 \pmod{5}$.
+\end{example}
+\begin{proof}[Solusi]
+Dari syarat pertama, $x = 3k + 2$ untuk suatu bilangan cacah $k$.
+Substitusikan ke syarat kedua:
+\begin{align*}
+3k + 2 &\equiv 3 \pmod{5}, \\
+3k &\equiv 1 \pmod{5}.
+\end{align*}
+Karena $3 \cdot 2 = 6 \equiv 1 \pmod{5}$, nilai $k$ terkecil adalah $k = 2$:
+\[ x = 3 \cdot 2 + 2 = 8. \]
+Periksa: $8 \equiv 2 \pmod{3}$ dan $8 \equiv 3 \pmod{5}$.
+\end{proof}
+
+\begin{example}[AIME 1983]
+Carilah sisa pembagian $6^{83} + 8^{83}$ oleh $49$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $6 = 7 - 1$ dan uraikan dengan binomial.
+Semua suku dengan $7^2$ atau lebih tinggi habis dibagi $49$, jadi
+\begin{align*}
+6^{83} = (7-1)^{83} &\equiv (-1)^{83} + 83 \cdot 7 \cdot (-1)^{82} \\
+&\equiv -1 + 581 \\
+&\equiv 41 \pmod{49}.
+\end{align*}
+Dengan cara yang sama:
+\begin{align*}
+8^{83} = (7+1)^{83} &\equiv 1 + 83 \cdot 7 \\
+&\equiv 43 \pmod{49}.
+\end{align*}
+Jumlahkan:
+\[ 41 + 43 = 84 \equiv 35 \pmod{49}. \]
+\end{proof}
+
+\section{Bilangan Prima}
+
+\begin{definition}
+Bilangan asli $p > 1$ disebut \textbf{prima} apabila satu-satunya pembagi
+positifnya adalah $1$ dan $p$ sendiri. Bilangan asli lebih dari $1$ yang bukan
+prima disebut \textbf{komposit}.
+\end{definition}
+
+\begin{theorem}[Faktorisasi prima]
+Setiap bilangan asli $n > 1$ dapat dinyatakan secara unik sebagai perkalian
+bilangan prima:
+\[ n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k} \]
+dengan $p_1, \dots, p_k$ prima berbeda dan $\alpha_i$ bilangan asli.
+\end{theorem}
+
+\begin{example}
+Tentukan banyak faktor positif dari $2004$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorkan dahulu:
+\[ 2004 = 4 \cdot 501 = 2^2 \cdot 3 \cdot 167. \]
+Setiap faktor positif berbentuk $2^a 3^b 167^c$ dengan
+$0 \le a \le 2$, $0 \le b \le 1$, $0 \le c \le 1$.
+Banyak pilihannya:
+\[ (2 + 1)(1 + 1)(1 + 1) = 3 \cdot 2 \cdot 2 = 12. \]
+\end{proof}
+
+\begin{fact}[Sifat yang sering dipakai]
+\begin{enumerate}
+    \item Banyaknya bilangan prima tak hingga.
+    \item Setiap bilangan prima lebih dari $3$ berbentuk $6k \pm 1$ untuk suatu bilangan asli $k$.
+    \item Jika $p$ prima dan $p \mid ab$, maka $p \mid a$ atau $p \mid b$ (atau keduanya).
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Buktikan bahwa $24 \mid p^2 - 1$ untuk setiap bilangan prima $p > 3$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $p$ ganjil, $p - 1$ dan $p + 1$ dua bilangan genap berurutan,
+jadi salah satunya habis dibagi $4$:
+\[ 8 \mid (p-1)(p+1) = p^2 - 1. \]
+Di sisi lain $p \equiv \pm 1 \pmod{3}$, sehingga
+\begin{align*}
+p^2 &\equiv 1 \pmod{3}, \\
+3 &\mid p^2 - 1.
+\end{align*}
+Karena $8$ dan $3$ relatif prima:
+\[ 24 \mid p^2 - 1. \]
+\end{proof}
+
+\section{Residu Pangkat}
+
+Tidak semua sisa bisa muncul sebagai nilai suatu pangkat.
+Keterbatasan ini sering menjadi kunci untuk menunjukkan suatu persamaan tidak punya solusi.
+
+\begin{fact}[Residu kuadrat]
+\begin{enumerate}
+    \item Sisa $x^2$ dibagi $3$ hanya bisa $0$ atau $1$.
+    \item Sisa $x^2$ dibagi $4$ hanya bisa $0$ atau $1$.
+    \item Sisa $x^2$ dibagi $5$ hanya bisa $0$, $1$, atau $4$.
+    \item Sisa $x^2$ dibagi $8$ hanya bisa $0$, $1$, atau $4$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Buktikan tidak ada bilangan asli $a$, $b$, $c$ yang memenuhi $a^2 + b^2 - 8c = 6$.
+\end{example}
+\begin{proof}[Solusi]
+Tinjau persamaan itu modulo $8$:
+\[ a^2 + b^2 \equiv 6 \pmod{8}. \]
+Sisa kuadrat modulo $8$ hanya $0$, $1$, atau $4$,
+sehingga jumlah dua sisa hanya bisa
+\[ 0,\ 1,\ 2,\ 4,\ \text{atau}\ 5 \pmod{8}. \]
+Nilai $6$ tidak pernah muncul, jadi persamaan itu tidak punya solusi.
+\end{proof}
+
+\begin{fact}[Residu pangkat lebih tinggi]
+\begin{enumerate}
+    \item Sisa $x^3$ dibagi $7$ hanya bisa $0$, $1$, atau $6$.
+    \item Sisa $x^3$ dibagi $9$ hanya bisa $0$, $1$, atau $8$.
+    \item Sisa $x^4$ dibagi $16$ hanya bisa $0$ atau $1$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Buktikan tidak ada bilangan bulat $x$ sehingga $x^3 \equiv 2 \pmod{7}$.
+\end{example}
+\begin{proof}[Solusi]
+Hitung semua kemungkinan $x^3$ modulo $7$:
+\begin{align*}
+0^3 &\equiv 0 \pmod{7}, \\
+1^3 &\equiv 1 \pmod{7}, \\
+2^3 = 8 &\equiv 1 \pmod{7}, \\
+3^3 = 27 &\equiv 6 \pmod{7}, \\
+4^3 = 64 &\equiv 1 \pmod{7}, \\
+5^3 = 125 &\equiv 6 \pmod{7}, \\
+6^3 = 216 &\equiv 6 \pmod{7}.
+\end{align*}
+Sisa yang muncul hanya $0$, $1$, dan $6$.
+Nilai $2$ tidak pernah muncul.
+\end{proof}
+
+\begin{example}
+Carilah semua bilangan cacah $n$ sehingga $n^2 + 100$ merupakan bilangan kuadrat.
+\end{example}
+\begin{proof}[Solusi]
+Misalkan $n^2 + 100 = m^2$ untuk suatu bilangan cacah $m$.
+Pindahkan ruas dan faktorkan:
+\[ (m - n)(m + n) = 100, \qquad m + n \ge m - n \ge 0. \]
+Pasangan faktor $(m-n, m+n)$ yang jumlahnya genap hanyalah
+\[ (2, 50) \quad \text{dan} \quad (10, 10), \]
+yang memberi
+\[ (m, n) = (26, 24) \quad \text{dan} \quad (10, 0). \]
+Jadi $n = 0$ atau $n = 24$.
+\end{proof}
+
+\part*{Soal Latihan}
+
+\section{Keterbagian}
+\begin{enumerate}
+
+	% Source: OSK SMA 2004 No. 4 (Pilihan Ganda)
+	% Jawaban: B
+	\item
+	Untuk $a$ dan $b$ bilangan bulat dengan $a \ne 0$, notasi $a \mid b$ menyatakan
+	``$a$ membagi $b$''. Pernyataan berikut yang \textbf{salah} adalah \dots
+	\begin{enumerate}
+		\item Jika $a \mid b$ dan $a \mid c$, maka $a \mid (bc)$.
+		\item Jika $a \mid c$ dan $b \mid c$, maka $(ab) \mid c$.
+		\item Jika $a \mid b$ dan $a \mid c$, maka $a \mid (b + c)$.
+		\item Untuk setiap bilangan bulat $a \ne 0$ berlaku $a \mid 0$.
+		\item Jika $a \mid b$, maka $a \mid (bc)$ untuk setiap bilangan bulat $c$.
+	\end{enumerate}
+
+	% Source: OSK SMA 2003 No. 1 (Pilihan Ganda)
+	% Jawaban: 0
+	\item
+	Ada berapa banyak di antara bilangan-bilangan $20000002$, $20011002$,
+	$20022002$, $20033002$ yang habis dibagi $9$?
+
+	% Source: AIME 1984 (diadaptasi dari Modul Pra-OSK Keterbagian)
+	% Jawaban: 592
+	\item
+	Bilangan asli $n$ adalah bilangan asli terkecil yang habis dibagi $15$
+	dan semua digitnya sama dengan $8$ atau $0$. Tentukan nilai dari $\frac{n}{15}$.
+
+	% Source: OSK SMA 2008 No. 5 (Pilihan Ganda)
+	% Jawaban: 2
+	\item
+	Jumlah empat bilangan asli berturutan senantiasa habis dibagi $p$.
+	Maka nilai $p$ terbesar adalah \dots
+
+	% Source: OSP SMA 2015 No. 2 (Isian Singkat)
+	% Jawaban: 4
+	\item
+	Banyaknya bilangan bulat $n$ sehingga $n + 1$ merupakan faktor dari $n^2 + 1$ adalah \dots
+
+	% Source: OSK SMA 2013 No. 16 (Isian Singkat)
+	% Jawaban: 64
+	\item
+	Diberikan himpunan $S = \left\{x \in \mathbb{Z} \;\middle|\; \frac{x^2 - 2x + 7}{2x - 1} \in \mathbb{Z}\right\}$.
+	Banyaknya himpunan bagian dari $S$ adalah \dots
+
+	% Source: OSK SMA 2014 No. 11 (Isian Singkat)
+	% Jawaban: 595
+	\item
+	Bilangan-bilangan $1111$, $5276$, $8251$, dan $9441$ bersisa sama jika dibagi $N$.
+	Nilai $N$ terbesar yang memiliki sifat tersebut adalah \dots
+
+	% Source: OSK SMA 2012 No. 3 (Isian Singkat)
+	% Jawaban: 960
+	\item
+	Bilangan terbesar $x$ kurang dari $1000$ sehingga terdapat tepat dua bilangan asli $n$
+	dengan $\frac{n^2 + x}{n + 1}$ merupakan bilangan asli adalah \dots
+
+	% Source: Finlandia MO 2001 (diadaptasi dari Modul Pra-OSK Keterbagian)
+	% Jawaban: n = 6, 9, 2001
+	\item
+	Tentukan semua bilangan asli $n$ sedemikian hingga $n^2 + 2$ habis membagi $2001n + 2$.
+
+	% Source: OSP SMA 2023 No. 2 (Isian Singkat)
+	% Jawaban: 74
+	\item
+	Tentukan banyaknya bilangan asli $n \le 221$ sehingga
+	\[ \frac{1^2 + 2^2 + \dots + n^2}{1 + 2 + \dots + n} \]
+	merupakan bilangan bulat.
+
+	% Source: Afrika Selatan MO 2021 (Modul Pra-OSK Keterbagian)
+	% Jawaban: terkecil 17171, terbesar 98989
+	\item
+	Tentukan bilangan asli terkecil dan terbesar dengan representasi digit
+	yang berbentuk $ababa$ ($a \ne 0$) dan habis dibagi $11$.
+
+	% Source: Kualifikasi Chile MO 2017 (Modul Pra-OSK Keterbagian)
+	% Jawaban: d = 5 atau d = 8
+	\item
+	Dengan menggunakan dua digit berbeda $2$ dan $d$,
+	bilangan $90$ digit $m = 2d22d222d2222d\ldots$ (blok berikutnya terdiri dari
+	lima digit $2$ diikuti $d$, dan seterusnya) habis dibagi oleh $9$.
+	Tentukan semua nilai yang mungkin dari $d$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: n = 2, 5, 8, 10, 15, 20, 26, 35, 40, 50, 65, 80, 90, 140, 170, 215, 290, 440, 890
+	\item
+	Carilah semua bilangan asli $n$ sehingga $n + 10 \mid n^3 + 100$.
+
+	% Source: India PRMO 2014 (Modul Pra-OSK Keterbagian)
+	% Jawaban: 1
+	\item
+	Banyak bilangan asli $n$ di antara $1$ sampai $2014$ sehingga
+	$\frac{8n}{9999 - n}$ merupakan bilangan bulat adalah \dots
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: n = k^2, k^2 + k, atau k^2 + 2k untuk suatu bilangan asli k
+	\item
+	Tentukan semua bilangan asli $n$ sedemikian hingga $\lfloor \sqrt{n} \rfloor$ membagi $n$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 1152
+	\item
+	Diberikan sebuah barisan sepuluh bilangan asli naik tegas sedemikian hingga
+	setiap bilangan membagi bilangan berikutnya.
+	Jika jumlah kesepuluh bilangan tersebut adalah $1918$,
+	maka semua kemungkinan bilangan kesepuluh dari barisan tersebut adalah \dots
+
+	% Source: El Salvador MO 2020 (Modul Pra-OSK Keterbagian, notasi dirapikan)
+	% Jawaban: 505
+	\item
+	Perhatikan bilangan $x_n = \overline{ab\,aab\,aaab\,\cdots\,\underbrace{a\ldots a}_{n}b}$,
+	yaitu blok ke-$k$ terdiri dari $k$ digit $a$ diikuti satu digit $b$,
+	dengan $a \ne 0$ dan $b$ keduanya digit.
+	Tentukan banyak bilangan asli $n$ dengan $1 \le n \le 2020$ sedemikian hingga
+	$x_n$ habis dibagi oleh $11$ untuk semua nilai $a$ dan $b$.
+
+\end{enumerate}
+
+\section{FPB dan KPK}
+\begin{enumerate}[resume]
+
+	% Source: Afrika Selatan MO 2006 (diadaptasi dari Modul Pra-OSK Keterbagian)
+	% Jawaban: 70/37
+	\item
+	Sederhanakan pecahan $\dfrac{2121212121210}{1121212121211}$ ke bentuk paling sederhana.
+
+	% Source: OSK SMA 2024 No. 4 (Isian Singkat)
+	% Jawaban: 214
+	\item
+	Misalkan $a$ dan $b$ bilangan bulat positif yang tidak memiliki faktor persekutuan selain $1$.
+	Jika berlaku
+	\[ \frac{1 + 2 + 3 + \dots + 104}{3 + 4 + 5 + \dots + 106} = \frac{a}{b}, \]
+	maka nilai dari $a + b$ adalah \dots
+
+	% Source: OSP SMA 2026 No. 5 (Isian Singkat)
+	% Jawaban: 9
+	\item
+	Banyaknya pasangan terurut bilangan asli $(a, b)$ sehingga $a$ membagi $b^2$,
+	$b$ membagi $a^2$, dan $ab = 10^{10}$ adalah \dots
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 1 dan 12167
+	\item
+	Hitunglah $FPB(133, 198)$ dan $FPB(6436343, 12167)$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 32768
+	\item
+	Berapa banyak pasangan bilangan asli $(x, y)$ yang memenuhi
+	$FPB(x, y) = 5!$ dan $KPK(x, y) = 50!$?
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: 179
+	\item
+	Definisikan $f(n) = FPB(n! + 1, (n + 1)!)$.
+	Tentukan nilai dari $f(1) + f(2) + f(3) + \dots + f(30)$.
+
+	% Source: OSK SMA 2021 Kemampuan Lanjut (Modul Pra-OSK Keterbagian)
+	% Jawaban: 91
+	\item
+	Bilangan asli ganjil $b$ terbesar sedemikian hingga barisan bilangan asli
+	$a_n = n^2 + 19n + b$ memenuhi
+	\[ FPB(a_n, a_{n + 1}) = FPB(a_{n + 2}, a_{n + 1}) \]
+	untuk setiap bilangan asli $n$ adalah \dots
+
+	% Source: Modul Pra-OSK Keterbagian
+	\item
+	Misalkan $m$ dan $n$ adalah bilangan asli yang memenuhi
+	\[ FPB(m, n) + KPK(m, n) = m + n. \]
+	Buktikan bahwa salah satu dari kedua bilangan itu membagi bilangan yang lainnya.
+
+	% Source: Modul Pra-OSK Keterbagian
+	\item
+	Diberikan bilangan asli $a$ dan $b$ yang memenuhi
+	\[ \frac{a + 1}{b} + \frac{b + 1}{a} \]
+	adalah bilangan bulat. Tunjukkan bahwa $FPB(a, b) \le \sqrt{a + b}$.
+
+	% Source: Modul Pra-OSK Keterbagian
+	\item
+	Misalkan $x$, $y$, $z$ adalah bilangan asli yang memenuhi
+	\[ \frac{1}{x} - \frac{1}{y} = \frac{1}{z}. \]
+	Misalkan $h = FPB(x, y, z)$.
+	Tunjukkan bahwa $hxyz$ dan $h(y - x)$ keduanya merupakan bilangan kuadrat.
+
+	% Source: Modul Pra-OSK Keterbagian
+	% Jawaban: (t, t, t) dan semua permutasi dari (t, 2t, 3t) untuk t bilangan asli
+	\item
+	Carilah semua tripel bilangan asli $(a, b, c)$ sedemikian hingga
+	$a^3 + b^3 + c^3$ habis dibagi $a^2b$, $b^2c$, dan $c^2a$.
+
+\end{enumerate}
+
+\section{Modulo}
+\begin{enumerate}[resume]
+
+	% Source: OSK SMA 2009 No. 18 (Isian Singkat)
+	% Jawaban: 6
+	\item
+	Jika $10^{999999999}$ dibagi oleh $7$, maka sisanya adalah \dots
+
+	% Source: OSK SMA 2005 No. 8 (Pilihan Ganda, disajikan sebagai isian)
+	% Jawaban: 6
+	\item
+	Tentukan digit terakhir dari $8^{8^{8^8}}$.
+
+	% Source: OSK SMA 2003 No. 9 (Pilihan Ganda)
+	% Jawaban: 13
+	\item
+	Misalkan $N$ adalah bilangan bulat terkecil yang bersifat bersisa $2$ jika dibagi $5$,
+	bersisa $3$ jika dibagi $7$, dan bersisa $4$ jika dibagi $9$.
+	Berapakah hasil penjumlahan digit-digit dari $N$?
+
+	% Source: OSK SMA 2021 No. 3 (Isian Singkat)
+	% Jawaban: 21
+	\item
+	Diberikan bilangan bulat positif $A$ dan $B$ yang bila dibagi $5$ berturut-turut bersisa $2$ dan $3$.
+	Sisa pembagian $A(A + 1) + 5B$ jika dibagi $25$ adalah \dots
+
+	% Source: OSK SMA 2023 No. 8 (Isian Singkat)
+	% Jawaban: 30
+	\item
+	Sisa pembagian dari $5^{2021} + 11^{2022}$ oleh $64$ adalah \dots
+
+	% Source: OSP SMA 2002 No. 16 (Isian Singkat)
+	% Jawaban: 7
+	\item
+	Berapakah sisa pembagian $43^{43^{43}}$ oleh $100$?
+
+	% Source: OSP SMA 2011 No. 17 (Isian Singkat)
+	% Jawaban: semua bilangan asli
+	\item
+	Bilangan asli $n$ yang memenuhi $(-2004)^n - 1900^n + 25^n - 121^n$ habis dibagi $2000$ adalah \dots
+
+	% Source: Canadian MO Qualification Repechage 2016 (diadaptasi dari Modul Pra-OSK Modulo)
+	% Jawaban: tidak ada
+	\item
+	Tentukan semua bilangan asli $n$ sehingga $11 \mid (3^n + 4^n)$.
+
+	% Source: OSK SMA 2021 No. 3 (Isian Singkat)
+	% Jawaban: 17
+	\item
+	Diketahui dua digit terakhir dari $a^{777}$ adalah $77$.
+	Maka dua digit terakhir dari $a$ adalah \dots
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 43
+	\item
+	Tentukan dua digit terakhir dari $7^{707}$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 9 dan 1
+	\item
+	Carilah digit terakhir dari $13^{14}$ dan $13^{14^{15}}$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 625
+	\item
+	Tentukan sisa pembagian saat $1 \times 3 \times 5 \times \dots \times 2023$ dibagi oleh $1000$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 76 dan 77
+	\item
+	Carilah dua digit terakhir dari $1032^{1032}$ dan $17^{17^{17}}$.
+
+	% Source: Argentina MO 2021 Level 1 (Modul Pra-OSK Modulo)
+	% Jawaban: 9
+	\item
+	Mikha menulis barisan aritmetika yang dimulai dari $1$ dengan selisih $3$, yakni
+	\[ 1, 4, 7, 10, 13, 16, \ldots \]
+	Kemudian, Fakhru menandai semua bilangan yang ditulis Mikha yang lebih dari $10$
+	dan kurang dari $100000$ dan seluruh digitnya sama.
+	Tentukan banyak bilangan yang ditandai oleh Fakhru.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $m$, $a$, $b$ adalah bilangan bulat dengan $a$ dan $b$ relatif prima dengan $m$.
+	Bilangan asli $x$ dan $y$ memenuhi $a^x \equiv b^x \pmod{m}$ dan $a^y \equiv b^y \pmod{m}$.
+	Tunjukkan bahwa $a^{FPB(x, y)} \equiv b^{FPB(x, y)} \pmod{m}$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: p ganjil)
+	\item
+	Misalkan $p$ adalah bilangan prima ganjil.
+	Tunjukkan bahwa terdapat bilangan asli $x$ sedemikian hingga $x^2 + 1$
+	habis dibagi oleh $p$ jika dan hanya jika $p \equiv 1 \pmod{4}$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: p - 1 digit)
+	\item
+	Misalkan $p \ge 7$ adalah bilangan prima.
+	Tunjukkan bahwa bilangan $11\ldots11$ (dengan $p - 1$ digit $1$) habis dibagi oleh $p$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $p$ adalah bilangan prima yang berbentuk $3k + 2$ yang membagi $a^2 + ab + b^2$
+	untuk suatu bilangan bulat $a$ dan $b$.
+	Buktikan bahwa $a$ dan $b$ keduanya habis dibagi oleh $p$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $n > 1$ adalah bilangan ganjil. Tunjukkan bahwa $n$ tidak membagi $3^n + 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ adalah bilangan ganjil.
+	Buktikan bahwa $a^{2^n} + 2^{2^n}$ dan $a^{2^m} + 2^{2^m}$ relatif prima saat $m \ne n$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: n > 1)
+	\item
+	Misalkan $n > 1$ adalah bilangan asli dan $p$ bilangan prima sedemikian hingga
+	$n$ membagi $p - 1$ dan $p$ membagi $n^3 - 1$.
+	Tunjukkan bahwa $4p - 3$ adalah bilangan kuadrat.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Jika $p$ adalah bilangan prima ganjil dan $a$, $b$ adalah dua bilangan asli yang relatif prima,
+	maka tunjukkan bahwa $FPB\left(a + b, \dfrac{a^p + b^p}{a + b}\right) = 1$ atau $p$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: (p - 1)p^2/2
+	\item
+	Misalkan $p$ adalah bilangan prima ganjil.
+	Untuk setiap $i = 1, 2, \ldots, p - 1$, notasikan $r_i$ sebagai sisa pembagian
+	ketika $i^p$ dibagi dengan $p^2$.
+	Carilah nilai dari $r_1 + r_2 + \dots + r_{p - 1}$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Buktikan bahwa untuk setiap bilangan genap positif $n$,
+	$n^2 - 1$ membagi $2^{n!} - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ dan $b > 2$ adalah bilangan asli.
+	Tunjukkan bahwa $2^a + 1$ tidak habis dibagi oleh $2^b - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $n > 2$ adalah bilangan asli.
+	Tunjukkan bahwa $n^{n^{n^n}} - n^{n^n}$ habis dibagi oleh $1989$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ dan $b$ adalah dua bilangan asli sedemikian hingga $b^n + n$
+	merupakan kelipatan dari $a^n + n$ untuk setiap bilangan asli $n$.
+	Tunjukkan bahwa $a = b$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $x$, $a$, $b$ adalah bilangan asli.
+	Tunjukkan bahwa $FPB(x^a - 1, x^b - 1) = x^{FPB(a, b)} - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Misalkan $a$ adalah bilangan asli dan $p$ bilangan prima.
+	Tunjukkan bahwa terdapat suatu bilangan asli $m$ yang memenuhi
+	\[ m^{m^m} \equiv a \pmod{p}. \]
+
+\end{enumerate}
+
+\section{Bilangan Prima dan Pangkat}
+\begin{enumerate}[resume]
+
+	% Source: OSK SMA 2011 (diadaptasi dari Modul Pra-OSK Modulo)
+	% Jawaban: p = 3
+	\item
+	Tentukan semua bilangan asli $p$ sedemikian hingga $p$, $p + 8$, dan $p + 16$
+	semuanya merupakan bilangan prima.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: (a, b) = (1, 1)
+	\item
+	Tentukan semua bilangan asli $a$ dan $b$ sedemikian hingga $a^4 + 4b^4$
+	merupakan bilangan prima.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: (m, n) = (1, 3)
+	\item
+	Carilah semua bilangan asli $m$ dan $n$ sedemikian hingga $6^m + 2^n + 2$
+	adalah bilangan kuadrat.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: n = 2
+	\item
+	Tentukan semua bilangan asli $n$ sedemikian hingga $3n - 4$, $4n - 5$,
+	dan $5n - 3$ semuanya merupakan bilangan prima.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Buktikan bahwa setiap bilangan prima yang lebih besar dari $3$
+	berbentuk $6k \pm 1$ untuk suatu bilangan asli $k$.
+
+	% Source: Modul Pra-OSK Modulo (soal yang sama sudah dibahas sebagai contoh di Materi)
+	\item
+	Buktikan bahwa untuk setiap bilangan prima $p > 3$ berlaku $24 \mid p^2 - 1$.
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: 0
+	\item
+	Banyak bilangan di barisan $11, 111, 1111, 11111, \ldots, 11\ldots11$
+	dengan bilangan terakhir terdiri dari $2022$ digit $1$,
+	yang merupakan bilangan kuadrat adalah \dots
+
+	% Source: Modul Pra-OSK Modulo
+	% Jawaban: n = 5
+	\item
+	Tentukan semua bilangan asli $n$ sehingga $n! + 5$ merupakan bilangan kubik.
+
+	% Source: Argentina MO 2021 Level 1 (Modul Pra-OSK Modulo)
+	% Jawaban: (p, q) = (7, 3), (13, 3), (37, 3), (97, 3)
+	\item
+	Tentukan semua bilangan prima $p$ dan $q$ yang lebih dari $1$ dan kurang dari $100$
+	sedemikian hingga lima bilangan berikut:
+	\[ p + 6,\quad p + 10,\quad q + 4,\quad q + 10,\quad p + q + 1 \]
+	semuanya merupakan bilangan prima.
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Jika $p$ adalah bilangan prima ganjil dan
+	$\dfrac{a}{b} = \dfrac{1}{1} + \dfrac{1}{2} + \dots + \dfrac{1}{p - 1}$
+	dalam bentuk paling sederhana,
+	buktikan bahwa $p \mid a$.
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: memuat kata prima)
+	\item
+	Buktikan bahwa jika $a^n + 1$ merupakan bilangan prima dengan $a > 1$,
+	maka $a$ genap dan $n = 2^k$ untuk suatu bilangan cacah $k$.
+	(Bilangan prima berbentuk $2^{2^k} + 1$ disebut bilangan prima Fermat.)
+
+	% Source: Modul Pra-OSK Modulo (pernyataan diperbaiki: memuat kata prima)
+	\item
+	Buktikan bahwa jika $a^n - 1$ merupakan bilangan prima dengan $a > 1$,
+	maka $a = 2$ dan $n$ prima.
+	(Bilangan prima berbentuk $2^n - 1$ disebut bilangan prima Mersenne.)
+
+	% Source: Modul Pra-OSK Modulo
+	\item
+	Buktikan bahwa untuk setiap bilangan asli $n$,
+	terdapat $n$ buah bilangan asli berurutan yang tidak ada satupun
+	di antaranya yang merupakan bilangan berpangkat sempurna.
+
+	% Source: Modul Pra-OSK Modulo (redaksi diperbaiki)
+	% Jawaban: ya, selalu ada
+	\item
+	Apakah untuk setiap himpunan bilangan asli $\{a_1, a_2, \ldots, a_k\}$
+	terdapat suatu bilangan asli $b$ sedemikian hingga setiap anggota himpunan
+	$\{ba_1, ba_2, \ldots, ba_k\}$ merupakan bilangan berpangkat sempurna?
+
+	% Source: OSP SMA 2010 (Modul Pra-OSK Modulo)
+	% Jawaban: p = 13
+	\item
+	Tentukan semua bilangan prima $p$ sehingga $p^2 + 7^3$ merupakan bilangan kubik.
+
+\end{enumerate}
+
+\section{Referensi}
+\begin{itemize}
+    \item Modul Pra-OSK: Keterbagian (Azzam dan Akeyla).
+    \item Modul Pra-OSK: Modulo (Azzam dan Akeyla).
+\end{itemize}
+
+\end{document}
