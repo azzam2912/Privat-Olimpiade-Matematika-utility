@@ -162,3 +162,76 @@ Hunt down these machine-written signals in every prose passage
   for genuinely multi-topic content.
 - When adapting from another file (e.g. outsource modules), keep what
   fits the unit's topic and level; leave the rest where it is.
+
+## 9. Highlighted blocks (UX)
+
+`azzam.sty` under `hagavi` renders each environment with its own
+highlight. Pick the env that matches the content so a student scanning
+the page sees the structure at a glance:
+
+| Env | Look | Use for |
+|---|---|---|
+| `theorem`, `lemma`, `proposition`, `corollary` | blue box | results with proofs |
+| `definition` | purple box | new terms and notation |
+| `example` | red box | worked examples (always with `proof[Solusi]`) |
+| `fact` | orange side bar | bite-size consequences, no full proof needed |
+| `claim`, `algorithm` | green side bar | stepping stones inside longer arguments |
+| `remark` | grey side bar | asides, open problems, historical notes |
+
+Never fake a highlight with a manual `\textbf` paragraph when one of
+these envs fits. Never use `theorem` for a mere definition just to get
+the blue box; the purple `definition` box exists for that.
+
+## 10. Bilingual terms and banned phrasing
+
+Students read English sources too (AoPS, English textbooks), so every
+math term with a standard English name carries it on first use in each
+file. Format: Indonesian in bold, English in italic parentheses, via
+the `\istilah` macro from `azzam.sty`:
+
+```latex
+Sebuah \istilah{bilangan sempurna}{perfect number} adalah bilangan asli $n$
+dengan $\sigma(n) = 2n$.
+```
+
+- Gloss once per file, at the definition or first serious use; plain
+  Indonesian afterwards. (`*_Materi.tex` and `*_Modul.tex` are separate
+  files, so each carries its own first-use gloss.)
+- Gloss only terms students will plausibly meet in English sources.
+  Skip generic curriculum words (`himpunan`, `peluang`) and standard
+  abbreviations (`FPB`, `KPK`).
+- When the Indonesian form is awkward and the community uses the
+  English word, introduce both once, then keep the English loanword:
+  `\istilah{bebas kuadrat}{squarefree}` first, then `squarefree`.
+
+Starter glossary (Indonesian | English), extend as new units add terms:
+
+| Indonesian | English |
+|---|---|
+| fungsi aritmetika | arithmetic function |
+| multiplikatif | multiplicative |
+| multiplikatif sempurna | completely multiplicative |
+| relatif prima | coprime |
+| perpangkatan prima | prime power |
+| banyak faktor | number of divisors |
+| jumlah faktor | sum of divisors |
+| faktor sejati | proper divisor |
+| bilangan kuadrat | perfect square |
+| kubik sempurna | perfect cube |
+| bilangan sempurna | perfect number |
+| prima Mersenne | Mersenne prime |
+| totient Euler | Euler's totient |
+| sistem residu lengkap | complete residue system |
+| menghitung ganda | double counting |
+| prinsip inklusi eksklusi | inclusion-exclusion principle |
+| bebas kuadrat | squarefree |
+| fungsi M\"obius | M\"obius function |
+| inversi M\"obius | M\"obius inversion |
+
+Banned phrasing (the Indonesian CAT tools never heard of olympiads):
+
+| Do not write | Write this instead |
+|---|---|
+| `mendaftar` (alone, for cases) | `mendaftar satu per satu`, or `pemeriksaan langsung` (*brute force*), or `listing` |
+| `arah mudah` / `arah sulit` | name the direction: `arah ($\Rightarrow$)` and `arah ($\Leftarrow$)` |
+| `"mengobservasi"` (for what a function does) | `mengaitkan setiap ... dengan ...` |

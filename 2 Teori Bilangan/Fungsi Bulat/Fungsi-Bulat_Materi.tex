@@ -18,20 +18,21 @@
 
 \newpage
 
-Modul ini membahas fungsi aritmetika, yaitu fungsi yang "mengobservasi" sifat suatu
-bilangan asli menjadi sebuah nilai lain. Tiga yang paling sering muncul di OSK dan OSP
-adalah $\tau$ (banyak faktor), $\sigma$ (jumlah faktor), dan $\varphi$ (totient Euler).
+Modul ini membahas \istilah{fungsi aritmetika}{arithmetic function}, yaitu fungsi
+yang mengaitkan setiap bilangan asli dengan sebuah nilai. Tiga yang paling sering
+muncul di OSK dan OSP adalah $\tau$ (banyak faktor), $\sigma$ (jumlah faktor),
+dan $\varphi$ (totient Euler, \textit{Euler's totient}).
 Sifat kunci ketiganya sama: multiplikatif. Artinya nilai di perkalian dua bilangan
-yang relatif prima sama dengan perkalian nilainya masing-masing.
+yang relatif prima (\textit{coprime}) sama dengan perkalian nilainya masing-masing.
 
 \section{Fungsi Aritmetika dan Fungsi Multiplikatif}
 
 \begin{definition}
 Sebuah fungsi $f : \mathbb{N} \to \mathbb{C}$ disebut \textbf{fungsi aritmetika}.
-Fungsi aritmetika $f$ disebut \textbf{multiplikatif} apabila
+Fungsi aritmetika $f$ disebut \istilah{multiplikatif}{multiplicative} apabila
 \[ f(mn) = f(m)f(n) \]
 untuk setiap $m$ dan $n$ yang relatif prima. Jika kesamaan itu berlaku untuk
-\emph{semua} $m$ dan $n$, maka $f$ disebut \textbf{multiplikatif sempurna}.
+\emph{semua} $m$ dan $n$, maka $f$ disebut \istilah{multiplikatif sempurna}{completely multiplicative}.
 \end{definition}
 
 \begin{fact}
@@ -42,7 +43,7 @@ untuk setiap $m$ dan $n$ yang relatif prima. Jika kesamaan itu berlaku untuk
     keduanya multiplikatif.
     \item Fungsi $g(n) = n^k$ multiplikatif sempurna untuk setiap bilangan cacah $k$.
     \item Fungsi multiplikatif ditentukan sepenuhnya oleh nilainya di perpangkatan
-    prima: untuk $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ berlaku
+    prima (\textit{prime power}): untuk $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ berlaku
     $f(n) = f(p_1^{\alpha_1}) \cdots f(p_k^{\alpha_k})$.
 \end{enumerate}
 \end{fact}
@@ -67,7 +68,8 @@ Untuk setiap $m$ dan $n$:
 \section{Banyak Faktor Positif}
 
 \begin{definition}
-Untuk bilangan asli $n$, notasi $\tau(n)$ menyatakan banyak faktor positif dari $n$.
+Untuk bilangan asli $n$, notasi $\tau(n)$ menyatakan banyak faktor positif
+(\textit{number of divisors}) dari $n$.
 \end{definition}
 
 \begin{theorem}[Rumus $\tau$]
@@ -90,7 +92,7 @@ Maka
 \end{proof}
 
 \begin{fact}[$\tau$ ganjil]
-$\tau(n)$ ganjil jika dan hanya jika $n$ bilangan kuadrat.
+$\tau(n)$ ganjil jika dan hanya jika $n$ \istilah{bilangan kuadrat}{perfect square}.
 \end{fact}
 
 Buktinya satu baris: $(\alpha_1 + 1) \cdots (\alpha_k + 1)$ ganjil tepat ketika
@@ -149,8 +151,8 @@ Untuk setiap bilangan asli $N$ berlaku
 + \dots + \left\lfloor \frac{N}{N} \right\rfloor. \]
 \end{lemma}
 
-Kedua ruas menghitung himpunan pasangan yang sama, yaitu
-$\{(d, k) : d \mid k,\ 1 \le k \le N\}$.
+Argumennya \istilah{menghitung ganda}{double counting}: kedua ruas menghitung
+himpunan pasangan yang sama, yaitu $\{(d, k) : d \mid k,\ 1 \le k \le N\}$.
 Ruas kiri menghitung per $k$ (ada $\tau(k)$ nilai $d$ untuk tiap $k$).
 Ruas kanan menghitung per $d$: banyak kelipatan $d$ yang tidak lebih dari $N$
 adalah $\lfloor N/d \rfloor$.
@@ -173,7 +175,7 @@ Dengan lemma di atas:
 
 \begin{definition}
 Untuk bilangan asli $n$, notasi $\sigma(n)$ menyatakan jumlah semua faktor
-positif dari $n$.
+positif (\textit{sum of divisors}) dari $n$.
 \end{definition}
 
 \begin{theorem}[Rumus $\sigma$]
@@ -201,7 +203,8 @@ Faktorisasi $72 = 2^3 \cdot 3^2$ memberi
 \end{proof}
 
 \begin{definition}
-Bilangan asli $n$ disebut \textbf{sempurna} apabila $\sigma(n) = 2n$.
+Sebuah \istilah{bilangan sempurna}{perfect number} adalah bilangan asli $n$
+dengan $\sigma(n) = 2n$.
 \end{definition}
 
 \begin{example}
@@ -223,14 +226,14 @@ $n = 2^{p-1}(2^p - 1)$ dengan $2^p - 1$ bilangan prima.
 \end{theorem}
 
 \begin{proof}[Solusi]
-Untuk arah mudah, jika $2^p - 1$ prima maka ia relatif prima dengan $2^{p-1}$,
+Untuk arah ($\Leftarrow$), jika $2^p - 1$ prima maka ia relatif prima dengan $2^{p-1}$,
 sehingga
 \begin{align*}
 \sigma(2^{p-1}(2^p - 1)) &= \sigma(2^{p-1})\sigma(2^p - 1) \\
 &= (2^p - 1) \cdot 2^p \\
 &= 2n.
 \end{align*}
-Untuk arah sebaliknya, tulis $n = 2^k q$ dengan $q$ ganjil dan $k \ge 1$.
+Untuk arah ($\Rightarrow$), tulis $n = 2^k q$ dengan $q$ ganjil dan $k \ge 1$.
 Karena $n$ sempurna:
 \[ 2n = 2^{k+1}q = \sigma(n) = \sigma(2^k)\sigma(q) = (2^{k+1} - 1)\sigma(q). \]
 Karena $2^{k+1} - 1$ ganjil, ia membagi $q$.
@@ -257,7 +260,7 @@ Jadi jawabannya $6$ dan $28$.
 \end{proof}
 
 \begin{remark}
-Bilangan prima berbentuk $2^p - 1$ disebut prima Mersenne.
+Bilangan prima berbentuk $2^p - 1$ disebut \istilah{prima Mersenne}{Mersenne prime}.
 Sampai hari ini tidak diketahui apakah ada bilangan sempurna ganjil,
 dan tidak diketahui apakah banyak bilangan sempurna tak hingga.
 \end{remark}
@@ -292,7 +295,7 @@ $k \le n$ dengan $FPB(k, n) = 1$.
 \end{definition}
 
 \begin{example}
-Tentukan $\varphi(12)$ dengan mendaftar.
+Tentukan $\varphi(12)$ dengan mendaftar satu per satu.
 \end{example}
 \begin{proof}[Solusi]
 Bilangan dari $1$ sampai $12$ yang relatif prima dengan $12$ adalah
@@ -306,7 +309,7 @@ Jika $FPB(m, n) = 1$ maka $\varphi(mn) = \varphi(m)\varphi(n)$.
 
 Susun $1, 2, \dots, mn$ dalam tabel $n$ baris dan $m$ kolom:
 baris ke-$i$ berisi $(i-1)m + 1$ sampai $(i-1)m + m$.
-Tiap baris adalah sistem residu lengkap modulo $m$,
+Tiap baris adalah sistem residu lengkap (\textit{complete residue system}) modulo $m$,
 jadi memuat $\varphi(m)$ bilangan yang relatif prima dengan $m$.
 Tiap kolom adalah barisan aritmetika dengan beda $m$;
 karena $FPB(m, n) = 1$, kolom itu sistem residu lengkap modulo $n$,
@@ -330,6 +333,23 @@ Jika $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$, maka
 Cukup periksa untuk perpangkatan prima lalu gunakan sifat multiplikatif:
 $\varphi(p^\alpha) = p^\alpha - p^{\alpha-1}$ karena di antara $1, \dots, p^\alpha$
 yang tidak relatif prima dengan $p^\alpha$ hanyalah $p^{\alpha-1}$ kelipatan $p$.
+
+Ada juga bukti langsung memakai \istilah{prinsip inklusi eksklusi}{inclusion-exclusion principle},
+tanpa memakai sifat multiplikatif. Pandang bilangan $1, 2, \dots, n$ dan untuk tiap $i$
+misalkan $A_i$ himpunan kelipatan $p_i$ di antaranya. Bilangan yang dihitung $\varphi(n)$
+tepat yang tidak masuk $A_i$ mana pun, jadi
+\[ \varphi(n) = n - |A_1 \cup \dots \cup A_k|. \]
+Inklusi eksklusi, yaitu $|A \cup B| = |A| + |B| - |A \cap B|$ yang diperluas
+ke $k$ himpunan, memberi
+\begin{align*}
+|A_1 \cup \dots \cup A_k|
+&= \sum_i |A_i| - \sum_{i<j} |A_i \cap A_j| + \dots \\
+&= \sum_i \frac{n}{p_i} - \sum_{i<j} \frac{n}{p_ip_j} + \dots,
+\end{align*}
+karena $|A_{i_1} \cap \dots \cap A_{i_r}| = n/(p_{i_1} \cdots p_{i_r})$.
+Maka
+\[ \varphi(n) = n\left(1 - \sum_i \frac{1}{p_i} + \sum_{i<j} \frac{1}{p_ip_j}
+- \dots\right) = n\left(1 - \frac{1}{p_1}\right) \cdots \left(1 - \frac{1}{p_k}\right). \]
 
 \begin{example}
 Hitunglah $\varphi(72)$.
@@ -403,7 +423,9 @@ $\tau$ multiplikatif.
 \end{proof}
 
 \begin{definition}
-Fungsi M\"obius $\mu(n)$ didefinisikan sebagai
+Bilangan asli $n$ disebut \istilah{bebas kuadrat}{squarefree} apabila tidak ada
+kuadrat prima yang membaginya. \istilah{Fungsi M\"obius}{M\"obius function} $\mu(n)$
+didefinisikan sebagai
 \[ \mu(n) = \begin{cases}
 1 & \text{jika } n = 1, \\
 (-1)^m & \text{jika $n$ squarefree dengan $m$ faktor prima}, \\
@@ -440,7 +462,7 @@ Faktor dari $12$ adalah $1, 2, 3, 4, 6, 12$:
 = 1 - 1 - 1 + 0 + 1 + 0 = 0. \]
 \end{proof}
 
-\begin{theorem}[Inversi M\"obius]
+\begin{theorem}[Inversi M\"obius (\textit{M\"obius inversion})]
 Misalkan $f$ dan $g$ fungsi aritmetika dengan $g(n) = \sum_{d \mid n} f(d)$
 untuk setiap $n$. Maka
 \[ f(n) = \sum_{d \mid n} \mu(d)\, g\left(\frac{n}{d}\right) \]
