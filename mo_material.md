@@ -13,12 +13,14 @@ prose inside `_Ujian` and `_Solusi` files. Read together with `CLAUDE.md`.
   thmtools, numbering shared): `definition`, `fact`, `theorem`,
   `lemma`, `example`, `proof[Solusi]`, plus `exercise`, `problem`,
   `claim`, `remark` when needed.
-- Skeleton: short intro paragraph after `\maketitle`; `\part*{Materi}`
-  with one `\section` per subtopic (inside each section, every theory
-  block is immediately followed by the worked example(s) illustrating
-  it); then `\part*{Soal Latihan}` with the practice problems grouped
-  by `\section`; `\section{Referensi}` at the very end listing the
-  source modules.
+- Skeleton: `\maketitle`, then the table of contents
+  (`\renewcommand*\contentsname{Daftar Isi}`, `\tableofcontents`,
+  `\newpage`); short intro paragraph; `\part*{Materi}` with one
+  `\section` per subtopic (inside each section, every theory block is
+  immediately followed by the worked example(s) illustrating it); then
+  `\part*{Soal Latihan}` with the practice problems grouped by
+  `\section`; `\section{Referensi}` at the very end listing the source
+  modules.
 - The separate `*_Materi.tex` / `*_Latihan.tex` files mirror the two
   parts of `*_Modul.tex` as standalone documents (same content, own
   `\maketitle`); Referensi lives in the Materi file.

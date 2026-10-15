@@ -133,6 +133,10 @@ Building a gathered set therefore spans two repos: **read from `Project-Helvethi
 ## Output rules
 
 - Output the complete `.tex` file, ready to compile.
+- Every standalone `.tex` file includes a table of contents right after
+  `\maketitle`: `\renewcommand*\contentsname{Daftar Isi}`,
+  `\tableofcontents`, then `\newpage` (files without `\maketitle` put
+  the same block right after `\begin{document}`).
 - **Always compile it afterwards** with `bash 0-scripts/compile-one.sh "<filename>"` from the repo root (see "Compiling" above), leaving the PDF in the `pdf/` subfolder next to the `.tex`. Saving the `.tex` without its PDF is an unfinished job. The `pdf/` output is gitignored, so the compile is local proof the file builds, not something to commit.
 
 ### Live preview inside VS Code
