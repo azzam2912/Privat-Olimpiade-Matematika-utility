@@ -41,15 +41,12 @@ whichever reads naturally for the topic (e.g. `Ketaksamaan`, `Functional
 Equation`, `Length Bashing`). Use **Title Case**, spaces allowed.
 
 **Graded-unit pattern** (reuse this for new units):
-- `<Subtopik>_Modul.tex` — the main handout: Materi and Soal Latihan combined
+- `<Subtopik>_Materi.tex` — material / theory (standalone file)
+- `<Subtopik>_Latihan.tex` — practice problems (standalone file)
+- `<Subtopik>_Modul.tex` — the combined handout: Materi and Soal Latihan
   in one PDF (`\part*{Materi}` first, `\part*{Soal Latihan}` second, Referensi last)
 - `<Subtopik>_Ujian.tex` — exam (stays separate, never merged into Modul)
 - `<Subtopik>_Solusi.tex` — solutions (stays separate, never merged into Modul)
-
-Older units may still keep separate `<Subtopik>_Materi.tex` and
-`<Subtopik>_Latihan.tex` files alongside the combined `_Modul` version
-(e.g. `2 Teori Bilangan/Modulo dan Keterbagian/`); new units ship only
-`_Modul` + `_Ujian` + `_Solusi`.
 
 Materi modules follow the rules in `mo_material.md` (every theory block
 gets a worked example right below it; example solutions stack equations

@@ -1,0 +1,481 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Fungsi Bulat - Materi
+% Fungsi aritmetika: tau, sigma, phi, dan fungsi multiplikatif.
+% Adaptasi dari Bab 3 buku Modern Olympiad Number Theory (Aditya Khurmi)
+% dan 8 Outsource K Math/Pra-OSP/FungsiAritmetika.tex.
+% Versi gabungan Materi+Latihan tersedia sebagai Fungsi-Bulat_Modul.tex.
+
+\title{Fungsi Bulat - Materi}
+\date{15 Oktober 2026}
+
+\begin{document}
+\maketitle
+
+Modul ini membahas fungsi aritmetika, yaitu fungsi yang memotret sifat suatu
+bilangan asli menjadi sebuah nilai. Tiga yang paling sering muncul di OSK dan OSP
+adalah $\tau$ (banyak faktor), $\sigma$ (jumlah faktor), dan $\varphi$ (totient Euler).
+Sifat kunci ketiganya sama: multiplikatif. Artinya nilai di perkalian dua bilangan
+yang relatif prima sama dengan perkalian nilainya masing-masing.
+Kuasailah tiga rumusnya sampai hafal, karena soal-soalnya hampir selalu
+memakai rumus itu dari arah yang tak terduga.
+
+\section{Fungsi Aritmetika dan Fungsi Multiplikatif}
+
+\begin{definition}
+Sebuah fungsi $f : \mathbb{N} \to \mathbb{C}$ disebut \textbf{fungsi aritmetika}.
+Fungsi aritmetika $f$ disebut \textbf{multiplikatif} apabila
+\[ f(mn) = f(m)f(n) \]
+untuk setiap $m$ dan $n$ yang relatif prima. Jika kesamaan itu berlaku untuk
+\emph{semua} $m$ dan $n$, maka $f$ disebut \textbf{multiplikatif sempurna}.
+\end{definition}
+
+\begin{fact}
+\begin{enumerate}
+    \item Fungsi $\tau$, $\sigma$, dan $\varphi$ semuanya multiplikatif
+    (dibuktikan satu per satu di bagian masing-masing).
+    \item Fungsi konstan $f(n) = 1$ dan fungsi identitas $\text{id}(n) = n$
+    keduanya multiplikatif.
+    \item Fungsi $g(n) = n^k$ multiplikatif sempurna untuk setiap bilangan cacah $k$.
+    \item Fungsi multiplikatif ditentukan sepenuhnya oleh nilainya di perpangkatan
+    prima: untuk $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ berlaku
+    $f(n) = f(p_1^{\alpha_1}) \cdots f(p_k^{\alpha_k})$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Diketahui $f$ multiplikatif dengan $f(8) = 5$ dan $f(9) = 7$.
+Tentukan $f(72)$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $72 = 8 \cdot 9$ dengan $FPB(8, 9) = 1$:
+\[ f(72) = f(8)f(9) = 5 \cdot 7 = 35. \]
+\end{proof}
+
+\begin{example}
+Tunjukkan bahwa $g(n) = n^2$ multiplikatif sempurna.
+\end{example}
+\begin{proof}[Solusi]
+Untuk setiap $m$ dan $n$:
+\[ g(mn) = (mn)^2 = m^2n^2 = g(m)g(n). \]
+\end{proof}
+
+\section{Banyak Faktor Positif}
+
+\begin{definition}
+Untuk bilangan asli $n$, notasi $\tau(n)$ menyatakan banyak faktor positif dari $n$.
+\end{definition}
+
+\begin{theorem}[Rumus $\tau$]
+Jika $n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ dengan $p_i$ prima berbeda, maka
+\[ \tau(n) = (\alpha_1 + 1)(\alpha_2 + 1) \cdots (\alpha_k + 1). \]
+\end{theorem}
+
+Alasannya pencacahan langsung: setiap faktor $n$ berbentuk
+$p_1^{\beta_1} \cdots p_k^{\beta_k}$ dengan $0 \le \beta_i \le \alpha_i$,
+jadi ada $\alpha_i + 1$ pilihan untuk tiap $i$.
+
+\begin{example}
+Hitunglah $\tau(360)$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorkan dahulu:
+\[ 360 = 2^3 \cdot 3^2 \cdot 5. \]
+Maka
+\[ \tau(360) = (3 + 1)(2 + 1)(1 + 1) = 4 \cdot 3 \cdot 2 = 24. \]
+\end{proof}
+
+\begin{fact}[$\tau$ ganjil]
+$\tau(n)$ ganjil jika dan hanya jika $n$ bilangan kuadrat.
+\end{fact}
+
+Buktinya satu baris: $(\alpha_1 + 1) \cdots (\alpha_k + 1)$ ganjil tepat ketika
+semua $\alpha_i$ genap, dan itu artinya $n$ kuadrat.
+
+\begin{example}
+Tentukan banyak bilangan asli $n \le 100$ dengan $\tau(n)$ ganjil.
+\end{example}
+\begin{proof}[Solusi]
+$\tau(n)$ ganjil tepat ketika $n$ kuadrat.
+Kuadrat yang tidak lebih dari $100$ adalah
+\[ 1^2, 2^2, \dots, 10^2, \]
+sebanyak $10$ bilangan.
+\end{proof}
+
+\begin{fact}[Hasil kali semua faktor]
+Hasil kali semua faktor positif dari $n$ sama dengan $n^{\tau(n)/2}$.
+\end{fact}
+
+Pasangkan setiap faktor $d$ dengan pasangannya $n/d$.
+Tiap pasangan berhasil kali $n$, dan ada $\tau(n)/2$ pasangan
+(faktor tengah $\sqrt{n}$ berpasangan dengan dirinya sendiri bila $n$ kuadrat).
+
+\begin{example}
+Tentukan hasil kali semua faktor positif dari $12$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $12 = 2^2 \cdot 3$ memberi
+\[ \tau(12) = (2 + 1)(1 + 1) = 6. \]
+Hasil kalinya:
+\[ 12^{6/2} = 12^3 = 1728. \]
+\end{proof}
+
+\begin{fact}[Batas $\tau$]
+Untuk setiap bilangan asli $n$ berlaku $\tau(n) \le 2\sqrt{n}$.
+\end{fact}
+
+Tulis faktor dari $n$ secara berpasangan $(d, n/d)$.
+Dari tiap pasangan, ambil anggota yang tidak lebih dari $\sqrt{n}$.
+Pasangan berbeda memberi bilangan berbeda, dan banyak bilangan asli yang
+tidak lebih dari $\sqrt{n}$ ada $\lfloor \sqrt{n} \rfloor \le \sqrt{n}$.
+Jadi banyak pasangan tidak lebih dari $\sqrt{n}$, sehingga $\tau(n) \le 2\sqrt{n}$.
+
+\begin{example}
+Buktikan $\tau(n) \le 10$ untuk setiap $n \le 25$.
+\end{example}
+\begin{proof}[Solusi]
+Batas di atas memberi
+\[ \tau(n) \le 2\sqrt{n} \le 2\sqrt{25} = 10. \]
+\end{proof}
+
+\begin{lemma}[Menghitung ganda $\tau$]
+Untuk setiap bilangan asli $N$ berlaku
+\[ \tau(1) + \tau(2) + \dots + \tau(N) =
+\left\lfloor \frac{N}{1} \right\rfloor + \left\lfloor \frac{N}{2} \right\rfloor
++ \dots + \left\lfloor \frac{N}{N} \right\rfloor. \]
+\end{lemma}
+
+Kedua ruas menghitung himpunan pasangan yang sama, yaitu
+$\{(d, k) : d \mid k,\ 1 \le k \le N\}$.
+Ruas kiri menghitung per $k$ (ada $\tau(k)$ nilai $d$ untuk tiap $k$).
+Ruas kanan menghitung per $d$: banyak kelipatan $d$ yang tidak lebih dari $N$
+adalah $\lfloor N/d \rfloor$.
+
+\begin{example}[Disederhanakan dari Tuymaada 2000]
+Hitunglah $\tau(1) + \tau(2) + \dots + \tau(10)$ dengan dua cara.
+\end{example}
+\begin{proof}[Solusi]
+Langsung dari definisi:
+\[ 1 + 2 + 2 + 3 + 2 + 4 + 2 + 4 + 3 + 4 = 27. \]
+Dengan lemma di atas:
+\begin{align*}
+\left\lfloor \frac{10}{1} \right\rfloor + \dots + \left\lfloor \frac{10}{10} \right\rfloor
+&= 10 + 5 + 3 + 2 + 2 + 1 + 1 + 1 + 1 + 1 \\
+&= 27.
+\end{align*}
+\end{proof}
+
+\section{Jumlah Faktor Positif}
+
+\begin{definition}
+Untuk bilangan asli $n$, notasi $\sigma(n)$ menyatakan jumlah semua faktor
+positif dari $n$.
+\end{definition}
+
+\begin{theorem}[Rumus $\sigma$]
+Fungsi $\sigma$ multiplikatif. Untuk $p$ prima dan $\alpha \ge 1$:
+\[ \sigma(p^\alpha) = 1 + p + \dots + p^\alpha = \frac{p^{\alpha+1} - 1}{p - 1}. \]
+Akibatnya, jika $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$, maka
+\[ \sigma(n) = \sigma(p_1^{\alpha_1}) \cdots \sigma(p_k^{\alpha_k}). \]
+\end{theorem}
+
+Alasannya pengelompokan: setiap faktor $n$ berbentuk $p_1^{\beta_1} \cdots p_k^{\beta_k}$,
+dan jumlah atas semua pilihan $\beta_i$ memfaktorkan menjadi perkalian
+jumlah per prima, persis seperti menguraikan $(a_1 + a_2)(b_1 + b_2)$.
+
+\begin{example}
+Hitunglah $\sigma(72)$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $72 = 2^3 \cdot 3^2$ memberi
+\begin{align*}
+\sigma(72) &= \sigma(2^3)\sigma(3^2) \\
+&= \frac{2^4 - 1}{2 - 1} \cdot \frac{3^3 - 1}{3 - 1} \\
+&= 15 \cdot 13 \\
+&= 195.
+\end{align*}
+\end{proof}
+
+\begin{definition}
+Bilangan asli $n$ disebut \textbf{sempurna} apabila $\sigma(n) = 2n$.
+\end{definition}
+
+\begin{example}
+Tunjukkan bahwa $28$ bilangan sempurna.
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $28 = 2^2 \cdot 7$ memberi
+\begin{align*}
+\sigma(28) &= \sigma(2^2)\sigma(7) \\
+&= (1 + 2 + 4)(1 + 7) \\
+&= 7 \cdot 8 \\
+&= 56 = 2 \cdot 28.
+\end{align*}
+\end{proof}
+
+\begin{theorem}[Euclid-Euler]
+Bilangan asli genap $n$ sempurna jika dan hanya jika
+$n = 2^{p-1}(2^p - 1)$ dengan $2^p - 1$ bilangan prima.
+\end{theorem}
+
+\begin{proof}[Solusi]
+Untuk arah mudah, jika $2^p - 1$ prima maka ia relatif prima dengan $2^{p-1}$,
+sehingga
+\begin{align*}
+\sigma(2^{p-1}(2^p - 1)) &= \sigma(2^{p-1})\sigma(2^p - 1) \\
+&= (2^p - 1) \cdot 2^p \\
+&= 2n.
+\end{align*}
+Untuk arah sebaliknya, tulis $n = 2^k q$ dengan $q$ ganjil dan $k \ge 1$.
+Karena $n$ sempurna:
+\[ 2n = 2^{k+1}q = \sigma(n) = \sigma(2^k)\sigma(q) = (2^{k+1} - 1)\sigma(q). \]
+Karena $2^{k+1} - 1$ ganjil, ia membagi $q$.
+Tulis $q = x(2^{k+1} - 1)$, lalu substitusikan:
+\[ 2^{k+1}x = \sigma(q). \]
+Padahal $x \mid q$ dan $x < q$, jadi $\sigma(q) \ge q + x = 2^{k+1}x$.
+Kesamaan memaksa $x = 1$: jika $x > 1$ maka $1$, $x$, $q$ tiga faktor berbeda
+dan $\sigma(q) > q + x$. Jadi $q = 2^{k+1} - 1$ sekaligus $\sigma(q) = q + 1$,
+artinya $q$ prima. Tulis $p = k + 1$ dan selesai.
+\end{proof}
+
+\begin{example}
+Tentukan semua bilangan sempurna genap yang kurang dari $100$.
+\end{example}
+\begin{proof}[Solusi]
+Periksa $2^{p-1}(2^p - 1) < 100$ dengan $2^p - 1$ prima:
+\begin{align*}
+p = 2 &: 2 \cdot 3 = 6, \\
+p = 3 &: 4 \cdot 7 = 28, \\
+p = 5 &: 16 \cdot 31 = 496 > 100.
+\end{align*}
+Untuk $p = 4$ nilai $2^4 - 1 = 15$ bukan prima.
+Jadi jawabannya $6$ dan $28$.
+\end{proof}
+
+\begin{remark}
+Bilangan prima berbentuk $2^p - 1$ disebut prima Mersenne.
+Sampai hari ini tidak diketahui apakah ada bilangan sempurna ganjil,
+dan tidak diketahui apakah banyak bilangan sempurna tak hingga.
+\end{remark}
+
+\begin{fact}[$\sigma$ ganjil]
+$\sigma(n)$ ganjil jika dan hanya jika $n$ bilangan kuadrat
+atau dua kali bilangan kuadrat.
+\end{fact}
+
+Perhatikan $\sigma(p^\alpha) = 1 + p + \dots + p^\alpha$.
+Jumlah ini ganjil tepat ketika $p$ ganjil dengan $\alpha$ genap,
+atau $p = 2$ (dengan $\alpha$ berapa pun).
+Jadi $\sigma(n)$ ganjil tepat ketika semua eksponen prima ganjil genap,
+artinya $n = 2^a m^2$ dengan $m$ ganjil.
+Jika $a$ genap maka $n$ kuadrat; jika $a$ ganjil maka $n$ dua kali kuadrat.
+
+\begin{example}
+Manakah yang ganjil, $\sigma(12)$ atau $\sigma(18)$?
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $12 = 2^2 \cdot 3^1$: eksponen $3$ ganjil, jadi $\sigma(12)$ genap
+(cek: $1 + 2 + 3 + 4 + 6 + 12 = 28$).
+Faktorisasi $18 = 2^1 \cdot 3^2$: dua kali kuadrat, jadi $\sigma(18)$ ganjil
+(cek: $1 + 2 + 3 + 6 + 9 + 18 = 39$).
+\end{proof}
+
+\section{Fungsi Totient Euler}
+
+\begin{definition}
+Untuk bilangan asli $n$, notasi $\varphi(n)$ menyatakan banyak bilangan asli
+$k \le n$ dengan $FPB(k, n) = 1$.
+\end{definition}
+
+\begin{example}
+Tentukan $\varphi(12)$ dengan mendaftar.
+\end{example}
+\begin{proof}[Solusi]
+Bilangan dari $1$ sampai $12$ yang relatif prima dengan $12$ adalah
+\[ 1,\ 5,\ 7,\ 11, \]
+jadi $\varphi(12) = 4$.
+\end{proof}
+
+\begin{theorem}[$\varphi$ multiplikatif]
+Jika $FPB(m, n) = 1$ maka $\varphi(mn) = \varphi(m)\varphi(n)$.
+\end{theorem}
+
+Susun $1, 2, \dots, mn$ dalam tabel $n$ baris dan $m$ kolom:
+baris ke-$i$ berisi $(i-1)m + 1$ sampai $(i-1)m + m$.
+Tiap baris adalah sistem residu lengkap modulo $m$,
+jadi memuat $\varphi(m)$ bilangan yang relatif prima dengan $m$.
+Tiap kolom adalah barisan aritmetika dengan beda $m$;
+karena $FPB(m, n) = 1$, kolom itu sistem residu lengkap modulo $n$,
+jadi memuat $\varphi(n)$ bilangan yang relatif prima dengan $n$.
+Bilangan yang relatif prima dengan $mn$ adalah yang relatif prima
+dengan $m$ sekaligus $n$: ada $\varphi(m)\varphi(n)$ buah.
+
+\begin{example}
+Diketahui $\varphi(7) = 6$ dan $\varphi(9) = 6$. Tentukan $\varphi(63)$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $63 = 7 \cdot 9$ dengan $FPB(7, 9) = 1$:
+\[ \varphi(63) = \varphi(7)\varphi(9) = 6 \cdot 6 = 36. \]
+\end{proof}
+
+\begin{theorem}[Rumus $\varphi$]
+Jika $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$, maka
+\[ \varphi(n) = n\left(1 - \frac{1}{p_1}\right) \cdots \left(1 - \frac{1}{p_k}\right). \]
+\end{theorem}
+
+Cukup periksa untuk perpangkatan prima lalu gunakan sifat multiplikatif:
+$\varphi(p^\alpha) = p^\alpha - p^{\alpha-1}$ karena di antara $1, \dots, p^\alpha$
+yang tidak relatif prima dengan $p^\alpha$ hanyalah $p^{\alpha-1}$ kelipatan $p$.
+
+\begin{example}
+Hitunglah $\varphi(72)$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $72 = 2^3 \cdot 3^2$ memberi
+\[ \varphi(72) = 72\left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{3}\right)
+= 72 \cdot \frac{1}{2} \cdot \frac{2}{3} = 24. \]
+\end{proof}
+
+\begin{theorem}[Gauss]
+Untuk setiap bilangan asli $n$ berlaku
+\[ \sum_{d \mid n} \varphi(d) = n. \]
+\end{theorem}
+
+Pandang $n$ pecahan $\frac{1}{n}, \frac{2}{n}, \dots, \frac{n}{n}$,
+lalu sederhanakan masing-masing.
+Penyebut yang muncul selalu membagi $n$.
+Untuk tiap $d \mid n$, ada tepat $\varphi(d)$ pecahan berpenyebut $d$,
+yaitu yang pembilangnya relatif prima dengan $d$.
+Menghitung semua pecahan memberi $n = \sum_{d \mid n} \varphi(d)$.
+
+\begin{example}
+Verifikasikan identitas Gauss untuk $n = 12$.
+\end{example}
+\begin{proof}[Solusi]
+Faktor dari $12$ adalah $1, 2, 3, 4, 6, 12$:
+\[ \varphi(1) + \varphi(2) + \varphi(3) + \varphi(4) + \varphi(6) + \varphi(12)
+= 1 + 1 + 2 + 2 + 2 + 4 = 12. \]
+\end{proof}
+
+\begin{fact}[$\varphi$ genap]
+Untuk setiap $n \ge 3$, nilai $\varphi(n)$ genap.
+\end{fact}
+
+Pasangkan tiap $a$ yang relatif prima dengan $n$ bersama $n - a$,
+yang juga relatif prima dengan $n$.
+Pasangan ini selalu terdiri dari dua bilangan berbeda untuk $n \ge 3$:
+jika $a = n - a$ maka $n = 2a$ dan $FPB(a, n) = a = 1$,
+sehingga $n = 2$. Jadi $\varphi(n)$ genap.
+
+\begin{example}
+Buktikan tidak ada bilangan asli $n$ dengan $\varphi(n) = 7$.
+\end{example}
+\begin{proof}[Solusi]
+Untuk $n \ge 3$, nilai $\varphi(n)$ selalu genap, jadi tidak mungkin $7$.
+Tinggal periksa $\varphi(1) = 1$ dan $\varphi(2) = 1$.
+\end{proof}
+
+\section{Menjumlahkan atas Pembagi dan Fungsi M\"obius}
+
+\begin{theorem}
+Jika $f$ multiplikatif, maka $F(n) = \sum_{d \mid n} f(d)$ juga multiplikatif.
+\end{theorem}
+
+Ambil $m$ dan $n$ yang relatif prima.
+Setiap faktor $d$ dari $mn$ tunggal berbentuk $d_1 d_2$ dengan $d_1 \mid m$
+dan $d_2 \mid n$, dan $f(d_1 d_2) = f(d_1)f(d_2)$.
+Maka jumlah atas semua $d$ memfaktorkan:
+\[ F(mn) = \left(\sum_{d_1 \mid m} f(d_1)\right)\left(\sum_{d_2 \mid n} f(d_2)\right)
+= F(m)F(n). \]
+
+\begin{example}
+Buktikan bahwa $\tau$ multiplikatif.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $\tau$ sebagai jumlah atas pembagi:
+\[ \tau(n) = \sum_{d \mid n} 1. \]
+Fungsi konstan $1$ jelas multiplikatif, jadi teorema di atas memberi
+$\tau$ multiplikatif.
+\end{proof}
+
+\begin{definition}
+Fungsi M\"obius $\mu(n)$ didefinisikan sebagai
+\[ \mu(n) = \begin{cases}
+1 & \text{jika } n = 1, \\
+(-1)^m & \text{jika $n$ squarefree dengan $m$ faktor prima}, \\
+0 & \text{jika $n$ tidak squarefree}.
+\end{cases} \]
+\end{definition}
+
+\begin{example}
+Hitunglah $\mu(30)$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorisasi $30 = 2 \cdot 3 \cdot 5$: squarefree dengan $3$ faktor prima.
+Jadi
+\[ \mu(30) = (-1)^3 = -1. \]
+\end{proof}
+
+\begin{theorem}
+Untuk setiap bilangan asli $n$ berlaku
+\[ \sum_{d \mid n} \mu(d) = \begin{cases} 1 & \text{jika } n = 1, \\ 0 & \text{jika } n > 1. \end{cases} \]
+\end{theorem}
+
+Untuk $n = 1$ jelas. Untuk $n > 1$ dengan $m$ faktor prima berbeda,
+hanya pembagi squarefree yang berkontribusi:
+ada $\binom{m}{k}$ pembagi squarefree dengan $k$ faktor prima,
+masing-masing bernilai $(-1)^k$. Jumlahnya:
+\[ \sum_{k=0}^{m} \binom{m}{k}(-1)^k = (1 - 1)^m = 0. \]
+
+\begin{example}
+Verifikasikan teorema di atas untuk $n = 12$.
+\end{example}
+\begin{proof}[Solusi]
+Faktor dari $12$ adalah $1, 2, 3, 4, 6, 12$:
+\[ \mu(1) + \mu(2) + \mu(3) + \mu(4) + \mu(6) + \mu(12)
+= 1 - 1 - 1 + 0 + 1 + 0 = 0. \]
+\end{proof}
+
+\begin{theorem}[Inversi M\"obius]
+Misalkan $f$ dan $g$ fungsi aritmetika dengan $g(n) = \sum_{d \mid n} f(d)$
+untuk setiap $n$. Maka
+\[ f(n) = \sum_{d \mid n} \mu(d)\, g\left(\frac{n}{d}\right) \]
+untuk setiap $n$.
+\end{theorem}
+
+\begin{proof}[Solusi]
+Uraikan ruas kanan lalu tukar urutan penjumlahannya:
+\begin{align*}
+\sum_{d \mid n} \mu(d)\, g\left(\frac{n}{d}\right)
+&= \sum_{d \mid n} \mu(d) \sum_{e \mid n/d} f(e) \\
+&= \sum_{e \mid n} f(e) \sum_{d \mid n/e} \mu(d).
+\end{align*}
+Jumlah dalam bernilai $1$ bila $n/e = 1$ dan $0$ bila tidak,
+jadi seluruhnya sama dengan $f(n)$.
+\end{proof}
+
+\begin{example}
+Dengan inversi M\"obius pada identitas Gauss, hitunglah $\varphi(12)$.
+\end{example}
+\begin{proof}[Solusi]
+Gauss mengatakan $n = \sum_{d \mid n} \varphi(d)$,
+jadi inversi memberi $\varphi(n) = \sum_{d \mid n} \mu(d) \cdot \frac{n}{d}$.
+Untuk $n = 12$:
+\begin{align*}
+\varphi(12) &= \mu(1) \cdot 12 + \mu(2) \cdot 6 + \mu(3) \cdot 4 \\
+&\quad + \mu(4) \cdot 3 + \mu(6) \cdot 2 + \mu(12) \cdot 1 \\
+&= 12 - 6 - 4 + 0 + 2 + 0 \\
+&= 4.
+\end{align*}
+\end{proof}
+
+\section{Referensi}
+\begin{itemize}
+    \item Aditya Khurmi, \textit{Modern Olympiad Number Theory},
+    Bab 3 (Fungsi Aritmetika), 2020.
+    \item Modul Pra-OSP: Fungsi Aritmetika (Azzam dan Akeyla).
+    \item Unit Modulo dan Keterbagian (rumus $\varphi$ dan teorema Euler).
+\end{itemize}
+
+\end{document}

@@ -1,12 +1,11 @@
 # mo_material.md
 
 Rules for writing training material in this repo: `*_Modul.tex` units
-(Materi and Soal Latihan combined in one file) first of all, plus the
+(Materi and Soal Latihan combined in one file) and their separate
+`*_Materi.tex` / `*_Latihan.tex` counterparts first of all, plus the
 prose inside `_Ujian` and `_Solusi` files. Read together with `CLAUDE.md`.
-(Older units keep separate `*_Materi.tex` / `*_Latihan.tex` files; the same
-rules apply to each part.)
 
-## 0. Document format (Modul)
+## 0. Document format
 
 - Preamble: `\documentclass[12pt]{scrartcl}` with
   `\usepackage[hagavi]{azzam}`, then `\title`, `\date`, `\maketitle`.
@@ -20,6 +19,9 @@ rules apply to each part.)
   it); then `\part*{Soal Latihan}` with the practice problems grouped
   by `\section`; `\section{Referensi}` at the very end listing the
   source modules.
+- The separate `*_Materi.tex` / `*_Latihan.tex` files mirror the two
+  parts of `*_Modul.tex` as standalone documents (same content, own
+  `\maketitle`); Referensi lives in the Materi file.
 
 ## 1. Every theory block gets a worked example
 
@@ -123,9 +125,12 @@ Hunt down these machine-written signals in every prose passage
 
 ## 6. Sourcing and correctness
 
-- Problem sources (contest, year, number) go in `%` comments only,
-  never in the PDF, for the Latihan part and Ujian files. Materi
-  examples may cite sources inline since they are teaching material.
+- Every problem taken from a source shows it inline in the PDF as
+  `\item (Sumber)` with a short tag (contest + year, e.g. `(OSK 2024)`,
+  `(AIME I 2019)`, `(Pra-OSK Modulo)`). The `% Source:` comment keeps
+  the full details (number, type, adaptation notes). Composed problems
+  carry no tag. This applies to the Latihan part/files, Ujian files,
+  and sourced Materi examples alike.
 - Record the answer in a `% Jawaban:` comment on every Latihan problem.
 - Verify every numeric answer independently (a second hand computation
   or a brute-force script). Never trust a source answer key blindly;
