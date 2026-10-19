@@ -1,0 +1,107 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Ujian Teori Bilangan - EDUOS OSK SMA Oktober 2026
+% 6 soal isian + 2 soal esai, materi Fungsi Aritmetika serta Modulo dan Keterbagian.
+% Sumber tiap soal disimpan sebagai komentar; detail modifikasi ada di komentar itu.
+
+\title{Ujian Teori Bilangan}
+\date{Oktober 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+\textbf{Materi:} Fungsi Aritmetika serta Modulo dan Keterbagian.
+
+% \textbf{Aturan umum:}
+% \begin{itemize}
+% 	\item Tulis \textbf{nama lengkap} dan \textbf{asal sekolah} di pojok kiri atas halaman pertama.
+% 	\item Waktu mengerjakan adalah \textbf{120 menit}.
+% 	\item Bagian Isian: tulis \textbf{jawaban akhirnya saja}. Setiap soal bernilai 10 jika benar dan 0 jika salah atau kosong.
+% 	\item Bagian Esai: tulis \textbf{argumentasi lengkap} beserta jawaban akhirnya. Setiap soal bernilai bilangan bulat dari 0 sampai 20.
+% 	\item Nilai total maksimum adalah 100.
+% \end{itemize}
+
+\section{Isian}
+
+\begin{enumerate}
+
+	% Source: Modifikasi OSK SMA 2022 No. 6 (Isian Singkat)
+	% Asli: FPB(m,n)=7, FPB(2m,3n)=42, ditanya FPB(21m,14n); jawaban 49.
+	% Modifikasi memakai perpangkatan prima (4 dan 9) sehingga perlu alasan valuasi.
+	% Jawaban: 216
+	\item Diberikan bilangan asli $m$ dan $n$. Jika $FPB(m, n) = 6$ dan
+	$FPB(4m, 9n) = 72$, nilai dari $FPB(12m, 18n)$ adalah \dots
+
+	% Source: Komposisi sendiri (menggabungkan dua fakta paritas di Modul Fungsi Aritmetika)
+	% Jawaban: 31
+	\item Notasi $\sigma(n)$ menyatakan jumlah semua faktor positif dari $n$
+	dan $\tau(n)$ menyatakan banyaknya faktor positif dari $n$.
+	Banyaknya bilangan asli $n \le 2026$ sehingga $\sigma(n)$ ganjil
+	dan $\tau(n)$ genap adalah \dots
+
+	% Source: Modifikasi OSN SMP 2012 No. 5 (Esai)
+	% Asli: sisa 2012^2012 + 2014^2012 dibagi 2013^2; jawaban 2.
+	% Modifikasi: pusat digeser ke 2027 (prima).
+	% Jawaban: 2
+	\item Sisa pembagian $2026^{2026} + 2028^{2026}$ oleh $2027^2$ adalah \dots
+
+	% Source: Modifikasi OSK SMA 2017 No. 3 (Isian Singkat)
+	% Asli: k | (n^7 - n) untuk semua n; jawaban 8.
+	% Modifikasi: pangkat 7 diganti 13 sehingga FPB bersama dan banyak pembaginya berubah.
+	% Jawaban: 32
+	\item Banyaknya bilangan asli $k$ yang memenuhi $k \mid (n^{13} - n)$
+	untuk semua bilangan asli $n$ adalah \dots
+
+	% Source: Komposisi sendiri (diperkeras dari latihan klasik phi(n) = 6)
+	% Jawaban: 621
+	\item Notasi $\varphi(n)$ menyatakan banyaknya bilangan asli tidak lebih dari $n$
+	yang relatif prima dengan $n$.
+	Jumlah semua bilangan asli $n$ sehingga $\varphi(n) = 24$ adalah \dots
+
+	% Source: Modifikasi OSP SMP 2026 No. 6 (Isian Singkat)
+	% Asli: N terkecil dengan tepat 2026 faktor; jawaban m - p = 503.
+	% Modifikasi: 2026 = 2 x 1013 diganti 2038 = 2 x 1019.
+	% Jawaban: 506
+	\item Suatu bilangan asli $N$ terkecil yang mempunyai tepat $2038$ faktor positif,
+	yaitu $d_1 < d_2 < \dots < d_{2038}$.
+	Jika $d_{1019} - d_{1018} = p^m$ dengan $p$ bilangan prima,
+	nilai $m - p$ adalah \dots
+
+\end{enumerate}
+
+\section{Esai}
+
+\begin{enumerate}[resume]
+
+	% Source: Komposisi sendiri
+	% Jawaban: n = p^2 untuk p prima
+	\item Notasi $\sigma(n)$ menyatakan jumlah semua faktor positif dari $n$.
+	Tentukan semua bilangan asli $n$ sehingga
+	\[ \sigma(n) = n + \sqrt{n} + 1. \]
+
+	% Source: Diperumum dari OSP SMA 2026 No. 4 (Esai)
+	% Asli memakai batas atas 2026; bukti yang sama berlaku untuk setiap n.
+	\item Misalkan $a$ dan $b$ adalah dua bilangan asli berbeda
+	dan $n$ bilangan asli. Buktikan bahwa
+	\[ \prod_{i=0}^{n} FPB(a+i, b+i) \]
+	membagi $n! \cdot |a - b|$.
+
+\end{enumerate}
+
+\section{Kunci Jawaban}
+1 216\\
+2 31\\
+3 2\\
+4 32\\
+5 621\\
+6 506\\
+7 n = p^2 untuk p prima\\
+8 terbukti
+
+
+\end{document}
