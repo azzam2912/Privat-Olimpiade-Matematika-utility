@@ -1,0 +1,544 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Persamaan Diophantine dan Digit Bilangan - Solusi
+% Pembahasan 29 soal Latihan: 5 Faktorisasi, 3 Bounding,
+% 8 Modulo Faktorial dan Pangkat, 10 Jumlah Digit, 3 Binomial.
+% Gaya penulisan mengikuti mo_material.md: solusi menumpuk persamaan ke bawah.
+% Setiap jawaban numerik diverifikasi dengan brute force independen
+% (lihat /tmp/verify_diophantine_digit.py).
+
+\title{Persamaan Diophantine dan Digit Bilangan - Solusi}
+\date{21 Oktober 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\section{Solusi Soal Latihan}
+
+\subsection{Faktorisasi}
+
+\begin{enumerate}
+	\item Kalikan kedua ruas dengan $xy$:
+	\[ 5y - 7x = 2xy. \]
+	Pindahkan semua ke satu ruas lalu kalikan $2$:
+	\[ 4xy + 14x - 10y = 0. \]
+	Lengkapi menjadi perkalian dua faktor:
+	\begin{align*}
+	(2x - 5)(2y + 7) &= 4xy + 14x - 10y - 35 \\
+	&= -35.
+	\end{align*}
+	Karena $y \ge 1$, berlaku $2y + 7 \ge 9$.
+	Pembagi positif $35$ hanya $1$, $5$, $7$, $35$,
+	jadi $2y + 7 = 35$ dan $2x - 5 = -1$:
+	\[ x = 2, \qquad y = 14. \]
+	Periksa: $5/2 - 7/14 = 2$. Satu-satunya solusi $(2, 14)$.
+
+	\item Persamaannya simetris, jadi misalkan $x \le y$.
+	Dari $(xy - 7)^2 = x^2 + y^2 \le (x + y)^2$ diperoleh
+	\[ |xy - 7| \le x + y. \]
+	Jika $x = 1$, maka $(y - 7)^2 = 1 + y^2$ memberi $y = 24/7$,
+	bukan bilangan bulat. Jadi $x \ge 2$.
+	Jika $xy < 7$, maka $x = 2$ dan $y \le 3$.
+	Pengecekan $(2, 2)$ dan $(2, 3)$ gagal.
+	Jadi $xy \ge 7$ dan
+	\[ xy - 7 \le x + y, \qquad \text{yaitu} \qquad (x - 1)(y - 1) \le 8. \]
+	Dengan $x \le y$ diperoleh $(x - 1)^2 \le 8$, jadi $x \le 3$.
+	Untuk $x = 2$:
+	\[ (2y - 7)^2 = 4 + y^2, \qquad \text{yaitu} \qquad 3y^2 - 28y + 45 = 0, \]
+	diskriminannya $244$ bukan kuadrat.
+	Untuk $x = 3$:
+	\[ (3y - 7)^2 = 9 + y^2, \qquad \text{yaitu} \qquad 4y^2 - 21y + 20 = 0, \]
+	diskriminannya $121 = 11^2$, memberi $y = 4$ (nilai $5/4$ ditolak).
+	Solusinya $(3, 4)$ dan simetrisnya $(4, 3)$.
+
+	\item Tulis ulang persamaannya:
+	\[ q^2(7p - q) = 43p^3 - p + 1. \]
+	Ruas kanan positif, jadi $q < 7p$.
+	Jika $p$ dan $q$ keduanya ganjil, ruas kiri genap (faktor $7p - q$ genap),
+	sementara ruas kanan
+	\[ 43p^3 - p + 1 \equiv 1 - 1 + 1 \equiv 1 \pmod{2} \]
+	ganjil. Kontradiksi.
+	Jika $q = 2$, maka $4(7p - 2) = 43p^3 - p + 1$, yaitu
+	\[ 43p^3 - 29p + 9 = 0, \]
+	yang gagal untuk $p = 2$ (bernilai $295$) maupun $p$ ganjil (bernilai ganjil).
+	Jadi $p = 2$ dan $q$ ganjil:
+	\[ q^2(14 - q) = 343 = 7^3. \]
+	Maka $q^2 \mid 7^3$, sehingga $q^2 = 49$ dan $q = 7$.
+	Periksa: $7 \cdot 2 \cdot 49 + 2 = 688 = 343 + 344 + 1$.
+	Satu-satunya solusi $(p, q) = (2, 7)$.
+
+	\item Kalikan kedua ruas dengan $27$ agar muncul faktor $3$:
+	\[ (3x)^3 + (-3y)^3 + (-1)^3 - 3(3x)(-3y)(-1) = 27 \cdot 61 - 1 = 1646. \]
+	Faktorkan dengan identitas jumlah kubik:
+	\[ (3x - 3y - 1)(9x^2 + 9y^2 + 1 + 9xy + 3x - 3y) = 2 \cdot 823. \]
+	Faktor kedua positif untuk $x, y \ge 1$,
+	jadi faktor pertama pembagi positif $1646$ yang kongruen $2$ modulo $3$.
+	Pembagi positif $1646$ adalah $1$, $2$, $823$, $1646$,
+	yang kongruen $2$ modulo $3$ hanya $2$ dan $1646$.
+	Selisih kedua faktor
+	\[ 9x^2 + 9y^2 + 9xy + 2 > 0, \]
+	jadi faktor pertama lebih kecil dan harus bernilai $2$.
+	Dari $3x - 3y - 1 = 2$ diperoleh $x = y + 1$.
+	Substitusikan ke faktor kedua:
+	\begin{align*}
+	27y^2 + 27y + 13 &= 823, \\
+	y^2 + y - 30 &= 0.
+	\end{align*}
+	Nilai $y = 5$ (nilai $y = -6$ ditolak), sehingga $x = 6$.
+	Periksa: $216 - 125 = 91 = 30 + 61$.
+	Satu-satunya solusi $(x, y) = (6, 5)$.
+
+	\item Pandang sebagai kuadrat dalam $x$:
+	\[ x^2 - y^2x + (y^2 - 25) = 0. \]
+	Diskriminannya harus bilangan kuadrat:
+	\[ D = y^4 - 4y^2 + 100 = t^2. \]
+	Untuk $|y| \ge 8$, nilai $D$ terjepit strikt:
+	\begin{align*}
+	D - (y^2 - 2)^2 &= 96 > 0, \\
+	(y^2 - 1)^2 - D &= 2y^2 - 99 \ge 29 > 0.
+	\end{align*}
+	Jadi $|y| \le 7$. Pengecekan langsung:
+	\begin{align*}
+	y = 0 &: D = 100 = 10^2, & x = \pm 5, \\
+	y = \pm 1 &: D = 97, & 81 < 97 < 100, \\
+	y = \pm 2 &: D = 100 = 10^2, & x = \frac{4 \pm 10}{2} \in \{7, -3\}, \\
+	y = \pm 3 &: D = 145, & 144 < 145 < 169, \\
+	y = \pm 4 &: D = 292, & 289 < 292 < 324, \\
+	y = \pm 5 &: D = 625 = 25^2, & x = \frac{25 \pm 25}{2} \in \{25, 0\}, \\
+	y = \pm 6 &: D = 1252, & 1225 < 1252 < 1296, \\
+	y = \pm 7 &: D = 2305, & 2304 < 2305 < 2401.
+	\end{align*}
+	Solusinya $(x, y) \in \{(5, 0), (-5, 0), (7, \pm 2), (-3, \pm 2),
+	(25, \pm 5), (0, \pm 5)\}$.
+\end{enumerate}
+
+\subsection{Ketaksamaan dan Bounding}
+
+\begin{enumerate}[resume]
+	\item Dari $abc = 2(a + b + c) \le 6c$ diperoleh
+	\[ ab \le 6. \]
+	Dengan $a \le b$, periksa semua pasangan $(a, b)$ satu per satu:
+	\begin{align*}
+	(1, 1) &: c = 2(2 + c), & \text{tidak ada solusi}, \\
+	(1, 2) &: 2c = 2(3 + c), & \text{tidak ada solusi}, \\
+	(1, 3) &: 3c = 2(4 + c), & c = 8, \\
+	(1, 4) &: 4c = 2(5 + c), & c = 5, \\
+	(1, 5) &: 5c = 2(6 + c), & c = 4 < 5, \ \text{melanggar urutan}, \\
+	(1, 6) &: 6c = 2(7 + c), & c = 7/2, \\
+	(2, 2) &: 4c = 2(4 + c), & c = 4, \\
+	(2, 3) &: 6c = 2(5 + c), & c = 5/2.
+	\end{align*}
+	Solusinya $(a, b, c) \in \{(1, 3, 8), (1, 4, 5), (2, 2, 4)\}$.
+
+	\item Tulis $S = km = ln = k + l + m + n$.
+	Dari $k + m \ge 2\sqrt{S}$ dan $l + n \ge 2\sqrt{S}$ diperoleh
+	\[ S \ge 4\sqrt{S}, \qquad \text{sehingga} \qquad S \ge 16. \]
+	Pandang kedua pasangan faktor $(a, S/a)$ dan $(b, S/b)$,
+	dengan $a$ dari pasangan pertama dan $b$ dari pasangan kedua.
+	Jika $a = 1$, pasangan pertama berjumlah $S + 1 > S$.
+	Jadi $a, b \ge 2$, dan boleh dimisalkan $a \le b$.
+	Jumlah keempat bilangan sama dengan $S$:
+	\[ a + \frac{S}{a} + b + \frac{S}{b} = S, \qquad
+	\text{yaitu} \qquad S = \frac{ab(a + b)}{ab - a - b}. \]
+	Pasangan $(a, b) = (2, 2)$ membuat penyebut nol;
+	pemeriksaan langsung $4 + S \ne S$ menunjukkan ia gagal.
+	Untuk $a \ge 3$ dan $b \ge a$ berlaku $ab - a - b \ge b(a - 2)$, sehingga
+	\[ \frac{S}{b} \le \frac{a(a + b)}{b(a - 2)} \le \frac{2a}{a - 2}. \]
+	Untuk $a \ge 7$ diperoleh $S/b < 3$, jadi $S/b \in \{1, 2\}$.
+	Nilai $1$ mustahil (jumlahnya melebihi $S$).
+	Nilai $2$ memberi $S = 2b$ dan
+	\[ b = \frac{a(a + 2)}{a - 2} = a + 4 + \frac{8}{a - 2}, \]
+	sehingga $a - 2 \mid 8$ dan $a = 10$ (satu-satunya nilai $\ge 7$).
+	Ini memberi $b = 15$ dan $S = 30$.
+	Untuk $2 \le a \le 6$, tulis ulang rumus $S$ agar penyebutnya membagi konstanta:
+	\begin{align*}
+	a = 2 &: S = 2b + 8 + \frac{16}{b - 2}, &
+	b - 2 \mid 16, \\
+	a = 3 &: 4S = 6b + 27 + \frac{81}{2b - 3}, &
+	2b - 3 \mid 81, \\
+	a = 4 &: 9S = 12b + 64 + \frac{256}{3b - 4}, &
+	3b - 4 \mid 256, \\
+	a = 5 &: 16S = 20b + 125 + \frac{625}{4b - 5}, &
+	4b - 5 \mid 625, \\
+	a = 6 &: 25S = 30b + 216 + \frac{1296}{5b - 6}, &
+	5b - 6 \mid 1296.
+	\end{align*}
+	Pemeriksaan semua pembagi (dengan $b \ge a$ dan syarat $b \mid S$):
+	\begin{align*}
+	a = 2 &: b \in \{3, 4, 6, 10\}, & S \in \{30, 24\}, \\
+	a = 3 &: b \in \{3, 6, 15\}, & S \in \{18, 30\}, \\
+	a = 4 &: b \in \{4, 12\}, & S \in \{16, 24\}, \\
+	a = 5 &: \text{tidak ada}, &
+	\text{sebab $4b - 5 \equiv 3 \pmod{4}$ tetapi semua pembagi $625$ kongruen $1$}, \\
+	a = 6 &: b \in \{6, 12\}, & S \in \{18, 24\}.
+	\end{align*}
+	(Nilai $b = 18, 42, 44, 30, 66$ gugur karena tidak membagi $S$.)
+	Contoh untuk masing-masing nilai:
+	\begin{align*}
+	S = 16 &: (4, 4, 4, 4), \\
+	S = 18 &: (3, 6, 3, 6), \\
+	S = 24 &: (2, 12, 4, 6), \\
+	S = 30 &: (2, 15, 3, 10).
+	\end{align*}
+	Jadi nilai yang mungkin adalah $16$, $18$, $24$, dan $30$.
+
+	\item Akar kuadrat dari kedua ruas memberi $3m + n + 1 = 4\sqrt{mn}$,
+	jadi $mn$ bilangan kuadrat.
+	Tulis $m = ds^2$ dan $n = dt^2$ dengan $d$ bebas kuadrat dan $FPB(s, t) = 1$.
+	Substitusikan:
+	\[ 3ds^2 + dt^2 + 1 = 4dst, \qquad \text{yaitu} \qquad d(4st - 3s^2 - t^2) = 1. \]
+	Kedua faktornya bulat positif, jadi $d = 1$ dan $4st - 3s^2 - t^2 = 1$.
+	Faktorkan:
+	\[ (3s - t)(s - t) = -1. \]
+	Karena $(3s - t) - (s - t) = 2s > 0$,
+	haruslah $3s - t = 1$ dan $s - t = -1$.
+	Diperoleh $s = 1$ dan $t = 2$, sehingga $m = 1$ dan $n = 4$.
+	Periksa: $(3 + 4 + 1)^2 = 64 = 16 \cdot 4$.
+	Satu-satunya solusi $(m, n) = (1, 4)$.
+\end{enumerate}
+
+\subsection{Modulo, Faktorial, dan Pangkat}
+
+\begin{enumerate}[resume]
+	\item Persamaannya simetris, jadi misalkan $a \le b$.
+	Dari $a! \mid 2^n$ diperoleh $a!$ pangkat $2$, sehingga $a \le 2$.
+	Untuk $a = 1$: $1 + b! = 2^n$.
+	Nilai $b = 1$ memberi $n = 1$.
+	Nilai $b = 2$ dan $b = 3$ memberi $3$ dan $7$, bukan pangkat $2$.
+	Untuk $b \ge 4$, berlaku $b! \equiv 0 \pmod{8}$ sehingga
+	\[ 2^n = 1 + b! \equiv 1 \pmod{8}, \]
+	yang memaksa $n = 0$. Kontradiksi dengan $n$ asli.
+	Untuk $a = 2$: $2 + b! = 2^n$ dengan $b \ge 2$.
+	Nilai $b = 2$ memberi $n = 2$ dan $b = 3$ memberi $n = 3$.
+	Untuk $b \ge 4$:
+	\[ 2^n = 2 + b! \equiv 2 \pmod{8}, \]
+	yang memaksa $n = 1$, tetapi $2 + b! \ge 26$.
+	Solusinya $(a, b, n) \in \{(1, 1, 1), (2, 2, 2), (2, 3, 3), (3, 2, 3)\}$.
+
+	\item Jika $x \ge z$, maka $2^y = z! - x! \le 0$. Mustahil.
+	Jadi $x < z$ dan $x! \mid 2^y$, sehingga $x \le 2$.
+	Untuk $x \in \{0, 1\}$: $1 + 2^y = z!$.
+	Nilai $z = 2$ memberi $y = 0$.
+	Nilai $z \le 1$ memberi $1 + 2^y = 1$. Mustahil.
+	Nilai $z = 3$ memberi $2^y = 5$. Mustahil.
+	Untuk $z \ge 4$:
+	\[ 1 + 2^y = z! \equiv 0 \pmod{8}, \qquad \text{yaitu} \qquad 2^y \equiv 7 \pmod{8}. \]
+	Mustahil, sebab $2^y$ modulo $8$ hanya bisa $1$, $2$, $4$, atau $0$.
+	Untuk $x = 2$: $2 + 2^y = z!$ dengan $z > 2$.
+	Nilai $z = 3$ memberi $y = 2$.
+	Untuk $z \ge 4$:
+	\[ 2 + 2^y \equiv 0 \pmod{8}, \qquad \text{yaitu} \qquad 2^y \equiv 6 \pmod{8}. \]
+	Mustahil dengan alasan yang sama.
+	Solusinya $(x, y, z) \in \{(0, 0, 2), (1, 0, 2), (2, 2, 3)\}$.
+
+	\item Modulo $3$: $2^x \equiv z^2 \pmod{3}$.
+	Karena $2$ bukan residu kuadrat modulo $3$, $x$ genap.
+	Tulis $x = 2k$ dengan $k \ge 1$:
+	\[ 21^y = z^2 - 4^k = (z - 2^k)(z + 2^k). \]
+	Bilangan $z$ ganjil (jumlah genap dan ganjil),
+	jadi kedua faktornya ganjil.
+	Faktor persekutuan keduanya membagi selisihnya $2^{k+1}$,
+	jadi sama dengan $1$.
+	Dua faktor koprima dari $3^y7^y$ dengan $z - 2^k < z + 2^k$ hanya
+	$(1, 21^y)$ atau $(3^y, 7^y)$.
+	Kasus pertama: $2^{k+1} = 21^y - 1$.
+	Ruas kanan habis dibagi $20$, sehingga $5 \mid 2^{k-1}$. Mustahil.
+	Kasus kedua: $2^{k+1} = 7^y - 3^y$.
+	Untuk $y = 1$: $2^{k+1} = 4$, jadi $k = 1$, $x = 2$, dan $z = 3 + 2 = 5$.
+	Periksa: $4 + 21 = 25$.
+	Untuk $y \ge 2$ ganjil ($y \ge 3$): $7^y - 3^y \equiv 7 - 3 \equiv 4 \pmod{8}$,
+	sehingga $k + 1 = 2$ dan $7^y - 3^y = 4$. Mustahil.
+	Jadi $y = 2m$ genap:
+	\[ (7^m - 3^m)(7^m + 3^m) = 2^{k+1}. \]
+	Kedua faktornya pangkat $2$ yang berselisih $2 \cdot 3^m$.
+	Selisih itu punya tepat satu faktor $2$,
+	jadi faktor yang kecil bernilai $2$.
+	Tetapi $7^m - 3^m \ge 4$ untuk $m \ge 1$. Kontradiksi.
+	Satu-satunya solusi $(x, y, z) = (2, 1, 5)$.
+
+	\item Persamaannya simetris dalam $a$ dan $b$, jadi misalkan $a \le b$.
+	Untuk $a = 1$: $b! = 1 + b! + c!$, mustahil.
+	Untuk $a = 2$: $c! = b! - 2$.
+	Nilai $b = 2, 3, 4$ memberi $0$, $4$, $22$, bukan faktorial.
+	Untuk $b \ge 5$: $c! = b! - 2 \equiv 8 \pmod{10}$.
+	Mustahil, sebab faktorial modulo $10$ hanya bisa $1$, $2$, $6$, $4$, atau $0$.
+	Untuk $a \ge 3$:
+	\[ c! = a!b! - a! - b! = b!(a! - 1) - a! > b!, \]
+	jadi $c > b$. Bagi kedua ruas dengan $b!$:
+	\[ (b+1)(b+2)\cdots c = a! - 1 - \frac{a!}{b!}. \]
+	Jika $a < b$, maka $0 < a!/b! < 1$ dan ruas kanan bukan bilangan bulat.
+	Jadi $a = b$ dan
+	\[ (a+1)(a+2)\cdots c = a! - 2. \]
+	Jika $c = a + 1$: $a + 1 = a! - 2$, yaitu $a! = a + 3$.
+	Ini hanya dipenuhi $a = 3$, memberi $(a, b, c) = (3, 3, 4)$.
+	Periksa: $36 = 6 + 6 + 24$.
+	Jika $c \ge a + 2$: $a + 1$ membagi $a! - 2$.
+	Untuk $a = 3$, ruas kiri sedikitnya $20$ sementara ruas kanan $4$. Mustahil.
+	Untuk $a \ge 4$ dengan $a + 1$ komposit: $a + 1 \mid a!$,
+	sehingga $a + 1 \mid 2$. Mustahil.
+	Untuk $a \ge 4$ dengan $a + 1$ prima: Wilson memberi $a! \equiv -1 \pmod{a+1}$,
+	sehingga $a + 1 \mid 3$. Mustahil.
+	Satu-satunya solusi $(a, b, c) = (3, 3, 4)$.
+
+	\item Tinjau modulo $4$. Jika $a$ dan $b$ keduanya ganjil:
+	\[ 1 + 1 + c^2 \equiv 1 \pmod{4}, \qquad \text{yaitu} \qquad c^2 \equiv 3 \pmod{4}. \]
+	Mustahil. Jika tepat satu dari $a$, $b$ ganjil:
+	\[ 1 + c^2 \equiv 0 \pmod{4}, \qquad \text{yaitu} \qquad c^2 \equiv 3 \pmod{4}. \]
+	Mustahil juga. Jadi $a$ dan $b$ keduanya genap.
+	Tulis $a = 2a_1$ dan $b = 2b_1$:
+	\[ 4a_1^2 + 4b_1^2 + c^2 = 16a_1^2b_1^2. \]
+	Maka $c$ genap. Tulis $c = 2c_1$:
+	\[ a_1^2 + b_1^2 + c_1^2 = 4a_1^2b_1^2. \]
+	Ruas kanan habis dibagi $4$, jadi jumlah tiga kuadrat di ruas kiri
+	kongruen $0$ modulo $4$. Ini memaksa $a_1$, $b_1$, $c_1$ genap.
+	Pengulangan memberi $2^n \mid a, b, c$ untuk setiap $n$,
+	jadi satu-satunya solusi $(a, b, c) = (0, 0, 0)$.
+
+	\item Untuk $z = 1$: $5^x + 3^y = 34$.
+	Nilai $x = 1$ memberi $3^y = 29$. Mustahil.
+	Nilai $x = 2$ memberi $3^y = 9$, jadi $y = 2$.
+	Nilai $x \ge 3$ memberi $5^x > 34$.
+	Diperoleh $(x, y, z) = (2, 2, 1)$.
+	Untuk $z \ge 2$, tinjau modulo $4$:
+	\[ 5^x + 3^y \equiv 32 + 2^z \equiv 0 \pmod{4}, \]
+	sehingga $1 + (-1)^y \equiv 0$ dan $y$ ganjil.
+	Tinjau modulo $3$:
+	\[ 2^x - 2^z \equiv 32 \equiv 2 \pmod{3}. \]
+	Pengecekan keempat paritas memberi $x$ genap dan $z$ ganjil.
+	Untuk $z \ge 3$, tinjau modulo $8$:
+	\[ 5^x + 3^y \equiv 1 + 3 \equiv 4 \pmod{8}, \]
+	karena $x$ genap dan $y$ ganjil.
+	Tetapi $32 + 2^z \equiv 0 \pmod{8}$. Kontradiksi.
+	Untuk $z = 2$: $5^x + 3^y = 36$.
+	Nilai $x = 1$ memberi $3^y = 31$ dan $x = 2$ memberi $3^y = 11$.
+	Keduanya mustahil, dan $x \ge 3$ memberi $5^x > 36$.
+	Satu-satunya solusi $(x, y, z) = (2, 2, 1)$.
+
+	\item Persamaannya simetris, jadi misalkan $a \le b \le c$.
+	Dari $(abc)^2 = a^3 + b^3 + c^3 \le 3c^3$ diperoleh
+	\[ a^2b^2 \le 3c. \]
+	Untuk $a = 1$: $b^2 \le 3c$.
+	Nilai $b = 1$ memberi $2 + c^3 = c^2$. Mustahil.
+	Nilai $b = 2$ memberi $9 + c^3 = 4c^2$ dengan $c \ge 2$.
+	Persamaan $c^3 - 4c^2 + 9 = 0$ dipenuhi $c = 3$;
+	nilai $c = 2$ gagal dan $c \ge 4$ memberi $c^2(c - 4) + 9 > 0$.
+	Diperoleh $(1, 2, 3)$. Periksa: $1 + 8 + 27 = 36 = 6^2$.
+	Nilai $b = 3$ memberi $28 + c^3 = 9c^2$ dengan $c \ge 3$.
+	Persamaan $c^3 - 9c^2 + 28 = 0$ gagal untuk $c = 3, 4, 5, 6, 7, 8$
+	(bernilai $-26$, $-52$, $-72$, $-80$, $-70$, $-36$)
+	dan positif untuk $c \ge 9$.
+	Untuk $b \ge 4$: $1 + b^3 + c^3 = b^2c^2$ memberi
+	\[ c^2(b^2 - c) = b^3 + 1. \]
+	Jadi $c < b^2$ dan $c^2 \mid b^3 + 1$.
+	Dari $c \ge b^2/3$ diperoleh $b^4/9 \le b^3 + 1$,
+	yaitu $b^3(b - 9) \le 9$ dan $b \le 9$.
+	Pengecekan $b = 4, \dots, 9$ menunjukkan tidak ada $c \ge b$
+	dengan $c^2 \mid b^3 + 1$.
+	Untuk $a = 2$: $8 + b^3 + c^3 = 4b^2c^2$ memberi
+	\[ c^2(4b^2 - c) = b^3 + 8. \]
+	Jadi $c < 4b^2$ dan $c^2 \le b^3 + 8$.
+	Dari $c \ge 4b^2/3$ diperoleh $b^3(16b - 9) \le 72$,
+	tetapi $b = 2$ saja memberi $184 > 72$.
+	Untuk $a \ge 3$: $c^2(a^2b^2 - c) = a^3 + b^3$ memberi $c < a^2b^2$ dan
+	\[ c^2 \le a^3 + b^3 \le 2b^3. \]
+	Dari $c \ge a^2b^2/3$ diperoleh $a^4b \le 18$,
+	tetapi $a \ge 3$ memberi $a^4b \ge 243$.
+	Solusinya semua permutasi dari $(1, 2, 3)$.
+
+	\item Jelas $(0, 0, 0)$ memenuhi.
+	Modulo $2$: $x^3 \equiv 0 \pmod{2}$, jadi $x$ genap.
+	Tulis $x = 2x_1$ dan bagi kedua ruas dengan $2$:
+	\[ 4x_1^3 + y^3 = 2z^3. \]
+	Maka $y$ genap. Tulis $y = 2y_1$ dan bagi kedua ruas dengan $2$:
+	\[ 2x_1^3 + 4y_1^3 = z^3. \]
+	Maka $z$ genap. Tulis $z = 2z_1$ dan bagi kedua ruas dengan $2$:
+	\[ x_1^3 + 2y_1^3 = 4z_1^3. \]
+	Tripel $(x_1, y_1, z_1)$ solusi yang lebih kecil.
+	Pengulangan tanpa henti mustahil untuk bilangan cacah,
+	jadi satu-satunya solusi $(x, y, z) = (0, 0, 0)$.
+\end{enumerate}
+
+\subsection{Jumlah Digit}
+
+\begin{enumerate}[resume]
+	\item Ingat $S(n)$ menyatakan \istilah{jumlah digit}{digit sum} dari $n$.
+	Untuk sifat kedua, tulis $n = \sum d_i10^i$:
+	\[ n = \sum d_i10^i \equiv \sum d_i = S(n) \pmod{9}, \]
+	karena $10^i \equiv 1 \pmod{9}$.
+	Untuk sifat pertama, catat setiap simpanan dalam penjumlahan
+	mengurangi jumlah digit sebesar $9$:
+	\[ S(x + y) = S(x) + S(y) - 9C \le S(x) + S(y). \]
+	Terapkan berulang pada $an = n + \dots + n$ ($a$ suku):
+	\[ S(an) \le S(n) + \dots + S(n) = aS(n). \]
+	Untuk sifat ketiga, tulis $m = \sum c_j10^j$:
+	\[ mn = \sum_j c_j10^jn. \]
+	Jumlah digit tidak berubah saat menempelkan nol di belakang,
+	jadi $S(c_j10^jn) = S(c_jn) \le c_jS(n)$ menurut sifat pertama.
+	Jumlahkan:
+	\[ S(mn) \le \sum_j c_jS(n) = S(m)S(n). \]
+
+	\item Ya, ada. Ambil $N = 10000$ dan
+	\[ k = 1999\dots9000\dots0, \]
+	yaitu $1$ diikuti $1111$ digit $9$ lalu $8888$ digit $0$.
+	Banyak digitnya $1 + 1111 + 8888 = 10000 = N$.
+	Jumlah digitnya
+	\[ S(k) = 1 + 1111 \cdot 9 = 10000 = N. \]
+	Karena $k$ diakhiri lebih dari empat nol, $10000$ membagi $k$.
+
+	\item Tulis $f(n)$ untuk jumlah kuadrat digit-digit $n$.
+	Untuk $n$ dengan $d \ge 4$ digit:
+	\[ f(n) \le 81d < 10^{d-1} \le n. \]
+	Ketaksamaan $81d < 10^{d-1}$ benar untuk $d = 4$ ($324 < 1000$),
+	dan jika benar untuk $d$ maka untuk $d + 1$:
+	\[ 10^d = 10 \cdot 10^{d-1} > 810d \ge 81(d + 1). \]
+	Jadi barisan $n_0, n_1, \dots$ turun tegas selama nilainya $\ge 1000$,
+	sehingga suatu saat masuk himpunan berhingga $\{0, 1, \dots, 999\}$.
+	Nilai yang berhingga dengan aturan lanjutan yang deterministik
+	pasti berulang, dan pengulangan pertama memulai siklus.
+	Jadi barisannya selalu menjadi periodik.
+
+	\item Tulis $9N = 10N - N$ sebagai pengurangan bersusun.
+	Setiap pinjaman menambah jumlah digit sebesar $9$, sehingga
+	\[ S(9N) = S(10N) - S(N) + 9B = 9B, \]
+	dengan $B$ banyak posisi yang meminjam.
+	Tulis digit $N$ sebagai $d_1 \le d_2 \le \dots \le d_k$.
+	Pada posisi satuan, $0 - d_k$ selalu meminjam karena $d_k \ge 1$.
+	Pada posisi berikutnya, pengurangnya $d_{k-i}$ dan yang dikurangi $d_{k-i+1}$.
+	Pinjaman berlanjut tepat saat kedua digit itu sama:
+	berhenti di kenaikan strikt pertama jika dibaca dari kanan.
+	Jadi pinjaman terjadi di tepat $L$ posisi, dengan $L$ panjang
+	rangkaian digit sama di ekor $N$:
+	\[ S(9N) = 9L. \]
+	Nilai $L \ge 1$ sebarang tercapai, misalnya $N = 11\dots1$ ($L$ digit)
+	memberi $9N = 99\dots9$ dengan jumlah digit $9L$.
+	Jadi nilai yang mungkin adalah $9$, $18$, $27$, dan seterusnya.
+
+	\item Setiap simpanan dalam $a + b$ mengurangi jumlah digit sebesar $9$:
+	\[ S(a) + S(b) - S(a + b) = 9C \]
+	dengan $C$ total simpanan. Syarat soal memberi
+	\[ 2n - n = n = 9C. \]
+	Jadi $n$ kelipatan $9$.
+	Konversnya, untuk $n = 9C$ ambil $a = b = 10^C - 1$:
+	\[ S(a) = S(b) = 9C, \qquad a + b = 2 \cdot 10^C - 2 = 1999\dots98. \]
+	Bilangan terakhir terdiri dari $1$, lalu $C - 1$ digit $9$, lalu $8$,
+	sehingga jumlah digitnya $1 + 9(C-1) + 8 = 9C$.
+	Jawabannya semua kelipatan $9$.
+
+	\item Andaikan sebaliknya: $S(3^{n+1}) > S(3^n)$ untuk semua $n \ge N$,
+	dengan $N \ge 2$.
+	Untuk $n \ge 2$ berlaku $3^n \equiv 0 \pmod{9}$, sehingga
+	\[ S(3^n) \equiv 3^n \equiv 0 \pmod{9}. \]
+	Nilai $S(3^n)$ kelipatan $9$ yang naik tegas,
+	jadi naik sedikitnya $9$ setiap langkah:
+	\[ S(3^n) \ge 9(n - N + 1). \]
+	Di sisi lain $3^n = \sqrt{9^n} < \sqrt{10^n} = 10^{n/2}$,
+	jadi $3^n$ punya paling banyak $n/2 + 1$ digit:
+	\[ S(3^n) \le 9\left(\frac{n}{2} + 1\right). \]
+	Gabungkan kedua batas:
+	\[ n - N + 1 \le \frac{n}{2} + 1, \qquad \text{yaitu} \qquad n \le 2N. \]
+	Ini gagal untuk $n = 2N + 1$. Kontradiksi.
+	Jadi terdapat tak hingga banyaknya $n$ dengan $S(3^n) \ge S(3^{n+1})$.
+
+	\item Rangkai kedua sifat jumlah digit:
+	\[ 800 = S(44N) = S(4 \cdot 11N) \le 4S(11N) \le 4(S(10N) + S(N)) = 800. \]
+	Kedua ketaksamaan menjadi kesamaan.
+	Dari $S(11N) = 2S(N)$: penjumlahan $10N + N$ tanpa simpanan,
+	jadi digit $11N$ adalah $d_{i-1} + d_i$ dengan $d_i$ digit $N$.
+	Dari $S(4 \cdot 11N) = 4S(11N)$: perkalian $4$ tanpa simpanan,
+	jadi setiap digit $11N$ tidak lebih dari $2$.
+	Gabungkan:
+	\[ d_{i-1} + d_i \le 2 \quad \text{untuk setiap } i,
+	\qquad \text{sehingga} \qquad d_i \le 2 \quad \text{untuk setiap } i. \]
+	Maka $3d_i \le 6$ dan perkalian $3N$ pun tanpa simpanan:
+	\[ S(3N) = 3S(N) = 300. \]
+
+	\item Tulis $P(n)$ untuk hasil kali digit-digit $n$.
+	Dari $P(n) = n^2 - 10n - 22 \ge 0$ diperoleh $n \ge 12$.
+	Jika $n$ punya $d \ge 4$ digit, maka $n \ge 10^{d-1}$ dan
+	\[ 10^{2d-2} - 10^d - 22 \le n^2 - 10n - 22 = P(n) \le 9^d. \]
+	Ini gagal untuk $d = 4$ ($989978 > 6561$),
+	dan ruas kiri tumbuh $100$ kali lipat sementara ruas kanan $9$ kali lipat.
+	Jadi $d \le 3$ dan $P(n) \le 729$:
+	\[ n^2 - 10n - 22 \le 729, \qquad \text{yaitu} \qquad n \le 32. \]
+	Fungsi $n^2 - 10n - 22$ naik untuk $n > 5$.
+	Untuk $14 \le n \le 32$: nilainya sedikitnya $34$,
+	sementara $P(n)$ paling besar $18$.
+	Jadi $n \le 13$. Pengecekan:
+	\begin{align*}
+	n = 12 &: P(12) = 2 = 144 - 120 - 22, \\
+	n = 13 &: P(13) = 3 \ne 169 - 130 - 22 = 17.
+	\end{align*}
+	Satu-satunya jawaban $n = 12$.
+
+	\item Tulis $M = \overline{a_2\dots a_n}$ ($n - 1$ digit) dan
+	$N = a_1 \cdot 10^{n-1} + M$.
+	Dari $M \mid N$ diperoleh $t = a_1 \cdot 10^{n-1}/M$ bulat.
+	Dari $10^{n-2} \le M < 10^{n-1}$ diperoleh
+	\[ a_1 < t \le 10a_1 \le 90. \]
+	Tulis $t = 2^u5^vw$ dengan $w$ koprima terhadap $10$.
+	Karena $t \mid a_1 \cdot 10^{n-1}$, berlaku $w \mid a_1$.
+	Tulis valuasi $M = a_1 \cdot 10^{n-1}/t$:
+	\[ A = (n - 1 - u) + v_2(a_1/w), \qquad B = (n - 1 - v) + v_5(a_1/w). \]
+	Syarat $a_n \ne 0$ berarti $M \not\equiv 0 \pmod{10}$,
+	jadi $A = 0$ atau $B = 0$.
+	Jika $A = 0$: $u \ge n - 1$ dan $2^{n-1} \le t \le 90$, jadi $n \le 7$.
+	Jika $B = 0$: $v \ge n - 1$ dan $5^{n-1} \le 90$, jadi $n \le 3$.
+	Jadi $n \le 7$.
+	Untuk $n = 7$ haruslah $A = 0$,
+	sehingga $u = 6 + v_2(a_1/w)$ dan $t = 2^u5^vw \le 90$.
+	Ini memaksa $u = 6$, $v = 0$, $w = 1$, $t = 64$,
+	dengan $a_1$ ganjil dan $a_1 < 64 \le 10a_1$.
+	Ambil $a_1 = 7$:
+	\[ M = \frac{7 \cdot 10^6}{64} = 109375, \qquad N = 7109375 = 65 \cdot M. \]
+	Syarat $a_1, a_2, a_n \ne 0$ terpenuhi.
+	Jadi $n = 7$ tercapai dan terbesar.
+
+	\item Setiap simpanan dalam $n + n$ mengurangi jumlah digit sebesar $9$:
+	\[ S(2n) = 2S(n) - 9C = 4042 - 9C \le 1202, \]
+	dengan $C$ total simpanan. Jadi $9C \ge 2840$ dan $C \ge 316$.
+	Simpanan keluar di suatu posisi berarti $2d_i + c_i \ge 10$
+	dengan $c_i \le 1$, jadi $d_i \ge 5$.
+	Tulis $J$ untuk banyak digit $n$ yang nilainya $\ge 5$ dan $L$ untuk banyak digit $n$.
+	Maka $J \ge C \ge 316$ dan
+	\[ 2021 - L = \sum (d_i - 1) \ge 4J \ge 1264, \]
+	sehingga $L \le 757$.
+	Untuk $L = 757$ kesamaan harus terjadi di mana-mana:
+	tepat $316$ digit bernilai $5$ dan $441$ digit bernilai $1$.
+	Bilangan terbesar dengan susunan digit ini menaruh semua $5$ di depan:
+	\[ N = \underbrace{55\dots5}_{316}\underbrace{11\dots1}_{441}. \]
+	Periksa: $S(N) = 1580 + 441 = 2021$ dan $S(2N) = 4042 - 9 \cdot 316 = 1198 \le 1202$.
+	Banyak digit $N$ adalah $757$.
+\end{enumerate}
+
+\subsection{Teorema Binomial}
+
+\begin{enumerate}[resume]
+	\item Uraikan $(1 - 1)^n$ dengan \istilah{teorema binomial}{binomial theorem}:
+	\[ 0 = (1 - 1)^n = \sum_{r=0}^{n} \binom{n}{r}(-1)^r
+	= \binom{n}{0} - \binom{n}{1} + \dots + (-1)^n\binom{n}{n}. \]
+
+	\item Tulis $12 = 1 + 11$ lalu uraikan:
+	\begin{align*}
+	12^{11} - 1 &= (1 + 11)^{11} - 1 \\
+	&= \binom{11}{1} \cdot 11 + \binom{11}{2} \cdot 11^2 + \dots + 11^{11}.
+	\end{align*}
+	Suku pertama $\binom{11}{1} \cdot 11 = 121$.
+	Semua suku berikutnya memuat $11^2$ atau lebih tinggi.
+	Jadi $121$ membagi jumlahnya.
+
+	\item Tulis $9 = 1 + 8$ lalu uraikan:
+	\begin{align*}
+	9^5 = (1 + 8)^5 &= 1 + \binom{5}{1} \cdot 8 + \binom{5}{2} \cdot 8^2 + \dots \\
+	&= 1 + 40 + 64 \cdot (\text{bilangan bulat}).
+	\end{align*}
+	Suku-suku berikutnya memuat $8^3 = 512 = 64 \cdot 8$ atau lebih tinggi,
+	jadi semuanya habis dibagi $64$. Sisanya $41$.
+\end{enumerate}
+
+\end{document}

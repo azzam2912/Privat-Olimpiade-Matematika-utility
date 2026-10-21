@@ -1,0 +1,225 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Persamaan Diophantine dan Digit Bilangan - Soal Latihan
+% 29 soal: 5 Faktorisasi, 3 Ketaksamaan dan Bounding,
+% 8 Modulo Faktorial dan Pangkat, 10 Jumlah Digit, 3 Teorema Binomial.
+% Sumber tiap soal dimunculkan di PDF sebagai \item (Sumber); komentar menyimpan detail lengkap.
+% Versi gabungan Materi+Latihan tersedia sebagai Diophantine-Digit_Modul.tex.
+% Awalan tingkat kesukaran "(2; ...)", "(3; ...)" di modul sumber tidak dipertahankan.
+
+\title{Persamaan Diophantine dan Digit Bilangan - Soal Latihan}
+\date{21 Oktober 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\section{Faktorisasi}
+\begin{enumerate}
+
+	% Source: Modul Pra-OSP Persamaan Diophantine No. 1 (redaksi diperbaiki)
+	% Jawaban: (x, y) = (2, 14)
+	\item (Pra-OSP Diophantine)
+	Cari semua pasangan bilangan asli $(x, y)$ yang memenuhi persamaan
+	\[ \frac{5}{x} - \frac{7}{y} = 2. \]
+
+	% Source: Modul Pra-OSP Persamaan Diophantine No. 2
+	% Jawaban: (x, y) = (3, 4) dan (4, 3)
+	\item (Pra-OSP Diophantine)
+	Cari semua pasangan bilangan asli $(x, y)$ yang memenuhi persamaan
+	\[ (xy - 7)^2 = x^2 + y^2. \]
+
+	% Source: Belanda MO 2015 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (p, q) = (2, 7)
+	\item (Belanda MO 2015)
+	Cari semua pasangan bilangan prima $(p, q)$ yang memenuhi persamaan
+	\[ 7pq^2 + p = q^3 + 43p^3 + 1. \]
+
+	% Source: contoh teori Modul Pra-OSK/Pra-OSP Persamaan Diophantine, dipindah ke Latihan
+	% Jawaban: (x, y) = (6, 5)
+	\item (Pra-OSP Diophantine)
+	Carilah semua solusi bilangan asli dari persamaan
+	\[ x^3 - y^3 = xy + 61. \]
+
+	% Source: contoh teori Modul Pra-OSK/Pra-OSP Persamaan Diophantine (tanpa solusi di sumber),
+	% dipindah ke Latihan
+	% Jawaban: (x, y) = (5, 0), (-5, 0), (7, 2), (7, -2), (-3, 2), (-3, -2),
+	% (25, 5), (25, -5), (0, 5), (0, -5)
+	\item (Pra-OSP Diophantine)
+	Tentukan semua bilangan bulat $x$ dan $y$ yang memenuhi persamaan
+	\[ x^2 + y^2 = xy^2 + 25. \]
+
+\end{enumerate}
+
+\section{Ketaksamaan dan Bounding}
+\begin{enumerate}[resume]
+
+	% Source: Belanda MO 2014 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (a, b, c) = (1, 3, 8), (1, 4, 5), (2, 2, 4)
+	\item (Belanda MO 2014)
+	Cari semua tripel bilangan asli $(a, b, c)$ yang memenuhi $a \le b \le c$ dan
+	\[ abc = 2(a + b + c). \]
+
+	% Source: Nigeria MO Round 2 2022 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: 16, 18, 24, 30
+	\item (Nigeria MO 2022)
+	Diberikan bilangan asli $k, l, m, n$ yang memenuhi persamaan $k + l + m + n = km = ln$.
+	Tentukan semua nilai yang mungkin dari $k + l + m + n$.
+
+	% Source: Kazakhstan 2022 Grade 8 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (m, n) = (1, 4)
+	\item (Kazakhstan 2022)
+	Cari semua bilangan asli $m$ dan $n$ yang memenuhi persamaan
+	\[ (3m + n + 1)^2 = 16mn. \]
+
+\end{enumerate}
+
+\section{Modulo, Faktorial, dan Pangkat}
+\begin{enumerate}[resume]
+
+	% Source: Belanda MO 2011 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (a, b, n) = (1, 1, 1), (2, 2, 2), (2, 3, 3), (3, 2, 3)
+	\item (Belanda MO 2011)
+	Cari semua bilangan asli $(a, b, n)$ yang memenuhi persamaan
+	\[ a! + b! = 2^n. \]
+
+	% Source: Bangladesh MO 2023 (Modul Pra-OSP Persamaan Diophantine, redaksi diperbaiki)
+	% Jawaban: (x, y, z) = (0, 0, 2), (1, 0, 2), (2, 2, 3)
+	\item (Bangladesh MO 2023)
+	Tentukan semua tripel bilangan cacah $(x, y, z)$ yang memenuhi persamaan
+	\[ x! + 2^y = z!. \]
+
+	% Source: Arab Saudi BMO TST 2013 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (x, y, z) = (2, 1, 5)
+	\item (Arab Saudi BMO TST 2013)
+	Cari semua bilangan asli $(x, y, z)$ yang memenuhi persamaan
+	\[ 2^x + 21^y = z^2. \]
+
+	% Source: PEN H 82 (Modul Pra-OSK Persamaan Diophantine; dikomentari di versi Pra-OSP)
+	% Jawaban: (a, b, c) = (3, 3, 4)
+	\item (PEN H 82)
+	Cari semua bilangan asli $a, b, c$ yang memenuhi persamaan
+	\[ a!b! = a! + b! + c!. \]
+
+	% Source: USAMO kelima (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (a, b, c) = (0, 0, 0)
+	\item (USAMO)
+	Carilah semua solusi bilangan bulat dari persamaan
+	\[ a^2 + b^2 + c^2 = a^2b^2. \]
+
+	% Source: Arab Saudi GMO TST 2014 (Modul Pra-OSK Persamaan Diophantine; dikomentari di versi Pra-OSP)
+	% Jawaban: (x, y, z) = (2, 2, 1)
+	\item (Arab Saudi GMO TST 2014)
+	Cari semua bilangan asli $(x, y, z)$ yang memenuhi persamaan
+	\[ 5^x + 3^y - 2^z = 32. \]
+
+	% Source: IMO SL 2019 (Modul Pra-OSK Persamaan Diophantine; dikomentari di versi Pra-OSP)
+	% Jawaban: semua permutasi dari (1, 2, 3)
+	\item (IMO SL 2019)
+	Cari semua bilangan asli $(a, b, c)$ yang memenuhi persamaan
+	\[ a^3 + b^3 + c^3 = (abc)^2. \]
+
+	% Source: Modul Pra-OSP Persamaan Diophantine
+	% Jawaban: (x, y, z) = (0, 0, 0)
+	\item (Pra-OSP Diophantine)
+	Tentukan semua tripel bilangan cacah $(x, y, z)$ yang memenuhi persamaan
+	\[ x^3 + 2y^3 = 4z^3. \]
+
+\end{enumerate}
+
+\section{Jumlah Digit}
+\begin{enumerate}[resume]
+
+	% Source: Modul Pra-OSP Jumlah Digit (meminta bukti ketiga sifat)
+	\item (Pra-OSP Digit)
+	Buktikan ketiga sifat jumlah digit berikut untuk bilangan asli $a$, $m$, dan $n$:
+	\begin{enumerate}
+		\item $S(an) \le aS(n)$.
+		\item $S(n) \equiv n \pmod{9}$.
+		\item $S(mn) \le S(m)S(n)$.
+	\end{enumerate}
+
+	% Source: Modul Pra-OSP Jumlah Digit
+	% Jawaban: ya, misalnya N = 10000
+	\item (Pra-OSP Digit)
+	Apakah terdapat bilangan asli $N$ dengan $N > 2024$ dan bilangan asli $k$
+	dengan $N$ digit sehingga $S(k) = N$ dan $N$ membagi $k$?
+
+	% Source: IGMO 2022 (Modul Pra-OSP Jumlah Digit)
+	\item (IGMO 2022)
+	Ambil sebuah bilangan asli $n_0$. Dapatkan $n_1$ sebagai jumlah kuadrat digit-digit $n_0$.
+	Dengan cara yang serupa, konstruksikan $n_2, n_3$, dan seterusnya.
+	Buktikan bahwa barisan $\{n_i\}_{i = 0}^{\infty}$ selalu suatu saat akan periodik,
+	berapapun nilai $n_0$.
+
+	% Source: Rusia MO 1999 (Modul Pra-OSP Jumlah Digit;
+	% `menaik' di modul sumber ditafsirkan sebagai tak menurun)
+	% Jawaban: semua kelipatan 9, yaitu 9, 18, 27, ...
+	\item (Rusia MO 1999)
+	Dalam representasi desimal dari $N$, digit-digitnya tampil secara tak menurun
+	(setiap digit tidak lebih kecil dari digit sebelumnya).
+	Tentukan semua nilai yang mungkin dari $S(9N)$.
+
+	% Source: Romania TST JBMO 1999 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: semua kelipatan 9
+	\item (Romania TST JBMO 1999)
+	Tentukan semua bilangan asli $n$ sedemikian hingga terdapat bilangan cacah $a$ dan $b$
+	sedemikian hingga
+	\[ S(a) = S(b) = S(a + b) = n. \]
+
+	% Source: Rusia MO 1997 (Modul Pra-OSP Jumlah Digit)
+	\item (Rusia MO 1997)
+	Buktikan bahwa terdapat tak hingga banyaknya bilangan asli $n$
+	sedemikian hingga $S(3^n) \ge S(3^{n + 1})$.
+
+	% Source: Rusia MO 1999 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: 300
+	\item (Rusia MO 1999)
+	Diketahui bahwa $S(N) = 100$ dan $S(44N) = 800$.
+	Tentukan nilai dari $S(3N)$.
+
+	% Source: IMO 1968 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: n = 12
+	\item (IMO 1968)
+	Tentukan semua bilangan asli $n$ yang hasil kali digit-digitnya sama dengan $n^2 - 10n - 22$.
+
+	% Source: Czech-Polish-Slovak Junior Match 2017 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: n = 7
+	\item (Czech-Polish-Slovak Junior Match 2017)
+	Tentukan bilangan asli $n \ge 3$ terbesar sedemikian hingga terdapat bilangan asli $n$ digit
+	$\overline{a_1a_2\dots a_n}$ yang nilai $a_1$, $a_2$, dan $a_n$ taknol
+	yang habis dibagi oleh $\overline{a_2\dots a_n}$.
+
+	% Source: KTOM April 2022 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: 757 digit
+	\item (KTOM April 2022)
+	Sebuah bilangan asli $n$ disebut sebagai \textit{Komi} apabila tidak ada digitnya
+	yang bernilai $0$, jumlah digit $n$ sama dengan $2021$,
+	tetapi jumlah digit dari $2n$ tidak lebih dari $1202$.
+	Jika bilangan \textit{Komi} terbesar adalah $N$, banyak digit dari $N$ adalah \dots
+
+\end{enumerate}
+
+\section{Teorema Binomial}
+\begin{enumerate}[resume]
+
+	% Source: Modul Pra-OSK Koefisien Binomial (versi sumber memakai n = 100; disajikan untuk n umum)
+	\item (Pra-OSK Binomial)
+	Buktikan bahwa untuk setiap bilangan asli $n$ berlaku
+	\[ \binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \dots + (-1)^n\binom{n}{n} = 0. \]
+
+	% Composed: penerapan teorema binomial untuk keterbagian
+	\item Buktikan bahwa $121$ membagi $12^{11} - 1$.
+
+	% Composed: penerapan teorema binomial untuk sisa pembagian
+	% Jawaban: 41
+	\item Tentukan sisa pembagian $9^5$ oleh $64$.
+
+\end{enumerate}
+
+\end{document}

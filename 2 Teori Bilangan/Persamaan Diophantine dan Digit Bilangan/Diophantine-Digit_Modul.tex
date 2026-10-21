@@ -1,0 +1,643 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Persamaan Diophantine dan Digit Bilangan - Modul (gabungan Materi dan Soal Latihan)
+% Digabung dari Diophantine-Digit_Materi.tex dan Diophantine-Digit_Latihan.tex.
+% Adaptasi dari Modul Pra-OSK/Pra-OSP Persamaan Diophantine, Modul Pra-OSP Jumlah Digit,
+% dan Modul Pra-OSK Koefisien Binomial.
+% _Solusi tetap terpisah.
+% Sumber tiap soal latihan dimunculkan di PDF sebagai \item (Sumber); komentar menyimpan detail lengkap.
+
+\title{Persamaan Diophantine dan Digit Bilangan - Modul}
+\date{21 Oktober 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\part*{Materi}
+
+Modul ini merangkum dua tema teori bilangan yang sering muncul berdampingan
+di OSK dan OSP: persamaan Diophantine dan sifat digit bilangan.
+Enam seksi pertama membahas teknik standar persamaan Diophantine,
+dari linear sampai keturunan tak hingga.
+Dua seksi terakhir membahas jumlah digit dan teorema binomial sebagai alat bantu.
+Setiap teori langsung diikuti contoh soal,
+jadi bacalah teori lalu contohnya berpasangan.
+
+\section{Persamaan Diophantine Linear}
+
+Sebuah \istilah{persamaan Diophantine}{Diophantine equation} adalah persamaan
+yang solusinya dicari dalam bilangan bulat.
+Kadang daerah solusinya dipersempit lagi menjadi bilangan asli atau cacah,
+sesuai redaksi soal.
+Kasus paling dasar adalah persamaan linear dua variabel.
+
+\begin{theorem}[Diophantine linear]
+Misalkan $a$, $b$, dan $c$ bilangan bulat dengan $a$ dan $b$ tidak keduanya nol.
+Tulis $d = FPB(a, b)$. Persamaan
+\[ ax + by = c \]
+mempunyai solusi bilangan bulat jika dan hanya jika $d \mid c$.
+Apabila $(x_0, y_0)$ adalah satu solusi, semua solusinya adalah
+\[ x = x_0 + \frac{b}{d}t, \qquad y = y_0 - \frac{a}{d}t \]
+untuk $t$ bilangan bulat sebarang.
+\end{theorem}
+
+\begin{example}
+Tentukan semua pasangan bilangan bulat $(x, y)$ yang memenuhi $6x + 10y = 4$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $FPB(6, 10) = 2$ membagi $4$, solusinya ada.
+Bagi kedua ruas dengan $2$:
+\[ 3x + 5y = 2. \]
+Satu solusi mudah ditebak:
+\[ x_0 = -1, \qquad y_0 = 1. \]
+Solusi umumnya
+\begin{align*}
+x &= -1 + 5t, \\
+y &= 1 - 3t,
+\end{align*}
+untuk setiap bilangan bulat $t$.
+\end{proof}
+
+\section{Faktorisasi}
+
+Idenya sederhana. Ubah persamaan menjadi bentuk
+\[ f_1 \cdot f_2 \cdots f_n = a \]
+dengan $a$ konstanta, lalu periksa semua kemungkinan faktor dari $a$.
+Tiga identitas berikut paling sering dipakai.
+
+\begin{fact}[Identitas faktorisasi]
+\begin{enumerate}
+    \item \textbf{Simon's Favorite Factoring Trick.} Bentuk $xy + px + qy$
+    selalu bisa dilengkapi menjadi $(x + q)(y + p)$ ditambah konstanta.
+    \item \textbf{Sophie Germain.}
+    \[ a^4 + 4b^4 = (a^2 - 2ab + 2b^2)(a^2 + 2ab + 2b^2). \]
+    \item \textbf{Jumlah kubik.}
+    \[ a^3 + b^3 + c^3 - 3abc = (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca). \]
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Tentukan semua pasangan bilangan bulat $(x, y)$ yang memenuhi $xy + 3x - 2y = 4$.
+\end{example}
+\begin{proof}[Solusi]
+Lengkapi menjadi perkalian dua faktor:
+\begin{align*}
+(x - 2)(y + 3) &= xy + 3x - 2y - 6 \\
+&= 4 - 6 \\
+&= -2.
+\end{align*}
+Faktor dari $-2$ hanya $\pm 1$ dan $\pm 2$, jadi
+\begin{align*}
+x - 2 = 1, y + 3 = -2 &\quad \text{memberi} \quad (x, y) = (3, -5), \\
+x - 2 = -1, y + 3 = 2 &\quad \text{memberi} \quad (x, y) = (1, -1), \\
+x - 2 = 2, y + 3 = -1 &\quad \text{memberi} \quad (x, y) = (4, -4), \\
+x - 2 = -2, y + 3 = 1 &\quad \text{memberi} \quad (x, y) = (0, -2).
+\end{align*}
+\end{proof}
+
+\begin{example}
+Tentukan semua bilangan asli $n$ sehingga $n^4 + 4$ merupakan bilangan prima.
+\end{example}
+\begin{proof}[Solusi]
+Untuk $n = 1$ diperoleh $5$, yang prima.
+Untuk $n$ genap, $n^4 + 4$ genap dan lebih dari $2$, jadi komposit.
+Tinggal $n \ge 3$ ganjil. Faktorkan dengan Sophie Germain:
+\[ n^4 + 4 = (n^2 - 2n + 2)(n^2 + 2n + 2). \]
+Kedua faktornya lebih dari $1$, sebab
+\[ n^2 - 2n + 2 = (n - 1)^2 + 1 \ge 2. \]
+Jadi $n^4 + 4$ komposit. Satu-satunya jawaban $n = 1$.
+\end{proof}
+
+\begin{example}
+Tentukan semua tripel bilangan asli $(x, y, z)$ yang memenuhi $x^3 + y^3 + z^3 = 3xyz$.
+\end{example}
+\begin{proof}[Solusi]
+Pindahkan ruas dan pakai identitas jumlah kubik:
+\[ (x + y + z)(x^2 + y^2 + z^2 - xy - yz - zx) = 0. \]
+Faktor pertama positif. Faktor kedua bisa ditulis sebagai
+\[ \frac{1}{2}\left((x - y)^2 + (y - z)^2 + (z - x)^2\right) = 0. \]
+Jumlah tiga kuadrat nol hanya jika ketiganya nol:
+\[ x = y = z. \]
+Solusinya semua tripel $(t, t, t)$ dengan $t$ bilangan asli.
+\end{proof}
+
+\section{Ketaksamaan dan Bounding}
+
+Kadang solusinya tidak bisa dicari langsung, tetapi ukurannya bisa dibatasi.
+Setelah batasnya cukup kecil, sisa kasusnya tinggal diperiksa satu per satu.
+
+\begin{fact}[Tiga cara bounding]
+\begin{enumerate}
+    \item \textbf{Mengurutkan.} Pada persamaan simetris, misalkan
+    $x \le y \le z$ lalu ikat $x$ dari atas.
+    \item \textbf{Ukuran pembagi.} Jika $a \mid b$ dengan $b \ne 0$, maka
+    $|a| \le |b|$. Ketaksamaan ini sering memaksa variabelnya kecil.
+    \item \textbf{Mengapit pangkat.} Di antara $m^n$ dan $(m+1)^n$ tidak ada
+    pangkat $n$ lain. Jika suatu bentuk terjepit di antara dua kuadrat
+    berurutan, ia bukan \istilah{bilangan kuadrat}{perfect square}.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Tentukan semua pasangan bilangan asli $(x, y)$ dengan $x \mid y + 1$ dan $y \mid x + 1$.
+\end{example}
+\begin{proof}[Solusi]
+Dari $x \mid y + 1$ diperoleh $x \le y + 1$,
+dan dari $y \mid x + 1$ diperoleh $y \le x + 1$. Jadi
+\[ |x - y| \le 1. \]
+Jika $x = y$, maka $x \mid x + 1$ sehingga $x \mid 1$:
+\[ (x, y) = (1, 1). \]
+Jika $y = x + 1$, maka $x \mid x + 2$ sehingga $x \mid 2$:
+\[ (x, y) = (1, 2) \quad \text{atau} \quad (2, 3). \]
+Jika $x = y + 1$, simetris dengan kasus sebelumnya:
+\[ (x, y) = (2, 1) \quad \text{atau} \quad (3, 2). \]
+\end{proof}
+
+\begin{example}[Pra-OSP Diophantine]
+Carilah semua tripel bilangan asli $(x, y, z)$ yang memenuhi $3(xy + yz + zx) = 4xyz$.
+\end{example}
+\begin{proof}[Solusi]
+Persamaannya simetris, jadi misalkan $x \le y \le z$.
+Bagi kedua ruas dengan $3xyz$:
+\[ \frac{1}{x} + \frac{1}{y} + \frac{1}{z} = \frac{4}{3}. \]
+Karena $x \le y \le z$,
+\[ \frac{4}{3} \le \frac{3}{x}, \qquad \text{sehingga} \qquad x \le 2. \]
+Kasus $x = 1$ memberi
+\[ \frac{1}{y} + \frac{1}{z} = \frac{1}{3} \le \frac{2}{y}, \]
+sehingga $3 < y \le 6$. Pengecekan $y = 4, 5, 6$ memberi
+\[ (x, y, z) = (1, 4, 12) \quad \text{dan} \quad (1, 6, 6), \]
+beserta permutasinya. Kasus $x = 2$ memberi
+\[ \frac{1}{y} + \frac{1}{z} = \frac{5}{6} \le \frac{2}{y}, \]
+sehingga $2 \le y \le 2$. Nilai $y = 2$ memberi $z = 3$:
+\[ (x, y, z) = (2, 2, 3), \]
+beserta permutasinya.
+\end{proof}
+
+\begin{example}
+Buktikan bahwa $n^2 + 3n + 1$ bukan bilangan kuadrat untuk setiap bilangan asli $n$.
+\end{example}
+\begin{proof}[Solusi]
+Apit bentuk itu di antara dua kuadrat berurutan:
+\begin{align*}
+(n + 1)^2 &= n^2 + 2n + 1 < n^2 + 3n + 1, \\
+(n + 2)^2 &= n^2 + 4n + 4 > n^2 + 3n + 1.
+\end{align*}
+Karena letaknya strikt di antara dua kuadrat berurutan,
+$n^2 + 3n + 1$ bukan bilangan kuadrat.
+\end{proof}
+
+\section{Modulo}
+
+Analisis modulo sering langsung menghabisi soal.
+Pilih modulus yang membuat residu pangkatnya sedikit,
+lalu tunjukkan persamaannya mustahil atau sisakan sedikit kasus untuk diperiksa.
+Daftar di bawah ini sengaja ringkas.
+Versi lengkapnya, beserta teorema Euler, Fermat Kecil, dan Wilson,
+ada di unit Modulo dan Keterbagian.
+
+\begin{fact}[Residu pangkat]
+\begin{enumerate}
+    \item Sisa $x^2$ dibagi $4$ hanya bisa $0$ atau $1$.
+    Sisa $x^2$ dibagi $8$ hanya bisa $0$, $1$, atau $4$.
+    \item Sisa $x^3$ dibagi $9$ hanya bisa $0$, $1$, atau $8$.
+    \item Sisa $x^4$ dibagi $5$ hanya bisa $0$ atau $1$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Buktikan tidak ada bilangan bulat $x$ dan $y$ dengan $x^2 + y^2 = 2023$.
+\end{example}
+\begin{proof}[Solusi]
+Tinjau persamaan itu modulo $4$:
+\[ x^2 + y^2 \equiv 2023 \equiv 3 \pmod{4}. \]
+Sisa kuadrat modulo $4$ hanya $0$ atau $1$,
+sehingga jumlah dua sisa hanya bisa $0$, $1$, atau $2$.
+Nilai $3$ tidak pernah muncul.
+\end{proof}
+
+\begin{example}[Pra-OSP Diophantine]
+Carilah semua pasangan bilangan asli $(x, y)$ yang memenuhi $x^2 - y! = 2001$.
+\end{example}
+\begin{proof}[Solusi]
+Untuk $y \ge 3$, nilai $y! + 2001$ habis dibagi $3$,
+sehingga $3 \mid x$ dan $x^2 \equiv 0 \pmod{9}$.
+Karena $2001 \equiv 3 \pmod{9}$,
+\[ y! = x^2 - 2001 \equiv -3 \equiv 6 \pmod{9}. \]
+Tetapi $y!$ habis dibagi $9$ untuk $y \ge 6$.
+Jadi $y \le 5$, dan pengecekan langsung memberi
+\begin{align*}
+y = 1 &: x^2 = 2002, \quad 44^2 < 2002 < 45^2, \\
+y = 2 &: x^2 = 2003 \equiv 2 \pmod{3}, \\
+y = 3 &: x^2 = 2007, \quad 44^2 < 2007 < 45^2, \\
+y = 4 &: x^2 = 2025 = 45^2, \\
+y = 5 &: x^2 = 2121, \quad 46^2 < 2121 < 47^2.
+\end{align*}
+Satu-satunya solusi $(x, y) = (45, 4)$.
+\end{proof}
+
+\section{Keturunan Tak Hingga}
+
+Metode \istilah{keturunan tak hingga}{infinite descent} adalah senjata standar
+untuk persamaan homogen berderajat tinggi. Idenya satu baris.
+
+\begin{fact}[Prinsip keturunan tak hingga]
+Tidak ada barisan bilangan asli tak hingga yang turun tegas.
+Akibatnya, jika setiap solusi tak trivial dari suatu persamaan melahirkan
+solusi tak trivial yang lebih kecil, persamaan itu tidak punya solusi tak trivial.
+\end{fact}
+
+\begin{example}
+Tentukan semua solusi bilangan bulat dari $x^2 + y^2 = 3z^2$.
+\end{example}
+\begin{proof}[Solusi]
+Jelas $(0, 0, 0)$ memenuhi. Andaikan ada solusi tak nol.
+Modulo $3$, sisa kuadrat hanya $0$ atau $1$, sehingga
+\[ x^2 + y^2 \equiv 0 \pmod{3} \]
+memaksa $x$ dan $y$ habis dibagi $3$.
+Tulis $x = 3x_1$ dan $y = 3y_1$:
+\[ 9x_1^2 + 9y_1^2 = 3z^2, \qquad \text{yaitu} \qquad z^2 = 3(x_1^2 + y_1^2). \]
+Jadi $3 \mid z$ juga. Tulis $z = 3z_1$:
+\[ x_1^2 + y_1^2 = 3z_1^2. \]
+Tripel $(x_1, y_1, z_1)$ solusi yang lebih kecil:
+\[ |x_1| + |y_1| + |z_1| = \frac{|x| + |y| + |z|}{3}. \]
+Pengulangan tanpa henti mustahil untuk bilangan cacah,
+jadi satu-satunya solusi $(x, y, z) = (0, 0, 0)$.
+\end{proof}
+
+\begin{example}[Pra-OSP Diophantine]
+Carilah semua solusi bilangan bulat dari $x^4 + y^4 + z^4 = 9u^4$.
+\end{example}
+\begin{proof}[Solusi]
+Pangkat $4$ menyarankan modulo $5$, karena $t^4 \equiv 0$ atau $1 \pmod{5}$.
+Jelas $(0, 0, 0, 0)$ memenuhi. Jika $u = 0$, maka $x = y = z = 0$ juga.
+Andaikan ada solusi dengan $u \ne 0$.
+Jika $5 \nmid u$, ruas kanan kongruen $9 \equiv 4 \pmod{5}$,
+sementara ruas kiri, jumlah tiga nilai $0$ atau $1$, paling besar $3$.
+Kontradiksi. Jadi $5 \mid u$, dan dari
+\[ x^4 + y^4 + z^4 = 9u^4 \equiv 0 \pmod{5} \]
+diperoleh $5 \mid x$, $5 \mid y$, dan $5 \mid z$.
+Tulis $x = 5x_1$ dan seterusnya, lalu bagi kedua ruas dengan $5^4$:
+\[ x_1^4 + y_1^4 + z_1^4 = 9u_1^4. \]
+Solusi baru ini lebih kecil, sebab $|u_1| = |u|/5 < |u|$.
+Pengulangan tanpa henti mustahil, jadi satu-satunya solusi
+\[ (x, y, z, u) = (0, 0, 0, 0). \]
+\end{proof}
+
+\section{Diskriminan}
+
+Pandang persamaan sebagai kuadrat dalam satu variabel.
+Akarnya bulat hanya jika \istilah{diskriminan}{discriminant}nya bilangan kuadrat.
+
+\begin{fact}[Syarat diskriminan]
+Persamaan kuadrat $at^2 + bt + c = 0$ dengan $a$, $b$, $c$ bilangan bulat
+mempunyai akar rasional hanya jika $b^2 - 4ac$ adalah bilangan kuadrat.
+\end{fact}
+
+\begin{example}
+Tentukan semua pasangan bilangan bulat $(x, y)$ yang memenuhi $y^2 = x^2 + x + 1$.
+\end{example}
+\begin{proof}[Solusi]
+Pandang sebagai kuadrat dalam $x$:
+\[ x^2 + x + (1 - y^2) = 0. \]
+Diskriminannya harus bilangan kuadrat:
+\[ D = 1 - 4(1 - y^2) = 4y^2 - 3 = t^2 \]
+untuk suatu bilangan cacah $t$. Faktorkan:
+\[ (2y - t)(2y + t) = 3. \]
+Kedua faktornya ganjil, dan $3 = 1 \cdot 3 = (-1) \cdot (-3)$.
+Pasangan $(1, 3)$ dan $(3, 1)$ memberi $y = 1$,
+pasangan $(-1, -3)$ dan $(-3, -1)$ memberi $y = -1$.
+Dari $x = (-1 \pm t)/2$ dengan $t = 1$ diperoleh
+\[ (x, y) \in \{(0, 1), (0, -1), (-1, 1), (-1, -1)\}. \]
+\end{proof}
+
+\section{Jumlah Digit}
+
+\begin{definition}
+Untuk bilangan asli $n$, tulis $S(n)$ untuk \istilah{jumlah digit}{digit sum}
+dari $n$, yaitu hasil penjumlahan semua digit desimalnya.
+\end{definition}
+
+\begin{fact}[Sifat jumlah digit]
+Untuk bilangan asli $a$, $m$, dan $n$ berlaku:
+\begin{enumerate}
+    \item $S(an) \le aS(n)$.
+    \item $S(n) \equiv n \pmod{9}$.
+    \item $S(mn) \le S(m)S(n)$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Tentukan semua bilangan asli dua digit $n$ dengan $n = 2S(n)$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $n = 10a + b$ dengan $a$ dan $b$ digit, $a \ne 0$:
+\begin{align*}
+10a + b &= 2(a + b), \\
+8a &= b.
+\end{align*}
+Karena $b$ satu digit, $a = 1$ dan $b = 8$.
+Jadi $n = 18$.
+\end{proof}
+
+\begin{example}
+Tentukan semua bilangan asli $n$ dengan $n - S(n) = 45$.
+\end{example}
+\begin{proof}[Solusi]
+Dari $n - S(n) = 45$ diperoleh $45 \le n < 100$,
+sebab $n - S(n) \ge 73 > 45$ untuk $n \ge 100$.
+Jadi $n$ dua digit. Tulis $n = 10a + b$:
+\begin{align*}
+10a + b - (a + b) &= 45, \\
+9a &= 45, \\
+a &= 5.
+\end{align*}
+Digit $b$ bebas. Solusinya $n \in \{50, 51, \dots, 59\}$.
+\end{proof}
+
+\begin{example}
+Tentukan semua bilangan asli $n$ dengan $n + S(n) = 100$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $S(n) \ge 1$, berlaku $n \le 99$, sehingga $S(n) \le 18$ dan $n \ge 82$.
+Jadi $n$ dua digit. Tulis $n = 10a + b$:
+\begin{align*}
+10a + b + a + b &= 100, \\
+11a + 2b &= 100.
+\end{align*}
+Nilai $2b = 100 - 11a$ harus genap di antara $0$ dan $18$,
+yang hanya terjadi untuk $a = 8$ dan $b = 6$.
+Jadi $n = 86$.
+\end{proof}
+
+\begin{remark}
+Bukti ketiga sifat jumlah digit di atas diminta sebagai soal latihan pertama.
+\end{remark}
+
+\section{Teorema Binomial}
+
+Koefisien binomial muncul di banyak tempat.
+Di unit ini ia hanya alat bantu:
+menguraikan $(a + b)^n$ untuk argumen modulo dan keterbagian.
+
+\begin{definition}
+Untuk bilangan cacah $n$ dan $r$ dengan $r \le n$,
+\istilah{koefisien binomial}{binomial coefficient} $\binom{n}{r}$ adalah
+\[ \binom{n}{r} = \frac{n!}{r!(n-r)!}, \]
+banyak cara memilih $r$ benda dari $n$ benda.
+\end{definition}
+
+Hasil utamanya adalah \istilah{teorema binomial}{binomial theorem}.
+
+\begin{theorem}[Teorema binomial]
+Untuk setiap bilangan cacah $n$ dan bilangan $x$, $y$ sebarang berlaku
+\[ (x + y)^n = \sum_{r=0}^{n} \binom{n}{r} x^{n-r} y^r. \]
+\end{theorem}
+
+\begin{example}
+Buktikan bahwa $49$ membagi $8^7 - 1$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $8 = 1 + 7$ lalu uraikan:
+\begin{align*}
+8^7 - 1 &= (1 + 7)^7 - 1 \\
+&= \binom{7}{1} \cdot 7 + \binom{7}{2} \cdot 7^2 + \dots + 7^7.
+\end{align*}
+Suku pertama $\binom{7}{1} \cdot 7 = 49$.
+Semua suku berikutnya memuat $7^2$ atau lebih tinggi.
+Jadi $49$ membagi jumlahnya.
+\end{proof}
+
+\begin{example}
+Tentukan sisa pembagian $4^{10}$ oleh $9$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $4 = 1 + 3$ lalu uraikan:
+\begin{align*}
+4^{10} = (1 + 3)^{10} &= 1 + \binom{10}{1} \cdot 3 + \binom{10}{2} \cdot 3^2 + \dots \\
+&= 1 + 30 + 9 \cdot (\text{bilangan bulat}).
+\end{align*}
+Modulo $9$ suku terakhir lenyap:
+\[ 4^{10} \equiv 1 + 30 \equiv 4 \pmod{9}. \]
+Sisanya $4$.
+\end{proof}
+
+\part*{Soal Latihan}
+
+\section{Faktorisasi}
+\begin{enumerate}
+
+	% Source: Modul Pra-OSP Persamaan Diophantine No. 1 (redaksi diperbaiki)
+	% Jawaban: (x, y) = (2, 14)
+	\item (Pra-OSP Diophantine)
+	Cari semua pasangan bilangan asli $(x, y)$ yang memenuhi persamaan
+	\[ \frac{5}{x} - \frac{7}{y} = 2. \]
+
+	% Source: Modul Pra-OSP Persamaan Diophantine No. 2
+	% Jawaban: (x, y) = (3, 4) dan (4, 3)
+	\item (Pra-OSP Diophantine)
+	Cari semua pasangan bilangan asli $(x, y)$ yang memenuhi persamaan
+	\[ (xy - 7)^2 = x^2 + y^2. \]
+
+	% Source: Belanda MO 2015 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (p, q) = (2, 7)
+	\item (Belanda MO 2015)
+	Cari semua pasangan bilangan prima $(p, q)$ yang memenuhi persamaan
+	\[ 7pq^2 + p = q^3 + 43p^3 + 1. \]
+
+	% Source: contoh teori Modul Pra-OSK/Pra-OSP Persamaan Diophantine, dipindah ke Latihan
+	% Jawaban: (x, y) = (6, 5)
+	\item (Pra-OSP Diophantine)
+	Carilah semua solusi bilangan asli dari persamaan
+	\[ x^3 - y^3 = xy + 61. \]
+
+	% Source: contoh teori Modul Pra-OSK/Pra-OSP Persamaan Diophantine (tanpa solusi di sumber),
+	% dipindah ke Latihan
+	% Jawaban: (x, y) = (5, 0), (-5, 0), (7, 2), (7, -2), (-3, 2), (-3, -2),
+	% (25, 5), (25, -5), (0, 5), (0, -5)
+	\item (Pra-OSP Diophantine)
+	Tentukan semua bilangan bulat $x$ dan $y$ yang memenuhi persamaan
+	\[ x^2 + y^2 = xy^2 + 25. \]
+
+\end{enumerate}
+
+\section{Ketaksamaan dan Bounding}
+\begin{enumerate}[resume]
+
+	% Source: Belanda MO 2014 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (a, b, c) = (1, 3, 8), (1, 4, 5), (2, 2, 4)
+	\item (Belanda MO 2014)
+	Cari semua tripel bilangan asli $(a, b, c)$ yang memenuhi $a \le b \le c$ dan
+	\[ abc = 2(a + b + c). \]
+
+	% Source: Nigeria MO Round 2 2022 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: 16, 18, 24, 30
+	\item (Nigeria MO 2022)
+	Diberikan bilangan asli $k, l, m, n$ yang memenuhi persamaan $k + l + m + n = km = ln$.
+	Tentukan semua nilai yang mungkin dari $k + l + m + n$.
+
+	% Source: Kazakhstan 2022 Grade 8 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (m, n) = (1, 4)
+	\item (Kazakhstan 2022)
+	Cari semua bilangan asli $m$ dan $n$ yang memenuhi persamaan
+	\[ (3m + n + 1)^2 = 16mn. \]
+
+\end{enumerate}
+
+\section{Modulo, Faktorial, dan Pangkat}
+\begin{enumerate}[resume]
+
+	% Source: Belanda MO 2011 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (a, b, n) = (1, 1, 1), (2, 2, 2), (2, 3, 3), (3, 2, 3)
+	\item (Belanda MO 2011)
+	Cari semua bilangan asli $(a, b, n)$ yang memenuhi persamaan
+	\[ a! + b! = 2^n. \]
+
+	% Source: Bangladesh MO 2023 (Modul Pra-OSP Persamaan Diophantine, redaksi diperbaiki)
+	% Jawaban: (x, y, z) = (0, 0, 2), (1, 0, 2), (2, 2, 3)
+	\item (Bangladesh MO 2023)
+	Tentukan semua tripel bilangan cacah $(x, y, z)$ yang memenuhi persamaan
+	\[ x! + 2^y = z!. \]
+
+	% Source: Arab Saudi BMO TST 2013 (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (x, y, z) = (2, 1, 5)
+	\item (Arab Saudi BMO TST 2013)
+	Cari semua bilangan asli $(x, y, z)$ yang memenuhi persamaan
+	\[ 2^x + 21^y = z^2. \]
+
+	% Source: PEN H 82 (Modul Pra-OSK Persamaan Diophantine; dikomentari di versi Pra-OSP)
+	% Jawaban: (a, b, c) = (3, 3, 4)
+	\item (PEN H 82)
+	Cari semua bilangan asli $a, b, c$ yang memenuhi persamaan
+	\[ a!b! = a! + b! + c!. \]
+
+	% Source: USAMO kelima (Modul Pra-OSK dan Pra-OSP Persamaan Diophantine)
+	% Jawaban: (a, b, c) = (0, 0, 0)
+	\item (USAMO)
+	Carilah semua solusi bilangan bulat dari persamaan
+	\[ a^2 + b^2 + c^2 = a^2b^2. \]
+
+	% Source: Arab Saudi GMO TST 2014 (Modul Pra-OSK Persamaan Diophantine; dikomentari di versi Pra-OSP)
+	% Jawaban: (x, y, z) = (2, 2, 1)
+	\item (Arab Saudi GMO TST 2014)
+	Cari semua bilangan asli $(x, y, z)$ yang memenuhi persamaan
+	\[ 5^x + 3^y - 2^z = 32. \]
+
+	% Source: IMO SL 2019 (Modul Pra-OSK Persamaan Diophantine; dikomentari di versi Pra-OSP)
+	% Jawaban: semua permutasi dari (1, 2, 3)
+	\item (IMO SL 2019)
+	Cari semua bilangan asli $(a, b, c)$ yang memenuhi persamaan
+	\[ a^3 + b^3 + c^3 = (abc)^2. \]
+
+	% Source: Modul Pra-OSP Persamaan Diophantine
+	% Jawaban: (x, y, z) = (0, 0, 0)
+	\item (Pra-OSP Diophantine)
+	Tentukan semua tripel bilangan cacah $(x, y, z)$ yang memenuhi persamaan
+	\[ x^3 + 2y^3 = 4z^3. \]
+
+\end{enumerate}
+
+\section{Jumlah Digit}
+\begin{enumerate}[resume]
+
+	% Source: Modul Pra-OSP Jumlah Digit (meminta bukti ketiga sifat)
+	\item (Pra-OSP Digit)
+	Buktikan ketiga sifat jumlah digit berikut untuk bilangan asli $a$, $m$, dan $n$:
+	\begin{enumerate}
+		\item $S(an) \le aS(n)$.
+		\item $S(n) \equiv n \pmod{9}$.
+		\item $S(mn) \le S(m)S(n)$.
+	\end{enumerate}
+
+	% Source: Modul Pra-OSP Jumlah Digit
+	% Jawaban: ya, misalnya N = 10000
+	\item (Pra-OSP Digit)
+	Apakah terdapat bilangan asli $N$ dengan $N > 2024$ dan bilangan asli $k$
+	dengan $N$ digit sehingga $S(k) = N$ dan $N$ membagi $k$?
+
+	% Source: IGMO 2022 (Modul Pra-OSP Jumlah Digit)
+	\item (IGMO 2022)
+	Ambil sebuah bilangan asli $n_0$. Dapatkan $n_1$ sebagai jumlah kuadrat digit-digit $n_0$.
+	Dengan cara yang serupa, konstruksikan $n_2, n_3$, dan seterusnya.
+	Buktikan bahwa barisan $\{n_i\}_{i = 0}^{\infty}$ selalu suatu saat akan periodik,
+	berapapun nilai $n_0$.
+
+	% Source: Rusia MO 1999 (Modul Pra-OSP Jumlah Digit;
+	% `menaik' di modul sumber ditafsirkan sebagai tak menurun)
+	% Jawaban: semua kelipatan 9, yaitu 9, 18, 27, ...
+	\item (Rusia MO 1999)
+	Dalam representasi desimal dari $N$, digit-digitnya tampil secara tak menurun
+	(setiap digit tidak lebih kecil dari digit sebelumnya).
+	Tentukan semua nilai yang mungkin dari $S(9N)$.
+
+	% Source: Romania TST JBMO 1999 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: semua kelipatan 9
+	\item (Romania TST JBMO 1999)
+	Tentukan semua bilangan asli $n$ sedemikian hingga terdapat bilangan cacah $a$ dan $b$
+	sedemikian hingga
+	\[ S(a) = S(b) = S(a + b) = n. \]
+
+	% Source: Rusia MO 1997 (Modul Pra-OSP Jumlah Digit)
+	\item (Rusia MO 1997)
+	Buktikan bahwa terdapat tak hingga banyaknya bilangan asli $n$
+	sedemikian hingga $S(3^n) \ge S(3^{n + 1})$.
+
+	% Source: Rusia MO 1999 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: 300
+	\item (Rusia MO 1999)
+	Diketahui bahwa $S(N) = 100$ dan $S(44N) = 800$.
+	Tentukan nilai dari $S(3N)$.
+
+	% Source: IMO 1968 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: n = 12
+	\item (IMO 1968)
+	Tentukan semua bilangan asli $n$ yang hasil kali digit-digitnya sama dengan $n^2 - 10n - 22$.
+
+	% Source: Czech-Polish-Slovak Junior Match 2017 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: n = 7
+	\item (Czech-Polish-Slovak Junior Match 2017)
+	Tentukan bilangan asli $n \ge 3$ terbesar sedemikian hingga terdapat bilangan asli $n$ digit
+	$\overline{a_1a_2\dots a_n}$ yang nilai $a_1$, $a_2$, dan $a_n$ taknol
+	yang habis dibagi oleh $\overline{a_2\dots a_n}$.
+
+	% Source: KTOM April 2022 (Modul Pra-OSP Jumlah Digit)
+	% Jawaban: 757 digit
+	\item (KTOM April 2022)
+	Sebuah bilangan asli $n$ disebut sebagai \textit{Komi} apabila tidak ada digitnya
+	yang bernilai $0$, jumlah digit $n$ sama dengan $2021$,
+	tetapi jumlah digit dari $2n$ tidak lebih dari $1202$.
+	Jika bilangan \textit{Komi} terbesar adalah $N$, banyak digit dari $N$ adalah \dots
+
+\end{enumerate}
+
+\section{Teorema Binomial}
+\begin{enumerate}[resume]
+
+	% Source: Modul Pra-OSK Koefisien Binomial (versi sumber memakai n = 100; disajikan untuk n umum)
+	\item (Pra-OSK Binomial)
+	Buktikan bahwa untuk setiap bilangan asli $n$ berlaku
+	\[ \binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \dots + (-1)^n\binom{n}{n} = 0. \]
+
+	% Composed: penerapan teorema binomial untuk keterbagian
+	\item Buktikan bahwa $121$ membagi $12^{11} - 1$.
+
+	% Composed: penerapan teorema binomial untuk sisa pembagian
+	% Jawaban: 41
+	\item Tentukan sisa pembagian $9^5$ oleh $64$.
+
+\end{enumerate}
+
+\section{Referensi}
+\begin{itemize}
+    \item Modul Pra-OSK: Persamaan Diophantine (Azzam dan Akeyla).
+    \item Modul Pra-OSP: Persamaan Diophantine (Azzam dan Akeyla).
+    \item Modul Pra-OSP: Jumlah Digit (Azzam dan Akeyla).
+    \item Modul Pra-OSK: Koefisien Binomial (Azzam dan Akeyla).
+\end{itemize}
+
+\end{document}
