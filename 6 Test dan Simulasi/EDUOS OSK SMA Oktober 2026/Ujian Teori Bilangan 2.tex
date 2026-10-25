@@ -1,0 +1,103 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Ujian Teori Bilangan 2 - EDUOS OSK SMA Oktober 2026
+% 6 soal isian + 2 soal esai, materi Persamaan Diophantine dan Digit Bilangan.
+% Sumber tiap soal disimpan sebagai komentar; detail modifikasi ada di komentar itu.
+
+\title{Ujian Teori Bilangan 2}
+\date{Oktober 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+\textbf{Materi:} Persamaan Diophantine dan Digit Bilangan.
+
+\section{Isian}
+
+\begin{enumerate}
+
+	% Source: Modifikasi OSK SMA 2020 No. 4 (Isian Singkat)
+	% Asli: 2x + 3y = 2020, nilai terbesar 3x + 2y; jawaban 3025.
+	% Modifikasi: koefisien 5 dan 7 sehingga perlu syarat modulo 5 untuk y.
+	% Jawaban: 2822 (x = 401, y = 3)
+	\item Misalkan $x$ dan $y$ bilangan asli yang memenuhi $5x + 7y = 2026$.
+	Nilai terbesar yang mungkin dari $7x + 5y$ adalah \dots
+
+	% Source: Modifikasi AIME 1987 No. 5 (juga OSP SMA 2008 No. 7)
+	% Asli: y^2 + 3x^2y^2 = 30x^2 + 517, ditanya 3x^2y^2; jawaban 588.
+	% Modifikasi: (5x^2 + 1)(y^2 - 4) = 441, satu-satunya faktor berbentuk 5x^2 + 1 yang cocok adalah 21.
+	% Jawaban: 500
+	\item Jika $x$ dan $y$ bilangan bulat yang memenuhi
+	\[ y^2 + 5x^2y^2 = 20x^2 + 445, \]
+	maka nilai $5x^2y^2$ adalah \dots
+
+	% Source: Modifikasi OSP SMA 2018 No. 1 (Isian Singkat)
+	% Asli: a^2 + b^2 = a + b; jawaban 4.
+	% Modifikasi: ditambah suku xy dan ruas kanan dikali 3, diselesaikan dengan diskriminan.
+	% Solusi: (0,0), (0,3), (3,0), (2,2), (-1,2), (2,-1).
+	% Jawaban: 6
+	\item Banyaknya pasangan bilangan bulat $(x, y)$ yang memenuhi
+	\[ x^2 + xy + y^2 = 3(x + y) \]
+	adalah \dots
+
+	% Source: Modifikasi JJMO Preliminary 2024 No. 1
+	% Asli: jumlah digit 8 dan n + 1 kuadrat, 5 digit terkecil; jawaban 10403.
+	% Modifikasi: disesuaikan dengan 2026 (jumlah digit 10, 2026 - 1 = 45^2), dicari yang berikutnya.
+	% n = k^2 + 1 dengan n = 1 (mod 9) memaksa 3 | k; k = 48 memberi 2305.
+	% Jawaban: 2305
+	\item Bilangan $2026$ mempunyai dua sifat: jumlah digit-digitnya adalah $10$
+	dan $2026 - 1 = 45^2$ merupakan kuadrat sempurna.
+	Bilangan asli terkecil yang lebih besar dari $2026$ dan memiliki kedua sifat tersebut adalah \dots
+
+	% Source: Modifikasi OSK SMA 2014 No. 19 (Isian Singkat)
+	% Asli: 20! + 14! = 243290a0953b4931200; jawaban a = 2, b = 5.
+	% Modifikasi: memakai 22! = 1124000727777607680000, dicari lewat keterbagian oleh 9 dan 11.
+	% Jawaban: 76 (a = 7, b = 6)
+	\item Diketahui bahwa $22! = 112400072a777607b80000$ dengan $a$ dan $b$ suatu digit.
+	Nilai dari $10a + b$ adalah \dots
+
+	% Source: Komposisi sendiri (pola contoh Teorema Binomial di Materi)
+	% 11^2026 = (1 + 10)^2026 = 1 + 10 * 2026 + 100 * C(2026, 2) (mod 1000).
+	% Jawaban: 761
+	\item Tiga digit terakhir dari $11^{2026}$ membentuk bilangan \dots
+
+\end{enumerate}
+
+\section{Esai}
+
+\begin{enumerate}[resume]
+
+	% Source: Modifikasi OSP SMA 2012 No. 18 (Isian Singkat)
+	% Asli: 4^a + 4a^2 + 4 = b^2; jawaban 2 pasangan.
+	% Modifikasi: (b - 2^a)(b + 2^a) = 8a + 1 sehingga 2^(a+1) <= 8a, jadi a <= 4.
+	% Jawaban: (a, b) = (4, 17)
+	\item Tentukan semua pasangan bilangan asli $(a, b)$ yang memenuhi
+	\[ 4^a + 8a + 1 = b^2. \]
+
+	% Source: Modifikasi OSP SMA 2016 No. 6 (Isian Singkat)
+	% Asli: n + s(n) = 2016, jumlah semua n; jawaban 3996.
+	% Modifikasi: ditambah suku S(S(n)) dan ruas kanan 2025; modulo 9 memberi 3 | n, lalu dibatasi.
+	% Jawaban: n = 1989, 1995, 2007, 2013
+	\item Untuk setiap bilangan asli $n$, misalkan $S(n)$ menyatakan jumlah digit-digit $n$
+	dalam penulisan desimal. Tentukan semua bilangan asli $n$ yang memenuhi
+	\[ n + S(n) + S(S(n)) = 2025. \]
+
+\end{enumerate}
+
+\section{Kunci Jawaban}
+1 2822\\
+2 500\\
+3 6\\
+4 2305\\
+5 76\\
+6 761\\
+7 $(a, b) = (4, 17)$\\
+8 $n = 1989, 1995, 2007, 2013$
+
+
+\end{document}
