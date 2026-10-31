@@ -6,10 +6,7 @@
 	\title{Combinatorics from OSK-OSP} % Beginner
 	\date{\today}
 	\author{Compiled by Azzam}
-	\maketitle
 
-\renewcommand*\contentsname{Daftar Isi}
-\tableofcontents
 
 \newpage
 	\section{Isian Singkat}
@@ -19,12 +16,15 @@
 	\end{soalbaru}
 	
 	\begin{soalbaru}(OSK 2018)
-Diberikan sembilan titik pada bidang yang membentuk segitiga sama sisi seperti pada gambar. Pada tiap
-sisi, dua titik yang bukan titik sudut segitiga membagi sisi menjadi tiga bagian sama panjang. Kesembilan
-titik ini akan diwarnai masing-masing dengan warna merah atau biru. Peluang bahwa dari kesembilan
-titik tersebut, terdapat tiga titik yang warnanya sama dan membentuk segitiga siku-siku adalah \dots
-
-\includegraphics[scale=0.5]{osk2018.PNG}
+Diberikan sembilan titik pada bidang yang membentuk segitiga sama sisi seperti pada gambar. Pada tiap sisi, dua titik yang bukan titik sudut segitiga membagi sisi menjadi tiga bagian sama panjang. Kesembilan titik ini akan diwarnai masing-masing dengan warna merah atau biru. Peluang bahwa dari kesembilan titik tersebut, terdapat tiga titik yang warnanya sama dan membentuk segitiga siku-siku adalah \dots
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \draw (0,0) -- (6,0) -- (3,{3*sqrt(3)}) -- cycle;
+    \foreach \p in {(0,0),(2,0),(4,0),(6,0),(5,{sqrt(3)}),(4,{2*sqrt(3)}),(3,{3*sqrt(3)}),(2,{2*sqrt(3)}),(1,{sqrt(3)})} {
+        \filldraw[fill=white,draw=black] \p circle (2.5pt);
+    }
+\end{tikzpicture}
+\end{center}
 	\end{soalbaru}
 	
 	\begin{soalbaru}
