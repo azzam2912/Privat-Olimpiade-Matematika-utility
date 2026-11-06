@@ -1,0 +1,716 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Aljabar Trigonometri - Modul (gabungan Materi dan Soal Latihan)
+% Identitas, persamaan, teleskoping, dan substitusi trigonometri setingkat OSP SMA.
+% 25 soal latihan: 12 Identitas, 5 Persamaan, 5 Teleskoping, 3 Substitusi.
+% Contoh berlabel OSK/OSP/SMO/Altizio diambil dari arsip Project-Helvethia,
+% dilengkapi detail sumber pada komentar % Source. Sisanya komposisi sendiri.
+% _Ujian dan _Solusi tetap terpisah (menyusul).
+
+\title{Aljabar Trigonometri - Modul}
+\date{6 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\part*{Materi}
+
+Modul ini membahas trigonometri dari sisi aljabar: memanipulasi identitas,
+menyelesaikan persamaan, meneleskopkan jumlah dan darab, serta memakai
+trigonometri sebagai substitusi untuk soal yang awalnya tidak memuat
+trigonometri sama sekali. Levelnya OSP SMA. Prasyaratnya hanya definisi
+$\sin$, $\cos$, $\tan$ beserta tanda dan relasinya di tiap kuadran.
+
+\section{Identitas Trigonometri}
+
+\begin{definition}
+Untuk sudut $x$ yang membuat penyebutnya tidak nol:
+\[ \sec x = \frac{1}{\cos x}, \qquad \csc x = \frac{1}{\sin x},
+\qquad \cot x = \frac{\cos x}{\sin x} = \frac{1}{\tan x}. \]
+Tiga \istilah{identitas Pythagoras}{Pythagorean identity} yang paling sering dipakai:
+\[ \sin^2 x + \cos^2 x = 1, \qquad 1 + \tan^2 x = \sec^2 x,
+\qquad 1 + \cot^2 x = \csc^2 x. \]
+\end{definition}
+
+\begin{example}
+Diketahui $\tan x = 2$ dengan $x$ di kuadran III. Tentukan $\sin x + \cos x$.
+\end{example}
+\begin{proof}[Solusi]
+Dari identitas Pythagoras:
+\[ \sec^2 x = 1 + \tan^2 x = 1 + 4 = 5. \]
+Karena $x$ di kuadran III, $\cos x < 0$ sehingga
+\[ \cos x = -\frac{1}{\sqrt{5}}, \qquad
+\sin x = \tan x \cos x = -\frac{2}{\sqrt{5}}. \]
+Jadi
+\[ \sin x + \cos x = -\frac{3}{\sqrt{5}} = -\frac{3\sqrt{5}}{5}. \]
+\end{proof}
+
+\begin{theorem}[Jumlah dan selisih]
+\istilah{Rumus jumlah dan selisih}{Sum and difference formulas}:
+\begin{align*}
+\sin(A \pm B) &= \sin A \cos B \pm \cos A \sin B, \\
+\cos(A \pm B) &= \cos A \cos B \mp \sin A \sin B, \\
+\tan(A \pm B) &= \frac{\tan A \pm \tan B}{1 \mp \tan A \tan B}.
+\end{align*}
+\end{theorem}
+
+% Source: OSK SMA 2011 isian singkat (sudut lancip A dan B).
+\begin{example}[OSK 2011]
+Misalkan $A$ dan $B$ sudut lancip dengan $\tan(A+B) = \frac{1}{2}$ dan
+$\tan(A-B) = \frac{1}{3}$. Tentukan besar sudut $A$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $2A = (A+B) + (A-B)$ lalu pakai rumus jumlah tangen:
+\begin{align*}
+\tan 2A &= \frac{\tan(A+B) + \tan(A-B)}{1 - \tan(A+B)\tan(A-B)} \\
+&= \frac{\frac{1}{2} + \frac{1}{3}}{1 - \frac{1}{2} \cdot \frac{1}{3}} \\
+&= \frac{5/6}{5/6} = 1.
+\end{align*}
+Karena $A$ lancip, $2A$ terletak di $(0, \pi)$, sehingga $2A = \frac{\pi}{4}$.
+Jadi $A = \frac{\pi}{8} = 22{,}5^{\circ}$.
+\end{proof}
+
+% Source: OSP SMA 2009 nomor 10 isian singkat.
+\begin{example}[OSP 2009]
+Jika $\tan x + \tan y = 25$ dan $\cot x + \cot y = 30$, tentukan $\tan(x+y)$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $\cot$ keduanya terdefinisi, $\tan x$ dan $\tan y$ tidak nol.
+Tulis ulang jumlah $\cot$:
+\[ \cot x + \cot y = \frac{1}{\tan x} + \frac{1}{\tan y}
+= \frac{\tan x + \tan y}{\tan x \tan y}. \]
+Substitusi yang diketahui:
+\[ 30 = \frac{25}{\tan x \tan y}, \]
+sehingga $\tan x \tan y = \frac{5}{6}$. Maka
+\[ \tan(x+y) = \frac{\tan x + \tan y}{1 - \tan x \tan y}
+= \frac{25}{1 - 5/6} = 150. \]
+\end{proof}
+
+\begin{theorem}[Sudut ganda, setengah, dan rangkap tiga]
+\istilah{Rumus sudut ganda}{Double-angle formulas}:
+\begin{align*}
+\sin 2x &= 2\sin x \cos x, \\
+\cos 2x &= \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x, \\
+\tan 2x &= \frac{2\tan x}{1 - \tan^2 x}.
+\end{align*}
+Versi setengah sudutnya:
+\[ \sin^2 \frac{x}{2} = \frac{1 - \cos x}{2}, \qquad
+\cos^2 \frac{x}{2} = \frac{1 + \cos x}{2}. \]
+Versi rangkap tiganya:
+\[ \sin 3x = 3\sin x - 4\sin^3 x, \qquad \cos 3x = 4\cos^3 x - 3\cos x. \]
+\end{theorem}
+
+% Source: OSK SMA 2005 isian singkat.
+% Catatan: kunci di arsip tertulis 7/16, itu salah. Nilai yang benar 7\sqrt{3}/16.
+\begin{example}[OSK 2005]
+Hitunglah $\sin^{8}75^{\circ} - \cos^{8}75^{\circ}$.
+\end{example}
+\begin{proof}[Solusi]
+Faktorkan sebagai selisih kuadrat dua kali:
+\begin{align*}
+\sin^8 x - \cos^8 x
+&= (\sin^4 x - \cos^4 x)(\sin^4 x + \cos^4 x).
+\end{align*}
+Faktor pertama:
+\[ \sin^4 x - \cos^4 x = (\sin^2 x - \cos^2 x)(\sin^2 x + \cos^2 x) = -\cos 2x. \]
+Faktor kedua:
+\begin{align*}
+\sin^4 x + \cos^4 x &= (\sin^2 x + \cos^2 x)^2 - 2\sin^2 x \cos^2 x \\
+&= 1 - \frac{1}{2}\sin^2 2x.
+\end{align*}
+Untuk $x = 75^{\circ}$ diperoleh $-\cos 150^{\circ} = \frac{\sqrt{3}}{2}$ dan
+$1 - \frac{1}{2}\sin^2 150^{\circ} = 1 - \frac{1}{8} = \frac{7}{8}$. Jadi
+\[ \sin^{8}75^{\circ} - \cos^{8}75^{\circ}
+= \frac{\sqrt{3}}{2} \cdot \frac{7}{8} = \frac{7\sqrt{3}}{16}. \]
+\end{proof}
+
+% Source: D. Altizio, Homemade Problems (gaya AIME), diterjemahkan dari bahasa Inggris.
+% Arsip: Questions_Bank/Homemade_Problems_David_Altizio.tex di Project-Helvethia.
+\begin{example}[D. Altizio, Homemade]
+Misalkan $\cos A + \cos B = \frac{5}{4}$ dan $\cos 2A + \cos 2B = \frac{1}{9}$.
+Jika $\cos 3A + \cos 3B = \frac{m}{n}$ dalam bentuk paling sederhana,
+tentukan $m+n$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $u = \cos A$ dan $v = \cos B$. Diketahui $u + v = \frac{5}{4}$.
+Dari rumus sudut ganda kosinus:
+\[ \frac{1}{9} = \cos 2A + \cos 2B = 2u^2 - 1 + 2v^2 - 1, \]
+sehingga
+\[ u^2 + v^2 = \frac{19}{18}. \]
+Maka
+\[ uv = \frac{(u+v)^2 - (u^2+v^2)}{2}
+= \frac{25/16 - 19/18}{2} = \frac{73}{288}. \]
+Selanjutnya
+\begin{align*}
+u^3 + v^3 &= (u+v)^3 - 3uv(u+v) \\
+&= \frac{125}{64} - 3 \cdot \frac{73}{288} \cdot \frac{5}{4} \\
+&= \frac{125}{64} - \frac{365}{384} = \frac{385}{384}.
+\end{align*}
+Terakhir, dengan rumus rangkap tiga:
+\begin{align*}
+\cos 3A + \cos 3B &= 4(u^3+v^3) - 3(u+v) \\
+&= 4 \cdot \frac{385}{384} - \frac{15}{4} \\
+&= \frac{385}{96} - \frac{360}{96} = \frac{25}{96}.
+\end{align*}
+Jadi $m + n = 25 + 96 = 121$.
+\end{proof}
+
+\begin{theorem}[Jumlah ke kali dan sebaliknya]
+\istilah{Rumus jumlah ke perkalian}{sum-to-product} (selanjutnya disebut sum-to-product):
+\begin{align*}
+\sin P + \sin Q &= 2\sin\frac{P+Q}{2}\cos\frac{P-Q}{2}, \\
+\sin P - \sin Q &= 2\cos\frac{P+Q}{2}\sin\frac{P-Q}{2}, \\
+\cos P + \cos Q &= 2\cos\frac{P+Q}{2}\cos\frac{P-Q}{2}, \\
+\cos P - \cos Q &= -2\sin\frac{P+Q}{2}\sin\frac{P-Q}{2}.
+\end{align*}
+\istilah{Rumus perkalian ke jumlah}{product-to-sum} (selanjutnya disebut product-to-sum):
+\begin{align*}
+\sin A \cos B &= \tfrac12[\sin(A+B) + \sin(A-B)], \\
+\cos A \cos B &= \tfrac12[\cos(A+B) + \cos(A-B)], \\
+\sin A \sin B &= \tfrac12[\cos(A-B) - \cos(A+B)].
+\end{align*}
+\end{theorem}
+
+\begin{example}
+Hitunglah $\sin 20^{\circ} \sin 40^{\circ} \sin 80^{\circ}$.
+\end{example}
+\begin{proof}[Solusi]
+Ubah darab dua sinus pertama menjadi jumlah:
+\[ \sin 20^{\circ} \sin 40^{\circ}
+= \tfrac12[\cos 20^{\circ} - \cos 60^{\circ}]
+= \tfrac12\cos 20^{\circ} - \tfrac14. \]
+Kalikan dengan $\sin 80^{\circ}$:
+\[ P = \tfrac12\cos 20^{\circ}\sin 80^{\circ} - \tfrac14\sin 80^{\circ}. \]
+Ubah lagi $\cos 20^{\circ}\sin 80^{\circ} = \tfrac12[\sin 100^{\circ} + \sin 60^{\circ}]$
+dengan $\sin 100^{\circ} = \sin 80^{\circ}$:
+\begin{align*}
+P &= \tfrac12\left(\tfrac12\sin 80^{\circ} + \tfrac{\sqrt{3}}{4}\right)
+- \tfrac14\sin 80^{\circ} \\
+&= \frac{\sqrt{3}}{8}.
+\end{align*}
+\end{proof}
+
+\begin{fact}[Nilai ekstrem bentuk trigonometri]
+Setiap $a\sin x + b\cos x$ dapat ditulis dengan \istilah{sudut bantu}{auxiliary angle}
+$\varphi$ sebagai
+\[ a\sin x + b\cos x = R\sin(x+\varphi), \]
+dengan $R = \sqrt{a^2+b^2}$, $\cos\varphi = a/R$, $\sin\varphi = b/R$.
+Akibatnya nilai maksimumnya $R$ dan minimumnya $-R$.
+Untuk jumlah yang memuat darab, ketaksamaan $2pq \le p^2 + q^2$ sering
+memberi batas atas dan bawah sekaligus.
+\end{fact}
+
+% Source: OSK SMA 2009 nomor 14 isian singkat.
+% Arsip juga memuat varian (f(y))^2 (OSK SMA 2009 versi 2 nomor 15) dengan jawaban sama.
+\begin{example}[OSK 2009]
+Misalkan $f(y) = (\sqrt{3}+1)\sin y + (\sqrt{3}-1)\cos y$.
+Nilai maksimum $(f(f(y)))^2$ untuk $y$ real adalah \dots
+\end{example}
+\begin{proof}[Solusi]
+Amplitudo $f$ adalah
+\begin{align*}
+R^2 &= (\sqrt{3}+1)^2 + (\sqrt{3}-1)^2 \\
+&= (4+2\sqrt{3}) + (4-2\sqrt{3}) = 8,
+\end{align*}
+jadi $R = 2\sqrt{2}$ dan daerah hasil $f$ tepat interval $[-2\sqrt{2}, 2\sqrt{2}]$.
+Tulis $f(f(y)) = g(t)$ dengan $t = f(y)$ dan $g(t) = a\sin t + b\cos t$.
+Nilai terbesar $g$ adalah $R$, dicapai di $t^{\star}$ dengan
+\[ \tan t^{\star} = \frac{a}{b} = \frac{\sqrt{3}+1}{\sqrt{3}-1} = 2+\sqrt{3}, \]
+yaitu $t^{\star} = \frac{5\pi}{12} \approx 1{,}31$.
+Karena $t^{\star}$ termuat di $[-2\sqrt{2}, 2\sqrt{2}]$ dan $f$ kontinu,
+ada $y$ dengan $f(y) = t^{\star}$. Jadi maksimumnya $R^2 = 8$.
+\end{proof}
+
+% Source: OSP SMA 2009 nomor 15 isian singkat.
+\begin{example}[OSP 2009]
+Jika $x_1, x_2, \dots, x_{2009}$ bilangan real, nilai terkecil dari
+\[ \cos x_1 \sin x_2 + \cos x_2 \sin x_3 + \dots + \cos x_{2009} \sin x_1 \]
+adalah \dots
+\end{example}
+\begin{proof}[Solusi]
+Namai jumlah itu $S$. Dari $pq \le \frac{p^2+q^2}{2}$:
+\[ S \le \frac{1}{2}\sum_{i=1}^{2009}(\cos^2 x_i + \sin^2 x_{i+1})
+= \frac{1}{2}\sum_{i=1}^{2009}(\cos^2 x_i + \sin^2 x_i)
+= \frac{2009}{2}, \]
+dengan $x_{2010} = x_1$. Terapkan hal yang sama pada $-S$:
+\[ -S = \sum_{i=1}^{2009}\cos x_i \sin(-x_{i+1}) \le \frac{2009}{2}, \]
+sehingga $S \ge -\frac{2009}{2}$.
+Batas ini tercapai, misalnya semua $x_i = \frac{3\pi}{4}$ memberi tiap suku
+$\left(-\frac{\sqrt{2}}{2}\right)\left(\frac{\sqrt{2}}{2}\right) = -\frac12$.
+Jadi nilai terkecilnya $-\frac{2009}{2}$.
+\end{proof}
+
+\section{Persamaan Trigonometri}
+
+\begin{fact}[Bentuk umum solusi dan strategi]
+\istilah{Bentuk umum solusi}{general solution} persamaan dasar, dengan $k \in \mathbb{Z}$:
+\begin{align*}
+\sin x = \sin a &\iff x = a + 2k\pi \text{ atau } x = \pi - a + 2k\pi, \\
+\cos x = \cos a &\iff x = a + 2k\pi \text{ atau } x = -a + 2k\pi, \\
+\tan x = \tan a &\iff x = a + k\pi.
+\end{align*}
+Tiga strategi yang paling sering berhasil:
+\begin{enumerate}
+    \item Samakan bentuk kedua ruas (misalnya semua menjadi sinus), lalu faktorkan.
+    \item Kuadratkan untuk menghilangkan akar atau tanda mutlak, lalu wajib cek ulang
+    karena penguadratan dapat memunculkan solusi palsu.
+    \item Untuk pertidaksamaan, cari batasnya dengan AM-GM atau kuadrat sempurna.
+    Tanda kesetaraannya yang menentukan solusi.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Tentukan semua bilangan real $x$ dengan $\sin 2x = \sin x$.
+\end{example}
+\begin{proof}[Solusi]
+Langsung dari bentuk umum solusi sinus:
+\[ 2x = x + 2k\pi \quad \text{atau} \quad 2x = \pi - x + 2k\pi. \]
+Dari ruas pertama $x = 2k\pi$. Dari ruas kedua $3x = \pi + 2k\pi$, yaitu
+$x = \frac{\pi}{3} + \frac{2k\pi}{3}$. Semua solusi:
+\[ x = 2k\pi \quad \text{atau} \quad x = \frac{\pi}{3} + \frac{2k\pi}{3},
+\qquad k \in \mathbb{Z}. \]
+\end{proof}
+
+% Source: OSK SMA 2013 isian singkat.
+\begin{example}[OSK 2013]
+Banyaknya $\alpha$ dengan $0^{\circ} < \alpha < 90^{\circ}$ yang memenuhi
+\[ (1+\cos\alpha)(1+\cos 2\alpha)(1+\cos 4\alpha) = \frac18 \]
+adalah \dots
+\end{example}
+\begin{proof}[Solusi]
+Tulis $1 + \cos\theta = 2\cos^2\frac{\theta}{2}$:
+\[ 8\cos^2\frac{\alpha}{2}\cos^2\alpha\cos^2 2\alpha = \frac18, \]
+sehingga
+\[ \left|\cos\frac{\alpha}{2}\cos\alpha\cos 2\alpha\right| = \frac18. \]
+Karena $0^{\circ} < \alpha < 90^{\circ}$, nilai $\sin\frac{\alpha}{2}$ positif.
+Kalikan kedua ruas lalu teleskopkan:
+\begin{align*}
+\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\cos\alpha\cos 2\alpha
+&= \tfrac12\sin\alpha\cos\alpha\cos 2\alpha \\
+&= \tfrac14\sin 2\alpha\cos 2\alpha = \tfrac18\sin 4\alpha.
+\end{align*}
+Jadi $|\sin 4\alpha| = \sin\frac{\alpha}{2}$, yaitu $\sin 4\alpha = \pm\sin\frac{\alpha}{2}$.
+Kasus $\sin 4\alpha = \sin\frac{\alpha}{2}$ memberi $4\alpha = \frac{\alpha}{2} + 360^{\circ}k$
+(tidak ada solusi di $(0^{\circ}, 90^{\circ})$) atau
+\[ 4\alpha = 180^{\circ} - \frac{\alpha}{2} + 360^{\circ}k, \]
+yaitu $\alpha = 40^{\circ} + 80^{\circ}k$, valid untuk $\alpha = 40^{\circ}$.
+Kasus $\sin 4\alpha = -\sin\frac{\alpha}{2} = \sin\left(-\frac{\alpha}{2}\right)$
+memberi $4\alpha = -\frac{\alpha}{2} + 360^{\circ}k$, yaitu $\alpha = 80^{\circ}k$,
+valid untuk $\alpha = 80^{\circ}$; atau
+\[ 4\alpha = 180^{\circ} + \frac{\alpha}{2} + 360^{\circ}k, \]
+yaitu $\alpha = \frac{360^{\circ}}{7} + \frac{720^{\circ}}{7}k$,
+valid untuk $\alpha = \frac{360^{\circ}}{7} \approx 51{,}43^{\circ}$.
+Semua langkah di atas dapat dibalik, jadi tepat ada $3$ nilai $\alpha$.
+\end{proof}
+
+% Source: OSP SMA 2016 nomor 5 isian singkat.
+\begin{example}[OSP 2016]
+Jika $0 < x < \frac{\pi}{2}$ dan $4\tan x + 9\cot x \le 12$,
+nilai $\sin x$ yang mungkin adalah \dots
+\end{example}
+\begin{proof}[Solusi]
+Tulis $t = \tan x > 0$. Dari AM-GM:
+\[ 4t + \frac{9}{t} \ge 2\sqrt{4t \cdot \frac{9}{t}} = 12. \]
+Diketahui ruas kiri $\le 12$, jadi harus terjadi kesetaraan:
+\[ 4t = \frac{9}{t}, \]
+sehingga $t = \frac32$ (yang positif). Karena $x$ lancip:
+\[ \sin x = \frac{\tan x}{\sqrt{1+\tan^2 x}}
+= \frac{3/2}{\sqrt{13}/2} = \frac{3}{\sqrt{13}} = \frac{3\sqrt{13}}{13}. \]
+\end{proof}
+
+\section{Teleskoping Trigonometri}
+
+\begin{theorem}[Teleskoping darab]
+Untuk $\sin\frac{x}{2^n} \ne 0$:
+\[ \cos\frac{x}{2}\cos\frac{x}{4}\cdots\cos\frac{x}{2^n}
+= \frac{\sin x}{2^n\sin\frac{x}{2^n}}. \]
+Buktinya: kalikan kedua ruas dengan $\sin\frac{x}{2^n}$ lalu pakai
+$2\sin t\cos t = \sin 2t$ berulang kali dari faktor terkecil.
+Akibat yang sama guna dari rumus $\tan 2t$:
+\[ 1 - \tan^2 t = \frac{2\tan t}{\tan 2t}, \]
+sehingga darab bentuk $1 - \tan^2$ juga meneleskop.
+\end{theorem}
+
+% Source: OSK SMA 2010 isian singkat.
+\begin{example}[OSK 2010]
+Nilai $x$ dengan $0 \le x \le \pi$ yang memenuhi
+\[ \frac{1}{\sin\frac{x}{2^{2010}}}
+= 2^{2010}\sqrt{2}\cos\frac{x}{2}\cos\frac{x}{4}\cdots\cos\frac{x}{2^{2010}} \]
+adalah \dots
+\end{example}
+\begin{proof}[Solusi]
+Ruas kiri menuntut $\sin\frac{x}{2^{2010}} \ne 0$, jadi rumus teleskoping boleh dipakai.
+Ruas kanan menjadi
+\begin{align*}
+2^{2010}\sqrt{2} \cdot \frac{\sin x}{2^{2010}\sin\frac{x}{2^{2010}}}
+= \frac{\sqrt{2}\sin x}{\sin\frac{x}{2^{2010}}}.
+\end{align*}
+Persamaannya menyederhanakan menjadi $1 = \sqrt{2}\sin x$, yaitu
+$\sin x = \frac{\sqrt{2}}{2}$. Pada $0 \le x \le \pi$:
+\[ x = \frac{\pi}{4} \quad \text{atau} \quad x = \frac{3\pi}{4}. \]
+Keduanya membuat penyebut $\sin\frac{x}{2^{2010}}$ tidak nol, jadi valid.
+\end{proof}
+
+% Source: OSP SMA 2011 nomor 8 isian singkat.
+\begin{example}[OSP 2011]
+Jika
+\[ \left(1-\tan^2\frac{x}{2^{2011}}\right)\left(1-\tan^2\frac{x}{2^{2010}}\right)
+\cdots\left(1-\tan^2\frac{x}{2}\right) = 2^{2011}\sqrt{3}\tan\frac{x}{2^{2011}}, \]
+maka $\sin 2x$ adalah \dots
+\end{example}
+\begin{proof}[Solusi]
+Tulis tiap faktor sebagai $1 - \tan^2 t = \frac{2\tan t}{\tan 2t}$.
+Darabnya meneleskop:
+\begin{align*}
+\prod_{k=1}^{2011}\left(1-\tan^2\frac{x}{2^k}\right)
+&= \prod_{k=1}^{2011}\frac{2\tan\frac{x}{2^k}}{\tan\frac{x}{2^{k-1}}} \\
+&= 2^{2011}\frac{\tan\frac{x}{2^{2011}}}{\tan x}.
+\end{align*}
+Persamaan menjadi
+\[ 2^{2011}\frac{\tan\frac{x}{2^{2011}}}{\tan x}
+= 2^{2011}\sqrt{3}\tan\frac{x}{2^{2011}}. \]
+Jika $\tan\frac{x}{2^{2011}} = 0$, ruas kanan $0$ sedangkan tiap faktor ruas kiri
+bernilai $1$, kontradiksi. Jadi boleh dibagi, menghasilkan $\tan x = \frac{1}{\sqrt{3}}$.
+Tulis $t = \tan x$:
+\[ \sin 2x = \frac{2t}{1+t^2} = \frac{2/\sqrt{3}}{1+1/3} = \frac{\sqrt{3}}{2}. \]
+\end{proof}
+
+\begin{theorem}[Teleskoping jumlah]
+Untuk $\sin\frac{x}{2} \ne 0$:
+\begin{align*}
+\sin x + \sin 2x + \dots + \sin nx
+&= \frac{\sin\frac{nx}{2}\sin\frac{(n+1)x}{2}}{\sin\frac{x}{2}}, \\
+\cos x + \cos 2x + \dots + \cos nx
+&= \frac{\sin\frac{nx}{2}\cos\frac{(n+1)x}{2}}{\sin\frac{x}{2}}.
+\end{align*}
+Buktinya: kalikan jumlahnya dengan $2\sin\frac{x}{2}$, ubah tiap suku dengan
+product-to-sum, suku tengahnya saling menghapus.
+\end{theorem}
+
+\begin{example}
+Selesaikan persamaan $\sin x + \sin 2x + \sin 3x = 0$.
+\end{example}
+\begin{proof}[Solusi]
+Untuk $\sin\frac{x}{2} \ne 0$ (yaitu $x \ne 2k\pi$), rumus teleskoping memberi
+\[ \sin x + \sin 2x + \sin 3x
+= \frac{\sin\frac{3x}{2}\sin 2x}{\sin\frac{x}{2}}. \]
+Persamaan menjadi $\sin\frac{3x}{2}\sin 2x = 0$, sehingga
+\[ x = \frac{2k\pi}{3} \quad \text{atau} \quad x = \frac{k\pi}{2},
+\qquad k \in \mathbb{Z}. \]
+Cek $x = 2k\pi$ secara terpisah: ketiga sukunya nol, jadi memenuhi dan sudah
+tercakup dalam $x = \frac{2k\pi}{3}$. Itulah semua solusinya.
+\end{proof}
+
+\section{Substitusi Trigonometri}
+
+\begin{fact}[Substitusi bentuk akar]
+\istilah{Substitusi trigonometri}{trigonometric substitution} mengganti variabel
+agar identitas Pythagoras melenyapkan akarnya. Pilih interval monoton supaya
+korespondensinya satu-satu:
+\begin{center}
+\begin{tabular}{lll}
+Bentuk & Substitusi & Interval \\
+\hline
+$\sqrt{a^2-x^2}$ & $x = a\sin\theta$ atau $a\cos\theta$ & $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$ atau $[0, \pi]$ \\
+$\sqrt{a^2+x^2}$ & $x = a\tan\theta$ & $\theta \in (-\frac{\pi}{2}, \frac{\pi}{2})$ \\
+$\sqrt{x^2-a^2}$ & $x = a\sec\theta$ & $\theta \in [0, \frac{\pi}{2}) \cup (\frac{\pi}{2}, \pi]$ \\
+\end{tabular}
+\end{center}
+\end{fact}
+
+% Source: SMO 2008 Senior Round 1 pilihan ganda (kunci (B)).
+\begin{example}[SMO 2008 Senior]
+Jika $f(x) = x^2 + \sqrt{1-x^2}$ dengan $-1 \le x \le 1$,
+tentukan daerah hasil $f(x)$.
+\end{example}
+\begin{proof}[Solusi]
+Substitusi $x = \cos\theta$ dengan $\theta \in [0, \pi]$.
+Korespondensinya satu-satu dan $\sin\theta \ge 0$, sehingga
+\[ \sqrt{1-x^2} = \sqrt{1-\cos^2\theta} = \sin\theta. \]
+Fungsinya menjadi
+\[ f = \cos^2\theta + \sin\theta = 1 - \sin^2\theta + \sin\theta. \]
+Tulis $t = \sin\theta \in [0, 1]$:
+\[ g(t) = 1 + t - t^2 = \frac54 - \left(t-\frac12\right)^2. \]
+Nilai terbesar $\frac54$ di $t = \frac12$ (tercapai, misalnya $\theta = \frac{\pi}{6}$)
+dan nilai terkecil $1$ di ujung interval. Jadi daerah hasilnya $[1, \frac54]$.
+\end{proof}
+
+\begin{theorem}[Substitusi syarat jumlah tangen]
+Bilangan positif $x, y, z$ memenuhi $x + y + z = xyz$ jika dan hanya jika
+ada segitiga lancip $ABC$ dengan $x = \tan A$, $y = \tan B$, $z = \tan C$.
+\end{theorem}
+\begin{proof}
+Arah ($\Leftarrow$): karena $A+B+C = \pi$, berlaku $\tan(A+B) = -\tan C$, yaitu
+\[ \frac{\tan A + \tan B}{1 - \tan A \tan B} = -\tan C. \]
+(Penyebutnya tidak nol: $\tan A \tan B = 1$ memaksa $C = \frac{\pi}{2}$,
+padahal segitiganya lancip.) Kalikan silang:
+\[ \tan A + \tan B + \tan C = \tan A \tan B \tan C. \]
+
+Arah ($\Rightarrow$): ambil $A = \arctan x$ dan $B = \arctan y$, keduanya lancip.
+Dari $z(xy-1) = x + y > 0$ diperoleh $xy > 1$, sehingga
+\[ \tan(A+B) = \frac{x+y}{1-xy} < 0. \]
+Jadi $A + B \in (\frac{\pi}{2}, \pi)$ dan $C = \pi - A - B$ lancip dengan
+\[ \tan C = -\tan(A+B) = \frac{x+y}{xy-1} = z. \]
+\end{proof}
+
+\begin{example}
+Diberikan $x, y, z > 0$ dengan $x + y + z = xyz$. Buktikan bahwa
+\[ \sqrt{1+x^2} + \sqrt{1+y^2} + \sqrt{1+z^2} \ge 6. \]
+\end{example}
+\begin{proof}[Solusi]
+Substitusi $x = \tan A$, $y = \tan B$, $z = \tan C$ untuk segitiga lancip $ABC$.
+Karena $\sec$ positif di sudut lancip:
+\[ \sum\sqrt{1+x^2} = \sec A + \sec B + \sec C. \]
+Dari AM-GM:
+\[ \sec A + \sec B + \sec C \ge \frac{3}{\sqrt[3]{\cos A \cos B \cos C}}. \]
+Batasi penyebutnya. Dari product-to-sum:
+\[ \cos A \cos B = \frac{\cos(A+B) + \cos(A-B)}{2}
+= \frac{-\cos C + \cos(A-B)}{2} \le \frac{1-\cos C}{2}. \]
+Karena $t(1-t) \le \frac14$ untuk semua $t$:
+\[ \cos A \cos B \cos C \le \frac{\cos C(1-\cos C)}{2} \le \frac18. \]
+Akibatnya $\sec A + \sec B + \sec C \ge \frac{3}{\sqrt[3]{1/8}} = 6$.
+Kesetaraan saat $x = y = z = \sqrt{3}$.
+\end{proof}
+
+\begin{theorem}[Substitusi syarat jumlah kosinus]
+Bilangan $x, y, z \in (0, 1)$ memenuhi $x^2 + y^2 + z^2 + 2xyz = 1$ jika dan
+hanya jika ada segitiga $ABC$ dengan $x = \cos A$, $y = \cos B$, $z = \cos C$.
+\end{theorem}
+\begin{proof}
+Arah ($\Leftarrow$): dari $C = \pi - A - B$ diperoleh
+$\cos C = -\cos(A+B) = -\cos A\cos B + \sin A\sin B$, yaitu
+\[ \cos C + \cos A\cos B = \sin A\sin B. \]
+Kuadratkan kedua ruas:
+\begin{align*}
+\cos^2 C + 2\cos A\cos B\cos C + \cos^2 A\cos^2 B
+&= \sin^2 A\sin^2 B \\
+&= (1-\cos^2 A)(1-\cos^2 B).
+\end{align*}
+Suku $\cos^2 A\cos^2 B$ di kedua ruas saling menghapus, memberi
+$\cos^2 A + \cos^2 B + \cos^2 C + 2\cos A\cos B\cos C = 1$.
+
+Arah ($\Rightarrow$): ambil $A = \arccos x$ dan $B = \arccos y$, keduanya lancip.
+Klaim $\cos(A+B) = -z$. Karena
+\[ \cos(A+B) = xy - \sqrt{1-x^2}\sqrt{1-y^2}, \]
+klaim ini setara dengan $xy + z = \sqrt{1-x^2}\sqrt{1-y^2}$.
+Kedua ruas tak negatif, jadi boleh dikuadratkan:
+\[ (xy+z)^2 = (1-x^2)(1-y^2) \iff x^2 + y^2 + z^2 + 2xyz = 1, \]
+yang tepat asumsi awal. Dari $\cos(A+B) = -z < 0$ diperoleh
+$C = \pi - A - B$ lancip dengan $\cos C = z$.
+\end{proof}
+
+\begin{example}
+Diberikan $x, y, z \in (0, 1)$ dengan $x^2 + y^2 + z^2 + 2xyz = 1$.
+Buktikan bahwa $x + y + z \le \frac32$.
+\end{example}
+\begin{proof}[Solusi]
+Substitusi $x = \cos A$, $y = \cos B$, $z = \cos C$ untuk segitiga $ABC$.
+Dari sum-to-product:
+\[ \cos A + \cos B = 2\cos\frac{A+B}{2}\cos\frac{A-B}{2} \le 2\sin\frac{C}{2}. \]
+Tulis $t = \sin\frac{C}{2}$:
+\begin{align*}
+\cos A + \cos B + \cos C &\le 2t + (1-2t^2) \\
+&= \frac32 - 2\left(t-\frac12\right)^2 \le \frac32.
+\end{align*}
+Kesetaraan saat $A = B = C = 60^{\circ}$, yaitu $x = y = z = \frac12$.
+\end{proof}
+
+
+\part*{Soal Latihan}
+
+\section{Identitas Trigonometri}
+
+\begin{enumerate}
+
+	% Source: OSK SMA 2004 No. 6 (Pilihan Ganda, disajikan sebagai isian)
+	% Jawaban: sin 3 < sin 1 < sin 2
+	\item (OSK 2004)
+	Besar sudut dinyatakan dalam radian. Urutan $\sin 1$, $\sin 2$, $\sin 3$
+	dari yang terkecil adalah \dots
+
+	% Source: OSK SMA 2007 No. 10 (Pilihan Ganda, disajikan sebagai isian)
+	% Jawaban: sec x - sin x
+	\item (OSK 2007)
+	Sederhanakan $\frac{\tan^{2}x+\cos^{2}x}{\sin x+\sec x}$
+	(untuk $x$ yang membuat penyebutnya tidak nol).
+
+	% Source: SMO 2019 Senior Round 1 (diterjemahkan)
+	% Jawaban: 83
+	\item (SMO 2019 Senior)
+	Diketahui $\tan x = 5$. Tentukan nilai $\frac{6+\sin 2x}{1+\cos 2x}$.
+
+	% Source: SMO 2014 Senior Round 1 (diterjemahkan)
+	% Jawaban: 25
+	\item (SMO 2014 Senior)
+	Hitunglah $50(\cos 39^{\circ}\cos 21^{\circ}
+	+ \cos 129^{\circ}\cos 69^{\circ})$.
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	% Jawaban: 75
+	\item (SMO 2013)
+	Misalkan $A = \cos^2 10^{\circ} + \cos^2 50^{\circ}
+	- \sin 40^{\circ}\sin 80^{\circ}$. Tentukan nilai $100A$.
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	% Jawaban: 3
+	\item (SMO 2013)
+	Misalkan $\tan\alpha$ dan $\tan\beta$ adalah dua akar persamaan
+	$x^2-3x-3 = 0$. Tentukan nilai
+	\[ \left|\sin^2(\alpha+\beta) - 3\sin(\alpha+\beta)\cos(\alpha+\beta)
+	- 3\cos^2(\alpha+\beta)\right|. \]
+
+	% Source: OSP SMA 2009 No. 6 (Isian Singkat)
+	% Jawaban: 12
+	\item (OSP 2009)
+	Nilai minimum dari $f(x) = \frac{9x^{2}\sin^{2}x + 4}{x\sin x}$
+	untuk $0 < x < \pi$ adalah \dots
+
+	% Source: OSK SMA 2014 (Isian Singkat)
+	% Jawaban: 24
+	\item (OSK 2014)
+	Untuk $0 < x < \pi$, nilai minimum dari
+	$\frac{16\sin^2 x + 9}{\sin x}$ adalah \dots
+
+	% Source: SMO 2009 Open Round 1 (diterjemahkan)
+	% Jawaban: 2
+	\item (SMO 2009)
+	Hitunglah $\frac{\sin 80^{\circ}}{\sin 20^{\circ}}
+	- \frac{\sqrt{3}}{2\sin 80^{\circ}}$.
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	% Jawaban: 1
+	\item (SMO 2013)
+	Tentukan nilai maksimum dari $\frac{1+\cos x}{\sin x+\cos x+2}$
+	untuk $x$ bilangan real.
+
+	% Source: OSK SMA 2015 (Isian Singkat)
+	% Jawaban: 3/4
+	\item (OSK 2015)
+	Untuk setiap bilangan real $a$, didefinisikan $f(a)$ sebagai nilai maksimal
+	dari $\left|\sin x+\frac{2}{3+\sin x}+a\right|$.
+	Nilai minimal dari $f(a)$ adalah \dots
+
+	% Source: OSP SMA 2014 No. 18 (Isian Singkat), diadaptasi.
+	% Aslinya menanyakan banyaknya tripel (a,b,c) berurutan dengan kunci 3.
+	% Kunci 3 tersebut menghitung yang tak berurutan; yang berurutan ada 15.
+	% Di sini soalnya dibuat eksplisit menanyakan himpunan tak berurutan.
+	% Jawaban: {2,4,13}, {2,5,8}, {3,3,7}
+	\item (OSP 2014)
+	Misalkan $0 < \alpha, \beta, \gamma < \frac{\pi}{2}$ dan
+	$\alpha+\beta+\gamma = \frac{\pi}{4}$. Tentukan semua himpunan tak berurutan
+	$\{a, b, c\}$ bilangan bulat positif sehingga $\tan\alpha = \frac1a$,
+	$\tan\beta = \frac1b$, dan $\tan\gamma = \frac1c$.
+
+\end{enumerate}
+
+\section{Persamaan Trigonometri}
+
+\begin{enumerate}
+
+	% Source: SMO 2009 Senior Round 1 (diterjemahkan, rentang x ditambahkan).
+	% Soal asli tanpa rentang ("find x"); di sini dibatasi 0 <= x < 360.
+	% Jawaban: 95 atau 275
+	\item (SMO 2009 Senior)
+	Jika $\frac{\cos 100^{\circ}}
+	{1-4\sin 25^{\circ}\cos 25^{\circ}\cos 50^{\circ}} = \tan x^{\circ}$
+	dengan $0 \le x < 360$, tentukan $x$.
+
+	% Source: SMO 2011 Junior Round 1 (diterjemahkan)
+	% Jawaban: 3
+	\item (SMO 2011 Junior)
+	Barisan $(a_n)$ didefinisikan dengan $a_1 = 3$ dan
+	$a_{n+1} = \frac{\sqrt{3}\,a_n-1}{a_n+\sqrt{3}}$ untuk setiap bilangan asli $n$.
+	Tentukan $a_{2011}$.
+
+	% Jawaban: x = pi/4 + k pi/2 atau x = +-2pi/3 + 2k pi
+	\item
+	Tentukan semua bilangan real $x$ dengan $\cos x + \cos 2x + \cos 3x = 0$.
+
+	% Source: D. Altizio, Homemade Problems (diterjemahkan dari bahasa Inggris).
+	% Arsip: Questions_Bank/Homemade_Problems_David_Altizio.tex di Project-Helvethia.
+	% Jawaban: 231/25
+	\item (D. Altizio, Homemade)
+	Untuk setiap bilangan real $x$, misalkan $P(x) = 16x^3-21x$.
+	Berapakah jumlah semua nilai $\tan^2\theta$ yang mungkin, jika $\theta$
+	memenuhi $P(\sin\theta) = P(\cos\theta)$?
+
+	% Jawaban: x = j pi/3, j bilangan bulat
+	\item
+	Tentukan semua bilangan real $x$ yang membuat semua sukunya terdefinisi dan
+	memenuhi $\tan x + \tan 2x + \tan 3x = \tan x\tan 2x\tan 3x$.
+
+\end{enumerate}
+
+\section{Teleskoping Trigonometri}
+
+\begin{enumerate}
+
+	% Jawaban: 1/8
+	\item
+	Hitunglah $\cos 20^{\circ}\cos 40^{\circ}\cos 80^{\circ}$.
+
+	% Source: SMO 2009 Open Round 1 (diterjemahkan)
+	% Jawaban: 12560 (a = 125, b = 60)
+	\item (SMO 2009)
+	Bentuk $1000\sin 10^{\circ}\cos 20^{\circ}\cos 30^{\circ}\cos 40^{\circ}$
+	dapat disederhanakan menjadi $a\sin b^{\circ}$, dengan $a$ dan $b$ bilangan
+	bulat positif dan $0 < b < 90$. Tentukan $100a+b$.
+
+	% Jawaban: 1/2
+	\item
+	Hitunglah $\cos\frac{\pi}{7} - \cos\frac{2\pi}{7} + \cos\frac{3\pi}{7}$.
+
+	% Jawaban: 1/8
+	\item
+	Hitunglah $\sin\frac{\pi}{14}\sin\frac{3\pi}{14}\sin\frac{5\pi}{14}$.
+
+	% Source: SMO 2024 Senior Round 1 (diterjemahkan)
+	% Jawaban: 506
+	\item (SMO 2024 Senior)
+	Diketahui $\frac{\cos x}{\sin 3x} - \frac{\sin x}{\cos 3x}
+	- 2\cdot\frac{\sin 4x}{\cos 6x} = 2024$.
+	Tentukan nilai $\frac{\cos 10x}{\sin 12x}$.
+
+\end{enumerate}
+
+\section{Substitusi Trigonometri}
+
+\begin{enumerate}
+
+	% Jawaban: sqrt(2), dicapai di x = 1/sqrt(2)
+	\item
+	Tentukan nilai maksimum $x + \sqrt{1-x^2}$ untuk $x \in [-1, 1]$.
+
+	% Source: SMO 2024 Open Round 1 (diterjemahkan)
+	% Jawaban: 2
+	\item (SMO 2024)
+	Diketahui $x, y > 0$ dan $x\sqrt{2-y^2} + y\sqrt{2-x^2} = 2$.
+	Tentukan nilai $x^2+y^2$.
+
+	% Jawaban: (a) bukti; (b) minimum 2 sqrt(3) di x = y = z = 1/sqrt(3)
+	\item
+	Diberikan $x, y, z > 0$ dengan $xy+yz+zx = 1$.
+	\begin{enumerate}
+		\item Buktikan bahwa ada segitiga $ABC$ dengan $x = \tan\frac{A}{2}$,
+		$y = \tan\frac{B}{2}$, $z = \tan\frac{C}{2}$.
+		\item Buktikan bahwa $\sqrt{1+x^2} + \sqrt{1+y^2} + \sqrt{1+z^2} \ge 2\sqrt{3}$.
+	\end{enumerate}
+
+\end{enumerate}
+
+\section{Referensi}
+\begin{itemize}
+    \item Arsip soal OSK SMA 2005, 2009, 2010, 2011, 2013 dan OSP SMA 2009,
+    2011, 2016 (repositori Project-Helvethia).
+    \item D. Altizio, \textit{Homemade Problems} (Questions Bank, Project-Helvethia).
+    \item SMO 2008 Senior Round 1.
+\end{itemize}
+
+
+\end{document}

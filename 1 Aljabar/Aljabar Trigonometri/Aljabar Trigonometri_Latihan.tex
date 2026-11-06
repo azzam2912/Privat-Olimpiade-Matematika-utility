@@ -1,0 +1,202 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Aljabar Trigonometri - Soal Latihan
+% 25 soal: 12 Identitas, 5 Persamaan, 5 Teleskoping, 3 Substitusi.
+% Sumber tiap soal dimunculkan di PDF sebagai \item (Sumber); komentar menyimpan detail lengkap.
+% Soal pilihan ganda asli disajikan tanpa opsi jawaban sebagai soal isian.
+% Soal berbahasa Inggris asli diterjemahkan ke bahasa Indonesia.
+% Versi gabungan Materi+Latihan tersedia sebagai Aljabar Trigonometri_Modul.tex.
+
+\title{Aljabar Trigonometri - Soal Latihan}
+\date{6 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\section{Identitas Trigonometri}
+
+\begin{enumerate}
+
+	% Source: OSK SMA 2004 No. 6 (Pilihan Ganda, disajikan sebagai isian)
+	% Jawaban: sin 3 < sin 1 < sin 2
+	\item (OSK 2004)
+	Besar sudut dinyatakan dalam radian. Urutan $\sin 1$, $\sin 2$, $\sin 3$
+	dari yang terkecil adalah \dots
+
+	% Source: OSK SMA 2007 No. 10 (Pilihan Ganda, disajikan sebagai isian)
+	% Jawaban: sec x - sin x
+	\item (OSK 2007)
+	Sederhanakan $\frac{\tan^{2}x+\cos^{2}x}{\sin x+\sec x}$
+	(untuk $x$ yang membuat penyebutnya tidak nol).
+
+	% Source: SMO 2019 Senior Round 1 (diterjemahkan)
+	% Jawaban: 83
+	\item (SMO 2019 Senior)
+	Diketahui $\tan x = 5$. Tentukan nilai $\frac{6+\sin 2x}{1+\cos 2x}$.
+
+	% Source: SMO 2014 Senior Round 1 (diterjemahkan)
+	% Jawaban: 25
+	\item (SMO 2014 Senior)
+	Hitunglah $50(\cos 39^{\circ}\cos 21^{\circ}
+	+ \cos 129^{\circ}\cos 69^{\circ})$.
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	% Jawaban: 75
+	\item (SMO 2013)
+	Misalkan $A = \cos^2 10^{\circ} + \cos^2 50^{\circ}
+	- \sin 40^{\circ}\sin 80^{\circ}$. Tentukan nilai $100A$.
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	% Jawaban: 3
+	\item (SMO 2013)
+	Misalkan $\tan\alpha$ dan $\tan\beta$ adalah dua akar persamaan
+	$x^2-3x-3 = 0$. Tentukan nilai
+	\[ \left|\sin^2(\alpha+\beta) - 3\sin(\alpha+\beta)\cos(\alpha+\beta)
+	- 3\cos^2(\alpha+\beta)\right|. \]
+
+	% Source: OSP SMA 2009 No. 6 (Isian Singkat)
+	% Jawaban: 12
+	\item (OSP 2009)
+	Nilai minimum dari $f(x) = \frac{9x^{2}\sin^{2}x + 4}{x\sin x}$
+	untuk $0 < x < \pi$ adalah \dots
+
+	% Source: OSK SMA 2014 (Isian Singkat)
+	% Jawaban: 24
+	\item (OSK 2014)
+	Untuk $0 < x < \pi$, nilai minimum dari
+	$\frac{16\sin^2 x + 9}{\sin x}$ adalah \dots
+
+	% Source: SMO 2009 Open Round 1 (diterjemahkan)
+	% Jawaban: 2
+	\item (SMO 2009)
+	Hitunglah $\frac{\sin 80^{\circ}}{\sin 20^{\circ}}
+	- \frac{\sqrt{3}}{2\sin 80^{\circ}}$.
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	% Jawaban: 1
+	\item (SMO 2013)
+	Tentukan nilai maksimum dari $\frac{1+\cos x}{\sin x+\cos x+2}$
+	untuk $x$ bilangan real.
+
+	% Source: OSK SMA 2015 (Isian Singkat)
+	% Jawaban: 3/4
+	\item (OSK 2015)
+	Untuk setiap bilangan real $a$, didefinisikan $f(a)$ sebagai nilai maksimal
+	dari $\left|\sin x+\frac{2}{3+\sin x}+a\right|$.
+	Nilai minimal dari $f(a)$ adalah \dots
+
+	% Source: OSP SMA 2014 No. 18 (Isian Singkat), diadaptasi.
+	% Aslinya menanyakan banyaknya tripel (a,b,c) berurutan dengan kunci 3.
+	% Kunci 3 tersebut menghitung yang tak berurutan; yang berurutan ada 15.
+	% Di sini soalnya dibuat eksplisit menanyakan himpunan tak berurutan.
+	% Jawaban: {2,4,13}, {2,5,8}, {3,3,7}
+	\item (OSP 2014)
+	Misalkan $0 < \alpha, \beta, \gamma < \frac{\pi}{2}$ dan
+	$\alpha+\beta+\gamma = \frac{\pi}{4}$. Tentukan semua himpunan tak berurutan
+	$\{a, b, c\}$ bilangan bulat positif sehingga $\tan\alpha = \frac1a$,
+	$\tan\beta = \frac1b$, dan $\tan\gamma = \frac1c$.
+
+\end{enumerate}
+
+\section{Persamaan Trigonometri}
+
+\begin{enumerate}
+
+	% Source: SMO 2009 Senior Round 1 (diterjemahkan, rentang x ditambahkan).
+	% Soal asli tanpa rentang ("find x"); di sini dibatasi 0 <= x < 360.
+	% Jawaban: 95 atau 275
+	\item (SMO 2009 Senior)
+	Jika $\frac{\cos 100^{\circ}}
+	{1-4\sin 25^{\circ}\cos 25^{\circ}\cos 50^{\circ}} = \tan x^{\circ}$
+	dengan $0 \le x < 360$, tentukan $x$.
+
+	% Source: SMO 2011 Junior Round 1 (diterjemahkan)
+	% Jawaban: 3
+	\item (SMO 2011 Junior)
+	Barisan $(a_n)$ didefinisikan dengan $a_1 = 3$ dan
+	$a_{n+1} = \frac{\sqrt{3}\,a_n-1}{a_n+\sqrt{3}}$ untuk setiap bilangan asli $n$.
+	Tentukan $a_{2011}$.
+
+	% Jawaban: x = pi/4 + k pi/2 atau x = +-2pi/3 + 2k pi
+	\item
+	Tentukan semua bilangan real $x$ dengan $\cos x + \cos 2x + \cos 3x = 0$.
+
+	% Source: D. Altizio, Homemade Problems (diterjemahkan dari bahasa Inggris).
+	% Arsip: Questions_Bank/Homemade_Problems_David_Altizio.tex di Project-Helvethia.
+	% Jawaban: 231/25
+	\item (D. Altizio, Homemade)
+	Untuk setiap bilangan real $x$, misalkan $P(x) = 16x^3-21x$.
+	Berapakah jumlah semua nilai $\tan^2\theta$ yang mungkin, jika $\theta$
+	memenuhi $P(\sin\theta) = P(\cos\theta)$?
+
+	% Jawaban: x = j pi/3, j bilangan bulat
+	\item
+	Tentukan semua bilangan real $x$ yang membuat semua sukunya terdefinisi dan
+	memenuhi $\tan x + \tan 2x + \tan 3x = \tan x\tan 2x\tan 3x$.
+
+\end{enumerate}
+
+\section{Teleskoping Trigonometri}
+
+\begin{enumerate}
+
+	% Jawaban: 1/8
+	\item
+	Hitunglah $\cos 20^{\circ}\cos 40^{\circ}\cos 80^{\circ}$.
+
+	% Source: SMO 2009 Open Round 1 (diterjemahkan)
+	% Jawaban: 12560 (a = 125, b = 60)
+	\item (SMO 2009)
+	Bentuk $1000\sin 10^{\circ}\cos 20^{\circ}\cos 30^{\circ}\cos 40^{\circ}$
+	dapat disederhanakan menjadi $a\sin b^{\circ}$, dengan $a$ dan $b$ bilangan
+	bulat positif dan $0 < b < 90$. Tentukan $100a+b$.
+
+	% Jawaban: 1/2
+	\item
+	Hitunglah $\cos\frac{\pi}{7} - \cos\frac{2\pi}{7} + \cos\frac{3\pi}{7}$.
+
+	% Jawaban: 1/8
+	\item
+	Hitunglah $\sin\frac{\pi}{14}\sin\frac{3\pi}{14}\sin\frac{5\pi}{14}$.
+
+	% Source: SMO 2024 Senior Round 1 (diterjemahkan)
+	% Jawaban: 506
+	\item (SMO 2024 Senior)
+	Diketahui $\frac{\cos x}{\sin 3x} - \frac{\sin x}{\cos 3x}
+	- 2\cdot\frac{\sin 4x}{\cos 6x} = 2024$.
+	Tentukan nilai $\frac{\cos 10x}{\sin 12x}$.
+
+\end{enumerate}
+
+\section{Substitusi Trigonometri}
+
+\begin{enumerate}
+
+	% Jawaban: sqrt(2), dicapai di x = 1/sqrt(2)
+	\item
+	Tentukan nilai maksimum $x + \sqrt{1-x^2}$ untuk $x \in [-1, 1]$.
+
+	% Source: SMO 2024 Open Round 1 (diterjemahkan)
+	% Jawaban: 2
+	\item (SMO 2024)
+	Diketahui $x, y > 0$ dan $x\sqrt{2-y^2} + y\sqrt{2-x^2} = 2$.
+	Tentukan nilai $x^2+y^2$.
+
+	% Jawaban: (a) bukti; (b) minimum 2 sqrt(3) di x = y = z = 1/sqrt(3)
+	\item
+	Diberikan $x, y, z > 0$ dengan $xy+yz+zx = 1$.
+	\begin{enumerate}
+		\item Buktikan bahwa ada segitiga $ABC$ dengan $x = \tan\frac{A}{2}$,
+		$y = \tan\frac{B}{2}$, $z = \tan\frac{C}{2}$.
+		\item Buktikan bahwa $\sqrt{1+x^2} + \sqrt{1+y^2} + \sqrt{1+z^2} \ge 2\sqrt{3}$.
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
