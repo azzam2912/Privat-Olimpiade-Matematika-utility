@@ -1,0 +1,529 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Aljabar Trigonometri - Solusi
+% Pembahasan 25 soal Latihan: 12 Identitas, 5 Persamaan, 5 Teleskoping, 3 Substitusi.
+% Penomoran soal sama persis dengan Aljabar Trigonometri_Latihan.tex.
+
+\title{Aljabar Trigonometri - Solusi}
+\date{6 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+Pembahasan 25 soal pada berkas Latihan. Tiap soal dinyatakan ulang secara
+singkat, lalu solusinya. Nomor soal sama dengan berkas Latihan.
+
+\section{Identitas Trigonometri}
+
+\begin{enumerate}
+
+	% Source: OSK SMA 2004 No. 6 (Pilihan Ganda, disajikan sebagai isian)
+	\item (OSK 2004)
+	Besar sudut dinyatakan dalam radian. Urutan $\sin 1$, $\sin 2$, $\sin 3$
+	dari yang terkecil adalah \dots
+	\begin{proof}[Solusi]
+	Karena $\frac{\pi}{2} \approx 1{,}57$ dan $\pi \approx 3{,}14$,
+	sudut $1$ di kuadran I sedangkan $2$ dan $3$ di kuadran II.
+	Bandingkan dengan cerminnya ke kuadran I:
+	\[ \sin 2 = \sin(\pi-2), \qquad \sin 3 = \sin(\pi-3), \]
+	dengan $\pi - 2 \approx 1{,}14$ dan $\pi - 3 \approx 0{,}14$.
+	Sinus naik pada $[0, \frac{\pi}{2}]$, dan $0{,}14 < 1 < 1{,}14$, sehingga
+	\[ \sin(\pi-3) < \sin 1 < \sin(\pi-2). \]
+	Jadi urutannya $\sin 3 < \sin 1 < \sin 2$.
+	\end{proof}
+
+	% Source: OSK SMA 2007 No. 10 (Pilihan Ganda, disajikan sebagai isian)
+	\item (OSK 2007)
+	Sederhanakan $\frac{\tan^{2}x+\cos^{2}x}{\sin x+\sec x}$.
+	\begin{proof}[Solusi]
+	Samakan penyebut pembilang dan penyebutnya:
+	\[ \tan^2 x + \cos^2 x = \frac{\sin^2 x + \cos^4 x}{\cos^2 x},
+	\qquad \sin x + \sec x = \frac{1+\sin x\cos x}{\cos x}. \]
+	Hasil baginya:
+	\[ \frac{\sin^2 x + \cos^4 x}{\cos x\,(1+\sin x\cos x)}. \]
+	Klaim ini sama dengan $\sec x - \sin x = \frac{1-\sin x\cos x}{\cos x}$.
+	Cek dengan kali silang:
+	\begin{align*}
+	\sin^2 x + \cos^4 x &\stackrel{?}{=} (1-\sin x\cos x)(1+\sin x\cos x) \\
+	&= 1 - \sin^2 x\cos^2 x.
+	\end{align*}
+	Ruas kiri ditambah $\sin^2 x\cos^2 x$ menjadi
+	$\sin^2 x + \cos^2 x(\cos^2 x + \sin^2 x) = \sin^2 x + \cos^2 x = 1$.
+	Terbukti. (Penyebut $1+\sin x\cos x \ge \frac12 > 0$ selalu.)
+	Jadi hasilnya $\sec x - \sin x$.
+	\end{proof}
+
+	% Source: SMO 2019 Senior Round 1 (diterjemahkan)
+	\item (SMO 2019 Senior)
+	Diketahui $\tan x = 5$. Tentukan nilai $\frac{6+\sin 2x}{1+\cos 2x}$.
+	\begin{proof}[Solusi]
+	Nyatakan sudut ganda dalam $\tan x$:
+	\[ \sin 2x = \frac{2\tan x}{1+\tan^2 x} = \frac{10}{26} = \frac{5}{13}, \]
+	\[ \cos 2x = \frac{1-\tan^2 x}{1+\tan^2 x} = \frac{-24}{26} = -\frac{12}{13}. \]
+	Maka
+	\[ \frac{6+\sin 2x}{1+\cos 2x}
+	= \frac{6+5/13}{1-12/13} = \frac{83/13}{1/13} = 83. \]
+	\end{proof}
+
+	% Source: SMO 2014 Senior Round 1 (diterjemahkan)
+	\item (SMO 2014 Senior)
+	Hitunglah $50(\cos 39^{\circ}\cos 21^{\circ}
+	+ \cos 129^{\circ}\cos 69^{\circ})$.
+	\begin{proof}[Solusi]
+	Ubah tiap darab dengan product-to-sum:
+	\[ \cos 39^{\circ}\cos 21^{\circ}
+	= \tfrac12[\cos 60^{\circ} + \cos 18^{\circ}]
+	= \tfrac12\left[\tfrac12 + \cos 18^{\circ}\right], \]
+	\[ \cos 129^{\circ}\cos 69^{\circ}
+	= \tfrac12[\cos 198^{\circ} + \cos 60^{\circ}]
+	= \tfrac12\left[-\cos 18^{\circ} + \tfrac12\right], \]
+	karena $\cos 198^{\circ} = \cos(180^{\circ}+18^{\circ}) = -\cos 18^{\circ}$.
+	Jumlah keduanya $\frac12$, sehingga hasilnya $50 \cdot \frac12 = 25$.
+	\end{proof}
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	\item (SMO 2013)
+	Misalkan $A = \cos^2 10^{\circ} + \cos^2 50^{\circ}
+	- \sin 40^{\circ}\sin 80^{\circ}$. Tentukan nilai $100A$.
+	\begin{proof}[Solusi]
+	Turunkan pangkat dua suku pertama:
+	\begin{align*}
+	\cos^2 10^{\circ} + \cos^2 50^{\circ}
+	&= \frac{1+\cos 20^{\circ}}{2} + \frac{1+\cos 100^{\circ}}{2} \\
+	&= 1 + \frac{\cos 20^{\circ}+\cos 100^{\circ}}{2} \\
+	&= 1 + \cos 60^{\circ}\cos 40^{\circ} = 1 + \tfrac12\cos 40^{\circ}.
+	\end{align*}
+	Suku pengurangnya:
+	\[ \sin 40^{\circ}\sin 80^{\circ}
+	= \tfrac12[\cos 40^{\circ} - \cos 120^{\circ}]
+	= \tfrac12\cos 40^{\circ} + \tfrac14. \]
+	Jadi $A = 1 + \frac12\cos 40^{\circ} - \frac12\cos 40^{\circ} - \frac14
+	= \frac34$, dan $100A = 75$.
+	\end{proof}
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	\item (SMO 2013)
+	Misalkan $\tan\alpha$ dan $\tan\beta$ adalah dua akar persamaan
+	$x^2-3x-3 = 0$. Tentukan nilai
+	\[ \left|\sin^2(\alpha+\beta) - 3\sin(\alpha+\beta)\cos(\alpha+\beta)
+	- 3\cos^2(\alpha+\beta)\right|. \]
+	\begin{proof}[Solusi]
+	Dari Vieta, $\tan\alpha + \tan\beta = 3$ dan $\tan\alpha\tan\beta = -3$.
+	Tulis $S = \alpha+\beta$:
+	\[ \tan S = \frac{3}{1-(-3)} = \frac34. \]
+	Karena $\tan S$ hingga, $\cos S \ne 0$. Bagi ekspresi dengan $\cos^2 S$:
+	\[ \sin^2 S - 3\sin S\cos S - 3\cos^2 S
+	= \cos^2 S\,(\tan^2 S - 3\tan S - 3). \]
+	Nilai kurungnya:
+	\[ \frac{9}{16} - \frac{9}{4} - 3 = -\frac{75}{16}. \]
+	Dengan $\cos^2 S = \frac{1}{1+\tan^2 S} = \frac{16}{25}$:
+	\[ \frac{16}{25} \cdot \left(-\frac{75}{16}\right) = -3. \]
+	Mutlaknya $3$.
+	\end{proof}
+
+	% Source: OSP SMA 2009 No. 6 (Isian Singkat)
+	\item (OSP 2009)
+	Nilai minimum dari $f(x) = \frac{9x^{2}\sin^{2}x + 4}{x\sin x}$
+	untuk $0 < x < \pi$ adalah \dots
+	\begin{proof}[Solusi]
+	Pada interval ini $t = x\sin x > 0$. Tulis ulang:
+	\[ f = \frac{9t^2+4}{t} = 9t + \frac{4}{t} \ge 2\sqrt{9t \cdot \frac{4}{t}} = 12, \]
+	dengan AM-GM. Kesetaraan saat $9t = \frac4t$, yaitu $t = \frac23$.
+	Nilai ini tercapai: $x\sin x$ kontinu, menuju $0$ saat $x \to 0^{+}$ dan
+	bernilai $\frac{\pi}{2} > \frac23$ di $x = \frac{\pi}{2}$.
+	Jadi minimumnya $12$.
+	\end{proof}
+
+	% Source: OSK SMA 2014 (Isian Singkat)
+	\item (OSK 2014)
+	Untuk $0 < x < \pi$, nilai minimum dari
+	$\frac{16\sin^2 x + 9}{\sin x}$ adalah \dots
+	\begin{proof}[Solusi]
+	Tulis $t = \sin x \in (0, 1]$. Dari AM-GM:
+	\[ 16t + \frac{9}{t} \ge 2\sqrt{16t \cdot \frac{9}{t}} = 24. \]
+	Kesetaraan saat $16t = \frac9t$, yaitu $t = \frac34$.
+	Karena $\frac34 \in (0, 1]$, batas ini tercapai. Minimumnya $24$.
+	\end{proof}
+
+	% Source: SMO 2009 Open Round 1 (diterjemahkan)
+	\item (SMO 2009)
+	Hitunglah $\frac{\sin 80^{\circ}}{\sin 20^{\circ}}
+	- \frac{\sqrt{3}}{2\sin 80^{\circ}}$.
+	\begin{proof}[Solusi]
+	Samakan penyebut menjadi $2\sin 80^{\circ}\sin 20^{\circ}$:
+	\[ \frac{2\sin^2 80^{\circ} - \sqrt{3}\sin 20^{\circ}}
+	{2\sin 80^{\circ}\sin 20^{\circ}}. \]
+	Pembilangnya, dengan $2\sin^2 80^{\circ} = 1 - \cos 160^{\circ} = 1 + \cos 20^{\circ}$:
+	\begin{align*}
+	1 + \cos 20^{\circ} - \sqrt{3}\sin 20^{\circ}
+	&= 1 + 2\left(\tfrac12\cos 20^{\circ} - \tfrac{\sqrt{3}}{2}\sin 20^{\circ}\right) \\
+	&= 1 + 2\cos 80^{\circ} = 1 + 2\sin 10^{\circ}.
+	\end{align*}
+	Penyebutnya:
+	\[ 2\sin 80^{\circ}\sin 20^{\circ} = \cos 60^{\circ} - \cos 100^{\circ}
+	= \tfrac12 + \sin 10^{\circ}. \]
+	Hasil baginya $\frac{1+2\sin 10^{\circ}}{1/2+\sin 10^{\circ}} = 2$.
+	\end{proof}
+
+	% Source: SMO 2013 Open Round 1 (diterjemahkan)
+	\item (SMO 2013)
+	Tentukan nilai maksimum dari $\frac{1+\cos x}{\sin x+\cos x+2}$
+	untuk $x$ bilangan real.
+	\begin{proof}[Solusi]
+	Penyebutnya selalu positif karena $\sin x + \cos x \ge -\sqrt{2}$.
+	Selisihkan fungsinya dengan $1$:
+	\[ \frac{1+\cos x}{\sin x+\cos x+2} - 1
+	= \frac{-\sin x - 1}{\sin x+\cos x+2}
+	= -\frac{1+\sin x}{\sin x+\cos x+2} \le 0, \]
+	karena $1 + \sin x \ge 0$. Jadi fungsinya $\le 1$,
+	dengan kesetaraan saat $\sin x = -1$, misalnya $x = \frac{3\pi}{2}$.
+	Maksimumnya $1$.
+	\end{proof}
+
+	% Source: OSK SMA 2015 (Isian Singkat)
+	\item (OSK 2015)
+	Untuk setiap bilangan real $a$, didefinisikan $f(a)$ sebagai nilai maksimal
+	dari $\left|\sin x+\frac{2}{3+\sin x}+a\right|$.
+	Nilai minimal dari $f(a)$ adalah \dots
+	\begin{proof}[Solusi]
+	Tulis $g(t) = t + \frac{2}{3+t}$ dengan $t = \sin x \in [-1, 1]$.
+	Turunannya:
+	\[ g'(t) = 1 - \frac{2}{(3+t)^2}. \]
+	Pada $[-1, 1]$, nilai $(3+t)^2$ bergerak dari $4$ sampai $16$, sehingga
+	$g'(t) \ge 1 - \frac24 = \frac12 > 0$. Jadi $g$ naik murni dengan
+	\[ g(-1) = -1 + 1 = 0, \qquad g(1) = 1 + \tfrac12 = \tfrac32. \]
+	Daerah hasilnya interval $[0, \frac32]$. Untuk $a$ tetap:
+	\[ f(a) = \max_{y \in [0,3/2]}|y+a| \ge \frac{|a| + |a+3/2|}{2} \ge \frac34, \]
+	karena $|a| + |a+\frac32| \ge \frac32$. Batas $\frac34$ tercapai di
+	$a = -\frac34$. Jadi nilai minimal $f(a)$ adalah $\frac34$.
+	\end{proof}
+
+	% Source: OSP SMA 2014 No. 18 (Isian Singkat), diadaptasi menjadi tak berurutan.
+	\item (OSP 2014)
+	Misalkan $0 < \alpha, \beta, \gamma < \frac{\pi}{2}$ dan
+	$\alpha+\beta+\gamma = \frac{\pi}{4}$. Tentukan semua himpunan tak berurutan
+	$\{a, b, c\}$ bilangan bulat positif sehingga $\tan\alpha = \frac1a$,
+	$\tan\beta = \frac1b$, dan $\tan\gamma = \frac1c$.
+	\begin{proof}[Solusi]
+	Dari $\tan(\alpha+\beta+\gamma) = 1$ dan rumus tangen tiga sudut:
+	\[ 1 = \frac{\frac1a+\frac1b+\frac1c-\frac{1}{abc}}
+	{1-\frac{1}{ab}-\frac{1}{bc}-\frac{1}{ca}}
+	= \frac{ab+bc+ca-1}{abc-a-b-c}. \]
+	(Penyebutnya tidak nol, sebab tangennya terdefinisi.)
+	Kalikan silang:
+	\[ abc = ab+bc+ca+a+b+c-1. \tag{$\star$} \]
+	Andaikan $a \le b \le c$. Untuk $a = 1$, persamaan menjadi
+	$bc = bc + 2b + 2c$, mustahil. Jadi $a \ge 2$.
+	Bagi $(\star)$ dengan $abc$:
+	\[ 1 = \frac1a+\frac1b+\frac1c+\frac{1}{ab}+\frac{1}{bc}+\frac{1}{ca}-\frac{1}{abc}
+	< \frac3a + \frac{3}{a^2}. \]
+	Untuk $a \ge 4$ ruas kanan $\le \frac{15}{16} < 1$, mustahil. Jadi $a = 2$ atau $3$.
+
+	KASUS $a = 2$: $(\star)$ menjadi $2bc = bc + 3b + 3c + 1$, yaitu
+	\[ bc - 3b - 3c = 1 \iff (b-3)(c-3) = 10. \]
+	Dengan $2 \le b \le c$: $(b, c) = (4, 13)$ atau $(5, 8)$.
+
+	KASUS $a = 3$: $(\star)$ menjadi $3bc = bc + 4b + 4c + 2$, yaitu
+	\[ bc - 2b - 2c = 1 \iff (b-2)(c-2) = 5. \]
+	Dengan $3 \le b \le c$: $(b, c) = (3, 7)$.
+
+	Tinggal memastikan jumlah sudutnya $\frac{\pi}{4}$, bukan $\frac{5\pi}{4}$
+	(yang tangennya juga $1$). Karena $a, b, c \ge 2$, tiap sudut
+	$\le \arctan\frac12 < \frac{\pi}{6}$, sehingga jumlah ketiganya
+	$< \frac{\pi}{2} < \frac{5\pi}{4}$. Jadi jumlahnya tepat $\frac{\pi}{4}$.
+
+	Himpunan tak berurutannya: $\{2,4,13\}$, $\{2,5,8\}$, $\{3,3,7\}$.
+	\end{proof}
+
+\end{enumerate}
+
+\section{Persamaan Trigonometri}
+
+\begin{enumerate}
+
+	% Source: SMO 2009 Senior Round 1 (diterjemahkan, rentang x ditambahkan).
+	\item (SMO 2009 Senior)
+	Jika $\frac{\cos 100^{\circ}}
+	{1-4\sin 25^{\circ}\cos 25^{\circ}\cos 50^{\circ}} = \tan x^{\circ}$
+	dengan $0 \le x < 360$, tentukan $x$.
+	\begin{proof}[Solusi]
+	Sederhanakan penyebut dengan sudut ganda dua kali:
+	\[ 4\sin 25^{\circ}\cos 25^{\circ}\cos 50^{\circ}
+	= 2\sin 50^{\circ}\cos 50^{\circ} = \sin 100^{\circ}. \]
+	Pecahannya menjadi $\frac{\cos 100^{\circ}}{1-\sin 100^{\circ}}$.
+	Karena $\cos 100^{\circ} = -\sin 10^{\circ}$ dan $\sin 100^{\circ} = \cos 10^{\circ}$:
+	\begin{align*}
+	\frac{-\sin 10^{\circ}}{1-\cos 10^{\circ}}
+	&= \frac{-2\sin 5^{\circ}\cos 5^{\circ}}{2\sin^2 5^{\circ}} \\
+	&= -\cot 5^{\circ} = \tan 95^{\circ},
+	\end{align*}
+	karena $\tan(90^{\circ}+5^{\circ}) = -\cot 5^{\circ}$.
+	Jadi $\tan x^{\circ} = \tan 95^{\circ}$ dengan $0 \le x < 360$,
+	yaitu $x = 95$ atau $x = 275$.
+	\end{proof}
+
+	% Source: SMO 2011 Junior Round 1 (diterjemahkan)
+	\item (SMO 2011 Junior)
+	Barisan $(a_n)$ didefinisikan dengan $a_1 = 3$ dan
+	$a_{n+1} = \frac{\sqrt{3}\,a_n-1}{a_n+\sqrt{3}}$ untuk setiap bilangan asli $n$.
+	Tentukan $a_{2011}$.
+	\begin{proof}[Solusi]
+	Tulis $a_n = \tan\theta_n$. Aturan rekursinya adalah rumus $\tan$ selisih:
+	\[ a_{n+1} = \frac{\tan\theta_n - \frac{1}{\sqrt{3}}}{1 + \frac{\tan\theta_n}{\sqrt{3}}}
+	= \tan\left(\theta_n - \frac{\pi}{6}\right), \]
+	asalkan penyebutnya tidak nol. Penyebut nol berarti $a_n = -\sqrt{3}$,
+	yaitu $\theta_n \equiv -\frac{\pi}{3} \pmod{\pi}$. Karena
+	$\theta_n = \arctan 3 - (n-1)\frac{\pi}{6}$, itu memaksa
+	$\frac{\arctan 3}{\pi}$ rasional. Mustahil: tangen dari kelipatan rasional
+	$\pi$ yang rasional hanyalah $0$ atau $\pm 1$, sedangkan di sini tangennya $3$.
+	Jadi barisan terdefinisi untuk semua $n$ dan
+	\[ \theta_n = \arctan 3 - (n-1)\frac{\pi}{6}. \]
+	Setiap $12$ langkah sudutnya berkurang $2\pi$, jadi $a_{n+12} = a_n$.
+	Karena $2011 = 1 + 12\cdot 167 + 6$:
+	\[ a_{2011} = a_7 = \tan(\arctan 3 - \pi) = \tan(\arctan 3) = 3. \]
+	\end{proof}
+
+	\item
+	Tentukan semua bilangan real $x$ dengan $\cos x + \cos 2x + \cos 3x = 0$.
+	\begin{proof}[Solusi]
+	Gabungkan suku pertama dan ketiga dengan sum-to-product:
+	\[ \cos x + \cos 3x = 2\cos 2x\cos x. \]
+	Persamaan menjadi
+	\[ 2\cos 2x\cos x + \cos 2x = \cos 2x\,(2\cos x + 1) = 0. \]
+	Dari $\cos 2x = 0$: $x = \frac{\pi}{4} + \frac{k\pi}{2}$.
+	Dari $\cos x = -\frac12$: $x = \pm\frac{2\pi}{3} + 2k\pi$.
+	Itulah semua solusinya, dengan $k \in \mathbb{Z}$.
+	\end{proof}
+
+	% Source: D. Altizio, Homemade Problems (diterjemahkan dari bahasa Inggris).
+	\item (D. Altizio, Homemade)
+	Untuk setiap bilangan real $x$, misalkan $P(x) = 16x^3-21x$.
+	Berapakah jumlah semua nilai $\tan^2\theta$ yang mungkin, jika $\theta$
+	memenuhi $P(\sin\theta) = P(\cos\theta)$?
+	\begin{proof}[Solusi]
+	Tulis $s = \sin\theta$, $c = \cos\theta$. Persamaannya:
+	\begin{align*}
+	0 &= 16(s^3-c^3) - 21(s-c) \\
+	&= (s-c)(16(s^2+sc+c^2) - 21).
+	\end{align*}
+	Karena $s^2+c^2 = 1$, kurung kedua sama dengan $16sc - 5$. Jadi
+	$s = c$ atau $sc = \frac{5}{16}$.
+
+	Jika $s = c$: dari $s^2+c^2 = 1$ diperoleh $s = c = \pm\frac{1}{\sqrt{2}}$,
+	sehingga $\tan^2\theta = 1$.
+
+	Jika $sc = \frac{5}{16}$: nilai $s^2$ dan $c^2$ adalah dua akar dari
+	\[ u^2 - u + \frac{25}{256} = 0, \]
+	yaitu $u = \frac{8\pm\sqrt{39}}{16}$ (keduanya positif, dan kasus ini
+	tercapai karena $\frac{5}{16} < \frac12$). Maka $\tan^2\theta = \frac{s^2}{c^2}$
+	bernilai $r$ atau $\frac1r$ dengan $r = \frac{8+\sqrt{39}}{8-\sqrt{39}}$.
+	Jumlah keduanya:
+	\[ r + \frac1r = \frac{(8+\sqrt{39})^2+(8-\sqrt{39})^2}{64-39}
+	= \frac{2(64+39)}{25} = \frac{206}{25}. \]
+	Ketiga nilai $1$, $r$, $\frac1r$ berbeda, jadi jumlah semua nilai yang
+	mungkin adalah $1 + \frac{206}{25} = \frac{231}{25}$.
+	\end{proof}
+
+	\item
+	Tentukan semua bilangan real $x$ yang membuat semua sukunya terdefinisi dan
+	memenuhi $\tan x + \tan 2x + \tan 3x = \tan x\tan 2x\tan 3x$.
+	\begin{proof}[Solusi]
+	Tulis $A = x$, $B = 2x$, $C = 3x$, ketiganya dengan tangen terdefinisi.
+	Karena $A+B = 3x = C$, berlaku
+	\[ \tan A + \tan B = \tan(A+B)(1-\tan A\tan B) = \tan C\,(1-S), \]
+	dengan $S = \tan x\tan 2x$. Persamaan menjadi
+	\[ \tan C\,(1-S) + \tan C = S\tan C, \]
+	yaitu $2\tan 3x\,(1-S) = 0$. Jadi $\tan 3x = 0$ atau $S = 1$.
+
+	Jika $\tan 3x = 0$: $x = \frac{j\pi}{3}$, $j \in \mathbb{Z}$.
+	Cek keterdefinisian: $\tan\frac{j\pi}{3}$ tak terdefinisi hanya jika
+	$j = \frac32 + 3k$, tak bulat; $\tan\frac{2j\pi}{3}$ tak terdefinisi hanya
+	jika $4j = 3+6k$, mustahil karena paritasnya. Jadi semua $x = \frac{j\pi}{3}$
+	valid, dan substitusi langsung menunjukkan semuanya memenuhi.
+
+	Jika $S = 1$: $\tan 2x = \cot x$, sehingga $2x = \frac{\pi}{2}-x+j\pi$,
+	yaitu $x = \frac{\pi}{6}+\frac{j\pi}{3}$. Tetapi di titik ini
+	$\tan 3x = \tan(\frac{\pi}{2}+j\pi)$ tak terdefinisi. Kasus ini gugur.
+
+	Jadi solusinya tepat $x = \frac{j\pi}{3}$ dengan $j \in \mathbb{Z}$.
+	\end{proof}
+
+\end{enumerate}
+
+\section{Teleskoping Trigonometri}
+
+\begin{enumerate}
+
+	\item
+	Hitunglah $\cos 20^{\circ}\cos 40^{\circ}\cos 80^{\circ}$.
+	\begin{proof}[Solusi]
+	Kalikan dengan $\sin 20^{\circ} \ne 0$ lalu pakai sudut ganda berulang:
+	\begin{align*}
+	\sin 20^{\circ}\cos 20^{\circ}\cos 40^{\circ}\cos 80^{\circ}
+	&= \tfrac12\sin 40^{\circ}\cos 40^{\circ}\cos 80^{\circ} \\
+	&= \tfrac14\sin 80^{\circ}\cos 80^{\circ} \\
+	&= \tfrac18\sin 160^{\circ} = \tfrac18\sin 20^{\circ}.
+	\end{align*}
+	Bagi kedua ruas dengan $\sin 20^{\circ}$. Hasilnya $\frac18$.
+	\end{proof}
+
+	% Source: SMO 2009 Open Round 1 (diterjemahkan)
+	\item (SMO 2009)
+	Bentuk $1000\sin 10^{\circ}\cos 20^{\circ}\cos 30^{\circ}\cos 40^{\circ}$
+	dapat disederhanakan menjadi $a\sin b^{\circ}$, dengan $a$ dan $b$ bilangan
+	bulat positif dan $0 < b < 90$. Tentukan $100a+b$.
+	\begin{proof}[Solusi]
+	Teleskopkan tiga faktor pertama dengan pengali $\cos 10^{\circ}$:
+	\begin{align*}
+	\cos 10^{\circ}\sin 10^{\circ}\cos 20^{\circ}\cos 40^{\circ}
+	&= \tfrac12\sin 20^{\circ}\cos 20^{\circ}\cos 40^{\circ} \\
+	&= \tfrac14\sin 40^{\circ}\cos 40^{\circ} \\
+	&= \tfrac18\sin 80^{\circ} = \tfrac18\cos 10^{\circ}.
+	\end{align*}
+	Jadi $\sin 10^{\circ}\cos 20^{\circ}\cos 40^{\circ} = \frac18$.
+	Kalikan $\cos 30^{\circ} = \frac{\sqrt{3}}{2}$ dan $1000$:
+	\[ 1000 \cdot \frac18 \cdot \frac{\sqrt{3}}{2}
+	= \frac{125\sqrt{3}}{2} = 125\sin 60^{\circ}. \]
+	Jadi $a = 125$, $b = 60$ (tunggal karena $\sin b^{\circ} = \frac{\sqrt{3}}{2}$
+	dengan $0 < b < 90$ hanya untuk $b = 60$).
+	Nilai $100a+b = 12560$.
+	\end{proof}
+
+	\item
+	Hitunglah $\cos\frac{\pi}{7} - \cos\frac{2\pi}{7} + \cos\frac{3\pi}{7}$.
+	\begin{proof}[Solusi]
+	Kalikan dengan $2\sin\frac{\pi}{7} \ne 0$ dan uraikan tiap suku:
+	\begin{align*}
+	2\sin\tfrac{\pi}{7}\cos\tfrac{\pi}{7} &= \sin\tfrac{2\pi}{7}, \\
+	-2\sin\tfrac{\pi}{7}\cos\tfrac{2\pi}{7}
+	&= -\sin\tfrac{3\pi}{7} + \sin\tfrac{\pi}{7}, \\
+	2\sin\tfrac{\pi}{7}\cos\tfrac{3\pi}{7}
+	&= \sin\tfrac{4\pi}{7} - \sin\tfrac{2\pi}{7}.
+	\end{align*}
+	Karena $\sin\frac{4\pi}{7} = \sin\frac{3\pi}{7}$, jumlah ketiganya
+	menyisakan $\sin\frac{\pi}{7}$. Bagi dengan $2\sin\frac{\pi}{7}$:
+	hasilnya $\frac12$.
+	\end{proof}
+
+	\item
+	Hitunglah $\sin\frac{\pi}{14}\sin\frac{3\pi}{14}\sin\frac{5\pi}{14}$.
+	\begin{proof}[Solusi]
+	Ubah menjadi kosinus dengan sudut penyiku:
+	\[ \sin\tfrac{\pi}{14} = \cos\tfrac{3\pi}{7}, \quad
+	\sin\tfrac{3\pi}{14} = \cos\tfrac{2\pi}{7}, \quad
+	\sin\tfrac{5\pi}{14} = \cos\tfrac{\pi}{7}. \]
+	Darabnya $P = \cos\frac{\pi}{7}\cos\frac{2\pi}{7}\cos\frac{3\pi}{7}$.
+	Dengan $\cos\frac{3\pi}{7} = -\cos\frac{4\pi}{7}$, kalikan $\sin\frac{\pi}{7}$:
+	\begin{align*}
+	\sin\tfrac{\pi}{7} \cdot P
+	&= -\sin\tfrac{\pi}{7}\cos\tfrac{\pi}{7}\cos\tfrac{2\pi}{7}\cos\tfrac{4\pi}{7} \\
+	&= -\tfrac12\sin\tfrac{2\pi}{7}\cos\tfrac{2\pi}{7}\cos\tfrac{4\pi}{7} \\
+	&= -\tfrac14\sin\tfrac{4\pi}{7}\cos\tfrac{4\pi}{7} \\
+	&= -\tfrac18\sin\tfrac{8\pi}{7} = \tfrac18\sin\tfrac{\pi}{7},
+	\end{align*}
+	karena $\sin\frac{8\pi}{7} = -\sin\frac{\pi}{7}$.
+	Bagi dengan $\sin\frac{\pi}{7} \ne 0$. Hasilnya $\frac18$.
+	\end{proof}
+
+	% Source: SMO 2024 Senior Round 1 (diterjemahkan)
+	\item (SMO 2024 Senior)
+	Diketahui $\frac{\cos x}{\sin 3x} - \frac{\sin x}{\cos 3x}
+	- 2\cdot\frac{\sin 4x}{\cos 6x} = 2024$.
+	Tentukan nilai $\frac{\cos 10x}{\sin 12x}$.
+	\begin{proof}[Solusi]
+	Gabungkan dua pecahan pertama:
+	\[ \frac{\cos x}{\sin 3x} - \frac{\sin x}{\cos 3x}
+	= \frac{\cos x\cos 3x - \sin x\sin 3x}{\sin 3x\cos 3x}
+	= \frac{\cos 4x}{\frac12\sin 6x} = \frac{2\cos 4x}{\sin 6x}. \]
+	Kurangi pecahan ketiga:
+	\begin{align*}
+	\frac{2\cos 4x}{\sin 6x} - \frac{2\sin 4x}{\cos 6x}
+	&= \frac{2(\cos 4x\cos 6x - \sin 4x\sin 6x)}{\sin 6x\cos 6x} \\
+	&= \frac{2\cos 10x}{\frac12\sin 12x}
+	= \frac{4\cos 10x}{\sin 12x}.
+	\end{align*}
+	Ruas kiri ini sama dengan $2024$, sehingga
+	$\frac{\cos 10x}{\sin 12x} = \frac{2024}{4} = 506$.
+	\end{proof}
+
+\end{enumerate}
+
+\section{Substitusi Trigonometri}
+
+\begin{enumerate}
+
+	\item
+	Tentukan nilai maksimum $x + \sqrt{1-x^2}$ untuk $x \in [-1, 1]$.
+	\begin{proof}[Solusi]
+	Substitusi $x = \sin\theta$ dengan $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$.
+	Di interval ini $\cos\theta \ge 0$, sehingga $\sqrt{1-x^2} = \cos\theta$.
+	Fungsinya menjadi
+	\[ \sin\theta + \cos\theta = \sqrt{2}\sin\left(\theta+\tfrac{\pi}{4}\right) \le \sqrt{2}. \]
+	Batas ini tercapai di $\theta = \frac{\pi}{4}$, yaitu $x = \frac{1}{\sqrt{2}}$.
+	Maksimumnya $\sqrt{2}$.
+	\end{proof}
+
+	% Source: SMO 2024 Open Round 1 (diterjemahkan)
+	\item (SMO 2024)
+	Diketahui $x, y > 0$ dan $x\sqrt{2-y^2} + y\sqrt{2-x^2} = 2$.
+	Tentukan nilai $x^2+y^2$.
+	\begin{proof}[Solusi]
+	Akarnya menuntut $x, y \le \sqrt{2}$. Tulis $x = \sqrt{2}\,u$,
+	$y = \sqrt{2}\,v$ dengan $u, v \in (0, 1]$. Persamaan menjadi
+	\[ 2u\sqrt{1-v^2} + 2v\sqrt{1-u^2} = 2, \]
+	yaitu $u\sqrt{1-v^2} + v\sqrt{1-u^2} = 1$.
+	Substitusi $u = \sin A$, $v = \sin B$ dengan $A, B \in (0, \frac{\pi}{2}]$:
+	\[ \sin A\cos B + \cos A\sin B = \sin(A+B) = 1. \]
+	Karena $A+B \in (0, \pi)$, haruslah $A+B = \frac{\pi}{2}$.
+	Akibatnya $v = \sin B = \cos A$, sehingga
+	\[ u^2 + v^2 = \sin^2 A + \cos^2 A = 1. \]
+	Jadi $x^2 + y^2 = 2(u^2+v^2) = 2$.
+	\end{proof}
+
+	\item
+	Diberikan $x, y, z > 0$ dengan $xy+yz+zx = 1$.
+	\begin{enumerate}
+		\item Buktikan bahwa ada segitiga $ABC$ dengan $x = \tan\frac{A}{2}$,
+		$y = \tan\frac{B}{2}$, $z = \tan\frac{C}{2}$.
+		\item Buktikan bahwa $\sqrt{1+x^2} + \sqrt{1+y^2} + \sqrt{1+z^2} \ge 2\sqrt{3}$.
+	\end{enumerate}
+	\begin{proof}[Solusi]
+	Bagian (a). Ambil $A = 2\arctan x$ dan $B = 2\arctan y$,
+	keduanya di $(0, \pi)$. Jumlah setengahnya:
+	\[ \tan\left(\tfrac{A}{2}+\tfrac{B}{2}\right)
+	= \frac{x+y}{1-xy} = \frac{1}{z} > 0, \]
+	karena $z(x+y) = 1-xy$ dari syarat $xy+yz+zx = 1$.
+	Jumlah dua sudut lancip dengan tangen positif terletak di $(0, \frac{\pi}{2})$,
+	jadi $C = \pi - A - B$ memenuhi $\frac{C}{2} \in (0, \frac{\pi}{2})$ dan
+	\[ \tan\tfrac{C}{2} = \cot\left(\tfrac{A}{2}+\tfrac{B}{2}\right)
+	= \frac{1-xy}{x+y} = z. \]
+	Jadi $A, B, C$ sudut segitiga dengan $x = \tan\frac{A}{2}$ dan seterusnya.
+
+	Bagian (b). Dengan substitusi di atas:
+	\[ \sum\sqrt{1+x^2} = \sec\tfrac{A}{2} + \sec\tfrac{B}{2} + \sec\tfrac{C}{2}. \]
+	Dari AM-GM, jumlah ini $\ge \frac{3}{\sqrt[3]{\cos\frac{A}{2}\cos\frac{B}{2}\cos\frac{C}{2}}}$.
+	Batasi darab kosinusnya:
+	\[ \cos\tfrac{A}{2}\cos\tfrac{B}{2}
+	= \frac{\cos\frac{A+B}{2}+\cos\frac{A-B}{2}}{2}
+	\le \frac{1+\sin\frac{C}{2}}{2}. \]
+	Tulis $s = \sin\frac{C}{2}$, $c = \cos\frac{C}{2}$. Dari AM-GM untuk empat bilangan
+	$\frac{1+s}{3}, \frac{1+s}{3}, \frac{1+s}{3}, 1-s$:
+	\[ \left(\frac{1+s}{3}\right)^3(1-s) \le \left(\frac12\right)^4 = \frac{1}{16}, \]
+	karena jumlah keempatnya $2$. Jadi
+	\[ \left(\frac{(1+s)c}{2}\right)^2 = \frac{(1+s)^3(1-s)}{4} \le \frac{27}{64}, \]
+	\[ \cos\tfrac{A}{2}\cos\tfrac{B}{2}\cos\tfrac{C}{2} \le \frac{3\sqrt{3}}{8}. \]
+	Akibatnya
+	\[ \sum\sqrt{1+x^2} \ge \frac{3}{\sqrt[3]{3\sqrt{3}/8}}
+	= \frac{6}{\sqrt{3}} = 2\sqrt{3}. \]
+	Kesetaraan saat $x = y = z = \frac{1}{\sqrt{3}}$.
+	\end{proof}
+
+\end{enumerate}
+
+\end{document}
