@@ -1,0 +1,416 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Barisan Rekursif - Modul (gabungan Materi dan Soal Latihan)
+% Relasi rekurensi: induksi, periodisitas, manipulasi, karakteristik sederhana.
+% 12 soal: 3 Induksi, 3 Periodisitas, 3 Manipulasi, 3 Karakteristik.
+% Adaptasi dari 8 Outsource K Math/Pra-OSP/BarisanRekursif.tex
+% dan 8 Outsource K Math/Pra-OSK/BarisanDeret.tex; soal dari arsip OSK/OSP SMA.
+% _Ujian dan _Solusi tetap terpisah (menyusul).
+% Sumber tiap soal latihan dimunculkan di PDF sebagai \item (Sumber); komentar menyimpan detail lengkap.
+% Soal pilihan ganda asli disajikan tanpa opsi jawaban sebagai soal isian.
+% Jawaban numerik diverifikasi independen: hitung tangan plus skrip brute force
+% untuk OSK 2018 No. 11, OSK 2026 No. 6, OSK 2023 No. 13 (semua cocok dengan kunci).
+
+\title{Barisan Rekursif - Modul}
+\date{13 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\part*{Materi}
+
+Ada dua cara menyajikan barisan. Cara eksplisit memberi rumus langsung untuk
+suku ke $n$. Cara rekursif memberi suku awal lalu aturan yang membangun setiap
+suku dari suku sebelumnya. Modul ini membahas cara kedua. Benang merahnya
+barisan Fibonacci
+\[ 1, 1, 2, 3, 5, 8, \dots \]
+yang setiap sukunya (mulai suku ketiga) sama dengan jumlah dua suku sebelumnya.
+Sederhana ditulis. Sulit ditebak rumus eksplisitnya. Empat seksi berikut
+membangun peralatan untuk menjinakkan barisan semacam itu.
+
+\section{Induksi di Barisan}
+
+\begin{definition}
+Sebuah \istilah{barisan rekursif}{recursive sequence} adalah barisan yang
+setiap sukunya ditentukan oleh satu atau beberapa suku sebelumnya melalui
+sebuah \istilah{relasi rekurensi}{recurrence relation}, beserta cukup banyak
+suku awal sehingga seluruh barisan tertentu secara tunggal.
+\end{definition}
+
+\begin{example}
+Barisan $(F_n)$ memenuhi $F_1 = 2$ dan
+\[ F_{n+1} = \frac{2F_n + 1}{2} \]
+untuk setiap bilangan asli $n$. Tentukan rumus eksplisit untuk $F_n$.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Hitung beberapa suku pertama:
+\begin{align*}
+F_2 &= \frac{2 \cdot 2 + 1}{2} = \frac{5}{2}, \\
+F_3 &= \frac{2 \cdot \frac{5}{2} + 1}{2} = 3, \\
+F_4 &= \frac{2 \cdot 3 + 1}{2} = \frac{7}{2}.
+\end{align*}
+Tebakannya $F_n = \frac{n+3}{2}$. Basis $n = 1$ jelas.
+Untuk langkah induksi, andaikan $F_n = \frac{n+3}{2}$ untuk suatu $n$.
+Maka
+\begin{align*}
+F_{n+1} &= \frac{2F_n + 1}{2} \\
+&= \frac{(n + 3) + 1}{2} \\
+&= \frac{(n + 1) + 3}{2}.
+\end{align*}
+Jadi rumus berlaku untuk $n + 1$. Terbukti $F_n = \frac{n+3}{2}$ untuk semua $n$.
+\end{proof}
+
+\begin{fact}
+Untuk membuktikan tebakan rumus eksplisit, induksi lemah cukup bila relasi
+hanya memakai satu suku sebelumnya. Bila relasi memakai dua suku atau lebih,
+pakai induksi kuat: andaikan rumus benar sampai $k$, lalu buktikan untuk $k+1$.
+\end{fact}
+
+\begin{example}[Adaptasi Modul Pra-OSP Barisan Rekursif]
+Barisan bilangan cacah $(a_n)$ memenuhi $a_1 = 1$ dan
+\[ a_{m+n} + a_{m-n} = \frac{a_{2m} + a_{2n}}{2} \]
+untuk setiap bilangan cacah $m \ge n$. Tentukan rumus eksplisit untuk $a_n$.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Ambil $m = n$. Maka $a_{2m} + a_0 = a_{2m}$, sehingga
+\[ a_0 = 0. \]
+Ambil $n = 0$. Maka $2a_m = \frac{a_{2m} + a_0}{2}$, sehingga
+\[ a_{2m} = 4a_m \]
+untuk setiap $m$. Khususnya $a_2 = 4a_1 = 4$.
+Data $a_0 = 0$, $a_1 = 1$, $a_2 = 4$ menebak $a_n = n^2$.
+Basis $n = 0$ dan $n = 1$ jelas.
+Andaikan $a_i = i^2$ untuk setiap $i \le k$ dengan $k \ge 1$.
+Ambil $m = k$ dan $n = 1$ pada relasi:
+\begin{align*}
+a_{k+1} + a_{k-1} &= \frac{a_{2k} + a_2}{2} \\
+&= \frac{4a_k + 4a_1}{2} \\
+&= 2k^2 + 2.
+\end{align*}
+Karena $a_{k-1} = (k-1)^2$:
+\begin{align*}
+a_{k+1} &= 2k^2 + 2 - (k-1)^2 \\
+&= k^2 + 2k + 1 \\
+&= (k+1)^2.
+\end{align*}
+Terbukti $a_n = n^2$ untuk semua $n$.
+\end{proof}
+
+\section{Periodisitas}
+
+\begin{definition}
+Barisan $(a_n)$ disebut \istilah{barisan periodik}{periodic sequence} dengan
+periode $k$ apabila $a_{n+k} = a_n$ untuk setiap $n$ yang cukup besar.
+Periode terkecilnya disebut periode minimal.
+\end{definition}
+
+\begin{fact}
+Jika $a_{n+1} = f(a_n)$ untuk suatu fungsi $f$ dan suatu suku kembali ke nilai
+suku awal, barisan mengulang dari sana dan periodik. Hal yang sama berlaku bila
+keadaan barisan hanya punya banyak kemungkinan berhingga, misalnya pasangan
+sisa modulo $m$ yang hanya ada $m^2$ macam.
+\end{fact}
+
+\begin{example}[Turki MO 2006]
+Barisan bilangan real tak nol $(a_n)$ memenuhi $a_n = \frac{a_{n-1}}{a_{n-2}}$
+untuk $n \ge 3$. Tunjukkan barisan ini periodik dan tentukan periodenya.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Tulis $a_1 = x$ dan $a_2 = y$. Hitung suku berikutnya:
+\begin{align*}
+a_3 &= \frac{y}{x}, \\
+a_4 &= \frac{a_3}{a_2} = \frac{1}{x}, \\
+a_5 &= \frac{a_4}{a_3} = \frac{1}{y}, \\
+a_6 &= \frac{a_5}{a_4} = \frac{x}{y}, \\
+a_7 &= \frac{a_6}{a_5} = x = a_1, \\
+a_8 &= \frac{a_7}{a_6} = y = a_2.
+\end{align*}
+Karena dua suku berurutan menentukan seluruh barisan, $a_7 = a_1$ dan
+$a_8 = a_2$ memaksa barisan mengulang dengan periode $6$.
+\end{proof}
+
+\begin{example}
+Barisan $(b_n)$ memenuhi $b_1 = 0$ dan $b_2 = 2$. Untuk $n \ge 3$, $b_n$
+adalah sisa pembagian $b_{n-2} + b_{n-1}$ oleh $3$. Tentukan jumlah $16$ suku pertama.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Hitung sampai polanya mengulang:
+\begin{align*}
+b_3 &\equiv 0 + 2 \equiv 2 \pmod{3}, \\
+b_4 &\equiv 2 + 2 \equiv 1 \pmod{3}, \\
+b_5 &\equiv 2 + 1 \equiv 0 \pmod{3}, \\
+b_6 &\equiv 1 + 0 \equiv 1 \pmod{3}, \\
+b_7 &\equiv 0 + 1 \equiv 1 \pmod{3}, \\
+b_8 &\equiv 1 + 1 \equiv 2 \pmod{3}.
+\end{align*}
+Karena $b_9 = 0 = b_1$ dan $b_{10} = 2 = b_2$, barisan periodik dengan periode $8$.
+Jumlah satu periode:
+\[ 0 + 2 + 2 + 1 + 0 + 1 + 1 + 2 = 9. \]
+Enam belas suku memuat dua periode penuh, jadi jumlahnya $2 \cdot 9 = 18$.
+\end{proof}
+
+\section{Manipulasi Barisan}
+
+\begin{fact}[Substitusi standar]
+Relasi yang tampak sulit sering menjadi mudah setelah substitusi yang tepat.
+\begin{enumerate}
+    \item Balikkan barisan ($b_n = 1/a_n$) bila relasi memuat kebalikan suku.
+    \item Bagi dengan indeks bila koefisien memuat $n$.
+    \item Kurangkan dua persamaan berurutan bila relasi memuat jumlah banyak suku.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Barisan bilangan real $(a_n)$ memenuhi $a_1 = 1$, $a_2 = \frac{3}{5}$, dan
+\[ \frac{1}{a_n} = \frac{2}{a_{n-1}} - \frac{1}{a_{n-2}} \]
+untuk $n \ge 3$. Tentukan $a_5$.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Substitusi $b_n = 1/a_n$ memberi $b_1 = 1$, $b_2 = \frac{5}{3}$, dan
+\[ b_n = 2b_{n-1} - b_{n-2}. \]
+Ini relasi barisan aritmetika dengan beda
+\[ d = b_2 - b_1 = \frac{5}{3} - 1 = \frac{2}{3}. \]
+Maka
+\begin{align*}
+b_5 &= b_1 + 4d \\
+&= 1 + 4 \cdot \frac{2}{3} \\
+&= \frac{11}{3}.
+\end{align*}
+Jadi $a_5 = \frac{3}{11}$.
+\end{proof}
+
+\begin{fact}[Teleskoping]
+Jumlah selisih berurutan runtuh menjadi selisih ujungnya:
+\[ (b_2 - b_1) + (b_3 - b_2) + \dots + (b_{n+1} - b_n) = b_{n+1} - b_1. \]
+Kuncinya menulis suku umum sebagai selisih semacam itu.
+\end{fact}
+
+\begin{example}
+Hitunglah
+\begin{enumerate}[(a)]
+    \item $\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \dots + \frac{1}{n(n+1)}$,
+    \item $1 \cdot 1! + 2 \cdot 2! + \dots + n \cdot n!$.
+\end{enumerate}
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Untuk bagian (a), pecah tiap suku:
+\[ \frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}. \]
+Jumlahnya meneleskop:
+\begin{align*}
+\sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)
+&= 1 - \frac{1}{n+1} \\
+&= \frac{n}{n+1}.
+\end{align*}
+Untuk bagian (b), tulis $k = (k+1) - 1$:
+\[ k \cdot k! = (k+1) \cdot k! - k! = (k+1)! - k!. \]
+Jumlahnya meneleskop:
+\begin{align*}
+\sum_{k=1}^{n} \bigl( (k+1)! - k! \bigr)
+&= (n+1)! - 1.
+\end{align*}
+\end{proof}
+
+\section{Persamaan Karakteristik Sederhana}
+
+\begin{definition}
+Sebuah \istilah{rekursi linear}{linear recurrence} homogen orde $2$ berbentuk
+\[ a_{n+2} = p a_{n+1} + q a_n \]
+dengan $p$ dan $q$ konstanta. Persamaan kuadrat $r^2 = pr + q$ disebut
+\istilah{persamaan karakteristik}{characteristic equation} dari rekursi itu.
+\end{definition}
+
+\begin{fact}
+Untuk orde $1$ tak homogen $a_{n+1} = p a_n + q$ dengan $p \ne 1$, geser ke
+titik tetapnya: barisan $b_n = a_n + \frac{q}{p-1}$ memenuhi $b_{n+1} = p b_n$,
+sehingga $b_n$ geometri. Untuk orde $2$ dengan akar karakteristik $r_1 \ne r_2$,
+solusi umumnya $a_n = \alpha r_1^n + \beta r_2^n$; $\alpha$ dan $\beta$
+ditentukan dua suku awal.
+\end{fact}
+
+\begin{example}
+Barisan $(a_n)$ memenuhi $a_1 = 1$ dan $a_{n+1} = 2a_n + 1$ untuk $n \ge 1$.
+Tentukan rumus eksplisit untuk $a_n$.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Titik tetap $t = 2t + 1$ memberi $t = -1$. Substitusi $b_n = a_n + 1$:
+\begin{align*}
+b_{n+1} &= a_{n+1} + 1 \\
+&= 2a_n + 2 \\
+&= 2b_n.
+\end{align*}
+Jadi $(b_n)$ geometri dengan $b_1 = 2$:
+\[ b_n = 2 \cdot 2^{n-1} = 2^n. \]
+Akibatnya $a_n = 2^n - 1$.
+\end{proof}
+
+\begin{example}
+Barisan $(a_n)$ memenuhi $a_1 = 1$, $a_2 = 3$, dan
+\[ a_{k+1} - a_k = 2(a_k - a_{k-1}) - 1 \]
+untuk $k \ge 2$. Tentukan $a_5$.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Tulis $d_k = a_{k+1} - a_k$. Maka $d_1 = 2$ dan $d_k = 2d_{k-1} - 1$.
+Geser dengan $e_k = d_k - 1$:
+\begin{align*}
+e_k &= 2d_{k-1} - 2 \\
+&= 2e_{k-1}.
+\end{align*}
+Jadi $e_k = 2^{k-1} e_1 = 2^{k-1}$, sehingga $d_k = 2^{k-1} + 1$.
+Empat selisih pertama:
+\[ d_1 = 2, \quad d_2 = 3, \quad d_3 = 5, \quad d_4 = 9. \]
+Maka
+\[ a_5 = a_1 + d_1 + d_2 + d_3 + d_4 = 1 + 2 + 3 + 5 + 9 = 20. \]
+\end{proof}
+
+\begin{example}
+Barisan Fibonacci memenuhi $F_1 = F_2 = 1$ dan $F_{n+2} = F_{n+1} + F_n$.
+Tentukan rumus eksplisit untuk $F_n$.
+\end{example}
+\begin{proof}[Solusi]
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Persamaan karakteristiknya $r^2 = r + 1$, dengan akar
+\[ \varphi = \frac{1 + \sqrt{5}}{2}, \qquad \psi = \frac{1 - \sqrt{5}}{2}. \]
+Tulis $F_n = \alpha \varphi^n + \beta \psi^n$. Dua suku awal memberi
+\begin{align*}
+\alpha \varphi + \beta \psi &= 1, \\
+\alpha \varphi^2 + \beta \psi^2 &= 1.
+\end{align*}
+Karena $\varphi^2 = \varphi + 1$ dan $\psi^2 = \psi + 1$, persamaan kedua
+menjadi $(\alpha\varphi + \beta\psi) + (\alpha + \beta) = 1$, sehingga
+\[ \alpha + \beta = 0. \]
+Substitusi $\beta = -\alpha$ ke persamaan pertama:
+\begin{align*}
+\alpha(\varphi - \psi) &= 1 \\
+\alpha \sqrt{5} &= 1.
+\end{align*}
+Jadi $\alpha = \frac{1}{\sqrt{5}}$ dan $\beta = -\frac{1}{\sqrt{5}}$:
+\[ F_n = \frac{\varphi^n - \psi^n}{\sqrt{5}}. \]
+\end{proof}
+
+\part*{Soal Latihan}
+
+\section{Induksi di Barisan}
+
+\begin{enumerate}
+
+	% Source: OSK SMA 2009 versi 2 No. 17 (Isian Singkat)
+	% Jawaban: 1006
+	\item (OSK 2009)
+	Jika $F(n+1)=\frac{2F(n)+1}{2}$ untuk $n=1,2,\dots$ dan $F(1)=2$, maka $F(2009)=\dots$
+
+	% Source: OSK SMA 2018 No. 11 (Isian Singkat)
+	% Jawaban: 2104
+	\item (OSK 2018)
+	Misalkan $\{x_{n}\}$ adalah barisan bilangan bulat yang memenuhi $x_{1}=x_{2}=\dots=x_{12}=0$, $x_{13}=2$, dan untuk setiap bilangan asli $n$ berlaku $x_{n+13}=x_{n+4}+2x_{n}$. Nilai $x_{143}$ adalah \dots
+
+	% Source: OSP SMA 2015 No. 13 (Isian Singkat)
+	% Jawaban: 3
+	% Catatan: rumus umum diturunkan dari kasus n=1; cek konsistensi relasi penuh saat menulis Solusi.
+	\item (OSP 2015)
+	Diberikan barisan $a_0, a_1, a_2, \dots$ dengan $a_0=2$, $a_1=\frac{8}{3}$ dan
+	\[a_ma_n=a_{m+n}-a_{m-n}\]
+	untuk setiap bilangan asli $m, n$ dengan $m \ge n$. Banyaknya bilangan asli $n$ yang memenuhi
+	\[a_n-3^n>\frac{1}{2015}\]
+	adalah \dots
+
+\end{enumerate}
+
+\section{Periodisitas}
+
+\begin{enumerate}[resume]
+
+	% Source: OSK SMA 2026 No. 6 (Pilihan Ganda, disajikan sebagai isian)
+	% Jawaban: 2279
+	\item (OSK 2026)
+	Diketahui $a_{1}=0$, $a_{2}=2$. Untuk setiap bilangan asli $n\ge3$, $a_{n}$ merupakan sisa pembagian $a_{n-2}+a_{n-1}$ oleh 3. Nilai dari $a_{1}+a_{2}+\dots+a_{2026}$ adalah \dots
+
+	% Source: OSP SMA 2011 No. 13 (Isian Singkat)
+	% Jawaban: -1/2
+	\item (OSP 2011)
+	Diberikan barisan bilangan rasional $\{a_k\}_{k \in \mathbb{N}}$ yang didefinisikan dengan $a_1=2$ dan
+	\[ a_{n+1}=\frac{a_n-1}{a_n+1}, \quad n \in \mathbb{N} \]
+	Nilai $a_{2011}$ adalah \dots
+
+	% Source: OSP SMA 2009 No. 8 (Isian Singkat, notasi himpunan disesuaikan)
+	% Jawaban: 1/3
+	\item (OSP 2009)
+	Suatu fungsi $f : \mathbb{Z} \rightarrow \mathbb{Q}$ mempunyai sifat $f(x+1) = \frac{1+f(x)}{1-f(x)}$ untuk setiap $x \in \mathbb{Z}$. Jika $f(2) = 2$, maka nilai fungsi $f(2009)$ adalah \dots
+
+\end{enumerate}
+
+\section{Manipulasi Barisan}
+
+\begin{enumerate}[resume]
+
+	% Source: OSK SMA 2020 No. 5 (Isian Singkat)
+	% Jawaban: 1348
+	\item (OSK 2020)
+	Suatu barisan bilangan real $a_{1},a_{2},a_{3},\dots$ memenuhi $a_{1}=1$, $a_{2}=\frac{3}{5}$ dan $\frac{1}{a_{n}}=\frac{2}{a_{n-1}}-\frac{1}{a_{n-2}}$ untuk setiap $n\ge 3$. Bilangan $a_{2020}$ dapat ditulis sebagai $\frac{p}{q}$ dengan $p$ dan $q$ bilangan asli relatif prima. Nilai $p+q$ adalah \dots
+
+	% Source: OSP SMA 2013 No. 15 (Isian Singkat)
+	% Jawaban: 8050
+	\item (OSP 2013)
+	Suatu barisan $x_1, x_2, \dots, x_n, \dots$ didefinisikan dengan: $x_1=2$ dan $x_{n+1}=(1+\frac{1}{n})x_n+\frac{2}{n}$ untuk setiap bilangan asli $n$. Nilai $x_{2013}$ adalah \dots
+
+	% Source: OSP SMA 2019 No. 8 (Isian Singkat)
+	% Jawaban: 2^2018
+	\item (OSP 2019)
+	Barisan bilangan real $a_1, a_2, a_3, \dots$ memenuhi
+	\[ \frac{na_1+(n-1)a_2+\dots+2a_{n-1}+a_n}{n^2}=1 \]
+	untuk setiap bilangan asli $n$. Nilai dari $a_1a_2a_3\dots a_{2019}$ adalah \dots
+
+\end{enumerate}
+
+\section{Persamaan Karakteristik Sederhana}
+
+\begin{enumerate}[resume]
+
+	% Source: OSP SMA 2020 No. 7 (Isian Singkat, naskah kanonis jumlah 340)
+	% Jawaban: 3
+	\item (OSP 2020)
+	Suatu barisan bilangan bulat $u_1, u_2, u_3, \dots$ memenuhi
+	\[
+	u_{n+1}-u_n =
+	\begin{cases}
+	1, & \text{jika } n \text{ ganjil} \\
+	2, & \text{jika } n \text{ genap}
+	\end{cases}
+	\]
+	Jika $u_1+u_2+\dots+u_{20}=340$, maka $u_1=\dots$
+
+	% Source: OSP SMA 2006 No. 19 (Isian Singkat)
+	% Jawaban: 973
+	\item (OSP 2006)
+	Evan membuat sebuah barisan bilangan asli $a_{1}, a_{2}, a_{3},\dots$ yang memenuhi $a_{k+1}-a_{k}=2(a_{k}-a_{k-1})-1,$ untuk $k=2,3,\dots,$ dan $a_{2}-a_{1}=2$. Jika 2006 muncul dalam barisan, nilai $a_{1}$ terkecil yang mungkin adalah \dots
+
+	% Source: OSK SMA 2023 No. 13 (Isian Singkat)
+	% Jawaban: 340
+	\item (OSK 2023)
+	Misalkan $a_{1},a_{2},a_{3},\dots$ suatu barisan yang memenuhi persamaan
+	\[ a_{n+2}-a_{n+1}+a_{n}=\frac{n+2}{6} \]
+	untuk setiap bilangan asli $n$. Jika $a_{1}=3$ dan $a_{2}=4$, nilai dari $a_{2023}$ adalah \dots
+
+\end{enumerate}
+
+\section{Referensi}
+\begin{itemize}
+    \item Modul Pra-OSP: Barisan Rekursif (Azzam dan Akeyla).
+    \item Modul Pra-OSK: Barisan dan Deret (Azzam dan Akeyla).
+    \item Berkas OSK SMA dan OSP SMA terkategorisasi per topik, arsip Project-Helvethia.
+    \item Daftar materi OSN, \texttt{list-materi-osn.md}, arsip Project-Helvethia.
+\end{itemize}
+
+\end{document}
