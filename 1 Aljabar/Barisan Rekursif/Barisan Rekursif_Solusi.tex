@@ -1,0 +1,381 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Barisan Rekursif - Solusi
+% Pembahasan 12 soal latihan: 3 Induksi, 3 Periodisitas, 3 Manipulasi, 3 Karakteristik.
+% Penomoran dan redaksi soal sama persis dengan Barisan Rekursif_Modul.tex.
+
+\title{Barisan Rekursif - Solusi}
+\date{13 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+Pembahasan 12 soal latihan pada berkas Modul. Setiap soal ditulis ulang sama
+persis, lalu diikuti solusinya. Penomoran soal sama dengan berkas Modul.
+
+\section{Induksi di Barisan}
+
+\begin{enumerate}
+
+	% Source: OSK SMA 2009 versi 2 No. 17 (Isian Singkat)
+	% Jawaban: 1006
+	\item (OSK 2009)
+	Jika $F(n+1)=\frac{2F(n)+1}{2}$ untuk $n=1,2,\dots$ dan $F(1)=2$, maka $F(2009)=\dots$
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Tulis ulang relasinya:
+	\[ F(n+1) = F(n) + \frac{1}{2}. \]
+	Selisih dua suku berurutan selalu $\frac12$. Jumlahkan selisih ini mulai
+	dari suku pertama:
+	\begin{align*}
+	F(n) &= F(1) + \underbrace{\frac12 + \dots + \frac12}_{n-1 \text{ suku}} \\
+	&= 2 + \frac{n-1}{2} \\
+	&= \frac{n+3}{2}.
+	\end{align*}
+	Untuk $n = 2009$:
+	\[ F(2009) = \frac{2012}{2} = 1006. \]
+	\end{proof}
+
+	% Source: OSK SMA 2018 No. 11 (Isian Singkat)
+	% Jawaban: 2104
+	\item (OSK 2018)
+	Misalkan $\{x_{n}\}$ adalah barisan bilangan bulat yang memenuhi $x_{1}=x_{2}=\dots=x_{12}=0$, $x_{13}=2$, dan untuk setiap bilangan asli $n$ berlaku $x_{n+13}=x_{n+4}+2x_{n}$. Nilai $x_{143}$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Geser indeks lalu bagi dua. Definisikan
+	\[ z_m = \frac{x_{m+13}}{2} \quad \text{untuk } m \ge 0, \]
+	dan $z_m = 0$ untuk $m < 0$. Maka $x_k = 2z_{k-13}$ untuk setiap $k \ge 1$:
+	untuk $k \le 12$ kedua ruas nol, untuk $k = 13$ kedua ruas sama dengan $2$,
+	dan untuk $k \ge 14$ ini definisi $z_{k-13}$.
+	Substitusi ke relasi $x_{n+13} = x_{n+4} + 2x_n$ memberi
+	\[ 2z_n = 2z_{n-9} + 4z_{n-13}, \]
+	yaitu
+	\[ z_n = z_{n-9} + 2z_{n-13} \quad \text{untuk } n \ge 1, \]
+	dengan $z_0 = 1$.
+
+	Relasi ini menghitung cara berjalan. Pandang cara berjalan dari $0$ ke $n$
+	memakai langkah $9$ atau $13$. Tiap langkah $9$ berbobot $1$ dan tiap
+	langkah $13$ berbobot $2$. Bobot satu cara berjalan adalah darab bobot
+	semua langkahnya.
+
+	Klaim: $z_n$ sama dengan jumlah bobot semua cara berjalan dari $0$ ke $n$.
+	Basis $n = 0$ jelas: hanya ada cara diam dengan bobot $1 = z_0$.
+	Untuk $n \ge 1$, pilah menurut langkah terakhir. Cara yang berakhir dengan
+	langkah $9$ tepat sama dengan cara berjalan ke $n - 9$ dengan bobot yang
+	sama. Cara yang berakhir dengan langkah $13$ tepat sama dengan cara
+	berjalan ke $n - 13$ dengan bobot dikali $2$. Jadi jumlah bobotnya
+	$z_{n-9} + 2z_{n-13} = z_n$ menurut hipotesis induksi kuat. (Untuk indeks
+	negatif, kedua ruas nol menurut konvensi.)
+
+	Sekarang $x_{143} = 2z_{130}$. Cara berjalan ke $130$ memakai $a$ langkah
+	$9$ dan $b$ langkah $13$ dengan $9a + 13b = 130$. Tiap pasangan $(a, b)$
+	menghasilkan $\binom{a+b}{a}$ urutan langkah. Modulo $9$:
+	\[ 4b \equiv 4 \pmod{9}, \]
+	sehingga $b \equiv 1 \pmod{9}$. Karena $b \le 10$, hanya $b = 1$ dan
+	$b = 10$ yang mungkin, memberi $(a, b) = (13, 1)$ dan $(0, 10)$.
+	\begin{align*}
+	z_{130} &= \binom{14}{13} \cdot 2 + \binom{10}{0} \cdot 2^{10} \\
+	&= 28 + 1024 \\
+	&= 1052.
+	\end{align*}
+	Jadi $x_{143} = 2 \cdot 1052 = 2104$.
+	\end{proof}
+
+	% Source: OSP SMA 2015 No. 13 (Isian Singkat)
+	% Jawaban: 3
+	% Catatan: pembahasan hanya memakai relasi untuk n = 1; relasi penuh
+	% untuk semua pasangan (m, n) tidak konsisten dengan rumus yang diperoleh.
+	\item (OSP 2015)
+	Diberikan barisan $a_0, a_1, a_2, \dots$ dengan $a_0=2$, $a_1=\frac{8}{3}$ dan
+	\[a_ma_n=a_{m+n}-a_{m-n}\]
+	untuk setiap bilangan asli $m, n$ dengan $m \ge n$. Banyaknya bilangan asli $n$ yang memenuhi
+	\[a_n-3^n>\frac{1}{2015}\]
+	adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Ambil $n = 1$ pada relasi yang diberikan. Untuk setiap $m \ge 1$:
+	\[ a_m \cdot a_1 = a_{m+1} - a_{m-1}, \]
+	yaitu
+	\[ a_{m+1} = \frac{8}{3}a_m + a_{m-1}. \]
+	Persamaan karakteristiknya
+	\[ r^2 - \frac{8}{3}r - 1 = 0, \]
+	atau $3r^2 - 8r - 3 = 0$. Akarnya
+	\[ r = \frac{8 \pm \sqrt{64 + 36}}{6} = \frac{8 \pm 10}{6}, \]
+	yaitu $r = 3$ dan $r = -\frac13$. Jadi
+	\[ a_n = A \cdot 3^n + B\left(-\frac{1}{3}\right)^n \]
+	untuk suatu konstanta $A$ dan $B$.
+	Dua suku awal memberi
+	\begin{align*}
+	A + B &= 2, \\
+	3A - \frac{B}{3} &= \frac{8}{3}.
+	\end{align*}
+	Dari persamaan pertama $B = 2 - A$. Substitusi ke persamaan kedua:
+	\begin{align*}
+	3A - \frac{2 - A}{3} &= \frac{8}{3} \\
+	9A - 2 + A &= 8 \\
+	10A &= 10.
+	\end{align*}
+	Jadi $A = 1$ dan $B = 1$:
+	\[ a_n = 3^n + \left(-\frac{1}{3}\right)^n. \]
+	Selisih yang ditanyakan:
+	\[ a_n - 3^n = \left(-\frac{1}{3}\right)^n. \]
+	Untuk $n$ ganjil, nilai ini negatif sehingga tidak lebih dari $\frac{1}{2015}$.
+	Untuk $n$ genap, syaratnya
+	\[ \left(\frac{1}{3}\right)^n > \frac{1}{2015}, \]
+	yaitu $3^n < 2015$. Karena $3^6 = 729$ dan $3^7 = 2187$, bilangan asli
+	genap yang memenuhi hanya $n \in \{2, 4, 6\}$. Ada $3$ nilai.
+	\end{proof}
+
+\end{enumerate}
+
+\section{Periodisitas}
+
+\begin{enumerate}[resume]
+
+	% Source: OSK SMA 2026 No. 6 (Pilihan Ganda, disajikan sebagai isian)
+	% Jawaban: 2279
+	\item (OSK 2026)
+	Diketahui $a_{1}=0$, $a_{2}=2$. Untuk setiap bilangan asli $n\ge3$, $a_{n}$ merupakan sisa pembagian $a_{n-2}+a_{n-1}$ oleh 3. Nilai dari $a_{1}+a_{2}+\dots+a_{2026}$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Hitung suku berikutnya modulo $3$:
+	\begin{align*}
+	a_3 &\equiv 0 + 2 \equiv 2 \pmod{3}, \\
+	a_4 &\equiv 2 + 2 \equiv 1 \pmod{3}, \\
+	a_5 &\equiv 2 + 1 \equiv 0 \pmod{3}, \\
+	a_6 &\equiv 1 + 0 \equiv 1 \pmod{3}, \\
+	a_7 &\equiv 0 + 1 \equiv 1 \pmod{3}, \\
+	a_8 &\equiv 1 + 1 \equiv 2 \pmod{3}, \\
+	a_9 &\equiv 1 + 2 \equiv 0 \pmod{3}, \\
+	a_{10} &\equiv 2 + 0 \equiv 2 \pmod{3}.
+	\end{align*}
+	Karena $a_9 = a_1$ dan $a_{10} = a_2$, dan tiap suku ditentukan dua suku
+	sebelumnya, barisan berulang dengan periode $8$. Jumlah satu periode:
+	\[ 0 + 2 + 2 + 1 + 0 + 1 + 1 + 2 = 9. \]
+	Tulis $2026 = 253 \cdot 8 + 2$. Jumlah yang diminta:
+	\begin{align*}
+	a_1 + \dots + a_{2026} &= 253 \cdot 9 + a_1 + a_2 \\
+	&= 2277 + 2 \\
+	&= 2279.
+	\end{align*}
+	\end{proof}
+
+	% Source: OSP SMA 2011 No. 13 (Isian Singkat)
+	% Jawaban: -1/2
+	\item (OSP 2011)
+	Diberikan barisan bilangan rasional $\{a_k\}_{k \in \mathbb{N}}$ yang didefinisikan dengan $a_1=2$ dan
+	\[ a_{n+1}=\frac{a_n-1}{a_n+1}, \quad n \in \mathbb{N} \]
+	Nilai $a_{2011}$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Hitung beberapa suku pertama:
+	\begin{align*}
+	a_2 &= \frac{2-1}{2+1} = \frac{1}{3}, \\
+	a_3 &= \frac{\frac13-1}{\frac13+1} = -\frac{1}{2}, \\
+	a_4 &= \frac{-\frac12-1}{-\frac12+1} = -3, \\
+	a_5 &= \frac{-3-1}{-3+1} = 2.
+	\end{align*}
+	Karena $a_5 = a_1$, barisan berulang dengan periode $4$. Tak satu pun
+	nilai dalam siklus sama dengan $-1$, jadi penyebut tak pernah nol.
+	Tulis $2011 = 502 \cdot 4 + 3$. Akibatnya $a_{2011} = a_3 = -\frac12$.
+	\end{proof}
+
+	% Source: OSP SMA 2009 No. 8 (Isian Singkat, notasi himpunan disesuaikan)
+	% Jawaban: 1/3
+	\item (OSP 2009)
+	Suatu fungsi $f : \mathbb{Z} \rightarrow \mathbb{Q}$ mempunyai sifat $f(x+1) = \frac{1+f(x)}{1-f(x)}$ untuk setiap $x \in \mathbb{Z}$. Jika $f(2) = 2$, maka nilai fungsi $f(2009)$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Hitung orbitnya mulai dari $f(2) = 2$:
+	\begin{align*}
+	f(3) &= \frac{1+2}{1-2} = -3, \\
+	f(4) &= \frac{1-3}{1+3} = -\frac{1}{2}, \\
+	f(5) &= \frac{1-\frac12}{1+\frac12} = \frac{1}{3}, \\
+	f(6) &= \frac{1+\frac13}{1-\frac13} = 2.
+	\end{align*}
+	Karena $f(6) = f(2)$, fungsinya periodik dengan periode $4$ untuk
+	$x \ge 2$. Tak satu pun nilai orbit sama dengan $1$, jadi penyebut
+	tak pernah nol. Tulis $2009 = 2 + 4 \cdot 501 + 3$. Akibatnya
+	\[ f(2009) = f(5) = \frac{1}{3}. \]
+	\end{proof}
+
+\end{enumerate}
+
+\section{Manipulasi Barisan}
+
+\begin{enumerate}[resume]
+
+	% Source: OSK SMA 2020 No. 5 (Isian Singkat)
+	% Jawaban: 1348
+	\item (OSK 2020)
+	Suatu barisan bilangan real $a_{1},a_{2},a_{3},\dots$ memenuhi $a_{1}=1$, $a_{2}=\frac{3}{5}$ dan $\frac{1}{a_{n}}=\frac{2}{a_{n-1}}-\frac{1}{a_{n-2}}$ untuk setiap $n\ge 3$. Bilangan $a_{2020}$ dapat ditulis sebagai $\frac{p}{q}$ dengan $p$ dan $q$ bilangan asli relatif prima. Nilai $p+q$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Substitusi $b_n = \frac{1}{a_n}$ memberi $b_1 = 1$, $b_2 = \frac53$, dan
+	\[ b_n = 2b_{n-1} - b_{n-2} \quad \text{untuk } n \ge 3. \]
+	Ini relasi barisan aritmetika dengan beda
+	\[ d = b_2 - b_1 = \frac{5}{3} - 1 = \frac{2}{3}. \]
+	Maka
+	\begin{align*}
+	b_n &= 1 + (n-1)\cdot\frac{2}{3} \\
+	&= \frac{2n+1}{3}.
+	\end{align*}
+	Rumus ini positif untuk setiap $n$, konsisten dengan pemakaian
+	kebalikannya. Untuk $n = 2020$:
+	\[ b_{2020} = \frac{4041}{3} = 1347. \]
+	Jadi $a_{2020} = \frac{1}{1347}$ dengan $p = 1$ dan $q = 1347$,
+	sehingga $p + q = 1348$.
+	\end{proof}
+
+	% Source: OSP SMA 2013 No. 15 (Isian Singkat)
+	% Jawaban: 8050
+	\item (OSP 2013)
+	Suatu barisan $x_1, x_2, \dots, x_n, \dots$ didefinisikan dengan: $x_1=2$ dan $x_{n+1}=(1+\frac{1}{n})x_n+\frac{2}{n}$ untuk setiap bilangan asli $n$. Nilai $x_{2013}$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Bagi kedua ruas relasi dengan $n + 1$:
+	\[ \frac{x_{n+1}}{n+1} = \frac{x_n}{n} + \frac{2}{n(n+1)}. \]
+	Substitusi $y_n = \frac{x_n}{n}$ memberi $y_1 = 2$ dan
+	\[ y_{n+1} - y_n = \frac{2}{n} - \frac{2}{n+1}. \]
+	Jumlahkan selisih ini untuk $k = 1$ sampai $n - 1$:
+	\begin{align*}
+	y_n &= y_1 + \left(\frac{2}{1} - \frac{2}{n}\right) \\
+	&= 4 - \frac{2}{n}.
+	\end{align*}
+	Jadi $x_n = 4n - 2$. Untuk $n = 2013$:
+	\[ x_{2013} = 4 \cdot 2013 - 2 = 8050. \]
+	\end{proof}
+
+	% Source: OSP SMA 2019 No. 8 (Isian Singkat)
+	% Jawaban: 2^2018
+	\item (OSP 2019)
+	Barisan bilangan real $a_1, a_2, a_3, \dots$ memenuhi
+	\[ \frac{na_1+(n-1)a_2+\dots+2a_{n-1}+a_n}{n^2}=1 \]
+	untuk setiap bilangan asli $n$. Nilai dari $a_1a_2a_3\dots a_{2019}$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Tulis $S_n = na_1 + (n-1)a_2 + \dots + a_n$. Diketahui $S_n = n^2$
+	untuk setiap $n$. Kurangkan dua persamaan berurutan:
+	\begin{align*}
+	S_{n+1} - S_n &= (a_1 + a_2 + \dots + a_n) + a_{n+1} \\
+	&= (n+1)^2 - n^2 \\
+	&= 2n + 1.
+	\end{align*}
+	Tulis $T_m = a_1 + \dots + a_m$. Hasil di atas berbunyi
+	$T_{n+1} = 2n + 1$ untuk setiap $n \ge 1$, yaitu $T_m = 2m - 1$
+	untuk setiap $m \ge 2$. Dari $S_1 = a_1 = 1$ diperoleh $T_1 = 1$,
+	jadi $T_m = 2m - 1$ untuk setiap $m \ge 1$. Maka
+	\begin{align*}
+	a_1 &= 1, \\
+	a_n &= T_n - T_{n-1} = 2 \quad \text{untuk } n \ge 2.
+	\end{align*}
+	Diperoleh
+	\[ a_1a_2\dots a_{2019} = 1 \cdot 2^{2018} = 2^{2018}. \]
+	Cek: $n \cdot 1 + 2\bigl((n-1) + \dots + 1\bigr) = n + n(n-1) = n^2$.
+	\end{proof}
+
+\end{enumerate}
+
+\section{Persamaan Karakteristik Sederhana}
+
+\begin{enumerate}[resume]
+
+	% Source: OSP SMA 2020 No. 7 (Isian Singkat, naskah kanonis jumlah 340)
+	% Jawaban: 3
+	\item (OSP 2020)
+	Suatu barisan bilangan bulat $u_1, u_2, u_3, \dots$ memenuhi
+	\[
+	u_{n+1}-u_n =
+	\begin{cases}
+	1, & \text{jika } n \text{ ganjil} \\
+	2, & \text{jika } n \text{ genap}
+	\end{cases}
+	\]
+	Jika $u_1+u_2+\dots+u_{20}=340$, maka $u_1=\dots$
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Jumlah dua selisih berurutan selalu $1 + 2 = 3$. Jadi subbarisan suku
+	ganjil dan subbarisan suku genap masing-masing aritmetika dengan beda $3$.
+	Suku ganjil $u_1, u_3, \dots, u_{19}$ berjumlah
+	\[ 10u_1 + 3(0 + 1 + \dots + 9) = 10u_1 + 135. \]
+	Dari $u_2 = u_1 + 1$, suku genap $u_2, u_4, \dots, u_{20}$ berjumlah
+	\[ 10(u_1 + 1) + 135 = 10u_1 + 145. \]
+	Jumlah seluruhnya:
+	\begin{align*}
+	20u_1 + 280 &= 340 \\
+	20u_1 &= 60.
+	\end{align*}
+	Jadi $u_1 = 3$.
+	\end{proof}
+
+	% Source: OSP SMA 2006 No. 19 (Isian Singkat)
+	% Jawaban: 973
+	\item (OSP 2006)
+	Evan membuat sebuah barisan bilangan asli $a_{1}, a_{2}, a_{3},\dots$ yang memenuhi $a_{k+1}-a_{k}=2(a_{k}-a_{k-1})-1,$ untuk $k=2,3,\dots,$ dan $a_{2}-a_{1}=2$. Jika 2006 muncul dalam barisan, nilai $a_{1}$ terkecil yang mungkin adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Tulis $d_k = a_{k+1} - a_k$. Maka $d_1 = 2$ dan
+	\[ d_k = 2d_{k-1} - 1 \quad \text{untuk } k \ge 2. \]
+	Geser dengan $e_k = d_k - 1$:
+	\[ e_k = 2e_{k-1}, \qquad e_1 = 1. \]
+	Jadi $e_k = 2^{k-1}$ dan $d_k = 2^{k-1} + 1$. Suku ke $m$:
+	\begin{align*}
+	a_m &= a_1 + \sum_{k=1}^{m-1} d_k \\
+	&= a_1 + (2^{m-1} - 1) + (m - 1) \\
+	&= a_1 + 2^{m-1} + m - 2.
+	\end{align*}
+	Jika $2006$ muncul sebagai $a_m$:
+	\[ a_1 = 2008 - 2^{m-1} - m. \]
+	Barisan naik karena setiap selisih positif, jadi cukup $a_1 \ge 1$.
+	Nilai $a_1$ terkecil diperoleh dari $m$ terbesar dengan
+	$2^{m-1} + m \le 2007$. Karena $2^{10} + 11 = 1035$ dan
+	$2^{11} + 12 = 2060$, ambil $m = 11$:
+	\[ a_1 = 2008 - 1024 - 11 = 973. \]
+	Cek: $973 + 1024 + 11 - 2 = 2006$.
+	\end{proof}
+
+	% Source: OSK SMA 2023 No. 13 (Isian Singkat)
+	% Jawaban: 340
+	\item (OSK 2023)
+	Misalkan $a_{1},a_{2},a_{3},\dots$ suatu barisan yang memenuhi persamaan
+	\[ a_{n+2}-a_{n+1}+a_{n}=\frac{n+2}{6} \]
+	untuk setiap bilangan asli $n$. Jika $a_{1}=3$ dan $a_{2}=4$, nilai dari $a_{2023}$ adalah \dots
+	\begin{proof}[Solusi]
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	Cari solusi partikular linear $p_n = \alpha n + \beta$. Substitusi:
+	\[ \alpha(n+2) + \beta - \alpha(n+1) - \beta + \alpha n + \beta = \frac{n+2}{6}, \]
+	yaitu $\alpha n + \alpha + \beta = \frac{n}{6} + \frac{1}{3}$.
+	Diperoleh $\alpha = \frac16$ dan $\beta = \frac16$, jadi
+	$p_n = \frac{n+1}{6}$.
+	Tulis $a_n = p_n + h_n$. Selisih kedua persamaan memberi
+	\[ h_{n+2} - h_{n+1} + h_n = 0, \]
+	yaitu $h_{n+2} = h_{n+1} - h_n$. Hitung dari dua suku awal:
+	\begin{align*}
+	h_3 &= h_2 - h_1, \\
+	h_4 &= h_3 - h_2 = -h_1, \\
+	h_5 &= h_4 - h_3 = -h_2, \\
+	h_6 &= h_5 - h_4 = h_1 - h_2, \\
+	h_7 &= h_6 - h_5 = h_1, \\
+	h_8 &= h_7 - h_6 = h_2.
+	\end{align*}
+	Karena $h_7 = h_1$ dan $h_8 = h_2$, barisan $(h_n)$ periodik
+	dengan periode $6$. Tulis $2023 = 6 \cdot 337 + 1$. Maka
+	$h_{2023} = h_1$. Dari $a_1 = 3$:
+	\[ h_1 = 3 - \frac{2}{6} = \frac{8}{3}. \]
+	Akhirnya
+	\begin{align*}
+	a_{2023} &= \frac{2024}{6} + \frac{8}{3} \\
+	&= \frac{1012 + 8}{3} \\
+	&= 340.
+	\end{align*}
+	\end{proof}
+
+\end{enumerate}
+
+\end{document}
