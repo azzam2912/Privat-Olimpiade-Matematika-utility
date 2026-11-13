@@ -147,7 +147,7 @@ Do not change the recipe to a plain `pdflatex %DOC%` — LaTeX Workshop would th
 
 ## Writing style: avoid AI-sounding prose
 
-Solutions here are written in Indonesian, in the owner's own voice. A solution can be completely correct and still read as machine-written. These are the signals to hunt for and remove before finishing any prose (solution bodies, problem statements, commit messages, chat replies) in this repo. The examples are English, but the same habits show up in Indonesian and get the same treatment.
+Solutions here are written in Indonesian, in the owner's own voice. A solution can be completely correct and still read as machine-written. Before finishing any prose (solution bodies, problem statements, commit messages, chat replies) in this repo, read the repo-root checklist `humanizer-id-skills.md` and apply its patterns; the table below is only the short version. Standard proof connectives (`Dengan demikian`, `Akibatnya`, `Jadi`, `Perhatikan bahwa`, `Misalkan`, `Andaikan`) are normal Indonesian math voice, not AI signals, and stay. The examples are English, but the same habits show up in Indonesian and get the same treatment.
 
 | Signal | Sounds like AI | Write this instead |
 |---|---|---|

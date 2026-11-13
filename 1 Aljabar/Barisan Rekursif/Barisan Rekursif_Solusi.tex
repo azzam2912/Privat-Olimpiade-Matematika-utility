@@ -17,7 +17,7 @@
 \newpage
 
 Pembahasan 12 soal latihan pada berkas Modul. Setiap soal ditulis ulang sama
-persis, lalu diikuti solusinya. Penomoran soal sama dengan berkas Modul.
+persis dengan penomoran yang sama, lalu diikuti solusinya.
 
 \section{Induksi di Barisan}
 
@@ -59,16 +59,16 @@ persis, lalu diikuti solusinya. Penomoran soal sama dengan berkas Modul.
 	\[ z_n = z_{n-9} + 2z_{n-13} \quad \text{untuk } n \ge 1, \]
 	dengan $z_0 = 1$.
 
-	Relasi ini menghitung cara berjalan. Pandang cara berjalan dari $0$ ke $n$
+	Relasi ini menghitung cara berjalan dari $0$ ke $n$
 	memakai langkah $9$ atau $13$. Tiap langkah $9$ berbobot $1$ dan tiap
-	langkah $13$ berbobot $2$. Bobot satu cara berjalan adalah darab bobot
+	langkah $13$ berbobot $2$. Bobot satu cara adalah hasil kali bobot
 	semua langkahnya.
 
 	Klaim: $z_n$ sama dengan jumlah bobot semua cara berjalan dari $0$ ke $n$.
 	Basis $n = 0$ jelas: hanya ada cara diam dengan bobot $1 = z_0$.
 	Untuk $n \ge 1$, pilah menurut langkah terakhir. Cara yang berakhir dengan
-	langkah $9$ tepat sama dengan cara berjalan ke $n - 9$ dengan bobot yang
-	sama. Cara yang berakhir dengan langkah $13$ tepat sama dengan cara
+	langkah $9$ tepat sama dengan cara berjalan ke $n - 9$ dengan bobot tak berubah.
+	Cara yang berakhir dengan langkah $13$ tepat sama dengan cara
 	berjalan ke $n - 13$ dengan bobot dikali $2$. Jadi jumlah bobotnya
 	$z_{n-9} + 2z_{n-13} = z_n$ menurut hipotesis induksi kuat. (Untuk indeks
 	negatif, kedua ruas nol menurut konvensi.)
@@ -226,8 +226,8 @@ persis, lalu diikuti solusinya. Penomoran soal sama dengan berkas Modul.
 	b_n &= 1 + (n-1)\cdot\frac{2}{3} \\
 	&= \frac{2n+1}{3}.
 	\end{align*}
-	Rumus ini positif untuk setiap $n$, konsisten dengan pemakaian
-	kebalikannya. Untuk $n = 2020$:
+	Rumus ini positif untuk setiap $n$, jadi tidak ada pembagian oleh nol.
+	Untuk $n = 2020$:
 	\[ b_{2020} = \frac{4041}{3} = 1347. \]
 	Jadi $a_{2020} = \frac{1}{1347}$ dengan $p = 1$ dan $q = 1347$,
 	sehingga $p + q = 1348$.

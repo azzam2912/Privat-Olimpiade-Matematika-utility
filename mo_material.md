@@ -110,8 +110,13 @@ Minimal shape:
 
 Solutions are written in Indonesian, in the owner's own voice: direct,
 concise, one idea per sentence. Define notation before using it.
-Hunt down these machine-written signals in every prose passage
-(the same list as in `CLAUDE.md`, it bears repeating here):
+Before finishing, read the repo-root checklist
+`humanizer-id-skills.md` and apply its 21 patterns to every prose
+passage. The table below repeats the short list from `CLAUDE.md`;
+the humanizer file is authoritative when they differ. Standard proof
+connectives (`Dengan demikian`, `Akibatnya`, `Jadi`,
+`Perhatikan bahwa`, `Misalkan`, `Andaikan`) are normal math voice
+and stay:
 
 | Signal | Sounds like AI | Write this instead |
 |---|---|---|
