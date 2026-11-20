@@ -1,0 +1,358 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Induksi Matematika - Solusi
+% Pembahasan 17 soal Latihan: 11 Induksi Biasa, 3 Induksi Berlangkah, 3 Induksi Kuat.
+% Gaya penulisan mengikuti mo_material.md: solusi menumpuk persamaan ke bawah,
+% satu langkah logis satu paragraf.
+% Setiap identitas dan jawaban numerik diverifikasi independen
+% (lihat /tmp/verify_induksi.py).
+
+\title{Induksi Matematika - Solusi}
+\date{19 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\section{Solusi Soal Latihan}
+
+Semua pembahasan memakai kerangka dari Modul:
+periksa \istilah{basis}{base case}, asumsikan
+\istilah{hipotesis induksi}{induction hypothesis},
+lalu kerjakan \istilah{langkah induksi}{inductive step}.
+
+\subsection{Induksi Biasa}
+
+\begin{enumerate}
+	\item Basis $n = 1$:
+	\[ 1^2 \cdot 2 = 2 = \frac{1 \cdot 2 \cdot 3 \cdot 4}{12}. \]
+	Asumsikan kesamaannya berlaku untuk $n = k$.
+	Untuk $n = k+1$,
+	\begin{align*}
+	\sum_{i=1}^{k+1} i^2(i+1)
+	&= \frac{k(k+1)(k+2)(3k+1)}{12} + (k+1)^2(k+2) \\
+	&= (k+1)(k+2)\left(\frac{k(3k+1)}{12} + k+1\right) \\
+	&= (k+1)(k+2) \cdot \frac{3k^2 + 13k + 12}{12}.
+	\end{align*}
+	Perhatikan bahwa $3k^2 + 13k + 12 = (k+3)(3k+4)$, jadi
+	\[ \sum_{i=1}^{k+1} i^2(i+1)
+	= \frac{(k+1)(k+2)(k+3)(3k+4)}{12}. \]
+	Terbukti bahwa rumusnya berlaku untuk $n = k+1$.
+
+	\item Tulis $P(n) = (n-1)n(n^3+1)$.
+	Basis $n = 1$: $P(1) = 0$ habis dibagi $6$.
+	Asumsikan $6 \mid P(k)$. Selisih dua kasus berurutan:
+	\begin{align*}
+	P(k+1) - P(k) &= k(k+1)((k+1)^3+1) - (k-1)k(k^3+1) \\
+	&= k\big[(k+1)^4 + (k+1) - (k-1)(k^3+1)\big] \\
+	&= k(5k^3 + 6k^2 + 4k + 3).
+	\end{align*}
+	Selisih ini selalu genap: jika $k$ genap jelas,
+	jika $k$ ganjil maka $5k^3 + 6k^2 + 4k + 3$ ganjil $+$ genap $+$ genap $+$ ganjil.
+	Modulo $3$,
+	\[ k(5k^3 + 6k^2 + 4k + 3) \equiv k(2k^3 + k) = 2k^4 + k^2 \pmod{3}, \]
+	yang bernilai $0$ untuk $k \equiv 0$ maupun $k \equiv \pm 1 \pmod{3}$.
+	Jadi selisihnya kelipatan $6$, dan $P(k+1) = P(k) + 6t$ habis dibagi $6$.
+
+	\item Basis $n = 1$: $\frac12 \ge \frac12$.
+	Asumsikan ketaksamaannya berlaku untuk $n = k$.
+	Pecah jumlah untuk $n = k+1$ menjadi dua blok:
+	\[ \sum_{i=2}^{2^{k+1}} \frac{1}{i}
+	= \sum_{i=2}^{2^k} \frac{1}{i} + \sum_{i=2^k+1}^{2^{k+1}} \frac{1}{i}. \]
+	Blok pertama sekurang-kurangnya $\frac{k}{2}$ menurut hipotesis induksi.
+	Blok kedua memuat $2^{k+1} - 2^k = 2^k$ suku
+	yang masing-masing sekurang-kurangnya $\frac{1}{2^{k+1}}$, jadi
+	\[ \sum_{i=2}^{2^{k+1}} \frac{1}{i}
+	\ge \frac{k}{2} + 2^k \cdot \frac{1}{2^{k+1}}
+	= \frac{k+1}{2}. \]
+
+	\item Basis $n = 1$: $1 - \frac12 = \frac12$.
+	Asumsikan kesamaannya berlaku untuk $n = k$.
+	Ruas kiri untuk $n = k+1$ bertambah dua suku:
+	\[ L_{k+1} = L_k + \frac{1}{2k+1} - \frac{1}{2k+2}. \]
+	Ruas kanan untuk $n = k+1$ kehilangan suku pertama dan bertambah dua suku:
+	\[ R_{k+1} = R_k - \frac{1}{k+1} + \frac{1}{2k+1} + \frac{1}{2k+2}. \]
+	Karena $L_k = R_k$, cukup memeriksa
+	\[ \frac{1}{2k+1} - \frac{1}{2k+2}
+	= -\frac{1}{k+1} + \frac{1}{2k+1} + \frac{1}{2k+2}, \]
+	yaitu $-\frac{2}{2k+2} = -\frac{1}{k+1}$. Benar.
+
+	\item Kuncinya adalah kesamaan eksak berikut.
+	\begin{claim}
+	Tulis $P_n = a_1 a_2 \dots a_n$. Untuk $1 \le n \le 2019$ berlaku
+	\[ \frac{1}{a_1} + \dots + \frac{1}{a_n} = 2 - \frac{1}{P_n}. \]
+	\end{claim}
+	Basis $n = 1$: $\frac{1}{a_1} = 1 = 2 - \frac{1}{1}$.
+	Asumsikan kesamaannya berlaku untuk $n = k$.
+	Karena $a_{k+1} = 1 + P_k$ dan $P_{k+1} = P_k(1 + P_k)$,
+	\begin{align*}
+	\sum_{i=1}^{k+1} \frac{1}{a_i}
+	&= 2 - \frac{1}{P_k} + \frac{1}{1 + P_k} \\
+	&= 2 - \frac{(1 + P_k) - P_k}{P_k(1 + P_k)} \\
+	&= 2 - \frac{1}{P_{k+1}}.
+	\end{align*}
+	Klaim terbukti.
+	Dari sini didapat
+	\[ \frac{1}{a_1} + \dots + \frac{1}{a_{2019}}
+	= 2 - \frac{1}{P_{2019}} < 2. \]
+
+	\item Basis $n = 1$: $a_1 = 1 \ge 1$.
+	Asumsikan $a_k \ge \frac{1}{k}$.
+	Dari $a_{k+1}^2 + a_{k+1} = a_k$ dan $a_{k+1} > 0$ diperoleh
+	\[ a_{k+1} = \frac{-1 + \sqrt{1 + 4a_k}}{2}. \]
+	Ketaksamaan $a_{k+1} \ge \frac{1}{k+1}$ setara dengan
+	\begin{align*}
+	\sqrt{1 + 4a_k} &\ge \frac{k+3}{k+1}, \\
+	1 + 4a_k &\ge \frac{(k+3)^2}{(k+1)^2}, \\
+	a_k &\ge \frac{(k+3)^2 - (k+1)^2}{4(k+1)^2}
+	= \frac{k+2}{(k+1)^2}.
+	\end{align*}
+	Karena $a_k \ge \frac{1}{k}$, cukup menunjukkan
+	$\frac{1}{k} \ge \frac{k+2}{(k+1)^2}$,
+	yaitu $(k+1)^2 \ge k(k+2)$. Keduanya berselisih $1$. Benar.
+
+	\item Basis $n = 1$: $3^3 + 1 = 28 = 2^2 \cdot 7$ memuat $3 = 2\cdot1+1$
+	faktor prima dengan multiplicity.
+	Asumsikan $3^{3^k} + 1$ memuat sekurang-kurangnya $2k+1$ faktor prima.
+	Faktorkan kasus berikutnya sebagai jumlah kubik:
+	\[ 3^{3^{k+1}} + 1 = (3^{3^k})^3 + 1 = (3^{3^k} + 1) \cdot M, \]
+	dengan $M = (3^{3^k})^2 - 3^{3^k} + 1$.
+	Jumlah faktor prima hasil kali adalah jumlah faktor prima faktor-faktornya,
+	jadi cukup membuktikan $M$ komposit.
+	Tulis $X = 3^m$ dengan $m = 3^k$. Maka
+	\begin{align*}
+	M &= X^2 - X + 1 \\
+	&= (X+1)^2 - 3X \\
+	&= (3^m + 1)^2 - 3^{m+1}.
+	\end{align*}
+	Karena $m = 3^k$ ganjil, $m+1 = 2t$ dengan $t = \frac{3^k+1}{2}$ bulat.
+	Dari sini didapat selisih kuadrat
+	\[ M = (3^m + 1 - 3^t)(3^m + 1 + 3^t). \]
+	Untuk $k \ge 1$ berlaku $m > t$, jadi $3^m > 3^t$
+	dan kedua faktornya lebih dari $1$.
+	Akibatnya $M$ komposit dan menyumbang sekurang-kurangnya $2$ faktor prima,
+	sehingga $3^{3^{k+1}} + 1$ memuat sekurang-kurangnya $(2k+1) + 2 = 2k+3$.
+
+	\item Tulis $S(n) = g_{n+1} + \dots + g_{2n}$.
+	\begin{enumerate}[(a)]
+		\item Klaimnya $S(n) = n^2$.
+		Basis $n = 1$: $S(1) = g_2 = 1$.
+		Perhatikan bahwa indeks ganjil tidak berubah ($g_{2k+1} = 2k+1$)
+		sementara indeks genap turun setengah ($g_{2k+2} = g_{k+1}$).
+		Selisih dua kasus berurutan:
+		\begin{align*}
+		S(k+1) - S(k) &= g_{2k+1} + g_{2k+2} - g_{k+1} \\
+		&= (2k+1) + g_{k+1} - g_{k+1} \\
+		&= 2k+1.
+		\end{align*}
+		Jadi $S(k+1) = k^2 + 2k + 1 = (k+1)^2$.
+		Khususnya $S(n)$ selalu bilangan kuadrat.
+		\item Kelompokkan sukunya per blok $(2^j, 2^{j+1}]$:
+		\begin{align*}
+		g_1 + \dots + g_{2048}
+		&= g_1 + \sum_{j=0}^{10} S(2^j) \\
+		&= 1 + \sum_{j=0}^{10} (2^j)^2 \\
+		&= 1 + \frac{4^{11} - 1}{4 - 1} \\
+		&= 1 + 1398101 \\
+		&= 1398102.
+		\end{align*}
+	\end{enumerate}
+
+	\item Buktikan pernyataan yang lebih kuat:
+	\[ P(n) = \frac{1}{2} \cdot \frac{3}{4} \cdot \dots \cdot \frac{2n-1}{2n}
+	\le \frac{1}{\sqrt{3n+1}}. \]
+	Pernyataannya berakibat soal karena $\frac{1}{\sqrt{3n+1}} < \frac{1}{\sqrt{3n}}$.
+	Basis $n = 1$: $\frac{1}{2} \le \frac{1}{\sqrt{4}}$.
+	Asumsikan $P(k) \le \frac{1}{\sqrt{3k+1}}$. Maka
+	\[ P(k+1) = P(k) \cdot \frac{2k+1}{2k+2}
+	\le \frac{2k+1}{(2k+2)\sqrt{3k+1}}. \]
+	Cukup menunjukkan ruas kanan ini tidak melebihi $\frac{1}{\sqrt{3k+4}}$,
+	yaitu
+	\[ (2k+1)^2(3k+4) \le (2k+2)^2(3k+1). \]
+	Kedua ruasnya dijabarkan:
+	\begin{align*}
+	(2k+1)^2(3k+4) &= 12k^3 + 28k^2 + 19k + 4, \\
+	(2k+2)^2(3k+1) &= 12k^3 + 28k^2 + 20k + 4.
+	\end{align*}
+	Ketaksamaannya benar karena $19k \le 20k$.
+
+	\item Basis $n = 1$: bilangan $5$ memenuhi.
+	Asumsikan ada bilangan $n$ digit $a$ dengan semua digit ganjil
+	dan $5^n \mid a$.
+	Bentuk bilangan $n+1$ digit $N = d \cdot 10^n + a$ dengan $d$ digit ganjil.
+	Karena $d \ne 0$, $N$ memang $n+1$ digit.
+	Bagi dengan $5^n$:
+	\[ \frac{N}{5^n} = d \cdot 2^n + \frac{a}{5^n}. \]
+	Agar $5^{n+1} \mid N$, perlu
+	\[ d \cdot 2^n + \frac{a}{5^n} \equiv 0 \pmod{5}. \]
+	Untuk $d$ berjalan atas digit ganjil $1, 3, 5, 7, 9$,
+	nilai $d \bmod 5$ mencakup semua residu $1, 3, 0, 2, 4$.
+	Karena $2^n$ invertible modulo $5$, tepat satu digit ganjil $d$
+	membuat kongruensinya terpenuhi.
+	Dengan $d$ itu, $N$ bersemua digit ganjil dan habis dibagi $5^{n+1}$.
+
+	\item Basis $n = 1$: himpunan $\{1\}$ memenuhi karena $1^2 = 1$.
+	Asumsikan ada $n$ bilangan rasional positif berbeda $a_1, \dots, a_n$
+	dengan $a_1^2 + \dots + a_n^2 = n$.
+	Belahlah $a_1^2$ menjadi dua kuadrat: untuk $t$ rasional dengan $0 < t < 1$,
+	\[ x = a_1\frac{1-t^2}{1+t^2}, \qquad
+	y = a_1\frac{2t}{1+t^2}. \]
+	Perhatikan bahwa $x$ dan $y$ rasional positif dan
+	\[ x^2 + y^2 = a_1^2 \cdot \frac{(1-t^2)^2 + (2t)^2}{(1+t^2)^2} = a_1^2. \]
+	Selain itu $x \ne y$ untuk setiap $t$ rasional:
+	kesamaan $x = y$ berakibat $t^2 + 2t - 1 = 0$,
+	yaitu $t = \sqrt{2} - 1$, yang irasional.
+	Nilai $t$ yang terlarang hanyalah yang membuat $x$ atau $y$
+	sama dengan salah satu dari $a_2, \dots, a_n$;
+	masing-masing memberi persamaan kuadrat dalam $t$,
+	jadi banyaknya nilai terlarang berhingga.
+	Karena pilihan $t$ rasional di $(0,1)$ tak berhingga,
+	pilih $t$ yang menghindari semuanya.
+	Maka $\{x, y, a_2, \dots, a_n\}$ terdiri dari $n+1$ bilangan
+	rasional positif yang berbeda dengan jumlah kuadrat $n+1$.
+
+\end{enumerate}
+
+\subsection{Induksi Berlangkah}
+
+\begin{enumerate}[resume]
+	\item Untuk $n$ genap, $2^n + 1 \equiv 1 + 1 \equiv 2 \pmod{3}$,
+	jadi tidak pernah habis dibagi $3$.
+	Tinggal $n$ ganjil, dibuktikan dengan induksi berlangkah $2$
+	dimulai dari basis $n = 1$.
+	Basis: $2^1 + 1 = 3$ habis dibagi $3$.
+	Asumsikan $3 \mid 2^k + 1$ untuk $k$ ganjil. Maka
+	\[ 2^{k+2} + 1 = 4 \cdot 2^k + 1 = 4(2^k + 1) - 3 \]
+	habis dibagi $3$.
+	Jadi $3 \mid 2^n + 1$ tepat untuk $n$ ganjil.
+
+	\item Gunakan induksi berlangkah $3$ dimulai dari basis $n = 1$.
+	Basis: $F_3 = 2$ genap.
+	Asumsikan $F_{3k}$ genap.
+	Uraikan $F_{3k+3}$ dua kali dengan relasi Fibonacci:
+	\begin{align*}
+	F_{3k+3} &= F_{3k+2} + F_{3k+1} \\
+	&= (F_{3k+1} + F_{3k}) + F_{3k+1} \\
+	&= 2F_{3k+1} + F_{3k}.
+	\end{align*}
+	Kedua sukunya genap, jadi $F_{3(k+1)}$ genap.
+
+	\item Gunakan induksi berlangkah $3$.
+	Basisnya adalah tiga kasus $n = 8, 9, 10$:
+	\begin{align*}
+	8 &= 3 + 5, \\
+	9 &= 3 + 3 + 3, \\
+	10 &= 5 + 5.
+	\end{align*}
+	Asumsikan $k = 3a + 5b$.
+	Untuk $k+3$, tinggal tambahkan satu suku $3$:
+	\[ k + 3 = 3(a+1) + 5b. \]
+	Jadi setiap $n \ge 8$ dapat dinyatakan sebagai $3a + 5b$.
+
+\end{enumerate}
+
+\subsection{Induksi Kuat}
+
+\begin{enumerate}[resume]
+	\item Gunakan \istilah{induksi kuat}{strong induction}.
+	Basis $n = 2$: $2$ sendiri prima.
+	Asumsikan setiap $2, 3, \dots, k$ dapat dinyatakan
+	sebagai perkalian bilangan prima.
+	Untuk $k+1$: jika prima, selesai.
+	Jika komposit, tulis $k+1 = ab$ dengan $2 \le a, b \le k$.
+	Menurut hipotesis induksi, $a$ dan $b$ masing-masing adalah
+	perkalian bilangan prima, jadi begitu pula $k+1$.
+
+	\item Barisannya strictly increasing: $F_1 = 1 < F_2 = 2$,
+	dan $F_n = F_{n-1} + F_{n-2} > F_{n-1}$ untuk $n \ge 3$.
+	Gunakan induksi kuat. Basis $n = 1$: $1 = F_1$.
+	Asumsikan setiap $1, 2, \dots, k$ dapat dinyatakan sebagai jumlah
+	suku-suku tak berurutan.
+	Ambil suku terbesar yang tidak melebihi $k+1$, sebut $F_m$.
+	Jika $k+1 = F_m$, selesai.
+	Jika tidak, $F_m < k+1 < F_{m+1} = F_m + F_{m-1}$, sehingga
+	sisa $r = k+1 - F_m$ memenuhi
+	\[ 1 \le r < F_{m-1}. \]
+	Menurut hipotesis induksi, $r$ adalah jumlah suku-suku tak berurutan,
+	dan setiap suku itu bernilai kurang dari $F_{m-1}$,
+	jadi indeksnya paling besar $m-2$ karena barisannya strictly increasing.
+	Menambahkan $F_m$ mempertahankan sifat tak berurutan.
+
+	\item Kuncinya adalah bentuk umum barisannya.
+	Misalkan $r_1$ dan $r_2$ akar-akar $x^2 - 3x + 1 = 0$,
+	jadi $r_1 + r_2 = 3$ dan $r_1 r_2 = 1$.
+	Kedua akarnya positif, dengan $r_1 = \frac{3+\sqrt{5}}{2} > 2$.
+	Tulis $b_n = r_1^n + r_2^n$.
+	\begin{claim}
+	Untuk setiap bilangan asli $n$ berlaku $a_n = b_n + (-1)^n$.
+	\end{claim}
+	Dua basisnya cocok:
+	\begin{align*}
+	b_1 + (-1)^1 &= (r_1 + r_2) - 1 = 3 - 1 = 2 = a_1, \\
+	b_2 + (-1)^2 &= (r_1 + r_2)^2 - 2r_1r_2 + 1 = 9 - 2 + 1 = 8 = a_2.
+	\end{align*}
+	Asumsikan kesamaannya berlaku sampai $n = k+1$.
+	Dari $r^2 = 3r - 1$ diperoleh $r^{k+2} = 3r^{k+1} - r^k$
+	untuk $r_1$ dan $r_2$, jadi
+	\[ b_{k+2} = 3b_{k+1} - b_k. \]
+	Akibatnya
+	\begin{align*}
+	3a_{k+1} - a_k + 5(-1)^k
+	&= 3b_{k+1} - b_k + 3(-1)^{k+1} - (-1)^k + 5(-1)^k \\
+	&= b_{k+2} + (-1)^k(-3 - 1 + 5) \\
+	&= b_{k+2} + (-1)^{k+2} \\
+	&= a_{k+2}.
+	\end{align*}
+	Klaim terbukti dengan induksi kuat dua basis.
+	Perhatikan juga $b_n$ selalu bulat ($b_1 = 3$, $b_2 = 7$ bulat
+	dan relasi $b_{n+2} = 3b_{n+1} - b_n$ berkofisien bulat)
+	serta $b_n > r_1^n \ge r_1 > 2$, jadi $a_n \ge 2$ untuk semua $n$.
+	\begin{enumerate}[(a)]
+		\item Karena $r_1 r_2 = 1$,
+		\begin{align*}
+		b_{2014} &= r_1^{2014} + r_2^{2014} \\
+		&= (r_1^{1007} + r_2^{1007})^2 - 2(r_1r_2)^{1007} \\
+		&= b_{1007}^2 - 2.
+		\end{align*}
+		Dari sini didapat
+		\[ a_{2014} = b_{2014} + 1 = b_{1007}^2 - 1
+		= (b_{1007} - 1)(b_{1007} + 1). \]
+		Karena $b_{1007} > 2$ bulat, kedua faktornya lebih dari $1$.
+		Jadi $a_{2014}$ komposit: jawabannya tidak.
+		\item Untuk $m$ ganjil, $(-1)^m = -1$ dan $(-1)^{4m} = (-1)^{2m} = 1$,
+		juga $(-1)^{3m} = -1$, sehingga
+		\begin{align*}
+		a_m + a_{4m} &= b_m + b_{4m}, \\
+		a_{2m} + a_{3m} &= b_{2m} + b_{3m}.
+	\end{align*}
+		Tulis $t = r_1^m$, jadi $r_2^m = t^{-1}$ karena $r_1r_2 = 1$.
+		Pembilang dan penyebutnya menjadi
+		\begin{align*}
+		b_m + b_{4m} &= t + t^{-1} + t^4 + t^{-4}
+		= t^{-4}(t^8 + t^5 + t^3 + 1), \\
+		b_{2m} + b_{3m} &= t^2 + t^{-2} + t^3 + t^{-3}
+		= t^{-3}(t^6 + t^5 + t + 1).
+		\end{align*}
+		Kedua polinomialnya difaktorkan:
+		\begin{align*}
+		t^8 + t^5 + t^3 + 1 &= (t^3 + 1)(t^5 + 1), \\
+		t^6 + t^5 + t + 1 &= (t + 1)(t^5 + 1).
+		\end{align*}
+		Karena $t > 0$, faktor $t^5 + 1$ dan $t + 1$ taknol.
+		Rasionya adalah
+		\[ \frac{a_m + a_{4m}}{a_{2m} + a_{3m}}
+		= \frac{1}{t} \cdot \frac{t^3 + 1}{t + 1}
+		= \frac{t^2 - t + 1}{t}
+		= t + t^{-1} - 1. \]
+		Nilai ini sama dengan $b_m - 1 = a_m$ untuk $m$ ganjil,
+		yang jelas bilangan bulat.
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

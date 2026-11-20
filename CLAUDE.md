@@ -44,7 +44,8 @@ Equation`, `Length Bashing`). Use **Title Case**, spaces allowed.
 - `<Subtopik>_Materi.tex` — material / theory (standalone file)
 - `<Subtopik>_Latihan.tex` — practice problems (standalone file)
 - `<Subtopik>_Modul.tex` — the combined handout: Materi and Soal Latihan
-  in one PDF (`\part*{Materi}` first, `\part*{Soal Latihan}` second, Referensi last)
+  in one PDF (`\part*{Materi}` with `\section` per subtopic first, then
+  `\section{Soal Latihan}` with `\subsection` per group; no Referensi section)
 - `<Subtopik>_Ujian.tex` — exam (stays separate, never merged into Modul)
 - `<Subtopik>_Solusi.tex` — solutions (stays separate, never merged into Modul)
 

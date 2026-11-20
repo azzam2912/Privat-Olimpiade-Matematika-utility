@@ -1,0 +1,352 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Fungsi Floor, Ceiling, dan Fractional Part - Modul (gabungan Materi dan Soal Latihan)
+% Materi diadaptasi dari `1 Aljabar/Lantai dan Atap.tex`:
+% definisi floor, ceiling, dan fractional part beserta sifat dasarnya
+% (ditulis ulang dengan contoh pengerjaan tiap blok teori).
+% Soal Latihan dari `1 Aljabar/Lantai dan Atap.tex`: soal OSK 2013, 2016, 2018,
+% 2019, 2021, JBMO 2021 (dimodifikasi), Hong Kong Prelim 1999, Putnam 1986,
+% USAMO 1981, IMO 1968, dan soal tanpa sumber.
+% _Solusi tetap terpisah.
+% Sumber tiap soal latihan dimunculkan di PDF sebagai \item (Sumber); komentar menyimpan detail lengkap.
+
+\title{Fungsi Floor, Ceiling, dan Fractional Part - Modul}
+\date{20 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\part*{Materi}
+\section{Floor, Ceiling, dan Fractional Part}
+
+\begin{definition}
+Untuk $x \in \RR$, \istilah{lantai}{floor} dari $x$, ditulis $\floor{x}$,
+adalah bilangan bulat terbesar yang kurang dari atau sama dengan $x$.
+\istilah{Atap}{ceiling} dari $x$, ditulis $\ceiling{x}$,
+adalah bilangan bulat terkecil yang lebih dari atau sama dengan $x$.
+\istilah{Bagian pecahan}{fractional part} dari $x$, ditulis $\{x\}$,
+didefinisikan sebagai
+\[ \{x\} = x - \floor{x}. \]
+\end{definition}
+
+\begin{example}
+Hitung $\floor{\pi}$, $\ceiling{5}$, dan $\{-7/2\}$.
+\end{example}
+\begin{proof}[Solusi]
+Bilangan bulat terbesar yang tidak melebihi $\pi \approx 3{,}14$ adalah $3$:
+\[ \floor{\pi} = 3. \]
+Karena $5$ sudah bulat, atapnya dirinya sendiri:
+\[ \ceiling{5} = 5. \]
+Untuk $-7/2 = -3{,}5$, bilangan bulat terbesar di bawahnya adalah $-4$:
+\[ \floor{-7/2} = -4. \]
+Akibatnya
+\[ \{-7/2\} = -\frac{7}{2} - (-4) = \frac{1}{2}. \]
+\end{proof}
+
+\begin{fact}
+Untuk setiap $x \in \RR$ berlaku
+\[ \floor{x} \le x < \floor{x} + 1
+\quad\text{dan}\quad
+\ceiling{x} - 1 < x \le \ceiling{x}, \]
+serta $0 \le \{x\} < 1$.
+\end{fact}
+
+\begin{example}
+Jika $\floor{x} = 5$, tentukan semua nilai $x$ yang mungkin.
+\end{example}
+\begin{proof}[Solusi]
+Dari ketaksamaan dasar lantai,
+\[ 5 \le x < 5 + 1. \]
+Jadi $x \in [5, 6)$.
+\end{proof}
+
+\section{Sifat-Sifat Dasar}
+
+\begin{fact}
+Untuk $x, y \in \RR$ dan $n \in \ZZ$ berlaku:
+\begin{enumerate}
+    \item $\floor{n + x} = n + \floor{x}$,
+    $\ceiling{n + x} = n + \ceiling{x}$, dan $\{n + x\} = \{x\}$.
+    \item Jika $x \le y$ maka $\floor{x} \le \floor{y}$
+    dan $\ceiling{x} \le \ceiling{y}$.
+    \item $\floor{x} = \ceiling{x}$ jika dan hanya jika $x \in \ZZ$;
+    jika $x \notin \ZZ$ maka $\ceiling{x} = \floor{x} + 1$.
+    \item $\floor{x} + \floor{y} \le \floor{x + y}
+    \le \floor{x} + \floor{y} + 1$.
+\end{enumerate}
+\end{fact}
+
+\begin{example}
+Hitung $\floor{100 + \sqrt{2}}$.
+\end{example}
+\begin{proof}[Solusi]
+Karena $1 < \sqrt{2} < 2$, didapat $\floor{\sqrt{2}} = 1$.
+Geser keluar bilangan bulatnya:
+\[ \floor{100 + \sqrt{2}} = 100 + \floor{\sqrt{2}} = 101. \]
+\end{proof}
+
+\begin{example}
+Buktikan bahwa untuk setiap $x \in \RR$ berlaku
+\[ \floor{x} + \floor{-x} =
+\begin{cases}
+0, & x \in \ZZ, \\
+-1, & x \notin \ZZ.
+\end{cases} \]
+\end{example}
+\begin{proof}[Solusi]
+Jika $x = n$ bulat, maka $\floor{x} + \floor{-x} = n + (-n) = 0$.
+Jika $x$ tidak bulat, tulis $x = n + f$ dengan $n \in \ZZ$
+dan $0 < f < 1$. Maka
+\begin{align*}
+\floor{x} + \floor{-x} &= n + \floor{-n - f} \\
+&= n + (-n - 1) \\
+&= -1.
+\end{align*}
+\end{proof}
+
+\section{Persamaan Floor}
+
+\begin{theorem}[Karakterisasi lantai]
+Untuk $x \in \RR$ dan $n \in \ZZ$ berlaku
+\[ \floor{x} = n \quad\text{jika dan hanya jika}\quad n \le x < n + 1. \]
+\end{theorem}
+
+Substitusi $n = \floor{x}$ mengubah persamaan lantai menjadi
+ketaksamaan biasa dalam $x$. Selesaikan ketaksamaannya, lalu periksa kembali.
+
+\begin{example}
+Selesaikan $\floor{3x + 1} = 7$ untuk $x \in \RR$.
+\end{example}
+\begin{proof}[Solusi]
+Menurut karakterisasi lantai,
+\[ 7 \le 3x + 1 < 8. \]
+Kurangkan $1$ lalu bagi dengan $3$:
+\[ 2 \le x < \frac{7}{3}. \]
+\end{proof}
+
+\begin{example}
+Selesaikan $\floor{x}^2 - 5\floor{x} + 6 = 0$ untuk $x \in \RR$.
+\end{example}
+\begin{proof}[Solusi]
+Tulis $n = \floor{x}$. Persamaannya menjadi
+\[ n^2 - 5n + 6 = (n - 2)(n - 3) = 0, \]
+jadi $n = 2$ atau $n = 3$.
+Untuk $n = 2$ diperoleh $2 \le x < 3$,
+untuk $n = 3$ diperoleh $3 \le x < 4$.
+Gabungannya $x \in [2, 4)$.
+\end{proof}
+
+\section{Identitas Klasik}
+
+\begin{lemma}
+Untuk setiap $x \in \RR$ berlaku
+\[ \floor{x + \tfrac12} = \floor{2x} - \floor{x}. \]
+\end{lemma}
+\begin{proof}
+Tulis $x = n + f$ dengan $n \in \ZZ$ dan $0 \le f < 1$.
+Jika $f < \frac12$, maka
+\[ \floor{x + \tfrac12} = n
+\quad\text{dan}\quad
+\floor{2x} - \floor{x} = 2n - n = n. \]
+Jika $f \ge \frac12$, maka
+\[ \floor{x + \tfrac12} = n + 1
+\quad\text{dan}\quad
+\floor{2x} - \floor{x} = (2n + 1) - n = n + 1. \]
+\end{proof}
+
+\begin{example}
+Periksa kesamaan lemma di atas untuk $x = 11/4$.
+\end{example}
+\begin{proof}[Solusi]
+Ruas kirinya
+\[ \floor{11/4 + 1/2} = \floor{13/4} = 3. \]
+Ruas kanannya
+\[ \floor{11/2} - \floor{11/4} = 5 - 2 = 3. \]
+Keduanya sama.
+\end{proof}
+
+\begin{theorem}[Identitas Hermite]
+Untuk $x \in \RR$ dan bilangan asli $n$ berlaku
+\[ \floor{nx} = \floor{x} + \floor{x + \tfrac1n}
++ \floor{x + \tfrac2n} + \dots + \floor{x + \tfrac{n-1}{n}}. \]
+\end{theorem}
+\begin{proof}
+Cukup membuktikan untuk $0 \le x < 1$,
+karena kedua ruas bergeser sama jauhnya oleh bilangan bulat.
+Tulis $m = \floor{nx}$, jadi
+\[ \frac{m}{n} \le x < \frac{m+1}{n}. \]
+Untuk $k = 0, 1, \dots, n-1$, suku $\floor{x + k/n}$
+bernilai $0$ saat $x + k/n < 1$ dan $1$ saat $1 \le x + k/n < 2$.
+Batasnya di $k = n - m$: untuk $k \le n - m - 1$ berlaku
+\[ x + \frac{k}{n} < \frac{m+1}{n} + \frac{n-m-1}{n} = 1, \]
+sedangkan untuk $k \ge n - m$ berlaku
+\[ x + \frac{k}{n} \ge \frac{m}{n} + \frac{n-m}{n} = 1. \]
+Tepat $m$ suku bernilai $1$. Jumlahnya $m = \floor{nx}$.
+\end{proof}
+
+\begin{example}
+Hitung $\floor{12/5} + \floor{12/5 + 1/3} + \floor{12/5 + 2/3}$.
+\end{example}
+\begin{proof}[Solusi]
+Menurut Identitas Hermite dengan $x = 12/5$ dan $n = 3$,
+jumlahnya sama dengan
+\[ \floor{3 \cdot 12/5} = \floor{36/5} = 7. \]
+Pemeriksaan langsung: $2 + 2 + 3 = 7$.
+\end{proof}
+
+\section{Soal Latihan}
+
+\subsection{Dasar-Dasar Floor dan Ceiling}
+\begin{enumerate}
+
+	% Source: Lantai dan Atap.tex (Latihan Soal 1, diterjemahkan ke Bahasa Indonesia, notasi diseragamkan)
+	% Jawaban: 4, yaitu n = 6, 12, 18, 24
+	\item
+	Misalkan $\floor{x}$ menyatakan bilangan bulat terbesar yang tidak melebihi $x$.
+	Ada berapa banyak bilangan asli $n$ sehingga
+	\[ \floor{\frac{n}{5}} = \frac{n}{6} ? \]
+
+	% Source: Lantai dan Atap.tex (Latihan Soal 2, diterjemahkan ke Bahasa Indonesia)
+	% Jawaban: x = 10/3
+	\item
+	Jika $\floor{x}\{x\} = 1$ dan
+	$\floor{x}^2 - \floor{x}(1+x) + 4 = 0$,
+	tentukan nilai $x$.
+
+	% Source: OSK 2013 (esai, dari Lantai dan Atap.tex Latihan Soal 4)
+	% Jawaban: 2 < x < 3
+	\item (OSK 2013)
+	Tentukan semua $x$ yang memenuhi
+	\[ \floor{x} + \ceiling{x} = 5. \]
+
+\end{enumerate}
+
+\subsection{Persamaan Floor}
+\begin{enumerate}[resume]
+
+	% Source: Lantai dan Atap.tex (Latihan Soal 3, diterjemahkan ke Bahasa Indonesia)
+	% Jawaban: 55/7
+	\item
+	Tentukan bilangan real positif terkecil $x$ sehingga
+	\[ \floor{x^2} - x\floor{x} = 6. \]
+
+	% Source: OSK 2016 (dari Lantai dan Atap.tex Latihan Soal 5)
+	% Jawaban: 516
+	\item (OSK 2016)
+	Banyaknya bilangan asli $n \in \{1, 2, 3, \dots, 1000\}$
+	sehingga terdapat bilangan real positif $x$ yang memenuhi
+	$x^2 + \floor{x}^2 = n$ adalah \dots
+
+	% Source: OSK 2018 (dari Lantai dan Atap.tex Latihan Soal 6)
+	% Jawaban: 274
+	\item (OSK 2018)
+	Jika diketahui $\floor{x} + \floor{y} + y = 43{,}8$ dan
+	$x + y - \floor{x} = 18{,}4$,
+	nilai $10(x + y)$ adalah \dots
+
+	% Source: OSK 2019 (dari Lantai dan Atap.tex Latihan Soal 7)
+	% Jawaban: 3
+	\item (OSK 2019)
+	Interval $[a, b)$ adalah himpunan semua bilangan real $x$ yang memenuhi
+	\[ \floor{2x}^2 = \ceiling{x} + 7. \]
+	Nilai $a \cdot b$ adalah \dots
+
+	% Source: osk sma 2021 nomor 1 isian singkat (dari Lantai dan Atap.tex Latihan Soal 8;
+	% berkas sumber salah tulis jumlah solusinya sebagai p generik, dikembalikan ke 51
+	% sesuai naskah OSK 2021 asli)
+	% Jawaban: a = 25
+	\item (OSK 2021)
+	Jika $a > 1$ suatu bilangan asli sehingga hasil penjumlahan semua
+	bilangan real $x$ yang memenuhi persamaan
+	\[ \floor{x}^2 - 2ax + a = 0 \]
+	adalah $51$, maka $a$ adalah \dots
+
+	% Source: Lantai dan Atap.tex (Latihan Soal 9, redaksi dirapikan)
+	% Jawaban: 2, yaitu x = -3/4 dan x = 19/4
+	\item
+	Carilah banyaknya bilangan real $x$ yang memenuhi
+	\[ \floor{x^2} = 4x + 3. \]
+
+	% Source: Lantai dan Atap.tex (Latihan Soal 10, redaksi dirapikan)
+	% Jawaban: 1215
+	\item
+	Jika $x$ adalah suatu bilangan real yang memenuhi persamaan
+	\[ \floor{x} + \floor{2x} + \floor{3x} + \floor{4x} = 2024, \]
+	tentukan nilai dari $\floor{6x}$.
+
+	% Source: Lantai dan Atap.tex (Latihan Soal 11, redaksi dirapikan)
+	% Jawaban: 232
+	\item
+	Jumlah dari semua solusi bilangan real $x$ dari persamaan
+	\[ 2\floor{x}^2 + 3\{x\}^2 = \frac{7}{4}x\floor{x} \]
+	dapat dinyatakan dalam bentuk $\frac{p}{q}$ dengan $p$ dan $q$
+	bilangan bulat yang saling relatif prima.
+	Tentukan nilai dari $10p + q$.
+
+	% Source: Lantai dan Atap.tex (Latihan Soal 12, modifikasi JBMO 2021)
+	% Jawaban: x = 5/36 dan x = 1/9
+	\item (JBMO 2021)
+	Carilah seluruh penyelesaian dari persamaan
+	\[ 2\floor{\frac{1}{2x}} - 7 = 9(1 - 8x). \]
+
+\end{enumerate}
+
+\subsection{Identitas dan Jumlah Floor}
+\begin{enumerate}[resume]
+
+	% Source: Hong Kong IMO Prelim 1999-2000 (dari Lantai dan Atap.tex Sepuh 3,
+	% diterjemahkan ke Bahasa Indonesia)
+	% Jawaban: 1165
+	\item (Hong Kong Prelim 1999)
+	Tentukan bilangan bulat $n$ yang memenuhi
+	\[ \floor{\frac{n}{1!}} + \floor{\frac{n}{2!}}
+	+ \dots + \floor{\frac{n}{10!}} = 1999. \]
+
+	% Source: Putnam 1986 (dari Lantai dan Atap.tex Sepuh 4, diterjemahkan ke Bahasa Indonesia)
+	% Jawaban: 3
+	\item (Putnam 1986)
+	Berapakah digit satuan dari
+	\[ \floor{\frac{10^{20000}}{10^{100} + 3}} ? \]
+
+	% Source: USAMO 1981 (dari Lantai dan Atap.tex Sepuh 5, diterjemahkan ke Bahasa Indonesia)
+	\item (USAMO 1981)
+	Jika $x$ bilangan real positif dan $n$ bilangan asli, buktikan bahwa
+	\[ \floor{nx} \ge \frac{\floor{x}}{1} + \frac{\floor{2x}}{2}
+	+ \frac{\floor{3x}}{3} + \dots + \frac{\floor{nx}}{n}. \]
+
+	% Source: IMO 1968 (dari Lantai dan Atap.tex Sepuh 6, diterjemahkan ke Bahasa Indonesia)
+	% Jawaban: n
+	\item (IMO 1968)
+	Jika $n$ bilangan asli, nyatakan sebagai fungsi sederhana dari $n$ jumlah
+	\[ \floor{\frac{n+1}{2}} + \floor{\frac{n+2}{4}}
+	+ \dots + \floor{\frac{n+2^k}{2^{k+1}}} + \dots \]
+
+	% Source: Lantai dan Atap.tex (Sepuh 7, tanpa sumber luar; redaksi dirapikan)
+	\item
+	Misalkan $n$ bilangan asli. Buktikan bahwa
+	\[ \floor{\frac{n}{1}} + \floor{\frac{n}{2}} + \dots
+	+ \floor{\frac{n}{n}} + \floor{\sqrt{n}} \]
+	merupakan bilangan genap.
+
+	% Source: Lantai dan Atap.tex (Sepuh 8, tanpa sumber luar; diterjemahkan ke Bahasa Indonesia)
+	% Jawaban: semua n dengan n + 1 bilangan kuadrat
+	\item
+	Definisikan $q(n) = \floor{n/\floor{\sqrt{n}}}$ untuk $n \in \NN$.
+	Tentukan semua $n$ sehingga $q(n) > q(n+1)$.
+
+	% Source: Lantai dan Atap.tex (Sepuh 9, tanpa sumber luar; diterjemahkan ke Bahasa Indonesia)
+	\item
+	Misalkan $r \ge 1$ bilangan real sehingga untuk setiap bilangan asli
+	$m$ dan $n$ dengan $m \mid n$ berlaku pula
+	$\floor{mr} \mid \floor{nr}$.
+	Buktikan bahwa $r$ bilangan bulat.
+
+\end{enumerate}
+
+\end{document}

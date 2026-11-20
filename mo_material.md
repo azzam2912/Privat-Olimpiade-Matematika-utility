@@ -15,15 +15,20 @@ prose inside `_Ujian` and `_Solusi` files. Read together with `CLAUDE.md`.
   `claim`, `remark` when needed.
 - Skeleton: `\maketitle`, then the table of contents
   (`\renewcommand*\contentsname{Daftar Isi}`, `\tableofcontents`,
-  `\newpage`); short intro paragraph; `\part*{Materi}` with one
-  `\section` per subtopic (inside each section, every theory block is
-  immediately followed by the worked example(s) illustrating it); then
-  `\part*{Soal Latihan}` with the practice problems grouped by
-  `\section`; `\section{Referensi}` at the very end listing the source
-  modules.
+  `\newpage`); `\part*{Materi}` with one `\section` per subtopic
+  (inside each section, every theory block is immediately followed by
+  the worked example(s) illustrating it); then `\section{Soal Latihan}`
+  with the practice problems grouped by `\subsection`.
+  No overview paragraph anywhere: each part and section opens directly
+  with its first definition, theorem, or problem group.
+  No `\section{Referensi}`: sources live in the header comment and the
+  per-problem `% Source:` comments.
 - The separate `*_Materi.tex` / `*_Latihan.tex` files mirror the two
-  parts of `*_Modul.tex` as standalone documents (same content, own
-  `\maketitle`); Referensi lives in the Materi file.
+  halves of `*_Modul.tex` as standalone documents (same content, own
+  `\maketitle`).
+- `*_Solusi.tex` mirrors the Latihan half: `\section{Solusi Soal Latihan}`
+  with one matching `\subsection` per problem group, `enumerate` with
+  `[resume]` continuing the global numbering.
 
 ## 1. Every theory block gets a worked example
 
@@ -110,6 +115,11 @@ Minimal shape:
 
 Solutions are written in Indonesian, in the owner's own voice: direct,
 concise, one idea per sentence. Define notation before using it.
+Keep expository prose minimal: no part/section overviews, no
+"when to use X" paragraphs, no analogies. Open each section directly
+with its definition or theorem; transitions are one short sentence at
+most. Short transitions may use English loanwords students already know
+(`Stepnya:`, `overlap`) instead of longer Indonesian paraphrases.
 Before finishing, read the repo-root checklist
 `humanizer-id-skills.md` and apply its 21 patterns to every prose
 passage. The table below repeats the short list from `CLAUDE.md`;
@@ -132,11 +142,16 @@ and stay:
 
 ## 6. Sourcing and correctness
 
-- Every problem taken from a source shows it inline in the PDF as
-  `\item (Sumber)` with a short tag (contest + year, e.g. `(OSK 2024)`,
-  `(AIME I 2019)`, `(Pra-OSK Modulo)`). The `% Source:` comment keeps
-  the full details (number, type, adaptation notes). Composed problems
-  carry no tag. This applies to the Latihan part/files, Ujian files,
+- Problems from a contest or other external source show it inline in the
+  PDF as `\item (Sumber)` with a short tag (contest + year, e.g.
+  `(OSK 2024)`, `(AIME I 2019)`, `(Klasik)`), no matter which file they
+  came through. Problems original to the unit's own base source(s) — an
+  outsource module (`8 Outsource K Math/`) or a repo handout the unit is
+  adapted from — carry no inline tag, same as composed problems
+  (never tag with the base source's own name).
+  The `% Source:` comment keeps the full details
+  (module or contest, number, type, adaptation notes) in all cases.
+  This applies to the Latihan part/files, Ujian files,
   and sourced Materi examples alike.
 - Record the answer in a `% Jawaban:` comment on every Latihan problem.
 - Verify every numeric answer independently (a second hand computation

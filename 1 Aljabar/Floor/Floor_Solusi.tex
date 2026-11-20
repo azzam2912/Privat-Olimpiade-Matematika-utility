@@ -1,0 +1,361 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[hagavi]{azzam}
+
+% Fungsi Floor, Ceiling, dan Fractional Part - Solusi
+% Pembahasan 19 soal Latihan: 3 Dasar-Dasar, 9 Persamaan Floor,
+% 7 Identitas dan Jumlah Floor.
+% Gaya penulisan mengikuti mo_material.md: solusi menumpuk persamaan ke bawah,
+% satu langkah logis satu paragraf.
+% Setiap identitas dan jawaban numerik diverifikasi independen
+% (lihat /tmp/verify_floor.py).
+
+\title{Fungsi Floor, Ceiling, dan Fractional Part - Solusi}
+\date{20 November 2026}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Daftar Isi}
+\tableofcontents
+
+\newpage
+
+\section{Solusi Soal Latihan}
+
+Setiap pembahasan memakai \istilah{lantai}{floor} $\floor{x}$,
+\istilah{atap}{ceiling} $\ceiling{x}$, dan
+\istilah{bagian pecahan}{fractional part} $\{x\}$ dari Modul,
+dengan substitusi $n = \floor{x}$ sebagai langkah standar.
+
+\subsection{Dasar-Dasar Floor dan Ceiling}
+
+\begin{enumerate}
+	\item Ruas kanan harus bulat, jadi $6 \mid n$.
+	Tulis $n = 6k$ dengan $k$ bilangan asli. Persamaannya menjadi
+	\[ \floor{6k/5} = k. \]
+	Menurut karakterisasi lantai,
+	\[ k \le \frac{6k}{5} < k + 1. \]
+	Ketaksamaan kiri selalu benar untuk $k \ge 0$.
+	Ketaksamaan kanan memberi
+	\[ 6k < 5k + 5, \]
+	yaitu $k < 5$.
+	Jadi $k \in \{1, 2, 3, 4\}$ dan $n \in \{6, 12, 18, 24\}$.
+	Ada $4$ bilangan asli yang memenuhi.
+
+	\item Tulis $n = \floor{x}$ dan $f = \{x\}$,
+	jadi $x = n + f$ dengan $0 \le f < 1$.
+	Dari persamaan pertama,
+	\[ nf = 1, \]
+	sehingga $n \ne 0$ dan $f = 1/n$.
+	Substitusikan $x = n + f$ ke persamaan kedua:
+	\begin{align*}
+	n^2 - n(1 + n + f) + 4 &= 0 \\
+	n^2 - n - n^2 - nf + 4 &= 0.
+	\end{align*}
+	Karena $nf = 1$, didapat
+	\[ 3 - n = 0, \]
+	jadi $n = 3$. Akibatnya $f = 1/3$ dan
+	\[ x = 3 + \frac{1}{3} = \frac{10}{3}. \]
+	Pemeriksaan: $\floor{10/3} = 3$ dan $\{10/3\} = 1/3$,
+	hasil kalinya $1$ dan persamaan keduanya terpenuhi.
+
+	\item Jika $x$ bulat, maka $\floor{x} = \ceiling{x} = x$,
+	sehingga $2x = 5$. Tidak ada bilangan bulat yang memenuhi.
+	Jika $x$ tidak bulat, maka $\ceiling{x} = \floor{x} + 1$,
+	sehingga
+	\[ 2\floor{x} + 1 = 5. \]
+	Jadi $\floor{x} = 2$, yaitu $2 < x < 3$.
+
+\end{enumerate}
+
+\subsection{Persamaan Floor}
+
+\begin{enumerate}[resume]
+	\item Tulis $x = n + f$ dengan $n = \floor{x}$
+	dan $0 \le f < 1$. Karena
+	\[ \floor{x^2} = \floor{n^2 + 2nf + f^2}
+	= n^2 + \floor{2nf + f^2}, \]
+	persamaannya menjadi
+	\[ \floor{2nf + f^2} - nf = 6. \]
+	Nilai $6 + nf$ sama dengan suatu lantai, jadi bulat.
+	Selain itu
+	\[ 6 + nf \le 2nf + f^2 < 7 + nf, \]
+	yaitu $6 \le f(n+f) < 7$. Karena $n + f = x$,
+	\[ \frac{6}{x} \le f < \frac{7}{x}. \]
+	Dari $f < 1$ didapat $x > 6$, jadi $n \ge 6$.
+
+	Untuk $n = 6$: nilai $6f$ harus bulat.
+	Dari $f \ge 6/(6+f)$ didapat $f^2 + 6f - 6 \ge 0$, yaitu
+	\[ f \ge \sqrt{15} - 3. \]
+	Jadi $6f \ge 6\sqrt{15} - 18 > 5{,}2$ sementara $6f < 6$.
+	Tidak ada bilangan bulat di antaranya, jadi kasus $n = 6$ kosong.
+
+	Untuk $n = 7$: nilai $7f$ harus bulat. Kedua batas memberi
+	\[ f \ge \frac{\sqrt{73} - 7}{2}
+	\quad\text{dan}\quad
+	f < \frac{\sqrt{77} - 7}{2}. \]
+	Satu-satunya kelipatan $1/7$ di rentang ini adalah $f = 6/7$. Jadi
+	\[ x = 7 + \frac{6}{7} = \frac{55}{7}. \]
+	Pemeriksaan: $\floor{(55/7)^2} = \floor{3025/49} = 61$
+	dan $x\floor{x} = 55$, selisihnya $6$.
+	Karena $n \ge 6$ dan $n = 6$ kosong, inilah nilai terkecil.
+
+	\item Tulis $m = \floor{x} \ge 0$.
+	Untuk $x$ tetap, $x^2$ mengisi $[m^2, (m+1)^2)$, jadi
+	\[ n = x^2 + m^2 \in [2m^2, 2m^2 + 2m]. \]
+	Untuk $m = 0$ hanya $n = 0$, di luar rentang.
+	Untuk $m \ge 1$, setiap bilangan bulat di interval ini tercapai
+	karena $x^2 + m^2$ kontinu.
+	Interval untuk $m$ dan $m+1$ saling asing karena
+	\[ 2(m+1)^2 - (2m^2 + 2m) = 2m + 2 > 0. \]
+	Batas $2m^2 \le 1000$ memberi $m \le 22$.
+	Interval $m = 1, \dots, 21$ seluruhnya di dalam $\{1, \dots, 1000\}$,
+	menyumbang
+	\[ \sum_{m=1}^{21}(2m + 1) = 483 \]
+	nilai. Interval $m = 22$ adalah $[968, 1012]$,
+	menyumbang $[968, 1000]$ atau $33$ nilai.
+	Totalnya $483 + 33 = 516$.
+
+	\item Tulis $a = \floor{x}$, $b = \floor{y}$,
+	$u = \{x\}$, $v = \{y\}$. Kedua persamaan menjadi
+	\begin{align*}
+	a + 2b + v &= 43{,}8, \\
+	b + u + v &= 18{,}4.
+	\end{align*}
+	Dari yang pertama, $v = 0{,}8$ dan $a + 2b = 43$.
+	Substitusikan $v$ ke yang kedua:
+	\[ b + u = 17{,}6, \]
+	jadi $u = 0{,}6$ dan $b = 17$.
+	Akibatnya $a = 43 - 34 = 9$. Jumlahnya
+	\[ x + y = 9 + 0{,}6 + 17 + 0{,}8 = 27{,}4, \]
+	sehingga $10(x+y) = 274$.
+
+	\item Tulis $k = \floor{2x}$, jadi $x \in [k/2, (k+1)/2)$.
+	Persamaannya memberi $\ceiling{x} = k^2 - 7$.
+	Tulis $m = k^2 - 7$. Karena $\ceiling{x} = m$ berarti
+	$m - 1 < x \le m$, perlu
+	\[ \left[\frac{k}{2}, \frac{k+1}{2}\right) \cap (m-1, m]
+	\ne \varnothing. \]
+	Untuk $k \ge 4$: $m - 1 = k^2 - 8 \ge (k+1)/2$,
+	jadi $(m-1, m]$ seluruhnya di atas interval $x$.
+	Untuk $k \le -4$: $x < (k+1)/2 \le -3/2$
+	padahal $x > m - 1 = k^2 - 8 \ge 8$. Kosong juga.
+	Tinggal memeriksa $k \in \{-3, \dots, 3\}$ satu per satu:
+	\begin{align*}
+	k = -3 &: [-3/2, -1) \cap (1, 2] = \varnothing, \\
+	k = -2 &: [-1, -1/2) \cap (-4, -3] = \varnothing, \\
+	k = -1 &: [-1/2, 0) \cap (-7, -6] = \varnothing, \\
+	k = 0 &: [0, 1/2) \cap (-8, -7] = \varnothing, \\
+	k = 1 &: [1/2, 1) \cap (-7, -6] = \varnothing, \\
+	k = 2 &: [1, 3/2) \cap (-4, -3] = \varnothing, \\
+	k = 3 &: [3/2, 2) \cap (1, 2] = [3/2, 2).
+	\end{align*}
+	Jadi $[a, b) = [3/2, 2)$ dan $a \cdot b = 3$.
+
+	\item Tulis $n = \floor{x}$. Dari persamaan,
+	\[ x = \frac{n^2 + a}{2a}, \qquad n \le x < n + 1. \]
+	Substitusikan: $2an \le n^2 + a$ dan $n^2 + a < 2a(n+1)$, yaitu
+	\[ a^2 - a \le (n-a)^2 < a^2 + a. \]
+	Tulis $t = n - a$.
+	Untuk $|t| \le a - 1$ berlaku $t^2 \le (a-1)^2 = a^2 - 2a + 1 < a^2 - a$
+	(pakai $a > 1$).
+	Untuk $|t| \ge a + 1$ berlaku $t^2 \ge (a+1)^2 > a^2 + a$.
+	Jadi $|t| = a$, yaitu $n = 0$ atau $n = 2a$.
+	Kedua nilai memberi solusi:
+	\[ x = \frac{a}{2a} = \frac{1}{2},
+	\qquad
+	x = \frac{4a^2 + a}{2a} = 2a + \frac{1}{2}, \]
+	dengan $\floor{1/2} = 0$ dan $\floor{2a+1/2} = 2a$ sesuai.
+	Jumlah semua solusinya $2a + 1$.
+	Diketahui jumlah ini $51$, jadi
+	\[ 2a + 1 = 51, \]
+	yaitu $a = 25$.
+
+	\item Ruas kanan harus bulat.
+	Tulis $k = 4x + 3$, jadi $x = (k-3)/4$ dan
+	\[ k \le \frac{(k-3)^2}{16} < k + 1. \]
+	Dari kiri: $k^2 - 22k + 9 \ge 0$,
+	yaitu $k \le 0$ atau $k \ge 22$
+	(akar-akarnya $11 \pm 4\sqrt{7}$, kira-kira $0{,}4$ dan $21{,}6$).
+	Dari kanan: $k^2 - 22k - 7 < 0$,
+	yaitu $0 \le k \le 22$
+	(akar-akarnya $11 \pm 8\sqrt{2}$, kira-kira $-0{,}3$ dan $22{,}3$).
+	Irisannya $k \in \{0, 22\}$. Kedua nilai memberi solusi:
+	\[ x = -\frac{3}{4} \quad\text{dan}\quad x = \frac{19}{4}. \]
+	Pemeriksaan: $\floor{9/16} = 0 = 4(-3/4) + 3$
+	dan $\floor{361/16} = 22 = 4(19/4) + 3$.
+	Ada $2$ bilangan real yang memenuhi.
+
+	\item Tulis $x = n + f$ dengan $n$ bulat dan $0 \le f < 1$.
+	Jumlahnya menjadi
+	\[ 10n + s = 2024,
+	\quad s = \floor{f} + \floor{2f} + \floor{3f} + \floor{4f}. \]
+	Karena $0 \le s \le 0 + 1 + 2 + 3 = 6$,
+	didapat $n = 202$ dan $s = 4$.
+	Perhatikan $\floor{f} = 0$, jadi
+	\[ \floor{2f} + \floor{3f} + \floor{4f} = 4. \]
+	Bagi kasus menurut $t = \floor{4f}$.
+	Untuk $t = 0$ jumlahnya $0$;
+	untuk $t = 1$ jumlahnya paling besar $0 + 1 + 1 = 2$;
+	untuk $t = 3$ jumlahnya paling kecil $1 + 2 + 3 = 6$.
+	Jadi $t = 2$, yaitu $1/2 \le f < 3/4$.
+	Di sini $\floor{2f} = 1$, sehingga $\floor{3f} = 1$,
+	yaitu $f < 2/3$. Akibatnya $6f \in [3, 4)$ dan
+	\[ \floor{6x} = 6 \cdot 202 + \floor{6f} = 1212 + 3 = 1215. \]
+
+	\item Tulis $x = n + f$ dengan $n = \floor{x}$
+	dan $0 \le f < 1$. Kalikan persamaan dengan $4$:
+	\begin{align*}
+	8n^2 + 12f^2 &= 7n(n + f) \\
+	n^2 - 7nf + 12f^2 &= 0 \\
+	(n - 3f)(n - 4f) &= 0.
+	\end{align*}
+	Jadi $n = 3f$ atau $n = 4f$.
+	Dari $n = 3f$: $f = n/3 < 1$ memberi $n \in \{0, 1, 2\}$,
+	yaitu $x = 4n/3 \in \{0, 4/3, 8/3\}$.
+	Dari $n = 4f$: $f = n/4 < 1$ memberi $n \in \{0, 1, 2, 3\}$,
+	yaitu $x = 5n/4 \in \{0, 5/4, 5/2, 15/4\}$.
+	Gabungannya $\{0, 5/4, 4/3, 5/2, 8/3, 15/4\}$.
+	Jumlahnya
+	\[ 0 + \frac{5}{4} + \frac{4}{3} + \frac{5}{2}
+	+ \frac{8}{3} + \frac{15}{4} = \frac{23}{2}. \]
+	Jadi $p = 23$, $q = 2$, dan $10p + q = 232$.
+
+	\item Untuk $x \ne 0$ tulis $t = 1/(2x)$,
+	jadi $x = 1/(2t)$ dan
+	\[ 2\floor{t} - 7 = 9 - \frac{36}{t}. \]
+	Tulis $n = \floor{t}$. Maka $2n - 7 = 9 - 36/t$, yaitu
+	\[ t = \frac{18}{8-n}, \qquad n \le t < n + 1. \]
+	Untuk $n \ge 8$ ruas kanan takpositif atau tak terdefinisi,
+	padahal $\floor{t} = n > 0$. Jadi $n < 8$,
+	sehingga $t > 0$ dan $n \ge 0$.
+	Ketaksamaan $n \le 18/(8-n)$ selalu benar,
+	karena setara $n^2 - 8n + 18 \ge 0$ yang diskriminannya negatif.
+	Ketaksamaan $18/(8-n) < n+1$ setara
+	\[ n^2 - 7n + 10 < 0, \]
+	yaitu $(n-2)(n-5) < 0$. Jadi $n \in \{3, 4\}$.
+	Untuk $n = 3$: $t = 18/5$, memenuhi $3 \le t < 4$.
+	Untuk $n = 4$: $t = 9/2$, memenuhi $4 \le t < 5$.
+	Solusinya
+	\[ x = \frac{1}{2t} \in \left\{\frac{5}{36}, \frac{1}{9}\right\}. \]
+
+\end{enumerate}
+
+\subsection{Identitas dan Jumlah Floor}
+
+\begin{enumerate}[resume]
+	\item Tulis $S(n) = \sum_{k=1}^{10}\floor{n/k!}$.
+	Untuk $n < 0$ setiap sukunya negatif, jadi $n \ge 0$.
+	Karena $\sum_{k=1}^{10} 1/k! < 1{,}72$,
+	didapat $S(n) < 1{,}72n$, jadi $n \ge 1163$.
+
+	Perhatikan $S$ naik sejati:
+	$S(n+1) - S(n) \ge 1$ karena suku $k = 1$ selalu naik $1$.
+	Hitung $S(1163)$ (suku $k \ge 7$ nol karena $7! = 5040 > 1163$):
+	\[ S(1163) = 1163 + 581 + 193 + 48 + 9 + 1 = 1995. \]
+	Selisih $S(n+1) - S(n)$ sama dengan banyaknya $k \le 10$
+	dengan $k! \mid n+1$.
+	Karena $1164 = 6 \cdot 194$ tetapi $24 \nmid 1164$,
+	kenaikkannya $3$: $S(1164) = 1998$.
+	Karena $1165$ ganjil dan tidak habis dibagi $3$,
+	hanya $1!$ yang membagi: $S(1165) = 1999$.
+	Jadi $n = 1165$, tunggal karena $S$ naik sejati.
+
+	\item Tulis $N = 10^{100}$.
+	Karena $N^{200} - (-3)^{200}$ habis dibagi $N - (-3)$,
+	\[ N^{200} = (N+3)Q + 3^{200},
+	\quad Q = \sum_{j=0}^{199}(-3)^j N^{199-j}. \]
+	Karena $0 < 3^{200} = 9^{100} < 10^{100} < N + 3$,
+	lantainya tepat $Q$:
+	\[ \floor{\frac{N^{200}}{N+3}} = Q. \]
+	Modulo $10$: $N \equiv 0$, jadi semua suku $Q$
+	yang memuat faktor $N$ lenyap:
+	\[ Q \equiv (-3)^{199} = -3^{199} \pmod{10}. \]
+	Karena $3^4 = 81 \equiv 1 \pmod{10}$,
+	\[ 3^{199} = (3^4)^{49} \cdot 3^3 \equiv 27 \equiv 7 \pmod{10}. \]
+	Jadi $Q \equiv -7 \equiv 3 \pmod{10}$.
+	Digit satuannya $3$.
+
+	\item Buktikan dengan induksi kuat pada $n$.
+	Basis $n = 1$ adalah kesamaan.
+	Asumsikan ketaksamaan berlaku untuk semua bilangan asli kurang dari $n$.
+	Pilih $d \in \{1, 2, \dots, n\}$ yang memaksimalkan $\floor{dx}/d$.
+	Maka
+	\[ \floor{nx} \ge \floor{(n-d)x} + \floor{dx}. \]
+	Suku $\floor{dx}$ ditulis sebagai $d$ suku yang sama:
+	\[ \floor{dx} = \sum_{k=n-d+1}^{n}\frac{\floor{dx}}{d}
+	\ge \sum_{k=n-d+1}^{n}\frac{\floor{kx}}{k}, \]
+	karena setiap $\floor{kx}/k \le \floor{dx}/d$ menurut pilihan $d$.
+	Menurut hipotesis induksi
+	(untuk $n - d = 0$ kedua ruas sama dengan nol),
+	\[ \floor{(n-d)x} \ge \sum_{k=1}^{n-d}\frac{\floor{kx}}{k}. \]
+	Jumlahkan kedua ketaksamaan. Terbukti.
+
+	\item Jumlahnya berhingga:
+	untuk $2^k > n$ sukunya nol.
+	Tulis $f(n)$ untuk jumlahnya. Klaim $f(n) = n$.
+	Basis: $f(1) = \floor{2/2} = 1$.
+	Selisih dua kasus berurutan:
+	\[ f(n+1) - f(n)
+	= \sum_{k \ge 0}\left(
+	\floor{\frac{n+1+2^k}{2^{k+1}}} - \floor{\frac{n+2^k}{2^{k+1}}}
+	\right). \]
+	Tiap selisih bernilai $0$ atau $1$;
+	bernilai $1$ tepat saat $n+1+2^k$ habis dibagi $2^{k+1}$,
+	yaitu saat $v_2(n+1) = k$.
+	Tepat satu $k$ memenuhi ini.
+	Jadi $f(n+1) = f(n) + 1$ dan $f(n) = n$ untuk semua $n$.
+
+	\item Suku $\floor{n/k}$ menghitung banyaknya $q$ dengan $kq \le n$.
+	Jumlah seluruhnya menghitung pasangan $(k, q)$ dengan $kq \le n$.
+	Kelompokkan menurut $m = kq$: jumlahnya sama dengan
+	\[ \sum_{m=1}^{n} \tau(m), \]
+	dengan $\tau(m)$ banyaknya faktor positif $m$.
+	Faktor-faktor berpasangan $d \leftrightarrow m/d$,
+	jadi $\tau(m)$ ganjil tepat saat $m$ bilangan kuadrat.
+	Modulo $2$:
+	\[ \sum_{k=1}^{n}\floor{n/k}
+	\equiv \#\{m \le n : m \text{ kuadrat}\}
+	= \floor{\sqrt{n}}. \]
+	Jadi jumlahnya ditambah $\floor{\sqrt{n}}$
+	kongruen dengan $2\floor{\sqrt{n}} \equiv 0$.
+	Genap. Terbukti.
+
+	\item Jika $\floor{\sqrt{n}} = \floor{\sqrt{n+1}} = m$, maka
+	\[ q(n) = \floor{n/m} \le \floor{(n+1)/m} = q(n+1). \]
+	Jadi penurunan hanya mungkin saat akar lantainya berubah,
+	yaitu $n+1$ bilangan kuadrat.
+	Tulis $n+1 = (m+1)^2$, jadi $n = m^2 + 2m$. Maka
+	\[ q(n) = \floor{\frac{m^2+2m}{m}} = m + 2
+	> m + 1 = \floor{\frac{(m+1)^2}{m+1}} = q(n+1). \]
+	Jadi $q(n) > q(n+1)$ tepat saat $n+1$ bilangan kuadrat,
+	yakni $n = k^2 - 1$ untuk $k \ge 2$.
+
+	\item Andaikan $r$ tidak bulat.
+	Tulis $a = \floor{r} \ge 1$ dan $f = \{r\} \in (0, 1)$.
+	Ambil $m \ge 2$ dan tulis $d = \floor{mr} = ma + u$
+	dengan $u = \floor{mf}$. Perhatikan $d \ge 2$.
+	Untuk setiap $k \ge 1$, $m \mid km$, jadi $d \mid \floor{kmr}$.
+	Karena
+	\[ \floor{kmr} = kma + \floor{kmf} = kd + (\floor{kmf} - ku), \]
+	didapat $d \mid \floor{kmf} - ku$.
+	Tulis $\theta = \{mf\} \in [0, 1)$. Maka
+	$\floor{kmf} - ku = \floor{k\theta}$, jadi
+	\[ d \mid \floor{k\theta} \quad \text{untuk setiap } k \ge 1. \]
+	Untuk $k = d$: $\floor{d\theta} < d$ dan habis dibagi $d$,
+	jadi $\floor{d\theta} = 0$, yaitu $\theta < 1/d$.
+	Induksi: andaikan $\theta < 1/(d+j)$. Untuk $k = d+j+1$,
+	\[ (d+j+1)\theta < \frac{d+j+1}{d+j} < 2, \]
+	jadi $\floor{(d+j+1)\theta} \in \{0, 1\}$,
+	dan karena habis dibagi $d \ge 2$, nilainya $0$.
+	Akibatnya $\theta < 1/(d+j+1)$.
+	Dengan demikian $\theta < 1/(d+j)$ untuk semua $j$,
+	sehingga $\theta = 0$.
+	Jadi $\{mf\} = 0$ untuk setiap $m \ge 2$.
+	Untuk $m = 2$ dan $m = 3$ ini memberi
+	$f \in \{0, 1/2\} \cap \{0, 1/3, 2/3\} = \{0\}$.
+	Kontradiksi dengan $f > 0$. Jadi $r$ bilangan bulat.
+
+\end{enumerate}
+
+\end{document}
