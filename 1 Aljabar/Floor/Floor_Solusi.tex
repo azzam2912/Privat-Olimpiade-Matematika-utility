@@ -22,8 +22,8 @@
 
 \section{Solusi Soal Latihan}
 
-Setiap pembahasan memakai \istilah{lantai}{floor} $\floor{x}$,
-\istilah{atap}{ceiling} $\ceiling{x}$, dan
+Setiap pembahasan memakai \textbf{floor} $\floor{x}$,
+\textbf{ceiling} $\ceiling{x}$, dan
 \istilah{bagian pecahan}{fractional part} $\{x\}$ dari Modul,
 dengan substitusi $n = \floor{x}$ sebagai langkah standar.
 
@@ -33,7 +33,7 @@ dengan substitusi $n = \floor{x}$ sebagai langkah standar.
 	\item Ruas kanan harus bulat, jadi $6 \mid n$.
 	Tulis $n = 6k$ dengan $k$ bilangan asli. Persamaannya menjadi
 	\[ \floor{6k/5} = k. \]
-	Menurut karakterisasi lantai,
+	Menurut karakterisasi floor,
 	\[ k \le \frac{6k}{5} < k + 1. \]
 	Ketaksamaan kiri selalu benar untuk $k \ge 0$.
 	Ketaksamaan kanan memberi
@@ -77,7 +77,7 @@ dengan substitusi $n = \floor{x}$ sebagai langkah standar.
 	= n^2 + \floor{2nf + f^2}, \]
 	persamaannya menjadi
 	\[ \floor{2nf + f^2} - nf = 6. \]
-	Nilai $6 + nf$ sama dengan suatu lantai, jadi bulat.
+	Nilai $6 + nf$ sama dengan suatu nilai floor, jadi bulat.
 	Selain itu
 	\[ 6 + nf \le 2nf + f^2 < 7 + nf, \]
 	yaitu $6 \le f(n+f) < 7$. Karena $n + f = x$,
@@ -266,7 +266,7 @@ dengan substitusi $n = \floor{x}$ sebagai langkah standar.
 	\[ N^{200} = (N+3)Q + 3^{200},
 	\quad Q = \sum_{j=0}^{199}(-3)^j N^{199-j}. \]
 	Karena $0 < 3^{200} = 9^{100} < 10^{100} < N + 3$,
-	lantainya tepat $Q$:
+	floor-nya tepat $Q$:
 	\[ \floor{\frac{N^{200}}{N+3}} = Q. \]
 	Modulo $10$: $N \equiv 0$, jadi semua suku $Q$
 	yang memuat faktor $N$ lenyap:
@@ -323,7 +323,7 @@ dengan substitusi $n = \floor{x}$ sebagai langkah standar.
 
 	\item Jika $\floor{\sqrt{n}} = \floor{\sqrt{n+1}} = m$, maka
 	\[ q(n) = \floor{n/m} \le \floor{(n+1)/m} = q(n+1). \]
-	Jadi penurunan hanya mungkin saat akar lantainya berubah,
+	Jadi penurunan hanya mungkin saat $\floor{\sqrt{n}}$ berubah nilai,
 	yaitu $n+1$ bilangan kuadrat.
 	Tulis $n+1 = (m+1)^2$, jadi $n = m^2 + 2m$. Maka
 	\[ q(n) = \floor{\frac{m^2+2m}{m}} = m + 2
