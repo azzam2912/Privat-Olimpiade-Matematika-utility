@@ -1,5 +1,6 @@
 \documentclass[12pt]{scrartcl}
-\usepackage[hagavi]{azzam}
+\usepackage{helvethia} % eksperimen tema Helvethia; kembali ke tampilan lama: \usepackage[hagavi]{azzam}
+\providecommand{\sumber}[1]{(#1)}
 
 % Fungsi Floor, Ceiling, dan Fractional Part - Modul (gabungan Materi dan Soal Latihan)
 % Materi diadaptasi dari `1 Aljabar/Lantai dan Atap.tex`:
@@ -11,7 +12,8 @@
 % _Solusi tetap terpisah.
 % Sumber tiap soal latihan dimunculkan di PDF sebagai \item (Sumber); komentar menyimpan detail lengkap.
 
-\title{Fungsi Floor, Ceiling, dan Fractional Part - Modul}
+\title{Fungsi Floor, Ceiling, dan Fractional Part}
+\subtitle{Modul Aljabar}
 \date{20 November 2026}
 
 \begin{document}
@@ -221,7 +223,7 @@ Pemeriksaan langsung: $2 + 2 + 3 = 7$.
 
 	% Source: OSK 2013 (esai, dari Lantai dan Atap.tex Latihan Soal 4)
 	% Jawaban: 2 < x < 3
-	\item (OSK 2013)
+	\item \sumber{OSK 2013}
 	Tentukan semua $x$ yang memenuhi
 	\[ \floor{x} + \ceiling{x} = 5. \]
 
@@ -238,21 +240,21 @@ Pemeriksaan langsung: $2 + 2 + 3 = 7$.
 
 	% Source: OSK 2016 (dari Lantai dan Atap.tex Latihan Soal 5)
 	% Jawaban: 516
-	\item (OSK 2016)
+	\item \sumber{OSK 2016}
 	Banyaknya bilangan asli $n \in \{1, 2, 3, \dots, 1000\}$
 	sehingga terdapat bilangan real positif $x$ yang memenuhi
 	$x^2 + \floor{x}^2 = n$ adalah \dots
 
 	% Source: OSK 2018 (dari Lantai dan Atap.tex Latihan Soal 6)
 	% Jawaban: 274
-	\item (OSK 2018)
+	\item \sumber{OSK 2018}
 	Jika diketahui $\floor{x} + \floor{y} + y = 43{,}8$ dan
 	$x + y - \floor{x} = 18{,}4$,
 	nilai $10(x + y)$ adalah \dots
 
 	% Source: OSK 2019 (dari Lantai dan Atap.tex Latihan Soal 7)
 	% Jawaban: 3
-	\item (OSK 2019)
+	\item \sumber{OSK 2019}
 	Interval $[a, b)$ adalah himpunan semua bilangan real $x$ yang memenuhi
 	\[ \floor{2x}^2 = \ceiling{x} + 7. \]
 	Nilai $a \cdot b$ adalah \dots
@@ -261,7 +263,7 @@ Pemeriksaan langsung: $2 + 2 + 3 = 7$.
 	% berkas sumber salah tulis jumlah solusinya sebagai p generik, dikembalikan ke 51
 	% sesuai naskah OSK 2021 asli)
 	% Jawaban: a = 25
-	\item (OSK 2021)
+	\item \sumber{OSK 2021}
 	Jika $a > 1$ suatu bilangan asli sehingga hasil penjumlahan semua
 	bilangan real $x$ yang memenuhi persamaan
 	\[ \floor{x}^2 - 2ax + a = 0 \]
@@ -291,7 +293,7 @@ Pemeriksaan langsung: $2 + 2 + 3 = 7$.
 
 	% Source: Lantai dan Atap.tex (Latihan Soal 12, modifikasi JBMO 2021)
 	% Jawaban: x = 5/36 dan x = 1/9
-	\item (JBMO 2021)
+	\item \sumber{JBMO 2021}
 	Carilah seluruh penyelesaian dari persamaan
 	\[ 2\floor{\frac{1}{2x}} - 7 = 9(1 - 8x). \]
 
@@ -303,26 +305,26 @@ Pemeriksaan langsung: $2 + 2 + 3 = 7$.
 	% Source: Hong Kong IMO Prelim 1999-2000 (dari Lantai dan Atap.tex Sepuh 3,
 	% diterjemahkan ke Bahasa Indonesia)
 	% Jawaban: 1165
-	\item (Hong Kong Prelim 1999)
+	\item \sumber{Hong Kong Prelim 1999}
 	Tentukan bilangan bulat $n$ yang memenuhi
 	\[ \floor{\frac{n}{1!}} + \floor{\frac{n}{2!}}
 	+ \dots + \floor{\frac{n}{10!}} = 1999. \]
 
 	% Source: Putnam 1986 (dari Lantai dan Atap.tex Sepuh 4, diterjemahkan ke Bahasa Indonesia)
 	% Jawaban: 3
-	\item (Putnam 1986)
+	\item \sumber{Putnam 1986}
 	Berapakah digit satuan dari
 	\[ \floor{\frac{10^{20000}}{10^{100} + 3}} ? \]
 
 	% Source: USAMO 1981 (dari Lantai dan Atap.tex Sepuh 5, diterjemahkan ke Bahasa Indonesia)
-	\item (USAMO 1981)
+	\item \sumber{USAMO 1981}
 	Jika $x$ bilangan real positif dan $n$ bilangan asli, buktikan bahwa
 	\[ \floor{nx} \ge \frac{\floor{x}}{1} + \frac{\floor{2x}}{2}
 	+ \frac{\floor{3x}}{3} + \dots + \frac{\floor{nx}}{n}. \]
 
 	% Source: IMO 1968 (dari Lantai dan Atap.tex Sepuh 6, diterjemahkan ke Bahasa Indonesia)
 	% Jawaban: n
-	\item (IMO 1968)
+	\item \sumber{IMO 1968}
 	Jika $n$ bilangan asli, nyatakan sebagai fungsi sederhana dari $n$ jumlah
 	\[ \floor{\frac{n+1}{2}} + \floor{\frac{n+2}{4}}
 	+ \dots + \floor{\frac{n+2^k}{2^{k+1}}} + \dots \]

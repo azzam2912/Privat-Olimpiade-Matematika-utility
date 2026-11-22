@@ -1,0 +1,608 @@
+% helvethia.sty
+% Tema "Helvethia" untuk handout A4 (Modul, Materi, Latihan, Solusi).
+% Eksperimen: palet dan font dari IG-Post-Latex/azzam-helvethia.sty, tapi
+% tata letaknya dirancang ulang untuk kertas A4:
+%   - halaman krem dengan bingkai tipis dan sudut berwarna crimson,
+%   - judul (\maketitle) berupa pita crimson penuh di atas halaman pertama,
+%   - \part sebagai banner, \section dengan lencana nomor dan garis dua warna,
+%   - kotak teori (definisi, fakta, teorema, lemma, contoh) dengan tcolorbox,
+%   - "Solusi" dengan garis tepi kiri, nomor soal dalam lingkaran,
+%   - tab nomor bab di tepi kanan setiap halaman (thumb index),
+%   - header judul + nama bab, footer nama penulis + nomor halaman.
+%
+% Pemakaian (pengganti langsung azzam.sty, semua nama environment sama):
+%   \documentclass[12pt]{scrartcl}
+%   \usepackage{helvethia}
+%
+% Opsi:
+%   print     halaman putih (hemat tinta saat dicetak), kotak tetap berbingkai
+%   english   nama environment dalam bahasa Inggris (Theorem, Example, ...)
+%   noframe   tanpa bingkai halaman
+%   nothumb   tanpa tab nomor bab di tepi kanan
+%   noasy     tanpa paket asymptote
+%
+% Makro tambahan:
+%   \subtitle{...}        baris kecil di atas judul pada pita judul (KOMA)
+%   \sumber{OSK 2013}     label sumber soal berbentuk pil emas
+%   \helvethiafooter{...} teks footer kiri (default: nama penulis)
+%
+% Turunan dari azzam.sty (c) 2025 Azzam, yang merupakan turunan evan.sty
+% (c) 2020 Evan Chen. Boost Software License 1.0 (lihat azzam.sty).
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{helvethia}[2026/11/22 Helvethia A4 handout theme]
+
+%%fakesection Opsi
+\newif\ifhv@print   \hv@printfalse
+\newif\ifhv@english \hv@englishfalse
+\newif\ifhv@frame   \hv@frametrue
+\newif\ifhv@thumb   \hv@thumbtrue
+\newif\ifhv@asy     \hv@asytrue
+\DeclareOption{print}{\hv@printtrue}
+\DeclareOption{english}{\hv@englishtrue}
+\DeclareOption{noframe}{\hv@framefalse}
+\DeclareOption{nothumb}{\hv@thumbfalse}
+\DeclareOption{noasy}{\hv@asyfalse}
+% opsi azzam.sty diterima supaya [hagavi] dsb. tidak error
+\DeclareOption*{}
+\ProcessOptions\relax
+
+%%fakesection Paket
+\PassOptionsToPackage{usenames,svgnames,dvipsnames,table}{xcolor}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\graphicspath{{./}}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{mathtools}
+\RequirePackage{multicol}
+\RequirePackage{float}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\RequirePackage{mathrsfs}
+\RequirePackage{tkz-euclide}
+\usetikzlibrary{arrows,calc}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage[T1]{fontenc}
+% Font: matematika gaya Palatino (newpxmath), teks Helvetica, sama seperti
+% versi Instagram. newpxmath dimuat sebelum helvet.
+\RequirePackage{newpxmath}
+\RequirePackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage{microtype}
+\RequirePackage[obeyFinal,textsize=scriptsize,shadow]{todonotes}
+\RequirePackage{tasks}
+\RequirePackage{eso-pic}
+\RequirePackage{lastpage}
+\RequirePackage[colorlinks=true]{hyperref}
+\ifdefined\openbox\let\openbox\relax\fi % newpxmath vs amsthm
+\RequirePackage{amsthm}
+\RequirePackage{thmtools}
+\RequirePackage[nameinlink]{cleveref}
+
+%%fakesection Palet Helvethia
+\definecolor{bg}{HTML}{F2EEE5}
+\definecolor{surface}{HTML}{FFFDF8}
+\definecolor{ink}{HTML}{1A1C24}
+\definecolor{inksoft}{HTML}{3A3D49}
+\definecolor{crimson}{HTML}{A8324A}
+\definecolor{crimsonink}{HTML}{7A1F33}
+\definecolor{navy}{HTML}{2E3A55}
+\definecolor{gold}{HTML}{C58F3A}
+\definecolor{goldink}{HTML}{8A5A16}
+\ifhv@print
+	\definecolor{bg}{HTML}{FFFFFF}
+	\definecolor{surface}{HTML}{FFFFFF}
+\fi
+% warna lama azzam.sty, untuk berkas yang memakainya langsung
+\definecolor{lightblue}{RGB}{173,216,230}
+\definecolor{lightyellow}{RGB}{255,255,224}
+\definecolor{lightgreen}{RGB}{144,238,144}
+\colorlet{EvanRed}{crimson}
+
+\hypersetup{
+	linkcolor=crimsonink,
+	urlcolor=crimson,
+	citecolor=navy,
+	filecolor=crimson,
+	pdfpagemode=UseOutlines,
+}
+
+%%fakesection Makro matematika (sama dengan azzam.sty)
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\mailto}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vocab}[1]{\textbf{\color{crimson}#1}}
+\providecommand{\alert}{\vocab}
+\newcommand{\istilah}[2]{\textbf{\color{crimsonink}#1} {\color{inksoft}(\textit{#2})}}
+\newcommand{\textcrimson}[1]{{\color{crimson}#1}}
+\newcommand{\textcrimsonink}[1]{{\color{crimsonink}#1}}
+\providecommand{\half}{\frac{1}{2}}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+\newcommand{\dangle}{\measuredangle}
+\newcommand{\tarc}{\mbox{\large$\frown$}}
+\newcommand{\arc}[1]{\stackrel{\tarc}{#1}}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\QQp}{{\mathbb Q}^+}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\RRp}{{\mathbb R}^+}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\ZZp}{{\mathbb Z}^+}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\img}{im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\eval}[1]{\left. #1 \right|}
+\newcommand{\inv}{^{-1}}
+\newcommand{\ts}{\textsuperscript}
+\newcommand{\dg}{^\circ}
+
+%%fakesection Asymptote (sama dengan azzam.sty)
+\ifhv@asy
+	\RequirePackage{asymptote}
+	\begin{asydef}
+		defaultpen(fontsize(10pt));
+		size(8cm);
+		usepackage("amsmath");
+		usepackage("amssymb");
+		settings.tex="pdflatex";
+		settings.outformat="pdf";
+		import geometry;
+		void filldraw(picture pic = currentpicture, conic g, pen fillpen=defaultpen, pen drawpen=defaultpen)
+			{ filldraw(pic, (path) g, fillpen, drawpen); }
+		void fill(picture pic = currentpicture, conic g, pen p=defaultpen)
+			{ fill(pic, (path) g, p); }
+		pair foot(pair P, pair A, pair B) { return foot(triangle(A,B,P).VC); }
+		pair orthocenter(pair A, pair B, pair C) { return orthocentercenter(A,B,C); }
+		pair centroid(pair A, pair B, pair C) { return (A+B+C)/3; }
+		path CP(pair P, pair A) { return circle(P, abs(A-P)); }
+		path CR(pair P, real r) { return circle(P, r); }
+		pair IP(path p, path q) { return intersectionpoints(p,q)[0]; }
+		pair OP(path p, path q) { return intersectionpoints(p,q)[1]; }
+		path Line(pair A, pair B, real a=0.6, real b=a) { return (a*(A-B)+A)--(b*(B-A)+B); }
+		picture CC() {
+			picture p=rotate(0)*currentpicture;
+			currentpicture.erase();
+			return p;
+		}
+		pair MP(Label s, pair A, pair B = plain.S, pen p = defaultpen) {
+			Label L = s;
+			L.s = "$"+s.s+"$";
+			label(L, A, B, p);
+			return A;
+		}
+		pair Drawing(Label s = "", pair A, pair B = plain.S, pen p = defaultpen) {
+			dot(MP(s, A, B, p), p);
+			return A;
+		}
+		path Drawing(path g, pen p = defaultpen, arrowbar ar = None) {
+			draw(g, p, ar);
+			return g;
+		}
+	\end{asydef}
+\fi
+
+%%fakesection Nama (Indonesia / Inggris)
+\ifhv@english
+	\def\hv@n@theorem{Theorem}    \def\hv@n@lemma{Lemma}
+	\def\hv@n@proposition{Proposition} \def\hv@n@corollary{Corollary}
+	\def\hv@n@definition{Definition}   \def\hv@n@fact{Fact}
+	\def\hv@n@example{Example}    \def\hv@n@remark{Remark}
+	\def\hv@n@claim{Claim}        \def\hv@n@algorithm{Algorithm}
+	\def\hv@n@conjecture{Conjecture}   \def\hv@n@exercise{Exercise}
+	\def\hv@n@problem{Problem}    \def\hv@n@ques{Question}
+	\def\hv@n@proof{Proof}        \def\hv@n@toc{Contents}
+\else
+	\def\hv@n@theorem{Teorema}    \def\hv@n@lemma{Lemma}
+	\def\hv@n@proposition{Proposisi}   \def\hv@n@corollary{Akibat}
+	\def\hv@n@definition{Definisi}     \def\hv@n@fact{Fakta}
+	\def\hv@n@example{Contoh}     \def\hv@n@remark{Catatan}
+	\def\hv@n@claim{Klaim}        \def\hv@n@algorithm{Algoritma}
+	\def\hv@n@conjecture{Konjektur}    \def\hv@n@exercise{Latihan}
+	\def\hv@n@problem{Soal}       \def\hv@n@ques{Pertanyaan}
+	\def\hv@n@proof{Bukti}        \def\hv@n@toc{Daftar Isi}
+\fi
+\renewcommand*{\proofname}{\hv@n@proof}
+
+%%fakesection Elemen kecil: tag, lencana, pil
+% \hvtag{warna}{teks}: label kotak kecil, huruf kapital berspasi
+\newcommand{\hvtag}[2]{%
+	\tikz[baseline=(hvt.base)]\node[fill=#1, text=white, rounded corners=2pt,
+		inner xsep=5pt, inner ysep=2.6pt,
+		font=\sffamily\bfseries\scriptsize](hvt){\strut\textls[90]{\MakeUppercase{#2}}};}
+% \hvtagline{warna}{teks}: versi garis tepi (untuk contoh dan soal)
+\newcommand{\hvtagline}[2]{%
+	\tikz[baseline=(hvt.base)]\node[draw=#1, line width=0.8pt, fill=surface,
+		text=#1, rounded corners=2pt, inner xsep=5pt, inner ysep=2.2pt,
+		font=\sffamily\bfseries\scriptsize](hvt){\strut\textls[90]{\MakeUppercase{#2}}};}
+% \hvbadge{n}: nomor dalam lingkaran (soal pada enumerate)
+\newcommand{\hvbadge}[1]{%
+	\tikz[baseline=(hvb.base)]\node[circle, fill=crimson, text=white, inner sep=0pt,
+		minimum size=1.45em, font=\sffamily\bfseries\footnotesize](hvb){#1};}
+% \sumber{...}: asal soal
+\newcommand{\sumber}[1]{%
+	\tikz[baseline=(hvs.base)]\node[fill=gold!20!surface, draw=gold!60, line width=0.4pt,
+		text=goldink, rounded corners=5pt, inner xsep=5pt, inner ysep=2pt,
+		font=\sffamily\bfseries\scriptsize](hvs){\strut #1};\hspace{0.45em}}
+
+%%fakesection Gaya teorema
+% Gaya amsthm dengan kepala berupa tag berwarna. \thmnumber hilang sendiri
+% untuk environment tanpa nomor.
+\newcommand{\hv@thmstyle}[4]{% nama, macro tag, warna, spasi setelah kepala
+	\newtheoremstyle{#1}{0pt}{0pt}{\normalfont}{}{\normalfont}{}{#4}%
+		{#2{#3}{\thmname{##1}\thmnumber{ ##2}}\thmnote{\hspace{0.5em}{\bfseries\color{#3}##3}}}}
+\hv@thmstyle{hvcrimson}{\hvtag}{crimson}{\newline}
+\hv@thmstyle{hvnavy}{\hvtag}{navy}{\newline}
+\hv@thmstyle{hvgold}{\hvtag}{gold}{\newline}
+\hv@thmstyle{hvexample}{\hvtagline}{crimson}{\newline}
+\hv@thmstyle{hvremark}{\hvtagline}{inksoft}{0.6em}
+\hv@thmstyle{hvclaim}{\hvtag}{crimsonink}{0.6em}
+\hv@thmstyle{hvproblem}{\hvtagline}{crimson}{0.6em}
+\newtheoremstyle{hvplain}{8pt}{8pt}{\normalfont}{}{\bfseries\color{crimsonink}}{.}{0.5em}{}
+
+% Kartu tcolorbox di sekeliling environment
+\tcbset{
+	hv/card/.style={
+		enhanced, colback=surface, colframe=#1!22, boxrule=0.5pt,
+		arc=4pt, sharp corners=west, left=11pt, right=11pt, top=7pt, bottom=8pt,
+		before skip=12pt plus 2pt, after skip=10pt plus 2pt,
+		overlay={\fill[#1] (frame.south west) rectangle ([xshift=3pt]frame.north west);},
+		before upper={\setlist[enumerate,1]{label=\textbf{\color{#1}\arabic*.}, leftmargin=1.8em, itemsep=2pt}%
+			\setlist[itemize,1]{label=\textcolor{#1}{\tiny$\blacksquare$}}},
+	},
+	hv/example/.style={
+		enhanced, colback=crimson!5!surface, colframe=crimson!5!surface, boxrule=0pt,
+		arc=4pt, left=11pt, right=11pt, top=7pt, bottom=8pt,
+		before skip=12pt plus 2pt, after skip=4pt,
+	},
+	hv/side/.style={
+		blanker, breakable, borderline west={1.4pt}{0pt}{#1},
+		left=13pt, before skip=6pt plus 2pt, after skip=12pt plus 2pt,
+	},
+}
+
+\theoremstyle{hvcrimson}
+\declaretheorem[name=\hv@n@theorem,numberwithin=section]{theorem}
+\declaretheorem[name=\hv@n@lemma,sibling=theorem]{lemma}
+\declaretheorem[name=\hv@n@proposition,sibling=theorem]{proposition}
+\declaretheorem[name=\hv@n@corollary,sibling=theorem]{corollary}
+\declaretheorem[name=\hv@n@theorem,numbered=no]{theorem*}
+\declaretheorem[name=\hv@n@lemma,numbered=no]{lemma*}
+\declaretheorem[name=\hv@n@proposition,numbered=no]{proposition*}
+\declaretheorem[name=\hv@n@corollary,numbered=no]{corollary*}
+\declaretheorem[name=\hv@n@conjecture,sibling=theorem]{conjecture}
+\declaretheorem[name=\hv@n@conjecture,numbered=no]{conjecture*}
+\theoremstyle{hvnavy}
+\declaretheorem[name=\hv@n@definition,sibling=theorem]{definition}
+\declaretheorem[name=\hv@n@definition,numbered=no]{definition*}
+\declaretheorem[name=\hv@n@algorithm,sibling=theorem]{algorithm}
+\declaretheorem[name=\hv@n@algorithm,numbered=no]{algorithm*}
+\theoremstyle{hvgold}
+\declaretheorem[name=\hv@n@fact,sibling=theorem]{fact}
+\declaretheorem[name=\hv@n@fact,numbered=no]{fact*}
+\theoremstyle{hvexample}
+\declaretheorem[name=\hv@n@example,sibling=theorem]{example}
+\declaretheorem[name=\hv@n@example,numbered=no]{example*}
+\theoremstyle{hvclaim}
+\declaretheorem[name=\hv@n@claim,sibling=theorem]{claim}
+\declaretheorem[name=\hv@n@claim,numbered=no]{claim*}
+\theoremstyle{hvremark}
+\declaretheorem[name=\hv@n@remark,sibling=theorem]{remark}
+\declaretheorem[name=\hv@n@remark,numbered=no]{remark*}
+\declaretheorem[name=Lemma,numbered=no]{lemmarev}
+\theoremstyle{hvproblem}
+\declaretheorem[name=\hv@n@exercise,sibling=theorem]{exercise}
+\declaretheorem[name=\hv@n@exercise,numbered=no]{exercise*}
+\declaretheorem[name=\hv@n@problem,sibling=theorem]{problem}
+\declaretheorem[name=\hv@n@problem,numbered=no]{problem*}
+\declaretheorem[name=\hv@n@ques,sibling=theorem]{ques}
+\declaretheorem[name=\hv@n@ques,numbered=no]{ques*}
+\declaretheorem[name=Soal,sibling=theorem]{soal}
+\declaretheorem[name=Soal]{soalbaru}
+\declaretheorem[name=Soal]{soaljawab}
+\theoremstyle{hvplain}
+\declaretheorem[name=Solusi,numbered=no]{solusi}
+\declaretheorem[name=Jawaban,numbered=no]{jawaban}
+
+\tcolorboxenvironment{theorem}{hv/card=crimson}
+\tcolorboxenvironment{theorem*}{hv/card=crimson}
+\tcolorboxenvironment{lemma}{hv/card=crimson}
+\tcolorboxenvironment{lemma*}{hv/card=crimson}
+\tcolorboxenvironment{proposition}{hv/card=crimson}
+\tcolorboxenvironment{proposition*}{hv/card=crimson}
+\tcolorboxenvironment{corollary}{hv/card=crimson}
+\tcolorboxenvironment{corollary*}{hv/card=crimson}
+\tcolorboxenvironment{conjecture}{hv/card=crimson}
+\tcolorboxenvironment{conjecture*}{hv/card=crimson}
+\tcolorboxenvironment{definition}{hv/card=navy}
+\tcolorboxenvironment{definition*}{hv/card=navy}
+\tcolorboxenvironment{algorithm}{hv/card=navy}
+\tcolorboxenvironment{algorithm*}{hv/card=navy}
+\tcolorboxenvironment{fact}{hv/card=gold}
+\tcolorboxenvironment{fact*}{hv/card=gold}
+\tcolorboxenvironment{example}{hv/example}
+\tcolorboxenvironment{example*}{hv/example}
+\tcolorboxenvironment{claim}{hv/side=crimsonink, before skip=8pt, after skip=8pt}
+\tcolorboxenvironment{claim*}{hv/side=crimsonink, before skip=8pt, after skip=8pt}
+\tcolorboxenvironment{remark}{hv/side=inksoft!60, before skip=8pt, after skip=8pt}
+\tcolorboxenvironment{remark*}{hv/side=inksoft!60, before skip=8pt, after skip=8pt}
+\tcolorboxenvironment{lemmarev}{hv/side=inksoft!60, before skip=8pt, after skip=8pt}
+\tcolorboxenvironment{solusi}{hv/side=crimson!45}
+\tcolorboxenvironment{jawaban}{hv/side=gold}
+
+% Bukti / Solusi: garis tepi kiri, label kapital crimson, kotak qed crimson
+\renewcommand{\qedsymbol}{\textcolor{crimson}{\rule{0.5em}{0.5em}}}
+\renewenvironment{proof}[1][\proofname]{%
+	\par\pushQED{\qed}\normalfont\topsep0pt\partopsep0pt
+	\trivlist\item[\hskip\labelsep
+		{\sffamily\bfseries\scriptsize\color{crimson}\textls[120]{\MakeUppercase{#1}}}\hspace{0.6em}]%
+	\ignorespaces
+}{\popQED\endtrivlist\@endpefalse}
+\tcolorboxenvironment{proof}{hv/side=crimson!45}
+
+\newenvironment{soln}{\begin{proof}[Solusi]}{\end{proof}}
+\newenvironment{subproof}[1][\proofname]{\begin{proof}[#1]\renewcommand{\qedsymbol}{$\blacksquare$}}{\end{proof}}
+\newenvironment{parlist}{\begin{inparaenum}[(i)]}{\end{inparaenum}}
+\newenvironment{gobble}{\setbox\z@\vbox\bgroup}{\egroup}
+\newenvironment{bukti}{\begin{proof}[Bukti]}{\end{proof}}
+\newenvironment{buktilemma}{\begin{proof}[Bukti Lemma]}{\end{proof}}
+\newcommand{\listhack}{$\empty$\vspace{-2em}}
+
+\ifhv@english\else
+	\crefname{theorem}{Teorema}{Teorema}
+	\crefname{lemma}{Lemma}{Lemma}
+	\crefname{definition}{Definisi}{Definisi}
+	\crefname{fact}{Fakta}{Fakta}
+	\crefname{example}{Contoh}{Contoh}
+	\crefname{corollary}{Akibat}{Akibat}
+	\crefname{proposition}{Proposisi}{Proposisi}
+	\crefname{claim}{Klaim}{Klaim}
+	\crefname{remark}{Catatan}{Catatan}
+	\crefname{problem}{Soal}{Soal}
+	\crefname{section}{Bab}{Bab}
+	\crefname{subsection}{Subbab}{Subbab}
+\fi
+
+%%fakesection Daftar (enumerate dan itemize)
+\newcounter{problemcounter}
+\newlist{problems}{enumerate}{1}
+\setlist[problems]{label=\arabic*., ref=\arabic*, before=\setcounter{problemcounter}{\value{enumi}}}
+\setlist[enumerate,1]{label=\protect\hvbadge{\arabic*}, ref=\arabic*,
+	leftmargin=2.3em, labelsep=0.65em, itemsep=0.7em plus 2pt, topsep=6pt}
+\setlist[enumerate,2]{label=\textbf{\color{crimson}(\alph*)}, ref=(\alph*), itemsep=2pt}
+\setlist[itemize,1]{label=\textcolor{crimson}{\tiny$\blacksquare$}}
+\setlist[itemize,2]{label=\textcolor{inksoft}{\textendash}}
+
+%%fakesection Tata letak halaman
+\renewcommand{\baselinestretch}{1.32}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 1pt}
+\RequirePackage{geometry}
+\geometry{
+	paperwidth=\paperwidth, paperheight=\paperheight,
+	left=2cm, right=2cm, top=1.35cm, bottom=1.3cm,
+	includeheadfoot, headheight=22pt, headsep=14pt, footskip=30pt,
+}
+\pagecolor{bg}
+\AtBeginDocument{\color{ink}}
+
+% jarak bingkai dari tepi kertas
+\newlength{\hv@m}\setlength{\hv@m}{0.85cm}
+\newlength{\hv@corner}\setlength{\hv@corner}{1.3cm}
+
+% Nomor bab untuk tab di tepi kanan dibaca lewat mark, supaya bab yang
+% baru mulai di bawah halaman tidak salah menandai halaman itu.
+\NewMarkClass{hvsec}
+\NewMarkClass{hvsectitle}
+% Bab yang berlaku di puncak halaman (TopMark); halaman yang belum punya
+% bab sebelumnya memakai bab pertama di halaman itu (FirstMark).
+\newif\ifhv@usefirst
+\newcommand{\hv@readmarks}{%
+	\edef\hv@tabnum{\TopMark{hvsec}}%
+	\ifx\hv@tabnum\@empty\hv@usefirsttrue\edef\hv@tabnum{\FirstMark{hvsec}}\else\hv@usefirstfalse\fi}
+\newcommand{\hv@headmark}{%
+	\hv@readmarks
+	\ifx\hv@tabnum\@empty\else
+		\textcolor{crimson}{\hv@tabnum}\enskip
+		\ifhv@usefirst\FirstMark{hvsectitle}\else\TopMark{hvsectitle}\fi
+	\fi}
+\newif\ifhv@titlepage \hv@titlepagefalse
+
+\newcommand{\hv@pagedecor}{%
+	\AtPageLowerLeft{%
+		\begin{tikzpicture}[overlay]
+			\ifhv@frame
+				\draw[crimson!28, line width=0.4pt]
+					(\hv@m,\hv@m) rectangle (\paperwidth-\hv@m,\paperheight-\hv@m);
+				\begin{scope}[crimson, line width=1.5pt, line cap=rect]
+					\draw (\hv@m,\hv@m+\hv@corner) -- (\hv@m,\hv@m) -- (\hv@m+\hv@corner,\hv@m);
+					\draw (\paperwidth-\hv@m-\hv@corner,\hv@m) -- (\paperwidth-\hv@m,\hv@m)
+						-- (\paperwidth-\hv@m,\hv@m+\hv@corner);
+					\ifhv@titlepage\else
+						\draw (\hv@m,\paperheight-\hv@m-\hv@corner) -- (\hv@m,\paperheight-\hv@m)
+							-- (\hv@m+\hv@corner,\paperheight-\hv@m);
+						\draw (\paperwidth-\hv@m-\hv@corner,\paperheight-\hv@m)
+							-- (\paperwidth-\hv@m,\paperheight-\hv@m)
+							-- (\paperwidth-\hv@m,\paperheight-\hv@m-\hv@corner);
+					\fi
+				\end{scope}
+			\fi
+			\ifhv@thumb\ifhv@titlepage\else
+				\hv@readmarks
+				\ifx\hv@tabnum\@empty\else
+					\pgfmathsetmacro{\hv@tabpos}{mod(\hv@tabnum-1,9)}%
+					\fill[crimson, rounded corners=3pt]
+						(\paperwidth+4pt,\paperheight-3.6cm-\hv@tabpos*1.75cm)
+						-- (\paperwidth-\hv@m,\paperheight-3.6cm-\hv@tabpos*1.75cm)
+						-- (\paperwidth-\hv@m,\paperheight-4.95cm-\hv@tabpos*1.75cm)
+						-- (\paperwidth+4pt,\paperheight-4.95cm-\hv@tabpos*1.75cm) -- cycle;
+					\node[text=white, font=\sffamily\bfseries\small]
+						at (\paperwidth-0.5\hv@m,\paperheight-4.275cm-\hv@tabpos*1.75cm) {\hv@tabnum};
+				\fi
+			\fi\fi
+		\end{tikzpicture}}%
+}
+\AddToShipoutPictureBG{\hv@pagedecor}
+\AddToHook{shipout/after}{\global\hv@titlepagefalse}
+
+%%fakesection Judul bab (KOMA)
+\@ifundefined{KOMAClassName}{%
+	\PackageWarning{helvethia}{Dirancang untuk scrartcl; heading tidak diubah}}{%
+	\setkomafont{disposition}{\sffamily\bfseries\color{ink}}
+	\setkomafont{section}{\Large}
+	\setkomafont{subsection}{\large}
+	\setkomafont{subsubsection}{\normalsize}
+	\KOMAoptions{numbers=noenddot}
+	\RedeclareSectionCommand[beforeskip=-1.8em plus -.4em minus -.2em, afterskip=1em plus .2em]{section}
+	\RedeclareSectionCommand[beforeskip=-1.4em plus -.3em minus -.2em, afterskip=.6em plus .1em]{subsection}
+	\RedeclareSectionCommand[beforeskip=0pt, afterskip=1.6em]{part}
+
+	% lencana nomor bab
+	\newcommand{\hv@secbadge}[1]{%
+		\tikz[baseline=(hvsb.base)]\node[fill=crimson, text=white, rounded corners=3pt,
+			minimum width=1.75em, minimum height=1.6em, inner sep=2pt](hvsb){#1};}
+	\renewcommand*{\sectionformat}{\hv@secbadge{\thesection}\hspace{0.55em}}
+	\renewcommand*{\subsectionformat}{\textcolor{crimson}{\thesubsection}\hspace{0.6em}}
+	\renewcommand*{\subsubsectionformat}{\textcolor{crimson}{\thesubsubsection}\hspace{0.5em}}
+
+	\renewcommand*{\sectionlinesformat}[4]{%
+		\Ifstr{#1}{section}{%
+			\IfUseNumber{\InsertMark{hvsec}{\thesection}\InsertMark{hvsectitle}{\unexpanded{#4}}}{}%
+			\@hangfrom{\hskip #2#3}{#4}\par\nobreak\nointerlineskip\vskip 7pt
+			\hbox{{\color{crimson}\rule{2.4cm}{1.8pt}}%
+			{\color{crimson!22}\rule[0.7pt]{\dimexpr\linewidth-2.4cm\relax}{0.45pt}}}%
+		}{\Ifstr{#1}{subsection}{%
+			\@hangfrom{\hskip #2{\color{crimson}\rule[-0.18em]{2.6pt}{1em}}\hspace{0.55em}#3}{#4}%
+		}{\@hangfrom{\hskip #2#3}{#4}}}%
+	}
+
+	% \part sebagai banner penuh
+	\renewcommand*{\partformat}{\partname~\thepart}
+	\newcommand{\hv@partbanner}[2]{%
+		\noindent\begin{tikzpicture}
+			\fill[left color=crimsonink, right color=crimson, rounded corners=6pt]
+				(0,0) rectangle (\linewidth,2.5cm);
+			\begin{scope}
+				\clip[rounded corners=6pt] (0,0) rectangle (\linewidth,2.5cm);
+				\foreach \i in {0,...,7}{
+					\draw[white, opacity=0.10, line width=0.8pt]
+						(\linewidth-0.6cm,1.25cm) circle[radius=0.55cm+\i*0.42cm];}
+				\fill[gold] (0,0) rectangle (\linewidth,2.2pt);
+			\end{scope}
+			\node[anchor=west, text=white, font=\sffamily\bfseries\fontsize{27}{30}\selectfont]
+				at (0.9cm,1.25cm) {\textls[60]{\MakeUppercase{#2}}};
+			\ifx\relax#1\relax\else
+				\node[anchor=south west, text=gold!60!white, font=\sffamily\bfseries\scriptsize]
+					at (0.9cm,1.85cm) {\textls[150]{\MakeUppercase{#1}}};
+			\fi
+		\end{tikzpicture}\par}
+	\renewcommand*{\partlineswithprefixformat}[3]{\hv@partbanner{#2}{#3}}
+	\providecommand*{\partlinesformat}{}\renewcommand*{\partlinesformat}[3]{\hv@partbanner{#2}{#3}}
+
+	% Daftar isi
+	\newcommand{\hv@tocfill}{\leaders\hbox to 0.55em{\hss\textcolor{inksoft!45}{.}\hss}\hfill}
+	\newcommand{\hv@tocsecnum}[1]{%
+		\tikz[baseline=(hvtn.base)]\node[fill=crimson, text=white, rounded corners=2pt,
+			minimum width=1.5em, inner sep=2pt, font=\sffamily\bfseries\small](hvtn){#1};}
+	\newcommand{\hv@tocsecentry}[1]{{\bfseries\color{ink}#1}}
+	\newcommand{\hv@tocsecpage}[1]{{\bfseries\color{crimson}#1}}
+	\newcommand{\hv@tocsubnum}[1]{{\color{crimson}#1}}
+	\newcommand{\hv@tocsubentry}[1]{{\color{inksoft}#1}}
+	\newcommand{\hv@tocsubpage}[1]{{\color{inksoft}#1}}
+	\DeclareTOCStyleEntry[beforeskip=0.75em plus 1pt, numwidth=2.3em,
+		entrynumberformat=\hv@tocsecnum, entryformat=\hv@tocsecentry,
+		pagenumberformat=\hv@tocsecpage, linefill=\hv@tocfill]{tocline}{section}
+	\DeclareTOCStyleEntry[indent=2.3em, numwidth=2.6em,
+		entrynumberformat=\hv@tocsubnum, entryformat=\hv@tocsubentry,
+		pagenumberformat=\hv@tocsubpage, linefill=\hv@tocfill]{tocline}{subsection}
+	\renewcommand*{\contentsname}{\hv@n@toc}
+
+	% Header dan footer
+	\RequirePackage[headsepline=0.4pt]{scrlayer-scrpage}
+	\setlength{\footheight}{24pt}
+	\clearpairofpagestyles
+	\renewcommand*{\sectionmarkformat}{\textcolor{crimson}{\thesection}\enskip}
+	\setkomafont{pageheadfoot}{\normalfont\sffamily\footnotesize\color{inksoft}}
+	\setkomafont{headsepline}{\color{crimson!35}}
+	\newcommand{\hv@footleft}{Azzam Labib Hakim\enskip\textcolor{crimson}{\textbullet}\enskip @haxuv\_world}
+	\newcommand{\helvethiafooter}[1]{\renewcommand{\hv@footleft}{#1}}
+	\newcommand{\hv@pagepill}{%
+		\tikz[baseline=(hvp.base)]\node[fill=crimson, text=white, rounded corners=6pt,
+			minimum width=2em, inner xsep=5pt, inner ysep=2.5pt,
+			font=\sffamily\bfseries\footnotesize](hvp){\thepage};%
+		\enskip{\color{inksoft!80}/ \pageref*{LastPage}}}
+	\ihead{\@title}
+	\ohead{\textbf{\hv@headmark}}
+	\ifoot*{\hv@footleft}
+	\ofoot*{\hv@pagepill}
+	\pagestyle{scrheadings}
+}
+
+%%fakesection \maketitle: pita judul di atas halaman pertama
+\providecommand{\thetitle}{\@title}
+\providecommand{\theauthor}{\@author}
+\providecommand{\thedate}{\@date}
+\author{Azzam Labib Hakim \textbar\ Instagram: @haxuv\_world \textbar\ Threads: @azzam\_29\_12}
+\newlength{\hv@heroheight}\setlength{\hv@heroheight}{7.4cm}
+
+\newcommand{\hv@hero}{%
+	\AtPageUpperLeft{%
+		\begin{tikzpicture}[overlay]
+			\shade[left color=crimsonink, right color=crimson]
+				(0,0) rectangle (\paperwidth,-\hv@heroheight);
+			\begin{scope}
+				\clip (0,0) rectangle (\paperwidth,-\hv@heroheight);
+				% lingkaran konsentris di kanan
+				\foreach \i in {0,...,11}{
+					\draw[white, opacity=0.09, line width=0.9pt]
+						(\paperwidth-2.2cm,-2.6cm) circle[radius=0.7cm+\i*0.6cm];}
+				% grid titik halus
+				\foreach \x in {0,...,13}{\foreach \y in {0,...,10}{
+					\fill[white, opacity=0.13]
+						(\paperwidth-9.2cm+\x*0.5cm,-1.2cm-\y*0.5cm) circle[radius=0.9pt];}}
+			\end{scope}
+			\fill[gold] (0,-\hv@heroheight) rectangle (\paperwidth,-\hv@heroheight-2.5pt);
+			\fill[gold] (2cm,-1.45cm) rectangle (3.1cm,-1.55cm);
+			\node[anchor=north west, inner sep=0pt, text width=\paperwidth-4cm,
+				align=left, text=white] at (2cm,-1.95cm) {%
+				\ifx\@subtitle\@empty\else
+					{\color{gold!55!white}\sffamily\bfseries\footnotesize
+						\textls[180]{\MakeUppercase{\@subtitle}}\par}\vspace{7pt}%
+				\fi
+				{\sffamily\bfseries\fontsize{26}{30}\selectfont\linespread{1}\selectfont\@title\par}};
+			\node[anchor=south west, inner sep=0pt, text width=\paperwidth-4cm,
+				align=left, text=white!82!crimson, font=\sffamily\footnotesize\linespread{1.15}\selectfont]
+				at (2cm,-\hv@heroheight+0.75cm) {\@author\par\vspace{2pt}\@date};
+		\end{tikzpicture}}%
+}
+
+\renewcommand{\maketitle}{%
+	\thispagestyle{plain}%
+	\global\hv@titlepagetrue
+	\AddToShipoutPictureFG*{\hv@hero}%
+	\hypersetup{pdftitle={\@title}}%
+	\null\vspace*{\dimexpr\hv@heroheight+0.6cm-1in-\voffset-\topmargin-\headheight-\headsep-\topskip\relax}%
+	\par
+}
